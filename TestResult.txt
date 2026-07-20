@@ -1,0 +1,272 @@
+ciao, quali comandi accetti?
+
+Campagna DM Assistant - FFXIV D&D
+Gem personalizzato
+Ciao. Accetto i seguenti comandi per gestire la campagna:
+
+Avanzamento e Storia: /continua, /prepara, /viaggio, /riassumi, /gioca
+Salvataggi e Consultazione: /load, /stop, /confermo, /recap, /mappa MSQ
+Utilità e Combattimento: /tracker, /voci, /prova, /nota, /esito
+Deviazioni MSQ: /subquest, /torniamo alla MSQ
+Gestione e Setup: /sessione 0, /cambio Classe
+
+Rispondo ed eseguo azioni solo quando utilizzi uno di questi comandi esatti. Se hai un blocco di salvataggio, incollalo usando il comando /load. Se invece stiamo partendo da zero, usa /sessione 0 per i preparativi.
+
+/load
+
+=== SAVE ===
+
+Sessione: 5
+
+[A] POSIZIONE MSQ
+
+
+
+Missione MSQ corrente (EN): Into the Beast's Maw
+
+Ultimo step completato: Parlato con al guardia del dungeon, pronti ad entrare
+
+[B] PARTY
+
+
+
+Numero PG: 4
+
+Livello: 4
+
+[C] SUBQUEST ATTIVA
+
+
+
+Subquest attiva: nessuna
+
+=== FINE SAVE ===
+
+Campagna DM Assistant - FFXIV D&D
+Gem personalizzato
+Save caricato: Sessione: 5 · Numero PG: 4 · Livello: 4
+
+Riepilogo Campagna:
+
+Beat corrente: Into the Beast's Maw (Subquest: nessuna).
+
+Dove siamo: Bosco Sud (South Shroud). I personaggi hanno appena parlato con la guardia Bloisirant e sono pronti a varcare la soglia del dungeon.
+
+Orientamento GM:
+
+Beat attuale: Dungeon: Le Mille Fauci di Toto-Rak (The Thousand Maws of Toto-Rak).
+
+Prossimo Pilastro MSQ: L4 — Toto-Rak (Lightning), il salvataggio dell'anziano Frixio e la comparsa di Lahabrea.
+
+Prossimo step wiki: Entrare in [Thousand Maws of Toto-Rak] e trovare Frixio.
+
+/continua
+
+Campagna DM Assistant - FFXIV D&D
+Gem personalizzato
+[MSQ — Into the Beast's Maw · Le Mille Fauci di Toto-Rak] (Dungeon · ~60-90 min)
+
+Boss del duty: Coeurl a Nove Code (incontrato due volte) · Graffias
+
+Da leggere ai PG:
+Siete giunti alle Mille Fauci di Toto-Rak. Un tempo questa cupa struttura era la prigione sotterranea più dura di Gridania, prima che venisse abbandonata. Ora, radici contorte spaccano la pietra umida e spesse ragnatele ammantano i corridoi in rovina, mentre la natura selvaggia reclama inesorabilmente ciò che le appartiene. L'odore di etere stagnante, acido e marcio, permea l'aria.
+
+🖼️ Immagine: The Thousand Maws of Toto-Rak
+🗺️ Mappa: The Thousand Maws of Toto-Rak
+🎵 Musica: A Thousand Screams
+
+Avanzate con cautela nell'oscurità verdastra. Proprio mentre il sentiero si allarga verso la prima camera di sicurezza, una mostruosa creatura vegetale si sradica dal suolo. Il suo bulbo pulsante secerne miasmi tossici e decine di liane irte di spine si srotolano, sferzando l'aria: vi sbarra il passo verso il primo terminale.
+
+🖼️ Immagine: Coeurl O' Nine Tails
+🎵 Musica: The Promise of Plunder
+
+Difficoltà: Media
+
+Coeurl a Nove Code
+Pianta Media, senza allineamento
+CA 13 (armatura naturale)  PF 45 (6d8+18)  Velocità 7,5 m
+FOR 14 (+2)  DES 10 (+0)  COS 16 (+3)  INT 3 (-4)  SAG 10 (+0)  CAR 5 (-3)
+Immunità alle Condizioni avvelenato
+Sensi Percezione passiva 10
+GdS 2
+Descrizione visiva: Nonostante il nome suggerisca un felino, si tratta in realtà di un gigantesco e aggressivo Ochu mutato. Un massiccio bulbo carnoso centrale è circondato da lunghe liane spinose che frustano continuamente l'ambiente circostante.
+Azioni
+Liana: Mischia: +5, portata 3 m, un bersaglio. Colpisce: 10 (2d6+3) tagliente.
+Nebbia Acida (Ricarica 5-6): La pianta rilascia gas tossici in un raggio di 3 m attorno a sé. Ogni creatura nell'area deve superare un TS su COS con CD 13 o subire 10 (3d6) danni da veleno ed essere avvelenata per 1 minuto. Chi supera il tiro salvezza subisce metà dei danni e non è avvelenato.
+Azioni Bonus
+Cento Liane: La pianta effettua un attacco con Liana contro un bersaglio alla sua portata.
+Reazioni
+Nebbia di Panico: Quando subisce un attacco con arma da mischia, la pianta usa Nebbia Acida se ha la capacità carica e disponibile.
+
+Bottino: 115 gil; 1 Pozione di Cura
+
+Da leggere ai PG:
+Con il crollo del mostruoso fiore, i vapori si diradano. Al centro della Stanza della Confessione (Confession Chamber) si trova un antico terminale magitek di vecchia fattura, coperto da densi strati di ragnatele e da una spessa melma corrosiva lasciata dalla pianta. Deve essere attivato per sbloccare i cancelli di sicurezza e penetrare più a fondo nella prigione.
+
+🎵 Musica: A Thousand Screams
+
+Soluzione: Pulire i contatti del terminale dalla melma acida (usando fuoco controllato, acqua o magia) e bypassare i logori cavi della prigione per far fluire di nuovo l'etere nel meccanismo.
+
+PROVA: Ripristinare il Terminale della Confessione
+
+Abilità applicabili: Indagare (per capire il cablaggio), Arcano (per manipolare le correnti eteriche), Natura o Sopravvivenza (per gestire la melma tossica senza ferirsi).
+
+CD Facile (10): Il terminale si riattiva, ma un corto circuito vi sorprende. Chi ha agito subisce 1d4 danni da fulmine, ma i massicci cancelli di pietra si aprono sferragliando.
+
+CD Media (15): Rimuovete la melma in sicurezza e collegate i cavi con precisione. Il cancello si spalanca in modo pulito e rapido.
+
+CD Difficile (20): Riattivando il sistema estraete dati utili da un vecchio cristallo di memoria: ottenete un'ottima comprensione della planimetria imminente, garantendo vantaggio alla prima prova di Iniziativa nel prossimo scontro.
+
+Fallimento: La melma corrode i contatti e innesca le difese residue: le ragnatele sopra di voi si squarciano lasciando cadere tre Acari Giganti (Schermaglia rapida: CA 11, PF 5, Attacco +3, 1d4 danni). Sconfitti loro, le porte si aprono.
+
+Da leggere ai PG:
+Proseguite verso le viscere oscure della struttura, raggiungendo il blocco chiamato Riposo del Folle (Fool's Rest). Qui l'aria è ancora più venefica. A sbarrare la via per l'ultima area c'è un'altra creatura della stessa progenie letale, cresciuta in modo osceno nutrendosi delle correnti eteriche impazzite.
+
+🎵 Musica: The Promise of Plunder
+
+Difficoltà: Media
+
+Coeurl a Nove Code
+(Usa le stesse statistiche e abilità dell'incontro precedente)
+
+Bottino: 120 gil; niente
+
+Da leggere ai PG:
+Vi trovate ora davanti al secondo terminale, coperto da vecchie lamiere di scarto, che controlla l'accesso alla prigione di massima sicurezza, la Camera dell'Abacinazione (Abacination Chamber).
+
+🎵 Musica: A Thousand Screams
+
+Soluzione: Raccogliere tre celle di energia magitek pesanti (sparse nelle gabbie aperte adiacenti) e inserirle contemporaneamente nel macchinario per controbilanciare la pressione dei pistoni della porta.
+
+PROVA: Attivare il Terminale del Riposo del Folle
+
+Abilità applicabili: Percezione (per scovare rapidamente le celle), Atletica (per forzare i pistoni o sollevare le celle contemporaneamente).
+
+CD Facile (10): Trovate le celle ma faticate a gestirne il peso instabile. Sforzando la porta, impiegate diverso tempo prezioso (uno dei vostri incantesimi o buff a tempo scade).
+
+CD Media (15): Coordinate i vostri sforzi in modo ottimale. Le tre celle scattano in sede e il cancello cede con un gemito metallico.
+
+CD Difficile (20): Forzando i pistoni notate un compartimento segreto nel muro che si apre di riflesso, rivelando una preziosa Pozione di Cura Alta.
+
+Fallimento: Il terminale va in sovraccarico. Venite respinti malamente subendo 1d6 danni contundenti ciascuno. Un momento dopo, i pistoni cedono da soli aprendo il passaggio.
+
+[CUTSCENE IN SCENA]
+Da leggere ai PG:
+Varcate i cancelli sfondati e vi ritrovate in un'enorme arena sotterranea avvolta in un bozzolo di tela resistentissima. Al centro, immobilizzato e terrorizzato, si trova il venerabile Frixio, l'anziano dei Silfidi.
+Ma prima che possiate liberarlo, l'ombra si addensa a mezz'aria, coagulandosi in una nebbia purpurea e innaturale. Dalla fenditura dimensionale emerge un uomo ammantato di oscurità, il volto celato da una maschera dal glifo fiammeggiante rosso. Vi osserva con freddo distacco.
+
+Dialogo e Interazione:
+
+Ascian Mascherato: "Patetico... dunque siete voi gli stolti che hanno abbattuto Ifrit." [La sua voce non suona, ma stride direttamente nei vostri pensieri] "Eppure, possedete un dono peculiare. Quell'irritante anomalia nell'etere... l'Eco."
+
+Se i PG intimano di liberare Frixio o si mettono in posa da combattimento: Ascian Mascherato: "Pazienza. Siete solo polvere fastidiosa negli ingranaggi dell'unico vero dio."
+
+Se i PG domandano il suo nome: Ascian Mascherato: [Fa un lieve inchino di scherno] "Io sono Lahabrea. Degli Ascian. E il vostro mondo è una deviazione che necessita di essere ripulita."
+
+Lahabrea: [Solleva una mano verso l'alto] "Ahimè, non posso trattenermi per questa futile scaramuccia. Vediamo se la Luce che vi aggrappa al fato sarà sufficiente a salvarvi la vita."
+
+Da leggere ai PG:
+Lahabrea svanisce inghiottito dall'oscurità. Nello stesso momento, il suolo trema violentemente e il soffitto si spacca, facendo piovere detriti. Dall'oscurità si cala un ciclopico orrore a otto zampe: il predatore all'apice delle Fauci, chiamato Graffias.
+
+🖼️ Immagine: Graffias
+🎵 Musica: Nemesis
+
+Difficoltà: Difficile
+
+Graffias
+Bestia Grande, senza allineamento
+CA 14 (armatura naturale)  PF 90 (12d10+24)  Velocità 9 m, scalare 9 m
+FOR 15 (+2)  DES 14 (+2)  COS 14 (+2)  INT 1 (-5)  SAG 9 (-1)  CAR 3 (-4)
+Immunità ai Danni veleno
+Sensi vista cieca 18 m, Percezione passiva 9
+GdS 4
+Descrizione visiva: Un aracnide diremite di proporzioni grottesche e spaventose. Il carapace trasuda luminescenze verdi. Le due chele frantumanti si muovono freneticamente mentre un gigantesco pungiglione tossico ondeggia sopra il dorso.
+Tratti
+Ragno Rampicante: Può scalare superfici difficili, inclusi i soffitti, senza dover effettuare prove.
+Camminatore della Tela: Ignora le restrizioni di movimento causate dalle ragnatele.
+Azioni
+Multiattacco: Graffias effettua due attacchi con l'Artiglio, o un attacco con l'Artiglio e uno con il Pungiglione Mortale (se la coda è intatta).
+Artiglio: Mischia: +4, portata 1,5 m, un bersaglio. Colpisce: 6 (1d8+2) contundente e il bersaglio è afferrato (fuga CD 12). Graffias ha due artigli, ognuno dei quali può afferrare un solo bersaglio per volta.
+Pungiglione Mortale: Mischia: +4, portata 3 m, un bersaglio. Colpisce: 7 (1d10+2) perforante e il bersaglio deve superare un TS su COS con CD 12 o subire 7 (2d6) danni da veleno ed essere accecato per 1d3 ore. Chi fallisce di 5 o più è anche paralizzato mentre è avvelenato (ripete il TS alla fine dei propri turni per terminare gli effetti).
+Ragnatela (Ricarica 5-6): Distanza: +4, gittata 9/18 m. Il bersaglio colpito è trattenuto dalla tela (per sfuggire serve una prova di FOR CD 12, o distruggere la ragnatela: CA 10, 5 PF, vulnerabile al fuoco).
+Meccaniche (Telegrafo/Minaccia/Contromossa)
+
+Melma Verde: Graffias sputa continuamente chiazze di muco tossico nell'arena. Contromossa: Evitare di terminare il turno nelle chiazze verdi (1d4 danni da acido/veleno se si permane).
+
+Baccelli Carnosi: Quando Graffias scende a 60 PF, tre Baccelli carnosi precipitano ai bordi della stanza (CA 10, PF 5 ciascuno). Se non vengono distrutti entro il round in cui cadono, si schiudono rilasciando dei Miti (Diremite minori). Contromossa: I DPS devono distruggere i baccelli immediatamente.
+
+Coda Distruttibile: A 45 PF, la possente coda letale si espone e diventa un bersaglio separato e bersagliabile (CA 14, PF 20). Contromossa: Se la coda viene distrutta, Graffias perde permanentemente l'uso di Pungiglione Mortale e del relativo veleno paralizzante, rendendo lo scontro molto più gestibile.
+
+Bottino: 170 gil; carapace tossico di Graffias (100 gil); Aculeo del Predatore (Pugnale/Spada Corta +1, Richiede sintonia. 1/riposo breve: come azione bonus, il prossimo colpo andato a segno infligge 2d4 danni da veleno extra. Non comune. Prezzo: 300 gil) [DPS Fisico Mischia]; Anello della Selva Oscura (Anello. Chi lo indossa è immune alla condizione Accecato. Non comune. Prezzo: 200 gil) [Ruoli vari].
+
+Da leggere ai PG:
+Il colpo di grazia spacca il carapace della creatura, che si accascia in una pozza di muco inerte, cessando finalmente di agitarsi. Subito estraete le ragnatele che imprigionano Frixio, l'Anziano della tribù Silfide. Tremante ma colmo di gratitudine, il piccolo essere fogliare rotea in volo davanti a voi.
+
+[CUTSCENE ALTROVE — i PG non sono presenti]
+⚠️ reveal protetto: valuta se leggerla
+Lontano, in una sala oscurata dalla tecnologia imperiale, dei tribuni Garleani discutono del fallimento nel piegare la tribù Silfide ai loro ordini per l'evocazione di Ramuh. Nell'ombra, una figura mascherata rassicura i presenti: presto, gli strumenti dei nativi non serviranno più, perché è tempo che "l'Ultima Weapon" dimostri il suo vero, terrificante potere.
+
+[Info GM] chiude Into the Beast's Maw; apre A Simple Gift; prossimo step wiki: parlare con Knolexia al rifugio di Little Solace e consegnare l'Olio di Rosa di Azeyma.
+🔔 Milestone: Salvataggio di Frixio (Cristallo del Fulmine) — consigliato il passaggio al Livello 5; verrà proposto al prossimo salva.
+
+🧭 Viaggio: diretto (Eterite) → teletrasporto all'Eterite di Camp Tranquil o Hawthorn Hut, poi percorso a piedi fino a Little Solace · senza Eterite (catena reale) → Bosco Sud, marcia fino al rifugio Silfide di Little Solace a est.
+
+Fermati. Non giocare nessun beat e non continuare la storia. Genera SOLO il recap di fine sessione in sola lettura: la riga "Ancora save: …" seguita dai bucket [A], [B], [C], e chiudi chiedendo "Confermo?". Non scrivere il blocco save adesso.
+
+Campagna DM Assistant - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 5 · Numero PG: 4 · Livello: 4
+
+[A] POSIZIONE MSQ
+- Missione MSQ corrente (EN): Into the Beast's Maw
+- Ultimo step completato: completato The Thousand Maws of Toto-Rak / sconfitto Graffias / Frixio salvato
+
+[B] PARTY
+- Numero PG: 4
+- Livello: 4
+
+[C] SUBQUEST ATTIVA
+- Subquest attiva: nessuna
+
+Confermo?
+
+/confermo
+
+Campagna DM Assistant - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 6 · Numero PG: 4 · Livello: 4
+
+[A] POSIZIONE MSQ
+- Missione MSQ corrente (EN): A Simple Gift
+- Ultimo step completato: completato The Thousand Maws of Toto-Rak / sconfitto Graffias / Frixio salvato
+
+[B] PARTY
+- Numero PG: 4
+- Livello: 4
+
+[C] SUBQUEST ATTIVA
+- Subquest attiva: nessuna
+
+Confermo?
+
+si confermo
+
+Campagna DM Assistant - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 6 · Numero PG: 4 · Livello: 4
+
+[A] POSIZIONE MSQ
+- Missione MSQ corrente (EN): A Simple Gift
+- Ultimo step completato: completato The Thousand Maws of Toto-Rak / sconfitto Graffias / Frixio salvato
+
+[B] PARTY
+- Numero PG: 4
+- Livello: 4
+
+[C] SUBQUEST ATTIVA
+- Subquest attiva: nessuna
+
+Confermo?
+
+Limite raggiunto. Continua con Flash-Lite.
+Alcune funzionalità non sono disponibili finché non viene ripristinato il limite il giorno lug 21 alle ore 12:39 AM. Fai l'upgrade per avere limiti più alti e altro ancora.
