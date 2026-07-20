@@ -5,7 +5,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.26 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.27 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -79,21 +79,21 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ### ARR CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
 **SPECIFICS:** all 6 elemental crystals are collected across ARR, sealed at L8 end (see Blessing of Light block above). No Enthrallment mechanic in ARR. Revamped-duty lock: see the ARR REVAMPED-DUTY LOCK block above (Toto-Rak, Castrum Meridianum, The Praetorium, Cape Westwind, Steps of Faith).
 
-**L1 — The Echo awakens**
+#### L1 — The Echo awakens
 - IN-SCENA: cold-open SHARED Echo vision on the arrival journey (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); NO burning dragon (Ch.1.7).
 - GATED: the nature of the Echo and of Hydaelyn (Reveal: Eco = NO).
 
-**L2 — City climax · Water crystal · the Scions**
+#### L2 — City climax · Water crystal · the Scions
 - IN-SCENA: the city-questline climax (campaign framing: Serpent Reavers / a local primal plot) -> Hydaelyn's first voice -> Crystal #1 WATER.
 - IN-SCENA (LATER in the L2 chain, AFTER the first dungeons — NOT at the Water-crystal climax): the FORMAL joining of the Scions of the Seventh Dawn at the Waking Sands — canonical beat 'The Scions of the Seventh Dawn' (Minfilia; Thancred, Y'shtola, Papalymo, Yda). WIKI-VERIFIED ORDER within L2: city-questline climax + Water crystal at Sastasha ('It's Probably Pirates') -> Sastasha -> Tam-Tara Deepcroft ('Fire in the Gloom') -> Copperbell Mines ('Into a Copper Hell') -> THEN the Scions meeting; NEVER place Minfilia's meeting before Sastasha / the Water crystal.
 - REVEAL: the Ascians exist only as a SHADOWY BACKGROUND force / foreshadowing — there is NO named on-screen Ascian confrontation yet. The first NAMED Ascian appears later (Lahabrea at Toto-Rak, L4). A masked figure may at most be GLIMPSED as foreshadowing (campaign color), never named here.
 - GATED: Ascian names/goals, Zodiark, the source of the party's tempering-immunity.
 
-**L3 — Three cities · tribal threats**
+#### L3 — Three cities · tribal threats
 - IN-SCENA: the beast tribes (Amalj'aa, Kobold, Sylph, Ixal, Sahagin) and their Primal worship are established; the tempered/enthralled faithful are shown.
 - REVEAL: Primals drain the land's aether and TEMPER (enthrall) their worshippers (common knowledge).
 
-**L4 — Ifrit (Fire) · Toto-Rak (Lightning)**
+#### L4 — Ifrit (Fire) · Toto-Rak (Lightning)
 - IN-SCENA: Ifrit (Bowl of Embers) — the Amalj'aa summon Ifrit; the tempering wave hits the party but the ECHO lets them RESIST (proof they are special) -> Crystal #2 FIRE.
 - IN-SCENA [Toto-Rak, BEFORE the boss]: LAHABREA appears and NAMES HIMSELF ('Lahabrea of the Ascians, servant to the one true god'), mocks the defeat of Ifrit and calls the Echo an 'irksome anomaly in the aether', then unleashes the banemite (= the boss Graffias). [WIKI-VERIFIED]
 - ALTROVE [Toto-Rak, AFTER the boss]: Echo-flashback — Garlean soldiers discuss their failure to compel the sylphs to summon Ramuh; a masked figure alludes to an 'ultimate weapon'. ⚠️ reveal protetto (the 'ultimate weapon' hint).
@@ -101,17 +101,17 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: LAHABREA is named (an Ascian, 'servant of the one true god'); the Ascians resent the Echo. FROM THIS BEAT ON the masked man may be called Lahabrea. (This supersedes any 'keep all Ascians unnamed' save note for later beats.)
 - GATED: Lahabrea possessing Thancred; the full nature of the Ultima Weapon.
 
-**L5 — Titan (Earth)**
+#### L5 — Titan (Earth)
 - IN-SCENA: the COMPANY OF HEROES — the Scions seek out the scattered veteran mercenaries once famed for felling Titan and Leviathan in a past age (disbanded after the Calamity); from them the party learns of the aetheryte that leads into Titan's sanctuary in O'Ghomoro. [WIKI-VERIFIED]
 - IN-SCENA: the Kobolds summon TITAN (The Navel) -> Crystal #4 EARTH.
 
-**L6 — Stone Vigil (Ice) · Garlean escalation**
+#### L6 — Stone Vigil (Ice) · Garlean escalation
 - IN-SCENA: Isgebind at the Stone Vigil -> Crystal #5 ICE.
 - IN-SCENA: Cid Garlond and the Enterprise enter the story; the Garlean threat escalates. (Cape Westwind / Rhitahtyn sas Arvina is fought LATER, at L7 during Operation Archon — AFTER Garuda; see L7.)
 - REVEAL: Gaius van Baelsar's XIVth Legion is the imminent Garlean threat over Eorzea.
 - GATED: the Lahabrea-Thancred link.
 
-**L7 — Garuda (Wind) · Ultima Weapon · Castrum -> Praetorium -> Porta Decumana**
+#### L7 — Garuda (Wind) · Ultima Weapon · Castrum -> Praetorium -> Porta Decumana
 - IN-SCENA: Garuda (Howling Eye) — the Ixal summon Garuda -> Crystal #6 WIND -> Blessing COMPLETE.
 - IN-SCENA: the ULTIMA WEAPON appears and ABSORBS the essences of Ifrit / Titan / Garuda.
 - IN-SCENA: Cape Westwind — defeat Rhitahtyn sas Arvina (Gaius's officer) during Operation Archon, AFTER Garuda and BEFORE Castrum Meridianum (now a solo instance, §A14).
@@ -121,32 +121,32 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: Lahabrea was possessing Thancred all along; the Ultima Weapon / the Ultima spell; Gaius defeated.
 - GATED: the Zodiark/Hydaelyn cosmic truth, the Rejoining, the Ascian endgame.
 
-**L8 — Post-ARR: the Seventh Astral Era (2.1-2.55) — ARR's densest story stretch, split by patch**
+#### L8 — Post-ARR: the Seventh Astral Era (2.1-2.55) — ARR's densest story stretch, split by patch
 *(All beats below are wiki-verified. The CRYSTAL TOWER gate — Labyrinth of the Ancients / Syrcus Tower / World of Darkness — runs across 2.1-2.5, complete before HW.)*
 
-*2.1 (A Realm Awoken):*
+##### 2.1 (A Realm Awoken):
 - IN-SCENA: the Scions LEAVE the Waking Sands and found THE RISING STONES (Revenant's Toll, Mor Dhona) to escape Syndicate/Lolorito entanglement; Minfilia's guardian F'lhaminn revealed alive.
 - IN-SCENA: a white-robed Ascian, ELIDIBUS the Emissary, visits Minfilia and speaks of ending hostilities through the Echo.
 - IN-SCENA: Good King Moggle Mog (the Mogglesguard) — an Ascian-orchestrated summoning; it dissolves into aether, confirming Ascian involvement.
 - REVEAL: ELIDIBUS is named (an Ascian Emissary); the Ascians actively manipulate beast-tribe summonings.
 - GATED: Elidibus's TRUE nature (a living Primal / the heart of Zodiark) — SB->ShB.
 
-*2.2 (Through the Maelstrom):*
+##### 2.2 (Through the Maelstrom):
 - IN-SCENA: the Doman refugee crisis (Lady Yugiri); the Syndicate/Lolorito deny sanctuary; Raubahn & Alphinaud reroute the Domans to Revenant's Toll.
 - IN-SCENA: the Sahagin summon LEVIATHAN; the party defeats it aboard the Whorleater. [Trial]
 - ALTROVE / REVEAL: Urianger brings dire news — the Isle of Val (home of the Students of Baldesion) is destroyed by a cataclysmic spell.
 
-*2.3 (Defenders of Eorzea):*
+##### 2.3 (Defenders of Eorzea):
 - IN-SCENA: the sylphs summon RAMUH (The Striking Tree); Ramuh RECOGNIZES the party's Crystal of Light and grants a trial by combat rather than immediate destruction. [Trial]
 - IN-SCENA: the CRYSTAL BRAVES are FOUNDED by Alphinaud — a realm-wide force beyond national borders. [sets up the 2.55 betrayal]
 - REVEAL: Teledji Adeledji's conspiracy seed (Omega, an Allagan weapon beneath the Carteneau Flats); and HYDAELYN has fallen SILENT since the Empire's defeat.
 
-*2.4 (Dreams of Ice):*
+##### 2.4 (Dreams of Ice):
 - IN-SCENA: Ishgard reaches out — Ser Aymeric (and Lord Haurchefant at Camp Dragonhead) requests aid watching Midgardsormr's remains but REFUSES to rejoin the Alliance.
 - IN-SCENA: 'Lady Iceheart' and her heretics summon SHIVA by offering her own body as the vessel (Snowcloak dungeon -> The Akh Afah Amphitheatre). [dungeon + trial]
 - REVEAL: Lady Iceheart = YSAYLE (a future Heavensward ally); (side) the Ivy = Flame Marshal Eline Roaille, the imperial spymaster, unmasked.
 
-*2.5 (Before the Fall, Part 1):*
+##### 2.5 (Before the Fall, Part 1):
 - IN-SCENA [An Uninvited Ascian]: Moenbryda & the party field-test aetheric syphons (white auracite); NABRIALES 'the Paragon' steals the broken Tupsimati and opens a rift; the party pursues into the void; MOENBRYDA sacrifices her own life-force so the party can DESTROY Nabriales PERMANENTLY (the FIRST permanent Ascian kill) — and dies. [WIKI-VERIFIED]
 - NOTE (CT inlined - see the CRYSTAL TOWER ARC block, end of Arc 1): the World of Darkness raid (the Cloud of Darkness driven back) is a MID-ARC beat of the inlined Crystal Tower arc, NOT its conclusion and NOT tied to 2.5 here; the CT arc is played contiguously after 'Build on the Stone' and CLOSES at 'The Light of Hope' (G'raha seals himself). Do NOT stage a CT conclusion / tower-sealing at 2.5.
 - REVEAL: an Ascian can be permanently destroyed with enough Light + white auracite; the Ascians serve 'the one true god'.
@@ -275,14 +275,14 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ### HEAVENSWARD CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
 **SPECIFICS:** HW carries the SEALED-BLESSING arc: OFF from L9 (defeated Ascians can't be permanently killed, Hydaelyn's ward gone; the ECHO still keeps the party Tempering-safe, Ch.5.6), relights PARTIALLY after Bismarck (L10), FULLY restored at the Ascian Prime (L11) — announce each transition per §B23. No HW revamped-duty lock (duties intact, use current wiki version).
 
-**L9 — Ishgard & the Dragonsong War (HW 3.0 opening)**
+#### L9 — Ishgard & the Dragonsong War (HW 3.0 opening)
 - IN-SCENA: fleeing the Ul'dah coup, the party reaches ISHGARD; House Fortemps (Count Edmont) shelters them, vouched for by HAURCHEFANT. The Blessing is SEALED -> defeated Ascians can't be permanently killed (they flee) and Hydaelyn's ward is gone; the ECHO still protects from Tempering (Ch.5.6).
 - IN-SCENA: meet Ser AYMERIC (Lord Commander of the Temple Knights) and ESTINIEN (the Azure Dragoon); the Dragonsong War, the Holy See and the heretics are established.
 - IN-SCENA: YSAYLE (formerly 'Lady Iceheart') joins the party as a guide toward the dragons.
 - Dungeons: The Dusk Vigil -> Sohm Al.
 - GATED: the Dragonsong War's true origin (revealed at L10); the deeper Ascian cosmology.
 
-**L10 — The truth, Ravana, the Aery, THE VAULT (Haurchefant), Bismarck (HW 3.0 mid)**
+#### L10 — The truth, Ravana, the Aery, THE VAULT (Haurchefant), Bismarck (HW 3.0 mid)
 - IN-SCENA: the Churning Mists; HRAESVELGR tests Ysayle; **THE DRAGONSONG WAR TRUTH** — 1200 years ago King Thordan I and his knights slew RATATOSKR (Nidhogg & Hraesvelgr's sister), tore out and devoured her eyes for dragon-power, shattering the peace Saint Shiva had forged. [WIKI-VERIFIED]
 - IN-SCENA: RAVANA (Thok ast Thok) — the Gnath primal, quelled to keep a third faction out of the war.
 - IN-SCENA [The Aery]: ESTINIEN slays NIDHOGG and takes the great wyrm's TWO EYES.
@@ -291,7 +291,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: the Dragonsong War's true origin; Haurchefant's death.
 - GATED: Nidhogg's eyes will become a curse (patches); the Ascian cosmology.
 
-**L11 — Azys Lla, Ysayle's death, the Ascian Prime (Lahabrea's end), King Thordan (HW 3.0 climax)**
+#### L11 — Azys Lla, Ysayle's death, the Ascian Prime (Lahabrea's end), King Thordan (HW 3.0 climax)
 - IN-SCENA: the assault on AZYS LLA (the Allagan floating isle); **YSAYLE DIES** — she takes Shiva's form to help disable the Agrius-class airship Gration and is shot down while shielding Cid's airship, perishing in a bloom of blue aether. [WIKI-VERIFIED]
 - IN-SCENA: TIAMAT — the bound dragon recounts the Allag / Meracydia history; the dialogue relights the PENULTIMATE crystal.
 - IN-SCENA [Aetherochemical Research Facility]: the ASCIAN PRIME — LAHABREA and IGEYORHM fuse; the party shatters the Prime back into two and DESTROYS Igeyorhm (Blessing / white auracite). Then Archbishop THORDAN VII KILLS Lahabrea and ABSORBS his aether to fuel his ascension — **Lahabrea's true, final end**. This relights the LAST crystal -> the BLESSING is FULLY RESTORED (Midgardsormr breaks the seal). [WIKI-VERIFIED]
@@ -299,23 +299,23 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: Lahabrea permanently destroyed; the Blessing fully restored; Thordan's ascension and fall.
 - GATED: the full Zodiark/Hydaelyn cosmology (touched next beat); Nidhogg's eyes endure.
 
-**L12 — the HW patches (3.1-3.5): Nidhogg's return, the cosmology, Shinryu**
-*3.1 (As Goes Light, So Goes Darkness):*
+#### L12 — the HW patches (3.1-3.5): Nidhogg's return, the cosmology, Shinryu
+##### 3.1 (As Goes Light, So Goes Darkness):
 - IN-SCENA: Ishgard's faith crisis after the truth; the search for a future where man and dragon may coexist (Saint Endalim's Scholasticate).
 - IN-SCENA: the WARRIORS OF DARKNESS (strangers from another world) appear and clash with the party; the Void Ark / Sky Pirates arc opens.
 - GATED: the Warriors of Darkness' true origin (the First) — ShB.
 
-*3.2 (The Gears of Change):*
+##### 3.2 (The Gears of Change):
 - IN-SCENA [The Antitower]: the Scions find MINFILIA merged with Hydaelyn in the aetherial sea; **the cosmology is revealed** — Light & Dark once in balance; Zodiark's overreach; Hydaelyn banished him (as the moon); reality fractured into THIRTEEN reflections; the Ascians engineer Calamities to REJOIN the worlds (seven already consumed). **MINFILIA sacrifices herself** to pass on this truth (the Word of the Mother). [WIKI-VERIFIED] — NOTE: this OVERLAPS Ch.1.6's EW-gated 'Hydaelyn & Zodiark' entry; canon REVEALS this cosmology HERE (HW 3.2): REVEAL it — Zodiark and Hydaelyn's existence, the world split into THIRTEEN reflections, and the Ascians' REJOINING. It is NOT gated to EW (Ch.1.6 A updated). Defer ONLY the deepest truths: that Venat IS Hydaelyn and the Ancients/Amaurot (ShB), and the Final Days / Meteion / Elpis (EW).
 - IN-SCENA: the peace conference at Falcon's Nest (Aymeric + the dragon Vidofnir; the Shiva/Hraesvelgr relief) is SHATTERED when ESTINIEN, now POSSESSED by NIDHOGG through the two eyes, lances Vidofnir — the 'final chorus' begins.
 - REVEAL: the Zodiark/Hydaelyn origin + the 13 reflections + the Rejoining (see note); Minfilia's sacrifice; Estinien possessed by Nidhogg.
 
-*3.3 (Revenge of the Horde):*
+##### 3.3 (Revenge of the Horde):
 - IN-SCENA [Sohr Khai]: the party rides Hraesvelgr's kin; Hraesvelgr duels Nidhogg's shade, loses a wing and entrusts ONE of his own EYES to the party for power.
 - IN-SCENA [The Final Steps of Faith]: empowered by Hraesvelgr's eye, the party defeats Nidhogg's shade on the Steps of Faith bridge; with Alphinaud — aided by the spirits of HAURCHEFANT and YSAYLE — they wrest Nidhogg's two eyes from Estinien's armour and cast them into the abyss; **ESTINIEN is freed and survives**. [WIKI-VERIFIED — this trial is PATCH 3.3, not 3.56]
 - REVEAL: the Dragonsong War ends; Estinien saved.
 
-*3.4 (Soul Surrender):*
+##### 3.4 (Soul Surrender):
 - IN-SCENA: aftermath — a new dawn in Ishgard; Estinien recovers; the Warriors of Darkness thread continues/closes. A quieter bridge patch.
 
 *3.5 (The Far Edge of Fate) — the bridge to Stormblood:*
@@ -363,7 +363,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ### STORMBLOOD CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
 **SPECIFICS:** in SB the Blessing is INTACT throughout (the HW Enthrallment mechanic, Ch.5.6, does NOT apply here). No SB revamped-duty lock (duties intact, use current wiki version).
 
-**L13 — The Ala Mhigan Resistance & the liberation of Doma (SB 4.0, part 1)**
+#### L13 — The Ala Mhigan Resistance & the liberation of Doma (SB 4.0, part 1)
 - IN-SCENA: aftermath of Baelsar's Wall — Shinryu, sealed by Papalymo, is dragged underground by the awakened Allagan weapon OMEGA (the Omega-raid seed); the party joins the ALA MHIGAN RESISTANCE at Rhalgr's Reach (Conrad, Lyse, M'naago, Alphinaud, Alisaie).
 - IN-SCENA: YDA IS LYSE — she confesses she took her late sister Yda's name and mask after Yda's death; she casts them off and fights openly as herself.
 - IN-SCENA [Rhalgr's Reach attack]: ZENOS yae Galvus storms the Reach, routs the Resistance and CRUSHES the party in a one-sided duel, sparing them out of contempt (not yet 'worthy prey'). Establishes Zenos as the relentless hunter and the Garlean Viceroy of Ala Mhigo.
@@ -373,7 +373,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: Yda's true identity (Lyse); Zenos is the Garlean crown prince/Viceroy and the party's personal nemesis.
 - GATED: Zenos's artificial-Echo ('Resonant') nature and his ultimate fate; the Ascian behind the Garlean throne.
 
-**L14 — Lakshmi, the liberation of Ala Mhigo, Shinryu & Zenos (SB 4.0 climax)**
+#### L14 — Lakshmi, the liberation of Ala Mhigo, Shinryu & Zenos (SB 4.0 climax)
 - IN-SCENA: the Qalyana Ananta summon LAKSHMI (Emanation); FORDOLA's artificial 'Resonant' Echo helps bring her down. [Emanation is BEFORE Castrum Abania — verified.]
 - IN-SCENA: the push into Gyr Abania — Castrum Abania; Specula Imperatoris; the Lochs; the storming of ALA MHIGO. CONRAD falls; LYSE takes up leadership of the Resistance; Fordola is defeated and taken.
 - IN-SCENA [The Royal Menagerie]: ZENOS binds himself to the primal SHINRYU (via his artificial Resonance) and rides it; the party defeats both Shinryu and Zenos.
@@ -381,15 +381,15 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: Ala Mhigo is free; Zenos apparently dead (Ch.1.6 D).
 - GATED: the Ascian who will take Zenos's empty body; that the real Zenos survives.
 
-**L15 — Post-SB patches (4.1-4.56): Tsukuyomi, the false Zenos & the call to the First**
+#### L15 — Post-SB patches (4.1-4.56): Tsukuyomi, the false Zenos & the call to the First
 *(All beats wiki-verified. The Blessing stays INTACT throughout SB.)*
 
-*4.1 (The Legend Returns):*
+##### 4.1 (The Legend Returns):
 - IN-SCENA: Ala Mhigo rebuilds; Fordola imprisoned; Lyse leads the Resistance; the Domans go home (Doma's reconstruction, Yugiri, Hien).
 - ALTROVE / REVEAL: ZENOS'S BODY IS MISSING from where it lay — an Ascian has claimed it. ⚠️ reveal protetto (the Ascian-in-Zenos thread).
 - Dungeon: The Drowned City of Skalla.
 
-*4.2 (Rise of a New Sun):*
+##### 4.2 (Rise of a New Sun):
 - IN-SCENA: Gosetsu is found alive with an AMNESIAC YOTSUYU (now 'Tsuyu'); ASAHI sas Brutus (Yotsuyu's adoptive step-brother) arrives under a banner of peace to arrange a prisoner exchange — secretly a fanatical Zenos-worshipper.
 - ALTROVE: a physician tends a stirring patient — Zenos's body, alive. ⚠️ reveal protetto.
 - Dungeon: The Burn.
@@ -398,7 +398,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - IN-SCENA: confronted by her abusive adoptive parents, YOTSUYU's memories return; at the prisoner exchange Asahi triggers a summoning and Yotsuyu becomes the primal TSUKUYOMI (Castrum Fluminis). After her defeat she kills Asahi and dies. [WIKI-VERIFIED — this trial is PATCH 4.3, not 4.1.]
 - REVEAL: Zenos's body is confirmed alive and worn by an Ascian (still unnamed here).
 
-*4.4 (Prelude in Violet):*
+##### 4.4 (Prelude in Violet):
 - IN-SCENA: the hunt for the truth of Zenos's resurrection; Hien reactivates the Allagan 'Seiryu's Wall' and the Burn is identified as fallen Azys Lla (Y'shtola). Dungeon: Hells' Lid.
 - IN-SCENA [the Shadowhunter]: GAIUS van Baelsar is revealed ALIVE and confirms the Ascian wearing Zenos's body is ELIDIBUS the Emissary.
 - ALTROVE [Garlemald]: EMPEROR VARIS zos Galvus and ELIDIBUS — the Empire was founded with Ascian aid; they intend to trigger further Calamities to REJOIN the reflections. ⚠️ reveal protetto (reinforces the HW 3.2 cosmology with the Empire's role).
@@ -445,7 +445,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ### SHADOWBRINGERS CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
 **SPECIFICS:** the Blessing is INTACT in ShB (no Enthrallment mechanic); the accumulating LIGHT is narrative tension only (see LIGHT NOTE above — NO tracker). ShB is the deep-lore arc: many long IN-SCENA cutscenes — render as DEPTH, never as branching (Ch.16.6). No ShB revamped-duty lock (duties intact).
 
-**L16 — Arrival in the First; Il Mheg & Titania (ShB 5.0, part 1)**
+#### L16 — Arrival in the First; Il Mheg & Titania (ShB 5.0, part 1)
 - IN-SCENA: the CRYSTAL EXARCH summons the party across the Rift to the FIRST; they wake in NORVRANDT under an endless day-lit sky and reach THE CRYSTARIUM. He warns of a looming EIGHTH UMBRAL CALAMITY of Light and asks the party to become the WARRIOR OF DARKNESS and snuff the LIGHTWARDENS to restore the night. (The other Scions are drawn over across the arc: Y'shtola, Thancred with RYNE, Urianger, Alphinaud, Alisaie.)
 - IN-SCENA: the FLOOD OF LIGHT — a century ago primordial Light drowned Norvrandt and birthed the Sin Eaters; it was halted by MINFILIA and her companions (her sacrifice; her successor line leads to Ryne).
 - IN-SCENA: EULMORE, the decadent city feasting under the shadow of the end (Vauthry); Kholusia.
@@ -454,7 +454,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: the First, the Flood of Light, the Sin Eaters, the Lightwardens, the party as the Warrior of Darkness; EMET-SELCH appears as a sardonic, ambiguous 'ally'.
 - GATED: Emet-Selch's true nature; the Exarch's identity; Vauthry's Lightwarden origin; the soul of Azem.
 
-**L17 — Amh Araeng, Mt. Gulg & Innocence (ShB 5.0, part 2)**
+#### L17 — Amh Araeng, Mt. Gulg & Innocence (ShB 5.0, part 2)
 - IN-SCENA: Amh Araeng with RYNE (the trolley, the Talos, Nabaath Areng); the Rak'tika Greatwood (the Night's Blessed, Y'shtola's home).
 - IN-SCENA: the WARRIORS OF DARKNESS of Heavensward are revealed to have been FROM THE FIRST — Ardbert's band came to the Source hoping to trigger a Calamity that would save their own dying, Light-flooded world.
 - IN-SCENA [The Crown of the Immaculate]: VAUTHRY, ruler of Eulmore, ascends into the Lightwarden INNOCENCE (Mt. Gulg); on his defeat night returns to Kholusia — but the party has now drunk SO MUCH Light it risks turning into a Sin Eater itself (narrative tension only, LIGHT NOTE; Ardbert's spirit lingers at the party's side).
@@ -462,21 +462,21 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - REVEAL: the Warriors of Darkness were of the First; Vauthry's Lightwarden origin; the party's mounting Light-sickness.
 - GATED: the Exarch = G'raha; Emet-Selch's Unsundered nature; Amaurot / the soul of Azem.
 
-**L18 — The Exarch's gambit, Emet-Selch & Amaurot (ShB 5.0, part 3)**
+#### L18 — The Exarch's gambit, Emet-Selch & Amaurot (ShB 5.0, part 3)
 - IN-SCENA: overflowing with Light, the party nearly transforms; the CRYSTAL EXARCH tries to ABSORB the Light into himself and vanish through the Rift to spare them — and his identity breaks open: he is G'RAHA TIA, returned through the Crystal Tower from ~200 years in the future to avert the Eighth Umbral Calamity.
 - IN-SCENA [Amaurot]: EMET-SELCH is revealed as an UNSUNDERED ASCIAN — Solus zos Galvus, the founding father of Garlemald — and leads the party down into AMAUROT, his recreation of the ancient capital of the Ancients, to argue that the sundered are but half-lives unworthy of the world.
 - IN-SCENA: THE SOUL OF AZEM — the party (and Ardbert) are revealed to be fragments of AZEM, the fourteenth seat of the Convocation of Fourteen, who opposed Zodiark's summoning. [This is the canonical AZEM reveal — record this reveal as known here (state derived, Ch.19.3); the campaign's 'a single Light' framing now has its name.]
 - REVEAL: the Exarch = G'raha Tia; Emet-Selch = Solus / an Unsundered Ascian; the Sundering, the Convocation, Zodiark's summoning, and the party's Azem soul.
 - GATED: the deepest cosmology finale (Venat IS Hydaelyn; the Final Days; Meteion — EW); Elidibus's true nature (5.3).
 
-**L19 — Hades, then the patches (5.1-5.5): the end of the Ascians**
+#### L19 — Hades, then the patches (5.1-5.5): the end of the Ascians
 - IN-SCENA [The Dying Gasp]: the confrontation with HADES (Emet-Selch's true name and primal form) in the depths of the Tempest; at the brink ARDBERT's spirit MERGES with the party, granting the strength to prevail; Emet-Selch dies asking only to be REMEMBERED ('Remember us... remember that we once lived'). Night is fully restored to Norvrandt.
 - REVEAL: Hades/Emet-Selch's fall; the tragedy of the Ancients.
 
-*5.1 (Vows of Virtue, Deeds of Cruelty):*
+##### 5.1 (Vows of Virtue, Deeds of Cruelty):
 - IN-SCENA: the displaced Scions' souls begin to DETERIORATE on the First; G'raha and Urianger devise a return to their Source bodies via white-auracite SPIRIT VESSELS (G'raha's Allagan craft). (Side: YoRHa: Dark Apocalypse alliance opens — Komra.)
 
-*5.2 (Echoes of a Fallen Star):*
+##### 5.2 (Echoes of a Fallen Star):
 - IN-SCENA: the spirit vessels return most of the Scions' minds to their bodies on the Source.
 - ALTROVE / REVEAL: ELIDIBUS possesses ARDBERT's body and roams the First preaching the gospel of the 'Warrior of Light' to gather faith and strengthen himself. ⚠️ reveal protetto.
 
@@ -628,7 +628,8 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 ---
 
 ## 08.OST — TEMI DUTY (consolidato; uso: vedi 08.0)
-GENERIC ARR DUNGEON BATTLE THEMES (binding): dungeon battle = The Promise of Plunder (early dungeons: Sastasha / Tam-Tara / Copperbell / Toto-Rak) or A Fell Air Falleth (later dungeons) · mid-boss = A Fine Death · final boss = Nemesis — unless a boss-specific theme is noted below.
+#### GENERIC ARR DUNGEON BATTLE THEMES (binding)
+dungeon battle = The Promise of Plunder (early dungeons: Sastasha / Tam-Tara / Copperbell / Toto-Rak) or A Fell Air Falleth (later dungeons) · mid-boss = A Fine Death · final boss = Nemesis — unless a boss-specific theme is noted below.
 - Sastasha — From the Depths
 - The Tam-Tara Deepcroft — Slumber Disturbed
 - Copperbell Mines — Below
@@ -652,7 +653,8 @@ CRYSTAL TOWER (gate):
 - Labyrinth of the Ancients — (ambient) Hubris · (battle) Ever Upwards · (final, Phlegethon) Tumbling Down
 - Syrcus Tower — (ambient) Out of the Labyrinth · (battle) Shattered · (final, Xande) Tumbling Down
 - The World of Darkness — (ambient) Blind to the Dark · (battle) Hamartomania · (Cloud of Darkness, final) The Reach of Darkness
-GENERIC HW DUNGEON BATTLE THEMES (binding): mid-boss & final-boss fights = Ominous Prognisticks (unless a boss-specific theme is noted); HW open-world/zone battle = Melt.
+#### GENERIC HW DUNGEON BATTLE THEMES (binding)
+mid-boss & final-boss fights = Ominous Prognisticks (unless a boss-specific theme is noted); HW open-world/zone battle = Melt.
 - The Dusk Vigil — Descent
 - Sohm Al — Slumber Eternal
 - The Aery — Roar of the Wyrm
@@ -668,7 +670,8 @@ GENERIC HW DUNGEON BATTLE THEMES (binding): mid-boss & final-boss fights = Omino
 - The Singularity Reactor (KING THORDAN) — Heroes
 - The Final Steps of Faith (NIDHOGG) — Freefall · Revenge of the Horde
 ---
-GENERIC SB DUNGEON BATTLE THEMES (binding): dungeon battle/mid-boss = To the Fore · dungeon final boss = Triumph (pattern confirmed by the Bardam’s Mettle row below); SB open-world/zone battle = Looping in the Deepest Fringes.
+#### GENERIC SB DUNGEON BATTLE THEMES (binding)
+dungeon battle/mid-boss = To the Fore · dungeon final boss = Triumph (pattern confirmed by the Bardam’s Mettle row below); SB open-world/zone battle = Looping in the Deepest Fringes.
 - The Sirensong Sea — Dawnbound · EXCEPTIONS: (mid-boss) Persistence · (final) Triumph (CGW-verified)
 - Castrum Abania — Alienus
 - Ala Mhigo — Liberty or Death
@@ -683,7 +686,8 @@ GENERIC SB DUNGEON BATTLE THEMES (binding): dungeon battle/mid-boss = To the For
 - The Royal Menagerie (SHINRYU) — The Worm's Tail
 - Castrum Fluminis (TSUKUYOMI) — Wayward Daughter
 ---
-GENERIC ShB DUNGEON BATTLE THEMES (binding): dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is noted); ShB open-world/zone battle = Rencounter.
+#### GENERIC ShB DUNGEON BATTLE THEMES (binding)
+dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is noted); ShB open-world/zone battle = Rencounter.
 - Holminster Switch — To Fire and Sword
 - Dohn Mheg — Figments
 - The Qitana Ravel — Unwound
@@ -695,7 +699,8 @@ GENERIC ShB DUNGEON BATTLE THEMES (binding): dungeon boss fights (mid & final) =
 - The Dying Gasp (HADES) — Invincible
 - The Seat of Sacrifice (ELIDIBUS) — Echoes in the Dark · To the Edge
 ---
-GENERIC EW DUNGEON BATTLE THEMES (binding): dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consistent with the verified Ktisis Hyperboreia / The Dead Ends rows); EW open-world/zone battle = Unbowed.
+#### GENERIC EW DUNGEON BATTLE THEMES (binding)
+dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consistent with the verified Ktisis Hyperboreia / The Dead Ends rows); EW open-world/zone battle = Unbowed.
 - Vanaspati — As the Sky Burns
 - The Tower of Zot — Tower of Zot
 - The Tower of Babil — Garlemald Express

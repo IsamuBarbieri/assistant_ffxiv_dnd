@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v1.89 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v1.90 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -1213,6 +1213,7 @@ Whoever is revived (Raise / Down / Tail) suffers AETHER SICKNESS for 2 TURNS (th
 
 # CHAPTER 19 — MEMORY SHEET / CONTINUITY
 The campaign's 'save file': the SOURCE OF TRUTH the GM (Gemini) re-reads at the start of every session and updates at the end.
+NOT THE PROCEDURE (binding, retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/stop', '/load', '/confermo' mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
 
 ## 19.1 Purpose
 - Keep the WORLD/CAMPAIGN STATE between sessions.
@@ -1232,7 +1233,7 @@ Everything else is DERIVED, not stored: what the PCs know, NPC reputations, Gran
 Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created only on request (19.5).
 
 ## 19.4 When it is updated
-- At the END OF SESSION: the SAVE command (trigger word authoritative in 06 §B17) is the SINGLE command — it produces a READ-ONLY recap + the save gate and WRITES only on the explicit 'confermo' (06 B21/B17/B24). At each MILESTONE. BEFORE and AFTER a SUBQUEST. At the end of an important FIGHT or an MSQ beat.
+- At the END OF SESSION, at each MILESTONE, BEFORE and AFTER a SUBQUEST, and at the end of an important FIGHT or MSQ beat. The trigger word, output shape and write-gate mechanics are entirely defined in 06 §B17/§B21/§B24 — not restated here.
 
 ## 19.5 Procedures
 - **LOAD / SESSION START:** triggers on 'session start' / 'load' / 'prepare session' OR when the GM ATTACHES or PASTES a file/text containing a save (header '=== SAVE: ... ===' and/or sections [A]-[C]). In that case: interpret the save as the starting state, give a brief faithful recap, then a brief GM-facing orientation — the CURRENT beat + ONLY the SINGLE next MSQ pillar (one milestone) + the real next wiki step, from the Roadmap (08.1) — NOT a numbered-act index and NOT a gated-reveal box. Do not regenerate the save. Recognition details in 06 B17.
@@ -1244,7 +1245,7 @@ Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created 
 - **ENCOUNTERS IN THE MODULE:** if a fight is likely, include the GM-facing encounter package. Full stat blocks on request or on 'prepare encounter'.
 - **MIXED SESSIONS:** investigation + dungeon/trial separated into NAMED beats (investigation, hook, dungeon overview, dungeon blocks, boss, closure/save); no numbered acts (06 §B4).
 - **MSQ RE-HOOK:** on 'MSQ re-hook' the GEM proposes plausible, lore-compliant ways to return to the next canonical step.
-- **SAVE (single command):** the SAVE command (trigger word authoritative in 06 §B17) produces a READ-ONLY end-session recap + continuity self-check + the delta gate, and WRITES only on explicit 'confermo' (06 §B21/§B24). The written save inherits the table-owned PARTY (N PCs + level) VERBATIM; crystals/Blessing & Aetherytes are NOT save fields (player-managed / in-scene flag only, §B23); only played/confirmed events are written; an 'esito:'/'nota:' gets a 1-line ack. Operational detail: LIVE/STUDY & actual-play 06 §B21; subquest slot/Bookmark §B22; structure by content §B20; economy §A20-A22.
+- **SAVE (single command):** full trigger word, output shape, recap buckets and delta-gate mechanics live ONLY in 06 §B17 ('/STOP — SEQUENCE OVERVIEW') + §B21 + §B24 — not restated here. Campaign-specific reminder: the written save inherits the table-owned PARTY (N PCs + level) VERBATIM; crystals/Blessing & Aetherytes are NOT save fields (player-managed / in-scene flag only, §B23). Operational detail: subquest slot/Bookmark §B22; structure by content §B20; economy §A20-A22.
 - **COMBAT SNAPSHOT:** not an ordinary part of the save; create it only on explicit request.
 
 ## 19.6 The Sheet template
