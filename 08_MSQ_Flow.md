@@ -1,11 +1,11 @@
 # 08.0 — CONVENZIONI GLOBALI (una volta sola)
-- MANIFEST (08.1): backbone LOCKED di cutscene/reveal; riprodurre ogni pin, mai droppare/inventare, GATED nascosti. Pin: IN-SCENA / ALTROVE / REVEAL / GATED.
+- MANIFEST (08.1): backbone LOCKED di cutscene/reveal; riprodurre ogni pin, mai droppare/inventare, GATED nascosti. Pin: IN-SCENA / ALTROVE / VISIONE DELL'ECO / REVEAL / GATED.
 - INDICE (08.2-08.6): catena quest reale (giver + step + [duty] + Next). Ordine autoritativo (06 §A14, CGW); reveal-gate 05 Ch.1 + manifest; dialoghi Gamer Escape.
 - OST (08.OST-*): temi di duty/scena risolti da queste tabelle (06 §A23); titoli in inglese (chiave di ricerca).
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.29 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.30 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -70,7 +70,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 
 ## CANONICAL CUTSCENE & REVEAL MANIFESTS — SHARED PURPOSE & LEGEND (binding, applies to the 5 expansion manifests — ARR / HW / SB / ShB / EW — plus the separate Crystal Tower manifest)
 **PURPOSE:** each manifest is the PRECISE, LOCKED story backbone of its arc: it PINS the cutscenes/reveals that MUST appear at each beat and the ones that MUST stay hidden. They are DATA, not generation — the assistant reproduces them at the SAME beat EVERY time (NEVER omit on regeneration, NEVER invent an extra, NEVER move it) and KNOWS them without fishing from the wiki (the wiki stays available for everything ELSE, primarily exact DIALOGUE, Gamer Escape primary). It also makes a return to the MSQ after a subquest clean and exact. Each is a MANIFEST (what must not be dropped), NOT a scene-by-scene script; each complements the per-level BEAT entries below it and the STORY-FLOW FIDELITY rule. Cutscene placement/tags per Ch.16.6 (`[CUTSCENE IN SCENA]` = players present, rail; `[CUTSCENE ALTROVE]` = off-scene, GM-facing); reveal gating per Ch.1. This is the block the `mappa MSQ` audit (06 §B25) reads. All beats below are WIKI-VERIFIED; where a patch tag in a manifest differs from a rough tag in the per-level Lvl blocks, THE MANIFEST PREVAILS.
-**LEGEND (all 6 manifests):** `IN-SCENA` = mandatory in-scene cutscene (rail) | `ALTROVE` = mandatory off-scene cutscene (GM-facing, + `⚠️ reveal protetto` if it carries a gated reveal) | `REVEAL` = what becomes KNOWN at this beat (record as known here, state derived, Ch.19.3) | `GATED` = must NOT be named/anticipated yet.
+**LEGEND (all 6 manifests):** `IN-SCENA` = mandatory in-scene cutscene (rail) | `ALTROVE` = mandatory off-scene cutscene (GM-facing, PCs genuinely ABSENT, + `⚠️ reveal protetto` if it carries a gated reveal) | `VISIONE DELL'ECO` = a vision delivered by the Echo: the PCs EXPERIENCE it (so it is read to them, not GM-facing) but are not present at the place/time shown — it is neither ALTROVE nor IN-SCENA, and it hits the WHOLE party by default (06 §B1 ECHO VISIONS) | `REVEAL` = what becomes KNOWN at this beat (record as known here, state derived, Ch.19.3) | `GATED` = must NOT be named/anticipated yet.
 **Per-manifest specifics only** (Blessing-of-Light state, revamped-duty locks, unique structural notes) are given under each arc's manifest heading below; the PURPOSE/LEGEND above is NOT repeated there.
 
 ## Arc 1 - A Realm Reborn (lvl 1-8)
@@ -80,7 +80,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **SPECIFICS:** all 6 elemental crystals are collected across ARR, sealed at L8 end (see Blessing of Light block above). No Enthrallment mechanic in ARR. Revamped-duty lock: see the ARR REVAMPED-DUTY LOCK block above (Toto-Rak, Castrum Meridianum, The Praetorium, Cape Westwind, Steps of Faith).
 
 #### L1 — The Echo awakens
-- IN-SCENA: cold-open SHARED Echo vision on the arrival journey (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); NO burning dragon (Ch.1.7).
+- VISIONE DELL'ECO: cold-open SHARED Echo vision on the arrival journey (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); hits the WHOLE party — this is the precedent that fixes the party-wide default; NO burning dragon (Ch.1.7).
 - GATED: the nature of the Echo and of Hydaelyn (Reveal: Eco = NO).
 
 #### L2 — City climax · Water crystal · the Scions
@@ -96,7 +96,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 #### L4 — Ifrit (Fire) · Toto-Rak (Lightning)
 - IN-SCENA: Ifrit (Bowl of Embers) — the Amalj'aa summon Ifrit; the tempering wave hits the party but the ECHO lets them RESIST (proof they are special) -> Crystal #2 FIRE.
 - IN-SCENA [Toto-Rak, BEFORE the boss]: LAHABREA appears and NAMES HIMSELF ('Lahabrea of the Ascians, servant to the one true god'), mocks the defeat of Ifrit and calls the Echo an 'irksome anomaly in the aether', then unleashes the banemite (= the boss Graffias). [WIKI-VERIFIED]
-- ALTROVE [Toto-Rak, AFTER the boss]: Echo-flashback — Garlean soldiers discuss their failure to compel the sylphs to summon Ramuh; a masked figure alludes to an 'ultimate weapon'. ⚠️ reveal protetto (the 'ultimate weapon' hint).
+- VISIONE DELL'ECO [Toto-Rak, AFTER the boss]: Echo-flashback — Garlean soldiers discuss their failure to compel the sylphs to summon Ramuh; a masked figure alludes to an 'ultimate weapon'. Hits the WHOLE party. ⚠️ reveal protetto (the 'ultimate weapon' hint).
 - IN-SCENA: the sylph elder Frixio is freed -> Crystal #3 LIGHTNING.
 - REVEAL: LAHABREA is named (an Ascian, 'servant of the one true god'); the Ascians resent the Echo. FROM THIS BEAT ON the masked man may be called Lahabrea. (This supersedes any 'keep all Ascians unnamed' save note for later beats.)
 - GATED: Lahabrea possessing Thancred; the full nature of the Ultima Weapon.
