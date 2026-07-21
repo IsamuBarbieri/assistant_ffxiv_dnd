@@ -1,5 +1,5 @@
 # 07_GLOSSARY - Naming System & Recurring Names (SINGLE SOURCE)
-Version v1.32
+Version v1.33
 
 ## G0 - PRINCIPLE & USAGE
 - NARRATIVE LEVEL: translate by SENSE into "Italian (English)" at the FIRST occurrence, then only Italian. Applies to EVERYTHING built from transparent English words: personal names, surnames, epithets/nicknames, places/settlements, ships/vessels, taverns/inns, organizations/groups/companies, signs, titles. (ABILITY / SPELL / MOVE / ACTION NAMES are a SPECIAL CASE -> see G24: FFXIV/FF-iconic names are KEPT, only the effect is in Italian.) If no standard rendering exists, CREATE one. The English in parentheses is a provenance label.
@@ -15,6 +15,9 @@ Version v1.32
 3. TRANSLATE each element by sense and RECOMPOSE into the most natural Italian form, reordering modifier/head per Italian syntax.
 4. FUSED COMPOUND is the DEFAULT for SHORT concrete word+word coinages (real-toponym model Portoferraio/Portovenere): Aleport -> Portobirra; Wineport -> Portovino; Stormblade -> Lamatempesta; Lakeland -> Terralago; Quarrymill -> Cavamulino. Keep natural phrasing where the name is inherently phrasal: noun+adjective stays two words (Whitebrim -> Orlo Bianco), and head + proper-name or Front/Gate/Bridge uses a preposition (Whitebrim Front -> Avamposto di Orlo Bianco).
 5. EUPHONY + COMPLETENESS GATE: keep the translation only if COMPLETE, sensible and IMMERSIVE. If it would be partial, truncated, hybrid, comic or tonally wrong, leave the ORIGINAL unchanged (written ONCE, no parentheses). NEVER half-translate (e.g. "Camp Drybone" with only Camp->Campo): either fully translate the distinctive element too, or keep the whole name in English once.
+   THE DEFAULT IS TO TRANSLATE — THE GATE IS A NARROW EXIT, NOT A PREFERENCE (binding). Anything with a transparent English sense GETS RENDERED: the parenthesised "(English)" at first occurrence is the safety net, so the GM can adjust a rendering at the table, and it makes an imperfect Italian name CHEAP while an untranslated one is a silent loss. So the gate fires ONLY when the sense is genuinely opaque or the Italian would be actively comic — NOT because the name is unfamiliar, NOT because a first attempt came out clumsy (try the other shapes in the flowchart first), and NOT because keeping the English felt safer.
+   OBSERVED FAILURE (real run, three names in one beat): "Buscarron's Druthers", "Highbridge" and "Qiqirn Firewater" all left in English. All three are transparent and all three render cleanly — Highbridge -> Ponte Alto (G3 '-bridge -> Ponte di-'); Qiqirn Firewater -> Acquafuoco Qiqirn (step 4 fused compound); Buscarron's Druthers -> Il Capriccio di Buscarron (flowchart 3(a) "X's Y" -> "Y di X"; 'druthers' = one's preference/whim, from "I'd rather" — it is NOT a drinking vessel, and the earlier attempt 'Il Bevitoio di Buscarron' failed by MISREADING THE SENSE, not by being too Italian). DIAGNOSIS WORTH KEEPING: a bad rendering is a translation error to fix, not evidence that the name should stay English. Re-read the sense, then re-apply the method.
+   GENUINE GATE CASES (what the exit is actually for): opaque coinages and fantasy/Latin/Japanese proper names (Sastasha, La Noscea, Azys Lla, Thok ast Thok) — these are 'all kept' at flowchart step 2, written once with no parentheses.
 
 LEAN PRINCIPLE (apply throughout - prefer the SHORTEST form that stays clear and immersive):
   L1. Prefer APPOSITION, dropping "di/del", when euphonic: Mar di Nuvole; Riva Sangue; Valle Teschio; Campo Lago di Bronzo.
@@ -69,6 +72,7 @@ VALIDATED HEAD EXAMPLES (real FFXIV toponyms, lore-checked): Valle Teschio (Skul
 - Chocobo -> Chocobo (kept, iconic)
 - Gil -> Gil (currency)
 - Phoenix Down -> Piuma di Fenice; Phoenix Tail -> Coda di Fenice (revival items; the Fenice family, see G22 -- Down=piuma, Tail=coda, keep the two distinct).
+- Qiqirn Firewater -> Acquafuoco Qiqirn (the Qiqirn liquor; 'Qiqirn' is a beast-tribe proper name and stays, 'Firewater' is transparent and fuses per G1 step 4). PATTERN, not a one-off: FOOD, DRINK, BREW and TRADE-GOOD names follow the ordinary G1 method like any other name — a transparent element is rendered even when the name sits in a throwaway line of dialogue or a subquest reward.
 - Aether Sickness -> Mal d'Etere (the post-revive debuff, 05 Ch.18; short and immersive; the 'Etere' aether family, see G6) -- BINDING: never drift to 'Malattia Eterica' / 'Mal di Etere'.
 
 ## G8 - DEMONYMS (inflect o/a/i/e)
@@ -83,7 +87,7 @@ VALIDATED HEAD EXAMPLES (real FFXIV toponyms, lore-checked): Valle Teschio (Skul
 - Thavnairian -> Thavnairiano/a
 
 ## G9 - PLACES (hubs, districts, zones)
-Bosco Nero (Black Shroud); Thanalan Orientale (Eastern Thanalan); Sabbie del Risveglio (The Waking Sands); Orlo Bianco (Whitebrim); Avamposto di Orlo Bianco (Whitebrim Front); Officine Garlond (Garlond Ironworks); Portobirra (Aleport); Portovino (Wineport); Baia del Vespro (Vesper Bay); Lago di Bronzo (Bronze Lake); Campo Ossasecca (Camp Drybone); Miniere di Camparame (Copperbell Mines); Palazzo del Viandante (Wanderer's Palace); Campo Belvedere (Camp Overlook); Piccolo Rifugio (Little Solace).
+Bosco Nero (Black Shroud); Thanalan Orientale (Eastern Thanalan); Sabbie del Risveglio (The Waking Sands); Orlo Bianco (Whitebrim); Avamposto di Orlo Bianco (Whitebrim Front); Officine Garlond (Garlond Ironworks); Portobirra (Aleport); Portovino (Wineport); Baia del Vespro (Vesper Bay); Lago di Bronzo (Bronze Lake); Campo Ossasecca (Camp Drybone); Miniere di Camparame (Copperbell Mines); Palazzo del Viandante (Wanderer's Palace); Campo Belvedere (Camp Overlook); Piccolo Rifugio (Little Solace); Ponte Alto (Highbridge); Cavamulino (Quarrymill); Prati di Ramostorto (Bentbranch Meadows); Capanna Hawthorne (Hawthorne Hut); Bosco del Sud (South Shroud); Bosco dell'Est (East Shroud).
 Hubs/districts (ARR): Ponti Inferiori (Lower Decks); Ponti Superiori (Upper Decks); Porta di Mealvaan (Mealvaan's Gate); Foro di Nald (Steps of Nald); Pozzo di Thal (Steps of Thal); Nuova Gridania (New Gridania); Vecchia Gridania (Old Gridania); Le Pietre Risorte (The Rising Stones); Pedaggio del Redivivo (Revenant's Toll).
 
 ## G10 - FACTIONS, ORGS & TITLES
@@ -91,7 +95,7 @@ La Tempesta (The Maelstrom) -- BINDING ANTI-DOPPIONE: render the Grand Company o
 Titles & concepts: Guerriero della Luce (Warrior of Light); Benedizione della Luce (Blessing of Light); Cristallo Madre (Mothercrystal); Grande Compagnia (Grand Company) -- always translated, NEVER leave "Grand Company" in English; Compagnia Libera (Free Company) -- the PLAYERS' guild, DISTINCT from the Grande Compagnia: NEVER confuse the two; i Dodici (The Twelve, the Eorzean pantheon; individual god names kept); l'Eco (the Echo).
 
 ## G11 - GUILD TAVERNS & RECURRING NPCs
-Taverns: La Fanciulla Annegata (The Drowning Wench); Il Baldacchino di Carline (The Carline Canopy); Le Sabbie Mobili (The Quicksand).
+Taverns: La Fanciulla Annegata (The Drowning Wench); Il Baldacchino di Carline (The Carline Canopy); Le Sabbie Mobili (The Quicksand); Il Capriccio di Buscarron (Buscarron's Druthers) -- the South Shroud tavern; 'druthers' = one's preference/whim (from "I'd rather"), NOT a drinking vessel: NEVER 'Il Bevitoio di Buscarron'; La Locanda di Memeroon (Memeroon's Trading Post).
 NPCs - KEEP UNCHANGED (write once, no parentheses): Minfilia, Thancred, Y'shtola, Yda, Papalymo, Urianger, Alphinaud, Alisaie, Cid, Biggs, Wedge, Merlwyb, Raubahn, Kan-E-Senna, Nanamo, Baderon, Momodi, Lahabrea, Gaius, Livia, Nero. EXCEPTION (English title translated): Mother Miounne -> Madre Miounne.
 
 ## G12 - ARR DUNGEONS, TRIALS & LOCATIONS (completion)
