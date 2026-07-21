@@ -1,9 +1,9 @@
 # 01_RACES — Races, Beast Tribes, Naming Appendix & Role Feats
-Version v0.9 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
+Version v0.10 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO lore is cut — prose is preserved in full, only reformatted into clean, parsable sections.
-- DATA LANGUAGE = English (single source of truth). The GEM renders flavor into Italian at OUTPUT.
+- DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted at source. Decimal POINT in data (1.5 m); render with comma at output (1,5 m).
 - Mechanics (trait names, conditions, skills, spells) stay English and verbatim. Do NOT invent traits.
 

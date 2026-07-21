@@ -1,9 +1,9 @@
 # 04_BESTIARY — RAIMDELLE CODEX ASGARD
-Version v1.0 | Source: Raimdelle Codex Asgard (community monster manual for the FFXIV x D&D 5e Compendium)
+Version v1.1 | Source: Raimdelle Codex Asgard (community monster manual for the FFXIV x D&D 5e Compendium)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. Statblocks reproduced verbatim; only reformatted for parsing.
-- DATA LANGUAGE = English (single source of truth). The GEM renders flavor into Italian at OUTPUT.
+- DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted (decimal POINT in data; render with comma at output). Key: 5 ft=1.5 m, 10 ft=3 m, 15 ft=4.5 m, 20 ft=6 m, 25 ft=7.5 m, 30 ft=9 m, 35 ft=10.5 m, 40 ft=12 m, 45 ft=13.5 m, 50 ft=15 m, 60 ft=18 m, 100 ft=30 m, 120 ft=36 m, 150 ft=45 m, 200 ft=60 m, 300 ft=90 m, 500 ft=150 m.
 - Monsters use FIXED hit points (no HP_ref). Dice, saves, conditions, CR/XP stay English and verbatim. Do NOT invent stats.
 - ORGANIZATION: 13 creature classes (Ashkin, Beastkin, Cloudkin, Dragon, Forgekin, Primals, Scalekin, Seedkin, Soulkin, Spoken, Vilekin, Voidsent, Wavekin). Within a class, by genus then species.

@@ -5,12 +5,12 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.27 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.29 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
 > FILE CONTENTS (part map):
->  - 08.1 — MSQ ROADMAP (ARR->EW): the sequential map (arcs, zones, bosses, crystals, gates) + a compact POINTER to the flow behaviour (which lives ENTIRELY in 06 + the Gem instructions; this file is pure DATA) + the REVAMPED-DUTY LOCKs + the 5 CANONICAL CUTSCENE & REVEAL MANIFESTs (one per expansion, inside its arc).
+>  - 08.1 — MSQ ROADMAP (ARR->EW): the sequential map (arcs, zones, bosses, crystals, gates) + a compact POINTER to the flow behaviour (which lives ENTIRELY in 06 + the Campaign instructions; this file is pure DATA) + the REVAMPED-DUTY LOCKs + the 5 CANONICAL CUTSCENE & REVEAL MANIFESTs (one per expansion, inside its arc).
 >  - 08.2-08.6 — ORDERED MSQ INDEX (giver + step spine + single Next): 08.2 ARR (openings->2.55) · 08.3 Heavensward · 08.4 Stormblood · 08.5 Shadowbringers · 08.6 Endwalker.
 >  - 08.OST-ARR .. 08.OST-EW — DUTY OST TABLES: the music themes for every MSQ duty (ARR->EW), CGW/GE-verified. 08.OST-SCENE-ARR..EW — SCENE/MOOD OST TABLES (city / zone / cutscene themes), wiki-verified (added v3.14).
 >  (Split out of 05; renumbered to this clean 08.x scheme in v2.0. All files reference these codes.)
@@ -30,7 +30,7 @@ Reference: see Section A Ch. 5 (Milestone Progression); this file is its detail.
 **LOGICAL-THREAD RULE:** activate a quest only if the PCs can reach it (ZONE consistency + MSQ point); its lore must not foreshadow events not yet occurred. No hooks from the other side of the world.
 
 **PRACTICAL MSQ FLOW RULE (POINTER — this file is PURE DATA):**
-- BEHAVIOUR lives in 06 + the Gem instructions, NEVER here: how to walk the flow (one wiki step per 'continua'; sub-beat granularity and the DUNGEON/TRIAL fewest-complete-chunks carve-out — 06 §B2/§B12), connective story beats, the FETCH/CONNECTIVE AUTO-CONDENSE, compression & SIGNATURE PRESERVATION (06 §B12), STORY-FLOW FIDELITY & STAGING-IS-FLOW (06 §B2), the strict CONTINUITY HANDOFF, and the [Info GM]/orientation rules — ATOMIC STEP, SPINE-SOURCED, ORDER AUTHORITY & NO RESURRECTION (06 §B1/§B2). Flow-behaviour tweaks land in 06 + tplC ONLY; this file does not change for them.
+- BEHAVIOUR lives in 06 + the Campaign instructions, NEVER here: how to walk the flow (one wiki step per 'continua'; sub-beat granularity and the DUNGEON/TRIAL fewest-complete-chunks carve-out — 06 §B2/§B12), connective story beats, the FETCH/CONNECTIVE AUTO-CONDENSE, compression & SIGNATURE PRESERVATION (06 §B12), STORY-FLOW FIDELITY & STAGING-IS-FLOW (06 §B2), the strict CONTINUITY HANDOFF, and the [Info GM]/orientation rules — ATOMIC STEP, SPINE-SOURCED, ORDER AUTHORITY & NO RESURRECTION (06 §B1/§B2). Flow-behaviour tweaks land in 06 + tplC ONLY; this file does not change for them.
 - DATA this file supplies (binding): the Roadmap order + the per-level PILLARS = MANDATORY-CONDITION checkpoints (a fixed canonical NPC/place, a gated reveal, a crystal, a required outcome) — CONSTRAINTS/guardrails, NOT the beat list: the playable flow is ALWAYS the ordered quest chain cached in 08.2-08.6, walked IN ORDER (authoritative over model memory, no live fetch needed); the 5 FROZEN CUTSCENE & REVEAL MANIFESTS; the ordered index (giver + step spine + single Next) = the SPINE from which 'apre <quest>' and 'prossimo step wiki' are READ (06 §B1 SPINE-SOURCED) and the ORDER AUTHORITY over any drafted or remembered pointer; the ARR REVAMPED-DUTY LOCK; the 08.OST-* duty tables.
 - DATA KERNEL (binding here): a duty / manifest cutscene / reveal / crystal / named-boss / Scions scene is ALWAYS played in full, NEVER condensed; never create MSQ objectives, dungeons, enemies, places or items NOT present in the save, this roadmap or Gamer Escape (06 §A6).
 - FALLBACK: if a next step is not resolvable from this index, resolve per 06 §A14 (ConsoleGamesWiki = chain order primary; Gamer Escape = lore/NPC/dialogue) or STOP at the last certain step and flag a 1-line GM Note — never improvise.
@@ -69,7 +69,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ---
 
 ## CANONICAL CUTSCENE & REVEAL MANIFESTS — SHARED PURPOSE & LEGEND (binding, applies to the 5 expansion manifests — ARR / HW / SB / ShB / EW — plus the separate Crystal Tower manifest)
-**PURPOSE:** each manifest is the PRECISE, LOCKED story backbone of its arc: it PINS the cutscenes/reveals that MUST appear at each beat and the ones that MUST stay hidden. They are DATA, not generation — the GEM reproduces them at the SAME beat EVERY time (NEVER omit on regeneration, NEVER invent an extra, NEVER move it) and KNOWS them without fishing from the wiki (the wiki stays available for everything ELSE, primarily exact DIALOGUE, Gamer Escape primary). It also makes a return to the MSQ after a subquest clean and exact. Each is a MANIFEST (what must not be dropped), NOT a scene-by-scene script; each complements the per-level BEAT entries below it and the STORY-FLOW FIDELITY rule. Cutscene placement/tags per Ch.16.6 (`[CUTSCENE IN SCENA]` = players present, rail; `[CUTSCENE ALTROVE]` = off-scene, GM-facing); reveal gating per Ch.1. This is the block the `mappa MSQ` audit (06 §B25) reads. All beats below are WIKI-VERIFIED; where a patch tag in a manifest differs from a rough tag in the per-level Lvl blocks, THE MANIFEST PREVAILS.
+**PURPOSE:** each manifest is the PRECISE, LOCKED story backbone of its arc: it PINS the cutscenes/reveals that MUST appear at each beat and the ones that MUST stay hidden. They are DATA, not generation — the assistant reproduces them at the SAME beat EVERY time (NEVER omit on regeneration, NEVER invent an extra, NEVER move it) and KNOWS them without fishing from the wiki (the wiki stays available for everything ELSE, primarily exact DIALOGUE, Gamer Escape primary). It also makes a return to the MSQ after a subquest clean and exact. Each is a MANIFEST (what must not be dropped), NOT a scene-by-scene script; each complements the per-level BEAT entries below it and the STORY-FLOW FIDELITY rule. Cutscene placement/tags per Ch.16.6 (`[CUTSCENE IN SCENA]` = players present, rail; `[CUTSCENE ALTROVE]` = off-scene, GM-facing); reveal gating per Ch.1. This is the block the `mappa MSQ` audit (06 §B25) reads. All beats below are WIKI-VERIFIED; where a patch tag in a manifest differs from a rough tag in the per-level Lvl blocks, THE MANIFEST PREVAILS.
 **LEGEND (all 6 manifests):** `IN-SCENA` = mandatory in-scene cutscene (rail) | `ALTROVE` = mandatory off-scene cutscene (GM-facing, + `⚠️ reveal protetto` if it carries a gated reveal) | `REVEAL` = what becomes KNOWN at this beat (record as known here, state derived, Ch.19.3) | `GATED` = must NOT be named/anticipated yet.
 **Per-manifest specifics only** (Blessing-of-Light state, revamped-duty locks, unique structural notes) are given under each arc's manifest heading below; the PURPOSE/LEGEND above is NOT repeated there.
 
@@ -592,7 +592,7 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 ### CAMPAIGN FINALE & EPILOGUE (binding — terminal beat; detail 06 §B27)
 - The MSQ spine TERMINATES at the quest **Endwalker** — the TERMINAL beat.
 - On its climax (The Dead Ends -> The Final Day / the Endsinger -> the Zenos duel) the LIVE marker enters **[CAMPAGNA CONCLUSA]** and stops offering 'continua'/'prepara' past 6.0 (patches 6.1+ OUT OF SCOPE, Ch.1 / 06 §A19); the wiki flow-driver stops here.
-- The Gem then OFFERS (never forces) a closing **EPILOGO**: the canonical denouement (homecoming, the Scions' reunion, honouring the fallen, Krile joining, Meteion with the Loporrits), woven with GM-supplied original-colour re-injected per the lean save.
+- The assistant then OFFERS (never forces) a closing **EPILOGO**: the canonical denouement (homecoming, the Scions' reunion, honouring the fallen, Krile joining, Meteion with the Loporrits), woven with GM-supplied original-colour re-injected per the lean save.
 - Save after finale: [A] Endwalker (completata) · [C] nessuna. Closing marker: '— fine della campagna —'.
 
 ---
@@ -738,7 +738,8 @@ ZONES:
 - Coerthas — Fealty
 - Mor Dhona — Intertwined
 KEY SCENES (manifest beat -> track):
-- Opening / the Echo vision (L1) — The Echo (the vision theme) · Prelude - Rebirth (title theme)
+- Opening / the Echo vision (L1) — The Echo (the vision theme) · Prelude - Rebirth (title theme). BOUND TO L1 ONLY: 'The Echo' is the OPENING-VISION theme — do NOT reuse it for later Hydaelyn/crystal beats (see the next row).
+- CRYSTAL OBTAINED / Hydaelyn speaks ('Hear... Feel... Think...') — any of the 6 elemental crystals, at its canonical beat (L2 Water, L4 Fire, L4 Lightning, L5 Earth, L6 Ice, L7 Wind) — Prelude - Rebirth (the title/Hydaelyn theme)
 - Scion HQ scenes (Waking Sands / Rising Stones) — The Waking Sands
 - Overworld boss (lead-in Ifrit / Titan / Garuda) — Torn from the Heavens
 - Mor Dhona / Crystal Tower, Allagan-lore melancholy — Now I Know the Truth
@@ -4461,7 +4462,7 @@ KEY SCENES:
 
 **SCOPE:** the close of the Thavnair Final Days (Vrtra shelters his people), the return to **the Crystarium** and the door to the past, and the long **ELPIS** arc in the ancient age of Amaurot — Hythlodaeus, Hermes, **Meteion**, the ancient Emet-Selch (Hades), and **Venat**. **No duty in this block** (both *Verdict and Execution* and *Travelers at the Crossroads* verified NOT to enter Ktisis Hyperboreia — that dungeon follows).
 
-**REVEAL-GATE (handled by Gem rules, listed here as data only):** in Elpis, Emet-Selch appears as a living ancient (not the Ascian); Hermes' link to future events and Venat's true identity are gated reveals — do not pre-empt them.
+**REVEAL-GATE (handled by the procedure rules, listed here as data only):** in Elpis, Emet-Selch appears as a living ancient (not the Ascian); Hermes' link to future events and Venat's true identity are gated reveals — do not pre-empt them.
 
 ---
 

@@ -1,9 +1,9 @@
 # 03_SPELLS
-Version v0.2 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
+Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted for parsing.
-- DATA LANGUAGE = English (single source of truth). The GEM renders flavor into Italian at OUTPUT.
+- DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted (decimal POINT in data; render with comma at output). Key: 5 ft=1.5 m, 10 ft=3 m, 15 ft=4.5 m, 20 ft=6 m, 30 ft=9 m, 40 ft=12 m, 50 ft=15 m, 60 ft=18 m, 80 ft=24 m, 90 ft=27 m, 100 ft=30 m, 120 ft=36 m, 150 ft=45 m, 200 ft=60 m.
 - Mechanics (dice, saves, conditions) stay English and verbatim. Do NOT invent spells.
 - "*" before a spell name = HOMEBREW spell created for this compendium; its full description is in PART 2 (below). All other spells are official D&D 5e (PHB or expansions — consult the relevant book; bold-source markup from the original was lost in extraction).

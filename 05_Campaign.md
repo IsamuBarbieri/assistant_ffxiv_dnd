@@ -1,22 +1,22 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v1.90 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v1.91 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
-- DATA LANGUAGE = English (single source of truth). The GEM renders flavor into Italian at OUTPUT.
+- DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - OUTPUT NAMING: recurring names and the aether family are rendered into Italian per 07 (Glossary) (e.g. aether -> etere, Aetheryte -> Eterite). The ENGLISH text in this file is SOURCE DATA, rendered at output, not changed here.
 - CONTROLLED VOCABULARY (mandatory). Two registers for the SAME phenomenon (a Primal bending/dominating the minds of its worshippers):
   - ENTHRALLED / ENTHRALLMENT = the VULGAR (common) term. Render at output as: Asservito / Asservimento.
   - TEMPERED / TEMPERING = the SCIENTIFIC (learned) term, and the official FFXIV English term. Render at output as: Temprato / Tempra.
   - NEVER use the calque "templaggio".
-- ABBREVIATIONS: PC (player character), NPC, GM, GEM, HP, AC, DC, HD (Hit Die/Dice), DS (death save context), CR, LB (Limit Break), MSQ.
+- ABBREVIATIONS: PC (player character), NPC, GM, HP, AC, DC, HD (Hit Die/Dice), DS (death save context), CR, LB (Limit Break), MSQ.
 - FILE CONTRACT: THIS file = the CAMPAIGN RULES (Ch. 1-20; Ch. 11 removed: Trust). The MSQ FLOW (roadmap + the 5 cutscene/reveal manifests + the ordered MSQ index + OST tables) lives in the companion file 08_MSQ_Flow.md (parts: 08.1 roadmap+manifests, 08.2-08.6 ordered index ARR/HW/SB/ShB/EW, 08.OST-ARR..08.OST-EW duty OST).
-- 'Ch. X' references = THIS file (05_Campaign). The MSQ flow (08.1 / 08.2-08.6 / 08.OST-*) lives in 08_MSQ_Flow.md. The GEM OPERATIONAL rules (workflow, formats, checks, saves) live in 06_Procedures_and_Format. If in conflict with the Instructions, the Instructions win.
+- 'Ch. X' references = THIS file (05_Campaign). The MSQ flow (08.1 / 08.2-08.6 / 08.OST-*) lives in 08_MSQ_Flow.md. The assistant OPERATIONAL rules (workflow, formats, checks, saves) live in 06_Procedures_and_Format. If in conflict with the Instructions, the Instructions win.
 - Mechanics (DCs, dice, conditions, level math) stay English and verbatim. Do NOT invent rules.
 
 # SECTION A — CAMPAIGN RULES
 
-## HOW TO USE THIS DOCUMENT (knowledge policy for the GEM)
+## HOW TO USE THIS DOCUMENT (knowledge policy for the assistant)
 - This file is the AUTHORITATIVE SOURCE for campaign rules: in any conflict with generic knowledge, THIS document prevails.
 - When proposing a rule or making a ruling, CITE the chapter/section it draws from (e.g. "see Ch. 18.4").
 - If you must answer with information NOT present here, state so explicitly.
@@ -95,10 +95,10 @@ Version v1.90 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn 
 - 'Hard' reveals are NEVER named or anticipated before their canonical MSQ beat.
 - Until the reveal, always use NEUTRAL TERMS.
 - Reveal timing is driven by the MSQ position (Ch. 19.3), not a stored tracker.
-- In the knowledge modules, gated info lives in '>>> SPOILER (GM ONLY) <<<' boxes (these are INTERNAL GM data, read by the GEM to know what is gated — they are NEVER reprinted in the recap/load output, where a reveal box would prime a leak; upcoming reveals are available on demand via 'mappa MSQ', 06 §B25).
+- In the knowledge modules, gated info lives in '>>> SPOILER (GM ONLY) <<<' boxes (these are INTERNAL GM data, read by the assistant to know what is gated — they are NEVER reprinted in the recap/load output, where a reveal box would prime a leak; upcoming reveals are available on demand via 'mappa MSQ', 06 §B25).
 - In ANY player-facing output: ZERO leaks.
 
-*NOTE: the reveal timings below are INDICATIVE (by arc). The GM/Gemini verifies the exact beat on the Roadmap (Ch. 5 and 08.1).*
+*NOTE: the reveal timings below are INDICATIVE (by arc). The GM verifies the exact beat on the Roadmap (Ch. 5 and 08.1).*
 
 ### A) Soul / Divine / Cosmic
 - AZEM and the group's 'soul-fragment' nature - **ShB/EW**
@@ -179,7 +179,7 @@ Version v1.90 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn 
 # CHAPTER 2 — SESSION 0 SETUP
 **PURPOSE:** Session 0 is NOT a play session: it is the table's "tutorial". It serves to create the characters, build their backgrounds coherently with the world, explain all homebrew rules, and give players the base lore. Final goal: sheets ready, first save created, a group that knows HOW to play and WHY they travel together.
 
-**SESSION 0 - MAP (RAG co-location, binding):** the Session-0 material is split across chapters - keep these co-dependencies in view wherever this is read: OPENING SCENE (cold-open + shared Echo vision, plural Warriors of Light, per-city arrival, convergence at 'The Scions of the Seventh Dawn') = **Ch.1.7 (ARR CAMPAIGN OPENING)**; SETUP + rules tutorial = this chapter (2.1-2.3); BACKGROUNDS with the GEM = 2.2; BASE STARTING LORE package (delivered IN FULL, never condensed) = **2.6**; character mechanics + Job change = **Ch.3 / 3.4**; the FIRST SAVE is written **LAST**, only after PCs + city + backgrounds are done = **Ch.1.7 / Ch.19**; the **WIPE mechanic is kept SECRET** at Session 0 = **2.3**.
+**SESSION 0 - MAP (RAG co-location, binding):** the Session-0 material is split across chapters - keep these co-dependencies in view wherever this is read: OPENING SCENE (cold-open + shared Echo vision, plural Warriors of Light, per-city arrival, convergence at 'The Scions of the Seventh Dawn') = **Ch.1.7 (ARR CAMPAIGN OPENING)**; SETUP + rules tutorial = this chapter (2.1-2.3); BACKGROUNDS with the assistant = 2.2; BASE STARTING LORE package (delivered IN FULL, never condensed) = **2.6**; character mechanics + Job change = **Ch.3 / 3.4**; the FIRST SAVE is written **LAST**, only after PCs + city + backgrounds are done = **Ch.1.7 / Ch.19**; the **WIPE mechanic is kept SECRET** at Session 0 = **2.3**.
 
 ## 2.1 Session 0 ground rules
 - No combat and no "real" plot: preparation only.
@@ -188,13 +188,13 @@ Version v1.90 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn 
 - No Job duplicates in the party (only one Paladin, one White Mage, etc.).
 - At the end of the evening the FIRST SAVE is created (see Ch. 19 - Memory Sheet).
 
-## 2.2 Building backgrounds (together, via the GEM)
-Backgrounds are NOT written alone at home: they are built TOGETHER at the table, using the GEM (Gemini) as a lore assistant.
+## 2.2 Building backgrounds (together, via the assistant)
+Backgrounds are NOT written alone at home: they are built TOGETHER at the table, using the assistant as a lore reference.
 
 **Recommended procedure:**
 1. Each player proposes a starting idea (origin, race, trade, dream, wound).
-2. The GM passes the idea to the GEM asking for consistency with: the chosen race and its culture, the starting city-state, the current era (post-Calamity).
-3. The GEM returns: a coherent name (see Naming Appendix), a plausible birthplace, hooks to NPCs/factions, and any narrative hooks usable in the campaign.
+2. The GM passes the idea to the assistant asking for consistency with: the chosen race and its culture, the starting city-state, the current era (post-Calamity).
+3. The assistant returns: a coherent name (see Naming Appendix), a plausible birthplace, hooks to NPCs/factions, and any narrative hooks usable in the campaign.
 4. Refine together until the player is satisfied.
 
 **Rules on backgrounds:**
@@ -229,8 +229,8 @@ Direct question at the start of the evening: "Who already knows the FFXIV story,
 
 ## 2.5 Practical table tools
 - **Memory Sheet (the "save"):** where and how the WORLD/MSQ state is saved (LEAN, sections [A]-[C]: MSQ position, party level, active subquest). It does NOT store the players' inventory nor the crystals/Blessing (player-managed; crystals announced in play, 06 §B23). See Ch. 19.
-- **Combat canvas:** the GEM first gives a TEXT PREVIEW (initiative/AC/HP of monsters), then on "tracker"/"canvas" an editable tracker with stat blocks and mechanics; PCs roll their own initiative and the GM integrates it. For each encounter the system provides the monsters' abilities and dice.
-- **Requests to the GEM:** for deeper detail and descriptions, the GM queries the GEM via prompts during or between sessions (see 2.7).
+- **Combat tracker:** the assistant first gives a TEXT PREVIEW (initiative/AC/HP of monsters), then on "/tracker" an editable tracker with stat blocks and mechanics; PCs roll their own initiative and the GM integrates it. For each encounter the system provides the monsters' abilities and dice.
+- **Requests to the assistant:** for deeper detail and descriptions, the GM queries the assistant via prompts during or between sessions (see 2.7).
 
 ## 2.6 "Base Starting Lore" package (common knowledge)
 *[ Designed to be copied and handed to players. Contains ONLY what a PC can know without having traveled the world. Anything gated is NOT included. ]*
@@ -260,14 +260,14 @@ Direct question at the start of the evening: "Who already knows the FFXIV story,
 **What PCs do NOT know (Spoiler Policy)**
 - The great plot mysteries, the true nature of the Echo, of the Crystals of Light and of the antagonists remain TO BE DISCOVERED in play.
 
-## 2.7 Deep-dive questions (on request, via GEM)
-When a player wants to know more about a place, faction, culture or NPC within the limits of common knowledge, the GM passes the question to the GEM with a dedicated prompt and returns a more detailed description, always respecting the Spoiler Policy. Guiding principle: maximum useful information, zero spoilers.
+## 2.7 Deep-dive questions (on request)
+When a player wants to know more about a place, faction, culture or NPC within the limits of common knowledge, the GM passes the question to the assistant with a dedicated prompt and returns a more detailed description, always respecting the Spoiler Policy. Guiding principle: maximum useful information, zero spoilers.
 
 ## Session 0 end checklist
 - [ ] FFXIV-knowledge survey done + anti-spoiler pact accepted
 - [ ] Homebrew rules explained (Array, Job, milestone, trinity, telegraphs, KO/Raise + Aether Sickness [WIPE kept SECRET until it first triggers], Limit Break, pace)
 - [ ] Sheets created with Standard Array, full Job from lvl 1
-- [ ] Backgrounds built with the GEM and coherent with the world
+- [ ] Backgrounds built with the assistant and coherent with the world
 - [ ] At least 1 Tank + 1 Healer in the party, no Job duplicates
 - [ ] Everyone starts from the same city, group hook defined
 - [ ] Base Lore package handed to players
@@ -320,7 +320,7 @@ If either fails, the switch waits until it becomes reachable.
 *NOTE FOR THE GM:* treat the change as a small narrative EVENT (a subquest with its own hook), never a mere "respec".
 
 ## 3.5 Background
-The background is built TOGETHER, with the GEM, during Session 0 (full procedure in Ch. 2.2). It must be coherent with race, home city and current era, and stay within common knowledge (Spoiler Policy, Ch. 1).
+The background is built TOGETHER, with the assistant, during Session 0 (full procedure in Ch. 2.2). It must be coherent with race, home city and current era, and stay within common knowledge (Spoiler Policy, Ch. 1).
 
 ## 3.6 Equipment and starting Gil
 - Starting equipment per the Job (see the class files).
@@ -331,7 +331,7 @@ The background is built TOGETHER, with the GEM, during Session 0 (full procedure
 - [ ] Race chosen from the 8 playable + bonuses applied (01_Races)
 - [ ] Job chosen (full from lvl 1), no duplicate in the party
 - [ ] Party with at least 1 Tank + 1 Healer
-- [ ] Coherent background built with the GEM (Ch. 2.2)
+- [ ] Coherent background built with the assistant (Ch. 2.2)
 - [ ] Starting equipment and Gil assigned (Ch. 12)
 
 # CHAPTER 4 — THE ECHO
@@ -650,7 +650,7 @@ A safe but taxing process for body and soul: hence the cost (8.3).
 ## 8.2 Reaching an Aetheryte (no attunement bookkeeping)
 - You can teleport only to an Aetheryte the party has ALREADY VISITED at least once (adjudicated NARRATIVELY by the GM: "have they been here?"), with NO list to keep.
 - There is NO attunement record to keep: neither the GM nor the save tracks it.
-- In play the GEM FLAGS when an Aetheryte is present at a location (e.g. "Ul'dah (Eterite)") as a simple reminder of where one is (06 §B23).
+- In play the assistant FLAGS when an Aetheryte is present at a location (e.g. "Ul'dah (Eterite)") as a simple reminder of where one is (06 §B23).
 - You cannot teleport to an Aetheryte never visited.
 
 ## 8.3 Teleport cost: 1 Hit Die (HD)
@@ -677,9 +677,9 @@ The core of gameplay: telegraphed FFXIV-style combat, where the challenge arises
 - Executing mechanics well -> the fight becomes easy (as it should).
 - NO 'item tax'.
 
-## 9.2 Initiative & Canvas
+## 9.2 Initiative & Tracker
 - The PLAYERS roll their own initiative; the GM slots the monsters into the order.
-- A CANVAS/tracker maintains: initiative order + monster HP (managed by the GM).
+- The tracker maintains: initiative order + monster HP (managed by the GM).
 - For each encounter the GM prepares the MONSTER SHEET: attacks, abilities, damage dice and mechanics.
 
 ## 9.3 Physical telegraph & reaction window
@@ -739,7 +739,7 @@ Each boss lists, for each mechanic:
 # CHAPTER 10 — BALANCE & ENCOUNTER BUILDING
 **PURPOSE:** build balanced encounters with the standard D&D 5e engine (XP thresholds + multipliers) and structure the four contexts: Open Area, Plot Battles, Dungeons, Trials.
 
-> OUTPUT NOTE: the XP tables, multipliers and difficulty labels in this chapter are an INTERNAL GM tool. The GEM uses them to size encounters but must NEVER show them in output: only final values are presented. See 06 (A1 and A16). The tables follow the DMG 2014 (see 06 B6).
+> OUTPUT NOTE: the XP tables, multipliers and difficulty labels in this chapter are an INTERNAL GM tool. The assistant uses them to size encounters but must NEVER show them in output: only final values are presented. See 06 (A1 and A16). The tables follow the DMG 2014 (see 06 B6).
 
 ## 10.1 Cornerstone principle (restated from Ch. 5)
 - Difficulty comes from MECHANICS, not inflated stats.
@@ -1034,7 +1034,7 @@ Defines the FORMAT for presenting places, scenes, NPCs, objects and events: a ba
 - SPOILER POLICY (Ch. 1): the high layers NEVER reveal gated mysteries.
 
 ## 16.2 The block format (template)
-*(LAYOUT NOTE: the fenced box below is an ILLUSTRATIVE layout for reading here; in ACTUAL OUTPUT the GEM renders these blocks as NORMAL TEXT with bold labels — NEVER inside a code block, 06 §A1. Same for the worked example in 16.5. TWO DIFFERENT 'GM Info': this scene-lore 'GM INFO' box is NOT the per-beat continuity '[Info GM]' line of 06 §B1 — that one is a single continuity line that looks no further than the immediate next step. Neither ever prints a gated reveal or a forward spoiler in output; upcoming reveals are derived / on-demand via 'mappa MSQ', 06 §B25.)*
+*(LAYOUT NOTE: the fenced box below is an ILLUSTRATIVE layout for reading here; in ACTUAL OUTPUT the assistant renders these blocks as NORMAL TEXT with bold labels — NEVER inside a code block, 06 §A1. Same for the worked example in 16.5. TWO DIFFERENT 'GM Info': this scene-lore 'GM INFO' box is NOT the per-beat continuity '[Info GM]' line of 06 §B1 — that one is a single continuity line that looks no further than the immediate next step. Neither ever prints a gated reveal or a forward spoiler in output; upcoming reveals are derived / on-demand via 'mappa MSQ', 06 §B25.)*
 ```
 >>> READ ALOUD <<<
   [Base description, perceivable by ALL, to read aloud. No rolls.]
@@ -1124,7 +1124,7 @@ FFXIV tells much of its story through cutscenes. Two kinds, handled differently;
 - Format: player-facing via READ-ALOUD + dialogue (16.2); the GM keeps [Info GM]. TAG the beat '[CUTSCENE IN SCENA]' so the GM sees it is a rail (distinct from an elastic playable beat).
 
 **OFF-SCENE CUTSCENE (the PCs are NOT present — villains plotting, distant councils, etc.): SURFACES AUTOMATICALLY, GM-facing.**
-- WHEN (binding): the GEM presents it ON ITS OWN at the canonical MSQ beat that has one (per the verified Roadmap / wiki) — there is NO 'show me' request trigger. Surface it ONLY where it canonically belongs: never invented, never forced onto a beat that has none.
+- WHEN (binding): the assistant presents it ON ITS OWN at the canonical MSQ beat that has one (per the verified Roadmap / wiki) — there is NO 'show me' request trigger. Surface it ONLY where it canonically belongs: never invented, never forced onto a beat that has none.
 - HOW: append it as a SEPARATE block AFTER the played beat, wrapped '[CUTSCENE ALTROVE — i PG non sono presenti]' + the complete scene. It is GM-FACING by default: NEVER part of the 'Da leggere ai PG' nor auto-narrated to the players — the GM decides whether to read it aloud (a dramatic-irony interlude), keep it GM-only, or skip.
 - ANTI-SPOILER WARNING (binding): if the scene contains a reveal still gated (Ch. 1), add a TERSE '⚠️ reveal protetto' (a short flag, NOT a cautionary sentence).
 - OPTIONAL in-world delivery: the same information may instead reach the PCs as a report, a rumor (Ch. 15), an intercepted letter, an Echo vision (Ch. 4.2) or the aftermath they witness.
@@ -1212,8 +1212,8 @@ Whoever is revived (Raise / Down / Tail) suffers AETHER SICKNESS for 2 TURNS (th
 - RAISE (level, slot): see also Ch. 5. Healer LB3 / LB bar / Wipe-reset: Ch. 6. Phoenix Down/Tail costs: Ch. 12. TEMPERING (Echo-safe) & the sealed-Blessing consequence (defeated Ascians escape): Ch. 5 (5.6).
 
 # CHAPTER 19 — MEMORY SHEET / CONTINUITY
-The campaign's 'save file': the SOURCE OF TRUTH the GM (Gemini) re-reads at the start of every session and updates at the end.
-NOT THE PROCEDURE (binding, retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/stop', '/load', '/confermo' mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
+The campaign's 'save file': the SOURCE OF TRUTH the GM re-reads at the start of every session and updates at the end.
+NOT THE PROCEDURE (binding, retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/fine sessione', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
 
 ## 19.1 Purpose
 - Keep the WORLD/CAMPAIGN STATE between sessions.
@@ -1237,14 +1237,14 @@ Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created 
 
 ## 19.5 Procedures
 - **LOAD / SESSION START:** triggers on 'session start' / 'load' / 'prepare session' OR when the GM ATTACHES or PASTES a file/text containing a save (header '=== SAVE: ... ===' and/or sections [A]-[C]). In that case: interpret the save as the starting state, give a brief faithful recap, then a brief GM-facing orientation — the CURRENT beat + ONLY the SINGLE next MSQ pillar (one milestone) + the real next wiki step, from the Roadmap (08.1) — NOT a numbered-act index and NOT a gated-reveal box. Do not regenerate the save. Recognition details in 06 B17.
-- **RECAP / CONTINUITY SELF-CHECK:** on 'recap' / 'campaign status' the GEM gives a GM-facing, READ-ONLY snapshot of the LEAN save ([A][B][C] + current beat) — never advancing the MSQ, never writing, never listing PC sheets, never printing a gated-reveal box (upcoming reveals on demand via 'mappa MSQ', 06 §B25). Full operational format + continuity self-check: 06 §B19.
+- **RECAP / CONTINUITY SELF-CHECK:** on 'recap' / 'campaign status' the assistant gives a GM-facing, READ-ONLY snapshot of the LEAN save ([A][B][C] + current beat) — never advancing the MSQ, never writing, never listing PC sheets, never printing a gated-reveal box (upcoming reveals on demand via 'mappa MSQ', 06 §B25). Full operational format + continuity self-check: 06 §B19.
 - **NAMED BEATS (campaign):** the campaign advances as NAMED MSQ/subquest beats from the Roadmap (08.1), one per 'continua'/request; NO numbered 'Atti' and NO invented beats (numbered acts are a One-Shot construct). Operational format: 06 §B1/§B2/§B20.
 - **MODULE NATURE:** GM material; it may contain operational info and behind-the-scenes notes, but it is NOT canonical, does NOT modify the Memory Sheet and does NOT imply the events will happen.
 - **DENSITY:** each beat must be playable and dense (dialogues, Q&A, checks, detours, fallbacks, encounters in full). Never declare a beat ready by merely summarizing it.
 - **LORE COMPLIANCE:** for real dungeons/quests do not invent origins, factions, voidsent, experiments, corruption or dark forces not verified. Use Knowledge / 08.1 / Gamer Escape or stay generic.
 - **ENCOUNTERS IN THE MODULE:** if a fight is likely, include the GM-facing encounter package. Full stat blocks on request or on 'prepare encounter'.
 - **MIXED SESSIONS:** investigation + dungeon/trial separated into NAMED beats (investigation, hook, dungeon overview, dungeon blocks, boss, closure/save); no numbered acts (06 §B4).
-- **MSQ RE-HOOK:** on 'MSQ re-hook' the GEM proposes plausible, lore-compliant ways to return to the next canonical step.
+- **MSQ RE-HOOK:** on 'MSQ re-hook' the assistant proposes plausible, lore-compliant ways to return to the next canonical step.
 - **SAVE (single command):** full trigger word, output shape, recap buckets and delta-gate mechanics live ONLY in 06 §B17 ('/STOP — SEQUENCE OVERVIEW') + §B21 + §B24 — not restated here. Campaign-specific reminder: the written save inherits the table-owned PARTY (N PCs + level) VERBATIM; crystals/Blessing & Aetherytes are NOT save fields (player-managed / in-scene flag only, §B23). Operational detail: subquest slot/Bookmark §B22; structure by content §B20; economy §A20-A22.
 - **COMBAT SNAPSHOT:** not an ordinary part of the save; create it only on explicit request.
 
@@ -1262,7 +1262,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 ## 0. Controlled vocabulary (mandatory terminology)
 - **ENTHRALLED / ENTHRALLMENT** - the VULGAR (common) term for Primal mind-domination. (Italian output: Asservito / Asservimento.)
 - **TEMPERED / TEMPERING** - the SCIENTIFIC (learned) term for the same phenomenon. (Italian output: Temprato / Tempra. NEVER "tempering/templaggio".)
-- **Abbreviations:** PC, NPC, GM, GEM, HP, AC, DC, HD, CR, LB, MSQ.
+- **Abbreviations:** PC, NPC, GM, HP, AC, DC, HD, CR, LB, MSQ.
 
 ## A. Term index (alphabetical)
 | Term | Definition | Ch. |
@@ -1273,12 +1273,12 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | ASCIAN | occult antagonists; permanently killable only with the Blessing. | Ch. 5 |
 | ENTHRALLED / ENTHRALLMENT | (vulgar) a mind bent by a Primal. | Ch. 4 |
 | JOB BOARD | optional Levequest-style jobs. | Ch. 15 |
-| BACKGROUND | the PC's story, built with the GEM in Session 0. | Ch. 2 |
+| BACKGROUND | the PC's story, built with the assistant in Session 0. | Ch. 2 |
 | PLOT BATTLE | an MSQ boss fight in a normal zone; allies in the background. | Ch. 10.5 |
 | BLESSING OF LIGHT | a party boon from the Crystals: shatters Ascians + wards vs aetherial corruption; NOT Tempering immunity (that is the Echo). | Ch. 5 |
 | CALAMITY / SEVENTH UMBRAL ERA | recent catastrophe (Dalamud/Bahamut); common knowledge. | Ch. 2 |
 | JOB CHANGE | rare, EARNED via a Soul-Crystal subquest (GM discretion, lore-reachable), in town, keep level; no revert/re-swap without a new subquest; no duplicates. | Ch. 3 |
-| COMBAT CANVAS | a text preview + editable tracker (initiative/monster HP). | Ch. 2 / 9 |
+| COMBAT TRACKER | a text preview + editable tracker (initiative/monster HP). | Ch. 2 / 9 |
 | CUTSCENE | in-scene = railed story beat (reactions only, fixed outcome, '[CUTSCENE IN SCENA]'); off-scene = '[CUTSCENE ALTROVE]' surfaced AUTOMATICALLY at the canonical beat, GM-facing, + anti-spoiler warning; GM decides read/keep/skip. | Ch. 16.6 |
 | PHOENIX TAIL | consumable: revive to full HP + Aether Sickness; shop ONLY. | Ch. 12 |
 | CRAFTING | Downtime (only the skilled): consumables, components ~25% of shop price; never Downs/Tails. | Ch. 14 |
@@ -1310,7 +1310,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | REST (Short/Long) | base D&D 5e rules. | Ch. 5 / 15 |
 | MEMORY SHEET | the "save": world/MSQ state + party level, sections [A]-[C]; NOT crystals/Aetherytes (player-managed, announced in play). | Ch. 19 |
 | SESSION 0 | PC creation, background, rules tutorial, base lore. | Ch. 2 |
-| ATTUNEMENT | deprecated as bookkeeping: no attunement list is tracked; the GEM only flags Aetheryte presence in-scene ('Luogo (Eterite)'). | Ch. 8 |
+| ATTUNEMENT | deprecated as bookkeeping: no attunement list is tracked; the assistant only flags Aetheryte presence in-scene ('Luogo (Eterite)'). | Ch. 8 |
 | SOUL CRYSTAL | the soul crystal that enables a Job. | Ch. 3 |
 | SUBQUEST | optional local missions, faithful to the game. | Ch. 13 |
 | TANK | role: aggro, protection, defenses. | Ch. 2 / 3 |

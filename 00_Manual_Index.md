@@ -1,10 +1,10 @@
-# 00_MANUAL_INDEX - General Index, Conventions & Routing (for the GEM)
-Version v1.21
+# 00_MANUAL_INDEX - General Index, Conventions & Routing (for the assistant)
+Version v1.22 (Claude-native)
 
 ## SCHEMA NOTES
 - PURPOSE: this file is a lightweight INDEX / ROUTING + CONVENTIONS layer. It does NOT duplicate rules or lore - it points to where the authoritative content lives. (Duplication across files is avoided on purpose.)
-- DATA LANGUAGE = English (single source of truth). The GEM renders flavor into Italian at OUTPUT.
-- KNOWLEDGE-FILE PRECEDENCE: the knowledge files are the AUTHORITATIVE source (data + rules). In conflict with generic/training knowledge, the files prevail. Operational behavior lives in the Gem INSTRUCTIONS (control layer) and in the FORMATS of 06; data files are not commands.
+- DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
+- KNOWLEDGE-FILE PRECEDENCE: the knowledge files are the AUTHORITATIVE source (data + rules). In conflict with generic/training knowledge, the files prevail. Operational behavior lives in the Campaign INSTRUCTIONS (control layer) and in the FORMATS of 06; data files are not commands.
 - CITATION: cite across files ONLY in the short form "NN (Section)" (e.g. "06 §A8", "05 Ch. 1"). NEVER print a file's name/extension in user output (see 06 §A1).
 
 # FILE STRUCTURE (9 knowledge files, sequential 00-08)
@@ -16,7 +16,7 @@ Version v1.21
 | 03 (Spells) | Spell lists by caster Job + homebrew spell descriptions (metric). |
 | 04 (Bestiary) | Monsters by creature class -> genus -> species + Primals. |
 | 05 (Campaign) | Campaign RULES only: Section A (Ch. 1-20). [The MSQ flow was split out to 08 (MSQ_Flow).] |
-| 06 (Procedures_and_Format) | GEM operational formats, procedures & SHARED RULES (Parts A-E). |
+| 06 (Procedures_and_Format) | assistant operational formats, procedures & SHARED RULES (Parts A-E). |
 | 07 (Glossary) | Naming SYSTEM (method + parenthesis test + element map + validated examples) and ALL binding renderings: aether family, coined/game terms, demonyms, places/hubs (ARR-DT), factions/orgs/titles, taverns/NPCs, race clans, class (Job) names, villain epithets, the Void & enemy/cosmology terms, Primals/summons, beast tribes, the ability/spell-name policy (G24), recurring FF monster names (G25), Dawntrail/Tural names (G26; OUT OF SCOPE for the Campaign) and iconic phrases (G27). |
 | 08 (MSQ_Flow) | The MSQ FLOW (split from 05): 08.1 = MSQ Roadmap ARR->EW + the 5 CANONICAL CUTSCENE & REVEAL MANIFESTS (ARR/HW/SB/ShB/EW); 08.2-08.6 = the ordered MSQ index (giver + steps + Next); 08.OST-ARR..08.OST-EW = duty OST tables; 08.OST-SCENE-ARR..EW = scene/mood OST tables (city/zone/cutscene). |
 Sequential numbering 00-08, no gaps (08 = the MSQ flow, split from 05).
@@ -58,12 +58,12 @@ Sequential numbering 00-08, no gaps (08 = the MSQ flow, split from 05).
 - Role Action Feats -> 01 (Races) Ch. 4.
 - Monster / Primal stat blocks -> 04 (Bestiary); construction & anchoring rules -> 06 §B6; monster NAME renderings -> 07 (Glossary) G25/G23.
 - Campaign rules -> 05 (Campaign) Section A.  - MSQ order/sequence -> 08.1 (the FULL ARR->EW quest-by-quest ordered chain is cached in 08.2 (ARR) + 08.3 (HW) + 08.4 (SB) + 08.5 (ShB) + 08.6 (EW); campaign FINALE = the quest Endwalker, then the epilogo, 06 §B27).
-- MSQ manifests (canonical cutscenes/reveals per beat, reveal/spoiler timing) -> 08.1 (per-arc Beat Manifests); read-only audit via 06 §B25 "mappa MSQ" (Campaign) or as READ-ONLY reference by the Loremonger Gem.
+- MSQ manifests (canonical cutscenes/reveals per beat, reveal/spoiler timing) -> 08.1 (per-arc Beat Manifests); read-only audit via 06 §B25 "mappa MSQ" (Campaign) or as READ-ONLY reference by the Loremonger role.
 - Operational FORMATS & SHARED RULES -> 06 (Procedures_and_Format).
 - Limit Break (LB1/LB2 by role, LB3 by Job) -> 05 Ch. 6.
 - Memory Sheet / save template -> 06 §B17 (referenced by 05 Ch. 19).
 
 # ONE-SHOT NOTE
-The One-Shot mode uses the same knowledge but a separate GEM. Templates and constraints in 06 (Procedures_and_Format) Part C. Normal PCs, no Echo/Crystals/Blessing, no direct Primals; scope is unlimited by arc (06 §A19).
+The One-Shot mode uses the same knowledge but a separate assistant. Templates and constraints in 06 (Procedures_and_Format) Part C. Normal PCs, no Echo/Crystals/Blessing, no direct Primals; scope is unlimited by arc (06 §A19).
 
 END OF FILE - 00_Manual_Index (index, conventions, routing for the 00-08 knowledge set).

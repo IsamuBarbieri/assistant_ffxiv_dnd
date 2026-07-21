@@ -1,9 +1,9 @@
 # 02_CLASSES — Jobs
-Version v0.7 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
+Version v0.8 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted for parsing.
-- DATA LANGUAGE = English (single source of truth). The GEM renders flavor into Italian at OUTPUT.
+- DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted (decimal POINT in data; render with comma at output). Key: 5 ft=1.5 m, 10 ft=3 m, 15 ft=4.5 m, 20 ft=6 m, 30 ft=9 m, 40 ft=12 m, 60 ft=18 m, 100 ft=30 m, 120 ft=36 m.
 - Mechanics (feature names, conditions, spells, dice) stay English and verbatim. Do NOT invent features.
 - HP_ref = default pre-calculated hit points per level (fixed-average method, WITHOUT Constitution). Default PF = HP_ref[level] + (CON modifier x level). This value is STABLE — reuse it identically for the same Job+level. It anchors PF in-range so impossible totals never appear. By Hit Die: d6 = 6 +4/lvl; d8 = 8 +5/lvl; d10 = 10 +6/lvl; d12 = 12 +7/lvl.

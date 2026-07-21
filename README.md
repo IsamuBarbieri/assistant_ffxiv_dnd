@@ -1,2 +1,2 @@
 # gem_ffxiv_dnd
-FFXIV × D&amp;D 5e GEM
+FFXIV × D&D 5e — Claude Project (Campaign)
