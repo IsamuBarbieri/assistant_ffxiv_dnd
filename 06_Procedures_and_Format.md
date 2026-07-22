@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v4.53 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v4.54 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -62,6 +62,7 @@ STRUCTURAL TERMINOLOGY: in ONE-SHOTS (Part C) the module sections are ACTS (Act 
 - **PLACE/SCENE (binding, extends §A3 - describe how the place is made):** every NEW location/scene a beat ENTERS also gets a concrete VISUAL description of the ENVIRONMENT - 1-2 sentences on HOW the place LOOKS (architecture, terrain, light, mood, notable features), consistent with the real zone/era/faction (§A6/§A8), no unverified lore. This is SEPARATE from and ADDITIONAL to the creature/NPC 'Descrizione visiva:' - a beat that introduces a new place AND a new NPC describes BOTH. It fires at the FIRST entry into that place (not every scene inside it) and never leaks a gated reveal (§B1); the Map link (§A4) accompanies it at a new zone/dungeon/trial. PLACEMENT (binding): the visual description (place AND creature/NPC) is rendered AT THE POINT OF ARRIVAL/REVEAL inside the played narration — AFTER the travel/approach lead-in, at the moment the party actually reaches the place or sees the subject — NEVER pre-loaded at the TOP of the beat before the 'Da leggere ai PG' journey text; read order for the GM = journey/approach FIRST, then the detailed look of the place and who is there.
 
 ## §A4 — IMAGES & VISUAL REFERENCE
+NEVER CALL A MEDIA TOOL (binding, platform-agnostic): media output is ALWAYS a hand-written markdown SEARCH LINK (format below) — NEVER a tool call. If an image_search / web-search / media tool is available in the environment, do NOT invoke it to fetch, preview or embed an image/map/track (no carousel, no inline result); the GM chooses what to open from the link. The 'INLINE / integrated search' wording below is LEGACY (Gemini-era) and is SUPERSEDED wherever a platform override sets link-only — treat the link as the sole media output.
 TRIGGER: "mostrami", "che aspetto ha", "cerca immagine", "immagine di", "visual reference", "fammi vedere", "come appare", "foto di", "img", "con immagine", or the first introduction of a notable creature/boss/NPC/place.
 HOW TO DO IT: Internally rephrase as "search image of [subject] ffxiv" to trigger the integrated search.
 HIERARCHY (inline AND link TOGETHER):
