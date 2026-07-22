@@ -5,7 +5,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.30 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.31 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -42,6 +42,7 @@ Reference: see Section A Ch. 5 (Milestone Progression); this file is its detail.
 **ARR REVAMPED-DUTY LOCK (binding — for these duties use ONLY the current data below):**
 *Most ARR duties keep their ORIGINAL bosses/gimmicks (6.1 mostly trimmed trash) — for those the normal 'current version' rule + wiki suffice. The few duties below were STRUCTURALLY changed; the model's memory is stale on them and wiki pages list the OLD bosses/mechanics too, so use ONLY this and NEVER re-add a retired boss/gimmick.*
 - **The Thousand Maws of Toto-Rak** (5.3 rework): gimmick = ACTIVATE TERMINALS (Confession Chamber terminal -> Fool's Rest terminal -> open the Abacination Chamber door), NOT the retired 'collect Photocells' hunt. Roster: mini-boss COEURL O' NINE TAILS (encountered TWICE) - despite the feline-sounding NAME it is an OCHU (plant / Seedkin), NOT a coeurl: render it as a carnivorous plant (NAME != NATURE, 06 §A3) - then the final boss GRAFFIAS (a diremite/banemite: green-goo puddles, Fleshy Pod adds, destructible tail at 50%). The dungeon TRASH theme is Vilekin (spiders/mites), but the Coeurl O' Nine Tails mini-boss ITSELF is a plant.
+  - **NO MAGITEK / ALLAGAN (binding, observed family-wide drift):** Toto-Rak is an ANCIENT GELMORRAN prison overgrown by the wood, NOT a Garlean or Allagan site. The 'terminals' are OLD AETHERIC/organic-hydraulic mechanisms of Gelmorran make — living crystal, root-fed conduits, carved stone — NEVER 'magitek consoles', Allagan tech, ceruleum, or Garlean machinery. The word 'terminal' here is a translation of an antique mechanism; do NOT let it prime a sci-fi reframe. The puzzles resolve through organic/aetheric means (clear a root, channel aether, read carved glyphs), never by 'rewiring circuits'.
 - **Castrum Meridianum** (6.1): EXACTLY 3 bosses — The Black Eft -> Magitek Vanguard F-1 -> Livia sas Junius (final). There is NO 'Magitek Colossus Rubricatus' (that boss belongs to the retired 8-player version).
 - **The Praetorium** (6.1): keeps the magitek-armour ride, then Mark II Magitek Colossus (fought on foot) -> Nero tol Scaeva -> Gaius van Baelsar. The ULTIMA WEAPON is NOT here — it is its own trial, The Porta Decumana.
 - **Cape Westwind** (Rhitahtyn sas Arvina): now a SOLO instance battle (was an 8-player trial).
@@ -97,7 +98,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - IN-SCENA: Ifrit (Bowl of Embers) — the Amalj'aa summon Ifrit; the tempering wave hits the party but the ECHO lets them RESIST (proof they are special) -> Crystal #2 FIRE.
 - IN-SCENA [Toto-Rak, BEFORE the boss]: LAHABREA appears and NAMES HIMSELF ('Lahabrea of the Ascians, servant to the one true god'), mocks the defeat of Ifrit and calls the Echo an 'irksome anomaly in the aether', then unleashes the banemite (= the boss Graffias). [WIKI-VERIFIED]
 - VISIONE DELL'ECO [Toto-Rak, AFTER the boss]: Echo-flashback — Garlean soldiers discuss their failure to compel the sylphs to summon Ramuh; a masked figure alludes to an 'ultimate weapon'. Hits the WHOLE party. ⚠️ reveal protetto (the 'ultimate weapon' hint).
-- IN-SCENA: the sylph elder Frixio is freed -> Crystal #3 LIGHTNING.
+- IN-SCENA: the sylph elder Frixio is freed -> Crystal #3 LIGHTNING. FRIXIO IS A SYLPH (binding): third-person idiolect ('Frixio vi ringrazia', 'Frixio non dimentica'), leaf/petal features, floats — NEVER moogle traits ('kupo', pom-pom, wings-of-a-bat); he is a plant-spirit, not a moogle.
 - REVEAL: LAHABREA is named (an Ascian, 'servant of the one true god'); the Ascians resent the Echo. FROM THIS BEAT ON the masked man may be called Lahabrea. (This supersedes any 'keep all Ascians unnamed' save note for later beats.)
 - GATED: Lahabrea possessing Thancred; the full nature of the Ultima Weapon.
 
