@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v1.92 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v1.93 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -990,15 +990,17 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 - Available activities = ONLY Gathering, Crafting, Research/Study.
 - **DOWNTIME IS UNBOUND FROM /riposo:** the Gathering/Crafting/Research activities above are GM-run table options at any stop; they are NOT tied to a rest command and /riposo does NOT invoke them. The /riposo command (06 §B28) produces a LONG REST only.
 
-## 14.6 Camp & Watch (the long-rest camp mechanic)
-Covers the CAMP of a LONG REST when the party rests OUTDOORS (no real canonical shelter — see 06 §B28). The short rest stays base 5e rules run by the GM (regain slots, spend HD), not assisted by /riposo.
-- **DANGER RATING (assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone (06 §A6):
+## 14.6 Random Events: Travel & Camp (the shared roll)
+One shared mechanic drives both the TRAVEL check (06 §B26 /viaggio) and the CAMP check of a LONG REST outdoors (06 §B28 /riposo). The short rest stays base 5e rules run by the GM (regain slots, spend HD), not assisted by /riposo.
+- **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone (06 §A6). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
   - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
   - **Rischioso** — open wilderness, a contested border, unsettled land.
   - **Ostile** — a monster-infested zone, enemy territory, a cursed/pressured area.
-- **ONE NIGHT CHECK (single roll for the whole night — light, per the campaign's table ethos):** 1d20 vs a threshold by rating (guideline, GM-tunable): Tranquillo ambush on ≤3 · Rischioso on ≤8 · Ostile on ≤14. On a hit → a night ambush (a zone-consistent §B13 encounter, scaled §B11, loot §A21); otherwise a COLOUR event (a shared meal, a fireside confession, a distant light, a passing traveller) — always something, never 'nothing happens'.
-- **WATCH ORDER:** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
-- **THE LONG REST ALWAYS COMPLETES:** a resolved ambush does NOT cancel it — /riposo never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
+- **ONE CHECK (single roll — light, per the campaign's table ethos):** 1d20 vs a threshold by rating (guideline, GM-tunable): Tranquillo event on ≤3 · Rischioso on ≤8 · Ostile on ≤14. On a hit → ONE event; on a miss → see the branch difference below.
+- **EVENT MENU (on a hit — pick ONE, zone-consistent §B13/§A6, spanning good/neutral/bad, not only threats):** GOOD — a traveller who helps, a hidden cache, a merchant with a good deal; NEUTRAL — a vista, a minor NPC, a harmless meeting; BAD — an ambush, an NPC in peril, a fight, an environmental hazard. A combat event scales per §B11, loot per §A21. Never a mini-dungeon; one event only.
+- **MISS DIFFERS BY BRANCH (binding):** at a CAMP a miss still yields a COLOUR event (a shared meal, a fireside confession, a distant light) — always something. On TRAVEL a miss yields an UNEVENTFUL passage — nothing happens, the journey simply passes.
+- **WATCH ORDER (camp):** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
+- **THE LONG REST ALWAYS COMPLETES (camp):** a resolved ambush does NOT cancel it — /riposo never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
 - Design references (structure, not verbatim): DMG "Random Encounters", OSR/Shadowdark watch-checks, the travel/camp procedures of published wilderness adventures.
 
 # CHAPTER 15 — TAVERNS & GOSSIP
