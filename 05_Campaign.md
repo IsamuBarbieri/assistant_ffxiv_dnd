@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v1.93 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v1.94 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -996,7 +996,8 @@ One shared mechanic drives both the TRAVEL check (06 §B26 /viaggio) and the CAM
   - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
   - **Rischioso** — open wilderness, a contested border, unsettled land.
   - **Ostile** — a monster-infested zone, enemy territory, a cursed/pressured area.
-- **ONE CHECK (single roll — light, per the campaign's table ethos):** 1d20 vs a threshold by rating (guideline, GM-tunable): Tranquillo event on ≤3 · Rischioso on ≤8 · Ostile on ≤14. On a hit → ONE event; on a miss → see the branch difference below.
+- **ONE CHECK (single roll — light, per the campaign's table ethos):** 1d20 vs a threshold by rating (guideline, GM-tunable): Tranquillo event on ≤5 (25%) · Rischioso on ≤11 (55%) · Ostile on ≤16 (80%). On a hit → ONE event; on a miss → see the branch difference below.
+- **THE GM ROLLS — THE ASSISTANT PRE-GENERATES BOTH BRANCHES IN ONE TURN (binding):** the assistant does NOT roll. It sets up the scene, states the danger rating + threshold ('tira 1d20, evento su ≤N'), and generates BOTH labelled outcomes in the SAME turn — '**Tiro ≤N (evento):** …' and '**Tiro >N (nessun evento):** …' — then the GM rolls a REAL d20 and plays/reads the matching branch. WHY (binding): the GM gets a genuinely random die (an LLM is a poor RNG), AND it costs ONE turn/message, not two — if the assistant stopped and waited for the result, resolving the chosen branch would need a SECOND turn that re-processes the whole context (a message against a capped plan). Both branches are ALWAYS present because a miss STILL has content (see below), so nothing is saved by omitting one. If the '≤N (evento)' branch is a combat, generate its stat block there (it is ready if the GM rolls into it).
 - **EVENT MENU (on a hit — pick ONE, zone-consistent §B13/§A6, spanning good/neutral/bad, not only threats):** GOOD — a traveller who helps, a hidden cache, a merchant with a good deal; NEUTRAL — a vista, a minor NPC, a harmless meeting; BAD — an ambush, an NPC in peril, a fight, an environmental hazard. A combat event scales per §B11, loot per §A21. Never a mini-dungeon; one event only.
 - **MISS DIFFERS BY BRANCH (binding):** at a CAMP a miss still yields a COLOUR event (a shared meal, a fireside confession, a distant light) — always something. On TRAVEL a miss yields an UNEVENTFUL passage — nothing happens, the journey simply passes.
 - **WATCH ORDER (camp):** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
