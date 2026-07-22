@@ -4691,5 +4691,3 @@ KEY SCENES:
 
 > **ENDWALKER 6.0 COMPLETE** (108 quests, installments 29-33, CGW-verified, coordless). Seam confirmed: **Endwalker -> Newfound Adventure**.
 > Next: **ENDWALKER PATCHES 6.1-6.55** (Newfound Adventure -> ... -> Growing Light), the last block before the full ARR->EW merge.
-
-<!-- v3.26: ARR REVAMPED-DUTY LOCK (Toto-Rak) corrected - Coeurl O' Nine Tails is an OCHU (plant/Seedkin) mini-boss (x2), NOT a coeurl and NOT 'sole boss Graffias'; the earlier 'NOT plant/Ochu' note was wrong. Graffias stays the diremite final boss. Aligns with 06 v4.27 NAME != NATURE. -->

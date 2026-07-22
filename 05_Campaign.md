@@ -1340,5 +1340,3 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 
 ## RULE NOTE - BLESSING STATE (Ch. 5.5 / 7.4)
 The Blessing of Light is 'complete/active' ONLY with all 6 crystals (6/6). With 1-5 crystals the correct state is 'incomplete/developing'. The #6 Wind (after Garuda) is the last piece that completes it. Never mark 'complete/active' before the sixth crystal.
-
-<!-- v1.89 REFACTOR (data-file dedup, content-safe): save-command refs word-agnostic (defer to 06 B17, fixes stale salva/stop mismatch); Ch.1.7 per-city MSQ opening lines pointed to 08.2; Ch.19.5 RECAP+SAVE bullets compressed to 05-owned rules + pointers to 06. Ch.5.3 KEPT intact (load-bearing for 06 B24 beat->level). NO rule/number/reveal-gate changed. -->
