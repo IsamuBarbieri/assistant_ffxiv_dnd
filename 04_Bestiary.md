@@ -1,11 +1,11 @@
 # 04_BESTIARY — RAIMDELLE CODEX ASGARD
-Version v1.1 | Source: Raimdelle Codex Asgard (community monster manual for the FFXIV x D&D 5e Compendium)
+Version v1.3 | Source: Raimdelle Codex Asgard (community monster manual for the FFXIV x D&D 5e Compendium)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. Statblocks reproduced verbatim; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted (decimal POINT in data; render with comma at output). Key: 5 ft=1.5 m, 10 ft=3 m, 15 ft=4.5 m, 20 ft=6 m, 25 ft=7.5 m, 30 ft=9 m, 35 ft=10.5 m, 40 ft=12 m, 45 ft=13.5 m, 50 ft=15 m, 60 ft=18 m, 100 ft=30 m, 120 ft=36 m, 150 ft=45 m, 200 ft=60 m, 300 ft=90 m, 500 ft=150 m.
-- Monsters use FIXED hit points (no HP_ref). Dice, saves, conditions, CR/XP stay English and verbatim. Do NOT invent stats.
+- Monsters store FIXED hit points here (no HP_ref), in English. ROLE (06 §B6 scale-first): each block is a LORE/CHASSIS reference — use it for the creature's type, signature moves, behaviour and defensive profile (resistances/vulnerabilities/immunities/senses); its printed CR/HP/damage are a STARTING POINT to SCALE to the target GdS (HP within the GdS band-range), NOT a verbatim authority. So a block's own CR need not match the encounter's GdS, and known data errors here are harmless (they get scaled away). Never free-invent numbers — scale from a chassis + the band.
 - ORGANIZATION: 13 creature classes (Ashkin, Beastkin, Cloudkin, Dragon, Forgekin, Primals, Scalekin, Seedkin, Soulkin, Spoken, Vilekin, Voidsent, Wavekin). Within a class, by genus then species.
 - OCR FLAGS: source-extraction errors are flagged inline as [OCR: ...] rather than silently "fixed" or invented.
 - This file is built in blocks (append workflow). v0.1 = Block 1 (Ashkin, Beastkin, Cloudkin).
@@ -438,7 +438,7 @@ Large scalekin with serpentine neck/tail; flatten prey and use Cold Gaze to para
 Small insect-eaters that ambush from the trees; temperamental, territorial, and fearless.
 
 ### Puk — Small beast, unaligned
-- AC 13 | HP 55 (10d6+20) | Speed 9 m, 3 m fly | CR 1/2 (100 XP)
+- AC 13 | HP 22 (4d6+8) | Speed 9 m, 3 m fly | CR 1/2 (100 XP)
 - STR 13(+1) DEX 16(+3) CON 14(+2) INT 5(-4) WIS 12(+1) CHA 6(-3)
 - Saving Throws Dexterity +5 | Skills Acrobatics +5 | Senses passive Perception 11 | Languages —
 - Ambusher. Advantage on attack rolls in round 1 against any creature it surprised.

@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v1.94 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v1.97 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -743,7 +743,7 @@ Each boss lists, for each mechanic:
 
 ## 10.1 Cornerstone principle (restated from Ch. 5)
 - Difficulty comes from MECHANICS, not inflated stats.
-- Monsters and bosses have FAIR, BY-THE-BOOK stats for their CR. (The ONLY allowed deviation: elite/legendary bosses may carry a larger HP reserve — see Ch. 6.6 and 06 §B6 — while attack bonus, damage/round and save DC stay strictly WITHIN the CR band.)
+- Monsters and bosses have FAIR, BY-THE-BOOK stats for their CR. On-the-fly creatures are BUILT to the target GdS scale-first (06 §B6): a lore-fit chassis supplies type/moves/behaviour/defences, and the NUMBERS are scaled to the GdS band (HP as a RANGE picked by the creature's defences — see 06 §B6), never inflated by hand. (The ONLY allowed deviation: elite/legendary bosses may carry a larger HP reserve — see Ch. 6.6 and 06 §B6 — while attack bonus, damage/round and save DC stay strictly WITHIN the CR band.)
 - Mechanics executed well -> a manageable fight; ignored -> escalation up to Enrage / a Wipe blow (Ch. 9).
 - No "item tax".
 
@@ -922,15 +922,16 @@ Subquests are WELCOME: they enrich the world, explore lore and show places the M
 - If suitable material is missing, BUILD it coherently with local lore (coherent reskins, Ch. 10 / 06), correct names and flavor.
 - The GM VERIFIES sources before proposing: better a small, accurate subquest than a large, wrong one.
 
-## 13.4 Proportionate rewards (to level AND lore)
+## 13.4 Proportionate rewards AND difficulty (to level AND lore)
 - Sense relative to: the party's LEVEL; the quest's LORE (WHO gives it and WHY).
 - **Economic consistency:** a commoner does not pay like a noble; a noble/guild/officer can offer value.
 - Suitable rewards: reasonable Gil, consumables, coherent gear, relic stages, unique lore/access/contacts.
 - Avoid 'broken' loot, absurd sums, out-of-scale items.
+- **PROPORTIONATE ENCOUNTER DIFFICULTY (binding — same engine, no new tables):** a subquest's FIGHTS are built on the standard Ch.10.2 engine to a target difficulty that MATCHES the subquest's STAKES / locale danger — a light errand → **Facile (Easy)**, a routine job → **Media (Medium)**, a dangerous hunt/clearing → up to **Difficile (Hard)** — sized to the group's XP budget (Ch.10.2a×10.2b, party-size Ch.10.3) with by-the-book stat blocks (06 §B6, no inflation). A subquest is NOT an MSQ-boss-grade fight unless its framing genuinely warrants one; never ad-hoc/over-tuned. (Same context-tier discipline as the travel/camp ambush, Ch.14.6.)
 
-## 13.5 One subquest at a time
+## 13.5 One subquest at a time (with a SUSPEND state)
 - Try NOT to have more than one subquest active at a time.
-- CLOSE it (or suspend it clearly) before taking another. Only ONE active subquest fits the slot: to take another you must first finish or abandon it, and SWITCHING loses the previous one (no parked-leads list). Operational single-slot system + MSQ Bookmark: 06 (B22).
+- The single slot [C] carries a STATE: ATTIVA (played by /continua) or SOSPESA (parked while the party returns to the MSQ). Returning to the MSQ does NOT drop the subquest — it SUSPENDS it, keeping name + progress (+ the full dossier for an invented one); it can be resumed later. The slot still holds only ONE subquest (no parked-leads LIST): taking a NEW subquest while one is suspended REPLACES it and loses the previous one. The slot clears ONLY when a subquest is concluded at its turn-in, or is replaced by a newly accepted one. Operational commands (/riprendi MSQ suspends, /riprendi SQ resumes) + single-slot system + MSQ Bookmark: 06 (B22).
 
 ## 13.6 Continuity with the MSQ - 'MSQ Bookmark'
 When the party takes a subquest, SAVE a BOOKMARK of the MSQ point:
@@ -941,10 +942,10 @@ When the subquest ends, RETURN EXACTLY to that point. Full system in Ch. 19; ope
 1. HOOK: a place-consistent prompt emerges (13.2/13.3).
 2. CHOICE: the group decides whether to take it.
 3. BOOKMARK: save the MSQ point (13.6).
-4. PREPARATION: the GM verifies sources, sets NPCs/locations/monsters and a proportionate reward.
+4. PREPARATION: the GM verifies sources, sets NPCs/locations/monsters, a target encounter DIFFICULTY tier matching the subquest's stakes (Facile/Media/Difficile, built on Ch.10.2 — see 13.4), and a proportionate reward.
 5. PLAY: it is played (dynamic combat as Ch. 9).
 6. RESOLUTION / TURN-IN (a PLAYED beat, still ON_SUBQUEST): return to the COMMISSIONER (the NPC who gave the hook) at their location — or the canonical turn-in NPC if the quest structures it so — for the CLOSING SCENE + the REWARD (13.4). A subquest is NOT concluded at the objective; it concludes at this turn-in — never fold it straight into the MSQ nor reduce it to a one-line 'hand it in later'.
-7. CLOSURE + RETURN: ONLY AFTER the turn-in the subquest ENDS (the slot clears); then resume the MSQ from the saved bookmark with a short re-hook. Operational lifecycle: 06 §B22.
+7. CLOSURE + RETURN: ONLY AFTER the turn-in the subquest ENDS (the slot clears); then resume the MSQ from the saved bookmark with a short re-hook. SUSPEND (not the same as closure): at any point the party may return to the MSQ with '/riprendi MSQ' — this SUSPENDS the subquest (slot kept, marked SOSPESA, progress preserved), and '/riprendi SQ' resumes it later from that exact point. Operational lifecycle: 06 §B22.
 
 ## 13.8 Cross-references
 - Full continuity/save: Ch. 19. Encounter building / reskin: Ch. 10 and 06. Economic value: Ch. 12. MSQ roadmap: 08.1 and Ch. 5.
@@ -992,13 +993,15 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 
 ## 14.6 Random Events: Travel & Camp (the shared roll)
 One shared mechanic drives both the TRAVEL check (06 §B26 /viaggio) and the CAMP check of a LONG REST outdoors (06 §B28 /riposo). The short rest stays base 5e rules run by the GM (regain slots, spend HD), not assisted by /riposo.
-- **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone (06 §A6). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
+- **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone GEOGRAPHY (06 §A6/§A8). GEOGRAPHY ANCHOR (binding): a route/camp INSIDE or immediately ADJACENT to a major hub, or in settled/patrolled friendly territory, is **Tranquillo by default** (tamed, watched) — Rischioso/Ostile require the real geography of open wilderness, a contested border, or an infested/hostile zone; do NOT rate the safe approaches of a city as Rischioso (failure shape: a patrolled leg at a city's doorstep tagged Rischioso, which then forced a harder encounter than the place warrants). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
   - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
   - **Rischioso** — open wilderness, a contested border, unsettled land.
   - **Ostile** — a monster-infested zone, enemy territory, a cursed/pressured area.
 - **ONE CHECK (single roll — light, per the campaign's table ethos):** 1d20 vs a threshold by rating (guideline, GM-tunable): Tranquillo event on ≤5 (25%) · Rischioso on ≤11 (55%) · Ostile on ≤16 (80%). On a hit → ONE event; on a miss → see the branch difference below.
 - **THE GM ROLLS — THE ASSISTANT PRE-GENERATES BOTH BRANCHES IN ONE TURN (binding):** the assistant does NOT roll. It sets up the scene, states the danger rating + threshold ('tira 1d20, evento su ≤N'), and generates BOTH labelled outcomes in the SAME turn — '**Tiro ≤N (evento):** …' and '**Tiro >N (nessun evento):** …' — then the GM rolls a REAL d20 and plays/reads the matching branch. WHY (binding): the GM gets a genuinely random die (an LLM is a poor RNG), AND it costs ONE turn/message, not two — if the assistant stopped and waited for the result, resolving the chosen branch would need a SECOND turn that re-processes the whole context (a message against a capped plan). Both branches are ALWAYS present because a miss STILL has content (see below), so nothing is saved by omitting one. If the '≤N (evento)' branch is a combat, generate its stat block there (it is ready if the GM rolls into it).
 - **EVENT MENU (on a hit — pick ONE, zone-consistent §B13/§A6, spanning good/neutral/bad, not only threats):** GOOD — a traveller who helps, a hidden cache, a merchant with a good deal; NEUTRAL — a vista, a minor NPC, a harmless meeting; BAD — an ambush, an NPC in peril, a fight, an environmental hazard. A combat event scales per §B11, loot per §A21. Never a mini-dungeon; one event only.
+- **VALENCE SKEWS WITH THE DANGER RATING (binding — one die, no second roll):** the single roll decides only WHETHER an event fires (frequency, above); when one fires, its VALENCE is not free but LEANS with the route/zone rating — **Tranquillo** → mostly GOOD/NEUTRAL (a hostile ambush here is the rare exception); **Rischioso** → a genuine MIX of the three; **Ostile** → mostly BAD (a fight, an NPC in peril, an environmental hazard) with good/neutral rare. The assistant picks the event INSIDE the rating's valence band — a peaceful zone does not routinely throw ambushes, an infested one does not routinely offer helpful merchants. No extra roll and no extra branch: the two pre-generated branches stay 'evento' vs 'niente'.
+- **COMBAT DIFFICULTY = THE DANGER RATING, on the EXISTING engine (binding — no new tables):** when the event is a FIGHT (a travel ambush, a camp agguato), its DIFFICULTY is fixed by the route/zone danger rating and BUILT on the standard encounter engine of Ch.10.2 — **Tranquillo → Facile (Easy)** · **Rischioso → Media (Medium)** · **Ostile → Difficile (Hard)**. Size it to the group's XP budget for that tier (Ch.10.2a thresholds × the Ch.10.2b count multiplier, adjusted for party size Ch.10.3) with BY-THE-BOOK stat blocks (06 §B6, no inflation) — NEVER an ad-hoc/over-tuned block. (Ch.10.4 already flags travel/rest ambushes as target Easy/Medium; this just pins the tier to the rating.) FAILURE SHAPE (observed): a Tranquillo camp that threw 3 creatures of ~55 HP each — many multiples over the Facile budget.
 - **MISS DIFFERS BY BRANCH (binding):** at a CAMP a miss still yields a COLOUR event (a shared meal, a fireside confession, a distant light) — always something. On TRAVEL a miss yields an UNEVENTFUL passage — nothing happens, the journey simply passes.
 - **WATCH ORDER (camp):** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
 - **THE LONG REST ALWAYS COMPLETES (camp):** a resolved ambush does NOT cancel it — /riposo never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
@@ -1242,7 +1245,7 @@ NOT THE PROCEDURE (binding, retrieval note): this chapter explains WHAT is track
 ## 19.3 What it tracks (LEAN save, sections [A]-[C], aligned to 06 §B17)
 - **[A] MSQ POSITION:** the current mission (EN) + the LAST COMPLETED step (= resume anchor); nothing predictive (next step, place, milestone are DERIVED from the wiki quest chain, not stored). (Crystals/Blessing are NOT in the save (Aetherytes only flagged in-scene, not tracked) — player-managed and announced in play; see 06 §B23.)
 - **[B] PARTY (table-owned):** number of PCs + current level — copied VERBATIM from the save, NEVER derived from the arc nor 'corrected'. Used for encounter balancing and the tracker PC count.
-- **[C] ACTIVE SUBQUEST:** exactly ONE active subquest at a time (name + progress + MSQ return point), or 'nessuna'; changing subquest loses the previous one (Ch. 13). No parked-leads list.
+- **[C] ACTIVE SUBQUEST:** exactly ONE subquest at a time (name + STATE ATTIVA/SOSPESA + progress + MSQ return point), or 'nessuna'; SUSPENDING it (/riprendi MSQ) keeps it, taking a NEW one replaces and loses the previous (Ch. 13). Still a single slot — no parked-leads LIST.
 - **Sessione: N (session counter):** a dedicated table-owned integer (copied VERBATIM, +1 only when beats were played this session); the '=== SAVE ===' header carries no title. Aligned to 06 §B17 (the sole save-template source).
 Everything else is DERIVED, not stored: what the PCs know, NPC reputations, Grand Company state, world-state and the reveal state are all a function of the MSQ position + the internal reveal gates (Ch. 1) - a small save that cannot mis-drive generation with a stale field.
 Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created only on request (19.5).
