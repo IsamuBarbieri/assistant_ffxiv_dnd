@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v4.62 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v4.63 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -702,7 +702,7 @@ A LONG REST played from the party's CURRENT location. Long rest ONLY.
 # PART C — ONE-SHOT FORMATS
 
 ## §C1 — ONE-SHOT MODE
-Normal PCs, no Echo/Crystals/Blessing. No direct Primals. Canon-adjacent. Wipe=failure. Free scope (any zone/expansion, Dawntrail included): §A19. SELF-CONTAINED & CLOSED (binding): a one-shot has ONE objective and ENDS when it is achieved — go straight to the EPILOGUE and CLOSE. NEVER introduce new objectives, plot hooks, mystery items or subquest threads beyond the session, and NEVER invoke Campaign subquest machinery (no '05 Ch.13', no MSQ Bookmark). RESPECT THE DECLARED CONSTRAINTS THROUGHOUT — PC level, player count, tone/genre and any audience/safety note (e.g. 'for a 6-year-old, combat-light') are BINDING for EVERY scene and encounter. BALANCE TO THE ACTUAL PARTY (a solo low-level PC: §10.3 small-group; NEVER an enemy CR wildly above the party). ACT FIDELITY: on 'Atto X' produce the act from the COMMITTED pitch/index — never silently replace it nor escalate the premise.
+Normal PCs, no Echo/Crystals/Blessing. No direct Primals. Canon-adjacent. Wipe=failure (→ §C13 /wipe). Free scope (any zone/expansion, Dawntrail included): §A19. SELF-CONTAINED & CLOSED (binding): a one-shot has ONE objective and ENDS when it is achieved — go straight to the EPILOGUE and CLOSE. NEVER introduce new objectives, plot hooks, mystery items or subquest threads beyond the session, and NEVER invoke Campaign subquest machinery (no '05 Ch.13', no MSQ Bookmark). RESPECT THE DECLARED CONSTRAINTS THROUGHOUT — PC level, player count, tone/genre and any audience/safety note (e.g. 'for a 6-year-old, combat-light') are BINDING for EVERY scene and encounter. BALANCE TO THE ACTUAL PARTY (a solo low-level PC: §10.3 small-group; NEVER an enemy CR wildly above the party). ACT FIDELITY: on 'Atto X' produce the act from the COMMITTED pitch/index — never silently replace it nor escalate the premise.
 
 ## §C2 — DESIGN SHEET
 Level + number of players mandatory. Target duration (§C11). If present, proceed. ONE objective (one sentence) + ONE twist. Max 3-5 NPCs with a distinctive trait. Use the PCs the GM provides; no pregens. Honour the declared tone/audience/constraints in EVERY act and encounter (§C1). The INPUT MODULE is shown ONLY at the START when level/players are missing — NEVER again once play has begun.
@@ -721,7 +721,7 @@ Wiki-verified. Local/location-correct. Verified race. Naming: apply 07 (Glossary
 Entrance->mobs->puzzle(§E1)->mini-boss->mobs->boss->conclusion. For real dungeons: §E3 first.
 
 ## §C7 — NO ECHO / NO PRIMAL
-Forbidden: Echo, Crystals, Blessing, full Primals. Allowed: minor cults, non-Primal creatures, relics, local tensions. Wipe=narrative failure.
+Forbidden: Echo, Crystals, Blessing, full Primals. Allowed: minor cults, non-Primal creatures, relics, local tensions. Wipe=narrative failure (→ §C13 /wipe).
 
 ## §C8 — ONE-SHOT RE-HOOK
 Situation -> Objective -> Constraints -> 3-5 options.
@@ -734,7 +734,7 @@ Act 1 (20%): max 1 optional fight. Act 2 (55%): the CORE CHALLENGE shaped by the
 GENERATION (binding): NEVER dump all acts in one answer. ACTS ARE PACING MARKERS, NOT a mandatory three — a short/simple one-shot may have 1-2 beats; never pad to three, never front-load the whole objective into Act 1. (A) LIVE PLAY: after the pitch+index, generate Act 1 on request, then PLAY scene-by-scene reacting to the PCs' actions; when the current act's goal is reached IN PLAY, AUTO-TRANSITION into the next act/beat with a short 1-2 line bridge and keep the story FLOWING — do NOT stop to ask 'shall I do Act 2?'. Continue until the one-shot's OBJECTIVE is reached, then ALWAYS deliver the EPILOGUE and a clear close ('Fine'). NEVER re-show the INPUT MODULE once play has started (ONLY for the missing-data START, §C2). (B) STUDY: one act per explicit request, no play in between. In both: trackers/checks REUSE verbatim the already-written stat blocks.
 
 ## §C11 — OPENING, DURATION & CLOSURE
-STRONG OPENING (cold open / in medias res). TARGET DURATION declared in the pitch; calibrate the number of scenes. CLOSURE CONDITIONS (GM-facing): victory condition, failure outcome (Wipe), brief epilogue. Must end within the session; better a bit early. If the objective is reached early, CLOSE immediately with the EPILOGUE and an explicit end; do NOT pad with new hooks/threads and do NOT re-open the design/input module (§C1/§C2). In LIVE play, flow act->act automatically up to the epilogue (§C10).
+STRONG OPENING (cold open / in medias res). TARGET DURATION declared in the pitch; calibrate the number of scenes. CLOSURE CONDITIONS (GM-facing): victory condition, failure outcome (Wipe → the /wipe failure epilogue, §C13), brief epilogue. Must end within the session; better a bit early. If the objective is reached early, CLOSE immediately with the EPILOGUE and an explicit end; do NOT pad with new hooks/threads and do NOT re-open the design/input module (§C1/§C2). In LIVE play, flow act->act automatically up to the epilogue (§C10).
 
 ## §C12 — ONE-SHOT SEEDS (used by One-Shot AND Loremonger)
 PURPOSE: random seeds (Location + Tone/Genre + mini preview), ready for the GM to complete with PC level + players.
@@ -751,6 +751,13 @@ TONE/GENRE LIST (pick at RANDOM, vary every time): 1 Investigativo/Giallo | 2 No
 LOCATION RANDOM ENGINE (no fixed list): pick DISTINCT real, verified FFXIV locations at RANDOM; ANY verified location (city-states included). VARIETY: each from a DIFFERENT region/expansion (ARR/HW/SB/ShB/EW/DT); start from a different random region each time; never repeat one already proposed in the session. Verified places only; render as Italian (English) + region.
 SEED FORMAT (one line; default 3): PROPOSTA N: Location — Italian (English), region — Tono/Genere: X — mini-preview: 1-2 sentence hook.
 FOOTER (always): "Compila il MODULO qui sopra (minimo: Livello PG + Numero giocatori), poi passa al One-Shot."
+
+## §C13 — ONE-SHOT WIPE / FAILURE EPILOGUE (/wipe)
+Operationalizes the FAILURE close that §C1/§C7/§C11 already declare ("Wipe = narrative failure"). ONE-SHOT ONLY — the campaign has NO /wipe (there a wipe is the Echo REWIND, not an ending: 05 Ch.4.6/18.5).
+TRIGGER: `/wipe [<encounter / scene / act name>]`. The optional argument is the point where the party fell — one-shots are read-ahead (prepared then played), so the GM NAMES where it happened. OMITTED → use the CURRENT / most-recently-played-or-generated point. AMBIGUOUS in a read-ahead module → ONE short clarification line ("A quale scontro/scena è avvenuto il wipe?"), NEVER invent the point (mirrors §C2 MISSING INPUT).
+EFFECT: the mission is FAILED, and everything AFTER the wipe point is INERT — not played, and NOT treated as canon for the epilogue. ANTI-CONFABULATION (binding): NEVER narrate an unreached scene/act/reveal as if it happened; the epilogue draws ONLY on what was actually reached + the committed objective + twist (§C2). Any already-generated later act is inert history.
+OUTPUT (binding): a single RICH player-facing failure ending inside ONE **'Da leggere ai PG'** block — module-quality prose (§A1 register: vivid, sensory, VOI-plural). OPEN FROM THE AFTERMATH: the party is ALREADY down — do NOT re-narrate HOW the enemy won (the fight happened at the table); a brief sensory bridge into the dark is enough. THE PLOT CONSEQUENCE IS THE HEART, developed richly: the BULK of the epilogue is what unfolds in the world BECAUSE the party failed, coherent with the ONE objective + twist (§C2). A proper CLOSING SCENE, not a synopsis. End on an explicit **'Fine'**. NO GM-facing consequence report / bullets — the GM reads this straight to the table.
+CONSTRAINTS: honour the declared TONE/AUDIENCE (§C1) — a combat-light / kids' module gets a SOFT failure (driven back, arrived too late, captured — NEVER gore); the "defeat" is GENRE-APPROPRIATE, not necessarily a literal TPK (a social/heist/investigation one-shot fails by exposure/capture/too-late). SELF-CONTAINED (§C1): a TERMINAL close — no new hooks, no sequel bait, no campaign machinery. Reuses the victory-close epilogue engine (§C11 / WORKFLOW), just the failure branch.
 
 # PART D — LOREMONGER & UTILITY FORMATS
 
