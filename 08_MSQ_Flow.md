@@ -5,7 +5,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.31 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.33 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -183,6 +183,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **MSQ TRIAL:** The Bowl of Embers (IFRIT). **MSQ DUNGEON:** Thousand Maws of Toto-Rak.
 - *** FIRE CRYSTAL (#2) + LIGHTNING (#3) ***
 - **GM NOTES:** Ifrit = first school of MECHANICS (Eruption, Nail, Incandescence).
+- **TRIAL PIN (Ifrit / The Bowl of Embers):** FIRE. Arena = a volcanic crater with a raised rim (the rim/edges are SAFE from the Vulcan Burst knockback — no fall-death here). Boss = a towering demon of living red flame, great curved horns, cloven hooves. Wipe/phase = the INFERNAL NAIL at 50% → Hellfire if the Nail isn't destroyed in time. (Moves: Incinerate, Eruption, Vulcan Burst, Radiant Plume.) [CGW-verified]
 
 ### Lvl 5 - Titan (Earth)
 - **BEAT:** see ARR Manifest L5 above.
@@ -191,6 +192,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **MSQ TRIAL:** The Navel (TITAN).
 - *** EARTH CRYSTAL (#4) ***
 - **GM NOTES:** Titan = Landslide (knockback), Weight of the Land, Titan's Heart (see Section A Ch. 9).
+- **TRIAL PIN (Titan / The Navel):** EARTH. Arena = a bare rocky platform INSIDE the volcanic caldera at O'Ghomoro — magma/lava in the SURROUNDINGS is canon (it IS inside a volcano), so volcanic ambience is fine; but the platform itself is rock and TITAN IS NOT A FIRE CREATURE. Instant-death = knocked OFF the platform edge by the shockwave (Landslide) into the depths below (a FALL — not a lava-pool boss theme). Boss = a BIPEDAL colossus of living brown ROCK: a massive torso on stout rock legs, glowing molten cracks between the plates; he STANDS and STOMPS (Tumult / Geocrush) — NOT a legless torso anchored to the ground, NOT obsidian dripping fire. Phase = the HEART exposed at 50% → Earthen Fury if not destroyed (survivable). (Moves: Rock Buster, Mountain Buster tank buster, Weight of the Land, Landslide, Tumult, Rock Tomb/Granite Gaol.) [CGW-verified] FAILURE SHAPES (observed): Titan as a fire/magma primal (he is EARTH — only the ENVIRONMENT is volcanic); Titan drawn 'legless' (he has legs and stomps).
 - `[REC]` Thornmarch (GOOD KING MOGGLE MOG) - OPTIONAL trial (not MSQ).
 
 ### Lvl 6 - Stone Vigil / Isgebind (Ice)
@@ -204,6 +206,8 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **BEAT:** see ARR Manifest L7 above.
 - **ZONE:** northern Black Shroud; Castrum Meridianum; The Praetorium.
 - **MSQ TRIAL:** The Howling Eye (GARUDA); Cape Westwind (RHITAHTYN, solo, AFTER Garuda); The Porta Decumana (ULTIMA WEAPON).
+- **TRIAL PIN (Garuda / The Howling Eye):** WIND. Arena = a high stone aerie with DESTRUCTIBLE STONE PILLARS used as cover (hide behind a pillar for Mistral Song; the hazard is wind, not a fall). Boss = a harpy — a winged woman with taloned feet and storm-grey plumage. Adds = Razor Plumes (kill fast); phase-2 = Eye of the Storm (whirlwind with a safe eye). (Moves: Downburst, Wicked Wheel, Slipstream, Mistral Song, Aerial Blast.) [CGW-verified]
+- **TRIAL PIN (Ultima Weapon / The Porta Decumana):** NOT a primal — a Garlean MAGITEK superweapon that ABSORBED the aether of Ifrit/Titan/Garuda; theme = magitek + the three stolen aspects (fire/earth/wind), climaxing in ULTIMA. Arena = the Porta Decumana battle platform. Boss = a colossal humanoid war-machine. Reproduces the absorbed primals' signature moves, then Ultima (05 Ch.9 / §B10). [WIKI-VERIFIED via 08.1]
 - **MSQ DUNGEONS (order):** Castrum Meridianum -> The Praetorium.
 - *** WIND CRYSTAL (#6) -> BLESSING OF LIGHT COMPLETE ***
 - **GM NOTES:** the finale of the "first film". Spoiler: of the Ascians, only Lahabrea. STRUCTURE (binding, CURRENT post-6.1 versions — 06 §A14): this finale spans MULTIPLE beats — Castrum Meridianum (The Black Eft → Magitek Vanguard F-1 → Livia sas Junius) → The Praetorium (magitek-armour ride → Mark II Magitek Colossus → Nero tol Scaeva → Gaius van Baelsar) → The Porta Decumana (the Ultima Weapon, its OWN trial; Lahabrea expelled from the possessed ally here) — ONE major fight per 'continua', NEVER a single boss-rush (06 §B12). Reproduce each boss's canonical mechanics (06 §B10). Ignore the MMO player-count; build for the party.
@@ -212,6 +216,9 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **BEAT:** see ARR Manifest L8 (2.1-2.55) above.
 - **ZONE:** Mor Dhona; Coerthas (Snowcloak); Ul'dah; The Keeper of the Lake.
 - **MSQ TRIALS (order):** The Whorleater (LEVIATHAN, 2.2) -> The Striking Tree (RAMUH, 2.3) -> The Akh Afah Amphitheatre (SHIVA, 2.4).
+- **TRIAL PIN (Leviathan / The Whorleater):** WATER. Arena = the pitching DECK of the ship Whorleater; hazard = Body Slam knockback/slide across the tilting deck. Boss = a vast blue sea-serpent — its HEAD and TAIL are two separate targets that mirror HP. Wipe = Tidal Wave unless the ELEMENTAL CONVERTER is triggered in time. (Moves: Body Slam, Tidal Roar, Dread Tide tank buster, Spinning Dive, Grand Fall.) [CGW-verified]
+- **TRIAL PIN (Ramuh / The Striking Tree):** LIGHTNING. Arena = a forest clearing at the Striking Tree where LIGHTNING ORBS accumulate on the ground (raising his damage — collect/manage them). Boss = a towering white-bearded storm-sage, robed, a staff of levin in hand. Adds = Grey Arbiters → Judgment Bolt wipe if they survive. (Moves: Shock Strike tank buster, Thunderstorm, Chaotic Strike/Terror, Rolling Thunder tethers.) [CGW-verified]
+- **TRIAL PIN (Shiva / The Akh Afah Amphitheatre):** ICE. Arena = an icy amphitheatre whose EDGE freezes anyone who touches it into a boulder, with Thin Ice sliding (Permafrost = hold still). Boss = an elegant azure ice-woman (the heretic Iceheart's borrowed primal form), cycling sword/staff/unarmed stances. Phase = Diamond Dust (party AoE after adds) + Dreams of Ice stacking soft-enrage. (Moves: Icebrand conal tank buster, Glacier Bash stun, Icicle Impact.) [CGW-verified]
 - **MSQ DUNGEONS:** Snowcloak (2.4); The Keeper of the Lake (2.55).
 - **CRYSTAL TOWER (inline mandatory MSQ flow - see the CRYSTAL TOWER ARC block at the end of Arc 1):** seeded at 'Laying the Foundation' (2.1), played as a fixed ~13-beat arc after 'Build on the Stone' via CID, exit to 2.2 'Still Waters'. Lore: Allagan / Xande / Cloud of Darkness / Bahamut=Dalamud / G'raha (ShB Exarch = GATED). Complete before HW.
 - *** END OF L8: MIDGARDSORMR SNUFFS THE 6 CRYSTALS (Blessing sealed) ***
@@ -627,6 +634,34 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 3. PENDING — Best-laid Schemes giver filled (Ilberd, Wellwick Wood, GE-verified); the phantom 'Warrior of Light' transition removed (The Ultimate Weapon -> The Price of Principles direct, GE-verified).
 
 ---
+
+## TRIAL PINS — HW → EW (element/theme · arena + real instant-death/hazard · boss visual · signature moves) [CGW-verified]
+Read this (or, for ARR, the inline TRIAL PIN in the 08.2 index) BEFORE building any MSQ trial (06 §B10 TRIAL LORE-FIDELITY + §B20). Theme the arena, the boss's body, the move imagery and the damage types to the ELEMENT below — NEVER bleed another primal's element (the §A1 TRIAL exemplar is IFRIT-fire, imitate its register only). Longevity via phase gates + Legendary Resistance + legendary actions, offense in band (06 §B11 carve-out).
+
+**Heavensward**
+- **Vishap (The Steps of Faith):** DRAGON (fire/earth breath) — a DEFENSE / siege trial, NOT a standard single-boss: build it as a timed DEFENSE of the Steps of Faith BRIDGE at Ishgard as the Dravanian Horde advances toward the city, protecting the three wards ('Daniffen's Collar') with Temple Knights / dragoons / cannons at your side. Boss = a great horned wyrm. Hazard = ward destruction / the horde breaking through (a DPS-race stand). Moves: Flame Breath, Fireball, Seismic Shriek, Body Slam, Earth Shaker, Earthrising (Exaflares), Scorching Breath (final ward-breaker).
+- **Bismarck (The Limitless Blue):** WIND / SKY ('Lord of the Mists'). Arena = a floating rock platform adrift in the Sea of Clouds (the platform has its OWN HP — a wipe if it collapses); instant-death = FALLING off the edge. Boss = a colossal pale sky-WHALE (its Chitin Carapace and Corona become targetable). Moves: Cetacean Rage (dive), Breach Blast; add / weather (thunder-rain) phases.
+- **Ravana (Thok ast Thok):** the GNATH insect-primal of WAR & blades (no classical element — theme = conquest/steel). Arena = the Gnath hive-arena; its walls CRUMBLE after the ultimate, opening edges to be knocked off. Boss = a four-armed insectile warrior-god wielding curved swords, cycling offensive/defensive stances. Moves: Prelude to Slaughter / Slaughter, Chandrahas (~60% adds → Falling Laughter), Surpanakha, Rose of Hate/Conquest, Pillars of Heaven (raid-wide + knockback).
+- **King Thordan (The Singularity Reactor):** HOLY / LIGHT (Archbishop Thordan VII ascended on the Eye's aether + a millennium of prayer). Arena = the Singularity Reactor, Azys Lla. Boss = a golden-armoured knight-king with a holy lance, flanked by the spectral KNIGHTS OF THE ROUND. Moves: Ascalon's Mercy / Might, Ancient Quaga, The Dragon's Eye / Gaze, Knights of the Round → Ultimate End (survive it by managing the knights first).
+- **Nidhogg (The Final Steps of Faith):** the great WYRM, DRAGON-FURY / FIRE (furious red flames). Arena = the Steps of Faith bridge; lethal succession of AoE zones (positioning-crucial). Boss = an immense one-eyed dragon of black scale and red fury (a humanoid form in a mid phase, back to the fire-dragon at the climax). Moves: Akh Morn, Deafening Bellow, Hot Wings / Hot Tail (safe zones along his body), Geirskogul (line); a P2 add DPS check.
+
+**Stormblood**
+- **Susano (The Pool of Tribute):** STORM / LIGHTNING kami (Far-Eastern 'great kami'). Arena = the Blessed Treasury on the Isle of Zekki; hazard = Dark Clouds casting line-AoE Paralysis. Boss = a giant blue-skinned storm-god wielding the vast blade Ame-no-Murakumo. Phase = Ame-no-Murakumo (interrupt or wipe; a tank holds the pinning crystal). Moves: Assail (tank buster), Rasen Kaikyo, Yata No Kagami (knockback), Stormsplitter, Ama-no-iwato.
+- **Lakshmi (Emanation):** the ANANTA primal, theme = illusion / desire / blissful oblivion. Arena = Emanation, Gyr Abania; instant-death = FALLING off the platform edges. Boss = a serene multi-armed azure goddess enthroned on a lotus. Gimmick = the VRIL shield (grab one to survive her devastating hits). Moves: Target Left / Right (blue pools / cross), stack markers; opens with the Dreaming Kshatriya adds to drop her barrier.
+- **Shinryu (The Royal Menagerie):** an ALL-ELEMENT DRAGON of pure violence (fused with Zenos; a Corrupted-Aether bar cycles water/wind/fire/lightning/earth/ice — the six primals' ults). Arena = large platforms over the void in three stages (falling off = instantly fatal; P3 breakable outer grid). Boss = a colossal white-and-blue serpentine dragon with vast wings. Moves: the absorbed ults (Tidal Wave, Aerial Blast, Hellfire, Judgment Bolt, Earthen Fury, Diamond Dust), Akh Morn, Tail Slam, Burning Chains; an Active Time Maneuver between phases.
+- **Tsukuyomi (Castrum Fluminis):** DARK / LUNAR divinity of night and the moon. Arena = a platform that SPLITS into sections (Selenomancy); hazard = section debuff stacks → Doom (swap sections to reset). Boss = an elegant lunar goddess (Yotsuyu's form) in dark-and-silver robes. Moves: Torment Unto Death (tank buster), Zashiki-Asobi (fan explosions), Nightfall, Lunacy (stack), Dark / Bright Blade (arena cleave); a P2 Suffering gauge.
+
+**Shadowbringers**
+- **Titania (The Dancing Plague):** the fallen FAERIE KING — FAE / nature, a Lightwarden. Arena = Il Mheg; P2 carpets the arena in GRASS (Midsummer Night's Dream). Boss = a small, uncanny fae king in a white dress, shell crown, stone sceptre, crystal shoes. Moves: the RUNE attacks (Divination cone tank buster, Water / Flame / Frost / Mist / Growth Runes), the fae adds Puck / Peaseblossom / Mustardseed, 'Being Mortal'.
+- **Innocence (The Crown of the Immaculate):** LIGHT / holy judgement, a Lightwarden — fought within a GIANT TALOS born of the realm's collective hope. Boss = a radiant winged golden youth-god wielding a great sword. Moves: Righteous Bolt (tank buster), Winged / Rightful Reprobation (embedded swords → line AoEs), Flaming Sword (keep the Immaculate Authority meter below 100).
+- **Hades (The Dying Gasp):** DARKNESS / ancient creation-magic (Emet-Selch). Arena = a circular platform over the drowned ruins of AMAUROT in the Tempest; the outer railing is destroyed mid-fight → fall to your doom. Boss = a robed ancient in black-and-gold Ascian garb who TRANSFORMS into a monstrous dark titan rooted to the north. Moves: Kokytos (all HP to 1), Bad Faith, Dark Eruption, Shadowspread, Broken Faith, Echoes of the Lost, Captivity.
+- **Elidibus (The Seat of Sacrifice):** LIGHT — the WARRIOR OF LIGHT incarnate ('mankind's first hero'). Arena = the Seat of Sacrifice; hazard = Sword of Light cutting a lethal triangle into the floor. Boss = a red-and-white armoured knight wielding a blade of light he imbues with elements. Moves: Coruscant Saber (ring vs centre by the ring-cue), Terror Unleashed (party to 1 HP), Absolute Fire III / Blizzard III, Summon Wyrm; an ATM intermission.
+
+**Endwalker**
+- **Zodiark (The Dark Inside):** the GOD OF DARKNESS, a primordial deity awoken prematurely. Arena = a single-sided platform — players can FALL OFF the open edge. Boss = a colossal eldritch dark deity. Moves: Kokytos (all HP to 1), Exoterikos (beams → triangle/square AoEs), Styx (stack), Paradeigma (summons behemoths / snakes), Astral Flow (platform rotation), Astral Eclipse (meteor pattern).
+- **Hydaelyn (The Mothercrystal):** the GODDESS OF LIGHT, the Will of the star — a test of worth. Arena = a radiant crystalline platform whose OUTER EDGE instantly kills on touch. Boss = a luminous crystalline goddess who cycles weapon forms (Dancer chakrams / White Mage staff / Paladin sword-and-shield). Moves: Hero's Radiance (raid-wide), Mousa's Scorn (tank buster), Parhelion (chakram lines); a crystal phase where the Conviction bar must not reach 100.
+- **The Endsinger (The Final Day):** DESPAIR / oblivion incarnate (cosmic nihilism, Meteion's gathered despair). Arena = a fragment at the EDGE OF THE UNIVERSE — knockbacks (Galaxias) can hurl you off. Boss = an otherworldly winged harbinger, a purple-glowing maw and eyes. Moves: Elegeia (raid-wide + orbs), Galaxias (knockback meteor), Elenchos (lines), Death's Embrace (cones), Ultimate Fate (needs LB3); Kakodaimon adds + a Despair gauge; P2 'Prayers of Hope' damage race.
+- **Zenos (solo duel, after the Endsinger):** NOT a primal/trial — a one-on-one SWORDSMAN DUEL vs Zenos viator Galvus (build as a single elite humanoid duelist, not a mechanics-trial). Arena = the barren field at world's end.
 
 ## 08.OST — TEMI DUTY (consolidato; uso: vedi 08.0)
 #### GENERIC ARR DUNGEON BATTLE THEMES (binding)

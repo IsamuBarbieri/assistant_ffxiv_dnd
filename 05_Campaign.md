@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v1.97 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v1.99 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -371,6 +371,7 @@ A PC can ATTEMPT to invoke the Echo deliberately (to seek a clue, read the past 
 - In play: the PCs are NOT automatically enthralled when facing a Primal, unlike common mortals. This makes the party the only force able to fight certain enemies.
 - It is still possible to suffer other effects (fear, aetheric damage, etc.): the safeguard concerns Primal Tempering specifically.
 - PERMANENT & INNATE: this Echo-given protection is NOT the Blessing and is NEVER removed — even in Heavensward, when the Blessing is sealed, the PCs stay safe from Tempering (see Ch. 5.6 / 7.3).
+- **NPC ALLIES & PRIMALS (binding):** a canonical ally WITHOUT the Echo — Y'shtola, most Scions, soldiers, guides — is NOT enthrallment-safe, so they do NOT enter or fight inside a Primal battle: they would be Tempered. They support from OUTSIDE the arena (open the way, amplify an aetheryte, hold the perimeter, aid before and after), while ONLY the Echo-bearing PCs (and a canonical Echo-bearer such as Minfilia, if the scene truly warrants) confront the Primal in the arena. This is exactly WHY the party is "the only force able to fight certain enemies" (above). FAILURE SHAPE: Y'shtola present inside the Navel fighting Titan — she amplifies the aetheryte at the threshold, then the Echo-bearing party goes in ALONE. (Cross-ref for trial building: 06 §B10 / §B20.)
 
 ## 4.6 The Echo and the "rewind" on a Wipe
 Lore justification for the anti-Wipe mechanic (full rules in Ch. 18).
@@ -978,7 +979,7 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 2. Makes 1 CHECK with the right tools, DC by rarity (Common 12 / Uncommon 15 / Rare 18 / Very Rare 21).
 3. SUCCESS -> obtains the item. FAILURE -> components (Gil) lost.
 **Golden rule on prices (mandatory):** components ~= 25% of the shop price (~75% discount). Reason: crafting means you do NOT rest, you SPEND Gil and you RISK failing.
-*Example:* Potion (shop 50) -> components ~12-13, DC 12.
+*Example:* Potion (shop 50) -> components ~12-13, CD 12.
 
 ## 14.4 Research / Study - ANYONE can do it
 - The PC dedicates the stop to studying something (texts, rumors, clues).
@@ -1058,15 +1059,15 @@ Defines the FORMAT for presenting places, scenes, NPCs, objects and events: a ba
   [Base description, perceivable by ALL, to read aloud. No rolls.]
 
 --- LAYERED LORE (on a check) ---
-  [DC 10]  First-layer info (common knowledge, evident details).
-  [DC 15]  Intermediate info (specialist knowledge, non-obvious links).
-  [DC 20]  Advanced info (rare knowledge) - always WITHOUT spoilers beyond what is allowed.
+  [CD 10]  First-layer info (common knowledge, evident details).
+  [CD 15]  Intermediate info (specialist knowledge, non-obvious links).
+  [CD 20]  Advanced info (rare knowledge) - always WITHOUT spoilers beyond what is allowed.
 
 [ GM INFO ]
   [Scene-relevant context FOR THE GM ONLY: what the players can uncover here and how the scene connects to what they are doing NOW. It STILL obeys the reveal-gate (Ch.1): a gated reveal is NEVER named even here, and it looks no further than the current scene. NOT revealed to players.]
 ```
 **Usage notes:**
-- The layers are CUMULATIVE: whoever beats DC 15 also gets the DC 10, etc.
+- The layers are CUMULATIVE: whoever beats CD 15 also gets the CD 10, etc.
 - One roll per PC per scene/object (barring new elements). They can collaborate (help) per 5e rules.
 - If no one reaches a threshold, that layer stays unrevealed (retryable with clues or with the Echo, Ch. 4).
 - CONDITIONAL & DECOUPLED (operational): include Layered Lore ONLY when the scene has genuinely investigable lore (SKIP it in a pure action/ambush or pure briefing scene); it is INDEPENDENT of the NPC 'Dialogo e Interazione' block, and its ORDER FOLLOWS THE SCENE (lead with whatever the players engage first — Dialogo when opening on an NPC, Layered Lore after a vision/discovery to investigate); a single targeted check may replace the full CD 10/15/20 ladder. Full rule in 06 §B15.
@@ -1115,11 +1116,11 @@ The GM may grant 'free' info or ADVANTAGE based on who the character is:
   the footprints of worshippers all around.
 
 --- LAYERED LORE ---
-  [DC 10 - Nature] The heat and the veins are not volcanic: something alive
+  [CD 10 - Nature] The heat and the veins are not volcanic: something alive
     released an aetheric fire, recently.
-  [DC 15 - Arcana] The zone's aether has been drained and channeled into a
+  [CD 15 - Arcana] The zone's aether has been drained and channeled into a
     sentient fire: it is the signature of a fire PRIMAL.
-  [DC 20 - Religion] The footprints and symbols belong to a tribal summoning
+  [CD 20 - Religion] The footprints and symbols belong to a tribal summoning
     rite; the faithful offered their own aether to call forth the deity.
 
 [ GM INFO ]
@@ -1314,7 +1315,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | HEALER | role: healing, support, performs the Raise. | Ch. 2 / 3 |
 | GM INFO | a secret context block, for the GM only. | Ch. 16 |
 | LIMIT BREAK (LB) | a party bar 0-3; caps at segment 2 outside boss fights (LB3 only on Bosses); empties on any rest and on any travel; area/radius scales with the level. | Ch. 6 |
-| LAYERED LORE | info unlockable at DC 10/15/20, spoiler-safe. | Ch. 16 |
+| LAYERED LORE | info unlockable at CD 10/15/20, spoiler-safe. | Ch. 16 |
 | AETHER SICKNESS | after a revive: damage/healing dice halved, for 2 turns. | Ch. 18 |
 | MILESTONE | narrative progression, no XP. | Ch. 5 |
 | GOSSIP / RUMORS | tavern info on a check; True/Color/Misleading table. | Ch. 15 |
