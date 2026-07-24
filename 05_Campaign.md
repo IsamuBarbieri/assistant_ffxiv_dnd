@@ -215,7 +215,7 @@ Summary to read at the table:
 - **Telegraphed combat and boss mechanics:** enemies, especially bosses, use mechanics announced the round before (telegraph). They must be recognized and handled: ignoring them leads to Enrage/Wipe (see Ch. 9).
 - **Out of Combat / Raise / Wipe (videogame-style death):**
   - 0 HP = Out of Combat (Downed), not death.
-  - Normal healing does NOT get a Downed up: you need Raise (Healer ability) or an item (Phoenix Down/Tail).
+  - Normal healing does NOT get a Downed up: you need Raise (Healer/Red Mage/Summoner) or an item (Phoenix Down/Tail).
   - After revive: Aether Sickness (damage/healing halved, for 2 turns).
   - All Downed = WIPE — **KEEP THIS SECRET AT SESSION 0**: do NOT explain the all-party-down reset nor the Echo-premonition rewind to players now; reveal it only the FIRST time it triggers in play, for suspense. (GM rules: the encounter resets, spent consumables stay spent, justified as an Echo premonition; full details in Ch. 18.)
 - **Limit Break:** a SHARED party bar 0-3, rises with natural 20s. Outside a BOSS fight the bar CANNOT pass the 2nd segment (LB1/LB2 only); the 3rd segment and LB3 charge ONLY in a boss fight. It EMPTIES completely on any Short or Long Rest and on any travel (Aetheryte or other transport) — it is combat charge that dissipates when you stop fighting. Effect by role, original names for each Job (see Ch. 6).
@@ -476,8 +476,9 @@ Passive party boon, active while you possess the crystals (NOTE: immunity to Tem
 **HW STAKES (canon — NOT a tempering wipe):** the threat without the Blessing is NARRATIVE-MECHANICAL, not tempering. A defeated ASCIAN ESCAPES and returns — the party cannot close that thread until the Blessing is restored — and they fight without Hydaelyn's ward. The ECHO keeps the party safe from Tempering throughout HW; there is NO enthrall-wipe move. Boss fights use the normal telegraph/counter combat (Ch. 9).
 
 ## 5.7 Cross-references to other chapters
-- **RAISE** (Healer ability): from LEVEL 5; action, consumes a 3rd+ slot; brings a Downed to 1/4 HP + Aether Sickness. Detail Ch. 18.
-- **PHOENIX DOWN** -> 1/2 HP; **PHOENIX TAIL** -> full HP (both Aether Sickness). Costs/rarity: Ch. 12.
+- **RAISE** (Healer / Red Mage / Summoner): from LEVEL 5; action, consumes a 3rd+ slot; brings a Downed to 1/4 HP + Aether Sickness. Detail Ch. 18.
+- **ARAISE** (Healer only): from LEVEL 9; action, consumes a 5th+ slot; brings a Downed to 1/2 HP + Aether Sickness (the upgraded Raise). Detail Ch. 18.
+- **PHOENIX DOWN** -> 1/4 HP; **PHOENIX TAIL** -> 1/2 HP (both Aether Sickness). Costs/rarity: Ch. 12.
 - **AETHER SICKNESS** (post-revive): damage/healing HALVED, for 2 turns. See Ch. 18.
 - **LIMIT BREAK** (bar 0-3; caps at segment 2 outside boss fights, LB3 only on Bosses; empties on any rest and on any travel): Ch. 6.
 - The 6 Crystals as a narrative device for climaxes: Ch. 7.
@@ -513,10 +514,10 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 
 **DPS - Damage (see table 6.4):**
 - PHYSICAL MELEE: single target, AUTOMATIC hit (no attack roll), NO save. d12 dice. (No area: hits a single target at any LB level.)
-- PHYSICAL RANGE: a LINE that SCALES with LB level (length x width) -> LB1 6 m x 1.5 m | LB2 12 m x 3 m | LB3 18 m x 4.5 m. Dexterity save HALVES. d10 dice.
-- MAGICAL: a CIRCLE that SCALES with LB level -> LB1 radius 3 m | LB2 radius 6 m | LB3 radius 9 m. Dexterity save HALVES. d10 dice.
-- *Why d10 and not d8:* since Range/Magical is halved by the save, with d8 the LB would deal LESS than a same-level Fireball. Melee stays d12 because it is single-target with an automatic hit (no save).
-- Save DC = 8 + proficiency bonus + the job's key ability modifier. Damage type: themed to the job.
+- PHYSICAL RANGE: a LINE that SCALES with LB level (length x width) -> LB1 6 m x 1.5 m | LB2 12 m x 3 m | LB3 18 m x 4.5 m. AUTOMATIC (no save). d8 dice.
+- MAGICAL: a CIRCLE that SCALES with LB level -> LB1 radius 3 m | LB2 radius 6 m | LB3 radius 9 m. AUTOMATIC (no save). d8 dice.
+- *ALL Limit Breaks are UNAVOIDABLE (like FFXIV):* they land in full — no attack roll and no save. Melee is d12 (single-target, concentrated damage); the AoE types are d8 because they SPREAD the hit across everyone in the line/circle — so melee stays the single-target boss-killer while the AoE clears groups, and neither is reduced by a save.
+- Damage type: themed to the job.
 
 ## 6.4 DPS damage table (dice rise every 4 levels)
 | Level | LB1 | LB2 | LB3 (Boss) |
@@ -527,13 +528,13 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 | 13-16 | 6 dice | 10 dice | 14 dice |
 | 17-20 | 7 dice | 11 dice | 16 dice |
 
-**Die type:** PHYSICAL MELEE = d12 | PHYSICAL RANGE and MAGICAL = d10
+**Die type:** PHYSICAL MELEE = d12 | PHYSICAL RANGE and MAGICAL = d8
 **Area (scales with LB level):** Physical Range = line 6/12/18 m long x 1.5/3/4.5 m wide (LB1/LB2/LB3) | Magical = circle radius 3/6/9 m (LB1/LB2/LB3) | Physical Melee = single target (no area).
 **Support LB radius (scales with LB level):** Tank = radius 6/12/18 m (LB1/LB2/LB3) | Healer = radius 6/12/18 m (LB1/LB2/LB3).
 
 **Average damage (reference):**
 - MELEE d12 (single, no save): 1-4 ~20/33/52 | 5-8 ~26/46/65 | 9-12 ~33/52/78 | 13-16 ~39/65/91 | 17-20 ~46/72/104
-- RANGE/MAGICAL d10 (AoE, Dex save halves): 1-4 ~17/28/44 | 5-8 ~22/39/55 | 9-12 ~28/44/66 | 13-16 ~33/55/77 | 17-20 ~39/61/88
+- RANGE/MAGICAL d8 (AoE, guaranteed full - no save): 1-4 ~14/23/36 | 5-8 ~18/32/45 | 9-12 ~23/36/54 | 13-16 ~27/45/63 | 17-20 ~32/50/72
 
 ## 6.5 Quick gain (reminder)
 - Natural 20 to hit (PC) -> +1 segment (max 1/round)
@@ -550,9 +551,9 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 | 13-16 | ~91 | Adult Red Dragon CR17 (256) | ~36% |
 | 17-20 | ~104 | Pit Fiend CR20 (300) | ~35% |
 | 17-20 | ~104 | Ancient Red Dragon CR24 (546) | ~19% |
-LB3 MAGICAL (AoE, save halves) - lvl 17-20: ~88 full / ~44 on a successful save, to all targets in the 9 m circle (LB3 area).
+LB3 MAGICAL (AoE, guaranteed full - no save) - lvl 17-20: ~72 to EACH target in the 9 m circle (LB3 area).
 
-*(*) Campaign bosses are LEGENDARY/ELITE with inflated HP reserves vs the vanilla MM -> in practice LB3 ~ 35-45% of the boss at each tier. Conclusion: a powerful burst but NEVER a one-shot.*
+*(*) Campaign bosses are LEGENDARY/ELITE with inflated HP reserves (~1.5x) vs the vanilla MM, so the REAL fractions run BELOW this table: LB3 is ~40-60% of the boss at low tier down to ~23-25% at cap - DECLINING, not a constant 35-45%. The LB is therefore RELATIVELY strongest at low level and gentler at high level, and this sublinear scaling is INTENTIONAL: the LB dice grow linearly (+1-2 per tier) while a class's own damage grows multiplicatively (extra attacks, magic weapons, bigger slots), so holding a constant 'epic %' would require ~doubling the high-tier LB3 dice and would produce boss one-shots. FLOOR (design bar): LB1 is always >= a normal average attack at every tier - melee is guaranteed (~a full single-target turn) and the AoE, now unavoidable, beats a save-halved spell against a boss that would otherwise save. Conclusion: a powerful burst, strongest as an early-game swing, always meaningful (>=~3x a normal round / >=~23% of a boss), but NEVER a one-shot at any tier.*
 
 ## 6.7 Official names (LB1/LB2 shared per role - LB3 per Job)
 **TANK** - LB1: Shield Wall | LB2: Stronghold
@@ -868,13 +869,15 @@ Costs and rarity are TUNABLE PROPOSALS. Consistent with the anti 'item tax' prin
 Normal healing does NOT revive a Downed character (Ch. 18). You need Raise or the Phoenix items. All apply AETHER SICKNESS (damage/healing dice halved, 2 turns), EXCEPT the Healer LB3.
 | Means | Restores to | Rarity | Indic. cost | Action |
 |---|---|---|---|---|
-| RAISE (Healer) | 1/4 HP | ability | -- (3rd+ slot) | Action |
-| PHOENIX DOWN | 1/2 HP | UNCOMMON | ~150 Gil | Action |
-| PHOENIX TAIL | full HP | RARE | ~1,000 Gil | Action |
+| RAISE (Healer / RDM / SMN) | 1/4 HP | ability | -- (3rd+ slot) | Action |
+| ARAISE (Healer only) | 1/2 HP | ability | -- (5th+ slot, from L9) | Action |
+| PHOENIX DOWN | 1/4 HP | UNCOMMON | ~250 Gil | Action |
+| PHOENIX TAIL | 1/2 HP | RARE | ~1,500 Gil | Action |
 | HEALER LB3 | 3/4 HP | -- (Ch. 6) | -- | Action |
 **Design notes:**
-- PHOENIX DOWN more accessible (Uncommon): a safety net, especially BEFORE lvl 5 (Healer without Raise).
-- PHOENIX TAIL premium (Rare): a full revive; more a narrative reward than a market stall.
+- PHOENIX DOWN accessible (Uncommon, ~250 Gil): a safety net, especially BEFORE lvl 5 (Healer without Raise); revives to 1/4 HP.
+- PHOENIX TAIL premium (Rare, ~1,500 Gil): the strongest consumable revive (to 1/2 HP); more a narrative reward than a market stall.
+- ARAISE is the Healer-only upgrade of Raise (from L9, 5th+ slot); it is NOT a purchasable item — it is a spell, like Raise.
 - No per-fight use limit, BUT: they burn on a WIPE (stay spent) and availability is regulated by the GM. Rarity is the real brake.
 - PHOENIX DOWNS and TAILS are PURCHASED ONLY in shops: NOT craftable (Ch. 14).
 
@@ -1199,15 +1202,16 @@ A videogame-style (FFXIV) KO/revival system: you fight 'hard' but lethality come
 NORMAL HEALING DOES NOT REVIVE an Out-of-Combat character. You need:
 | Means | Restores to | Cost / Notes |
 |---|---|---|
-| RAISE | 1/4 max HP | Healer ability (WHM/SCH/AST/SGE) from LVL 5; ACTION; consumes 1 slot of 3rd level or higher. No use limit beyond the slot cost. |
-| PHOENIX DOWN | 1/2 max HP | Consumable (medium rarity). Action. |
-| PHOENIX TAIL | full HP | Consumable (high/costly rarity). Action. |
+| RAISE | 1/4 max HP | Healer (WHM/SCH/AST/SGE) + Red Mage + Summoner, from LVL 5; ACTION; consumes 1 slot of 3rd level or higher. No use limit beyond the slot cost. |
+| ARAISE | 1/2 max HP | Healer-only (WHM/SCH/AST/SGE), from LVL 9; ACTION; consumes 1 slot of 5th level or higher. The upgraded Raise. |
+| PHOENIX DOWN | 1/4 max HP | Consumable (Uncommon, ~250 Gil). Action. |
+| PHOENIX TAIL | 1/2 max HP | Consumable (Rare, ~1,500 Gil). Action. |
 | HEALER LB3 (Pulse of Life, etc.) | 3/4 HP | See Ch. 6: raises the Downed WITHOUT Aether Sickness. The definitive wipe-saver. |
 - Every revival (EXCEPT the Healer LB3) applies AETHER SICKNESS (18.4).
 - Exact costs and rarity of Phoenix Down/Tail: see Ch. 12.
 
 ## 18.4 Aether Sickness (post-revival debuff)
-Whoever is revived (Raise / Down / Tail) suffers AETHER SICKNESS for 2 TURNS (their next 2 turns):
+Whoever is revived (Raise / Araise / Down / Tail) suffers AETHER SICKNESS for 2 TURNS (their next 2 turns):
 - DAMAGE and HEALING HALVED (roll normally and halve the total of the dice, rounding down).
 - It re-applies from scratch if the PC is downed again and revived again.
 - The Healer LB3 revives WITHOUT applying Aether Sickness.
@@ -1299,7 +1303,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | JOB CHANGE | rare, EARNED via a Soul-Crystal subquest (GM discretion, lore-reachable), in town, keep level; no revert/re-swap without a new subquest; no duplicates. | Ch. 3 |
 | COMBAT TRACKER | a text preview + editable tracker (initiative/monster HP). | Ch. 2 / 9 |
 | CUTSCENE | in-scene = railed story beat (reactions only, fixed outcome, '[CUTSCENE IN SCENA]'); off-scene = '[CUTSCENE ALTROVE]' surfaced AUTOMATICALLY at the canonical beat, GM-facing, + anti-spoiler warning; GM decides read/keep/skip. | Ch. 16.6 |
-| PHOENIX TAIL | consumable: revive to full HP + Aether Sickness; shop ONLY. | Ch. 12 |
+| PHOENIX TAIL | consumable: revive to 1/2 HP + Aether Sickness; shop ONLY (~1,500 Gil). | Ch. 12 |
 | CRAFTING | Downtime (only the skilled): consumables, components ~25% of shop price; never Downs/Tails. | Ch. 14 |
 | CRYSTALS OF LIGHT (the 6) | one per element, shared by the party; collected at MSQ beats. | Ch. 7 (see 5) |
 | DOWNTIME | an activity at a stop as an alternative to the Long Rest. | Ch. 14 |
@@ -1319,11 +1323,12 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | AETHER SICKNESS | after a revive: damage/healing dice halved, for 2 turns. | Ch. 18 |
 | MILESTONE | narrative progression, no XP. | Ch. 5 |
 | GOSSIP / RUMORS | tavern info on a check; True/Color/Misleading table. | Ch. 15 |
-| PHOENIX DOWN | consumable: revive to 1/2 HP + Aether Sickness; shop ONLY. | Ch. 12 |
+| PHOENIX DOWN | consumable: revive to 1/4 HP + Aether Sickness; shop ONLY (~250 Gil). | Ch. 12 |
 | SPOILER POLICY | gated mysteries are not revealed before their canonical moment. | Ch. 1 |
 | PRIMAL | deities summoned by the beast tribes; enthrall the faithful. | Ch. 2 / 16 |
 | GATHERING | Downtime (anyone): direct Gil (5/10/25/50). | Ch. 14 |
-| RAISE | Healer ability (from lvl 5) that raises a Downed + Aether Sickness. | Ch. 18 (see 5) |
+| RAISE | Healer/Red Mage/Summoner ability (from lvl 5, 3rd+ slot) that raises a Downed to 1/4 HP + Aether Sickness. | Ch. 18 (see 5) |
+| ARAISE | Healer-only upgrade (from lvl 9, 5th+ slot) that raises a Downed to 1/2 HP + Aether Sickness. | Ch. 18 (see 5) |
 | READ-ALOUD | a base description for everyone. | Ch. 16 |
 | RESEARCH / STUDY | Downtime: lore clues / subquest hooks. | Ch. 14 |
 | REST (Short/Long) | base D&D 5e rules. | Ch. 5 / 15 |

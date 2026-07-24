@@ -483,7 +483,7 @@ Vary biome/enemies/gimmick; consistent with the place.
 DIFFICULTY = CONTEXT TIER, ON THE EXISTING ENGINE (binding — no new tables): every open-area encounter (a travel/camp ambush, a subquest fight, a wandering-mob scene) is BUILT on the standard 05 Ch.10.2 budget (Ch.10.2a thresholds × Ch.10.2b count multiplier, party-size Ch.10.3) at a target DIFFICULTY tier set by its CONTEXT — travel/camp → the zone/route DANGER RATING (Tranquillo → Facile · Rischioso → Media · Ostile → Difficile, 05 Ch.14.6); a SUBQUEST → the subquest's STAKES (05 Ch.13.4); (MSQ dungeons/trials/plot keep the §B11 tiers). Stat blocks stay BY-THE-BOOK for their CR (§B6, no inflation) — NEVER an ad-hoc/over-tuned block. The XP/difficulty math is INTERNAL and never shown in output (05 Ch.10 OUTPUT NOTE).
 
 ## §B14 — LOOT & PHOENIX AVAILABILITY
-Never Phoenix Downs/Tails as loot/drops/crafts. AVAILABILITY: every settlement with a major Aetheryte has a REAL merchant (wiki-verified) with 3 Phoenix Downs (150 Gil) + 1 Phoenix Tail (1,000 Gil). Restocks between sessions. Loot rolls by CR: §A21. Merchant hubs, fixed base stock and the ex-novo special item: §A22/§A20.
+Never Phoenix Downs/Tails as loot/drops/crafts. AVAILABILITY: every settlement with a major Aetheryte has a REAL merchant (wiki-verified) with 3 Phoenix Downs (250 Gil) + 1 Phoenix Tail (1,500 Gil). Restocks between sessions. Loot rolls by CR: §A21. Merchant hubs, fixed base stock and the ex-novo special item: §A22/§A20.
 
 ## §B15 — LAYERED LORE
 Only if there is investigable lore. Not in briefings. READ ALOUD + DC 10/15/20 + GM INFO. (When shown as a check, label the tiers in Italian per §A18: CD Facile/Media/Difficile.)
