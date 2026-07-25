@@ -498,6 +498,8 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 - Using a Limit Break requires your FULL ACTION for the turn.
 - You CANNOT MOVE that turn.
 - Only one LB is activated at a time from the shared pool.
+- **NO FRIENDLY FIRE (binding):** a Limit Break NEVER harms allies. A damaging LB affects ONLY ENEMIES in its area — allies, the user and neutral bystanders are untouched (it is the party's SHARED aether, 6.1; and FFXIV has no friendly fire in any mechanic). You still choose WHERE to aim the line/circle to catch as many enemies as possible.
+- **BOUNDARY (binding):** the line above is an LB-ONLY exception. Ordinary spells and abilities (Fireball, Blizzaga, any normal AoE) keep the STANDARD D&D 5e rules and DO hit allies caught in the area — never generalise the LB exception to them.
 
 ## 6.3 Effects by role
 - **AREA PRINCIPLE - THE AREA SCALES WITH THE LB LEVEL:** LB1 = SMALL area, LB2 = MEDIUM area, LB3 = LARGE area. Applies to ALL LBs that act on an area or radius (Tank, Healer, Ranged DPS and Magical DPS): as the LB level rises, both the EFFECT AND the SIZE of the area/radius grow. Only Physical Melee DPS is an exception: it is SINGLE-TARGET and has NO area (does not scale in size).
@@ -514,9 +516,9 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 
 **DPS - Damage (see table 6.4):**
 - PHYSICAL MELEE: single target, AUTOMATIC hit (no attack roll), NO save. d12 dice. (No area: hits a single target at any LB level.)
-- PHYSICAL RANGE: a LINE that SCALES with LB level (length x width) -> LB1 6 m x 1.5 m | LB2 12 m x 3 m | LB3 18 m x 4.5 m. AUTOMATIC (no save). d8 dice.
-- MAGICAL: a CIRCLE that SCALES with LB level -> LB1 radius 3 m | LB2 radius 6 m | LB3 radius 9 m. AUTOMATIC (no save). d8 dice.
-- *ALL Limit Breaks are UNAVOIDABLE (like FFXIV):* they land in full — no attack roll and no save. Melee is d12 (single-target, concentrated damage); the AoE types are d8 because they SPREAD the hit across everyone in the line/circle — so melee stays the single-target boss-killer while the AoE clears groups, and neither is reduced by a save.
+- PHYSICAL RANGE: a LINE that SCALES with LB level (length x width) -> LB1 6 m x 1.5 m | LB2 12 m x 3 m | LB3 18 m x 4.5 m. Hits every ENEMY in it (allies never, 6.2). AUTOMATIC (no save). d8 dice.
+- MAGICAL: a CIRCLE that SCALES with LB level -> LB1 radius 3 m | LB2 radius 6 m | LB3 radius 9 m. Hits every ENEMY in it (allies never, 6.2). AUTOMATIC (no save). d8 dice.
+- *ALL Limit Breaks are UNAVOIDABLE (like FFXIV):* they land in full — no attack roll and no save. Melee is d12 (single-target, concentrated damage); the AoE types are d8 because they SPREAD the hit across every ENEMY caught in the line/circle — so melee stays the single-target boss-killer while the AoE clears groups, and neither is reduced by a save.
 - Damage type: themed to the job.
 
 ## 6.4 DPS damage table (dice rise every 4 levels)
@@ -529,7 +531,7 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 | 17-20 | 7 dice | 11 dice | 16 dice |
 
 **Die type:** PHYSICAL MELEE = d12 | PHYSICAL RANGE and MAGICAL = d8
-**Area (scales with LB level):** Physical Range = line 6/12/18 m long x 1.5/3/4.5 m wide (LB1/LB2/LB3) | Magical = circle radius 3/6/9 m (LB1/LB2/LB3) | Physical Melee = single target (no area).
+**Area (scales with LB level):** Physical Range = line 6/12/18 m long x 1.5/3/4.5 m wide (LB1/LB2/LB3) | Magical = circle radius 3/6/9 m (LB1/LB2/LB3) | Physical Melee = single target (no area). ENEMIES ONLY — an LB never hits allies (6.2).
 **Support LB radius (scales with LB level):** Tank = radius 6/12/18 m (LB1/LB2/LB3) | Healer = radius 6/12/18 m (LB1/LB2/LB3).
 
 **Average damage (reference):**
@@ -1318,7 +1320,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | GRAND COMPANY | national factions; pure color, optional, non-blocking. | Ch. 17 |
 | HEALER | role: healing, support, performs the Raise. | Ch. 2 / 3 |
 | GM INFO | a secret context block, for the GM only. | Ch. 16 |
-| LIMIT BREAK (LB) | a party bar 0-3; caps at segment 2 outside boss fights (LB3 only on Bosses); empties on any rest and on any travel; area/radius scales with the level. | Ch. 6 |
+| LIMIT BREAK (LB) | a party bar 0-3; caps at segment 2 outside boss fights (LB3 only on Bosses); empties on any rest and on any travel; area/radius scales with the level; never harms allies (LB-only exception). | Ch. 6 |
 | LAYERED LORE | info unlockable at CD 10/15/20, spoiler-safe. | Ch. 16 |
 | AETHER SICKNESS | after a revive: damage/healing dice halved, for 2 turns. | Ch. 18 |
 | MILESTONE | narrative progression, no XP. | Ch. 5 |
