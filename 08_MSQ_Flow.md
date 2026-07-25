@@ -1,6 +1,8 @@
 # 08.0 — CONVENZIONI GLOBALI (una volta sola)
 - MANIFEST (08.1): backbone LOCKED di cutscene/reveal; riprodurre ogni pin, mai droppare/inventare, GATED nascosti. Pin: IN-SCENA / ALTROVE / VISIONE DELL'ECO / REVEAL / GATED.
-- INDICE (08.2-08.6): catena quest reale (giver + step + [duty] + Next). Ordine autoritativo (06 §A14, CGW); reveal-gate 05 Ch.1 + manifest; dialoghi Gamer Escape.
+- INDICE (08.2-08.6): catena quest reale (giver + step + [duty] + Next). Ordine autoritativo (06 §A14, CGW); reveal-gate 05 Ch.1 + manifest; dialoghi Gamer Escape. Cachati per OGNI quest: ordine, nome, Next MSQ risolto; giver/step spine SOLO dove mostrati (minoranza) — per il resto lo step spine si recupera live (06 §A14).
+- MARCATORI DI CONDENSAZIONE `[COND: …]` (binding, 06 §B2): marcano le SOLE quest condensabili. `[COND: fetch]` = consegna/commissione pura · `[COND: relay]` = relay sociale a basse poste (parla ad A che manda a B, senza scelta/rivelazione/scontro) · `[COND: parallel → <convergenza>]` = cluster di micro-obiettivi paralleli. REGOLA D'ORO: **NON marcato = SI GIOCA**, sempre; un buco nella marcatura costa tempo al tavolo, mai contenuto. MAI `[COND]` su: una quest che nomina una DUTY istanziata, una quest che porta una cutscene/reveal pinnata nei manifest (08.1), una quest-pillar, o qualunque caso dubbio. I marcatori si aggiungono SOLO in una passata di marcatura rivista dal GM, MAI a runtime.
+- MARCATORE `[CUT: <motivo>]` (binding, più forte di `[COND]`): la quest è FUORI dalla campagna — MAI giocata, MAI riassunta in un bridge, MAI usata come bersaglio di '[Info GM] apre'. La catena SCAVALCA la voce e il Next della quest precedente punta direttamente alla prima quest non tagliata. Si usa per contenuto che questo homebrew non implementa (precedente già in uso: le fetch-errand del Crystal Tower). La voce resta nell'indice solo come traccia canonica.
 - OST (08.OST-*): temi di duty/scena risolti da queste tabelle (06 §A23); titoli in inglese (chiave di ricerca).
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
@@ -636,7 +638,7 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 ---
 
 ## TRIAL PINS — HW → EW (element/theme · arena + real instant-death/hazard · boss visual · signature moves) [CGW-verified]
-Read this (or, for ARR, the inline TRIAL PIN in the 08.2 index) BEFORE building any MSQ trial (06 §B10 TRIAL LORE-FIDELITY + §B20). Theme the arena, the boss's body, the move imagery and the damage types to the ELEMENT below — NEVER bleed another primal's element (the §A1 TRIAL exemplar is IFRIT-fire, imitate its register only). Longevity via phase gates + Legendary Resistance + legendary actions, offense in band (06 §B11 carve-out).
+Read this (or, for ARR, the inline TRIAL PIN in the 08.2 index) BEFORE building any MSQ trial (06 §B10 TRIAL LORE-FIDELITY + §B20). Theme the arena, the boss's body, the move imagery and the damage types to the ELEMENT below — NEVER bleed another primal's element onto the one you are writing (the observed failure: Titan, an EARTH primal, written with magma/obsidian imagery). Longevity via phase gates + Legendary Resistance + legendary actions, offense in band (06 §B11 carve-out).
 
 **Heavensward**
 - **Vishap (The Steps of Faith):** DRAGON (fire/earth breath) — a DEFENSE / siege trial, NOT a standard single-boss: build it as a timed DEFENSE of the Steps of Faith BRIDGE at Ishgard as the Dravanian Horde advances toward the city, protecting the three wards ('Daniffen's Collar') with Temple Knights / dragoons / cannons at your side. Boss = a great horned wyrm. Hazard = ward destruction / the horde breaking through (a DPS-race stand). Moves: Flame Breath, Fireball, Seismic Shriek, Body Slam, Earth Shaker, Earthrising (Exaflares), Scorching Breath (final ward-breaker).
@@ -874,75 +876,75 @@ KEY SCENES:
 ## LIMSA LOMINSA opening (Sea) — giver of #1: Ryssfloh (Yellowjacket), Limsa Lominsa
 1. Coming to Limsa Lominsa   [CGW Next: 'So It Begins' — minor Limsa-opener variance vs GE's 'Close to Home (Limsa Lominsa)'; both are early openers]
 2. Close to Home (Limsa Lominsa)
-3. On to Summerford
-4. Dressed to Call
+3. On to Summerford `[COND: relay]`
+4. Dressed to Call `[COND: fetch]`
 5. Lurkers in the Grotto
-6. Washed Up
+6. Washed Up `[COND: parallel → Double Dealing]`
 7. Double Dealing
-8. Loam Maintenance
+8. Loam Maintenance `[COND: fetch]`
 9. Plowshares to Swords
 10. Just Deserts
-11. Sky-high
-12. Thanks a Million
-13. Relighting the Torch
-14. On to the Drydocks
-15. Without a Doubt
-16. Righting the Shipwright
+11. Sky-high `[COND: relay]`
+12. Thanks a Million `[COND: fetch]`
+13. Relighting the Torch `[COND: fetch]`
+14. On to the Drydocks `[COND: fetch]`
+15. Without a Doubt `[COND: relay]`
+16. Righting the Shipwright `[COND: fetch]`
 17. Do Angry Pirates Dream
 18. Victory in Peril
-19. Men of the Blue Tattoos
+19. Men of the Blue Tattoos `[COND: fetch]`
 20. Feint and Strike
-21. High Society
+21. High Society `[COND: fetch]`
 22. A Mizzenmast Repast
 23. **The Lominsan Envoy** (giver: Merlwyb, Command Room) -> Baderon -> airship to Gridania (Serpent honor guard, Nophica's Altar) -> airship to Ul'dah (Flame honor guard) -> Bartholomew (Hustings Strip) -> **Next: Call of the Sea**
 
 ## GRIDANIA opening (Forest) — giver of #1: Bertennant, New Gridania
 1. Coming to Gridania   (-> Mother Miounne, Carline Canopy; register as an adventurer) -> Next: Close to Home
 2. Close to Home (Gridania)
-3. To the Bannock
-4. Passing Muster
+3. To the Bannock `[COND: relay]`
+4. Passing Muster `[COND: fetch]`
 5. Chasing Shadows
-6. Eggs over Queasy
-7. Surveying the Damage
-8. A Soldier's Breakfast
+6. Eggs over Queasy `[COND: fetch]`
+7. Surveying the Damage `[COND: fetch]`
+8. A Soldier's Breakfast `[COND: fetch]`
 9. Spirithold Broken
-10. On to Bentbranch
-11. You Shall Not Trespass
-12. Don't Look Down
-13. In the Grim Darkness of the Forest
-14. Threat Level Elevated
-15. Migrant Marauders
-16. A Hearer Is Often Late
-17. Salvaging the Scene
+10. On to Bentbranch `[COND: relay]`
+11. You Shall Not Trespass `[COND: fetch]`
+12. Don't Look Down `[COND: fetch]`
+13. In the Grim Darkness of the Forest `[COND: relay]`
+14. Threat Level Elevated `[COND: parallel → Leia's Legacy]`
+15. Migrant Marauders `[COND: fetch]`
+16. A Hearer Is Often Late `[COND: relay]`
+17. Salvaging the Scene `[COND: fetch]`
 18. Leia's Legacy
-19. Dread Is in the Air
+19. Dread Is in the Air `[COND: fetch]`
 20. To Guard a Guardian
-21. Festive Endeavors
+21. Festive Endeavors `[COND: fetch]`
 22. Renewing the Covenant
 23. **The Gridanian Envoy** (giver: Kan-E-Senna, the Lotus Stand) -> Miounne -> airship to Ul'dah (present missive to Zanthael, Bulwark Hall) -> airship to ... -> present missive to Bartholomew (Hustings Strip) -> **Next: Call of the Sea**
 
 ## UL'DAH opening (Desert) — giver of #1: Wymond, Ul'dah - Steps of Nald
 1. Coming to Ul'dah   (-> Momodi) -> Next: Close to Home
 2. Close to Home (Ul'dah)
-3. We Must Rebuild
-4. Nothing to See Here
+3. We Must Rebuild `[COND: relay]`
+4. Nothing to See Here `[COND: parallel → Underneath the Sultantree]`
 5. Underneath the Sultantree
-6. Step Nine
-7. Prudence at This Junction
-8. Out of House and Home
+6. Step Nine `[COND: fetch]`
+7. Prudence at This Junction `[COND: fetch]`
+8. Out of House and Home `[COND: fetch]`
 9. Way Down in the Hole
-10. Takin' What They're Givin'
-11. Supply and Demands
-12. Give It to Me Raw
-13. The Perfect Swarm
-14. Last Letter to Lost Hope
-15. Passing the Blade
-16. Following Footfalls
-17. Storms on the Horizon
+10. Takin' What They're Givin' `[COND: relay]`
+11. Supply and Demands `[COND: fetch]`
+12. Give It to Me Raw `[COND: fetch]`
+13. The Perfect Swarm `[COND: fetch]`
+14. Last Letter to Lost Hope `[COND: fetch]`
+15. Passing the Blade `[COND: fetch]`
+16. Following Footfalls `[COND: relay]`
+17. Storms on the Horizon `[COND: relay]`
 18. Oh Captain, My Captain
-19. Secrets and Lies
+19. Secrets and Lies `[COND: fetch]`
 20. Duty, Honor, Country
-21. A Matter of Tradition
+21. A Matter of Tradition `[COND: fetch]`
 22. A Royal Reception
 23. **The Ul'dahn Envoy** (giver: Raubahn, Ul'dah - Steps of Nald) -> Momodi -> airship to Gridania (Zanthael/Bulwark Hall) -> airship (Serpent honor guard, Nophica's Altar) -> **Next: Call of the Sea**
 
@@ -951,6 +953,8 @@ KEY SCENES:
 **Call of the Sea** (shared, post-envoy) -> **It's Probably Pirates** (Sastasha, first dungeon) -> ... = INSTALLMENT 1 (convergence L15 -> Sylph arc).
 
 > Note: openings verified at ENDPOINTS on CGW (openers + all three envoys + convergence to Call of the Sea). The 23-step bodies are the GE-scaffold play order (overworld only, no duties). Bind to 06 §A14: for any single opening step's detail, resolve on CGW at play-time (uncertainty gate).
+
+> **CONDENSATION COVERAGE — all three openings ARE MARKED (binding):** every quest in the three city bodies was individually resolved on ConsoleGamesWiki (steps + presence of any fight / instanced-solo duty / named story NPC) before being marked — NEVER from the title, which is the method proven unsafe. The pass corrected several titles that read like errands but are not: `Lurkers in the Grotto` (solo duty + Y'shtola's first appearance), `Chasing Shadows` (solo duty + Yda/Papalymo + a Hydaelyn vision), `Underneath the Sultantree` (solo duty vs voidsent + Thancred + Hydaelyn), `Way Down in the Hole` / `Spirithold Broken` / `Just Deserts` (each the city's masked-mage/Ascian encounter), and the three Carteneau ECHO-VISION banquets (`A Mizzenmast Repast` · `Renewing the Covenant` · `A Royal Reception`) — all PLAYED. The three chains are structurally parallel, so each city gets equivalent treatment and the campaign stays REPEATABLE whichever origin is chosen. NOTE: the wiki also shows these bodies DO contain solo duties (correcting the older "overworld only, no duties" line above) — which is exactly why the per-quest resolution was required.
 
 [dungeons/duties] in square brackets are duties contained inside the quest that names them.
 
@@ -998,11 +1002,11 @@ KEY SCENES:
 - Thancred: investigate a crystal robbery + abductions (primal-related) -> Isembard (Camp Drybone, Eastern Thanalan)
 - Next: Unsolved Mystery
 
-**Unsolved Mystery** — giver: Isembard (Eastern Thanalan)
+**Unsolved Mystery** — giver: Isembard (Eastern Thanalan) `[COND: fetch]`
 - retrieve ripe corpses from the eastern road -> deliver them to Isembard (Camp Drybone)
 - Next: What Poor People Think
 
-**What Poor People Think** — giver: Isembard (Eastern Thanalan)
+**What Poor People Think** — giver: Isembard (Eastern Thanalan) `[COND: relay]`
 - Ungust (deliver Isembard's note) -> Commonfolk (0/3) -> Ungust -> report to Isembard
 - Next: A Proper Burial
 
@@ -1020,11 +1024,12 @@ KEY SCENES:
 
 **Dressed to Deceive** — giver: Isembard (Eastern Thanalan)
 - Thancred (pose as impoverished souls) -> locals at Camp Drybone (in disguise) -> Thancred (pond north of Sandgate: confront the false priest) -> report to Minfilia (Waking Sands)
-- Next: Life, Materia and Everything
+- Next: Lord of the Inferno (salta 'Life, Materia and Everything', tagliata — vedi sotto)
 
-**Life, Materia and Everything** — giver: Minfilia (The Waking Sands)
+**Life, Materia and Everything** — giver: Minfilia (The Waking Sands) `[CUT: la MATERIA non esiste in questo homebrew]`
 - Mutamix Bubblypots (the Bonfire): materia-enhancement demo -> Minfilia
-- Next: Lord of the Inferno
+- TAGLIATA (binding): l'unico contenuto della quest è la demo del sistema materia, che questo homebrew non implementa (nessun altro file lo cita). MAI giocata, MAI riassunta, MAI bersaglio di 'apre': 'Dressed to Deceive' chiude direttamente su **Lord of the Inferno**. Voce conservata solo come traccia canonica.
+- Next (canonico, non usato): Lord of the Inferno
 
 **Lord of the Inferno** — giver: Minfilia (The Waking Sands)
 - Flame Sergeant (Camp Drybone): briefing -> Flame Sergeant (the Invisible City) -> Solo Duty (defeat the Amalj'aa) -> Flame Sergeant (in the cave) -> [IFRIT — The Bowl of Embers, trial] -> Thancred (Camp Drybone) -> Scion (Waking Sands) -> Minfilia (final debrief)
@@ -1051,7 +1056,7 @@ KEY SCENES:
 - Mitainie (Westshore Pier): transport -> Amelain (the Hawthorne Hut): sylphic-culture briefing
 - Next: Sylphic Studies
 
-**Sylphic Studies** — giver: Rolfe Hawthorne (East Shroud)
+**Sylphic Studies** — giver: Rolfe Hawthorne (East Shroud) `[COND: parallel → First Impressions]`
 - Ysabel (etiquette) -> Blaisette (nature/pranks) -> Monne (sustenance) -> report to Rolfe
 - Next: First Impressions
 
@@ -1063,11 +1068,11 @@ KEY SCENES:
 - Rolfe (wraps the offering) -> Amelain (letter from the Elder Seedseer for Komuxio) -> Komuxio (perform the dance emote; accepts the milkroot + letter as proof of peace)
 - Next: Dance Dance Diplomacy
 
-**Dance Dance Diplomacy** — giver: Yda (Little Solace)
+**Dance Dance Diplomacy** — giver: Yda (Little Solace) `[COND: parallel → Presence of the Enemy]`
 - dance for the sylphs of Little Solace (0/3) -> report to Yda
 - Next: Forest Friend
 
-**Forest Friend** — giver: Papalymo (East Shroud)
+**Forest Friend** — giver: Papalymo (East Shroud) `[COND: fetch]`
 - Imedia (advice) -> slay a ziz gorlin, slay a gall gnat, obtain 3 brownie brushes -> Komuxio (Little Solace)
 - Next: Presence of the Enemy
 
@@ -1079,7 +1084,7 @@ KEY SCENES:
 - talk to residents of Little Solace & the Hawthorne Hut (unfamiliar sightings) -> investigate signs of imperial incursion in the forest -> deliver the quartermaster's log
 - Next: Brotherly Love
 
-**Brotherly Love** — giver: Komuxio (East Shroud)
+**Brotherly Love** — giver: Komuxio (East Shroud) `[COND: relay]`
 - Claxio -> Komuxio -> find Claxio -> report to Komuxio
 - Next: Spirited Away
 
@@ -1087,23 +1092,23 @@ KEY SCENES:
 - Vorsaile Heuloix (Adders' Nest: request Twin Adder aid to find the missing sylph elder) -> Giah Molkoh (Bentbranch Meadows: Wood Wailers' help) -> Buscarron (Buscarron's Druthers: any news of the elder)
 - Next: Druthers House Rules
 
-**Druthers House Rules** — giver: Buscarron (South Shroud)
+**Druthers House Rules** — giver: Buscarron (South Shroud) `[COND: fetch]`
 - douse the Mead-soaked Midlander with water -> report to Buscarron
 - Next: Never Forget
 
-**Never Forget** — giver: Buscarron (South Shroud)
+**Never Forget** — giver: Buscarron (South Shroud) `[COND: relay]`
 - Baensyng (Hawkers' Alley, Limsa) -> Kyokyoroon (give a fresh chicken egg) -> Wineburg (Lominsan ferry docks) -> Ahldfoet (Aleport) -> Teteroon (Memeroon's Trading Post, upper La Noscea: deliver the scarlet earring)
 - Next: Microbrewing
 
-**Microbrewing** — giver: Teteroon (Upper La Noscea)
+**Microbrewing** — giver: Teteroon (Upper La Noscea) `[COND: fetch]`
 - slay coeurl pups, collect 3 coeurl pup whiskers -> deliver to Teteroon
 - Next: Like Fine Wine
 
-**Like Fine Wine** — giver: Teteroon (Upper La Noscea)
+**Like Fine Wine** — giver: Teteroon (Upper La Noscea) `[COND: fetch]`
 - receive the Qiqirn Firewater -> deliver it to Buscarron (the Druthers)
 - Next: Sylphish Concerns
 
-**Sylphish Concerns** — giver: Buscarron (South Shroud)
+**Sylphish Concerns** — giver: Buscarron (South Shroud) `[COND: parallel → Nouveau Riche]`
 - investigate the areas where sylphs were sighted (0/5) -> report to Buscarron
 - Next: Nouveau Riche
 
@@ -1116,7 +1121,7 @@ KEY SCENES:
 - Next: A Simple Gift
 - Manifest tie: CRYSTAL #3 LIGHTNING (rescue of the sylph elder Frixio), 08.1 L4. Toto-Rak reworked gimmick = activate terminals (see ARR REVAMPED-DUTY LOCK, 08.1); roster = Coeurl O' Nine Tails (an OCHU/plant despite the name; mini-boss, x2) + Graffias (final).
 
-**A Simple Gift** — giver: Buscarron (South Shroud)
+**A Simple Gift** — giver: Buscarron (South Shroud) `[COND: fetch]`
 - Knolexia (Little Solace: deliver the Azeyma Rose Oil)
 - Next: Believe in Your Sylph
 
@@ -1136,7 +1141,7 @@ KEY SCENES:
 - 3 merchants at Highbridge (info on the masked man) -> Hihibaru
 - Next: Ratting It Out  (CGW 'Next' field shows Where There Is Smoke; Ratting It Out is the intervening step per chain order)
 
-**Ratting It Out** — giver: Hihibaru (Eastern Thanalan)
+**Ratting It Out** — giver: Hihibaru (Eastern Thanalan) `[COND: fetch]`
 - search the Qiqirn lair SE of Highbridge -> deliver the undecipherable letter
 - Next: Where There Is Smoke
 
@@ -1148,11 +1153,11 @@ KEY SCENES:
 - Hihira (Little Ala Mhigo) -> Gundobald (leader of the refugee settlement)
 - Next: Tea for Three
 
-**Tea for Three** — giver: Gisilbehrt (Southern Thanalan)
+**Tea for Three** — giver: Gisilbehrt (Southern Thanalan) `[COND: parallel → Meeting with the Resistance]`
 - deliver a cup of sweet Thanalan tea to Osric, Angry River, Yayazuku
 - Next: Foot in the Door
 
-**Foot in the Door** — giver: Gisilbehrt (Southern Thanalan)
+**Foot in the Door** — giver: Gisilbehrt (Southern Thanalan) `[COND: relay]`
 - Minfilia (the Waking Sands, Vesper Bay)
 - Next: Meeting with the Resistance
 
@@ -1164,7 +1169,7 @@ KEY SCENES:
 - Albreda (convince the hamlet to aid the wounded man) -> Charline (the Hearer: permission) -> report to Meffrid
 - Next: Helping Horn
 
-**Helping Horn** — giver: Meffrid (South Shroud)
+**Helping Horn** — giver: Meffrid (South Shroud) `[COND: fetch]`
 - slay antelope stags (0/4 horns) -> deliver to Meffrid -> Buscarron -> Faramund (herbal ointment)
 - Next: He Ain't Heavy
 
@@ -1172,11 +1177,11 @@ KEY SCENES:
 - Albreda (about Gallien) -> Meffrid (instructions) -> Gallien (track him down)
 - Next: Come Highly Recommended
 
-**Come Highly Recommended** — giver: Meffrid (South Shroud)
+**Come Highly Recommended** — giver: Meffrid (South Shroud) `[COND: fetch]`
 - receive Meffrid's Recommendation -> Gundobald (Little Ala Mhigo: show the letter)
 - Next: The Bear and the Young'uns' Cares
 
-**The Bear and the Young'uns' Cares** — giver: Gundobald (Southern Thanalan)
+**The Bear and the Young'uns' Cares** — giver: Gundobald (Southern Thanalan) `[COND: parallel → Wilred Wants You]`
 - speak with the 4 youths of Little Ala Mhigo (about the masked man) -> report to Gundobald
 - Next: Wilred Wants You
 
@@ -1200,11 +1205,11 @@ KEY SCENES:
 - Noraxia (masked-man details) -> Medrod (Fallgourd Float; soothe him to recount his experience)
 - Next: Ziz Is So Ridiculous
 
-**Ziz Is So Ridiculous** — giver: Aideen (North Shroud)
+**Ziz Is So Ridiculous** — giver: Aideen (North Shroud) `[COND: fetch]`
 - slay 3 ziz -> report to Aideen
 - Next: Rock of Rancor
 
-**Rock of Rancor** — giver: Aideen (North Shroud)
+**Rock of Rancor** — giver: Aideen (North Shroud) `[COND: fetch]`
 - firesand stick on the rock SW -> gather 5 lightning-aspected crystals -> deliver to Aideen
 - Next: Power of Deduction
 
@@ -1216,7 +1221,7 @@ KEY SCENES:
 - Ivaurault (info) -> search for a maiden's corpse W of Fallgourd -> present the ravaged corpse to Aethelmaer
 - Next: Secret of the White Lily
 
-**Secret of the White Lily** — giver: Aethelmaer (North Shroud)
+**Secret of the White Lily** — giver: Aethelmaer (North Shroud) `[COND: parallel → Skeletons in Her Closet]`
 - show the lily button to: Miounne -> Bernadette -> Ceinguled -> Ursandel
 - Next: Skeletons in Her Closet
 
@@ -1229,11 +1234,11 @@ KEY SCENES:
 - Next: Tales from the Tidus Slayer
 - Manifest tie: this opens the COMPANY OF HEROES / TITAN buildup (08.1 L5); Titan trial (The Navel) = CRYSTAL #4 EARTH, later in this cluster.
 
-**Tales from the Tidus Slayer** — giver: Trachtoum (Lower La Noscea)
+**Tales from the Tidus Slayer** — giver: Trachtoum (Lower La Noscea) `[COND: fetch]`
 - destroy the rats' nest by the windmill -> report to Trachtoum
 - Next: Hungry Hungry Goobbues
 
-**Hungry Hungry Goobbues** — giver: Trachtoum (Lower La Noscea)
+**Hungry Hungry Goobbues** — giver: Trachtoum (Lower La Noscea) `[COND: fetch]`
 - slay goobbues W of the Grey Fleet -> report to Trachtoum
 - Next: The Lominsan Way
 
@@ -1241,7 +1246,7 @@ KEY SCENES:
 - The Miller (boulder-breaking contest) -> Wheiskaet (Costa del Sol: prove your worth before learning to defeat Titan)
 - Next: Nix That
 
-**Nix That** — giver: Wheiskaet (Eastern La Noscea)
+**Nix That** — giver: Wheiskaet (Eastern La Noscea) `[COND: fetch]`
 - fattened herring to lure the nix -> lie in wait -> deliver the nix leg to Wheiskaet
 - Next: A Modest Proposal
 
@@ -1249,11 +1254,11 @@ KEY SCENES:
 - Landenel (Camp Tranquil, South Shroud: how to obtain a giant adamantoise egg)
 - Next: Trial by Turtle
 
-**The Penitent Man** — giver: Landenel (South Shroud)
+**The Penitent Man** — giver: Landenel (South Shroud) `[COND: fetch]`
 - stingbrew -> slay agaric flies + collect a brownie brush -> present to Landenel
 - Next: Changing of the Guard
 
-**Changing of the Guard** — giver: Landenel (South Shroud)
+**Changing of the Guard** — giver: Landenel (South Shroud) `[COND: parallel → Trial by Turtle]`
 - inform Kikokutaia / Kikokutaib / Kikokutaic (proceed to the Lower Paths, agaric fly swarms)
 - Next: Trial by Turtle
 
@@ -1261,7 +1266,7 @@ KEY SCENES:
 - obtain a Giant Adamantoise Egg from the nest -> U'odh Nunh (Forgotten Springs: convince him to aid)
 - Next: The Perfect Prey
 
-**The Drake Exception** — giver: U'odh Nunh (Southern Thanalan)
+**The Drake Exception** — giver: U'odh Nunh (Southern Thanalan) `[COND: fetch]`
 - slay sundrakes, collect blood (0/7) -> deliver to U'odh Nunh
 - Next: The Perfect Prey   [U'odh Nunh sub-thread; converges at The Perfect Prey]
 
@@ -1273,7 +1278,7 @@ KEY SCENES:
 - slay an angler & take its carcass -> place it in Wellwick worm territory -> slay the Wellwick worm -> return the meat + deliver an item to Wheiskaet
 - Next: There and Back Again
 
-**There and Back Again** — giver: U'odh Nunh (Southern Thanalan)
+**There and Back Again** — giver: U'odh Nunh (Southern Thanalan) `[COND: fetch]`
 - deliver the onyx brandewine to Wheiskaet
 - Next: The Things We Do for Cheese
 
@@ -1287,31 +1292,31 @@ KEY SCENES:
 
 ## ARR — INSTALLMENT 4: Company-of-Heroes finish -> TITAN -> Waking Sands attacked -> Coerthas (VERIFIED, CGW)
 
-**What Do You Mean You Forgot the Wine?** — giver: Wheiskaet (Eastern La Noscea)
+**What Do You Mean You Forgot the Wine?** — giver: Wheiskaet (Eastern La Noscea) `[COND: fetch]`
 - Shamani Lohmani (Wineport: hand over the Aperitif Order Slip)
 - Next: An Offer You Can Refuse
 
-**An Offer You Can Refuse** — giver: Shamani Lohmani (Eastern La Noscea)
+**An Offer You Can Refuse** — giver: Shamani Lohmani (Eastern La Noscea) `[COND: relay]`
 - Byrglaent (request wine for the banquet) -> Shamani Lohmani (deliver the refusal)
 - Next: It Won't Work
 
-**It Won't Work** — giver: Shamani Lohmani (Eastern La Noscea)
+**It Won't Work** — giver: Shamani Lohmani (Eastern La Noscea) `[COND: fetch]`
 - 2 Vignerons (search for a bottle of Bacchus wine) -> Shamani Lohmani
 - Next: Give a Man a Drink
 
-**Give a Man a Drink** — giver: Shamani Lohmani (Eastern La Noscea)
+**Give a Man a Drink** — giver: Shamani Lohmani (Eastern La Noscea) `[COND: relay]`
 - Rhitskylt (where to find Drest) -> Drest (deliver Lohmani Rosso at the Severed String)
 - Next: That Weight
 
-**That Weight** — giver: Drest (Eastern La Noscea)
+**That Weight** — giver: Drest (Eastern La Noscea) `[COND: fetch]`
 - slay dung midge swarms -> report to Drest
 - Next: Battle Scars
 
-**Not My War** — giver: Drest (Eastern La Noscea)
+**Not My War** — giver: Drest (Eastern La Noscea) `[COND: fetch]`
 - defeat jungle coeurls, collect 4 skins -> Drest   [parallel Drest sub-thread; converges at Battle Scars]
 - Next: Battle Scars
 
-**Battle Scars** — giver: Drest (Eastern La Noscea)
+**Battle Scars** — giver: Drest (Eastern La Noscea) `[COND: fetch]`
 - collect 3 coconuts of palm wine (Red Mantis Falls) -> Shamani Lohmani (Wineport)
 - Next: It Was a Very Good Year
 
@@ -1319,7 +1324,7 @@ KEY SCENES:
 - Drest (show the Bacchus leaf) -> defeat the Goobbue near the juggernaut -> Shamani Lohmani (Bacchus cutting) -> Wheiskaet (Bacchus wine)
 - Next: In the Company of Heroes
 
-**A Final Ignominy** — giver: Wheiskaet (Eastern La Noscea)
+**A Final Ignominy** — giver: Wheiskaet (Eastern La Noscea) `[COND: parallel → In the Company of Heroes]`
 - Dyrstweitz (offer assistance) -> arrange the flowers -> arrange the wine bottles -> portion the feast (0/3) -> Wheiskaet   [parallel banquet-prep sub-thread; converges]
 - Next: In the Company of Heroes
 
@@ -1341,15 +1346,15 @@ KEY SCENES:
 - Next: You Can't Take It with You
 - STORY: this is the aftermath of the GARLEAN RAID ON THE WAKING SANDS (the Scions' HQ attacked). Handle per the ARR manifest.
 
-**You Can't Take It with You** — giver: Marques (Eastern Thanalan)
+**You Can't Take It with You** — giver: Marques (Eastern Thanalan) `[COND: relay]`
 - Traveling Goldsmith (buy tools) -> Marques (repair the horologe) -> Sister Eluned (give her the repaired horologe)
 - Next: Bringing out the Dead
 
-**With a Little Elbow Grease** — giver: Eaduuard (Eastern Thanalan)
+**With a Little Elbow Grease** — giver: Eaduuard (Eastern Thanalan) `[COND: relay]`
 - Marques (show the broken alembic/oven) -> Marques (deliver a bronze ornamental hammer)   [Marques alchemy sub-thread]
 - Next: A Tall Drink of Aqua del Sol
 
-**A Tall Drink of Aqua del Sol** — giver: Ilcum (Eastern Thanalan)
+**A Tall Drink of Aqua del Sol** — giver: Ilcum (Eastern Thanalan) `[COND: fetch]`
 - slay a sabotender del sol (brazo del sol) -> deliver the Aqua del Sol to Marques -> Marques   [converges at Bringing out the Dead]
 - Next: Bringing out the Dead
 
@@ -1357,7 +1362,7 @@ KEY SCENES:
 - Merchant (outside the Waking Sands: bodies to transport) -> gather 8 corpses (4+4) to the chocobo carriage at the east gate -> Sister Eluned
 - Next: Bury Me Not on the Lone Prairie
 
-**The Warden Works in Mysterious Ways** — giver: Eluned (Eastern Thanalan)
+**The Warden Works in Mysterious Ways** — giver: Eluned (Eastern Thanalan) `[COND: fetch]`
 - pilgrimage (Mark of the Warden: offer a prayer) -> Eluned   [parallel; converges]
 - Next: Bury Me Not on the Lone Prairie
 
@@ -1377,7 +1382,7 @@ KEY SCENES:
 - Ludovoix (the Observatorium: information about the Enterprise)
 - Next: The Unending War
 
-**The Unending War** — giver: Ser Ludovoix (Coerthas Central Highlands)
+**The Unending War** — giver: Ser Ludovoix (Coerthas Central Highlands) `[COND: relay]`
 - search for the missing knight W of the Observatorium -> Ludovoix -> Edmelle -> Chief Astrologian Forlemort
 - Next: Men of Honor
 
@@ -1385,7 +1390,7 @@ KEY SCENES:
 - search for the missing Astrologian (cliffs E of the Observatorium) -> Jocea -> Portelaine (formal introductions to the High Houses)
 - Next: Three for Three
 
-**Three for Three** — giver: Portelaine (Coerthas Central Highlands)
+**Three for Three** — giver: Portelaine (Coerthas Central Highlands) `[COND: fetch]`
 - recover 3 Stolen Wares (W of the Observatorium) -> Portelaine
 - Next: The Rose and the Unicorn
 
@@ -1414,7 +1419,7 @@ KEY SCENES:
 - Storied Knight/Veteran (train by fighting three young knights) -> Haurchefant
 - Next: The Talk of Coerthas
 
-**The Talk of Coerthas** — giver: Haurchefant (Coerthas Central Highlands)
+**The Talk of Coerthas** — giver: Haurchefant (Coerthas Central Highlands) `[COND: parallel → Road to Redemption]`
 - Ninne -> Cravellin -> Forlemort -> Haurchefant (report)
 - Next: Road to Redemption
 
@@ -1430,23 +1435,23 @@ KEY SCENES:
 - Brigie (relay request to postpone Francel's trial) -> Haurchefant (trial can't be stopped; new orders) -> Hourlinet (protect Francel at Witchdrop) -> Haurchefant (Camp Dragonhead, Francel's name cleared)
 - Next: The Final Flight of the Enterprise
 
-**The Final Flight of the Enterprise** — giver: Haurchefant (Coerthas Central Highlands)
+**The Final Flight of the Enterprise** — giver: Haurchefant (Coerthas Central Highlands) `[COND: relay]`
 - Witness (about the Enterprise) -> Haurchefant (letter of introduction) -> Francel (request a letter) -> Brunadier (deliver both letters)
 - Next: Ye of Little Faith
 
-**Ye of Little Faith** — giver: Ser Brunadier (Coerthas Central Highlands)
+**Ye of Little Faith** — giver: Ser Brunadier (Coerthas Central Highlands) `[COND: relay]`
 - Ser Alboise -> Head Chirurgeon Astidien -> Ser Goudernoux -> Lord Drillemont (present the letters)
 - Next: Factual Folklore
 
-**Opportunity Knocks** — giver: Ser Benedict (Coerthas Central Highlands)
+**Opportunity Knocks** — giver: Ser Benedict (Coerthas Central Highlands) `[COND: fetch]`
 - slay feral crocs (0/5) -> Ser Clotairion   [parallel Whitebrim side-thread; converges at The Best Inventions]
 - Next: The Best Inventions
 
-**Factual Folklore** — giver: Haustefort (Coerthas Central Highlands)
+**Factual Folklore** — giver: Haustefort (Coerthas Central Highlands) `[COND: fetch]`
 - slay a spotted mudpuppy (tail meat) -> offer mudpuppy steaks to 3 Hungry Soldiers -> Haustefort -> Cenota (steak to the chirurgeon)
 - Next: The Best Inventions
 
-**The Best Inventions** — giver: Cid (Coerthas Central Highlands)
+**The Best Inventions** — giver: Cid (Coerthas Central Highlands) `[COND: fetch]`
 - obtain 3 Ice Sprite Cores (slay ice sprites) -> deliver to Cid
 - Next: Influencing Inquisitors
 
@@ -1464,7 +1469,7 @@ KEY SCENES:
 - Joellaut (show encyclical) -> Prunilla (show encyclical) -> confront Prunilla (/doubt) -> search SE of Whitebrim Front, open the suspicious box -> Drillemont (present findings)
 - Next: The Heretic among Us
 
-**The Heretic among Us** — giver: Drillemont (Coerthas Central Highlands)
+**The Heretic among Us** — giver: Drillemont (Coerthas Central Highlands) `[COND: relay]`
 - Knight of House Durendaire (at Snowcloak) -> Alphinaud (Whitebrim Front)
 - Next: In Pursuit of the Past
 
@@ -1473,19 +1478,19 @@ KEY SCENES:
 - Next: Into the Eye of the Storm
 - Manifest tie: CRYSTAL #5 ICE (Isgebind at the Stone Vigil), 08.1 L6.
 
-**Into the Eye of the Storm** — giver: Cid (New Gridania)
+**Into the Eye of the Storm** — giver: Cid (New Gridania) `[COND: relay]`
 - Lamberteint (Camp Drybone: research on corrupted crystals)
 - Next: Sealed with Science
 
-**All Due Precautions** — giver: Lamberteint (Eastern Thanalan)
+**All Due Precautions** — giver: Lamberteint (Eastern Thanalan) `[COND: fetch]`
 - Munificent Merchant (obtain a clay pot) -> Lamberteint (deliver the clay pot)   [parallel; converges at Sealed with Science]
 - Next: Sealed with Science
 
-**Sealed with Science** — giver: Lamberteint (Eastern Thanalan)
+**Sealed with Science** — giver: Lamberteint (Eastern Thanalan) `[COND: fetch]`
 - Hahasako (deliver the warded pot at Highbridge)
 - Next: With the Utmost Care
 
-**With the Utmost Care** — giver: Hahasako (Eastern Thanalan)
+**With the Utmost Care** — giver: Hahasako (Eastern Thanalan) `[COND: fetch]`
 - fracture a corrupted cluster with the quarrying maul, collect a corrupted crystal in the warded pot -> Lamberteint (examine)
 - Next: A Promising Prospect
 
@@ -1493,11 +1498,11 @@ KEY SCENES:
 - Ceana (Aleport: the corrupted-crystals site on the Isles of Umbra)
 - Next: It's Probably Not Pirates
 
-**It's Probably Not Pirates** — giver: Ceana (Western La Noscea)
+**It's Probably Not Pirates** — giver: Ceana (Western La Noscea) `[COND: relay]`
 - question the Yellowjackets of Aleport (travel restrictions to the Isles of Umbra) -> Ceana (undead infesting the Isles of Umbra)
 - Next: Representing the Representative
 
-**Representing the Representative** — giver: Ceana (Western La Noscea)
+**Representing the Representative** — giver: Ceana (Western La Noscea) `[COND: relay]`
 - Skyfryn (permission to travel) -> Mimidoa (golden feather -> writ of passage; investigate undead at Pharos Sirius) -> Ceana (show the parchment)
 - Next: The Reluctant Researcher
 
@@ -1510,7 +1515,7 @@ KEY SCENES:
 
 ## ARR — INSTALLMENT 6: Isles of Umbra finish -> GARUDA (#6) -> Castrum Centri -> Operation Archon / Cape Westwind (VERIFIED, CGW)
 
-**Sweet Somethings** — giver: Davyd (Western La Noscea)
+**Sweet Somethings** — giver: Davyd (Western La Noscea) `[COND: relay]`
 - adventurers at the eastern shore (cause of the undead influx) -> Davyd (the voice heard at the Ship Graveyard)
 - Next: History Repeating
 
@@ -1526,11 +1531,11 @@ KEY SCENES:
 - Komuxio (the wayward spriggan) -> Tiggy (save him from a tempered sylph) -> Komuxio -> Maerwynn (Sanctum of the Twelve: luring Giggity with rare ore)   [parallel Giggity sub-thread]
 - Next: Crazy Enough to Work
 
-**Crazy Enough to Work** — giver: Maerwynn (East Shroud)
+**Crazy Enough to Work** — giver: Maerwynn (East Shroud) `[COND: relay]`
 - Maerwynn (use a chert golem's soulstone as bait) -> Tiggy (Giggity's location, the Spriggan Dig) -> Hedyn (ice-aspected corrupted crystal)
 - Next: Better Late than Never
 
-**Better Late than Never** — giver: Hedyn (Old Gridania)
+**Better Late than Never** — giver: Hedyn (Old Gridania) `[COND: fetch]`
 - Hedyn (returns the corrupted crystal) -> Cid (New Gridania airship landing: deliver the corrupted crystal)
 - Next: Lady of the Vortex
 
@@ -1543,11 +1548,11 @@ KEY SCENES:
 - Alphinaud (the Waking Sands) -> Yda & Y'shtola present
 - Next: Casing the Castrum
 
-**Casing the Castrum** — giver: Y'shtola (the Waking Sands)
+**Casing the Castrum** — giver: Y'shtola (the Waking Sands) `[COND: relay]`
 - Portelaine (the Observatorium: intel on Castrum Centri, prisoners & escaped engineers)
 - Next: Eyes on the Empire
 
-**Eyes on the Empire** — giver: Portelaine (Coerthas Central Highlands)
+**Eyes on the Empire** — giver: Portelaine (Coerthas Central Highlands) `[COND: relay]`
 - Bricelt (show the letter of introduction) -> Pierremons
 - Next: Footprints in the Snow
 
@@ -1555,7 +1560,7 @@ KEY SCENES:
 - search for footprints of two escaped prisoners -> Wedge (found under the bridge) -> Monument Tower -> Cid arrives -> Abelie (welcomes you & Wedge)
 - Next: Monumental Hopes
 
-**Monumental Hopes** — giver: Wedge (Coerthas Central Highlands)
+**Monumental Hopes** — giver: Wedge (Coerthas Central Highlands) `[COND: relay]`
 - Abelie (info on Biggs) -> investigate Fury's Gaze (S of Monument Tower) -> Wedge
 - Next: Notorious Biggs
 
@@ -1563,23 +1568,23 @@ KEY SCENES:
 - Ignace (info on Biggs) -> assist Yda & Y'shtola in rescuing Biggs from imperial troops at Daniffen Pass -> Wedge (Monument Tower)
 - Next: Come-Into-My-Castrum
 
-**Come-Into-My-Castrum** — giver: Cid (Coerthas Central Highlands)
+**Come-Into-My-Castrum** — giver: Cid (Coerthas Central Highlands) `[COND: relay]`
 - Slafborn (Revenant's Toll: infiltrate Castrum Centri disguised as imperial troops) -> Glaumunt (aid & knowledge of Castrum Centri)
 - Next: Getting Even with Garlemald
 
-**Getting Even with Garlemald** — giver: Glaumunt (Mor Dhona)
+**Getting Even with Garlemald** — giver: Glaumunt (Mor Dhona) `[COND: relay]`
 - investigate the drainage pipe at the Tangle (confirm the Scions' presence at Castrum Centri) -> Alphinaud (report) -> Cid (prepare the rescue)
 - Next: Drowning Out the Voices
 
-**Drowning Out the Voices** — giver: Cid (Mor Dhona)
+**Drowning Out the Voices** — giver: Cid (Mor Dhona) `[COND: fetch]`
 - use the electromagnetic reader at prime spots near the corrupted crystals W of Revenant's Toll
 - Next: Fool Me Twice
 
-**Acting the Part** — giver: Glaumunt (Mor Dhona)
+**Acting the Part** — giver: Glaumunt (Mor Dhona) `[COND: parallel → Fool Me Twice]`
 - learn the imperial salute -> observe imperial soldiers at Castrum Centri -> Glaumunt (Revenant's Toll)   [parallel infiltration-prep; converges]
 - Next: Dressed for Conquest
 
-**Dressed for Conquest** — giver: Sark Malark (Mor Dhona)
+**Dressed for Conquest** — giver: Sark Malark (Mor Dhona) `[COND: fetch]`
 - obtain 3 damaged imperial uniforms + 3 damaged helms -> Eginolf (Rowena's House of Splendors: repair) -> Sark Malark (inspection)
 - Next: Fool Me Twice
 
@@ -1603,15 +1608,15 @@ KEY SCENES:
 - Next: A Hero in Need
 - Manifest tie: Cape Westwind (Rhitahtyn) = now a SOLO instance (05 REVAMPED-DUTY LOCK); Cid & the Enterprise established; 08.1 L7 (AFTER Garuda).
 
-**A Hero in Need** — giver: Allied Communications Officer (Western Thanalan)
+**A Hero in Need** — giver: Allied Communications Officer (Western Thanalan) `[COND: relay]`
 - Cracked Fist (Camp Bluefog: raise the garrison's morale)   [Camp Bluefog morale cluster -> converges at Hearts on Fire]
 - Next: Hearts on Fire
 
-**The Ladle in the Darkness** — giver: Sergeant Cracked Fist (Northern Thanalan)
+**The Ladle in the Darkness** — giver: Sergeant Cracked Fist (Northern Thanalan) `[COND: parallel → Hearts on Fire]`
 - basilisk stew to Zezeragi -> Adelena -> Betyn (morale boosted)   [parallel morale sub-thread]
 - Next: All upon the Watchtowers
 
-**All upon the Watchtowers** — giver: Sergeant Cracked Fist (Northern Thanalan)
+**All upon the Watchtowers** — giver: Sergeant Cracked Fist (Northern Thanalan) `[COND: relay]`
 - Wymund (west watchtower) -> Hopeful Dawn (east watchtower) -> Edelstein (Ceruleum Processing Plant: report)
 - Next: Hearts on Fire
 
@@ -1667,7 +1672,7 @@ KEY SCENES:
 - escort F'lhaminn to the Waking Sands (reunite with her daughter) -> Minfilia (witness the reunion)
 - Next: Laying the Foundation
 
-**The Resolute** — giver: Minfilia (the Waking Sands)   [parallel side-errand; converges at Laying the Foundation]
+**The Resolute** — giver: Minfilia (the Waking Sands) `[COND: fetch]`   [parallel side-errand; converges at Laying the Foundation]
 - F'lhaminn -> Memedesu (Goldsmiths' Guild: repair F'lhaminn's Aria) -> Odinel (Byregot's Strike: collect ores) -> Memedesu (deliver ores) -> F'lhaminn (deliver the repaired Aria) -> Minfilia
 - Next: Laying the Foundation
 
@@ -1681,27 +1686,27 @@ KEY SCENES:
 - Bibimu (outside the Sunken Temple of Qarn) -> [The Sunken Temple of Qarn — dungeon duty: obtain the wardstone] -> Slafborn (deliver the wardstone)
 - Next: Welcome to Morbol Country
 
-**Crate Go Kaboom** — giver: Sark Malark (Mor Dhona)   [parallel]
+**Crate Go Kaboom** — giver: Sark Malark (Mor Dhona) `[COND: fetch]`   [parallel]
 - destroy 3 Garlean crates in Castrum Centri with high-quality explosives -> Sark Malark (report)
 - Next: Welcome to Morbol Country
 
-**Better Late than Sever** — giver: Guolgeim (Mor Dhona)   [parallel]
+**Better Late than Sever** — giver: Guolgeim (Mor Dhona) `[COND: fetch]`   [parallel]
 - Wood Wailer (Fallgourd Float) -> Wood Wailer (supply carriage) -> rescue captured coachmen (0/2) -> recover looted supplies (0/3) -> Elezen coachman -> Guolgeim (Revenant's Toll)
 - Next: Welcome to Morbol Country
 
-**Welcome to Morbol Country** — giver: Slafborn (Mor Dhona)
+**Welcome to Morbol Country** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
 - slay morbols in the Tangle -> Slafborn (report)
 - Next: Answering the Call
 
-**Answering the Call** — giver: Slafborn (Mor Dhona)
+**Answering the Call** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
 - slay hapalits in the Singing Shards -> Slafborn (report)
 - Next: You're Gonna Carry That
 
-**You're Gonna Carry That** — giver: Slafborn (Mor Dhona)
+**You're Gonna Carry That** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
 - Alphinaud (Waking Sands) -> gather 4 labeled packages -> Tataru (outside Waking Sands)
 - Next: The Things We Do for Tea
 
-**The Things We Do for Tea** — giver: Tataru (Western Thanalan)
+**The Things We Do for Tea** — giver: Tataru (Western Thanalan) `[COND: fetch]`
 - Medguistl (Camp Dragonhead: tea stores depleted) -> Emanuel (harvest highland tea leaves at Boulder Downs) -> harvest 4 tea leaves -> Tataru (Waking Sands)
 - Next: It's Possibly a Primal
 
@@ -1748,19 +1753,19 @@ KEY SCENES:
 - Alphinaud (Doman visitors) -> Yugiri (Domans need asylum & provisions) -> Momodi (letters for suppliers) -> Fridurih (deliver letter) -> Katherine (deliver letter) -> Momodi -> Yugiri -> Raubahn (Royal Promenade: proceed to the audience with the sultana)
 - Next: Promises to Keep
 
-**Promises to Keep** — giver: Raubahn (Ul'dah - Steps of Thal)
+**Promises to Keep** — giver: Raubahn (Ul'dah - Steps of Thal) `[COND: relay]`
 - Raubahn (Hall of Flames) -> Alphinaud
 - Next: Yugiri's Game
 
-**A Small-scale Operation** — giver: Alphinaud (Ul'dah - Steps of Nald)   [parallel; converges at Yugiri's Game]
+**A Small-scale Operation** — giver: Alphinaud (Ul'dah - Steps of Nald) `[COND: fetch]`   [parallel; converges at Yugiri's Game]
 - Hozan (Vesper Bay) -> retrieve a large wooden crate from the docks -> deliver -> collect 4 missing black scales -> deliver
 - Next: Yugiri's Game
 
-**Yugiri's Game** — giver: Alphinaud (Ul'dah - Steps of Nald)
+**Yugiri's Game** — giver: Alphinaud (Ul'dah - Steps of Nald) `[COND: parallel → Why We Adventure]`
 - Hozan (Vesper Bay: rounding up children) -> Yozan -> find 3 hidden children Shiun/Koharu/Rokka (0/3) -> Hozan
 - Next: Why We Adventure
 
-**If Wishes Were Horsebirds** — giver: Hozan (Western Thanalan)   [parallel; converges at Why We Adventure]
+**If Wishes Were Horsebirds** — giver: Hozan (Western Thanalan) `[COND: fetch]`   [parallel; converges at Why We Adventure]
 - Folclind (chocobo-smell solution) -> Hyuran Coachman (perfume the chocobo) -> Hozan (give the perfumed scarf)
 - Next: Why We Adventure
 
@@ -1772,11 +1777,11 @@ KEY SCENES:
 - Slafborn (Revenant's Toll: formally introduce Yugiri) -> Yugiri -> Minfilia (Rising Stones: introduce Yugiri) -> Minfilia (crystal thefts & the Leviathan threat)
 - Next: The Sea Rises
 
-**Full Belly, Happy Heart** — giver: Minfilia (the Rising Stones)   [parallel; feeds The Sea Rises via Writhing in the Dark]
+**Full Belly, Happy Heart** — giver: Minfilia (the Rising Stones) `[COND: fetch]`   [parallel; feeds The Sea Rises via Writhing in the Dark]
 - F'lhaminn -> Alys (Seventh Heaven: meal status) -> Adventurers' Guild Assistant (deliver meals & wine)
 - Next: Writhing in the Dark
 
-**Writhing in the Dark** — giver: Adventurers' Guild Assistant (Mor Dhona)
+**Writhing in the Dark** — giver: Adventurers' Guild Assistant (Mor Dhona) `[COND: fetch]`
 - lure & slay 6 rampant cobras with rancid eft meat -> report -> Minfilia (Rising Stones)
 - Next: The Sea Rises
 
@@ -1784,11 +1789,11 @@ KEY SCENES:
 - Minfilia (final words) -> Admiral Merlwyb (Limsa command room: Maelstrom operation vs Leviathan & Sahagin) -> Commander Falkbryda (Camp Skull Valley: Sahagin intel)
 - Next: Scouts in Distress
 
-**Fireworks and Fish Don't Mix** — giver: Falkbryda (Western La Noscea)   [parallel; converges at Scouts in Distress]
+**Fireworks and Fish Don't Mix** — giver: Falkbryda (Western La Noscea) `[COND: fetch]`   [parallel; converges at Scouts in Distress]
 - U'jughal (diversionary maneuvers) -> Maelstrom explosives: destroy Sahagin pavises at Halfstone & defeat Sahagin (0/5) -> Falkbryda (Camp Skull Valley)
 - Next: Scouts in Distress
 
-**Scouts in Distress** — giver: Falkbryda (Western La Noscea)
+**Scouts in Distress** — giver: Falkbryda (Western La Noscea) `[COND: fetch]`
 - Maelstrom restorative on the wounded Storm Private -> find the missing scouts in the Serpent's Tongue -> collect the soldiers' corpses (0/2) -> Falkbryda
 - Next: The Gift of Eternity
 
@@ -1796,7 +1801,7 @@ KEY SCENES:
 - Y'shtola (into the Sahagin lair, fight to the aetheryte) -> Thancred & Yugiri (lure Sahagin, rejoin the infiltration unit) -> Merlwyb (Sapsa Spawning Grounds, after the ritual)
 - Next: Into the Heart of the Whorl
 
-**Into the Heart of the Whorl** — giver: Merlwyb (Western La Noscea)
+**Into the Heart of the Whorl** — giver: Merlwyb (Western La Noscea) `[COND: relay]`
 - Merlwyb (Limsa command room) -> Yugiri -> Storm Private (Grey Fleet) -> Eynzahr (Moraby Drydocks: report)
 - Next: Lord of the Whorl
 
@@ -1805,7 +1810,7 @@ KEY SCENES:
 - Next: When Yugiri Met the Fraternity
 - Manifest tie: LEVIATHAN (The Whorleater) primal beat, patch 2.2.
 
-**When Yugiri Met the Fraternity** — giver: Zanthael (Limsa Lominsa Lower Decks)
+**When Yugiri Met the Fraternity** — giver: Zanthael (Limsa Lominsa Lower Decks) `[COND: relay]`
 - Zanthael (Merlwyb's Letter of Introduction) -> The Inconspicuous Man (receive the letter; meet Yugiri)
 - Next: Through the Maelstrom
 
@@ -1818,19 +1823,19 @@ KEY SCENES:
 
 ## SEVENTH ASTRAL ERA — PATCH 2.3 'DEFENDERS OF EORZEA' (Ramuh arc + Crystal Braves) (VERIFIED, CGW)
 
-**The Great Divide** — giver: Minfilia (the Rising Stones)
+**The Great Divide** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - refugees in the Seventh Heaven -> search for Alphinaud in Ul'dah
 - Next: Desperate Times
 
-**Desperate Times** — giver: Alphinaud (Ul'dah - Steps of Nald)
+**Desperate Times** — giver: Alphinaud (Ul'dah - Steps of Nald) `[COND: relay]`
 - Raubahn (Hall of Flames) -> Swift -> Brass Blades (Lost Hope) -> Zazawaka -> Terrified Refugee -> /soothe the Terrified Refugee
 - Next: Shock and Awe
 
-**Shock and Awe** — giver: Terrified Refugee (Central Thanalan)
+**Shock and Awe** — giver: Terrified Refugee (Central Thanalan) `[COND: fetch]`
 - search the caves S of Lost Hope for the other refugees -> Desperate Refugee -> Terrified Refugee
 - Next: Reap the Whirlwind
 
-**Reap the Whirlwind** — giver: Terrified Refugee (Hall of Flames)
+**Reap the Whirlwind** — giver: Terrified Refugee (Hall of Flames) `[COND: relay]`
 - search Stonesthrow for the merchant -> the Ul'dah Dispatch Yard -> Stone Torch -> Swift (Hall of Flames)
 - Next: Revolution   [CGW Next-field unscraped; resolved via scaffold + Swift giver of Revolution]
 
@@ -1864,12 +1869,12 @@ KEY SCENES:
 - Next: What Little Gods Are Made Of
 - Manifest tie: RAMUH (The Striking Tree) primal beat, patch 2.3.
 
-**What Little Gods Are Made Of** — giver: Serpent Lieutenant (East Shroud)
+**What Little Gods Are Made Of** — giver: Serpent Lieutenant (East Shroud) `[COND: relay]`
 - Kan-E-Senna (Lotus Stand) -> Papalymo (Nophica's Altar) -> Minfilia (the Rising Stones)
 - Next: Guardian of Eorzea
 
 ### Tataru side cluster (parallel; converges at Guardian of Eorzea)
-**A Hard Hapalit to Break** — giver: Minfilia Warde (the Rising Stones)
+**A Hard Hapalit to Break** — giver: Minfilia Warde (the Rising Stones) `[COND: fetch]`
 - Slafborn (Revenant's Toll) -> slay the hapalit threatening the struggling adventurer (Singing Shards) -> aid her -> /huh -> Slafborn
 - Next: Picking Up the Sledge
 
@@ -1886,7 +1891,7 @@ KEY SCENES:
 - Alphinaud (Bulwark Hall) -> scout the upper decks (recruit RIOL) -> Alphinaud (Limsa airship landing) -> Alphinaud (Nophica's Altar) -> scout Old Gridania (recruit LAURENTIUS & ALIANNE) -> Alphinaud (Gridania airship landing) -> Alphinaud (Royal Promenade) -> scout the Steps of Thal (recruit WILRED) -> Alphinaud (Royal Promenade) -> Alphinaud (Rising Stones)
 - Next: Heretical Harassment
 
-**Heretical Harassment** — giver: Minfilia (the Rising Stones)
+**Heretical Harassment** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - Slafborn (Revenant's Toll) -> Haurchefant (Camp Dragonhead)
 - Next: When the Cold Sets In
 
@@ -1911,15 +1916,15 @@ KEY SCENES:
 - Alphinaud (Rising Stones) -> Alianne (the Tangle) -> find Rhesh Polaali (Castrum Centri) -> defeat imperial troops (0/3) -> Alianne (the Tangle) -> Alphinaud (Rising Stones)
 - Next: Coming to Terms
 
-**Coming to Terms** — giver: Alphinaud (the Rising Stones)
+**Coming to Terms** — giver: Alphinaud (the Rising Stones) `[COND: relay]`
 - Minfilia -> Haurchefant (Camp Dragonhead) -> House Fortemps guard
 - Next: The Intercession of Saints
 
-**The Intercession of Saints** — giver: Alphinaud (Coerthas Central Highlands)
+**The Intercession of Saints** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Haurchefant -> House Fortemps knight (Boulder Downs) -> surviving squire (the Observatorium) -> Alphinaud
 - Next: Strength in Unity
 
-**Strength in Unity** — giver: Alphinaud (Coerthas Central Highlands)
+**Strength in Unity** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Drillemont (Whitebrim Front)
 - Next: Dark Words, Dark Deeds
 
@@ -1927,7 +1932,7 @@ KEY SCENES:
 - observe the suspected heretic (Ser Jeantremont) -> follow through the SW gate -> surveil E along the road -> follow S toward Daniffen Pass -> observe the meeting with a robed heretic -> Drillemont
 - Next: First Blood
 
-**First Blood** — giver: Drillemont (Coerthas Central Highlands)
+**First Blood** — giver: Drillemont (Coerthas Central Highlands) `[COND: fetch]`
 - rendezvous with the House Durendaire knights -> search the heretic's effects -> deliver the parchment to Drillemont
 - Next: The Path of the Righteous
 
@@ -1936,15 +1941,15 @@ KEY SCENES:
 - Next: For the Greater Good
 - Note: AYMERIC first appears here (Coerthas). Reveal-gate any Ishgard/Heavensward foreshadowing (05 Ch.1).
 
-**For the Greater Good** — giver: Alphinaud (Coerthas Central Highlands)
+**For the Greater Good** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Yuyuhase -> pursue the heretics toward Daniffen Pass -> search S of Daniffen Pass -> follow the trail -> Yuyuhase -> search outside the Observatorium -> Alphinaud
 - Next: Tendrils of Intrigue
 
-**Tendrils of Intrigue** — giver: Alphinaud (Coerthas Central Highlands)
+**Tendrils of Intrigue** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Alphinaud -> Alphinaud (Old Gridania) -> silent conjurer -> Alphinaud -> Ilberd (New Gridania)
 - Next: Chasing Ivy
 
-**Chasing Ivy** — giver: Ilberd (New Gridania)
+**Chasing Ivy** — giver: Ilberd (New Gridania) `[COND: relay]`
 - Ilberd -> Ilberd -> Ephemie (airship landing) -> Ilberd
 - Next: In Flagrante Delicto
 
@@ -1952,7 +1957,7 @@ KEY SCENES:
 - Ilberd (Sweetbloom Pier) -> Yugiri (near the Hawthorne Hut) -> Yugiri (the Bramble Patch) -> Yugiri -> Minfilia
 - Next: A Simple Plan
 
-**A Simple Plan** — giver: Minfilia (the Rising Stones)
+**A Simple Plan** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - wait for the carriage outside Revenant's Toll -> Minfilia
 - Next: The Instruments of Our Deliverance
 
@@ -1961,15 +1966,15 @@ KEY SCENES:
 - Next: The Road Less Traveled
 - Manifest tie: SHIVA (Akh Afah Amphitheatre) primal beat, patch 2.4 — tied to Ysayle / Iceheart. Reveal-gate her identity per 05 Ch.1.
 
-**The Road Less Traveled** — giver: Moenbryda (Coerthas Central Highlands)
+**The Road Less Traveled** — giver: Moenbryda (Coerthas Central Highlands) `[COND: relay]`
 - Alphinaud (Whitebrim Front) -> Haurchefant (Camp Dragonhead) -> House Fortemps guard
 - Next: Eyes Unclouded
 
-**Eyes Unclouded** — giver: Alphinaud (Coerthas Central Highlands)
+**Eyes Unclouded** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Minfilia (the Rising Stones)   [aftermath of Shiva / Ysayle-Iceheart]
 - Next: The Reason Roaille
 
-**The Reason Roaille** — giver: Minfilia (the Rising Stones)
+**The Reason Roaille** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - Alphinaud -> Ilberd (Camp Bluefog, N Thanalan) -> Ilberd (Ceruleum Processing Plant) -> Alphinaud
 - Next: Let Us Cling Together
 
@@ -1983,15 +1988,15 @@ KEY SCENES:
 ## SEVENTH ASTRAL ERA — PATCH 2.5 + 2.55 'BEFORE THE FALL' (Nabriales / Steps of Faith / Crystal Braves betrayal) (VERIFIED, CGW)
 
 ### Part 1 (patch 2.5)
-**Good Intentions** — giver: Minfilia (the Rising Stones)
+**Good Intentions** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - Riol -> Ilberd (Highbridge)
 - Next: Bait and Switch
 
-**Bait and Switch** — giver: Ilberd (Eastern Thanalan)
+**Bait and Switch** — giver: Ilberd (Eastern Thanalan) `[COND: relay]`
 - Ilberd -> hired thug -> wait for Ilberd outside the tunnel entrance -> investigate the disturbance
 - Next: Best-laid Schemes
 
-**Best-laid Schemes** — giver: Ilberd (Eastern Thanalan - Wellwick Wood)
+**Best-laid Schemes** — giver: Ilberd (Eastern Thanalan - Wellwick Wood) `[COND: fetch]`
 - collect the confiscated crate -> deliver it to Yuyuhase (Ul'dah - Steps of Thal) -> Riol (Sapphire Avenue Exchange) -> Tataru (the Rising Stones)
 - Next: The Rising Chorus
 
@@ -1999,7 +2004,7 @@ KEY SCENES:
 - Minfilia -> Doman watch (Mor Dhona) -> enter the Keeper of the Lake -> Doman watch -> Alphinaud (Rising Stones) -> Alphinaud
 - Next: Aether on Demand
 
-**Aether on Demand** — giver: Alphinaud (the Rising Stones)
+**Aether on Demand** — giver: Alphinaud (the Rising Stones) `[COND: relay]`
 - Moenbryda -> Moenbryda -> Alphinaud -> Wilred (Ceruleum Processing Plant) -> Edelstein
 - Next: On the Counteroffensive
 
@@ -2020,19 +2025,19 @@ KEY SCENES:
 - Yda -> hand the flower payment to Rowena -> deliver the moon daisy to Yda (Rathefrost) -> Alphinaud (Rising Stones)
 - Next: Defenders for Ishgard
 
-**Defenders for Ishgard** — giver: Alphinaud (the Rising Stones)
+**Defenders for Ishgard** — giver: Alphinaud (the Rising Stones) `[COND: parallel → An Allied Perspective]`
 - Alphinaud (Camp Dragonhead) -> question the knights at the Gates of Judgement (0/4) -> Alphinaud
 - Next: The Wyrm's Roar
 
-**The Wyrm's Roar** — giver: Alphinaud (Coerthas Central Highlands)
+**The Wyrm's Roar** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Haurchefant -> Aymeric (the intercessory) -> Alphinaud
 - Next: Committed to the Cause
 
-**Committed to the Cause** — giver: Alphinaud (Intercessory)
+**Committed to the Cause** — giver: Alphinaud (Intercessory) `[COND: relay]`
 - Minfilia (the Rising Stones)
 - Next: Volunteer Dragonslayers
 
-**Volunteer Dragonslayers** — giver: Minfilia (the Rising Stones)
+**Volunteer Dragonslayers** — giver: Minfilia (the Rising Stones) `[COND: parallel → An Allied Perspective]`
 - Tataru -> Slafborn (Revenant's Toll) -> Tataru -> recruit 4 volunteers -> Tataru (report)
 - Next: An Allied Perspective
 
@@ -2046,23 +2051,23 @@ KEY SCENES:
 - Manifest tie: VISHAP / The Steps of Faith trial (the great bridge before Ishgard). Foreshadows Heavensward — reveal-gate (05 Ch.1).
 
 ### Part 2 (patch 2.55) — the calm, then the fall
-**Administrative Decision** — giver: Minfilia (the Rising Stones)
+**Administrative Decision** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - look for Tataru at her desk -> F'lhaminn -> search for Tataru (Revenant's Toll) -> Minfilia
 - Next: An Unexpected Ambition
 
-**An Unexpected Ambition** — giver: Minfilia (the Rising Stones)
+**An Unexpected Ambition** — giver: Minfilia (the Rising Stones) `[COND: relay]`
 - Tataru (Arcanists' Guild) -> Thubyrgeim -> observe Tataru's training S of the Zephyr Gate -> Tataru -> Thubyrgeim
 - Next: Ancient Ways, Timeless Wants
 
-**Ancient Ways, Timeless Wants** — giver: Tataru (Limsa Lominsa Lower Decks)
+**Ancient Ways, Timeless Wants** — giver: Tataru (Limsa Lominsa Lower Decks) `[COND: relay]`
 - Tataru (Costa del Sol) -> Tataru -> stand guard as Tataru harvests pearls -> Tataru -> Minfilia (Rising Stones)
 - Next: A Time to Every Purpose
 
-**Where We Are Needed** — giver: Minfilia (the Rising Stones)   [parallel Scion vignette; converges at A Time to Every Purpose]
+**Where We Are Needed** — giver: Minfilia (the Rising Stones) `[COND: parallel → A Time to Every Purpose]`   [parallel Scion vignette; converges at A Time to Every Purpose]
 - Hoary Boulder -> unsettled scholar (Camp Tranquil) -> escort to Issom-Har / Snakemolt / Rootslake (stand guard for measurements at each) -> unsettled scholar (Camp Tranquil)
 - Next: The Least among Us
 
-**The Least among Us** — giver: Unsettled Scholar (South Shroud)
+**The Least among Us** — giver: Unsettled Scholar (South Shroud) `[COND: fetch]`
 - Unsettled Scholar (Urth's Fount) -> stand guard for measurements -> Minfilia (Rising Stones)
 - Next: A Time to Every Purpose
 
@@ -2103,7 +2108,7 @@ KEY SCENES:
 - Haurchefant -> Temple Knight gateguard (Gates of Judgement) -> House Fortemps manservant -> Haurchefant outside Fortemps Manor (the Pillars)
 - Next: Taking in the Sights
 
-**Taking in the Sights** — giver: Alphinaud (Fortemps Manor)
+**Taking in the Sights** — giver: Alphinaud (Fortemps Manor) `[COND: relay]`
 - House Fortemps manservant -> manservant in the Hoplon -> Elaisse (the Jeweled Crozier) -> manservant in the aetheryte plaza
 - Next: The Better Half
 
@@ -2115,19 +2120,19 @@ KEY SCENES:
 
 ## SUPPORT CHAIN A — Lord Artoirel (Coerthas Western Highlands / Falcon's Nest)
 
-**Over the Wall** — giver: Lord Artoirel de Fortemps (Foundation)
+**Over the Wall** — giver: Lord Artoirel de Fortemps (Foundation) `[COND: relay]`
 - chocobokeep in Foundation -> journey to Falcon's Nest -> Artoirel -> Redwald
 - Next: Work in Progress
 
-**Work in Progress** — giver: Ser Redwald (Coerthas Western Highlands)
+**Work in Progress** — giver: Ser Redwald (Coerthas Western Highlands) `[COND: fetch]`
 - Rothe -> search Falcon's Nest for icicle sprites -> report to Rothe
 - Next: The First and Foremost
 
-**The First and Foremost** — giver: Rothe (Coerthas Western Highlands)
+**The First and Foremost** — giver: Rothe (Coerthas Western Highlands) `[COND: fetch]`
 - Thierremont (the Pike) -> slay deepeyes, obtain 3 dark bristles -> deliver to Thierremont
 - Next: From on High
 
-**From on High** — giver: Thierremont (Falcon's Nest)
+**From on High** — giver: Thierremont (Falcon's Nest) `[COND: fetch]`
 - deliver the ice-crusted bundle to Ysaudore (the Anvil) -> report to Redwald
 - Next: Reconnaissance Lost
 
@@ -2139,7 +2144,7 @@ KEY SCENES:
 - search for the heretics' trail N of Camp Riversmeet -> examine the footprints -> [Solo Duty] defeat the basement enemies -> follow the fleeing heretic -> survey the hiding place -> Artoirel
 - Next: Knights Be Not Proud
 
-**Knights Be Not Proud** — giver: Artoirel (Coerthas Western Highlands)
+**Knights Be Not Proud** — giver: Artoirel (Coerthas Western Highlands) `[COND: relay]`
 - Redwald -> Artoirel (Fortemps Manor)
 - Next: Divine Intervention (converge)
 
@@ -2147,23 +2152,23 @@ KEY SCENES:
 
 ## SUPPORT CHAIN B — Lord Emmanellain (the Sea of Clouds / Camp Cloudtop)
 
-**Onwards and Upwards** — giver: Emmanellain de Fortemps (Foundation)
+**Onwards and Upwards** — giver: Emmanellain de Fortemps (Foundation) `[COND: relay]`
 - airship ticketer -> travel to the Sea of Clouds -> Emmanellain -> Laniaitte
 - Next: An Indispensable Ally
 
-**An Indispensable Ally** — giver: Laniaitte (the Sea of Clouds)
+**An Indispensable Ally** — giver: Laniaitte (the Sea of Clouds) `[COND: relay]`
 - Emmanellain -> Honoroit -> Laniaitte
 - Next: Meeting the Neighbors
 
-**Meeting the Neighbors** — giver: Laniaitte (the Sea of Clouds)
+**Meeting the Neighbors** — giver: Laniaitte (the Sea of Clouds) `[COND: fetch]`
 - Marielle -> keep watch for Vanu -> report to Marielle
 - Next: Sense of Urgency
 
-**Sense of Urgency** — giver: Ser Marielle (the Sea of Clouds)
+**Sense of Urgency** — giver: Ser Marielle (the Sea of Clouds) `[COND: parallel → A Series of Unfortunate Events]`
 - find sentries and psych them up (0/3) -> report to Marielle
 - Next: Hope Springs Eternal
 
-**Hope Springs Eternal** — giver: Ser Marielle (the Sea of Clouds)
+**Hope Springs Eternal** — giver: Ser Marielle (the Sea of Clouds) `[COND: fetch]`
 - Laniaitte -> Emmanellain -> Emmanellain near Voor Sian Siran -> search for a spring crystal in Voor Sian Siran -> deliver it to Honoroit
 - Next: A Series of Unfortunate Events
 
@@ -2171,7 +2176,7 @@ KEY SCENES:
 - search for Emmanellain in Voor Sian Siran -> rendezvous with Honoroit -> Honoroit -> Cid
 - Next: A Reward Long in Coming
 
-**A Reward Long in Coming** — giver: Emmanellain (Fortemps Manor / the Sea of Clouds)
+**A Reward Long in Coming** — giver: Emmanellain (Fortemps Manor / the Sea of Clouds) `[COND: relay]`
 - Laniaitte -> Haurchefant (Ishgard) -> Emmanellain (Fortemps Manor)
 - Next: Divine Intervention (converge)
 
@@ -2183,7 +2188,7 @@ KEY SCENES:
 - Edmont -> Aymeric (Foundation) -> Haurchefant (the Pillars) -> Haurchefant (at the tribunal) -> [Solo Duty] defeat Ser Grinnaux the Bull + Ser Paulecrain Coldfire -> Haurchefant after the trial
 - Next: Disclosure
 
-**Disclosure** — giver: Lord Haurchefant (Fortemps Manor)
+**Disclosure** — giver: Lord Haurchefant (Fortemps Manor) `[COND: relay]`
 - Edmont (Fortemps Manor) -> the priest at the Vault -> Alphinaud (Fortemps Manor)
 - Next: Flame General Affairs
 
@@ -2193,11 +2198,11 @@ KEY SCENES:
 
 ---
 
-**Flame General Affairs** — giver: Alphinaud (the Rising Stones)
+**Flame General Affairs** — giver: Alphinaud (the Rising Stones) `[COND: relay]`
 - Storm Sergeant Zanthael (Bulwark Hall, Limsa) -> the Bridge, meet Admiral Merlwyb -> Higiri (Revenant's Toll kitchen)
 - Next: In Search of Raubahn
 
-**In Search of Raubahn** — giver: Higiri (Mor Dhona)
+**In Search of Raubahn** — giver: Higiri (Mor Dhona) `[COND: relay]`
 - Doware (Highbridge) -> Hozan (Halatali entrance)
 - Next: Keeping the Flame Alive
 
@@ -2206,11 +2211,11 @@ KEY SCENES:
 - [Solo Duty] RESCUE RAUBAHN: defeat Crystal Braves for the key -> destroy the mist source -> free Raubahn -> defeat ILBERD of the Dull Blade + allies (Yuyuhase, Laurentius, 2 Crystal Braves)
 - Next: To Siege or Not to Siege
 
-**To Siege or Not to Siege** — giver: Alphinaud (the Waking Sands)
+**To Siege or Not to Siege** — giver: Alphinaud (the Waking Sands) `[COND: relay]`
 - Tataru (outside Fortemps Manor) -> enter Fortemps Manor -> Alphinaud
 - Next: Alphinaud's Way
 
-**Alphinaud's Way** — giver: Alphinaud (the Pillars)
+**Alphinaud's Way** — giver: Alphinaud (the Pillars) `[COND: relay]`
 - Alphinaud -> enter the Seat of the Lord Commander (Congregation of Our Knights Most Heavenly) -> Alphinaud
 - Next: In Search of Iceheart
 
@@ -2218,7 +2223,7 @@ KEY SCENES:
 - return to Fortemps Manor -> Estinien -> Redwald (Falcon's Nest) -> the expedition leader -> slay the beasts within Gorgagne Mills -> the expedition leader
 - Next: From One Heretic to Another
 
-**From One Heretic to Another** — giver: Expedition Leader (Coerthas Western Highlands)
+**From One Heretic to Another** — giver: Expedition Leader (Coerthas Western Highlands) `[COND: fetch]`
 - collect heretic epistles (0/3) -> hand them to the expedition leader
 - Next: Sounding Out the Amphitheatre
 
@@ -2226,11 +2231,11 @@ KEY SCENES:
 - Tristechambel -> [Solo Duty] defeat the heretics -> Estinien -> Jantellot (the Convictors' camp)
 - Next: Camp of the Convictors
 
-**Camp of the Convictors** — giver: Alphinaud (Camp of the Convictors)
+**Camp of the Convictors** — giver: Alphinaud (Camp of the Convictors) `[COND: parallel → Where the Chocobos Roam]`
 - question the Convictors (0/3) -> Pierriquet
 - Next: Purple Flame, Purple Flame
 
-**Purple Flame, Purple Flame** — giver: Estinien (Coerthas Western Highlands)
+**Purple Flame, Purple Flame** — giver: Estinien (Coerthas Western Highlands) `[COND: fetch]`
 - obtain yak hides from woolly yaks (0/2) -> deliver to Estinien
 - Next: Where the Chocobos Roam
 
@@ -2238,15 +2243,15 @@ KEY SCENES:
 - journey into the Dravanian forelands -> Ysayle -> Marcechamp
 - Next: Worse than Dragons
 
-**Worse than Dragons** — giver: Marcechamp (the Dravanian Forelands)
+**Worse than Dragons** — giver: Marcechamp (the Dravanian Forelands) `[COND: fetch]`
 - Ysayle -> press on toward the Stained One, defeating foes en route
 - Next: The Trine Towers
 
-**The Trine Towers** — giver: Ysayle (the Dravanian Forelands)
+**The Trine Towers** — giver: Ysayle (the Dravanian Forelands) `[COND: fetch]`
 - Ysayle -> defeat enemies on the path to Anyx Trine (x2) -> Ysayle
 - Next: Gifts for the Outcasts
 
-**Gifts for the Outcasts** — giver: Marcechamp (Tailfeather)
+**Gifts for the Outcasts** — giver: Marcechamp (Tailfeather) `[COND: fetch]`
 - Marcechamp -> obtain hunks of nanka flesh from clearwater nanka -> deliver to Alphinaud
 - Next: The Nonmind
 
@@ -2254,7 +2259,7 @@ KEY SCENES:
 - the Vath fleetfoot -> the Vath storyteller
 - Next: A Gnathic Deity
 
-**A Gnathic Deity** — giver: Ysayle (Loth ast Vath)
+**A Gnathic Deity** — giver: Ysayle (Loth ast Vath) `[COND: parallel → Breaking into Hives]`
 - gather information from the Vath (0/3) -> the voracious Vath -> obtain a hunk of nanka flesh (clearwater nanka) -> deliver to the voracious Vath -> Alphinaud
 - Next: Breaking into Hives
 
@@ -2272,7 +2277,7 @@ KEY SCENES:
 - Next: Beyond the Clouds
 - Manifest tie: Sohm Al dungeon (08.1 HW L9 dungeon list).
 
-**Beyond the Clouds** — giver: Alphinaud (the Churning Mists)
+**Beyond the Clouds** — giver: Alphinaud (the Churning Mists) `[COND: fetch]`
 - Alphinaud -> search for the moogle at the marked spots -> Alphinaud
 - Next: Mountaintop Diplomacy
 
@@ -2284,36 +2289,36 @@ KEY SCENES:
 
 ---
 
-**Mountaintop Diplomacy** — giver: Alphinaud (Nophica's Altar, Old Gridania)
+**Mountaintop Diplomacy** — giver: Alphinaud (Nophica's Altar, Old Gridania) `[COND: relay]`
 - Alphinaud (Nophica's Altar) -> enter the Lotus Stand -> Alphinaud -> Estinien (Moghome) -> Moglin
 - Next: Trials of Trustworthiness
 
-**Trials of Trustworthiness** — giver: Moglin (Moghome) [CGW-verified — the three challenges Moglin devised to measure your worth]
+**Trials of Trustworthiness** — giver: Moglin (Moghome) `[COND: relay]` [CGW-verified — the three challenges Moglin devised to measure your worth]
 - Moghan (Moghome) -> Mogmug (Moghome) -> Mogwin (Moghome): meet the three wise moogles who will administer the trials
 - Next: the three moogle trials (Moghan's / Mogmug's / Mogwin's Trial), then Moglin's Judgment
 
-**Moghan's Trial** — giver: Moghan (moogle alchemist, Moghome)
+**Moghan's Trial** — giver: Moghan (moogle alchemist, Moghome) `[COND: fetch]`
 - obtain sprigs of cloudsbreath (0/3, near Eil Tohm) -> deliver to Moghan
 
-**Mogmug's Trial** — giver: Mogmug (Moghome)
+**Mogmug's Trial** — giver: Mogmug (Moghome) `[COND: fetch]`
 - defeat archaeosaurs at Eil Tohm -> report to Mogmug
 
-**Mogwin's Trial** — giver: Mogwin (Moghome)
+**Mogwin's Trial** — giver: Mogwin (Moghome) `[COND: fetch]`
 - question Moghome inhabitants -> Mogwin -> obtain the moogle masterpiece -> deliver to Mogwin
 
 **Moglin's Judgment** — giver: Chieftain Moglin (Moghome)
 - Alphinaud -> Estinien -> Ysayle -> Kan-E-Senna -> Kuplo Kopp -> Moglin -> Moghan
 - Next: Leaving Moghome
 
-**Leaving Moghome** — giver: Moghan (Moghome)
+**Leaving Moghome** — giver: Moghan (Moghome) `[COND: relay]`
 - Alphinaud -> Kan-E-Senna -> Moghan
 - Next: The Road to Zenith
 
-**The Road to Zenith** — giver: Moghan (the Churning Mists)
+**The Road to Zenith** — giver: Moghan (the Churning Mists) `[COND: fetch]`
 - defeat enemies on the path to Asah (x2) -> Moghan
 - Next: Waiting for the Wind to Change
 
-**Waiting for the Wind to Change** — giver: Moghan (the Churning Mists)
+**Waiting for the Wind to Change** — giver: Moghan (the Churning Mists) `[COND: fetch]`
 - Moghan -> defeat threatening monsters W of Alphinaud -> then E of Alphinaud -> Estinien
 - Next: Heart of Ice
 
@@ -2321,27 +2326,27 @@ KEY SCENES:
 - blow the horn on the top floor of Zenith -> Alphinaud [meeting with HRAESVELGR; the Dragonsong War truth]
 - Next: The Wyrm's Lair
 
-**The Wyrm's Lair** — giver: Alphinaud (eastern approach to the Aery)
+**The Wyrm's Lair** — giver: Alphinaud (eastern approach to the Aery) `[COND: fetch]`
 - defeat enemies searching for the Aery (x3) -> Estinien [the wind barrier around the Aery -> need Cid/Garlond]
 - Next: New Winds, Old Friends
 
-**New Winds, Old Friends** — giver: Estinien (the Churning Mists)
+**New Winds, Old Friends** — giver: Estinien (the Churning Mists) `[COND: relay]`
 - Alphinaud (Saint Reinette's Forum) -> Emmanellain (Fortemps Manor) -> Cid (airship landing) -> Biggs (outside the Skysteel Manufactory)
 - Next: A General Summons
 
-**A General Summons** — giver: Tataru (Foundation)
+**A General Summons** — giver: Tataru (Foundation) `[COND: relay]`
 - enter the Waking Sands -> Yugiri -> question Silver Bazaar residents -> search for Meriel -> Alphinaud
 - Next: Awakening in Ul'dah
 
-**Awakening in Ul'dah** — giver: Alphinaud (Western Thanalan)
+**Awakening in Ul'dah** — giver: Alphinaud (Western Thanalan) `[COND: relay]`
 - Bartholomew (Royal Promenade) -> Alphinaud
 - Next: A Brave Resolution
 
-**A Brave Resolution** — giver: Alphinaud (Ul'dah - Steps of Thal)
+**A Brave Resolution** — giver: Alphinaud (Ul'dah - Steps of Thal) `[COND: relay]`
 - enter the Rising Stones -> Alphinaud
 - Next: Ready to Fly
 
-**Ready to Fly** — giver: Alphinaud (the Rising Stones)
+**Ready to Fly** — giver: Alphinaud (the Rising Stones) `[COND: relay]`
 - Cid (Skysteel Manufactory) -> Estinien (Fortemps Manor) -> the Seat of the Lord Commander -> Estinien
 - Next: Into the Aery
 
@@ -2354,15 +2359,15 @@ KEY SCENES:
 - Ysayle -> (continues)
 - Next: Unrest in Ishgard
 
-**Unrest in Ishgard** — giver: Estinien (the Churning Mists)
+**Unrest in Ishgard** — giver: Estinien (the Churning Mists) `[COND: relay]`
 - speak to Haurchefant (return to Ishgard) [CGW-verified: NO solo duty in this quest — 'Orthodox Mayhem' is NOT here; the earlier flag was wrong]
 - Next: He Who Would Not Be Denied
 
-**He Who Would Not Be Denied** — giver: Lord Haurchefant (Fortemps Manor)
+**He Who Would Not Be Denied** — giver: Lord Haurchefant (Fortemps Manor) `[COND: relay]`
 - return to Fortemps Manor -> Lucia
 - Next: Ill-weather Friends
 
-**Ill-weather Friends** — giver: Alphinaud (the Pillars)
+**Ill-weather Friends** — giver: Alphinaud (the Pillars) `[COND: parallel → Fire and Blood]`
 - Tataru (the Forgotten Knight) -> question the Brume residents -> Alphinaud
 - Next: The Spice of Life
 
@@ -2372,19 +2377,19 @@ KEY SCENES:
 
 ---
 
-**The Spice of Life** — giver: Alphinaud (the Brume)
+**The Spice of Life** — giver: Alphinaud (the Brume) `[COND: fetch]`
 - Gibrillont -> the hunter at the Pillars -> deliver fresh herbs to Gibrillont
 - Next: Noble Indiscretions
 
-**Noble Indiscretions** — giver: Gibrillont (Foundation)
+**Noble Indiscretions** — giver: Gibrillont (Foundation) `[COND: fetch]`
 - deliver twice-mulled wine to Hierytha (the Pillars) -> report to Gibrillont
 - Next: A Child Apart
 
-**A Child Apart** — giver: Gibrillont (the Forgotten Knight)
+**A Child Apart** — giver: Gibrillont (the Forgotten Knight) `[COND: fetch]`
 - deliver twice-mulled wine to Gerraldieux -> report to Gibrillont
 - Next: Bloodlines
 
-**Bloodlines** — giver: Gibrillont (the Brume)
+**Bloodlines** — giver: Gibrillont (the Brume) `[COND: relay]`
 - the Brume starveling -> Alphinaud (the Forgotten Knight)
 - Next: Fire and Blood
 
@@ -2402,11 +2407,11 @@ KEY SCENES:
 - Next: In Search of the Soleil
 - Manifest tie: the Dragonsong War truth surfaces here (08.1 HW L10).
 
-**In Search of the Soleil** — giver: Lucia (Foundation)
+**In Search of the Soleil** — giver: Lucia (Foundation) `[COND: relay]`
 - Cid (Skysteel Manufactory)
 - Next: Into the Blue
 
-**Into the Blue** — giver: Alphinaud (Foundation)
+**Into the Blue** — giver: Alphinaud (Foundation) `[COND: relay]`
 - Cid (airship landing) -> Wedge (x2) -> Alphinaud [setup for the Sea of Clouds / Bismarck; NOT the trial itself]
 - Next: Familiar Faces
 
@@ -2414,11 +2419,11 @@ KEY SCENES:
 - /lookout at the isle's eastern edge -> /lookout farther north -> [Solo Duty] protect the unarmed Vanu Vanu from imperial troops -> the Lonu Vanu
 - Next: Devourer of Worlds
 
-**Devourer of Worlds** — giver: Lonu Vanu (the Sea of Clouds)
+**Devourer of Worlds** — giver: Lonu Vanu (the Sea of Clouds) `[COND: relay]`
 - Alphinaud -> Lonu Vanu (x2)
 - Next: Black and the White
 
-**Black and the White** — giver: Alphinaud (the Sea of Clouds — Bismarck's Feeding Grounds)
+**Black and the White** — giver: Alphinaud (the Sea of Clouds — Bismarck's Feeding Grounds) `[COND: relay]`
 - Lonu Vanu -> greet Kunu Vali with /bow -> Alphinaud
 - Next: Bolt, Chain, and Island
 
@@ -2427,19 +2432,19 @@ KEY SCENES:
 - Next: A Difference of Opinion
 - Manifest tie: BISMARCK (The Limitless Blue), won just before Azys Lla (08.1 HW L10). After Bismarck the crystals relight partially (reduced Blessing, §B23).
 
-**A Difference of Opinion** — giver: Alphinaud (the Sea of Clouds)
+**A Difference of Opinion** — giver: Alphinaud (the Sea of Clouds) `[COND: relay]`
 - Alphinaud -> Cid
 - Next: One Good Turn
 
-**One Good Turn** — giver: Cid (the Sea of Clouds)
+**One Good Turn** — giver: Cid (the Sea of Clouds) `[COND: relay]`
 - Cid
 - Next: An Engineering Enterprise
 
-**An Engineering Enterprise** — giver: Alphinaud (the Forgotten Knight)
+**An Engineering Enterprise** — giver: Alphinaud (the Forgotten Knight) `[COND: relay]`
 - the Congregation guardsman (admittance to the Seat of the Lord Commander) -> Aymeric -> Tataru (the Forgotten Knight)
 - Next: Aetherial Trail
 
-**Aetherial Trail** — giver: Tataru (Foundation)
+**Aetherial Trail** — giver: Tataru (Foundation) `[COND: relay]`
 - Pipin Tarupin (Hall of Flames) -> Urianger (the Sil'dih excavation site) -> Alphinaud (Nophica's Altar)
 - Next: Lost in the Lifestream
 
@@ -2447,11 +2452,11 @@ KEY SCENES:
 - the silent conjurer (Nophica's Altar) -> Kan-E-Senna (the Lotus Stand) -> Tataru -> Y'mhitra (Apkallu Falls) -> accompany Y'mhitra to Everschade; the elementals retrieve Y'SHTOLA from the Lifestream -> the Roost, speak with Tataru
 - Next: Tataru's Surprise
 
-**Tataru's Surprise** — giver: Tataru (the Carline Canopy, New Gridania)
+**Tataru's Surprise** — giver: Tataru (the Carline Canopy, New Gridania) `[COND: fetch]`
 - Geva (Leatherworkers' Guild) -> E-Sumi-Yan (Conjurers' Guild) -> deliver the items to Tataru
 - Next: Onward to Sharlayan
 
-**Onward to Sharlayan** — giver: Y'shtola (New Gridania)
+**Onward to Sharlayan** — giver: Y'shtola (New Gridania) `[COND: relay]`
 - Y'shtola on her former master Matoya (a hermit in the Dravanian hinterlands) -> return to Ishgard, rejoin at the Aetheryte Plaza -> Alphinaud (Ishgard Aetheryte Plaza) -> travel W through the Dravanian forelands to Tailfeather -> Y'shtola (Tailfeather)
 - Next: A Great New Nation
 
@@ -2465,15 +2470,15 @@ KEY SCENES:
 - journey into the Dravanian hinterlands -> find a Thaliak River crossing -> Slowfix (Idyllshire)
 - Next: Golems Begone
 
-**Golems Begone** — giver: Slowfix (Idyllshire)
+**Golems Begone** — giver: Slowfix (Idyllshire) `[COND: fetch]`
 - Y'shtola -> (in Say chat) enter "Noughts and Crosses" to unmake golems (0/2) -> Slowfix
 - Next: An Illuminati Incident
 
-**An Illuminati Incident** — giver: Slowfix (Idyllshire)
+**An Illuminati Incident** — giver: Slowfix (Idyllshire) `[COND: relay]`
 - search the Makers' Quarter for Slowfix's friend -> Y'shtola -> Slowfix
 - Next: Leaving Idyllshire
 
-**Leaving Idyllshire** — giver: Slowfix (Idyllshire)
+**Leaving Idyllshire** — giver: Slowfix (Idyllshire) `[COND: relay]`
 - the gobwatch -> Y'shtola
 - Next: Matoya's Cave
 
@@ -2486,7 +2491,7 @@ KEY SCENES:
 - Next: An Eye for Aether
 - Manifest tie: The Great Gubal Library (08.1 HW L11 dungeon list).
 
-**An Eye for Aether** — giver: Matoya (Matoya's Cave)
+**An Eye for Aether** — giver: Matoya (Matoya's Cave) `[COND: relay]`
 - Alphinaud -> Aymeric (Congregation of Our Knights Most Heavenly) -> Cid (Ishgard airship landing)
 - Next: Hour of Departure
 
@@ -2498,15 +2503,15 @@ KEY SCENES:
 - Y'shtola -> Alphinaud (journey to AZYS LLA) -> Cid
 - Next: Systematic Exploration
 
-**Systematic Exploration** — giver: Cid (Azys Lla - Base Camp)
+**Systematic Exploration** — giver: Cid (Azys Lla - Base Camp) `[COND: parallel → Close Encounters of the VIth Kind]`
 - search for a terminal (0/3) -> Cid -> search for Wedge -> Cid
 - Next: In Node We Trust
 
-**In Node We Trust** — giver: Alphinaud (Azys Lla)
+**In Node We Trust** — giver: Alphinaud (Azys Lla) `[COND: relay]`
 - Alphinaud -> guidance node (Matter Conduit II-III) -> Allagan teleporter to the Beta Quadrant -> guidance node (Matter Conduit III-II)
 - Next: Chimerical Maintenance
 
-**Chimerical Maintenance** — giver: Guidance Node (Matter Conduit IV-V)
+**Chimerical Maintenance** — giver: Guidance Node (Matter Conduit IV-V) `[COND: fetch]`
 - guidance node (IV-V) -> defeat 3 chimerical creatures (Recombination Labs) -> guidance node (IV-V) -> Allagan teleporter to the Gamma Quadrant
 - Next: Close Encounters of the VIth Kind
 
@@ -2533,11 +2538,11 @@ KEY SCENES:
 
 ## PATCH 3.1 — As Goes Light, So Goes Darkness
 
-**An Uncertain Future** — giver: Alphinaud (Fortemps Manor)
+**An Uncertain Future** — giver: Alphinaud (Fortemps Manor) `[COND: relay]`
 - Aymeric (Congregation) -> Lucia -> Tataru -> Lucia
 - Next: Breaking the Cycle
 
-**Breaking the Cycle** — giver: Alphinaud (Foundation)
+**Breaking the Cycle** — giver: Alphinaud (Foundation) `[COND: relay]`
 - Falcon's Nest -> Tailfeather -> rendezvous with Lucia outside Tailfeather -> Vidofnir (Anyx Trine) -> Alphinaud
 - Next: Another Time, Another Place
 
@@ -2545,19 +2550,19 @@ KEY SCENES:
 - rendezvous with Y'shtola (Idyllshire) -> wait with Alphinaud & Y'shtola -> Krile (outside Matoya's Cave)
 - Next: In the Eye of the Beholder
 
-**In the Eye of the Beholder** — giver: Krile (the Dravanian Hinterlands)
+**In the Eye of the Beholder** — giver: Krile (the Dravanian Hinterlands) `[COND: parallel → As Goes Light, So Goes Darkness]`
 - enter Matoya's Cave -> Alphinaud (outside Tailfeather) -> show Alphinaud's sketch to Marcechamp / Loupard / Grimold -> Krile -> wait with Krile in the Smoldering Wastes
 - Next: A Little Slow, a Little Late
 
-**A Little Slow, a Little Late** — giver: Alphinaud (the Dravanian Forelands)
+**A Little Slow, a Little Late** — giver: Alphinaud (the Dravanian Forelands) `[COND: fetch]`
 - the Vath storyteller -> Loth ast Gnath (defeat foes en route) -> wait for your comrades -> Thancred
 - Next: Dreams of the Lost
 
-**Dreams of the Lost** — giver: Alphinaud (the Dravanian Forelands)
+**Dreams of the Lost** — giver: Alphinaud (the Dravanian Forelands) `[COND: relay]`
 - Vidofnir (Anyx Trine) -> Alphinaud (Foundation) -> Lucia
 - Next: Against the Dying of the Light
 
-**Against the Dying of the Light** — giver: Lucia (Congregation, Foundation)
+**Against the Dying of the Light** — giver: Lucia (Congregation, Foundation) `[COND: relay]`
 - Emmanellain (the Jeweled Crozier) -> question the Ishgardians in the Hoplon (x3) -> rendezvous with Thancred -> Alphinaud (the Brume) -> Lucia
 - Next: As Goes Light, So Goes Darkness
 
@@ -2570,7 +2575,7 @@ KEY SCENES:
 
 ## PATCH 3.2 — The Gears of Change
 
-**As It Once Was** — giver: Tataru (the Pillars)
+**As It Once Was** — giver: Tataru (the Pillars) `[COND: parallel → The Word of the Mother]`
 - rendezvous with F'lhaminn (Limsa Lominsa) -> F'lhaminn (Revenant's Toll) -> the Scions in the Rising Stones (0/5) -> Tataru
 - Next: The Word of the Mother
 
@@ -2579,23 +2584,23 @@ KEY SCENES:
 - Next: This War of Ours
 - Manifest tie (08.1 HW L12 3.2): MINFILIA merged with Hydaelyn in the aetherial sea; THE COSMOLOGY IS REVEALED (Zodiark & Hydaelyn, the world split into THIRTEEN reflections, the Ascians' Rejoining); MINFILIA SACRIFICES herself (the Word of the Mother). Defer only the deepest truths (Venat=Hydaelyn ShB; Final Days/Meteion EW).
 
-**This War of Ours** — giver: Alphinaud (Matoya's Cave)
+**This War of Ours** — giver: Alphinaud (Matoya's Cave) `[COND: relay]`
 - Aymeric (Congregation) -> Lucia (Falcon's Nest)
 - Next: Staunch Conviction
 
-**Staunch Conviction** — giver: Lucia (Coerthas Western Highlands)
+**Staunch Conviction** — giver: Lucia (Coerthas Western Highlands) `[COND: parallel → Choices]`
 - the people of Falcon's Nest (0/3) -> Artoirel
 - Next: Once More, a Favor
 
-**Once More, a Favor** — giver: Emmanellain (Coerthas Western Highlands)
+**Once More, a Favor** — giver: Emmanellain (Coerthas Western Highlands) `[COND: fetch]`
 - stand watch for wolves outside Falcon's Nest (0/2) -> Emmanellain -> search for Thancred -> Emmanellain
 - Next: For Those We Have Lost
 
-**For Those We Have Lost** — giver: Emmanellain (Coerthas Western Highlands)
+**For Those We Have Lost** — giver: Emmanellain (Coerthas Western Highlands) `[COND: parallel → Choices]`
 - Thancred -> the people of Falcon's Nest (0/3) -> Thancred
 - Next: Consequences
 
-**Consequences** — giver: Thancred (Coerthas Western Highlands)
+**Consequences** — giver: Thancred (Coerthas Western Highlands) `[COND: relay]`
 - Lucia -> search for Honoroit -> Thancred
 - Next: Choices
 
@@ -2607,11 +2612,11 @@ KEY SCENES:
 - Emmanellain (outside the Gates of Judgement) -> Emmanellain again (receive House Fortemps colors) -> [Solo Duty] the grand melee: defeat alliance forces + reach 100 Tactical Points -> defeat Raubahn one-on-one -> Emmanellain -> Raubahn -> Thancred
 - Next: For Those We Can Yet Save
 
-**For Those We Can Yet Save** — giver: Ser Aymeric (Coerthas Central Highlands)
+**For Those We Can Yet Save** — giver: Ser Aymeric (Coerthas Central Highlands) `[COND: relay]`
 - Alphinaud -> Artoirel (Falcon's Nest) -> Alphinaud
 - Next: Causes and Costs
 
-**Causes and Costs** — giver: Alphinaud (Coerthas Western Highlands)
+**Causes and Costs** — giver: Alphinaud (Coerthas Western Highlands) `[COND: relay]`
 - wait for Alphinaud in the intercessory (Camp Dragonhead) -> Alphinaud -> Alphinaud (outside Fortemps Manor)
 - Next: The Man Within (3.3)
 - Manifest tie (08.1 HW L12 3.2): around the 3.2->3.3 seam the Falcon's Nest peace conference is shattered when ESTINIEN, POSSESSED by NIDHOGG (via the two eyes), lances Vidofnir — the 'final chorus' begins. Confirm the exact beat placement at play.
@@ -2622,11 +2627,11 @@ KEY SCENES:
 
 ## PATCH 3.3 — Revenge of the Horde
 
-**The Man Within** — giver: House Fortemps Knight (the Pillars)
+**The Man Within** — giver: House Fortemps Knight (the Pillars) `[COND: relay]`
 - Alphinaud (Fortemps Manor) -> Krile (the Forgotten Knight) -> Alphinaud (Congregation)
 - Next: An Ally for Ishgard
 
-**An Ally for Ishgard** — giver: Alphinaud (Foundation)
+**An Ally for Ishgard** — giver: Alphinaud (Foundation) `[COND: relay]`
 - Ser Aymeric -> Vidofnir (Anyx Trine)
 - Next: Winning Over the Wyrm
 
@@ -2640,7 +2645,7 @@ KEY SCENES:
 - Next: Heroes of the Hour
 - Manifest tie (08.1 HW L12 3.3): the party defeats Nidhogg's shade; with Alphinaud (aided by the spirits of Haurchefant & Ysayle) they wrest Nidhogg's two eyes from Estinien's armour and cast them into the abyss; ESTINIEN IS FREED AND SURVIVES. [This trial is PATCH 3.3.]
 
-**Heroes of the Hour** — giver: Alphinaud (Foundation)
+**Heroes of the Hour** — giver: Alphinaud (Foundation) `[COND: relay]`
 - Lucia -> enter Fortemps Manor -> inquire after Alphinaud (Congregation)
 - Next: Litany of Peace
 
@@ -2652,7 +2657,7 @@ KEY SCENES:
 
 ## PATCH 3.4 — Soul Surrender
 
-**Promises Kept** — giver: House Fortemps Knight (the Pillars)
+**Promises Kept** — giver: House Fortemps Knight (the Pillars) `[COND: relay]`
 - the House Borel steward -> return to Fortemps Manor -> Alphinaud
 - Next: Shadows of the First
 
@@ -2661,11 +2666,11 @@ KEY SCENES:
 - Next: Two Sides of a Coin
 - Manifest tie: Xelphatol (Ixal stronghold), patch 3.4.
 
-**Two Sides of a Coin** — giver: Alphinaud (Coerthas Central Highlands)
+**Two Sides of a Coin** — giver: Alphinaud (Coerthas Central Highlands) `[COND: relay]`
 - Aymeric (Congregation) -> Alphinaud -> Urianger (the Waking Sands) -> Bloeidin (Camp Overlook, outer La Noscea)
 - Next: Unlikely Allies
 
-**Unlikely Allies** — giver: Commander Bloeidin (Camp Overlook, Outer La Noscea)
+**Unlikely Allies** — giver: Commander Bloeidin (Camp Overlook, Outer La Noscea) `[COND: fetch]`
 - Alphinaud -> search for the koboldling (Camp Overlook) -> pursue the koboldling (x3) -> Alphinaud
 - Next: The Beast That Mourned at the Heart of the Mountain
 
@@ -2673,15 +2678,15 @@ KEY SCENES:
 - Ga Bu -> secure the caches of crystals in U'Ghamaro (x3) -> give the crystals to Alphinaud -> follow Ga Bu & Alisaie -> Alphinaud -> [TRIAL: The Navel (Hard) = TITAN] -> Alphinaud (Camp Overlook)
 - Next: Beneath a Star-filled Sky
 
-**Beneath a Star-filled Sky** — giver: Alphinaud (Outer La Noscea)
+**Beneath a Star-filled Sky** — giver: Alphinaud (Outer La Noscea) `[COND: relay]`
 - Bloeidin -> Alphinaud -> search for Alisaie -> return to the Waking Sands -> Alphinaud -> Alisaie (Little Ala Mhigo)
 - Next: When We Were Free
 
-**When We Were Free** — giver: Alphinaud (Southern Thanalan)
+**When We Were Free** — giver: Alphinaud (Southern Thanalan) `[COND: parallel → One Life for One World]`
 - question the residents of Little Ala Mhigo (0/3: Otelin, Sifrid, Talebot) -> Alphinaud -> Gundobald -> rendezvous with Alphinaud (the Sunken Temple of Qarn) -> Alphinaud
 - Next: Honorable Heroes
 
-**Honorable Heroes** — giver: Papalymo (Southern Thanalan)
+**Honorable Heroes** — giver: Papalymo (Southern Thanalan) `[COND: fetch]`
 - deliver the sack of gil to Talebot -> Alphinaud -> (in weathered tunic/slops) Alphinaud -> Alphinaud
 - Next: One Life for One World
 
@@ -2690,7 +2695,7 @@ KEY SCENES:
 - Next: An Ending to Mark a New Beginning
 - Manifest tie (08.1 HW L12 3.1-3.4): the Warriors of Darkness thread — gated origin (they are from the First, ShB).
 
-**An Ending to Mark a New Beginning** — giver: Alphinaud (the Rising Stones, Southern Thanalan)
+**An Ending to Mark a New Beginning** — giver: Alphinaud (the Rising Stones, Southern Thanalan) `[COND: relay]`
 - Alisaie -> Papalymo -> Alphinaud (Rising Stones) -> Alphinaud
 - Next: Tidings from Gyr Abania (3.5)
 
@@ -2700,15 +2705,15 @@ KEY SCENES:
 
 ## PATCH 3.5 — The Far Edge of Fate (part 1)
 
-**Tidings from Gyr Abania** — giver: Tataru (the Rising Stones)
+**Tidings from Gyr Abania** — giver: Tataru (the Rising Stones) `[COND: relay]`
 - Tataru (the Diamond Forge, Rowena's House of Splendors) -> wait for Tataru -> attend the meeting at the Rising Stones -> Lucia (Congregation)
 - Next: An Envoy for Ishgard
 
-**An Envoy for Ishgard** — giver: Lucia (Foundation)
+**An Envoy for Ishgard** — giver: Lucia (Foundation) `[COND: relay]`
 - wait at the Gates of Judgement -> Ser Aymeric (Camp Dragonhead) -> Ser Aymeric (New Gridania)
 - Next: An Allied Decision
 
-**An Allied Decision** — giver: Aymeric (New Gridania)
+**An Allied Decision** — giver: Aymeric (New Gridania) `[COND: relay]`
 - the silent conjurer (Nophica's Altar) -> Alphinaud -> Alisaie (Revenant's Toll)
 - Next: Griffin, Griffin on the Wall
 
@@ -2717,7 +2722,7 @@ KEY SCENES:
 - Next: Louisoix's Finest Student
 - Manifest tie (08.1 HW L12 3.5): ILBERD, revealed as THE GRIFFIN, at Baelsar's Wall — the plot that leads to summoning SHINRYU with Nidhogg's eyes (climax lands at the 3.56/SB seam).
 
-**Louisoix's Finest Student** — giver: Alphinaud (East Shroud)
+**Louisoix's Finest Student** — giver: Alphinaud (East Shroud) `[COND: relay]`
 - Alisaie (the Rising Stones)
 - Next: The Obvious Solution (3.56)
 
@@ -2725,11 +2730,11 @@ KEY SCENES:
 
 ## PATCH 3.56 — The Far Edge of Fate (part 2) — bridge to Stormblood
 
-**The Obvious Solution** — giver: Alisaie (the Rising Stones)
+**The Obvious Solution** — giver: Alisaie (the Rising Stones) `[COND: relay]`
 - the silent conjurer (Nophica's Altar) -> Alphinaud
 - Next: The Greater Obeisance
 
-**The Greater Obeisance** — giver: Alphinaud (Nophica's Altar)
+**The Greater Obeisance** — giver: Alphinaud (Nophica's Altar) `[COND: relay]`
 - Cid (Gridania airship landing) -> Hida (Gridania airship landing) -> Cid (Mor Dhona) -> Nero (the Rising Stones)
 - Next: Fly Free, My Pretty
 
@@ -2757,7 +2762,7 @@ KEY SCENES:
 
 ---
 
-**Beyond the Great Wall** — giver: Alphinaud (the Rising Stones)
+**Beyond the Great Wall** — giver: Alphinaud (the Rising Stones) `[COND: relay]`
 - Alphinaud -> Alphinaud (Amarissaix's Spire) -> the serpent officer -> Raubahn
 - Next: Lyse Takes the Lead
 
@@ -2765,23 +2770,23 @@ KEY SCENES:
 - follow Lyse -> enter Rhalgr's Reach -> Conrad
 - Next: The Promise of a New Beginning
 
-**The Promise of a New Beginning** — giver: Conrad Kemp (Rhalgr's Reach)
+**The Promise of a New Beginning** — giver: Conrad Kemp (Rhalgr's Reach) `[COND: relay]`
 - Conrad
 - Next: A Haven for the Bold
 
-**A Haven for the Bold** — giver: Alphinaud (Rhalgr's Reach)
+**A Haven for the Bold** — giver: Alphinaud (Rhalgr's Reach) `[COND: parallel → Best Served with Cold Steel]`
 - Lyse (x5 — tour of the Reach)
 - Next: A Bargain Struck
 
-**A Bargain Struck** — giver: Alisaie (Rhalgr's Reach)
+**A Bargain Struck** — giver: Alisaie (Rhalgr's Reach) `[COND: relay]`
 - Conrad -> Alisaie
 - Next: A Friend of a Friend in Need
 
-**A Friend of a Friend in Need** — giver: M'naago (Rhalgr's Reach)
+**A Friend of a Friend in Need** — giver: M'naago (Rhalgr's Reach) `[COND: fetch]`
 - M'naago -> M'naago (the Fringes) -> lie in wait for imperial soldiers -> M'naago
 - Next: Signed, Sealed, to Be Delivered
 
-**Signed, Sealed, to Be Delivered** — giver: M'naago (the Fringes)
+**Signed, Sealed, to Be Delivered** — giver: M'naago (the Fringes) `[COND: relay]`
 - follow M'naago -> Raubahn
 - Next: Best Served with Cold Steel
 
@@ -2789,31 +2794,31 @@ KEY SCENES:
 - lie in wait for imperial soldiers -> rendezvous with Raubahn -> defeat the imperial forces -> M'naago
 - Next: Let Fill Your Hearts with Pride
 
-**Let Fill Your Hearts with Pride** — giver: M'naago (Rhalgr's Reach)
+**Let Fill Your Hearts with Pride** — giver: M'naago (Rhalgr's Reach) `[COND: relay]`
 - M'naago
 - Next: Where Men Go as One
 
-**Where Men Go as One** — giver: Conrad (Rhalgr's Reach)
+**Where Men Go as One** — giver: Conrad (Rhalgr's Reach) `[COND: relay]`
 - M'naago
 - Next: Future Rust, Future Dust
 
-**Future Rust, Future Dust** — giver: Beves (Rhalgr's Reach)
+**Future Rust, Future Dust** — giver: Beves (Rhalgr's Reach) `[COND: parallel → In Crimson It Began]`
 - question the people of Rhalgr's Reach -> return the well-worn log to Beves
 - Next: A Dash of Green
 
-**A Dash of Green** — giver: Ahelissa (Rhalgr's Reach)
+**A Dash of Green** — giver: Ahelissa (Rhalgr's Reach) `[COND: fetch]`
 - Tebbe -> gather 4 Fragrant Herbs -> deliver the Reach Green to Ahelissa
 - Next: Ye Wayward Brothers [both A Dash of Green and Ye Wayward Brothers converge on Token of Faith; index order used]
 
-**Ye Wayward Brothers** — giver: Ananta Battlemaid (Rhalgr's Reach)
+**Ye Wayward Brothers** — giver: Ananta Battlemaid (Rhalgr's Reach) `[COND: parallel → In Crimson It Began]`
 - find the 5 missing recruits -> the Ananta Battlemaid
 - Next: Token of Faith
 
-**Token of Faith** — giver: Swarthy Resistance Fighter (Rhalgr's Reach)
+**Token of Faith** — giver: Swarthy Resistance Fighter (Rhalgr's Reach) `[COND: fetch]`
 - find the fighter's ward -> deliver the ward
 - Next: Crossing the Velodyna
 
-**Crossing the Velodyna** — giver: Alphinaud (Rhalgr's Reach)
+**Crossing the Velodyna** — giver: Alphinaud (Rhalgr's Reach) `[COND: relay]`
 - Y'shtola -> Alphinaud -> Raubahn (Castrum Oriens) -> Alisaie
 - Next: In Crimson It Began
 
@@ -2826,19 +2831,19 @@ KEY SCENES:
 - aid the wounded -> bring Meffrid's charm to Conrad
 - Next: Bereft of Hearth and Home
 
-**Bereft of Hearth and Home** — giver: Pipin (Rhalgr's Reach)
+**Bereft of Hearth and Home** — giver: Pipin (Rhalgr's Reach) `[COND: fetch]`
 - Orella -> search the infirmary for medical supplies -> give them to the Flame Courier
 - Next: Divide and Conquer
 
-**Divide and Conquer** — giver: Raubahn (the Reach)
+**Divide and Conquer** — giver: Raubahn (the Reach) `[COND: relay]`
 - Raubahn -> Lyse (Castrum Oriens) -> Alphinaud
 - Next: Lies, Damn Lies, and Pirates
 
-**Lies, Damn Lies, and Pirates** — giver: Alisaie (the Fringes)
+**Lies, Damn Lies, and Pirates** — giver: Alisaie (the Fringes) `[COND: relay]`
 - Alphinaud (Limsa Lominsa) -> Alphinaud
 - Next: Tales from the Far East
 
-**Tales from the Far East** — giver: Alphinaud (Limsa Lominsa Upper Decks)
+**Tales from the Far East** — giver: Alphinaud (Limsa Lominsa Upper Decks) `[COND: relay]`
 - Lyse (Revenant's Toll) -> the Domans (the Rising Stones) -> Lyse (Revenant's Toll)
 - Next: Not without Incident
 
@@ -2850,15 +2855,15 @@ KEY SCENES:
 - Hancock -> follow Hancock
 - Next: Where the Streets Are Paved with Koban
 
-**Where the Streets Are Paved with Koban** — giver: Hancock (Kugane)
+**Where the Streets Are Paved with Koban** — giver: Hancock (Kugane) `[COND: relay]`
 - follow Hancock (x3)
 - Next: By the Grace of Lord Lolorito
 
-**By the Grace of Lord Lolorito** — giver: Hancock (Kugane)
+**By the Grace of Lord Lolorito** — giver: Hancock (Kugane) `[COND: relay]`
 - follow Hancock -> Hancock -> Alphinaud
 - Next: A Good Samurai Is Hard to Find
 
-**A Good Samurai Is Hard to Find** — giver: Alphinaud (Ruby Bazaar Offices)
+**A Good Samurai Is Hard to Find** — giver: Alphinaud (Ruby Bazaar Offices) `[COND: parallel → It's Probably a Trap]`
 - Lyse -> view Alphinaud's sketch -> hand the sketch to Karaku -> to Kotokaze -> show it to the captains on the Short Pier -> Lyse
 - Next: It's Probably a Trap
 
@@ -2866,7 +2871,7 @@ KEY SCENES:
 - Gyodo -> Alphinaud (the Ruby Bazaar) -> Alisaie -> [Solo Duty] wait on the Tasogare Bridge -> defeat the imperial soldiers -> follow the curious Kojin -> Lyse
 - Next: Making the Catfish Sing
 
-**Making the Catfish Sing** — giver: Lyse (Kugane)
+**Making the Catfish Sing** — giver: Lyse (Kugane) `[COND: relay]`
 - Hancock -> follow Hancock to the Sekiseigumi Barracks -> wait outside (x2) -> Lyse
 - Next: Once More, to the Ruby Sea
 
@@ -2878,15 +2883,15 @@ KEY SCENES:
 
 ---
 
-**Once More, to the Ruby Sea** — giver: Gosetsu (the Ruby Bazaar) · MSQ
+**Once More, to the Ruby Sea** — giver: Gosetsu (the Ruby Bazaar) · MSQ `[COND: relay]`
 - return to the Ruby Bazaar -> rendezvous with Soroban at Pier #2 -> Soroban
 - Next: Open Water
 
-**Open Water** — giver: Soroban (the Ruby Sea) · MSQ
+**Open Water** — giver: Soroban (the Ruby Sea) · MSQ `[COND: relay]`
 - follow Lyse -> Soroban -> Tansui
 - Next: Boys with Boats
 
-**Boys with Boats** — giver: Tansui (Kugane) · MSQ
+**Boys with Boats** — giver: Tansui (Kugane) · MSQ `[COND: relay]`
 - search for Tansui -> Gosetsu -> search for Soroban
 - Next: To Bend with the Wind
 
@@ -2894,15 +2899,15 @@ KEY SCENES:
 - the proud Confederate -> Soroban (x2) -> Alisaie -> follow Alisaie -> defeat the gyuki -> search for Lyse -> follow Lyse
 - Next: Confederate Consternation
 
-**Confederate Consternation** — giver: Alisaie (the Ruby Sea) · MSQ
+**Confederate Consternation** — giver: Alisaie (the Ruby Sea) · MSQ `[COND: parallel → Under the Sea]`
 - look for a familiar face on Onokoro -> Rasho -> Lyse -> gather information around Onokoro -> Alisaie
 - Next: The Solace of the Sea
 
-**The Solace of the Sea** — giver: Afumi (the Ruby Sea) · MSQ
+**The Solace of the Sea** — giver: Afumi (the Ruby Sea) · MSQ `[COND: fetch]`
 - Aokumo -> give the medicine to the seasick Doman recruit -> Afumi
 - Next: Alisaie's Stones
 
-**Alisaie's Stones** — giver: Hirase (the Ruby Sea) · MSQ
+**Alisaie's Stones** — giver: Hirase (the Ruby Sea) · MSQ `[COND: fetch]`
 - take the rotting fish -> use it to lure out aggressive sharks & slay them -> search for the industrious pirate -> rescue him -> report to Alisaie -> Rasho
 - Next: Under the Sea
 
@@ -2910,28 +2915,28 @@ KEY SCENES:
 - search for Lyse -> join Alisaie on the Isle of Bekko -> search for the Blue Kojin village -> Alisaie
 - Next: Of Kojin and Kami
 
-**Of Kojin and Kami** — giver: Soroban (the Ruby Sea) · MSQ
+**Of Kojin and Kami** — giver: Soroban (the Ruby Sea) · MSQ `[COND: fetch]`
 - Bunchin -> Soroban -> slay an unkiu for its carapace -> deliver the unkiu carapace to Soroban
 - Next: In Soroban We Trust
 
-**In Soroban We Trust** — giver: Soroban (the Ruby Sea) · MSQ
+**In Soroban We Trust** — giver: Soroban (the Ruby Sea) · MSQ `[COND: relay]`
 - Alisaie -> Lyse
 - Next: Forever and Ever Apart
 - (excluded from chain: "The Kami" = sidequest; "In Soroban We Trust" prev = Of Kojin and Kami, confirmed)
 
-**Forever and Ever Apart** — giver: Lyse (the Ruby Sea) · MSQ
+**Forever and Ever Apart** — giver: Lyse (the Ruby Sea) · MSQ `[COND: relay]`
 - search for Shiosai -> Alisaie
 - Next: In Darkness the Magatama Dreams
 
-**In Darkness the Magatama Dreams** — giver: Alisaie (the Ruby Sea) · MSQ
+**In Darkness the Magatama Dreams** — giver: Alisaie (the Ruby Sea) · MSQ `[COND: fetch]`
 - Alisaie -> use the enchanted lamp to find a shimmering object -> obtain the Yasakani-no-Magatama -> show it to Alisaie
 - Next: The Whims of the Divine
 
-**The Whims of the Divine** — giver: Alisaie (the Ruby Sea) · MSQ
+**The Whims of the Divine** — giver: Alisaie (the Ruby Sea) · MSQ `[COND: fetch]`
 - deliver the Yasakani-no-Magatama to Bunchin -> Alisaie
 - Next: Breaking and Delivering
 
-**Breaking and Delivering** — giver: Alisaie (the Ruby Sea) · MSQ
+**Breaking and Delivering** — giver: Alisaie (the Ruby Sea) · MSQ `[COND: fetch]`
 - follow Alisaie to the Isle of Zekki -> seek out & slay Red Kojin near the Dive -> slay Red Kojin elsewhere on the Isle of Zekki -> search for Lyse -> rendezvous with Alisaie -> Alisaie
 - Next: The Lord of the Revel
 
@@ -2940,7 +2945,7 @@ KEY SCENES:
 - Next: Tide Goes in, Imperials Go Out
 - Manifest tie (08.1 SB): SUSANO, Lord of the Revel — first primal of Stormblood.
 
-**Tide Goes in, Imperials Go Out** — giver: Alisaie (the Ruby Sea) · MSQ
+**Tide Goes in, Imperials Go Out** — giver: Alisaie (the Ruby Sea) · MSQ `[COND: parallel → A Silence in Three Parts]`
 - search for villagers in need of aid (0/2) -> one of the Confederates -> report to Alisaie
 - Next: A Silence in Three Parts
 
@@ -2960,31 +2965,31 @@ KEY SCENES:
 - survey Namai from a safe distance -> the Namai Youth -> follow Gosetsu (x2)
 - Next: A Glimpse of Madness
 
-**A Glimpse of Madness** — giver: Liberation Front Guard (Yanxia) · MSQ
+**A Glimpse of Madness** — giver: Liberation Front Guard (Yanxia) · MSQ `[COND: relay]`
 - Alisaie -> your friends -> Yugiri
 - Next: The Stubborn Remainder
 
-**The Stubborn Remainder** — giver: Yugiri (the House of the Fierce) · MSQ
+**The Stubborn Remainder** — giver: Yugiri (the House of the Fierce) · MSQ `[COND: parallel → The Time between the Seconds]`
 - follow Yugiri to Namai Village -> gather information in Namai -> Yugiri
 - Next: The Ones We Leave Behind
 
-**The Ones We Leave Behind** — giver: Yugiri (Namai) · MSQ (progress 59/162)
+**The Ones We Leave Behind** — giver: Yugiri (Namai) · MSQ (progress 59/162) `[COND: fetch]`
 - find people in distress -> rescue Azami -> obtain yellow flowers -> bring them to Azami -> Azami -> Yugiri
 - Next: A New Ruby Tithe
 
-**A New Ruby Tithe** — giver: Yugiri (Yanxia) · MSQ
+**A New Ruby Tithe** — giver: Yugiri (Yanxia) · MSQ `[COND: fetch]`
 - hide with Lyse & Yugiri -> Yugiri -> follow Yugiri -> use the blowgun to incapacitate the imperial soldier -> blowgun the imperial soldiers -> hit the imperials with darts -> rendezvous with Yugiri -> blowgun again -> darts -> Yugiri -> follow Yugiri
 - Next: The Will to Live
 
-**The Will to Live** — giver: Yugiri (Yanxia) · MSQ [page prev/next noisy — order fixed by neighbours]
+**The Will to Live** — giver: Yugiri (Yanxia) · MSQ `[COND: fetch]` [page prev/next noisy — order fixed by neighbours]
 - stand watch for imperial patrols -> Yugiri -> steal a uniform from a sleeping soldier -> Yugiri -> (in uniform) /imperialsalute to the guards (0/2) -> Yugiri -> free the Doman villagers
 - Next: Daughter of the Deep
 
-**Daughter of the Deep** — giver: Yugiri (Yanxia) · MSQ
+**Daughter of the Deep** — giver: Yugiri (Yanxia) · MSQ `[COND: fetch]`
 - gather up the imperial decurion -> find a suitable place -> use Yugiri's medicine on him -> gather up the imperial soldier -> find a place -> use the medicine -> search for Yugiri -> return with Yugiri to the House of the Fierce
 - Next: Path of No Return
 
-**Path of No Return** — giver: Gosetsu (the House of the Fierce) · MSQ
+**Path of No Return** — giver: Gosetsu (the House of the Fierce) · MSQ `[COND: relay]`
 - search for Yugiri -> rendezvous with Yugiri at Yuzuka Manor
 - Next: The Time between the Seconds
 
@@ -2993,7 +2998,7 @@ KEY SCENES:
 - Next: All the Little Angels
 - Manifest tie: a second contemptuous ZENOS clash (the hunter keeps testing the party).
 
-**All the Little Angels** — giver: Isse (the House of the Fierce, Doma) · MSQ (progress 65/162) [page prev/next noisy — order fixed by neighbours]
+**All the Little Angels** — giver: Isse (the House of the Fierce, Doma) · MSQ (progress 65/162) `[COND: parallel → Here There Be Xaela]` [page prev/next noisy — order fixed by neighbours]
 - Isse -> speak with your comrades (0/4) -> Alphinaud
 - Next: Here There Be Xaela
 
@@ -3009,11 +3014,11 @@ KEY SCENES:
 
 ---
 
-**The Search for Lord Hien** — giver: Yugiri (Reunion, the Azim Steppe) · MSQ (446/992)
+**The Search for Lord Hien** — giver: Yugiri (Reunion, the Azim Steppe) · MSQ (446/992) `[COND: parallel → An Impossible Dream]`
 - gather information in Reunion -> the Goro horsemaster -> (Say chat, any phrase with "Mol") search for a Mol woman -> Cirina
 - Next: A Season for War
 
-**A Season for War** — giver: Cirina (Reunion) · MSQ (447/992)
+**A Season for War** — giver: Cirina (Reunion) · MSQ (447/992) `[COND: fetch]`
 - slay dholes & obtain whisperroot -> deliver the whisperroot to Cirina
 - Next: An Impossible Dream
 
@@ -3021,19 +3026,19 @@ KEY SCENES:
 - search for Hien -> Hien
 - Next: Stars in the Dark
 
-**Stars in the Dark** — giver: Hien (Mol Iloh) · MSQ (449/992) [own page prev/next noisy — position fixed by neighbours]
+**Stars in the Dark** — giver: Hien (Mol Iloh) · MSQ (449/992) `[COND: relay]` [own page prev/next noisy — position fixed by neighbours]
 - Hien -> Temulun -> Cirina
 - Next: A Warrior's Welcome
 
-**A Warrior's Welcome** — giver: Cirina (the Azim Steppe) · MSQ
+**A Warrior's Welcome** — giver: Cirina (the Azim Steppe) · MSQ `[COND: fetch]`
 - Hien -> use the entrails to lure out & slay gulo gulo -> show the meat to Gosetsu -> deliver the sack of meat to Cirina
 - Next: The Heart of Nations
 
-**The Heart of Nations** — giver: Cirina (the Azim Steppe) · MSQ
+**The Heart of Nations** — giver: Cirina (the Azim Steppe) · MSQ `[COND: fetch]`
 - Dorbei -> Lyse -> gather dung -> deliver the dung to Lyse -> Cirina -> Hien
 - Next: A Trial Before the Trial
 
-**A Trial Before the Trial** — giver: Hien (the Azim Steppe) · MSQ
+**A Trial Before the Trial** — giver: Hien (the Azim Steppe) · MSQ `[COND: relay]`
 - Lyse (x2) -> survey your surroundings -> Hien -> survey again -> Hien
 - Next: In the Footsteps of Bardam the Brave
 
@@ -3042,19 +3047,19 @@ KEY SCENES:
 - Next: The Children of Azim
 - Manifest tie (08.1 SB L13): Bardam's Mettle — the rite that wins the right to lead the Naadam.
 
-**The Children of Azim** — giver: Lyse (the Azim Steppe) · MSQ
+**The Children of Azim** — giver: Lyse (the Azim Steppe) · MSQ `[COND: relay]`
 - Magnai
 - Next: The Labors of Magnai
 
-**The Labors of Magnai** — giver: Baatu (the Azim Steppe) · MSQ
+**The Labors of Magnai** — giver: Baatu (the Azim Steppe) · MSQ `[COND: fetch]`
 - Baatu -> the Oroniri spearson -> obtain swordgrass -> deliver the swordgrass to Baatu -> Magnai
 - Next: For Love of the Moon
 
-**For Love of the Moon** — giver: Hien (the Azim Steppe) · MSQ
+**For Love of the Moon** — giver: Hien (the Azim Steppe) · MSQ `[COND: fetch]`
 - Udutai -> find lost lambs -> Udutai -> Hien -> Magnai
 - Next: Sworn Enemies of the Sun
 
-**Sworn Enemies of the Sun** — giver: Magnai (the Azim Steppe) · MSQ
+**Sworn Enemies of the Sun** — giver: Magnai (the Azim Steppe) · MSQ `[COND: fetch]`
 - Gosetsu -> /lookout at the Dusk Throne -> save the wounded hunter -> Gosetsu
 - Next: The Undying Ones
 
@@ -3071,11 +3076,11 @@ KEY SCENES:
 - Next: A Final Peace
 - Manifest tie (08.1 SB): the Dotharl believe in reincarnation — they do not mourn the dead.
 
-**A Final Peace** — giver: Gosetsu (the Azim Steppe) · MSQ
+**A Final Peace** — giver: Gosetsu (the Azim Steppe) · MSQ `[COND: relay]`
 - Sadu -> pay your respects to Geser -> Gosetsu
 - Next: As the Gods Will
 
-**As the Gods Will** — giver: Gosetsu (the Azim Steppe, Nhaama's Retreat) · MSQ [zone GE-corrected]
+**As the Gods Will** — giver: Gosetsu (the Azim Steppe, Nhaama's Retreat) · MSQ `[COND: relay]` [zone GE-corrected]
 - Magnai -> Hien -> Cirina
 - Next: The Naadam
 
@@ -3085,7 +3090,7 @@ KEY SCENES:
 - Next: Glory to the Khagan
 - Manifest tie (08.1 SB L14): THE NAADAM — the grand melee of the Steppe; winning it makes the Mol Khagan and secures Hien's Xaela alliance. Grynewaht's imperial ambush is repelled by the united tribes.
 
-**Glory to the Khagan** — giver: Hien (the Azim Steppe) · MSQ
+**Glory to the Khagan** — giver: Hien (the Azim Steppe) · MSQ `[COND: relay]`
 - Temulun -> the diligent Mol warrior -> strike a /victorypose at the mark of Mol Iloh -> Cirina
 - Next: In Crimson They Walked
 
@@ -3097,31 +3102,31 @@ KEY SCENES:
 
 ---
 
-**In Crimson They Walked** — giver: Hien (the Azim Steppe) · MSQ
+**In Crimson They Walked** — giver: Hien (the Azim Steppe) · MSQ `[COND: relay]`
 - Magnai -> Sadu -> Cirina
 - Next: The Hour of Reckoning
 
-**The Hour of Reckoning** — giver: Hien (the Azim Steppe) · MSQ
+**The Hour of Reckoning** — giver: Hien (the Azim Steppe) · MSQ `[COND: relay]`
 - Gosetsu -> Hien -> Alphinaud
 - Next: The Room Where It Happened
 
-**The Room Where It Happened** — giver: Alphinaud (Yanxia) · MSQ
+**The Room Where It Happened** — giver: Alphinaud (Yanxia) · MSQ `[COND: relay]`
 - Hien -> Alphinaud -> Tataru in Kugane
 - Next: How Tataru Got Her Groove Back
 
-**How Tataru Got Her Groove Back** — giver: Tataru (the Ruby Bazaar Offices, Kugane) · MSQ
+**How Tataru Got Her Groove Back** — giver: Tataru (the Ruby Bazaar Offices, Kugane) · MSQ `[COND: fetch]`
 - search Kugane for the overworked porter -> deliver Cid's parcel to Tataru -> deliver the magitek field generator manual to Alphinaud in Yanxia
 - Next: Seeds of Despair
 
-**Seeds of Despair** — giver: Alphinaud (Yanxia) · MSQ
+**Seeds of Despair** — giver: Alphinaud (Yanxia) · MSQ `[COND: fetch]`
 - Alisaie -> search for imperial patrols south of Prism Lake -> search Prism Lake for patrols -> follow Alisaie -> search the Ribbons for suspicious villagers -> defeat the imperial impostors -> rendezvous with Alisaie -> Alisaie
 - Next: The Limits of Our Endurance
 
-**The Limits of Our Endurance** — giver: Alisaie (Yanxia) · MSQ
+**The Limits of Our Endurance** — giver: Alisaie (Yanxia) · MSQ `[COND: relay]`
 - Lyse -> Isse -> Tsuranuki
 - Next: Broken Steel, Broken Men
 
-**Broken Steel, Broken Men** — giver: Tsuranuki (Yanxia) · MSQ
+**Broken Steel, Broken Men** — giver: Tsuranuki (Yanxia) · MSQ `[COND: fetch]`
 - use the makeshift bombs to demolish abandoned magitek -> gather up the armor plating -> (again) demolish magitek -> gather armor plating -> deliver the armor plating to Tsuranuki
 - Next: The Doma Within
 
@@ -3151,15 +3156,15 @@ KEY SCENES:
 - Next: The Silence of the Gods
 - Manifest tie (08.1 SB): LAKSHMI, the Lady of Bliss — Qalyana primal; her thrall is broken in Emanation.
 
-**The Silence of the Gods** — giver: Sarisha (the Peaks) · MSQ
+**The Silence of the Gods** — giver: Sarisha (the Peaks) · MSQ `[COND: relay]`
 - Sarisha -> M'naago (x2) -> Alphinaud
 - Next: The First of Many
 
-**The First of Many** — giver: Alphinaud (the Fringes) · MSQ
+**The First of Many** — giver: Alphinaud (the Fringes) · MSQ `[COND: relay]`
 - the Alliance recruit -> M'naago -> follow M'naago to Ala Ghiri
 - Next: Strong and Unified
 
-**Strong and Unified** — giver: M'naago (Ala Ghiri, the Peaks) · MSQ
+**Strong and Unified** — giver: M'naago (Ala Ghiri, the Peaks) · MSQ `[COND: relay]`
 - Raubahn -> Alisaie
 - Next: Hells Open
 
@@ -3168,27 +3173,27 @@ KEY SCENES:
 - Next: Heavens Weep
 - (note: Castrum Abania's main cannon destroys Specula Imperatoris in cutscene here — the Castrum is NOT yet entered)
 
-**Heavens Weep** — giver: Alisaie (the Peaks) · MSQ
+**Heavens Weep** — giver: Alisaie (the Peaks) · MSQ `[COND: fetch]`
 - follow Alisaie -> Raubahn -> search for wounded soldiers -> keep searching -> Lyse -> Alphinaud
 - Next: The Road Home
 
-**The Road Home** — giver: Alphinaud (the Peaks) · MSQ
+**The Road Home** — giver: Alphinaud (the Peaks) · MSQ `[COND: fetch]`
 - Alisaie -> search for wounded soldiers -> Alphinaud
 - Next: For the Living and the Dead
 
-**For the Living and the Dead** — giver: Alphinaud (Ala Ghiri, the Peaks) · MSQ
+**For the Living and the Dead** — giver: Alphinaud (Ala Ghiri, the Peaks) · MSQ `[COND: relay]`
 - Raubahn -> Lyse
 - Next: Above the Churning Waters
 
-**Above the Churning Waters** — giver: Lyse (the Peaks) · MSQ
+**Above the Churning Waters** — giver: Lyse (the Peaks) · MSQ `[COND: relay]`
 - wait for Lyse at Nyunkrepf's Hope -> Lyse
 - Next: The Path Forward
 
-**The Path Forward** — giver: Lyse (the Peaks) · MSQ
+**The Path Forward** — giver: Lyse (the Peaks) · MSQ `[COND: relay]`
 - report to Raubahn -> Alphinaud
 - Next: With Tired Hands We Toil
 
-**With Tired Hands We Toil** — giver: Alphinaud (the Peaks) · MSQ
+**With Tired Hands We Toil** — giver: Alphinaud (the Peaks) · MSQ `[COND: relay]`
 - stay alert on the way to Specula Imperatoris -> enter Specula Imperatoris (stay alert) -> Alphinaud -> stay alert on the way to Radiata -> Lyse
 - Next: Where Courage Endures
 
@@ -3198,7 +3203,7 @@ KEY SCENES:
 
 ---
 
-**Where Courage Endures** — giver: Lyse (Radiata, the Peaks) · MSQ
+**Where Courage Endures** — giver: Lyse (Radiata, the Peaks) · MSQ `[COND: relay]`
 - search for your contact in Radiata -> meet the contact outside Radiata
 - Next: The Price of Freedom
 
@@ -3207,19 +3212,19 @@ KEY SCENES:
 - Next: Raubahn's Invitation
 - Manifest tie (08.1 SB L16): CASTRUM ABANIA — the imperial fortress guarding the road to Ala Mhigo.
 
-**Raubahn's Invitation** — giver: Raubahn (Gyr Abania) · MSQ
+**Raubahn's Invitation** — giver: Raubahn (Gyr Abania) · MSQ `[COND: relay]`
 - follow Raubahn to Coldhearth
 - Next: Liberty or Death
 
-**Liberty or Death** — giver: Raubahn (the Peaks) · MSQ
+**Liberty or Death** — giver: Raubahn (the Peaks) · MSQ `[COND: relay]`
 - Raubahn -> Lyse -> follow Lyse -> look out for suspicious individuals on the way to Radiata -> rendezvous with Lyse -> M'naago
 - Next: The Lady in Red
 
-**The Lady in Red** — giver: Lyse (Rhalgr's Reach) · MSQ
+**The Lady in Red** — giver: Lyse (Rhalgr's Reach) · MSQ `[COND: relay]`
 - Orella at Rhalgr's Reach -> wait for Lyse -> Lyse
 - Next: Upon the Great Loch's Shore
 
-**Upon the Great Loch's Shore** — giver: Lyse (Rhalgr's Reach) · MSQ
+**Upon the Great Loch's Shore** — giver: Lyse (Rhalgr's Reach) · MSQ `[COND: relay]`
 - Alphinaud -> Pipin at Castrum Abania -> journey to the Lochs -> Alphinaud
 - Next: The Key to Victory
 
@@ -3257,11 +3262,11 @@ KEY SCENES:
 
 ## PATCH 4.1 — The Legend Returns
 
-**Arenvald's Adventure** — giver: Arenvald (Rhalgr's Reach) · MSQ
+**Arenvald's Adventure** — giver: Arenvald (Rhalgr's Reach) · MSQ `[COND: relay]`
 - Arenvald -> wait on the eastern side of Starfall
 - Next: The Darkness Below
 
-**The Darkness Below** — giver: Alphinaud (Rhalgr's Reach) · MSQ
+**The Darkness Below** — giver: Alphinaud (Rhalgr's Reach) · MSQ `[COND: parallel → The Mad King's Trove]`
 - speak with residents of the Ala Mhigan Quarter (0/3) -> Ernold -> report to Arenvald
 - Next: The Mad King's Trove
 
@@ -3270,7 +3275,7 @@ KEY SCENES:
 - Next: The Butcher's Blood
 - Manifest tie (08.1 SB patch): THE DROWNED CITY OF SKALLA — King Manfred's sunken vault beneath Loch Seld.
 
-**The Butcher's Blood** — giver: Arenvald (the Lochs) · MSQ
+**The Butcher's Blood** — giver: Arenvald (the Lochs) · MSQ `[COND: relay]`
 - Lyse (x2) -> the prison guard
 - Next: Echoes of an Echo
 
@@ -3279,27 +3284,27 @@ KEY SCENES:
 - Next: A Sultana's Strings
 - (Fordola's Echo awakens — parallels the Warrior of Light's gift)
 
-**A Sultana's Strings** — giver: Alphinaud (the Lochs) · MSQ
+**A Sultana's Strings** — giver: Alphinaud (the Lochs) · MSQ `[COND: relay]`
 - Bartholomew in Ul'dah -> Nanamo outside the Quicksand -> Nanamo near Stonesthrow -> Nanamo at the Unholy Heir -> Nanamo in the Coliseum -> Nanamo
 - Next: A Sultana's Duty
 
-**A Sultana's Duty** — giver: Nanamo Ul Namo (Ul'dah - Steps of Thal) · MSQ
+**A Sultana's Duty** — giver: Nanamo Ul Namo (Ul'dah - Steps of Thal) · MSQ `[COND: relay]`
 - Nanamo at Arrzaneth Ossuary -> Nanamo at the airship landing -> Nanamo at the Gold Saucer -> Nanamo
 - Next: A Sultana's Resolve
 
-**A Sultana's Resolve** — giver: Nanamo Ul Namo (the Gold Saucer) · MSQ
+**A Sultana's Resolve** — giver: Nanamo Ul Namo (the Gold Saucer) · MSQ `[COND: relay]`
 - Hancock in Kugane -> Nanamo in Ul'dah -> Nanamo at the Waking Sands -> Nanamo
 - Next: Securing the Saltery
 
-**Securing the Saltery** — giver: Nanamo Ul Namo (the Waking Sands) · MSQ
+**Securing the Saltery** — giver: Nanamo Ul Namo (the Waking Sands) · MSQ `[COND: fetch]`
 - discover the yabby's weak point (telescope) -> report to Watt -> Wiscar (observe a yabby) -> discover its weak point -> Wiscar -> observe a phoebad -> discover its weak point -> Wiscar -> report to Watt
 - Next: A Blissful Arrival
 
-**A Blissful Arrival** — giver: Alphinaud (the Lochs) · MSQ
+**A Blissful Arrival** — giver: Alphinaud (the Lochs) · MSQ `[COND: relay]`
 - wait inside the gate to the Ala Mhigan Quarter -> Raubahn -> Lyse
 - Next: Return of the Bull
 
-**Return of the Bull** — giver: Raubahn (the Lochs) · MSQ
+**Return of the Bull** — giver: Raubahn (the Lochs) · MSQ `[COND: relay]`
 - join your fellow Scions in the Ala Mhigan Quarter -> the Resistance guard -> Arenvald -> Lyse -> Lyse in Rhalgr's Reach
 - Next: Tidings from the East
 
@@ -3311,19 +3316,19 @@ KEY SCENES:
 - head to the Ruby Bazaar offices in Kugane -> Alisaie in Sanjo Hanamachi
 - Next: The Sword in the Store
 
-**The Sword in the Store** — giver: Alphinaud (Kugane) · MSQ
+**The Sword in the Store** — giver: Alphinaud (Kugane) · MSQ `[COND: relay]`
 - search for the master of Shofuku Shichiten on Kogane Dori -> Ume at the Umineko Teahouse
 - Next: Hope on the Waves
 
-**Hope on the Waves** — giver: Yugiri (Kugane) · MSQ
+**Hope on the Waves** — giver: Yugiri (Kugane) · MSQ `[COND: relay]`
 - Soroban at Pier #2 -> Alphinaud (x2) -> join Alisaie -> Soroban near Isari
 - Next: Elation and Trepidation
 
-**Elation and Trepidation** — giver: Yugiri (the Ruby Sea) · MSQ
+**Elation and Trepidation** — giver: Yugiri (the Ruby Sea) · MSQ `[COND: parallel → His Forgotten Home]`
 - Yugiri near Namai -> ask soldiers about Jifuya (0/2) -> the Liberation Front sentry -> search for Jifuya in Yanxia -> Yugiri -> Hien
 - Next: Storm on the Horizon
 
-**Storm on the Horizon** — giver: Hien (Yanxia) · MSQ
+**Storm on the Horizon** — giver: Hien (Yanxia) · MSQ `[COND: relay]`
 - Hien at Castrum Fluminis -> Hien -> Yugiri at the mercantile docks -> Hien at the Doman Enclave -> the guardsman -> Hien -> Alisaie
 - Next: His Forgotten Home
 
@@ -3332,11 +3337,11 @@ KEY SCENES:
 - Next: A Guilty Conscience
 - (Asahi sas Brutus — the imperial emissary, Yotsuyu's adoptive brother — arrives under a flag of truce)
 
-**A Guilty Conscience** — giver: Asahi (Yanxia) · MSQ
+**A Guilty Conscience** — giver: Asahi (Yanxia) · MSQ `[COND: relay]`
 - Yugiri -> Hien
 - Next: Rise of a New Sun
 
-**Rise of a New Sun** — giver: Hien (the Kienkan, Doman Enclave) · MSQ
+**Rise of a New Sun** — giver: Hien (the Kienkan, Doman Enclave) · MSQ `[COND: relay]`
 - Hien (x2) -> Hancock at the Ruby Bazaar in Kugane
 - Next: Gosetsu and Tsuyu
 
@@ -3348,19 +3353,19 @@ KEY SCENES:
 
 ## PATCH 4.3 — Under the Moonlight
 
-**Gosetsu and Tsuyu** — giver: Alphinaud (the Ruby Bazaar Offices, Kugane) · MSQ
+**Gosetsu and Tsuyu** — giver: Alphinaud (the Ruby Bazaar Offices, Kugane) · MSQ `[COND: relay]`
 - Hien at the Kienkan -> Alphinaud
 - Next: Gone Like the Morning Dew
 
-**Gone Like the Morning Dew** — giver: Hien (the Doman Enclave) · MSQ
+**Gone Like the Morning Dew** — giver: Hien (the Doman Enclave) · MSQ `[COND: fetch]`
 - question the residents of Yuzuka Manor (0/2) -> search for signs of Yotsuyu (x3) -> inspect the bamboo hat
 - Next: Fruits of Her Labor
 
-**Fruits of Her Labor** — giver: Hien (Yanxia) · MSQ
+**Fruits of Her Labor** — giver: Hien (Yanxia) · MSQ `[COND: relay]`
 - Hien -> Hien at the Kienkan -> Hien
 - Next: Conscripts and Contingencies
 
-**Conscripts and Contingencies** — giver: Hien (the Kienkan) · MSQ
+**Conscripts and Contingencies** — giver: Hien (the Kienkan) · MSQ `[COND: fetch]`
 - Rasho on Onokoro -> inspect the hull (0/2) -> report to Ihanashi -> Hien at the Kienkan
 - Next: The Primary Agreement
 
@@ -3369,7 +3374,7 @@ KEY SCENES:
 - Next: Under the Moonlight
 - Manifest tie (08.1 SB patch): TSUKUYOMI — Yotsuyu reborn as the Dusk Mother; the Confederates & Doma end the primal at Castrum Fluminis.
 
-**Under the Moonlight** — giver: Alisaie (the Kienkan) · MSQ
+**Under the Moonlight** — giver: Alisaie (the Kienkan) · MSQ `[COND: relay]`
 - Lyse in Rhalgr's Reach -> Lyse at Bloodhowe -> Alisaie at the Rising Stones
 - Next: Emissary of the Dawn
 
@@ -3383,7 +3388,7 @@ KEY SCENES:
 
 ## PATCH 4.4 — Prelude in Violet
 
-**Sisterly Act** — giver: Alisaie (the Rising Stones) · MSQ
+**Sisterly Act** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
 - Thancred in the Ala Mhigan Quarter -> Alisaie -> Y'shtola in the Doman Enclave -> Hien at the Kienkan
 - Next: Feel the Burn
 
@@ -3392,24 +3397,24 @@ KEY SCENES:
 - Next: Shadows in the Empire
 - Manifest tie (08.1 SB patch): THE BURN — the aetherially-scarred waste between Othard and Ilsabard.
 
-**Shadows in the Empire** — giver: Hien (the Doman Enclave) · MSQ
+**Shadows in the Empire** — giver: Hien (the Doman Enclave) · MSQ `[COND: relay]`
 - enter the Kienkan -> Hien -> Lyse in the Doman Enclave -> Hien at the Kienkan
 - Next: A Power in Slumber
 - (Garlemald's succession turmoil after Zenos — Varis, the Populares)
 
-**A Power in Slumber** — giver: Hien (the Kienkan) · MSQ
+**A Power in Slumber** — giver: Hien (the Kienkan) · MSQ `[COND: relay]`
 - Hien in Kienkan -> travel to the Azim Steppe & meet Y'shtola at Reunion -> Y'shtola at her favorite spot -> travel to Mol Iloh -> Hien in Mol Iloh -> Cirina in Mol Iloh
 - Next: The Will of the Moon
 
-**The Will of the Moon** — giver: Y'shtola (the Azim Steppe) · MSQ
+**The Will of the Moon** — giver: Y'shtola (the Azim Steppe) · MSQ `[COND: relay]`
 - Y'shtola at the House of the Crooked Coin -> Cirina at Mol Iloh -> Sadu at Dotharl Khaa -> wait at the designated location -> report to Cirina at Mol Iloh
 - Next: The Call
 
-**The Call** — giver: Y'shtola (the Azim Steppe) · MSQ
+**The Call** — giver: Y'shtola (the Azim Steppe) · MSQ `[COND: relay]`
 - Y'shtola at the House of the Crooked Coin -> Hien -> Alisaie at the Kienkan -> Thancred in the Ala Mhigan Quarter -> the Resistance guard -> Alisaie
 - Next: Prelude in Violet
 
-**Prelude in Violet** — giver: Alisaie (the Rising Stones) · MSQ
+**Prelude in Violet** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
 - Alisaie at the Rising Stones -> Alisaie at Maelstrom Command -> Alisaie -> Alisaie at the Rising Stones
 - Next: Soul Searching
 
@@ -3423,7 +3428,7 @@ KEY SCENES:
 
 ## PATCH 4.5 — A Requiem for Heroes (Part 1)
 
-**Soul Searching** — giver: Alisaie (the Rising Stones) · MSQ
+**Soul Searching** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
 - Alisaie in front of Matoya's Cave -> Alisaie
 - Next: A Defector's Tidings
 
@@ -3432,11 +3437,11 @@ KEY SCENES:
 - Next: Seiryu's Wall
 - (Maxima of the Populares defects with a proposal of peace)
 
-**Seiryu's Wall** — giver: Hien (the Kienkan) · MSQ [no trial inside — see sidequest note]
+**Seiryu's Wall** — giver: Hien (the Kienkan) · MSQ `[COND: relay]` [no trial inside — see sidequest note]
 - Hien near the House of the Fierce -> Hien at the Kienkan
 - Next: Parley on the Front Lines
 
-**Parley on the Front Lines** — giver: Hien (the Kienkan) · MSQ
+**Parley on the Front Lines** — giver: Hien (the Kienkan) · MSQ `[COND: parallel → The Face of War]`
 - the Resistance fighter in Porta Praetoria -> Lyse -> Alisaie -> speak with Alliance leaders (0/3) -> report to Alisaie -> Lyse
 - Next: The Face of War
 
@@ -3449,7 +3454,7 @@ KEY SCENES:
 
 ## PATCH 4.56 — A Requiem for Heroes (Part 2)
 
-**A Brief Reprieve** — giver: Hoary Boulder (the Rising Stones) · MSQ
+**A Brief Reprieve** — giver: Hoary Boulder (the Rising Stones) · MSQ `[COND: relay]`
 - Maxima in north Silvertear -> Cid
 - Next: A Requiem for Heroes
 
@@ -3470,19 +3475,19 @@ KEY SCENES:
 - the Saint Coinach ferryman in north Silvertear -> Tataru -> head to the Crystarium -> the Crystal Exarch
 - Next: City of the First
 
-**City of the First** — giver: the Crystal Exarch (the Crystarium) · MSQ
+**City of the First** — giver: the Crystal Exarch (the Crystarium) · MSQ `[COND: parallel → Open Arms, Closed Gate]`
 - attune to the aetheryte in the Crystarium -> Katliss in the Crystalline Mean -> Moren in the Cabinet of Curiosity -> Bragi at Musica Universalis -> find the Crystal Exarch near the Exedra
 - Next: Travelers of Norvrandt
 
-**Travelers of Norvrandt** — giver: the Crystal Exarch (the Crystarium, Lakeland) · MSQ
+**Travelers of Norvrandt** — giver: the Crystal Exarch (the Crystarium, Lakeland) · MSQ `[COND: relay]`
 - the Crystarium gatekeep -> Crystal Exarch (x3) -> the manager of suites in the Pendants -> Crystal Exarch in the Ocular
 - Next: In Search of Alphinaud
 
-**In Search of Alphinaud** — giver: the Crystal Exarch (the Ocular) · MSQ
+**In Search of Alphinaud** — giver: the Crystal Exarch (the Ocular) · MSQ `[COND: relay]`
 - present the letter of introduction to Szem Djenmai at Temenos Rookery -> the aspiring amaro tamer -> Szem Djenmai
 - Next: A Still Tide
 
-**A Still Tide** — giver: Szem Djenmai (Kholusia) · MSQ
+**A Still Tide** — giver: Szem Djenmai (Kholusia) · MSQ `[COND: fetch]`
 - deliver the lake thyme to Eybor -> wait for Alphinaud -> search the field for vermin -> knock on the barred door (x3) -> Theva
 - Next: Open Arms, Closed Gate
 
@@ -3490,7 +3495,7 @@ KEY SCENES:
 - Alphinaud -> search for the source of the scream -> rescue the manic madame -> aid her -> survey the scene -> Alphinaud -> have a look around Gatetown (0/3) -> Alphinaud
 - Next: A Fickle Existence
 
-**A Fickle Existence** — giver: Alphinaud (Kholusia, Wright) · MSQ
+**A Fickle Existence** — giver: Alphinaud (Kholusia, Wright) · MSQ `[COND: relay]`
 - Mosha-Moa -> search for the Mystel -> locate the blue-haired Mystel youth -> the blue-haired Mystel -> rescue the weakened wretch -> Alphinaud -> Tristol
 - Next: City of Final Pleasures
 
@@ -3499,31 +3504,31 @@ KEY SCENES:
 - Next: Free to Sightsee
 - (entry into EULMORE, the city of final pleasures under Vauthry)
 
-**Free to Sightsee** — giver: Alphinaud (Eulmore) · MSQ
+**Free to Sightsee** — giver: Alphinaud (Eulmore) · MSQ `[COND: parallel → A Desert Crossing]`
 - gather information in the Canopy -> search for the ardent attendant -> the amiable maiden
 - Next: A Taste of Honey
 
-**A Taste of Honey** — giver: the Amiable Maiden (Eulmore) · MSQ
+**A Taste of Honey** — giver: the Amiable Maiden (Eulmore) · MSQ `[COND: fetch]`
 - Tista-Bie -> win a game against Tista-Bie (x2) -> Atharn -> /dance on the mark on stage -> Atharn -> Dulia-Chai
 - Next: A Blessed Instrument
 
-**A Blessed Instrument** — giver: Alphinaud (the Crystarium) · MSQ
+**A Blessed Instrument** — giver: Alphinaud (the Crystarium) · MSQ `[COND: fetch]`
 - gather information in the Understory -> deliver the list of the singer's symptoms and the chunk of meol to Thoarich in the Derelicts -> the weeping warbler -> report to Alphinaud
 - Next: Emergent Splendor
 
-**Emergent Splendor** — giver: Alphinaud (Kholusia) · MSQ
+**Emergent Splendor** — giver: Alphinaud (Kholusia) · MSQ `[COND: relay]`
 - Chadden -> Alphinaud -> Alphinaud on Cracked Shell Beach -> Alphinaud in the Ocular
 - Next: In Search of Alisaie
 
-**In Search of Alisaie** — giver: the Crystal Exarch (the Ocular) · MSQ
+**In Search of Alisaie** — giver: the Crystal Exarch (the Ocular) · MSQ `[COND: relay]`
 - deliver the sealed missive to Cassard at the Amaro Launch -> Cassard (x3) -> admire the view -> Cassard
 - Next: City of the Mord
 
-**City of the Mord** — giver: Cassard (Amh Araeng) · MSQ
+**City of the Mord** — giver: Cassard (Amh Araeng) · MSQ `[COND: parallel → A Desert Crossing]`
 - Rhon Ron (browse the wares) -> browse Rhon Ron's wares (0/4) -> Ghen Gen
 - Next: Working Off the Meal
 
-**Working Off the Meal** — giver: Cassard (Amh Araeng) · MSQ
+**Working Off the Meal** — giver: Cassard (Amh Araeng) · MSQ `[COND: fetch]`
 - use the market receipt to collect Cassard's purchases (0/3) -> deliver the Mord Souq merchandise to Cassard
 - Next: A Desert Crossing
 
@@ -3531,11 +3536,11 @@ KEY SCENES:
 - Tesleen -> defeat any coyotes that threaten Tesleen -> Tesleen -> scout ahead and slay other coyotes -> Tesleen (x2)
 - Next: Following in Her Footprints
 
-**Following in Her Footprints** — giver: Tesleen (Amh Araeng) · MSQ
+**Following in Her Footprints** — giver: Tesleen (Amh Araeng) · MSQ `[COND: fetch]`
 - look for signs of Alisaie near the Derrick -> investigate the small footprints -> follow them (x2) -> investigate -> Alisaie
 - Next: Culling Their Ranks
 
-**Culling Their Ranks** — giver: Alisaie (Amh Araeng) · MSQ
+**Culling Their Ranks** — giver: Alisaie (Amh Araeng) · MSQ `[COND: fetch]`
 - scout the designated locations and defeat any sin eaters (0/3) -> Alisaie -> Tesleen
 - Next: A Purchase of Fruit
 
@@ -3564,20 +3569,20 @@ KEY SCENES:
 - Next: Warrior of Darkness
 - Manifest tie (08.1 ShB L18): HOLMINSTER SWITCH — the Warrior slays the Lightwarden Philia; true night returns to Lakeland for the first time in a century.
 
-**Warrior of Darkness** — giver: the Crystal Exarch (the Crystarium) · MSQ
+**Warrior of Darkness** — giver: the Crystal Exarch (the Crystarium) · MSQ `[COND: relay]`
 - Alphinaud in the Crystarium -> Bragi -> Glynard -> the manager of the suites in the Pendants
 - Next: An Unwelcome Guest
 - (the Warrior is hailed as the Warrior of Darkness — achievement "Between Two Worlds" here, NOT a quest)
 
-**An Unwelcome Guest** — giver: the Manager of Suites (the Crystarium) · MSQ
+**An Unwelcome Guest** — giver: the Manager of Suites (the Crystarium) · MSQ `[COND: fetch]`
 - head to the Ocular -> Moren at the Cabinet of Curiosity -> search the shelves -> deliver the book to Moren -> Alphinaud
 - Next: The Crystarium's Resolve
 
-**The Crystarium's Resolve** — giver: the Crystal Exarch (the Crystarium) · MSQ
+**The Crystarium's Resolve** — giver: the Crystal Exarch (the Crystarium) · MSQ `[COND: relay]`
 - Lyna -> Katliss -> Chessamile -> drink the vial of prince's kiss before Chessamile -> Szem Djenmai
 - Next: Logistics of War
 
-**Logistics of War** — giver: Szem Djenmai (the Crystarium) · MSQ
+**Logistics of War** — giver: Szem Djenmai (the Crystarium) · MSQ `[COND: relay]`
 - Szem Djenmai -> ride the amaro to the sentry at Radisca's Round -> ride to Szeli Vantheu -> Szeli Vantheu -> Lyna
 - Next: The Oracle of Light
 
@@ -3590,15 +3595,15 @@ KEY SCENES:
 - Thancred -> search for looking grass -> deliver the looking grass to Thancred
 - Next: Sul Uin's Request
 
-**Sul Uin's Request** — giver: Sul Uin (Il Mheg) · MSQ
+**Sul Uin's Request** — giver: Sul Uin (Il Mheg) · MSQ `[COND: fetch]`
 - sow everbloom seeds around Lydha Lran (0/3) -> Sul Uin
 - Next: Ys Iala's Errand
 
-**Ys Iala's Errand** — giver: Ys Iala (Il Mheg) · MSQ
+**Ys Iala's Errand** — giver: Ys Iala (Il Mheg) · MSQ `[COND: fetch]`
 - obtain fruit from belltrees (0/2) -> deliver the bellfruits to Ys Iala
 - Next: Oul Sigun's Plea
 
-**Oul Sigun's Plea** — giver: Oul Sigun (Il Mheg) · MSQ
+**Oul Sigun's Plea** — giver: Oul Sigun (Il Mheg) · MSQ `[COND: fetch]`
 - draw water from Longmirror Lake -> give the water to the leafmen (0/2) -> Oul Sigun
 - Next: Unto the Truth
 
@@ -3607,7 +3612,7 @@ KEY SCENES:
 - Next: Courting Cooperation
 - (the Warrior becomes Feo Ul's "adorable sapling")
 
-**Courting Cooperation** — giver: Urianger (Il Mheg) · MSQ
+**Courting Cooperation** — giver: Urianger (Il Mheg) · MSQ `[COND: fetch]`
 - use the Sharlayan box to capture a weakened hawker -> deliver the boxed hawker to Urianger -> Sul Uin
 - Next: The Key to the Castle
 
@@ -3616,23 +3621,23 @@ KEY SCENES:
 - Next: A Visit to the Nu Mou
 - Manifest tie (08.1 ShB L19): DOHN MHEG — the pixies' waterlogged palace; Urianger is recovered.
 
-**A Visit to the Nu Mou** — giver: Urianger (Il Mheg) · MSQ
+**A Visit to the Nu Mou** — giver: Urianger (Il Mheg) · MSQ `[COND: relay]`
 - Urianger (x3) -> head to the destination under the effect of fae cloak -> Thancred
 - Next: A Fitting Payment
 
-**A Fitting Payment** — giver: Wyd Aenc (Il Mheg) · MSQ
+**A Fitting Payment** — giver: Wyd Aenc (Il Mheg) · MSQ `[COND: fetch]`
 - Marn Ose -> slay moss fungi for their legs (0/2) -> deliver the moss fungus legs to Marn Ose
 - Next: Spore Sweeper
 
-**Spore Sweeper** — giver: Ys Gyuf (Il Mheg) · MSQ
+**Spore Sweeper** — giver: Ys Gyuf (Il Mheg) · MSQ `[COND: fetch]`
 - remove the flamespores (0/3) -> Ys Gyuf -> remove the flamespores -> the owner of the gaze -> Ys Gyuf
 - Next: The Lawless Ones
 
-**The Lawless Ones** — giver: Wyd Lad (Il Mheg) · MSQ
+**The Lawless Ones** — giver: Wyd Lad (Il Mheg) · MSQ `[COND: fetch]`
 - Minfilia -> obtain vials of invisible ink (0/3) -> Minfilia -> deliver the vials of invisible ink to Wyd Lad
 - Next: The Elder's Answer
 
-**The Elder's Answer** — giver: Wyd Lad (Il Mheg) · MSQ
+**The Elder's Answer** — giver: Wyd Lad (Il Mheg) · MSQ `[COND: fetch]`
 - Wyd Aenc -> the enormous amaro -> /pet Rispa -> /pet Eo An -> /pet Nimbus -> Urianger
 - Next: A Resounding Roar
 
@@ -3647,7 +3652,7 @@ KEY SCENES:
 
 ---
 
-**Memento of a Friend** — giver: Seto (Il Mheg) · MSQ
+**Memento of a Friend** — giver: Seto (Il Mheg) · MSQ `[COND: fetch]`
 - search for Seto's medallion -> deliver the medallion to Seto
 - Next: Acht-la Ormh Inn
 
@@ -3656,19 +3661,19 @@ KEY SCENES:
 - Next: The Wheel Turns
 - Manifest tie (08.1 ShB L20): TITANIA, the Lightwarden of Il Mheg (a corrupted pixie king); slain in The Dancing Plague, restoring night to Il Mheg.
 
-**The Wheel Turns** — giver: Thancred (Il Mheg) · MSQ
+**The Wheel Turns** — giver: Thancred (Il Mheg) · MSQ `[COND: relay]`
 - Alisaie in the Crystarium -> Alisaie -> the manager of suites in the Pendants
 - Next: A Party Soon Divided
 
-**A Party Soon Divided** — giver: the Crystal Exarch (the Crystarium) · MSQ
+**A Party Soon Divided** — giver: the Crystal Exarch (the Crystarium) · MSQ `[COND: relay]`
 - proceed to the Ocular -> the Crystal Exarch -> Urianger at Fort Jobb
 - Next: A Little Faith
 
-**A Little Faith** — giver: Urianger (Lakeland) · MSQ
+**A Little Faith** — giver: Urianger (Lakeland) · MSQ `[COND: fetch]`
 - survey the area -> search for the timeworn tablet -> Urianger
 - Next: Into the Dark
 
-**Into the Dark** — giver: Urianger (Lakeland) · MSQ
+**Into the Dark** — giver: Urianger (Lakeland) · MSQ `[COND: relay]`
 - Myrcant -> Urianger -> search for Y'shtola -> Y'shtola
 - Next: A Day in the Neighborhood
 
@@ -3676,11 +3681,11 @@ KEY SCENES:
 - Runar (x2) -> /kneel before Runar -> (Say: "allin tuta" to greet the residents of Slitherbough, 0/3) -> Minfilia
 - Next: A Helping Hand
 
-**A Helping Hand** — giver: Runar (the Rak'tika Greatwood) · MSQ
+**A Helping Hand** — giver: Runar (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - Minfilia -> take the water jug to the garden -> Minfilia -> take the water to the garden -> Ersabel
 - Next: Lost but Not Forgotten
 
-**Lost but Not Forgotten** — giver: Runar (the Rak'tika Greatwood) · MSQ
+**Lost but Not Forgotten** — giver: Runar (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - look around the destination -> defeat the sin eater -> Minfilia -> search for the jade heartstone -> show it to Minfilia -> deliver the jade heartstone to Runar
 - Next: Saying Good-bye
 
@@ -3688,36 +3693,36 @@ KEY SCENES:
 - Minfilia -> the placid elder -> place the candle at the destination -> wait at the destination -> Y'shtola
 - Next: Stirring Up Trouble
 
-**Stirring Up Trouble** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**Stirring Up Trouble** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - Y'shtola -> search for the Blessed watchman -> aid him -> retrieve supplies from the outpost crates -> use a smoke bomb on the beehive -> take bees with a burlap sack -> (repeat smoke + sack) -> give the buzzing burlap sacks to Y'shtola
 - Next: A Beeautiful Plan
 
-**A Beeautiful Plan** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**A Beeautiful Plan** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: relay]`
 - Y'shtola -> stand at the destination and examine the murals -> Y'shtola
 - Next: An Unwanted Proposal
 
-**An Unwanted Proposal** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**An Unwanted Proposal** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: relay]`
 - Runar -> wait by the fire -> Urianger
 - Next: Put to the Proof
 
-**Put to the Proof** — giver: Urianger (the Rak'tika Greatwood) · MSQ
+**Put to the Proof** — giver: Urianger (the Rak'tika Greatwood) · MSQ `[COND: parallel → Legend of the Not-so-hidden Temple]`
 - Y'shtola -> locate the first statue in the ruins of Ronka -> find the second -> find the third -> find the seal -> deliver the seal to Y'shtola
 - Next: Into the Wood
 
-**Into the Wood** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**Into the Wood** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: relay]`
 - Y'shtola -> survey the area -> the bow-wielding sentinel
 - Next: Top of the Tree
 
-**Top of the Tree** — giver: Cymet (the Rak'tika Greatwood, Fanow) · MSQ
+**Top of the Tree** — giver: Cymet (the Rak'tika Greatwood, Fanow) · MSQ `[COND: parallel → Legend of the Not-so-hidden Temple]`
 - Almet -> speak with the residents of Fanow to gather information (0/4) -> Almet
 - Next: Look to the Stars
 - (the Viis of Fanow, guardians of the Ronkan legacy)
 
-**Look to the Stars** — giver: Almet (the Rak'tika Greatwood) · MSQ
+**Look to the Stars** — giver: Almet (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - Almet -> Y'shtola -> use the clay tablets on the inscriptions (0/4) -> deliver the clay tablets to Y'shtola -> Y'shtola -> Almet
 - Next: Mi Casa, Toupasa
 
-**Mi Casa, Toupasa** — giver: Almet (the Rak'tika Greatwood) · MSQ
+**Mi Casa, Toupasa** — giver: Almet (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - Almet -> search for the owl statuette -> carry the owl statuette to its proper altar -> Almet
 - Next: Legend of the Not-so-hidden Temple
 
@@ -3726,7 +3731,7 @@ KEY SCENES:
 - Next: The Aftermath
 - Manifest tie (08.1 ShB): General Ran'jit, Eulmore's old enforcer, pursues the party through the Ronkan pyramid.
 
-**The Aftermath** — giver: Almet (the Rak'tika Greatwood) · MSQ [list title "Aftermath" corrected]
+**The Aftermath** — giver: Almet (the Rak'tika Greatwood) · MSQ `[COND: fetch]` [list title "Aftermath" corrected]
 - Urianger -> use the antidote to treat Runar's poison -> second dose -> third dose -> Urianger
 - Next: In Good Faith
 
@@ -3746,11 +3751,11 @@ KEY SCENES:
 - Next: Bearing with It
 - Manifest tie (08.1 ShB L21): THE QITANA RAVEL — the Ronkan sanctum; the Rak'tika Lightwarden is slain, restoring night to the Greatwood.
 
-**Bearing with It** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**Bearing with It** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: relay]`
 - Almet -> Runar
 - Next: Out of the Wood
 
-**Out of the Wood** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**Out of the Wood** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: relay]`
 - Y'shtola -> wait at the entrance to Slitherbough -> Y'shtola -> the manager of suites in the Pendants
 - Next: When It Rains
 
@@ -3758,11 +3763,11 @@ KEY SCENES:
 - Alphinaud -> Alisaie -> activate the first anchor -> activate the second anchor -> Alphinaud -> [SOLO DUTY] defeat the sin eaters in the wood -> make for the Ostall Imperative -> drive out the sin eaters -> Alisaie
 - Next: Word from On High
 
-**Word from On High** — giver: Alisaie (Lakeland) · MSQ
+**Word from On High** — giver: Alisaie (Lakeland) · MSQ `[COND: parallel → The Best Way Out]`
 - aid the wounded (0/3) -> Lyna
 - Next: Small Favors
 
-**Small Favors** — giver: Lyna (Lakeland) · MSQ
+**Small Favors** — giver: Lyna (Lakeland) · MSQ `[COND: fetch]`
 - Thancred -> Minfilia -> get Minfilia's attention with a /poke -> obtain the medicinal herbs (0/2) -> deliver the herbs to Chessamile
 - Next: The Best Way Out
 
@@ -3770,39 +3775,39 @@ KEY SCENES:
 - the Crystal Exarch in the Ocular -> Minfilia -> wait for Minfilia at Tessellation -> Thancred -> Hardyss -> Minfilia
 - Next: Free Trade
 
-**Free Trade** — giver: Thancred (Amh Araeng) · MSQ
+**Free Trade** — giver: Thancred (Amh Araeng) · MSQ `[COND: parallel → Full Steam Ahead]`
 - seek out a talkative local -> question the Mord of Garik (0/3) -> Thancred
 - Next: The Trolley Problem
 
-**The Trolley Problem** — giver: Zhun Zun (Amh Araeng) · MSQ
+**The Trolley Problem** — giver: Zhun Zun (Amh Araeng) · MSQ `[COND: parallel → Full Steam Ahead]`
 - Thancred (x2) -> investigate the area (0/3) -> Urianger -> confront the suspicious man -> Thancred
 - Next: Rust and Ruin
 
-**Rust and Ruin** — giver: Thaffe (Amh Araeng) · MSQ [zone GE-corrected; CGW mis-tagged "The Lochs"]
+**Rust and Ruin** — giver: Thaffe (Amh Araeng) · MSQ `[COND: relay]` [zone GE-corrected; CGW mis-tagged "The Lochs"]
 - Thaffe (x2) -> search for Thaffe -> Thaffe (x2) -> Magnus -> Minfilia
 - Next: On Track
 
-**On Track** — giver: Minfilia (Amh Araeng, the Central Hills of Amber / Twine) · MSQ
+**On Track** — giver: Minfilia (Amh Araeng, the Central Hills of Amber / Twine) · MSQ `[COND: fetch]`
 - seek out a talkative resident of Twine -> open the toolbox next to Jeryk (x2) -> remove nests and slay desert vultures (0/3) -> Jeryk (x2)
 - Next: Down for Maintenance
 
-**Down for Maintenance** — giver: Jeryk (Amh Araeng) · MSQ
+**Down for Maintenance** — giver: Jeryk (Amh Araeng) · MSQ `[COND: fetch]`
 - examine the defective Talos -> slay debitage for their fragments (0/3) -> deliver the debitage fragments to Urianger
 - Next: The Truth Hurts
 
-**The Truth Hurts** — giver: Jeryk (the Hills of Amber, Amh Araeng) · MSQ
+**The Truth Hurts** — giver: Jeryk (the Hills of Amber, Amh Araeng) · MSQ `[COND: relay]`
 - Thaffe -> Urianger -> search for Thancred
 - Next: A Convenient Distraction
 
-**A Convenient Distraction** — giver: Thancred (Amh Araeng) · MSQ
+**A Convenient Distraction** — giver: Thancred (Amh Araeng) · MSQ `[COND: fetch]`
 - Thancred -> Guthjon -> Thancred -> search the shadows for a Voeburt gold piece -> present it to Thancred -> deliver the Voeburt gold piece to Guthjon
 - Next: A Dirty Job
 
-**A Dirty Job** — giver: Guthjon (Amh Araeng, the mine) · MSQ [zone corrected; CGW mis-tagged "The Tempest"]
+**A Dirty Job** — giver: Guthjon (Amh Araeng, the mine) · MSQ `[COND: fetch]` [zone corrected; CGW mis-tagged "The Tempest"]
 - obtain the smoke bombs from the nearby shack -> place the smoke bombs at the designated locations inside the mine (0/3) -> inspect the rubble and slay knockers for glittering rocks (0/7) -> deliver the glittering rocks to Guthjon
 - Next: Have a Heart
 
-**Have a Heart** — giver: Guthjon (Amh Araeng) · MSQ
+**Have a Heart** — giver: Guthjon (Amh Araeng) · MSQ `[COND: fetch]`
 - Magnus -> deliver the chunk of leonine to Urianger -> Urianger
 - Next: Full Steam Ahead
 
@@ -3826,11 +3831,11 @@ KEY SCENES:
 
 ---
 
-**More than a Hunch** — giver: Y'shtola (the Crystarium) · MSQ
+**More than a Hunch** — giver: Y'shtola (the Crystarium) · MSQ `[COND: relay]`
 - Y'shtola -> the manager of suites in the Pendants
 - Next: Return to Eulmore
 
-**Return to Eulmore** — giver: the Manager of Suites (the Crystarium) · MSQ
+**Return to Eulmore** — giver: the Manager of Suites (the Crystarium) · MSQ `[COND: parallel → A Feast of Lies]`
 - head to the Ocular -> Alphinaud in Wright -> speak with people en route to Gatetown (0/3) -> Thancred
 - Next: A Feast of Lies
 
@@ -3839,19 +3844,19 @@ KEY SCENES:
 - Next: Paradise Fallen
 - Manifest tie (08.1 ShB): Eulmore is freed; Vauthry flees to Mt. Gulg; Ran'jit falls at last.
 
-**Paradise Fallen** — giver: Thancred (the Crystarium) · MSQ
+**Paradise Fallen** — giver: Thancred (the Crystarium) · MSQ `[COND: fetch]`
 - search for enthralled civilians in the Derelicts -> administer dream powder to Thoarich -> search the Understory -> dream powder to the amiable maiden -> search the Canopy -> dream powder to the free citizen -> Ryne
 - Next: The Ladder
 
-**The Ladder** — giver: Urianger (Bottom Rung, Kholusia) · MSQ
+**The Ladder** — giver: Urianger (Bottom Rung, Kholusia) · MSQ `[COND: fetch]`
 - Urianger -> Irvithe -> take stock of lumber -> Irvithe -> Urianger
 - Next: The View from Above
 
-**The View from Above** — giver: Urianger (the Crystarium) · MSQ
+**The View from Above** — giver: Urianger (the Crystarium) · MSQ `[COND: parallel → A Gigantic Undertaking]`
 - wait for the work to be completed -> Alphinaud -> Alisaie -> search the area for the mysterious person -> investigate the village (0/3) -> Alphinaud
 - Next: In Mt. Gulg's Shadow
 
-**In Mt. Gulg's Shadow** — giver: Alisaie (Kholusia) · MSQ
+**In Mt. Gulg's Shadow** — giver: Alisaie (Kholusia) · MSQ `[COND: relay]`
 - Alisaie -> survey the area (x2) -> Alisaie (x2)
 - Next: A Gigantic Undertaking
 
@@ -3860,27 +3865,27 @@ KEY SCENES:
 - Next: Meet the Tholls
 - (the plan: build a Talos to scale Mt. Gulg — the dungeon is not yet entered)
 
-**Meet the Tholls** — giver: Tristol (the Crystarium) · MSQ
+**Meet the Tholls** — giver: Tristol (the Crystarium) · MSQ `[COND: fetch]`
 - the Crystal Exarch -> Xamott -> the dwarf observer (undertake the trial) -> the dwarf observer again (the true trial) -> Xamott
 - Next: A-Digging We Will Go
 
-**A-Digging We Will Go** — giver: Xamott (Kholusia) · MSQ
+**A-Digging We Will Go** — giver: Xamott (Kholusia) · MSQ `[COND: fetch]`
 - Korutt -> escort Korutt -> defeat the sin eaters
 - Next: The Duergar's Tewel
 
-**The Duergar's Tewel** — giver: Korutt (Kholusia) · MSQ
+**The Duergar's Tewel** — giver: Korutt (Kholusia) · MSQ `[COND: fetch]`
 - the Crystal Exarch -> while invisible, use dream powder on Gogg Family dwarves (0/3) -> the Crystal Exarch
 - Next: Rich Veins of Hope
 
-**Rich Veins of Hope** — giver: the Crystal Exarch (Amity, Kholusia) · MSQ
+**Rich Veins of Hope** — giver: the Crystal Exarch (Amity, Kholusia) · MSQ `[COND: parallel → Extinguishing the Last Light]`
 - Xamott -> Alisaie -> deliver pickaxes to Magnus -> to Rhon Ron -> to Kai-Shirr -> Alisaie
 - Next: That None Shall Ever Again
 
-**That None Shall Ever Again** — giver: Alphinaud (Kholusia) · MSQ [full title confirmed]
+**That None Shall Ever Again** — giver: Alphinaud (Kholusia) · MSQ `[COND: fetch]` [full title confirmed]
 - Y'shtola (x2) -> imbue the heartstone with magick -> Chai-Nuzz
 - Next: A Breath of Respite
 
-**A Breath of Respite** — giver: Chai-Nuzz (Kholusia) · MSQ
+**A Breath of Respite** — giver: Chai-Nuzz (Kholusia) · MSQ `[COND: relay]`
 - Dulia-Chai -> search for the Crystal Exarch -> the Crystal Exarch
 - Next: Extinguishing the Last Light
 
@@ -3900,12 +3905,12 @@ KEY SCENES:
 
 ---
 
-**Reassuring the Masses** — giver: the Manager of Suites (the Crystarium) · MSQ
+**Reassuring the Masses** — giver: the Manager of Suites (the Crystarium) · MSQ `[COND: relay]`
 - Bragi -> Chessamile -> Moren -> Katliss
 - Next: In His Garden
 - (the Warrior hides the worsening Light-sickness)
 
-**In His Garden** — giver: Katliss (the Crystarium) · MSQ
+**In His Garden** — giver: Katliss (the Crystarium) · MSQ `[COND: parallel → The Unbroken Thread]`
 - take a moment to feel the wind upon your face -> gather information on the Crystal Exarch (0/3) -> Lyna at the Accensor Gate
 - Next: The Unbroken Thread
 
@@ -3914,7 +3919,7 @@ KEY SCENES:
 - Next: To Storm-tossed Seas
 - Manifest tie (08.1 ShB): Urianger reveals the Exarch's true plan — to bear the Light himself and be cast into the rift.
 
-**To Storm-tossed Seas** — giver: Urianger (Sullen, Lakeland) · MSQ [title corrected]
+**To Storm-tossed Seas** — giver: Urianger (Sullen, Lakeland) · MSQ `[COND: fetch]` [title corrected]
 - Urianger -> investigate suspect rock formations beneath the water's surface (0/2) -> Urianger (x2)
 - Next: Waiting in the Depths
 
@@ -3923,15 +3928,15 @@ KEY SCENES:
 - Next: City of the Ancients
 - (the party breathes underwater by amaurotine means and enters THE TEMPEST)
 
-**City of the Ancients** — giver: Y'shtola (the Tempest) · MSQ
+**City of the Ancients** — giver: Y'shtola (the Tempest) · MSQ `[COND: fetch]`
 - Y'shtola -> inspect the Ondo Cups from the survey point -> use the mythril knife to collect scrapings from the remnant wall -> Y'shtola -> find a structure resembling those in the Qitana Ravel mural and inspect it -> Y'shtola
 - Next: The Light of Inspiration
 
-**The Light of Inspiration** — giver: Y'shtola (the Tempest) · MSQ
+**The Light of Inspiration** — giver: Y'shtola (the Tempest) · MSQ `[COND: fetch]`
 - Paushs Ooan -> search for Grenoldt -> approach Grenoldt and /psych him up -> complete any role quest line at the Wandering Stairs in the Crystarium -> present something inspiring to Grenoldt
 - Next: The Illuminated Land
 
-**The Illuminated Land** — giver: Grenoldt (the Tempest) · MSQ
+**The Illuminated Land** — giver: Grenoldt (the Tempest) · MSQ `[COND: relay]`
 - deliver Grenoldt's lamp to Tolshs Aath -> the Ondo guide (x2) -> Urianger -> Alphinaud -> Alisaie (x2) -> proceed towards the end of the Caliban Gap -> Y'shtola
 - Next: The End of a World
 
@@ -3940,7 +3945,7 @@ KEY SCENES:
 - Next: A Greater Purpose
 - Manifest tie (08.1 ShB): AMAUROT — Emet-Selch's perfect recreation of the sunken capital of the ancients.
 
-**A Greater Purpose** — giver: Alphinaud (the Tempest) · MSQ
+**A Greater Purpose** — giver: Alphinaud (the Tempest) · MSQ `[COND: fetch]`
 - the administrative clerk -> wait at the designated location -> the administrative clerk -> submit the visitor's writ application to the secretariat clerk -> find an empty seat -> the secretariat clerk -> show the visitor's writ to Thancred
 - Next: Shadowbringers
 
@@ -3960,7 +3965,7 @@ KEY SCENES:
 
 ## PATCH 5.1 — Vows of Virtue, Deeds of Cruelty
 
-**Shaken Resolve** — giver: Tataru (the Rising Stones) · MSQ
+**Shaken Resolve** — giver: Tataru (the Rising Stones) · MSQ `[COND: relay]`
 - F'lhaminn at the House of Splendors -> Tataru -> the Crystal Exarch in the Ocular
 - Next: A Grand Adventure
 
@@ -3969,28 +3974,28 @@ KEY SCENES:
 - Next: A Welcome Guest
 - Manifest tie (08.1 ShB patch): THE GRAND COSMOS — the enchanted manor haunted by the White Lady of Lakeland.
 
-**A Welcome Guest** — giver: Alphinaud (Lakeland) · MSQ
+**A Welcome Guest** — giver: Alphinaud (Lakeland) · MSQ `[COND: fetch]`
 - return to the Ocular -> Beq Lugg -> Beq Lugg at the Inn at Journey's Head -> treat the patients with soul tonic (0/3) -> Beq Lugg
 - Next: Good for the Soul
 - (Beq Lugg, the Nu Mou loremaster, aids the sundered-soul afflicted)
 
-**Good for the Soul** — giver: Beq Lugg (Amh Araeng) · MSQ
+**Good for the Soul** — giver: Beq Lugg (Amh Araeng) · MSQ `[COND: fetch]`
 - Beq Lugg -> Magnus -> search Mount Biran Mines for lumps of pristine clay (0/3) -> deliver them to Beq Lugg -> Alisaie
 - Next: Nowhere to Turn
 
-**Nowhere to Turn** — giver: Kai-Shirr (Amh Araeng) · MSQ
+**Nowhere to Turn** — giver: Kai-Shirr (Amh Araeng) · MSQ `[COND: relay]`
 - Alphinaud in Eulmore -> search for Dulia-Chai
 - Next: A Notable Absence
 
-**A Notable Absence** — giver: Alphinaud (Eulmore) · MSQ
+**A Notable Absence** — giver: Alphinaud (Eulmore) · MSQ `[COND: parallel → Moving Forward]`
 - gather information about Master Chai's disappearance in the Canopy -> in the Buttress -> in the Derelicts -> Alphinaud at the Glory Gate
 - Next: For the People
 
-**For the People** — giver: Alphinaud (Eulmore) · MSQ
+**For the People** — giver: Alphinaud (Eulmore) · MSQ `[COND: relay]`
 - Hastelot -> Alphinaud -> search for Chai-Nuzz -> Tristol -> Wrenden -> Chai-Nuzz
 - Next: Finding Good Help
 
-**Finding Good Help** — giver: Chai-Nuzz (Kholusia) · MSQ
+**Finding Good Help** — giver: Chai-Nuzz (Kholusia) · MSQ `[COND: relay]`
 - Chai-Nuzz -> guide Chai-Nuzz from the vantage point -> Chai-Nuzz -> Wrenden
 - Next: Moving Forward
 
@@ -3999,7 +4004,7 @@ KEY SCENES:
 - Next: Vows of Virtue, Deeds of Cruelty
 - (Chai-Nuzz becomes Eulmore's elected leader)
 
-**Vows of Virtue, Deeds of Cruelty** (5.1 finale) — giver: Alphinaud (the Crystarium) · MSQ
+**Vows of Virtue, Deeds of Cruelty** (5.1 finale) — giver: Alphinaud (the Crystarium) · MSQ `[COND: relay]`
 - the Crystal Exarch in the Ocular -> Tataru -> Tataru at the Rising Stones -> Tataru
 - Next: Old Enemies, New Threats
 
@@ -4007,20 +4012,20 @@ KEY SCENES:
 
 ## PATCH 5.2 — Echoes of a Fallen Star
 
-**Old Enemies, New Threats** — giver: Krile (the Rising Stones) · MSQ
+**Old Enemies, New Threats** — giver: Krile (the Rising Stones) · MSQ `[COND: relay]`
 - Maxima at the Ala Mhigan Quarter in the Lochs -> Krile
 - Next: The Way Home
 - (Source-side: the Telophoroi cult and a returned threat stir)
 
-**The Way Home** — giver: Krile (the Lochs) · MSQ
+**The Way Home** — giver: Krile (the Lochs) · MSQ `[COND: relay]`
 - the Crystal Exarch in the Ocular
 - Next: Seeking Counsel
 
-**Seeking Counsel** — giver: Alphinaud (the Ocular) · MSQ
+**Seeking Counsel** — giver: Alphinaud (the Ocular) · MSQ `[COND: relay]`
 - Lyna -> Lyna at Fort Jobb in Lakeland -> the Crystarium Scout -> Lyna
 - Next: Facing the Truth
 
-**Facing the Truth** — giver: Lyna (the Crystarium) · MSQ
+**Facing the Truth** — giver: Lyna (the Crystarium) · MSQ `[COND: relay]`
 - Alphinaud -> the people of the Crystarium -> Alphinaud
 - Next: A Sleep Disturbed
 
@@ -4028,15 +4033,15 @@ KEY SCENES:
 - Almet at Fanow in Rak'tika -> Almet at Rak'tika Falls -> [SOLO DUTY: the Trial of Ronka — answer Huaca's riddles, match the cards to free your allies, then defeat Huaca] -> leave Trial's Threshold -> Almet
 - Next: An Old Friend
 
-**An Old Friend** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**An Old Friend** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - Runar in Slitherbough -> Asgeir (obtain a well-worn broom) -> take the broom to Y'shtola -> Thancred
 - Next: Deep Designs
 
-**Deep Designs** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ
+**Deep Designs** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
 - Tolshs Aath in the Ondo Cups -> retrieve the mnyiri livers from the Flounders' Floor -> deliver them to Tolshs Aath
 - Next: A Whale's Tale
 
-**A Whale's Tale** — giver: Urianger (the Tempest) · MSQ
+**A Whale's Tale** — giver: Urianger (the Tempest) · MSQ `[COND: fetch]`
 - Urianger in Sullen -> Urianger -> remove tenacious barnacles -> Urianger -> Thancred (x2)
 - Next: Beneath the Surface
 
@@ -4045,7 +4050,7 @@ KEY SCENES:
 - Next: Echoes of a Fallen Star
 - Manifest tie (08.1 ShB patch): ANAMNESIS ANYDER — the sunken Ronkan facility mirrored beneath the Tempest.
 
-**Echoes of a Fallen Star** (5.2 finale) — giver: Urianger (Kholusia) · MSQ [title corrected]
+**Echoes of a Fallen Star** (5.2 finale) — giver: Urianger (Kholusia) · MSQ `[COND: relay]` [title corrected]
 - Alphinaud -> Theyler -> the Crystal Exarch -> the manager of suites in the Pendants
 - Next: In the Name of the Light
 
@@ -4057,20 +4062,20 @@ KEY SCENES:
 
 ## PATCH 5.3 — Reflections in Crystal
 
-**In the Name of the Light** — giver: the Manager of Suites (the Crystarium) · MSQ
+**In the Name of the Light** — giver: the Manager of Suites (the Crystarium) · MSQ `[COND: fetch]`
 - Moren -> Riqi-Tio -> Chessamile -> Gracine -> obtain bunches of undersized grapes (0/3) -> deliver them to Riqi-Tio -> Chessamile
 - Next: Heroic Dreams
 
-**Heroic Dreams** — giver: Eirwel (the Crystarium) · MSQ
+**Heroic Dreams** — giver: Eirwel (the Crystarium) · MSQ `[COND: fetch]`
 - Alisaie at the Exarch gate -> use heat lures to draw out vampire bats and slay them for fangs (0/3) -> deliver bat fangs to Ryne -> the lookout in the Crystarium -> the Crystal Exarch
 - Next: Fraying Threads
 
-**Fraying Threads** — giver: Ryne (the Crystarium) · MSQ
+**Fraying Threads** — giver: Ryne (the Crystarium) · MSQ `[COND: relay]`
 - Thancred -> Tataru at the Rising Stones -> enter Dawn's Respite -> Krile
 - Next: Food for the Soul
 - (brief Source-side check on the sleeping Scions; Dawn's Respite)
 
-**Food for the Soul** — giver: Tataru (the Rising Stones) · MSQ
+**Food for the Soul** — giver: Tataru (the Rising Stones) · MSQ `[COND: fetch]`
 - Tataru -> deliver the Archon loaf to the Crystal Exarch in the Ocular -> Urianger
 - Next: Faded Memories
 
@@ -4078,7 +4083,7 @@ KEY SCENES:
 - Y'shtola -> Venmont Yards (the shipwright) -> travel to Anamnesis Anyder by boat -> [SOLO DUTY: enter the aetherial stream — phantom Amaurot; defeat the recreations of past enemies; defeat **Elidibus in the guise of Ardbert**] -> Y'shtola
 - Next: Etched in the Stars
 
-**Etched in the Stars** — giver: the Peculiar Crystal (the Tempest) · MSQ
+**Etched in the Stars** — giver: the Peculiar Crystal (the Tempest) · MSQ `[COND: fetch]`
 - examine the crystals -> search for crystals (repeat sweeps) -> examine the crystal -> Y'shtola
 - Next: The Converging Light
 
@@ -4091,7 +4096,7 @@ KEY SCENES:
 - [SOLO DUTY: defeat the Warrior of Light (Ardbert's manifested memory)] -> Ryne
 - Next: Nothing Unsaid
 
-**Nothing Unsaid** — giver: Y'shtola (the Crystarium) · MSQ
+**Nothing Unsaid** — giver: Y'shtola (the Crystarium) · MSQ `[COND: relay]`
 - Alisaie -> Alisaie at the Inn at Journey's Head -> search for Halric -> Alisaie -> travel to Eulmore -> Alphinaud
 - Next: The Journey Continues
 
@@ -4114,19 +4119,19 @@ KEY SCENES:
 
 ## PATCH 5.4 — Futures Rewritten
 
-**Alisaie's Quest** — giver: Krile (the Rising Stones) · MSQ
+**Alisaie's Quest** — giver: Krile (the Rising Stones) · MSQ `[COND: relay]`
 - Alisaie -> Tataru in Mor Dhona -> Alisaie
 - Next: The Wisdom of Allag
 
-**The Wisdom of Allag** — giver: G'raha Tia (Azys Lla) · MSQ
+**The Wisdom of Allag** — giver: G'raha Tia (Azys Lla) · MSQ `[COND: fetch]`
 - G'raha Tia -> G'raha Tia again -> find a point of stagnant lightning and defeat the lightning sprites -> examine it, obtain a concentrated lightning shard -> deliver it to G'raha Tia
 - Next: Reviving the Legacy
 
-**Reviving the Legacy** — giver: G'raha Tia (Azys Lla) · MSQ
+**Reviving the Legacy** — giver: G'raha Tia (Azys Lla) · MSQ `[COND: relay]`
 - G'raha Tia at the Rising Stones -> wait for Cid in Dawn's Respite -> Cid -> show the Ironworks promissory note to Fromelaut at the Skysteel Manufactory -> hand it to the Skysteel engineer
 - Next: Forget Us Not
 
-**Forget Us Not** — giver: Alisaie (the Rising Stones) · MSQ
+**Forget Us Not** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
 - Alisaie at Maelstrom Command -> Alphinaud
 - Next: Like Master, Like Pupil
 
@@ -4135,19 +4140,19 @@ KEY SCENES:
 - Next: The Admiral's Resolve
 - Manifest tie (08.1 ShB patch): MATOYA'S RELICT — Matoya's automated cave laboratory in the Dravanian Hinterlands, overrun.
 
-**The Admiral's Resolve** — giver: Alphinaud (the Dravanian Hinterlands) · MSQ [title corrected: singular]
+**The Admiral's Resolve** — giver: Alphinaud (the Dravanian Hinterlands) · MSQ `[COND: parallel → Futures Rewritten]` [title corrected: singular]
 - Zanthael on the lower decks of Limsa Lominsa -> Alphinaud -> the leaders of Limsa Lominsa's pirate powers (0/2) -> Alphinaud
 - Next: The Search for Sicard
 
-**The Search for Sicard** — giver: Alphinaud (Limsa Lominsa Lower Decks) · MSQ
+**The Search for Sicard** — giver: Alphinaud (Limsa Lominsa Lower Decks) · MSQ `[COND: relay]`
 - Alphinaud at Oschon's Embrace -> Alphinaud
 - Next: On Rough Seas
 
-**On Rough Seas** — giver: Alphinaud (Lower La Noscea) · MSQ
+**On Rough Seas** — giver: Alphinaud (Lower La Noscea) · MSQ `[COND: relay]`
 - Merlwyb in the command room -> Merlwyb
 - Next: The Great Ship Vylbrand
 
-**The Great Ship Vylbrand** — giver: Merlwyb (Command Room, Limsa Lominsa) · MSQ
+**The Great Ship Vylbrand** — giver: Merlwyb (Command Room, Limsa Lominsa) · MSQ `[COND: relay]`
 - Alisaie at Camp Overlook -> Merlwyb -> Merlwyb again
 - Next: Futures Rewritten
 
@@ -4165,19 +4170,19 @@ KEY SCENES:
 
 ## PATCH 5.5 — Death Unto Dawn (Part 1)
 
-**Unto the Breach** — giver: Alisaie (the Rising Stones) · MSQ
+**Unto the Breach** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
 - Urianger in the Ala Mhigan Quarter -> Arenvald
 - Next: Here Be Dragons
 
-**Here Be Dragons** — giver: Alphinaud (the Lochs) · MSQ
+**Here Be Dragons** — giver: Alphinaud (the Lochs) · MSQ `[COND: relay]`
 - Alphinaud in Ishgard -> Lucia -> Alisaie at the airship landing -> Alphinaud in the Delta Quadrant (Azys Lla)
 - Next: Righteous Indignation
 
-**Righteous Indignation** — giver: Estinien (Azys Lla) · MSQ
+**Righteous Indignation** — giver: Estinien (Azys Lla) · MSQ `[COND: fetch]`
 - proceed to the designated location -> G'raha Tia -> Alphinaud at the Flagship -> search for the necessary Allagan node (0/3) -> Alphinaud -> use the field trial spirit vessel to access the clamorous node
 - Next: For Vengeance
 
-**For Vengeance** — giver: the Restrainment Node (Azys Lla) · MSQ
+**For Vengeance** — giver: the Restrainment Node (Azys Lla) · MSQ `[COND: relay]`
 - access the Flagship terminal -> Alisaie -> Alisaie again -> G'raha Tia
 - Next: The Flames of War
 
@@ -4186,7 +4191,7 @@ KEY SCENES:
 - Next: When the Dust Settles
 - Manifest tie (08.1 ShB patch): PAGLTH'AN — the Amalj'aa holy ground seized by the Telophoroi; Lunar Bahamut / the summoned menace routed with the Immortal Flames. The star's aether roils — first omen of the coming days.
 
-**When the Dust Settles** (5.5 FINALE) — giver: Alphinaud (Ul'dah - Steps of Nald) · MSQ
+**When the Dust Settles** (5.5 FINALE) — giver: Alphinaud (Ul'dah - Steps of Nald) · MSQ `[COND: relay]`
 - the Phrontistery chirurgeon -> Alphinaud -> Alisaie -> return to the Rising Stones -> Tataru
 - Next: The Company We Keep
 - (Arenvald recovers from wounds taken at Paglth'an; the Scions regroup)
@@ -4195,11 +4200,11 @@ KEY SCENES:
 
 ## PATCH 5.55 — Death Unto Dawn (Part 2)
 
-**The Company We Keep** — giver: Alisaie (the Rising Stones) · MSQ
+**The Company We Keep** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
 - the Resistance guard in the Ala Mhigan Quarter -> Alphinaud -> Alisaie -> Riol at Castrum Oriens
 - Next: On Official Business
 
-**On Official Business** — giver: Alphinaud (the Fringes) · MSQ
+**On Official Business** — giver: Alphinaud (the Fringes) · MSQ `[COND: relay]`
 - Alisaie in Gridania -> Frixio in Little Solace -> the silent conjurer at Nophica's Altar -> Kan-E-Senna -> Alisaie
 - Next: Death Unto Dawn
 
@@ -4222,7 +4227,7 @@ KEY SCENES:
 
 ---
 
-**The Next Ship to Sail** — giver: Alphinaud (the Rising Stones) · MSQ
+**The Next Ship to Sail** — giver: Alphinaud (the Rising Stones) · MSQ `[COND: relay]`
 - Tataru in Limsa Lominsa -> Krile
 - Next: Old Sharlayan, New to You
 
@@ -4230,29 +4235,29 @@ KEY SCENES:
 - G'raha Tia -> Krile (with G'raha Tia) -> guided tour of the city with G'raha Tia & Krile: the Last Stand -> the aetheryte plaza -> the Agora -> the Rostra -> Journey's End -> the Baldesion Annex -> Krile in the main hall
 - Next: Hitting the Books
 
-**Hitting the Books** — giver: Krile (the Main Hall, Baldesion Annex) · MSQ
+**Hitting the Books** — giver: Krile (the Main Hall, Baldesion Annex) · MSQ `[COND: fetch]`
 - Krile outside Noumenon -> read books in Noumenon on the relevant subjects (0/3) -> wait at the designated location (x3) -> Krile
 - Next: A Seat at the Last Stand
 
-**A Seat at the Last Stand** — giver: Alisaie (Old Sharlayan) · MSQ
+**A Seat at the Last Stand** — giver: Alisaie (Old Sharlayan) · MSQ `[COND: fetch]`
 - Alisaie -> Last Stand customers with Alisaie (0/2) -> Dickon -> serve the correct dishes (tea set to the group by the water; omelette to Gisla; lobster to the Miqo'te gentleman) -> Alisaie (x2)
 - Next: A Labyrinthine Descent
 
-**A Labyrinthine Descent** — giver: Alisaie (Old Sharlayan) · MSQ
+**A Labyrinthine Descent** — giver: Alisaie (Old Sharlayan) · MSQ `[COND: parallel → The Full Report, Warts and All]`
 - Krile -> follow Alisaie's lead -> Krile -> gather information in upper Acrinthos (0/3) -> Krile
 - Next: Glorified Ratcatcher
 - (the party descends into Labyrinthos, the vast subterranean biosphere beneath Sharlayan)
 
-**Glorified Ratcatcher** — giver: Krile (Labyrinthos) · MSQ
+**Glorified Ratcatcher** — giver: Krile (Labyrinthos) · MSQ `[COND: fetch]`
 - Erenville -> track and capture the grizzled mouse (defeat enemies; use the rat sack) -> deliver the squirming rat sack to Erenville -> Alphinaud
 - Next: Deeper into the Maze
 - (Erenville, the Sharlayan hunter/guide, is introduced)
 
-**Deeper into the Maze** — giver: Alphinaud (Labyrinthos) · MSQ
+**Deeper into the Maze** — giver: Alphinaud (Labyrinthos) · MSQ `[COND: fetch]`
 - the Archeion custodian -> Y'shtola -> people outside the Archeion (0/2) -> the pack-bearing gleaner -> sedate the target with the sleeping dart -> Alphinaud
 - Next: The Medial Circuit
 
-**The Medial Circuit** — giver: Alisaie (Labyrinthos) · MSQ
+**The Medial Circuit** — giver: Alisaie (Labyrinthos) · MSQ `[COND: fetch]`
 - survey the areas and defeat enemies -> Alphinaud -> survey at the designated location -> gather information at Meryall Agronomics (0/3) -> investigate the stacked boxes -> Y'shtola
 - Next: The Full Report, Warts and All
 
@@ -4261,7 +4266,7 @@ KEY SCENES:
 - Next: A Guide of Sorts
 - (the party is transfigured to blend into Labyrinthos)
 
-**A Guide of Sorts** — giver: Alisaie (Labyrinthos) · MSQ
+**A Guide of Sorts** — giver: Alisaie (Labyrinthos) · MSQ `[COND: relay]`
 - Y'shtola -> search for Krile -> Y'shtola
 - Next: Estate Visitor
 
@@ -4274,24 +4279,24 @@ KEY SCENES:
 - Next: On Low Tide
 - (Estinien rejoins; the party departs for Thavnair)
 
-**On Low Tide** — giver: Thancred (Yedlihmad, Thavnair) · MSQ
+**On Low Tide** — giver: Thancred (Yedlihmad, Thavnair) · MSQ `[COND: parallel → A Boy's Errand]`
 - gather information in Yedlihmad (0/4) -> Khalzahl -> Matsya
 - Next: A Fisherman's Friend
 
-**A Fisherman's Friend** — giver: Matsya (Yedlihmad) · MSQ
+**A Fisherman's Friend** — giver: Matsya (Yedlihmad) · MSQ `[COND: relay]`
 - with Matsya: Mehrunnah -> Nashreen -> Bhazahma -> accompany Matsya to the pier -> Thancred
 - Next: House of Divinities
 
-**House of Divinities** — giver: Estinien (Thavnair) · MSQ
+**House of Divinities** — giver: Estinien (Thavnair) · MSQ `[COND: fetch]`
 - search for Matsya (repeat) -> render aid to Matsya -> Matsya -> gather information in Akyaali (0/2) -> Matsya
 - Next: The Great Work
 
-**The Great Work** — giver: Matsya (Radz-at-Han) · MSQ
+**The Great Work** — giver: Matsya (Radz-at-Han) · MSQ `[COND: fetch]`
 - Nidhana (x2) -> follow the drunken deepa across the city (repeat) -> obtain the drunken deepa -> deliver it to Nidhana
 - Next: Shadowed Footsteps
 - (arrival in Radz-at-Han, city of the Arkasodara)
 
-**Shadowed Footsteps** — giver: Nidhana (Thavnair) · MSQ
+**Shadowed Footsteps** — giver: Nidhana (Thavnair) · MSQ `[COND: fetch]`
 - Nidhana (repeat) -> stand guard for Nidhana -> Nidhana
 - Next: A Boy's Errand
 
@@ -4300,11 +4305,11 @@ KEY SCENES:
 - Next: Tipping the Scale
 - (Varshahn, the satrap's young envoy, is introduced)
 
-**Tipping the Scale** — giver: Zeynuha (Thavnair) · MSQ
+**Tipping the Scale** — giver: Zeynuha (Thavnair) · MSQ `[COND: fetch]`
 - deliver the sack of giantsgall to Nidhana -> Nidhana -> the Radiant Host Soldier -> Thancred
 - Next: The Satrap of Radz-at-Han
 
-**The Satrap of Radz-at-Han** — giver: Thancred (Thavnair) · MSQ
+**The Satrap of Radz-at-Han** — giver: Thancred (Thavnair) · MSQ `[COND: relay]`
 - Varshahn -> Thancred -> Thancred in the main hall
 - Next: In the Dark of the Tower
 
@@ -4321,29 +4326,29 @@ KEY SCENES:
 - Next: The Jewel of Thavnair
 - Manifest tie (08.1 EW): THE TOWER OF ZOT — the Telophoroi tower on Thavnair; the Magus Sisters (Minduruva, Sanduruva, Cinduruva) and Barnabas.
 
-**The Jewel of Thavnair** — giver: Thancred (Thavnair) · MSQ
+**The Jewel of Thavnair** — giver: Thancred (Thavnair) · MSQ `[COND: relay]`
 - the Radiant guardsman -> Estinien (accompany) -> the attentive / watchful / vigilant Radiant -> the Meghaduta attendant -> Alisaie
 - Next: The Color of Joy
 
-**The Color of Joy** — giver: Alphinaud (Radz-at-Han) · MSQ
+**The Color of Joy** — giver: Alphinaud (Radz-at-Han) · MSQ `[COND: relay]`
 - Alisaie (repeat) -> Alphinaud -> Alisaie -> Krile at the Baldesion Annex -> Ojika Tsunjika
 - Next: Sound the Bell, School's In
 
-**Sound the Bell, School's In** — giver: Krile (Old Sharlayan) · MSQ
+**Sound the Bell, School's In** — giver: Krile (Old Sharlayan) · MSQ `[COND: relay]`
 - Alisaie -> Krile -> the excitable student -> Miss Aliapoh -> the level-headed student -> search for Montichaigne
 - Next: A Capital Idea
 
-**A Capital Idea** — giver: Krile (Old Sharlayan) · MSQ
+**A Capital Idea** — giver: Krile (Old Sharlayan) · MSQ `[COND: relay]`
 - G'raha Tia in the main hall of the Baldesion Annex -> the command room in Limsa Lominsa -> Raubahn in the Ala Mhigan Quarter
 - Next: Best of the Best
 - (the Eorzean Alliance convenes over the worldwide crisis)
 
-**Best of the Best** — giver: Maxima (the Lochs) · MSQ
+**Best of the Best** — giver: Maxima (the Lochs) · MSQ `[COND: parallel → Tracks in the Snow]`
 - enter the Royal Palace -> Y'shtola -> deliver warding scales to A-Ruhn-Senna, Sicard, Lyse, Lucia, Cirina -> a warding scale to Maxima -> Alphinaud
 - Next: A Frosty Reception
 - (Vrtra's warding scales protect the leaders from tempering)
 
-**A Frosty Reception** — giver: Tataru (the Lochs) · MSQ
+**A Frosty Reception** — giver: Tataru (the Lochs) · MSQ `[COND: relay]`
 - the Ironworks Pilot -> Alphinaud -> Y'shtola -> G'raha Tia -> Lucia -> Alisaie
 - Next: Tracks in the Snow
 - (the expedition sets out for frozen Garlemald)
@@ -4352,11 +4357,11 @@ KEY SCENES:
 - Emmanellain -> footprints in the snow (x2) -> Alisaie -> survey the designated location -> approach the girl in green -> the girl in green
 - Next: How the Mighty Are Fallen
 
-**How the Mighty Are Fallen** — giver: Licinia (Garlemald) · MSQ
+**How the Mighty Are Fallen** — giver: Licinia (Garlemald) · MSQ `[COND: parallel → A Way Forward]`
 - Alphinaud -> deliver warming tinctures (sickly / emaciated / despondent refugee) -> to Licinia -> the burly tapper -> head for Tapper's Den -> Alisaie
 - Next: At the End of the Trail
 
-**At the End of the Trail** — giver: Jareck (Garlemald) · MSQ
+**At the End of the Trail** — giver: Jareck (Garlemald) · MSQ `[COND: fetch]`
 - Alisaie -> search for Alphinaud -> Alisaie (x2) -> search for hints as to Licinia and her sister's whereabouts -> search for Licinia -> Alisaie
 - Next: A Way Forward
 
@@ -4369,23 +4374,23 @@ KEY SCENES:
 - defeat tempered soldiers alongside Jullus (repeat) -> catch up with Jullus -> enter Tertium (surviving settlement, not a dungeon) -> Alphinaud -> Jullus
 - Next: Personae non Gratae
 
-**Personae non Gratae** — giver: Jullus (Tertium) · MSQ
+**Personae non Gratae** — giver: Jullus (Tertium) · MSQ `[COND: parallel → In from the Cold]`
 - gather information in Tertium (0/5) -> Alphinaud -> assist Flavius -> Alphinaud -> Jullus
 - Next: His Park Materials
 
-**His Park Materials** — giver: Jullus (Garlemald) · MSQ
+**His Park Materials** — giver: Jullus (Garlemald) · MSQ `[COND: fetch]`
 - Alisaie -> search for ceruleum in Forum Solius (0/4) -> Jullus -> search for ceruleum at the designated location -> deliver the temperature regulator ceruleum tank to Jullus
 - Next: No Good Deed
 
-**No Good Deed** — giver: Jullus (Garlemald) · MSQ
+**No Good Deed** — giver: Jullus (Garlemald) · MSQ `[COND: fetch]`
 - Jullus -> use an incendiary #37 on the destroyed magitek armor to retrieve a ceruleum tank -> deliver the warmachina ceruleum tank to Jullus -> wait at the designated location -> Jullus
 - Next: Alea Iacta Est
 
-**Alea Iacta Est** — giver: Jullus (Tertium) · MSQ [skeleton typo "Alea lacta Est"]
+**Alea Iacta Est** — giver: Jullus (Tertium) · MSQ `[COND: relay]` [skeleton typo "Alea lacta Est"]
 - Marcellinus -> Octavia -> Jullus -> wait at the specified location -> Lucia
 - Next: Strange Bedfellows
 
-**Strange Bedfellows** — giver: Lucia (Garlemald) · MSQ
+**Strange Bedfellows** — giver: Lucia (Garlemald) · MSQ `[COND: fetch]`
 - Alisaie -> Sabinianus -> Caeso -> Flavius -> Alphinaud -> survey the designated locations and deal with enemies (0/4) -> Thancred -> Lucia
 - Next: In from the Cold
 
@@ -4410,7 +4415,7 @@ KEY SCENES:
 
 ---
 
-**Sea of Sorrow** — giver: the Watcher (Mare Lamentorum) · MSQ [title corrected: singular]
+**Sea of Sorrow** — giver: the Watcher (Mare Lamentorum) · MSQ `[COND: parallel → The Martyr]` [title corrected: singular]
 - speak with the faded / dreaming / forlorn / somber spirit -> approach the lustrous dog and follow it -> the temperamental spirit (x2) -> follow the lustrous dog again -> the anguished spirit
 - Next: The Martyr
 
@@ -4419,11 +4424,11 @@ KEY SCENES:
 - Next: In Shadow's Wake
 - Manifest tie (08.1 EW): THE DARK INSIDE — **Zodiark** (bound primal-god of the ancients), roused within his lunar prison. Reveal beats: the Watcher = Hydaelyn's echo/guardian; the true nature of Zodiark & Hydaelyn opens here.
 
-**In Shadow's Wake** — giver: the Watcher (the Moon) · MSQ
+**In Shadow's Wake** — giver: the Watcher (the Moon) · MSQ `[COND: parallel → A Harey Situation]`
 - search for your comrades at the Watcher's Palace -> inspect the dimly / faintly / warmly / brightly glowing crystals -> Y'shtola
 - Next: Helping Hands
 
-**Helping Hands** — giver: the Watcher (Mare Lamentorum) · MSQ
+**Helping Hands** — giver: the Watcher (Mare Lamentorum) · MSQ `[COND: fetch]`
 - the Watcher (x2) -> suffuse the lunar spongoi with aether -> the Watcher -> Y'shtola -> Thancred
 - Next: A Harey Situation
 
@@ -4432,31 +4437,31 @@ KEY SCENES:
 - Next: A Taste of the Moon
 - (the Loporrits, the Moon's caretaker rabbits, are introduced)
 
-**A Taste of the Moon** — giver: Livingway (Mare Lamentorum) · MSQ
+**A Taste of the Moon** — giver: Livingway (Mare Lamentorum) · MSQ `[COND: fetch]`
 - examine the storage crate -> show Cookingway the obscenely large carrot -> eat the obscenely large carrot -> Cookingway
 - Next: Styled a Hero
 
-**Styled a Hero** — giver: Livingway (Mare Lamentorum) · MSQ
+**Styled a Hero** — giver: Livingway (Mare Lamentorum) · MSQ `[COND: fetch]`
 - the restless Loporrit -> the jubilant Loporrit (in your new attire) -> Livingway -> the fidgeting Loporrit -> Growingway (x2)
 - Next: All's Vale That Endsvale
 
-**All's Vale That Endsvale** — giver: Growingway (Mare Lamentorum) · MSQ
+**All's Vale That Endsvale** — giver: Growingway (Mare Lamentorum) · MSQ `[COND: parallel → Skies Aflame]`
 - Growingway (x2) -> do a big stretch near Growingway -> accompany Growingway to five designated locations (speak at each) -> Y'shtola
 - Next: Back to Old Tricks
 
-**Back to Old Tricks** — giver: Thancred (Mare Lamentorum) · MSQ
+**Back to Old Tricks** — giver: Thancred (Mare Lamentorum) · MSQ `[COND: relay]`
 - search for Urianger (x2) -> follow Urianger -> Urianger
 - Next: Setting Things Straight
 
-**Setting Things Straight** — giver: Urianger (Mare Lamentorum — the Moon) · MSQ [CGW-zone "Ultima Thule" is an error]
+**Setting Things Straight** — giver: Urianger (Mare Lamentorum — the Moon) · MSQ `[COND: fetch]` [CGW-zone "Ultima Thule" is an error]
 - Urianger -> stand watch and defeat any enemies (x2 locations) -> Urianger -> Y'shtola -> search for Runningway -> Y'shtola
 - Next: Heart of the Matter
 
-**Heart of the Matter** — giver: Growingway (the Moon) · MSQ
+**Heart of the Matter** — giver: Growingway (the Moon) · MSQ `[COND: fetch]`
 - Growingway -> defeat the Loporrits -> Y'shtola -> Urianger
 - Next: Returning Home
 
-**Returning Home** — giver: Y'shtola (Mare Lamentorum) · MSQ
+**Returning Home** — giver: Y'shtola (Mare Lamentorum) · MSQ `[COND: relay]`
 - Thancred at the Nethergate -> Lucia at Camp Broken Glass -> Krile at the Baldesion Annex -> wait at the designated location -> Ojika Tsunjika
 - Next: Skies Aflame
 - (the party returns to the Source — the Final Days now scourge Eorzea and Thavnair)
@@ -4466,23 +4471,23 @@ KEY SCENES:
 - Next: The Blasphemy Unmasked
 - Manifest tie (08.1 EW): VANASPATI — the Thavnairian garden district consumed by the Final Days; despair transmutes people into **blasphemies**.
 
-**The Blasphemy Unmasked** — giver: Ahewann (Radz-at-Han) · MSQ
+**The Blasphemy Unmasked** — giver: Ahewann (Radz-at-Han) · MSQ `[COND: parallel → Warm Hearts, Rekindled Hopes]`
 - with G'raha Tia: Nuhadeen -> gather information at Balshahn Bazaar (0/3) -> designated location -> gather information at Mehryde's Meyhane (0/2) -> Mihleel
 - Next: Amidst the Apocalypse
 
-**Amidst the Apocalypse** — giver: Mihleel (Radz-at-Han) · MSQ
+**Amidst the Apocalypse** — giver: Mihleel (Radz-at-Han) · MSQ `[COND: parallel → Warm Hearts, Rekindled Hopes]`
 - with G'raha Tia: Kama -> gather information in Kama (0/2) -> Djinabaha -> Kamala -> deliver the light / ordinary / weighty crates to Nahbrifhal / Mahnuha / Zeymeira -> Kamala -> Djinabaha
 - Next: Beyond the Depths of Despair
 
-**Beyond the Depths of Despair** — giver: G'raha Tia (Radz-at-Han) · MSQ
+**Beyond the Depths of Despair** — giver: G'raha Tia (Radz-at-Han) · MSQ `[COND: fetch]`
 - Y'shtola -> Alphinaud -> survey and defeat enemies (x2) -> Alisaie -> save the villagers of Palaka's Stand (0/4) -> Alphinaud
 - Next: That We Might Live
 
-**That We Might Live** — giver: Alphinaud (Thavnair) · MSQ
+**That We Might Live** — giver: Alphinaud (Thavnair) · MSQ `[COND: fetch]`
 - Matsya (x2) -> search for Qerasaf -> aid the wounded Qerasaf -> survey the area (x3) -> Matsya
 - Next: When All Hope Seems Lost
 
-**When All Hope Seems Lost** — giver: Matsya (Thavnair) · MSQ
+**When All Hope Seems Lost** — giver: Matsya (Thavnair) · MSQ `[COND: fetch]`
 - Yeruvvet -> Alisaie -> search for the villagers of Palaka's Stand -> aid the villager woman -> Matsya -> defeat the beasts at Purusa (0/3) -> Alphinaud
 - Next: Warm Hearts, Rekindled Hopes
 
@@ -4490,7 +4495,7 @@ KEY SCENES:
 - survey the designated location -> rescue Mehvan -> search for Mehvan's baby -> have Alphinaud tend to the baby -> Alphinaud
 - Next: Simple Pleasures
 
-**Simple Pleasures** — giver: Vrtra (Palaka's Stand, Thavnair) · MSQ
+**Simple Pleasures** — giver: Vrtra (Palaka's Stand, Thavnair) · MSQ `[COND: fetch]`
 - Vrtra -> Nidhana -> deliver the hot chai to the villagers (0/3) -> Nidhana
 - Next: Under His Wing
 
@@ -4502,18 +4507,18 @@ KEY SCENES:
 
 ---
 
-**Under His Wing** — giver: Matsya (Palaka's Stand) · MSQ
+**Under His Wing** — giver: Matsya (Palaka's Stand) · MSQ `[COND: fetch]`
 - Estinien -> Thancred in Radz-at-Han -> search for townspeople who missed the announcement (x2) -> wait at the designated location -> Alphinaud
 - Next: At World's End
 - (Vrtra opens Radz-at-Han as a refuge)
 
-**At World's End** — giver: the Radiant Host Soldier (Radz-at-Han, Sundrop) · MSQ
+**At World's End** — giver: the Radiant Host Soldier (Radz-at-Han, Sundrop) · MSQ `[COND: relay]`
 - the Radiant Host soldier (repeat) -> Mihleel -> Y'shtola -> Thancred
 - Next: Return to the Crystarium
 
 ## ENDWALKER 6.0 — Level 86 (Crystarium -> Elpis)
 
-**Return to the Crystarium** — giver: G'raha Tia (Radz-at-Han) · MSQ
+**Return to the Crystarium** — giver: G'raha Tia (Radz-at-Han) · MSQ `[COND: relay]`
 - Lyna -> wait for Lyna in front of the Cabinet of Curiosity -> Ryne
 - Next: Hope Upon a Flower
 - (the party travels to the First to seek a path into the distant past)
@@ -4523,12 +4528,12 @@ KEY SCENES:
 - Next: Petalouda Hunt
 - (Hythlodaeus manifests; the gateway to Elpis opens)
 
-**Petalouda Hunt** — giver: Hythlodaeus (Elpis) · MSQ
+**Petalouda Hunt** — giver: Hythlodaeus (Elpis) · MSQ `[COND: fetch]`
 - Hythlodaeus -> use the aetheric rope to capture weakened petaloudai (0/2) -> deliver them to Hythlodaeus
 - Next: In Search of Hermes
 - (arrival in Elpis, the ancients' garden of concepts)
 
-**In Search of Hermes** — giver: Hythlodaeus (Elpis) · MSQ
+**In Search of Hermes** — giver: Hythlodaeus (Elpis) · MSQ `[COND: fetch]`
 - the Anagnorisis observer -> search for Hermes -> search for the adventurous ambystoma
 - Next: Ponder, Warrant, Cherish, Welcome
 
@@ -4537,19 +4542,19 @@ KEY SCENES:
 - Next: Lives Apart
 - (Meteion, Hermes' created messenger, is introduced; the ancient Emet-Selch)
 
-**Lives Apart** — giver: Hermes (Elpis) · MSQ
+**Lives Apart** — giver: Hermes (Elpis) · MSQ `[COND: fetch]`
 - Hermes (x2) -> use the lightning converger to create ball lightning (0/2) -> Hermes (x2)
 - Next: Their Greatest Contribution
 
-**Their Greatest Contribution** — giver: Emet-Selch (Elpis) · MSQ
+**Their Greatest Contribution** — giver: Emet-Selch (Elpis) · MSQ `[COND: fetch]`
 - Hermes (x2) -> Hythlodaeus -> (/say) "I have a favor to ask" then "Please, Emet-Selch" -> /wave to Emet-Selch from the edge of the isle -> Emet-Selch
 - Next: Aether to Aether
 
-**Aether to Aether** — giver: Hermes (Elpis) · MSQ
+**Aether to Aether** — giver: Hermes (Elpis) · MSQ `[COND: fetch]`
 - search for Hermes -> Meteion (accompany) -> search for Doros -> Meteion
 - Next: A Sentimental Gift
 
-**A Sentimental Gift** — giver: Hermes (Elpis) · MSQ
+**A Sentimental Gift** — giver: Hermes (Elpis) · MSQ `[COND: fetch]`
 - Meteion (accompany) -> examine flowers at the Twelve Wonders (0/2) -> look for flowers across Elpis (repeat) -> Meteion
 - Next: Verdict and Execution
 
@@ -4562,31 +4567,31 @@ KEY SCENES:
 - Next: A Past, Not Yet Come to Pass
 - (Venat, the traveling philosopher, is introduced)
 
-**A Past, Not Yet Come to Pass** — giver: Venat (Elpis) · MSQ
+**A Past, Not Yet Come to Pass** — giver: Venat (Elpis) · MSQ `[COND: relay]`
 - Venat (repeat) -> Ismene -> Venat -> search for Timaios -> Venat
 - Next: Witness to the Spectacle
 
-**Witness to the Spectacle** — giver: Venat (Elpis) · MSQ
+**Witness to the Spectacle** — giver: Venat (Elpis) · MSQ `[COND: parallel → Caging the Messenger]`
 - Venat -> the Peripeteia archivist (x2) -> the approachable archivist -> the unhurried observer -> Venat
 - Next: Worthy of His Back
 
-**Worthy of His Back** — giver: Venat (Elpis) · MSQ
+**Worthy of His Back** — giver: Venat (Elpis) · MSQ `[COND: relay]`
 - survey the area from the vantage point -> Venat (repeat)
 - Next: A Flower upon Your Return
 
-**A Flower upon Your Return** — giver: Venat (Elpis) · MSQ
+**A Flower upon Your Return** — giver: Venat (Elpis) · MSQ `[COND: relay]`
 - approach Argos -> Venat -> travel from northerly Zephyrneus to southerly Boreneus -> Venat (x2)
 - Next: Hunger in the Garden
 
-**Hunger in the Garden** — giver: Hythlodaeus (Elpis) · MSQ
+**Hunger in the Garden** — giver: Hythlodaeus (Elpis) · MSQ `[COND: fetch]`
 - Hythlodaeus -> travel from easterly Boreneus to Euroneus -> search for Hermes in the Hungering Gardens -> Hythlodaeus
 - Next: Words without Sound
 
-**Words without Sound** — giver: Emet-Selch (Elpis) · MSQ
+**Words without Sound** — giver: Emet-Selch (Elpis) · MSQ `[COND: parallel → Caging the Messenger]`
 - search the area for Meteion -> search beneath / north of / east of the Hungering Gardens -> Hermes
 - Next: Follow, Wander, Stumble, Listen
 
-**Follow, Wander, Stumble, Listen** — giver: Hythlodaeus (Elpis) · MSQ
+**Follow, Wander, Stumble, Listen** — giver: Hythlodaeus (Elpis) · MSQ `[COND: fetch]`
 - search for Meteion (with Emet-Selch, repeat) -> survey the areas -> Emet-Selch
 - Next: Caging the Messenger
 
@@ -4611,7 +4616,7 @@ KEY SCENES:
 - Lucia at Camp Broken Glass -> [SOLO DUTY: fight as Alphinaud to protect the refugees; then as Alisaie coordinating with G'raha Tia; then as yourself with all comrades] -> Alisaie
 - Next: Outside Help
 
-**Outside Help** — giver: Lucia (Garlemald) · MSQ
+**Outside Help** — giver: Lucia (Garlemald) · MSQ `[COND: relay]`
 - Urianger -> return to the main hall of the Baldesion Annex -> the Rostra steward -> wait -> Alphinaud
 - Next: Going Underground
 
@@ -4620,32 +4625,32 @@ KEY SCENES:
 - Next: No Job Too Small
 - (Fourchenault, the twins' father, and the Forum are drawn in)
 
-**No Job Too Small** — giver: Alphinaud (Sharlayan Hamlet) · MSQ
+**No Job Too Small** — giver: Alphinaud (Sharlayan Hamlet) · MSQ `[COND: parallel → Her Children, One and All]`
 - Alisaie -> gather information in Sharlayan Hamlet (0/3) -> search for the behatted rabbit
 - Next: Wise Guides
 
-**Wise Guides** — giver: Urianger (Labyrinthos) · MSQ
+**Wise Guides** — giver: Urianger (Labyrinthos) · MSQ `[COND: fetch]`
 - Singingway -> survey the wotsit -> survey and defeat enemies -> Growingway -> Urianger -> Singingway
 - Next: Agriculture Shock
 - (the Loporrits help build the ark that could evacuate the star)
 
-**Agriculture Shock** — giver: Cookingway (the Tempest) · MSQ
+**Agriculture Shock** — giver: Cookingway (the Tempest) · MSQ `[COND: parallel → Her Children, One and All]`
 - with Cookingway: Jebke -> accompany him to the vineyard / orange grove / pumpkin field / lemon grove -> Jebke -> Cookingway
 - Next: Sage Council
 
-**Sage Council** — giver: Urianger (Labyrinthos) · MSQ
+**Sage Council** — giver: Urianger (Labyrinthos) · MSQ `[COND: parallel → Her Children, One and All]`
 - Growingway -> the troubled researcher -> seek out troubled souls in Sharlayan Hamlet (0/8) -> Urianger -> wait -> Urianger
 - Next: Hither and Yarns
 
-**Hither and Yarns** — giver: Urianger (Labyrinthos) · MSQ
+**Hither and Yarns** — giver: Urianger (Labyrinthos) · MSQ `[COND: fetch]`
 - search for Alisaie -> pick up the crate of samples -> deliver it to Alphinaud -> Theopauldin -> deliver the ream of documents to the reserved representative -> Theopauldin
 - Next: Once Forged
 
-**Once Forged** — giver: G'raha Tia (Labyrinthos) · MSQ
+**Once Forged** — giver: G'raha Tia (Labyrinthos) · MSQ `[COND: fetch]`
 - G'raha Tia -> survey and defeat enemies -> survey again -> Kokkol Dankkol
 - Next: Bonds of Adamant(ite)
 
-**Bonds of Adamant(ite)** — giver: Kokkol Dankkol (Sharlayan Hamlet) · MSQ
+**Bonds of Adamant(ite)** — giver: Kokkol Dankkol (Sharlayan Hamlet) · MSQ `[COND: relay]`
 - wait -> Alphinaud -> Fourchenault at Aporia -> Clarilaine -> Fourchenault -> proceed to the entrance of Thaumazein -> Fourchenault
 - Next: Her Children, One and All
 
@@ -4654,7 +4659,7 @@ KEY SCENES:
 - Next: A Bold Decision
 - Manifest tie (08.1 EW): THE AITIASCOPE + HYDAELYN — the path to the Mothercrystal; **Hydaelyn** tests the WoL and entrusts her power. Reveal beat: Venat = Hydaelyn confirmed. (Trial subtitle: verify exact duty name at merge.)
 
-**A Bold Decision** — giver: Krile (Old Sharlayan) · MSQ
+**A Bold Decision** — giver: Krile (Old Sharlayan) · MSQ `[COND: relay]`
 - Fourchenault -> Alphinaud -> Tataru -> wait -> Varsarudh
 - Next: Friends Gathered
 - (the resolve to chase Meteion to the edge of the universe aboard the Ragnarok)
@@ -4678,7 +4683,7 @@ KEY SCENES:
 - Next: A Test of Will
 - (the dead dragon-race of Ultima Thule)
 
-**A Test of Will** (#99) — giver: Estinien (Ultima Thule) · MSQ
+**A Test of Will** (#99) — giver: Estinien (Ultima Thule) · MSQ `[COND: relay]`
 - Alphinaud -> Al End -> Alphinaud -> touch the wind confluence and await the others
 - Next: Roads Paved with Sacrifice
 
@@ -4691,7 +4696,7 @@ KEY SCENES:
 - Next: Where Knowledge Leads
 - (the Ea, the extinct philosopher-race that willed itself to extinction)
 
-**Where Knowledge Leads** (#102) — giver: Urianger (Ultima Thule) · MSQ
+**Where Knowledge Leads** (#102) — giver: Urianger (Ultima Thule) · MSQ `[COND: relay]`
 - Urianger -> G'raha Tia -> Y'shtola
 - Next: Victory, All is Lost
 
@@ -4708,7 +4713,7 @@ KEY SCENES:
 - Next: Forge Ahead
 - (the Omicrons — the machine-race that chose to keep living)
 
-**Forge Ahead** (#106) — giver: Alphinaud (Ultima Thule) · MSQ
+**Forge Ahead** (#106) — giver: Alphinaud (Ultima Thule) · MSQ `[COND: relay]`
 - Alphinaud -> accompany Alphinaud -> Alisaie (accompany) -> follow the crystalline path -> Alphinaud
 - Next: You're Not Alone
 
