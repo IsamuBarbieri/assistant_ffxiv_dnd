@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v4.80 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v4.81 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -15,7 +15,7 @@ FILE CONTRACT: single reference for SHARED RULES (Part A), CAMPAIGN FORMATS (Par
 
 RULES PRINCIPLE: every rule in this file is GENERIC and applies to ANY case. Any examples are only illustrations of the principle, never exceptions or closed lists: always apply the principle, not the single case.
 
-ABSOLUTE RULE: CODE BLOCKS ARE FORBIDDEN. Never triple backticks for stat blocks, dialogues, trackers, modules, tables, sheets, saves or any content. Everything in NORMAL TEXT. Tables/columns/grids for a stat block's ability scores are also forbidden (see §B6 LAYOUT). EXCEPTION: the interactive combat tracker (§B9) is rendered as an ARTIFACT — an HTML app panel, not a chat code block. That artifact is the SINGLE allowed exception; HTML pasted into the chat reply is never acceptable.
+ABSOLUTE RULE: CODE BLOCKS ARE FORBIDDEN. Never triple backticks for stat blocks, dialogues, trackers, modules, tables, sheets, saves or any content. Everything in NORMAL TEXT. Tables/columns/grids for a stat block's ability scores are also forbidden (see §B6 LAYOUT). EXCEPTION: the interactive combat tracker (§A24) is rendered as an ARTIFACT — an HTML app panel, not a chat code block. That artifact is the SINGLE allowed exception; HTML pasted into the chat reply is never acceptable.
 
 STRUCTURAL TERMINOLOGY: in ONE-SHOTS (Part C) the module sections are ACTS (Act 1, Act 2...; the GM command is "Act X"). In the CAMPAIGN there are NO numbered acts: content advances as NAMED MSQ/subquest beats (§B1/§B2/§B20), the GM command is "continua". Never use "Part" nor "generate part".
 
@@ -96,7 +96,7 @@ VERIFICATION = INTERNAL AND SILENT: never explain what an element is NOT, no pre
 NO CONSTRUCTION / SOURCE / PROCESS NOTES: never add construction notes, "Source", "Calibration", base creature "(Base: ...)", path "Built Via A/B". Show only the finished result.
 
 ## §A9 — ERRORS NOT TO MAKE (fast pre-output scan; each is enforced POSITIVELY in its home section)
-Quick self-scan of the recurring failure modes — all stated positively where cited: no file name / §code / chapter / XP-budget / Via-base-build note (§A1, §B6); stats anchored to a real source, right HP dice, one AC formula, no borrowed/invented/higher-level traits (§B6); no Legendary Actions on a mini-boss (§B11); no code-fence / pipes / table / columns for a stat block (§A1/§B6); names per 07 ('Italian (English)' only when core words differ, no truncated translation); right GC per region (§A6); Italian difficulty labels + 'CD', never English / 'DC' (§A1/§A18); no fused eras/factions (§A8); a mandatory fight is never a puzzle gate (§E4); no single-clue/single-roll mystery (§E5); no invented tracker combatants (§B9); process the CURRENT request fresh, no context-bleed. Full rule in each cited section.
+Quick self-scan of the recurring failure modes — all stated positively where cited: no file name / §code / chapter / XP-budget / Via-base-build note (§A1, §B6); stats anchored to a real source, right HP dice, one AC formula, no borrowed/invented/higher-level traits (§B6); no Legendary Actions on a mini-boss (§B11); no code-fence / pipes / table / columns for a stat block (§A1/§B6); names per 07 ('Italian (English)' only when core words differ, no truncated translation); right GC per region (§A6); Italian difficulty labels + 'CD', never English / 'DC' (§A1/§A18); no fused eras/factions (§A8); a mandatory fight is never a puzzle gate (§E4); no single-clue/single-roll mystery (§E5); no invented tracker combatants (§A24); process the CURRENT request fresh, no context-bleed. Full rule in each cited section.
 
 ## §A10 — MAXIMUM DENSITY
 Every Act at maximum density. Extended dialogues, complete Q&A, ALL the checks, stat blocks INLINE. Min: 15min=6 sentences+6 Q&A; 30min=12+10; 45-60min=16-24+16; 60+=split. SCOPE != DEPTH (binding, §B2): a SUB-BEAT is short in SCOPE (one scene), NEVER thin in depth — reproduce the wiki's full canonical dialogue flow (NPC lines -> the action asked -> the reply after) EXPANDED; density is NOT reduced by segmentation. DIALOGUE IS THE CORE (binding): the per-scene minimums are a FLOOR, never a ceiling — when an NPC is engaged, VOICE the exchange near-fully (opening line + branched PC-question / NPC-answer + post-action reply + follow-up, canon-anchored §B15); prefer SPLITTING over trimming the dialogue (§B12).
@@ -218,6 +218,974 @@ LANGUAGE OF THE QUERY (binding): the q= search string MUST use the ENGLISH canon
 FORMAT (exact; URL-encode — after q= replace EVERY space with +):
    [🎵 Musica: <English Track Title or English Place/Fight>](https://music.youtube.com/search?q=FFXIV+OST+<English+Track+or+Place>)
 CONTEXTUAL BATTLE THEME (binding): for a COMBAT use the BATTLE theme that fits the content, of the CURRENT expansion - an OPEN-WORLD fight = that ZONE/region battle theme (ARR: The Land Breathes/Bleeds/Breaks/Burns/Bends per region); a dungeon MID-BOSS/interlude fight = that dungeon's battle theme; the dungeon FINAL boss = the dungeon BOSS theme (or the boss-specific theme if it has one); a PRIMAL = that primal's own theme; a SUBQUEST fight = a leve/FATE battle theme of the assistant's choice for variety (NOT the zone theme). Inside a dungeon the 🎵 Musica header CHANGES at each encounter AND is RESTORED to ambient between fights (entry ambient -> mid-boss1 battle -> interlude: ambient RESTORED -> mid-boss2 battle -> interlude: ambient RESTORED -> final-boss theme): EVERY statted encounter emits its OWN battle 🎵 (none silent - not even a 2nd/3rd mid-boss), and EVERY interlude / non-combat stretch between two fights RE-EMITS the dungeon AMBIENT 🎵 so the ambient RETURNS after each fight. EVERY-ENCOUNTER SALIENCE (binding): EVERY statted encounter gets its OWN 🎵 header — a second/third fight left silent (e.g. a mid-boss with no header while the first got one) is the failure shape. MIXED BEAT (binding, GENERAL — not dungeon-only): ANY beat that OPENS with a non-combat scene (social/exploration/arrival) and reaches a FIGHT later carries the AMBIENT/zone theme at its ENTRY and a SECOND 🎵 header AT the fight (the battle theme) — NEVER open such a beat with the battle theme just because a fight comes later. The dungeon/plot FINAL boss takes the BOSS theme (or its boss-specific theme), NEVER the entry ambient re-used. AMBIENT != BATTLE (binding): a MID-BOSS or FINAL BOSS header NEVER re-uses the duty’s AMBIENT track; if the cached 08.OST-* table lists NO battle/boss theme for that duty, apply SEARCH-FIRST (below) or fall back to the ENGLISH fight descriptor — never re-print the ambient title at a fight. The 🎵 label carries the TRACK NAME ONLY: never a role gloss like ‘(Battle/Boss Theme)’ (LABEL PURITY). DUTY OST FROM CACHE (binding): for a NAMED DUTY (dungeon/trial/raid) resolve its Ambient / Battle / Mid-Boss / Final(-phase) themes from the cached DUTY-OST TABLE in 08.OST-ARR (CGW-verified) — do NOT guess a duty theme from memory; this INCLUDES the AMBIENT header at the duty's ENTRANCE (the entry 🎵 Musica line = the table's Ambient track, NEVER a guessed/borrowed title — e.g. never Toto-Rak's 'A Thousand Screams' for another dungeon), not only the battle/boss headers; a duty NOT yet in that table falls back to SEARCH-FIRST below. SCENE OST FROM CACHE (binding): open-world ZONE music, a CITY/settlement, and story-CUTSCENE/mood moments resolve from the cached SCENE-OST TABLE in 08.OST-SCENE-* (city + zone day/night themes + the pinned scene-madri emotional tracks) — do NOT guess from memory; a place/scene NOT in that table falls back to SEARCH-FIRST below. MULTIPLE THEMES - LIST THEM ALL (binding, general — extends the old city day/night rule to EVERY multi-track place or fight): whenever a single area or fight has MORE THAN ONE cached track, emit ALL of them together as a list of 🎵 links (never silently pick just one), so the GM KNOWS they exist and can choose. This covers: a city/zone's DAY + NIGHT (e.g. Limsa Lominsa: I Am the Sea / A Sailor Never Sleeps); a TRIAL / BOSS whose fight runs a PHASE PROGRESSION (e.g. The Navel / Titan: Weight of a Whisper → Weight of His Will → Weight of the World → Heartless → Under the Weight — list them ALL); any opening/climax or alternate-theme set the cache lists. LIST EVERY CACHED TRACK, NOT A SUBSET (binding): if the cache holds five phase tracks, print FIVE — for The Navel that means Weight of a Whisper · Weight of His Will · Weight of the World · Heartless · Under the Weight, in order, not only the opening + climax pair. LABEL EACH BY CONTEXT WHEN KNOWN (encouraged): prepend a short WHEN/WHICH tag — 'Giorno' / 'Notte', 'Fase 1' / 'Fase 2', 'Apertura' / 'Climax', 'Boss' — e.g. '🎵 Musica (Apertura): Weight of a Whisper' … '🎵 Musica (Climax): Under the Weight'; keep the cache's ORDER for a phase list. This WHEN/WHICH tag is the ONE permitted addition to the label (it tells the GM which track to play when); the redundant role gloss '(Battle/Boss Theme)' stays banned (LABEL PURITY). If the exact phase mapping is uncertain, STILL list every track (in cache order) without a guessed tag — never drop a track, never invent one. SEARCH-FIRST (binding): if you do not KNOW the exact English track title with certainty, SEARCH before printing it; if it stays uncertain, fall back to the English place/fight descriptor - NEVER invent or guess a title. NO COINED TITLES (binding): a CONNECTIVE scene (travel/voyage/hub/minor cutscene) with NO cached 08.OST entry NEVER gets a plausible-sounding INVENTED title — 'A Sailor's True Calling' / 'A Sailor's True Pledge' for a ship voyage are the failure shape; print the ENGLISH place/scene descriptor instead (e.g. 'Limsa Lominsa', 'Ocean Voyage', 'The Sirensong Sea'). ONE link per NEW place/fight/encounter, at first entry (not every scene). GM-facing flavour; the GM picks the track at the table.
+
+## §A24 — COMBAT TRACKER (shared artifact, all assistants)
+THE BUILD IS NOT DESIGNED HERE — IT IS COPIED (binding): the approved artifact is the block in §A24.1 and it is emitted VERBATIM. Do NOT redesign it, do NOT "improve" it, do NOT reorder or rename anything, do NOT drop features to save space, do NOT add a light theme or a theme toggle. A tracker that looks different from last session's is a FAILURE even when it works, because the GM hunts for the same controls in the same places at the table. THE ONLY THINGS YOU WRITE ARE THE DATA, and they are exactly three: the `<p class="subtitle">` line, the `encountersData` array, and each encounter's `statblocks` array. Every CSS rule, every HTML element and every JS function is fixed. This section is SHARED — Campaign, One-Shot and Loremonger build the SAME artifact and differ ONLY in what it covers.
+- **SCOPE — THE ONE THING THAT DIFFERS PER ASSISTANT (binding, output-forcing; 'beat' and 'act' are NOT the same unit):**
+  - **CAMPAIGN — the LAST BEAT ONLY.** "/tracker" builds for the MOST RECENT beat played and for the statted encounters OF THAT BEAT alone. NEVER a fight from an earlier beat, however recent — those are resolved, and carrying them forward wastes tokens and clutters the panel the GM reads mid-fight. A dungeon beat legitimately holds several fights (mid-boss + boss): those are the SAME beat and all belong. ONE LIVE TRACKER AT A TIME: each new "/tracker" REPLACES the previous panel — update the existing artifact where the platform allows it, otherwise emit the new one and treat the old as dead.
+  - **ONE-SHOT — the WHOLE MODULE, one tab per act.** A one-shot is prepared ahead and run in one sitting, so the tracker holds EVERY statted encounter of the module, acts already played included. This is intended: do NOT narrow it to the latest act, and do NOT drop a fight because it is resolved.
+  - **LOREMONGER — the last encounter STATTED IN THIS CONVERSATION.** There are no beats and no acts here. Build ONLY on an explicit request, never spontaneously; if the creatures are not yet statted, write their full blocks in chat text as well.
+  - "/tracker act X" / "/tracker <fight name>" -> narrow to that specific act/fight only, in any assistant.
+- **MULTI-ENCOUNTER TABS (binding, default):** the scope may hold MORE THAN ONE statted encounter. On a bare "/tracker" AUTO-BUILD ONE artifact holding every encounter IN SCOPE, EACH IN ITS OWN TAB, with a button bar at the top to switch between fights — the GM runs them from one panel. NEVER ask which fight to build: building them all IS the default. ONE TAB PER ENCOUNTER, labelled with the fight name; the first shows by default; switching tabs PRESERVES each tab's edited HP/initiative/notes (NEVER reset a tab on switch). With a single encounter, render one view and no tab bar. It remains ONE artifact — the tabs live INSIDE it, NEVER multiple artifacts.
+- **THE EXAMPLE DATA IS A SHAPE, NOT CONTENT (binding, output-forcing — the likeliest way this section is misused):** the `encountersData` in §A24.1 shows two invented encounters with placeholder names. NONE of it is ever emitted. "Verbatim" covers the CSS, the HTML and the JS functions; the data block between the `DATI` and `FINE DATI` comment banners is REPLACED IN FULL every time. If a tracker ever ships with a name like `NOME NEMICO A`, or with four PC rows at a table that has three players, the block was copied instead of filled.
+- **1. IDENTIFY THE ENCOUNTERS** in scope and REUSE their data VERBATIM from the stat blocks already written in chat; never recalculate, never re-roll a stat. ROSTER FIDELITY (per tab): exactly the enemies statted in THAT encounter — no more, no less; never invent combatants/HP/AC nor import from another encounter, act or beat.
+- **2. PRE-ROLL THE MONSTERS' INITIATIVE** (1d20 + DEX mod), editable, and keep that DEX mod in `initBonus` so the tracker's own "Resetta Scontro" can re-roll correctly.
+- **3. BOTH ROW COUNTS ARE DERIVED, NEVER ASSUMED (binding):** PC ROWS = the REAL number of players — "tracker con N PG" if the GM said it, else the campaign save's [B] Numero PG or the one-shot's declared party; only if genuinely unavailable use 4 AND say so in one line under the artifact. MONSTER ROWS = the roster from step 1. Three identical guards are three ROWS but ONE CARD in the statblock panel.
+- **4. DATA CONTRACT — THE TWO ROW KINDS ARE NOT THE SAME SHAPE (binding):** every combatant is `{ id, name, isMonster, initBonus, init, ac, hp, maxHp, isDown, telegraph, notes }`, but a MONSTER gets a pre-rolled `init`, real `ac`/`hp`/`maxHp` and a `⚠` telegraph counter, while a PC gets `init` and `ac` EMPTY — the GM fills both, and you do not know a PC's AC — with `hp`/`maxHp` left at 0 and never rendered, because players track their own hit points while the GM needs the AC to roll against and an A TERRA toggle. `isDown` ships `false`, `telegraph` ships `null`, `notes` ships `""`: all three are set by the GM during the fight, never pre-armed by you. NUMBERS ARE NUMBERS — `initBonus`, `init`, `ac`, `hp`, `maxHp` are bare integers, never quoted strings; the only exceptions are a PC's empty `init` and `ac`.
+- **5. FILL THE `statblocks` PANEL** for every encounter in scope — one card per DISTINCT stat block, a single defensive line, then ONE LINE PER MOVE shaped `Nome — effetto`, telegraphic and resolvable: to-hit or save + CD, range/area, damage dice and type, recharge, rider. NO prose, no lore, no visual description — those stay in the chat stat block. Phase gates and legendary actions are moves too, because they are what gets forgotten mid-fight. Full spec: §A24.2.
+- **6. SHIP `notes` EMPTY:** that column is TRANSIENT STATE the GM writes during the fight (conditions, concentration, timed effects), NOT a compressed stat reminder — the statblock panel took that job, and pre-filling AC/CR/moves there duplicates it on every tracker.
+- **SINGLE ARTIFACT (binding):** the tracker is the ONLY artifact — stat blocks go in NORMAL CHAT TEXT, never a second artifact, never a named file. If the fight is fresh you MUST also write the full blocks in chat alongside the tracker.
+- **STRING SAFETY (binding, output-forcing):** combatant NAMES are DATA, not code — Italian output is full of apostrophes (Custode d'Anime, Lame d'Ottone, Spada d'Acciaio), and one of them inside a single-quoted JS literal breaks the whole script, which renders the artifact as a BLANK PAGE. Every data string uses DOUBLE QUOTES: never `'Spada d\'Acciaio'`, always `"Spada d'Acciaio"`. Check every string before emitting.
+- **INVARIANTS THAT MUST SURVIVE A PARTIAL RETRIEVAL OF §A24.1 (binding):** it is a SELF-CONTAINED HTML artifact with inline CSS+JS, no external assets; the panel is ALWAYS DARK (a bright tracker glares in a dim room and is a failure even when legible) with `html, body { background:#1b1d21; color:#e8e6e3; }` and `min-height:100vh` so no white gutter frames it; the table sorts by DESCENDING initiative ONLY when initiative is committed, never per keystroke; monster and PC rows are told apart by a dark background TINT, never by text colour alone; columns are Iniz. · Combattente · CA · Stato Vita (PF) · Condizioni & Effetti · Azione.
+- **INPUTS (binding — REVERSES the earlier 'never +/- buttons' rule, GM decision after table use):** every numeric field is a PLAIN TEXT input (`inputmode="numeric"`), NOT `type="number"`, because the native spinner arrows are too small to hit during a session; monster HP additionally carry a `−` / `dmg` / `+` control where the GM types the DAMAGE and presses a sign (Enter subtracts), and with the box empty the buttons step by 1. The old ban targeted +/- controls as a SUBSTITUTE for typing; here the field stays fully typeable and the buttons are an ADDITION, which is why the reversal does not reopen what the ban protected.
+- **NO STATTED FIGHT IN SCOPE** (investigative/social beat, lore answer) -> STATE IT and offer another beat/act; never fabricate one to fill the tracker.
+- **FALLBACK** (only if the GM explicitly asks for a text tracker): a NORMAL-TEXT LIST — ONE labelled list PER statted encounter in scope — one line each (Name - Initiative - HP - AC - Conditions), monster initiative pre-filled.
+### §A24.1 — THE TEMPLATE
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FFXIV x D&D 5e - Tracker di Combattimento</title>
+  <style>
+    html, body {
+      background-color: #1b1d21;
+      color: #e8e6e3;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #1b1d21;
+      color: #e8e6e3;
+    }
+    header {
+      border-bottom: 2px solid #374151;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 5px 0;
+      font-size: 1.6rem;
+      color: #f3f4f6;
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background-color: #272a30;
+      color: #9ca3af;
+      border: 1px solid #374151;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover {
+      background-color: #32363e;
+      color: #f3f4f6;
+    }
+    .tab-btn.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      border-color: #3b82f6;
+    }
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #23262d;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #374151;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .round-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    button {
+      background-color: #3b82f6;
+      color: #ffffff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.88rem;
+      transition: all 0.15s ease;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+    button.btn-secondary {
+      background-color: #4b5563;
+    }
+    button.btn-secondary:hover {
+      background-color: #374151;
+    }
+    button.btn-danger {
+      background-color: #dc2626;
+    }
+    button.btn-danger:hover {
+      background-color: #b91c1c;
+    }
+    button.btn-success {
+      background-color: #059669;
+    }
+    button.btn-success:hover {
+      background-color: #047857;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #23262d;
+      color: #e8e6e3;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #374151;
+    }
+    th {
+      background-color: #141619;
+      color: #9ca3af;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid #374151;
+    }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #2d3139;
+      vertical-align: middle;
+    }
+
+    tr.monster-row {
+      background-color: #2c1a1d;
+      color: #e8e6e3;
+    }
+    tr.monster-row:hover {
+      background-color: #361e21;
+    }
+    tr.pc-row {
+      background-color: #1a222d;
+      color: #e8e6e3;
+    }
+    tr.pc-row:hover {
+      background-color: #1f2a38;
+    }
+    tr.active-turn {
+      outline: 2px solid #f59e0b;
+      outline-offset: -2px;
+    }
+
+    /* Style riga spenta per mostro a 0 PF o PG a terra */
+    tr.down {
+      opacity: 0.45;
+      background-color: #17181c !important;
+    }
+    tr.down .name-input {
+      text-decoration: line-through;
+      color: #9ca3af;
+    }
+
+    /* Inputs di testo e numerici */
+    input[type="text"] {
+      background-color: #2a2d33;
+      color: #e8e6e3;
+      border: 1px solid #4b5563;
+      border-radius: 4px;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    input.num-input {
+      width: 55px;
+      text-align: center;
+    }
+    input.name-input {
+      width: 100%;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 6px;
+      white-space: nowrap;
+    }
+    .badge-monster {
+      background-color: #7f1d1d;
+      color: #fca5a5;
+    }
+    .badge-pc {
+      background-color: #1e3a8a;
+      color: #93c5fd;
+    }
+
+    /* Controls per PF dei Mostri */
+    .hp-cell-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hp-controls {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .hp-input {
+      width: 48px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .dmg-group {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 6px;
+      background-color: #1a1c22;
+      padding: 2px;
+      border-radius: 4px;
+      border: 1px solid #374151;
+    }
+    .btn-step {
+      background-color: #374151;
+      color: #e8e6e3;
+      padding: 3px 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 3px;
+      line-height: 1;
+    }
+    .btn-step:hover {
+      background-color: #4b5563;
+    }
+    .dmg-input {
+      width: 40px !important;
+      padding: 3px 4px !important;
+      text-align: center;
+      font-size: 0.82rem !important;
+      border-color: #4b5563 !important;
+    }
+
+    .hp-bar-bg {
+      width: 100%;
+      height: 5px;
+      background-color: #374151;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .hp-bar-fill {
+      height: 100%;
+      background-color: #10b981;
+      transition: width 0.2s ease, background-color 0.2s ease;
+    }
+    .hp-bar-fill.warning {
+      background-color: #f59e0b;
+    }
+    .hp-bar-fill.danger {
+      background-color: #ef4444;
+    }
+
+    /* Interruttore "A terra" per PG */
+    .btn-down-toggle {
+      background-color: #272a30;
+      color: #9ca3af;
+      border: 1px solid #4b5563;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+    }
+    .btn-down-toggle.is-down {
+      background-color: #7f1d1d;
+      color: #fca5a5;
+      border-color: #ef4444;
+    }
+
+    /* Contatore Telegrafo per Mostri */
+    .teleg-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-teleg {
+      background-color: #272a30;
+      color: #9ca3af;
+      border: 1px solid #4b5563;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-teleg.active {
+      background-color: #b45309;
+      color: #fef3c7;
+      border-color: #f59e0b;
+    }
+    .btn-teleg.scatta {
+      background-color: #d97706;
+      color: #ffffff;
+      border-color: #fbbf24;
+      animation: pulse 1.2s infinite alternate;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+      100% { transform: scale(1.05); box-shadow: 0 0 8px 2px rgba(245, 158, 11, 0.8); }
+    }
+
+    .notes-cell input {
+      width: 100%;
+    }
+    .actions-cell {
+      text-align: center;
+      width: 50px;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 30px;
+      color: #9ca3af;
+    }
+    .statblocks {
+      margin-top: 26px;
+    }
+    .statblocks h2 {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 8px;
+      margin: 0 0 14px 0;
+    }
+    .sb-card {
+      background-color: #23262d;
+      color: #e8e6e3;
+      border: 1px solid #374151;
+      border-left: 3px solid #7f1d1d;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+    .sb-name {
+      font-weight: 700;
+      color: #f3f4f6;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .sb-line {
+      color: #9ca3af;
+      font-size: 0.84rem;
+      margin-bottom: 9px;
+    }
+    .sb-move {
+      color: #e8e6e3;
+      font-size: 0.88rem;
+      padding: 3px 0 3px 12px;
+      border-left: 2px solid #374151;
+      margin-bottom: 3px;
+    }
+    .sb-move strong {
+      color: #fca5a5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>FFXIV × D&D 5e — Combat Tracker</h1>
+      <p class="subtitle">Gestore Iniziativa &amp; Punti Vita — <em>NOME DEL BEAT O DEL MODULO</em></p>
+    </header>
+
+    <div class="tabs" id="tabsHeader"></div>
+
+    <div class="controls-bar">
+      <div class="round-display">
+        <span>Round: <span id="roundCounter" style="color: #f59e0b;">1</span></span>
+        <button class="btn-secondary" onclick="nextTurn()">Avanza Turno &raquo;</button>
+        <button class="btn-secondary" onclick="resetRound()">Resetta Round</button>
+        <button class="btn-danger" onclick="resetEncounter()">Resetta Scontro</button>
+      </div>
+      <div class="btn-group">
+        <button onclick="addCombatant('pc')">+ Aggiungi PG</button>
+        <button onclick="addCombatant('monster')">+ Aggiungi Mostro</button>
+      </div>
+    </div>
+
+    <table id="trackerTable">
+      <thead>
+        <tr>
+          <th style="width: 65px;">Iniz.</th>
+          <th>Combattente</th>
+          <th style="width: 65px;">CA</th>
+          <th style="width: 210px;">Stato Vita (PF)</th>
+          <th>Condizioni &amp; Effetti</th>
+          <th style="width: 45px;">Azione</th>
+        </tr>
+      </thead>
+      <tbody id="trackerBody"></tbody>
+    </table>
+
+    <div class="statblocks" id="statblocksPanel"></div>
+  </div>
+
+  <script>
+    // ============================================================================
+    // DATI — QUESTO BLOCCO SI SOSTITUISCE PER INTERO. NON copiarlo come sta.
+    // Quello che segue e' un ESEMPIO DI FORMA, non contenuto da emettere.
+    //   RIGHE PG      = il numero REALE di giocatori al tavolo ([B] Numero PG del
+    //                   save, o quello indicato dal GM). NON quattro per default.
+    //                   I PG hanno init e CA VUOTE (le scrive il GM) e non hanno
+    //                   PF: i punti ferita li tengono i giocatori.
+    //   RIGHE MOSTRO  = esattamente i nemici statati in QUEL scontro, coi loro
+    //                   CA/PF veri. Ne' uno in piu' ne' uno in meno, mai importati
+    //                   da un altro scontro, mai inventati.
+    //   isDown / telegraph / notes partono sempre false / null / "": li imposta
+    //   il GM durante lo scontro, mai tu.
+    // Tutto il resto del file (CSS, HTML, funzioni) si emette VERBATIM.
+    // ============================================================================
+    const encountersData = [
+      {
+        id: "enc1",
+        title: "NOME DEL PRIMO SCONTRO",
+        round: 1,
+        activeTurnIndex: 0,
+        combatants: [
+          { id: 101, name: "NOME NEMICO GREGARIO 1", isMonster: true, initBonus: 2, init: 18, ac: 13, hp: 22, maxHp: 22, isDown: false, telegraph: null, notes: "" },
+          { id: 102, name: "NOME NEMICO CAPO", isMonster: true, initBonus: 2, init: 15, ac: 15, hp: 68, maxHp: 68, isDown: false, telegraph: null, notes: "" },
+          { id: 103, name: "NOME NEMICO GREGARIO 2", isMonster: true, initBonus: 2, init: 12, ac: 13, hp: 22, maxHp: 22, isDown: false, telegraph: null, notes: "" },
+          { id: 1, name: "PG 1", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
+          { id: 2, name: "PG 2", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
+          { id: 3, name: "PG 3", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
+          { id: 4, name: "PG 4", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" }
+        ],
+        statblocks: [
+          {
+            name: "NOME NEMICO CAPO",
+            line: "CA 15 · PF 68 · Vel 9 m · TS DES +4, COS +5 · Perc. passiva 13 · GdS 3",
+            moves: [
+              "Multiattacco — 2 attacchi con Arma pesante",
+              "Arma pesante — +5, portata 3 m, 2d8+3 perforanti",
+              "Mossa telegrafata (Ric. 5-6) — telegrafo 1 round; cono 4,5 m, TS DES CD 13, 4d6 danni, meta' se supera"
+            ]
+          },
+          {
+            name: "NOME NEMICO GREGARIO",
+            line: "CA 13 · PF 22 · Vel 9 m · Perc. passiva 10 · GdS 1",
+            moves: [
+              "Arma leggera — +4, portata 1,5 m, 1d4+2 taglienti"
+            ]
+          }
+        ]
+      },
+      {
+        id: "enc2",
+        title: "NOME DEL SECONDO SCONTRO",
+        round: 1,
+        activeTurnIndex: 0,
+        combatants: [
+          { id: 201, name: "NOME NEMICO SOLITARIO", isMonster: true, initBonus: 1, init: 14, ac: 14, hp: 45, maxHp: 45, isDown: false, telegraph: null, notes: "" },
+          { id: 1, name: "PG 1", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
+          { id: 2, name: "PG 2", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
+          { id: 3, name: "PG 3", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
+          { id: 4, name: "PG 4", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" }
+        ],
+        statblocks: [
+          {
+            name: "NOME NEMICO SOLITARIO",
+            line: "CA 14 · PF 45 · Vel 9 m · TS COS +4 · Perc. passiva 12 · GdS 2",
+            moves: [
+              "Multiattacco — 2 attacchi con Artiglio",
+              "Artiglio — +4, portata 1,5 m, 1d8+2 taglienti",
+              "Fase (50% PF) — a meta' dei PF cambia postura: da qui usa la mossa telegrafata ogni round"
+            ]
+          }
+        ]
+      }
+    ];
+    // ============================ FINE DATI =====================================
+
+    let currentEncounterIndex = 0;
+
+    function isCombatantDown(c) {
+      return c.isMonster ? (c.hp <= 0) : !!c.isDown;
+    }
+
+    function captureRoundTelegraphs() {
+      const enc = encountersData[currentEncounterIndex];
+      enc.combatants.forEach((c) => {
+        if (c.isMonster) {
+          c.roundStartTelegraph = c.telegraph;
+        }
+      });
+    }
+
+    function initTracker() {
+      renderTabs();
+      captureRoundTelegraphs();
+      renderEncounter();
+    }
+
+    function switchTab(index) {
+      currentEncounterIndex = index;
+      renderTabs();
+      captureRoundTelegraphs();
+      renderEncounter();
+    }
+
+    function renderTabs() {
+      const tabsContainer = document.getElementById("tabsHeader");
+      tabsContainer.innerHTML = "";
+      encountersData.forEach((enc, index) => {
+        const btn = document.createElement("button");
+        btn.className = "tab-btn " + (index === currentEncounterIndex ? "active" : "");
+        btn.textContent = enc.title;
+        btn.onclick = () => switchTab(index);
+        tabsContainer.appendChild(btn);
+      });
+    }
+
+    function renderEncounter() {
+      const enc = encountersData[currentEncounterIndex];
+      document.getElementById("roundCounter").textContent = enc.round;
+
+      const tbody = document.getElementById("trackerBody");
+      tbody.innerHTML = "";
+
+      if (enc.combatants.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Nessun combattente in questo scontro. Aggiungi PG o mostri con i pulsanti in alto.</td></tr>';
+        renderStatblocks();
+        return;
+      }
+
+      enc.combatants.forEach((c, index) => {
+        const tr = document.createElement("tr");
+
+        const isDown = isCombatantDown(c);
+
+        tr.className = (c.isMonster ? "monster-row" : "pc-row") +
+                     (index === enc.activeTurnIndex ? " active-turn" : "") +
+                     (isDown ? " down" : "");
+
+        let hpCellHtml = "";
+        if (c.isMonster) {
+          const hpPercent = c.maxHp > 0 ? Math.max(0, Math.min(100, (c.hp / c.maxHp) * 100)) : 0;
+          let hpBarClass = "";
+          if (hpPercent < 25) hpBarClass = "danger";
+          else if (hpPercent < 50) hpBarClass = "warning";
+
+          hpCellHtml = `
+            <div class="hp-cell-container">
+              <div class="hp-controls">
+                <input type="text" inputmode="numeric" class="hp-input" value="${c.hp}" onchange="updateCombatant(${c.id}, 'hp', this.value, false)" />
+                <span style="color: #9ca3af;">/</span>
+                <input type="text" inputmode="numeric" class="hp-input" value="${c.maxHp}" onchange="updateCombatant(${c.id}, 'maxHp', this.value, false)" />
+
+                <div class="dmg-group">
+                  <button class="btn-step" onclick="applyDmg(${c.id}, -1)" title="Sottrai danno / −1">&#8722;</button>
+                  <input type="text" inputmode="numeric" id="dmg-input-${c.id}" class="dmg-input" placeholder="dmg" onkeydown="if(event.key==='Enter') applyDmg(${c.id}, -1)" />
+                  <button class="btn-step" onclick="applyDmg(${c.id}, 1)" title="Aggiungi cura / +1">+</button>
+                </div>
+              </div>
+              <div class="hp-bar-bg">
+                <div class="hp-bar-fill ${hpBarClass}" style="width: ${hpPercent}%;"></div>
+              </div>
+            </div>
+          `;
+        } else {
+          hpCellHtml = `
+            <button class="btn-down-toggle ${c.isDown ? 'is-down' : ''}" onclick="togglePcDown(${c.id})">
+              ${c.isDown ? '💀 A terra' : 'In piedi'}
+            </button>
+          `;
+        }
+
+        let telegBtnHtml = "";
+        if (c.isMonster) {
+          let telegText = "⚠";
+          let telegClass = "";
+          if (c.telegraph === 1) { telegText = "⚠ 1"; telegClass = "active"; }
+          else if (c.telegraph === 2) { telegText = "⚠ 2"; telegClass = "active"; }
+          else if (c.telegraph === 3) { telegText = "⚠ 3"; telegClass = "active"; }
+          else if (c.telegraph === 0) { telegText = "⚠ SCATTA"; telegClass = "scatta"; }
+
+          telegBtnHtml = `<button class="btn-teleg ${telegClass}" onclick="cycleTelegraph(${c.id})" title="Contatore Telegrafo (1-3 rds)">${telegText}</button>`;
+        }
+
+        tr.innerHTML = `
+          <td>
+            <input type="text" inputmode="numeric" class="num-input" value="${c.init !== null && c.init !== undefined ? c.init : ''}" placeholder="-" onchange="updateCombatant(${c.id}, 'init', this.value, true)" />
+          </td>
+          <td>
+            <div style="display: flex; align-items: center;">
+              <input type="text" class="name-input" value="${escapeHtml(c.name)}" oninput="updateCombatant(${c.id}, 'name', this.value, false)" />
+              <span class="badge ${c.isMonster ? 'badge-monster' : 'badge-pc'}">${c.isMonster ? 'Mostro' : 'PG'}</span>
+            </div>
+          </td>
+          <td>
+            <input type="text" inputmode="numeric" class="num-input" value="${c.ac}" onchange="updateCombatant(${c.id}, 'ac', this.value, false)" />
+          </td>
+          <td>
+            ${hpCellHtml}
+          </td>
+          <td class="notes-cell">
+            <div class="teleg-wrapper">
+              ${telegBtnHtml}
+              <input type="text" value="${escapeHtml(c.notes)}" placeholder="Condizioni, concentrazione, durata..." oninput="updateCombatant(${c.id}, 'notes', this.value, false)" />
+            </div>
+          </td>
+          <td class="actions-cell">
+            <button class="btn-danger" style="padding: 4px 8px;" onclick="removeCombatant(${c.id})" title="Rimuovi">&times;</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      renderStatblocks();
+    }
+
+    function renderStatblocks() {
+      const enc = encountersData[currentEncounterIndex];
+      const wrap = document.getElementById("statblocksPanel");
+      wrap.innerHTML = "";
+      if (!enc.statblocks || enc.statblocks.length === 0) return;
+
+      const title = document.createElement("h2");
+      title.textContent = "Riferimento rapido — mosse nemiche";
+      wrap.appendChild(title);
+
+      enc.statblocks.forEach((sb) => {
+        const card = document.createElement("div");
+        card.className = "sb-card";
+        let html = '<div class="sb-name">' + escapeHtml(sb.name) + "</div>";
+        html += '<div class="sb-line">' + escapeHtml(sb.line) + "</div>";
+        (sb.moves || []).forEach((m) => {
+          const sep = m.indexOf(" — ");
+          const inner = sep > -1
+            ? "<strong>" + escapeHtml(m.slice(0, sep)) + "</strong>" + escapeHtml(m.slice(sep))
+            : escapeHtml(m);
+          html += '<div class="sb-move">' + inner + "</div>";
+        });
+        card.innerHTML = html;
+        wrap.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function applyDmg(id, sign) {
+      const enc = encountersData[currentEncounterIndex];
+      const c = enc.combatants.find((item) => item.id === id);
+      if (!c) return;
+
+      const dmgInput = document.getElementById("dmg-input-" + id);
+      let amount = 1;
+
+      if (dmgInput && dmgInput.value.trim() !== "") {
+        const parsed = parseInt(dmgInput.value, 10);
+        if (!isNaN(parsed) && parsed > 0) {
+          amount = parsed;
+        }
+        dmgInput.value = "";
+      }
+
+      if (sign < 0) {
+        c.hp = Math.max(0, c.hp - amount);
+      } else {
+        c.hp = c.hp + amount;
+      }
+
+      renderEncounter();
+    }
+
+    function togglePcDown(id) {
+      const enc = encountersData[currentEncounterIndex];
+      const c = enc.combatants.find((item) => item.id === id);
+      if (!c || c.isMonster) return;
+
+      c.isDown = !c.isDown;
+      renderEncounter();
+    }
+
+    function cycleTelegraph(id) {
+      const enc = encountersData[currentEncounterIndex];
+      const c = enc.combatants.find((item) => item.id === id);
+      if (!c || !c.isMonster) return;
+
+      if (c.telegraph === null || c.telegraph === undefined) {
+        c.telegraph = 1;
+      } else if (c.telegraph === 1) {
+        c.telegraph = 2;
+      } else if (c.telegraph === 2) {
+        c.telegraph = 3;
+      } else {
+        c.telegraph = null;
+      }
+
+      renderEncounter();
+    }
+
+    function updateCombatant(id, field, value, triggerSort) {
+      const enc = encountersData[currentEncounterIndex];
+      const c = enc.combatants.find((item) => item.id === id);
+      if (!c) return;
+
+      if (field === "init") {
+        c.init = value === "" ? null : (parseInt(value, 10) || 0);
+        if (triggerSort) {
+          sortInitiative();
+          return;
+        }
+      } else if (field === "hp" || field === "maxHp" || field === "ac") {
+        c[field] = value === "" ? "" : (parseInt(value, 10) || 0);
+        renderEncounter();
+      } else {
+        c[field] = value;
+      }
+    }
+
+    function sortInitiative() {
+      const enc = encountersData[currentEncounterIndex];
+      const activeCombatant = enc.combatants[enc.activeTurnIndex];
+
+      enc.combatants.sort((a, b) => {
+        const valA = a.init !== null && a.init !== "" ? parseInt(a.init, 10) : -999;
+        const valB = b.init !== null && b.init !== "" ? parseInt(b.init, 10) : -999;
+        return valB - valA;
+      });
+
+      if (activeCombatant) {
+        enc.activeTurnIndex = enc.combatants.indexOf(activeCombatant);
+        if (enc.activeTurnIndex < 0) enc.activeTurnIndex = 0;
+      }
+
+      renderEncounter();
+    }
+
+    function nextTurn() {
+      const enc = encountersData[currentEncounterIndex];
+      if (enc.combatants.length === 0) return;
+
+      const anyAlive = enc.combatants.some((c) => !isCombatantDown(c));
+      if (!anyAlive) {
+        enc.activeTurnIndex = 0;
+        renderEncounter();
+        return;
+      }
+
+      let attempts = 0;
+      const total = enc.combatants.length;
+      let roundChanged = false;
+
+      do {
+        enc.activeTurnIndex++;
+        if (enc.activeTurnIndex >= total) {
+          enc.activeTurnIndex = 0;
+          enc.round++;
+          roundChanged = true;
+        }
+        attempts++;
+      } while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && attempts <= total + 2);
+
+      const currentActive = enc.combatants[enc.activeTurnIndex];
+      if (currentActive && currentActive.isMonster && currentActive.telegraph !== null && currentActive.telegraph > 0) {
+        currentActive.telegraph--;
+      }
+
+      // La fotografia va scattata DOPO la scalata, non prima: se il primo in
+      // ordine e' un mostro che entra nel round col telegrafo a 1, scala subito
+      // a 0 (SCATTA) ed e' QUELLO lo stato d'inizio round. Fotografando prima,
+      // "Resetta Round" lo riportava a 1 e lo SCATTA andava perso.
+      if (roundChanged) {
+        captureRoundTelegraphs();
+      }
+
+      renderEncounter();
+    }
+
+    function resetRound() {
+      const enc = encountersData[currentEncounterIndex];
+      if (enc.combatants.length === 0) return;
+
+      enc.combatants.forEach((c) => {
+        if (c.isMonster && c.roundStartTelegraph !== undefined) {
+          c.telegraph = c.roundStartTelegraph;
+        }
+      });
+
+      enc.activeTurnIndex = 0;
+      let attempts = 0;
+      while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && attempts < enc.combatants.length) {
+        enc.activeTurnIndex++;
+        attempts++;
+      }
+      if (enc.activeTurnIndex >= enc.combatants.length) {
+        enc.activeTurnIndex = 0;
+      }
+
+      renderEncounter();
+    }
+
+    function resetEncounter() {
+      const enc = encountersData[currentEncounterIndex];
+      enc.round = 1;
+
+      enc.combatants.forEach((c) => {
+        if (c.isMonster) {
+          c.hp = c.maxHp;
+          c.telegraph = null;
+          c.roundStartTelegraph = null;
+          c.isDown = false;
+          const bonus = c.initBonus !== undefined ? c.initBonus : 0;
+          c.init = Math.floor(Math.random() * 20) + 1 + bonus;
+        } else {
+          c.isDown = false;
+        }
+      });
+
+      sortInitiative();
+
+      enc.activeTurnIndex = 0;
+      let attempts = 0;
+      while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && attempts < enc.combatants.length) {
+        enc.activeTurnIndex++;
+        attempts++;
+      }
+      if (enc.activeTurnIndex >= enc.combatants.length) {
+        enc.activeTurnIndex = 0;
+      }
+
+      captureRoundTelegraphs();
+      renderEncounter();
+    }
+
+    function addCombatant(type) {
+      const enc = encountersData[currentEncounterIndex];
+      const isMonster = type === "monster";
+      const newId = Date.now();
+      enc.combatants.push({
+        id: newId,
+        name: isMonster ? "Nuovo Mostro" : "Nuovo PG",
+        isMonster: isMonster,
+        initBonus: 0,
+        init: isMonster ? Math.floor(Math.random() * 20) + 1 : null,
+        ac: isMonster ? 10 : "",
+        hp: isMonster ? 10 : 0,
+        maxHp: isMonster ? 10 : 0,
+        isDown: false,
+        telegraph: null,
+        notes: ""
+      });
+      renderEncounter();
+    }
+
+    function removeCombatant(id) {
+      const enc = encountersData[currentEncounterIndex];
+      enc.combatants = enc.combatants.filter((c) => c.id !== id);
+      if (enc.activeTurnIndex >= enc.combatants.length) {
+        enc.activeTurnIndex = Math.max(0, enc.combatants.length - 1);
+      }
+      renderEncounter();
+    }
+
+    window.onload = initTracker;
+  </script>
+</body>
+</html>
+```
+
+### §A24.2 — THE `statblocks` PANEL (binding)
+
+The panel under the table exists for ONE reason: the GM must resolve a turn WITHOUT scrolling back up the chat
+to find the stat block. Write it accordingly.
+
+- **TELEGRAPHIC, NEVER PROSE (binding).** No narration, no lore, no "Descrizione visiva", no flavour, no
+  telegraph *imagery* — those belong in the chat stat block and in the beat. Here: only what resolves a turn.
+- **`line`** = the defensive one-liner, in this order and separated by ` · `:
+  `CA <n> · PF <n> · Vel <n> m` then, only if the encounter actually uses them, `TS <abbrev +n>`,
+  `Immunità <…>`, `Resistenze <…>`, `Perc. passiva <n>`, and always `GdS <n>` last.
+- **`moves`** = ONE STRING PER MOVE, each shaped `Nome — effetto`. The em-dash matters: the renderer bolds
+  everything before it. Put in the effect ONLY the resolvable numbers — to-hit or save (`TS DES CD 13`), range
+  or area, damage dice and type, recharge (`Ric. 5-6`), and the rider (`metà se supera`, `spinta 3 m`,
+  `prono`). A move whose telegraph costs a round says `telegrafo 1 round` and nothing more about how it looks.
+- **ONE CARD PER DISTINCT STAT BLOCK, not per combatant**: three identical guards are three ROWS in the table
+  but share ONE card. Elites, bosses and any variant with different numbers each get their own.
+- **Phase gates and legendary actions are moves too** — a boss that changes posture at 50% gets a line
+  (`Fase (50% PF) — …`), because that is exactly what the GM forgets mid-fight.
+- The `notes` column is NOT a smaller copy of this panel: it carries transient state the GM writes during the
+  fight (a condition, a concentration, a timed effect). Everything static about a creature belongs here.
+
+### §A24.3 — WHAT THE CONTROLS DO (so they are not "improved" away)
+
+- **`−` / `dmg` / `+` on a monster's HP.** Type the DAMAGE in the small box and press `−` (or just hit Enter,
+  which subtracts): the HP drop by that much and the box clears itself, so a stray second click cannot
+  subtract twice. Press `−` or `+` with the box EMPTY and it steps by 1. The HP field itself stays directly
+  editable — to set an exact value, or restore the maximum, the GM types over it. HP never go below 0.
+- **`In piedi` / `💀 A terra` on a PC.** The GM's only PC-side bookkeeping, because hit points are the
+  players'. Toggled on, the row dims and the name is struck through.
+- **Rows dim automatically at 0 HP** for monsters — the SAME `.down` styling as the PC toggle, so "out of the
+  fight" always looks the same whoever it is.
+- **The turn SKIPS whoever is down.** `Avanza Turno` walks past downed monsters and downed PCs; with everyone
+  down it stops instead of looping.
+- **`⚠` on a monster.** The telegraph counter, for the rounds-of-warning that §B10 requires every telegraphed
+  move to declare. Click cycles `off → 1 → 2 → 3 → off`. It counts down when the turn pointer COMES BACK to
+  that monster — a telegraph starts on its turn and resolves on its next one — and at zero pulses `⚠ SCATTA`
+  in amber until the GM clicks it away.
+- **`Resetta Round`** rewinds the turn order to the first standing combatant and restores every telegraph to
+  the value it had when the round began — for when a round is replayed after a rules correction. The snapshot
+  is taken AFTER the first combatant's own countdown, never before: a monster that opens the round already
+  firing must come back as `⚠ SCATTA`, not as the value it held a step earlier.
+- **`Resetta Scontro`** restores monster HP to maximum, clears telegraphs and down states, RE-ROLLS monster
+  initiative (`1d20 + initBonus`, which is why `initBonus` is in the data) and re-sorts. For rerunning a fight
+  after a wipe or a retcon.
+- **All numeric fields are PLAIN TEXT** (`inputmode="numeric"`), deliberately: the native spinner arrows are
+  too small to hit during a session. HP/AC/initiative commit on CHANGE, not on every keystroke, so editing
+  never steals focus mid-typing.
 
 # PART B — CAMPAIGN FORMATS
 
@@ -408,27 +1376,8 @@ Technical data, one line per monster, descending initiative.
 ## §B8 — FIGHT SETUP
 Preview + stat block + mechanics, in the ORDER and LAYOUT fixed by §B1 ENCOUNTER PACKAGE: '**Difficoltà:**' + '**Innesco:**' only → 'Da leggere ai PG' → '**Terreno:**' / '**Tattica:**' / '**Conseguenze:**' → stat block (each telegraphed action carrying its own '**Telegrafo:**' line, §B10) → '**Bottino:**' (§A21). The trigger always precedes the read-aloud; nothing else does.
 
-## §B9 — TRACKER (INTERACTIVE ARTIFACT) + ON-DEMAND TRACKER PER ACT
-**THE BUILD IS NOT DESIGNED HERE — IT IS COPIED (binding):** the approved artifact lives in **09_Tracker.md** and is emitted VERBATIM; only the subtitle, the `encountersData` array and each encounter's `statblocks` array are filled in. Never redesign, restyle or re-derive it: a tracker that looks different from last session's is a failure even when it works, because the GM hunts for the same controls in the same places at the table. This section governs WHAT GOES IN IT; 09 governs WHAT IT LOOKS LIKE.
-**SCOPE — DIFFERENT IN THE TWO MODES (binding, output-forcing; do NOT treat 'beat' and 'act' as the same unit):**
-- **CAMPAIGN: the LAST BEAT ONLY.** "/tracker" builds the tracker for the MOST RECENT beat played, and for the statted encounters OF THAT BEAT alone. NEVER include a fight from an earlier beat, however recent — those are resolved, and carrying them forward wastes tokens and clutters the panel the GM is reading mid-fight. A dungeon beat legitimately holds several fights (mid-boss + boss): those are the SAME beat and all belong.
-- **ONE-SHOT: the WHOLE MODULE.** A one-shot is read ahead and run in one sitting, so "/tracker" holds EVERY statted encounter of the module, one tab per act. This is the intended behaviour — do not narrow it.
-- **ONE LIVE TRACKER AT A TIME (campaign):** each new "/tracker" REPLACES the previous one rather than adding a second panel — update the existing artifact where the platform allows it, otherwise emit the new one and treat the old as dead. There is never more than one current tracker in a campaign session.
-- "/tracker act X" / "/tracker <fight name>" -> narrow to that specific act/fight only.
-MULTI-ENCOUNTER TABS (binding, default): a beat/act may contain MORE THAN ONE statted encounter (a dungeon's mid-boss(es) + boss, or a plot beat with two fights). On a bare "/tracker" AUTO-BUILD ONE artifact holding every statted encounter IN SCOPE (per SCOPE above), EACH IN ITS OWN TAB, with a button bar at the top to switch between fights — the GM runs them from one panel. NEVER ask which fight to build: building them all IS the default. ONE TAB PER STATTED ENCOUNTER, labelled with the fight name; the first tab shows by default; switching tabs PRESERVES each tab's edited HP/initiative/notes (NEVER reset a tab on switch). If the beat has only ONE statted encounter, render a single view (no tab bar). It remains ONE artifact — the tabs live INSIDE it, NEVER multiple artifacts.
-BEHAVIOR — WHAT YOU FILL IN, step by step:
-- **1. IDENTIFY THE ENCOUNTERS** in scope (per SCOPE above) and REUSE their data VERBATIM; never recalculate. ROSTER FIDELITY (per tab): exactly the enemies statted in THAT encounter — no more, no less; never invent combatants/HP/AC nor import from another encounter/act.
-- **2. PRE-ROLL THE MONSTERS' INITIATIVE** (1d20 + DEX mod), editable, and keep that DEX mod in `initBonus` so the tracker's own "Resetta Scontro" can re-roll correctly.
-- **3. BOTH ROW COUNTS ARE DERIVED, NEVER ASSUMED (binding):** PC ROWS = the REAL number of players — "tracker con N PG" if the GM said it, else the save's [B] Numero PG; only if genuinely unavailable use 4 AND say so in one line. MONSTER ROWS = the roster from step 1. The example data inside the 09 template shows four PCs and invented enemies purely to demonstrate the SHAPE — copying those counts instead of deriving them is the failure. PC rows carry an editable name placeholder ("PG 1"…) with initiative AND AC left empty for the GM.
-- **3b. FILL THE `statblocks` PANEL** for every encounter in scope — one card per DISTINCT stat block (three identical guards share one), a single defensive line, then ONE LINE PER MOVE shaped `Nome — effetto`, telegraphic and resolvable: to-hit or save + CD, range/area, damage dice and type, recharge, rider. NO prose, no lore, no visual description — those stay in the chat stat block. Phase gates and legendary actions are moves too, because they are what gets forgotten mid-fight. Full spec: 09.2.
-- **3c. SHIP `notes` EMPTY:** that column is TRANSIENT STATE the GM writes during the fight (conditions, concentration, timed effects), NOT a compressed stat reminder — the statblock panel took that job, and pre-filling AC/CR/moves there duplicates it on every tracker.
-- **4. SINGLE ARTIFACT (binding):** the tracker is the ONLY artifact — stat blocks go in NORMAL CHAT TEXT, never a second artifact, never a named file. Reuse the encounter's existing stat blocks; if the fight is fresh you MUST also write them out in chat alongside the tracker.
-- **STRING SAFETY (binding):** combatant NAMES are DATA, not code — Italian output is full of apostrophes (Custode d'Anime, Lame d'Ottone), and one of them inside a single-quoted JS literal breaks the whole script, which renders the artifact as a BLANK PAGE. Every data string uses DOUBLE QUOTES, and no escaped apostrophes at all.
-- **INVARIANTS THAT MUST SURVIVE A PARTIAL RETRIEVAL OF 09 (binding):** it is a SELF-CONTAINED HTML artifact with inline CSS+JS, no external assets; the panel is ALWAYS DARK (a bright tracker glares in a dim room and is a failure even when legible) with `html, body { background:#1b1d21; color:#e8e6e3; }` and `min-height:100vh` so no white gutter frames it; the table sorts by DESCENDING initiative ONLY when initiative is committed, never per keystroke; monster and PC rows are told apart by a dark background TINT, never by text colour alone; columns are Iniz. · Combattente · CA · Stato Vita (PF) · Condizioni & Effetti · Azione.
-- **INPUTS (binding — REVERSES the earlier 'never +/- buttons' rule, GM decision after table use):** every numeric field is a PLAIN TEXT input (`inputmode="numeric"`), NOT `type="number"`, because the native spinner arrows are too small to hit during a session; monster HP additionally carry a `−` / `dmg` / `+` control where the GM types the DAMAGE and presses a sign (Enter subtracts), and with the box empty the buttons step by 1. The old ban targeted +/- controls as a SUBSTITUTE for typing; here the field stays fully typeable and the buttons are an ADDITION, which is why the reversal does not reopen what the ban protected.
-- **THE TWO ROW KINDS DIFFER (binding):** a combatant is `{ id, name, isMonster, initBonus, init, ac, hp, maxHp, isDown, telegraph, notes }`, but a MONSTER gets a pre-rolled `init`, real `ac`/`hp`/`maxHp` and a `⚠` telegraph counter, while a PC gets `init` and `ac` EMPTY (the GM fills both — you do not know a PC's AC), `hp`/`maxHp` left at 0 and never rendered (players track their own hit points; the GM needs the AC to roll against and an A TERRA toggle). `isDown` ships `false`, `telegraph` ships `null`, `notes` ships `""` — all three are set by the GM during the fight.
-- **5. NO STATTED FIGHT IN THE BEAT** (investigative/social) -> STATE IT and offer another beat; never fabricate one to fill the tracker.
-FALLBACK (only if the GM explicitly asks for a text tracker): a NORMAL-TEXT LIST — ONE labelled list PER statted encounter of the beat — one line each (Name - Initiative - HP - AC - Conditions), pre-fill monster initiative.
+## §B9 — RITIRATA (il tracker è ora §A24, regola CONDIVISA)
+Il combat tracker non è più una regola di campagna: Campagna, One-Shot e Loremonger costruiscono lo STESSO artefatto e differiscono solo nello SCOPE, quindi spec, template e i tre scope vivono in **§A24** (Parte A). Questo numero resta vuoto di proposito — come §A2 — perché rinumerare §B10-§B28 romperebbe decine di riferimenti incrociati.
 
 ## §B10 — BOSS MECHANICS
 MECHANICS FIDELITY (binding, general): an MSQ/trial/dungeon boss REPRODUCES its CANONICAL in-game fight as faithfully as possible — its SIGNATURE mechanics (named moves, telegraphs, phase changes, arena gimmicks), verified on the wiki MAIN page (the CURRENT post-revamp version, NOT a '/Old' page; §A14), ADAPTED to this telegraph/counter framework (05 Ch.9). Stats are anchored per §B6; only the DELIVERY is adapted. MOVE NAMES vs MECHANICS (GM-decided): the NAME is free colour — canonical wiki name when KNOWN or cached, otherwise ANY name that FITS the monster and its lore (GM-facing, never read to the players; prefer a descriptive Italian label; only a nonsense/off-lore name is a failure; never block or re-verify on a name). The MECHANIC is BINDING: reproduce the real fight's behaviour faithfully (telegraph, threat shape/area, phase timing) and CONVERT it sensibly into D&D 5e (proper TS with CD in band, damage in band, real counterplay) — never a renamed mechanic that also CHANGES what the move does. Do NOT substitute generic invented mechanics when the real fight has iconic ones (e.g. Titan = Landslide / Weight of the Land / Titan's Heart per 05 Ch.9.9; the Ultima Weapon = the absorbed Ifrit/Titan/Garuda moves, then Ultima). Homebrew fills gaps ONLY where canon is thin. (Illustrations, not a closed list.) SEGMENT ORDER / STRUCTURE (binding, general): follow the wiki's ACTUAL sequence and segmentation of the duty — a boss may be fought DURING a setpiece (e.g. while mounted / piloting a vehicle), NOT as a separate later step; do NOT reorder segments nor split one segment into two by assumption (e.g. a mounted-vehicle ride's boss is the CLIMAX of that ride, not a separate on-foot fight afterwards — illustration, not a closed list). DUTY SELF-CONTAINED (binding, general): each duty/beat reproduces ONLY its OWN canonical roster, mechanics, phases and climax (from its wiki page) — NEVER import a LATER (or earlier) duty's bosses, transformation, ascension or finale into it, and NEVER pull a defeated mid-boss back for a climax the canon does not stage. A character who RECURS across duties appears in each with ONLY the form/role canonical to THAT duty (re-statted per §B6/§B11 for that appearance); if the canonical fight is a SINGLE boss (even one that summons adds), keep it a single boss — never fabricate a merged multi-boss climax the duty does not have.
