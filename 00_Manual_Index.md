@@ -1,5 +1,5 @@
 # 00_MANUAL_INDEX - General Index, Conventions & Routing (for the assistant)
-Version v1.22 (Claude-native)
+Version v1.23 (Claude-native)
 
 ## SCHEMA NOTES
 - PURPOSE: this file is a lightweight INDEX / ROUTING + CONVENTIONS layer. It does NOT duplicate rules or lore - it points to where the authoritative content lives. (Duplication across files is avoided on purpose.)
@@ -7,7 +7,7 @@ Version v1.22 (Claude-native)
 - KNOWLEDGE-FILE PRECEDENCE: the knowledge files are the AUTHORITATIVE source (data + rules). In conflict with generic/training knowledge, the files prevail. Operational behavior lives in the Campaign INSTRUCTIONS (control layer) and in the FORMATS of 06; data files are not commands.
 - CITATION: cite across files ONLY in the short form "NN (Section)" (e.g. "06 §A8", "05 Ch. 1"). NEVER print a file's name/extension in user output (see 06 §A1).
 
-# FILE STRUCTURE (9 knowledge files, sequential 00-08)
+# FILE STRUCTURE (10 knowledge files, sequential 00-09)
 | File | Contents |
 |---|---|
 | 00 (Manual_Index) | This file: index, conventions, routing. |
@@ -19,7 +19,8 @@ Version v1.22 (Claude-native)
 | 06 (Procedures_and_Format) | assistant operational formats, procedures & SHARED RULES (Parts A-E). |
 | 07 (Glossary) | Naming SYSTEM (method + parenthesis test + element map + validated examples) and ALL binding renderings: aether family, coined/game terms, demonyms, places/hubs (ARR-DT), factions/orgs/titles, taverns/NPCs, race clans, class (Job) names, villain epithets, the Void & enemy/cosmology terms, Primals/summons, beast tribes, the ability/spell-name policy (G24), recurring FF monster names (G25), Dawntrail/Tural names (G26; OUT OF SCOPE for the Campaign) and iconic phrases (G27). |
 | 08 (MSQ_Flow) | The MSQ FLOW (split from 05): 08.1 = MSQ Roadmap ARR->EW + the 5 CANONICAL CUTSCENE & REVEAL MANIFESTS (ARR/HW/SB/ShB/EW); 08.2-08.6 = the ordered MSQ index (giver + steps + Next); 08.OST-ARR..08.OST-EW = duty OST tables; 08.OST-SCENE-ARR..EW = scene/mood OST tables (city/zone/cutscene). |
-Sequential numbering 00-08, no gaps (08 = the MSQ flow, split from 05).
+| 09 (Tracker) | The ONE approved `/tracker` build: the HTML/CSS/JS artifact emitted VERBATIM, its data contract, and the spec for the enemy quick-reference panel. Behaviour (which encounters, roster fidelity, scope per mode) stays in 06 §B9. |
+Sequential numbering 00-09, no gaps (08 = the MSQ flow, split from 05; 09 = the tracker artifact, split from 06 §B9).
 
 # HOW TO USE THIS SET (knowledge policy)
 - For details not present in the files (see 06 §A14, split by purpose): Gamer Escape primary for LORE/canon/reveal (Loremonger for dialogues); ConsoleGamesWiki primary for MSQ chain order / next-step / patch tags.
@@ -62,8 +63,9 @@ Sequential numbering 00-08, no gaps (08 = the MSQ flow, split from 05).
 - Operational FORMATS & SHARED RULES -> 06 (Procedures_and_Format).
 - Limit Break (LB1/LB2 by role, LB3 by Job) -> 05 Ch. 6.
 - Memory Sheet / save template -> 06 §B17 (referenced by 05 Ch. 19).
+- Combat tracker: WHAT goes in it (scope per mode, roster fidelity, pre-fill) -> 06 §B9; the ARTIFACT ITSELF, emitted verbatim -> 09 (Tracker).
 
 # ONE-SHOT NOTE
 The One-Shot mode uses the same knowledge but a separate assistant. Templates and constraints in 06 (Procedures_and_Format) Part C. Normal PCs, no Echo/Crystals/Blessing, no direct Primals; scope is unlimited by arc (06 §A19).
 
-END OF FILE - 00_Manual_Index (index, conventions, routing for the 00-08 knowledge set).
+END OF FILE - 00_Manual_Index (index, conventions, routing for the 00-09 knowledge set).
