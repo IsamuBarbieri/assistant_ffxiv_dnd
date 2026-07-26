@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.02 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.03 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -169,12 +169,6 @@ Version v2.02 (Claude-native) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 - The home city then sends the party as envoys — **The Lominsan Envoy / The Gridanian Envoy / The Ul'dahn Envoy** — to the other two city-states.
 - The paths FULLY MERGE at **The Scions of the Seventh Dawn** (+ the Grand Company quest **The Company You Keep**). From that beat the MSQ is UNIFIED; the save's MSQ line becomes shared.
 - Rule: keep [A] city-specific until the Scions beat, then switch to the unified MSQ track. Reference the transition by beat NAME, never by level.
-
-## 1.8 Cross-references
-- Session 0 operational setup: Ch. 2.
-- Character Creation / Job: Ch. 3.
-- Reveal timing (derived from the MSQ position, not a stored tracker) and saves: Ch. 19.
-- MSQ roadmap and reveal timings: Ch. 5 and 08.1.
 
 # CHAPTER 2 — SESSION 0 SETUP
 **PURPOSE:** Session 0 is NOT a play session: it is the table's "tutorial". It serves to create the characters, build their backgrounds coherently with the world, explain all homebrew rules, and give players the base lore. Final goal: sheets ready, first save created, a group that knows HOW to play and WHY they travel together.
@@ -370,7 +364,7 @@ A PC can ATTEMPT to invoke the Echo deliberately (to seek a clue, read the past 
 - Echo bearers resist Primal ENTHRALLMENT: the mind-domination that bends and enslaves the exposed.
 - In play: the PCs are NOT automatically enthralled when facing a Primal, unlike common mortals. This makes the party the only force able to fight certain enemies.
 - It is still possible to suffer other effects (fear, aetheric damage, etc.): the safeguard concerns Primal Tempering specifically.
-- PERMANENT & INNATE: this Echo-given protection is NOT the Blessing and is NEVER removed — even in Heavensward, when the Blessing is sealed, the PCs stay safe from Tempering (see Ch. 5.6 / 7.3).
+- PERMANENT & INNATE: this Echo-given protection is NOT the Blessing and is NEVER removed — even in Heavensward, when the Blessing is sealed, the PCs stay safe from Tempering (see Ch. 5.6 / 7.3). There is therefore NO tempering-wipe mechanic in this campaign: never invent a check, a save or a countdown by which a PC becomes Tempered.
 - **NPC ALLIES & PRIMALS (binding):** a canonical ally WITHOUT the Echo — Y'shtola, most Scions, soldiers, guides — is NOT enthrallment-safe, so they do NOT enter or fight inside a Primal battle: they would be Tempered. They support from OUTSIDE the arena (open the way, amplify an aetheryte, hold the perimeter, aid before and after), while ONLY the Echo-bearing PCs (and a canonical Echo-bearer such as Minfilia, if the scene truly warrants) confront the Primal in the arena. This is exactly WHY the party is "the only force able to fight certain enemies" (above). FAILURE SHAPE: Y'shtola present inside the Navel fighting Titan — she amplifies the aetheryte at the threshold, then the Echo-bearing party goes in ALONE. (Cross-ref for trial building: 06 §B10 / §B20.)
 
 ## 4.6 The Echo and the "rewind" on a Wipe
@@ -474,14 +468,6 @@ Passive party boon, active while you possess the crystals (NOTE: immunity to Tem
 - Hydaelyn's direct aid is gone; you rely on your own strength and your companions (the test of worth).
 **Recovery (progressive):** the Blessing returns 'at reduced intensity' already after BISMARCK, then grows. At AZYS LLA the dialogue with TIAMAT relights the penultimate crystal; the LAST relights by defeating the ASCIAN PRIME (Igeyorhm + Lahabrea) — and it is the RESTORED Blessing that finally lets the party permanently destroy them: this is where Midgardsormr DEFINITIVELY breaks the seal -> FULL BLESSING, right BEFORE the climax with KING THORDAN.
 **HW STAKES (canon — NOT a tempering wipe):** the threat without the Blessing is NARRATIVE-MECHANICAL, not tempering. A defeated ASCIAN ESCAPES and returns — the party cannot close that thread until the Blessing is restored — and they fight without Hydaelyn's ward. The ECHO keeps the party safe from Tempering throughout HW; there is NO enthrall-wipe move. Boss fights use the normal telegraph/counter combat (Ch. 9).
-
-## 5.7 Cross-references to other chapters
-- **RAISE** (Healer / Red Mage / Summoner): from LEVEL 5; action, consumes a 3rd+ slot; brings a Downed to 1/4 HP + Aether Sickness. Detail Ch. 18.
-- **ARAISE** (Healer only): from LEVEL 9; action, consumes a 5th+ slot; brings a Downed to 1/2 HP + Aether Sickness (the upgraded Raise). Detail Ch. 18.
-- **PHOENIX DOWN** -> 1/4 HP; **PHOENIX TAIL** -> 1/2 HP (both Aether Sickness). Costs/rarity: Ch. 12.
-- **AETHER SICKNESS** (post-revive): damage/healing HALVED, for 2 turns. See Ch. 18.
-- **LIMIT BREAK** (bar 0-3; caps at segment 2 outside boss fights, LB3 only on Bosses; empties on any rest and on any travel): Ch. 6.
-- The 6 Crystals as a narrative device for climaxes: Ch. 7.
 
 # CHAPTER 6 — LIMIT BREAK
 Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burst (a shared resource that charges only with natural 20s). It must be satisfying without becoming a boss one-shot.
@@ -636,11 +622,6 @@ Each crystal must be a MOMENT, not a checkbox:
 - At RECLAMATION: pride earned, not gifted.
 - *(Never frame it as 'a fragment of [SPOILER]' in front of the players.)*
 
-## 7.8 Cross-references
-- Chronology, Blessing effects, loss/recovery: Ch. 5.
-- ENTHRALLMENT mechanic in combat: Ch. 9.
-- Invokable Echo / MSQ visions: Ch. 4.
-
 # CHAPTER 8 — AETHERYTE TRAVEL
 **PURPOSE:** rules for teleporting via Aetheryte.
 
@@ -733,12 +714,6 @@ Each boss lists, for each mechanic:
 - **LANDSLIDE (cone + push):** Recurring trigger. Telegraph: Titan draws back his forearm for a frontal sweep (1 round). Threat: frontal cone with strong KNOCKBACK. Counter: leave the cone or anchor yourself; mind the edges/cliffs.
 - **TITAN'S HEART (weak point, ONE-TIME):** Trigger at 50% HP. Telegraph: the chest opens and reveals a pulsing CORE (a WIDE window, multiple rounds). Threat: if the Heart stays intact, it unleashes EARTHEN FURY (an arena-wide blow). Counter: destroy the Heart within the window. If not in time: the Fury hits but is SURVIVABLE, NOT an automatic wipe.
 - **TREMORS (mounting pressure):** Trigger at intervals after the Heart phase. Telegraph: the ground shakes ever more strongly. Threat: an area damage covering MORE ground each repetition. Counter: move to safe zones; pushes you to close the fight.
-
-## 9.10 Cross-references
-- TEMPERING: the PCs are Tempering-safe via the ECHO (Ch. 4.5/7.3); without the Blessing, defeated Ascians escape and return (Ch. 5.6) — there is NO tempering-wipe mechanic.
-- WIPE / Out of Combat / Raise: Ch. 18.
-- LIMIT BREAK in combat: Ch. 6.
-- Location-consistent monsters / base-manual reskins: Ch. 10 and Bestiary (04).
 
 # CHAPTER 10 — BALANCE & ENCOUNTER BUILDING
 **PURPOSE:** build balanced encounters with the standard D&D 5e engine (XP thresholds + multipliers) and structure the four contexts: Open Area, Plot Battles, Dungeons, Trials.
@@ -905,11 +880,6 @@ Normal healing does NOT revive a Downed character (Ch. 18). You need Raise or th
 - **SUBQUESTS (Ch. 13):** relics, unique items, extra Gil.
 - **Pace:** enough Gil for a REASONABLE stock, without hoarding Tails at will.
 
-## 12.7 Cross-references
-- Out of Combat / Raise / Aether Sickness / Wipe rules: Ch. 18.
-- Healer LB3 (revive without Aether Sickness): Ch. 6.
-- Crafting / Gathering: Ch. 14. Subquests and relics: Ch. 13. Merchants / Grand Company: Ch. 17.
-
 # CHAPTER 13 — SUBQUESTS
 Subquests are WELCOME: they enrich the world, explore lore and show places the MSQ doesn't touch. But they must be handled with consistency and fidelity.
 
@@ -952,9 +922,6 @@ When the subquest ends, RETURN EXACTLY to that point. Full system in Ch. 19; ope
 5. PLAY: it is played (dynamic combat as Ch. 9).
 6. RESOLUTION / TURN-IN (a PLAYED beat, still ON_SUBQUEST): return to the COMMISSIONER (the NPC who gave the hook) at their location — or the canonical turn-in NPC if the quest structures it so — for the CLOSING SCENE + the REWARD (13.4). A subquest is NOT concluded at the objective; it concludes at this turn-in — never fold it straight into the MSQ nor reduce it to a one-line 'hand it in later'.
 7. CLOSURE + RETURN: ONLY AFTER the turn-in the subquest ENDS (the slot clears); then resume the MSQ from the saved bookmark with a short re-hook. SUSPEND (not the same as closure): at any point the party may return to the MSQ with '/riprendi MSQ' — this SUSPENDS the subquest (slot kept, marked SOSPESA, progress preserved), and '/riprendi SQ' resumes it later from that exact point. Operational lifecycle: 06 §B22.
-
-## 13.8 Cross-references
-- Full continuity/save: Ch. 19. Encounter building / reskin: Ch. 10 and 06. Economic value: Ch. 12. MSQ roadmap: 08.1 and Ch. 5.
 
 # CHAPTER 14 — DOWNTIME / CRAFTING / GATHERING
 Light, optional activities to do during stops.
@@ -1233,9 +1200,6 @@ Whoever is revived (Raise / Araise / Down / Tail) suffers AETHER SICKNESS for 2 
 - The GM may designate SPECIFIC CASES (plot sacrifices, key moments, voluntary choices), declared clearly BEFORE the scene.
 - Outside these cases, the Downed/Wipe system always applies.
 
-## 18.8 Cross-references
-- RAISE (level, slot): see also Ch. 5. Healer LB3 / LB bar / Wipe-reset: Ch. 6. Phoenix Down/Tail costs: Ch. 12. TEMPERING (Echo-safe) & the sealed-Blessing consequence (defeated Ascians escape): Ch. 5 (5.6).
-
 # CHAPTER 19 — MEMORY SHEET / CONTINUITY
 The campaign's 'save file': the SOURCE OF TRUTH the GM re-reads at the start of every session and updates at the end.
 NOT THE PROCEDURE (binding, retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/fine sessione', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
@@ -1277,9 +1241,6 @@ Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created 
 The CANONICAL operational save template (header, sections [A]-[C], footer, file naming) is UNIQUE and lives in 06_Procedures_and_Format (B17). To avoid divergence it is NOT duplicated here: always use that one.
 Section reminder (LEAN): [A] MSQ Position (current quest EN + last completed step) | [B] Party (N PCs + level, table-owned, verbatim) | [C] Active subquest (single slot, or 'nessuna'). Reveals, NPC reputations and world-state are DERIVED from the MSQ position (not stored); Crystals/Blessing are NOT save fields (player-managed, announced in play); Aetherytes are only flagged in-scene, not tracked (06 §B23).
 The combat snapshot is NOT an ordinary part of the save: it is generated only on explicit request (see 19.5).
-
-## 19.7 Cross-references
-- Subquest bookmark: Ch. 13. Full Spoiler Policy: Ch. 1. MSQ position/roadmap: Ch. 5 and 08.1. Blessing/Crystals: Ch. 5 and 7. Grand Company: Ch. 17.
 
 # CHAPTER 20 — TERM INDEX & CROSS-REFERENCES
 NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
