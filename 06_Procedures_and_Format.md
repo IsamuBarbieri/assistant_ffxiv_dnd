@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v4.81 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v4.83 (Claude-native) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -759,8 +759,20 @@ THE BUILD IS NOT DESIGNED HERE — IT IS COPIED (binding): the approved artifact
 
     function initTracker() {
       renderTabs();
+      captureBaseRosters();
       captureRoundTelegraphs();
       renderEncounter();
+    }
+
+    // Istantanea del roster di partenza, presa UNA volta al caricamento (mai su
+    // switchTab, o le modifiche del GM diventerebbero la nuova base). Serve a
+    // "Resetta Scontro" per rimettere chi e' stato rimosso e scartare chi e'
+    // stato aggiunto: senza, il reset ripristinava solo lo STATO di chi era
+    // rimasto in lista, non la lista stessa.
+    function captureBaseRosters() {
+      encountersData.forEach((enc) => {
+        enc.baseCombatants = enc.combatants.map((c) => Object.assign({}, c));
+      });
     }
 
     function switchTab(index) {
@@ -1011,6 +1023,15 @@ THE BUILD IS NOT DESIGNED HERE — IT IS COPIED (binding): the approved artifact
       const enc = encountersData[currentEncounterIndex];
       if (enc.combatants.length === 0) return;
 
+      // Un telegrafo a SCATTA e' SPESO: la mossa parte nel turno del mostro, quindi
+      // si spegne quando quel turno finisce. Lasciarlo acceso lo renderebbe identico
+      // a uno appena armato, e al giro dopo il GM lo farebbe scattare una seconda
+      // volta. Un telegrafo RIARMATO nello stesso turno (1/2/3) non viene toccato.
+      const outgoing = enc.combatants[enc.activeTurnIndex];
+      if (outgoing && outgoing.isMonster && outgoing.telegraph === 0) {
+        outgoing.telegraph = null;
+      }
+
       const anyAlive = enc.combatants.some((c) => !isCombatantDown(c));
       if (!anyAlive) {
         enc.activeTurnIndex = 0;
@@ -1075,18 +1096,43 @@ THE BUILD IS NOT DESIGNED HERE — IT IS COPIED (binding): the approved artifact
       const enc = encountersData[currentEncounterIndex];
       enc.round = 1;
 
-      enc.combatants.forEach((c) => {
-        if (c.isMonster) {
-          c.hp = c.maxHp;
-          c.telegraph = null;
-          c.roundStartTelegraph = null;
-          c.isDown = false;
-          const bonus = c.initBonus !== undefined ? c.initBonus : 0;
-          c.init = Math.floor(Math.random() * 20) + 1 + bonus;
-        } else {
-          c.isDown = false;
+      // Il ROSTER torna quello di partenza: chi era stato rimosso rientra, chi
+      // era stato aggiunto sparisce. Le correzioni del GM che NON sono stato di
+      // scontro (nome, CA, PF massimi) sopravvivono: si azzerano solo PF, "a
+      // terra", telegrafo, note e iniziativa.
+      const base = enc.baseCombatants || enc.combatants.map((c) => Object.assign({}, c));
+      const current = enc.combatants;
+
+      enc.combatants = base.map((b) => {
+        const live = current.find((c) => c.id === b.id);
+        const row = Object.assign({}, b);
+        if (live) {
+          row.name = live.name;
+          row.ac = live.ac;
+          row.maxHp = live.maxHp;
         }
+        row.isDown = false;
+        row.telegraph = null;
+        row.roundStartTelegraph = null;
+        row.notes = "";
+        if (row.isMonster) {
+          row.hp = row.maxHp;
+          const bonus = row.initBonus !== undefined ? row.initBonus : 0;
+          row.init = Math.floor(Math.random() * 20) + 1 + bonus;
+        } else {
+          row.hp = 0;
+          row.maxHp = 0;
+          row.init = "";
+        }
+        return row;
       });
+
+      if (enc.combatants.length === 0) {
+        enc.activeTurnIndex = 0;
+        captureRoundTelegraphs();
+        renderEncounter();
+        return;
+      }
 
       sortInitiative();
 
@@ -1141,51 +1187,25 @@ THE BUILD IS NOT DESIGNED HERE — IT IS COPIED (binding): the approved artifact
 
 ### §A24.2 — THE `statblocks` PANEL (binding)
 
-The panel under the table exists for ONE reason: the GM must resolve a turn WITHOUT scrolling back up the chat
-to find the stat block. Write it accordingly.
+The panel under the table exists for ONE reason: the GM must resolve a turn WITHOUT scrolling back up the chat to find the stat block. Write it accordingly.
 
-- **TELEGRAPHIC, NEVER PROSE (binding).** No narration, no lore, no "Descrizione visiva", no flavour, no
-  telegraph *imagery* — those belong in the chat stat block and in the beat. Here: only what resolves a turn.
-- **`line`** = the defensive one-liner, in this order and separated by ` · `:
-  `CA <n> · PF <n> · Vel <n> m` then, only if the encounter actually uses them, `TS <abbrev +n>`,
-  `Immunità <…>`, `Resistenze <…>`, `Perc. passiva <n>`, and always `GdS <n>` last.
-- **`moves`** = ONE STRING PER MOVE, each shaped `Nome — effetto`. The em-dash matters: the renderer bolds
-  everything before it. Put in the effect ONLY the resolvable numbers — to-hit or save (`TS DES CD 13`), range
-  or area, damage dice and type, recharge (`Ric. 5-6`), and the rider (`metà se supera`, `spinta 3 m`,
-  `prono`). A move whose telegraph costs a round says `telegrafo 1 round` and nothing more about how it looks.
-- **ONE CARD PER DISTINCT STAT BLOCK, not per combatant**: three identical guards are three ROWS in the table
-  but share ONE card. Elites, bosses and any variant with different numbers each get their own.
-- **Phase gates and legendary actions are moves too** — a boss that changes posture at 50% gets a line
-  (`Fase (50% PF) — …`), because that is exactly what the GM forgets mid-fight.
-- The `notes` column is NOT a smaller copy of this panel: it carries transient state the GM writes during the
-  fight (a condition, a concentration, a timed effect). Everything static about a creature belongs here.
+- **TELEGRAPHIC, NEVER PROSE (binding).** No narration, no lore, no "Descrizione visiva", no flavour, no telegraph *imagery* — those belong in the chat stat block and in the beat. Here: only what resolves a turn.
+- **`line`** = the defensive one-liner, in this order and separated by ` · `: `CA <n> · PF <n> · Vel <n> m` then, only if the encounter actually uses them, `TS <abbrev +n>`, `Immunità <…>`, `Resistenze <…>`, `Perc. passiva <n>`, and always `GdS <n>` last.
+- **`moves`** = ONE STRING PER MOVE, each shaped `Nome — effetto`. The em-dash matters: the renderer bolds everything before it. Put in the effect ONLY the resolvable numbers — to-hit or save (`TS DES CD 13`), range or area, damage dice and type, recharge (`Ric. 5-6`), and the rider (`metà se supera`, `spinta 3 m`, `prono`). A move whose telegraph costs a round says `telegrafo 1 round` and nothing more about how it looks.
+- **ONE CARD PER DISTINCT STAT BLOCK, not per combatant**: three identical guards are three ROWS in the table but share ONE card. Elites, bosses and any variant with different numbers each get their own.
+- **Phase gates and legendary actions are moves too** — a boss that changes posture at 50% gets a line (`Fase (50% PF) — …`), because that is exactly what the GM forgets mid-fight.
+- The `notes` column is NOT a smaller copy of this panel: it carries transient state the GM writes during the fight (a condition, a concentration, a timed effect). Everything static about a creature belongs here.
 
 ### §A24.3 — WHAT THE CONTROLS DO (so they are not "improved" away)
 
-- **`−` / `dmg` / `+` on a monster's HP.** Type the DAMAGE in the small box and press `−` (or just hit Enter,
-  which subtracts): the HP drop by that much and the box clears itself, so a stray second click cannot
-  subtract twice. Press `−` or `+` with the box EMPTY and it steps by 1. The HP field itself stays directly
-  editable — to set an exact value, or restore the maximum, the GM types over it. HP never go below 0.
-- **`In piedi` / `💀 A terra` on a PC.** The GM's only PC-side bookkeeping, because hit points are the
-  players'. Toggled on, the row dims and the name is struck through.
-- **Rows dim automatically at 0 HP** for monsters — the SAME `.down` styling as the PC toggle, so "out of the
-  fight" always looks the same whoever it is.
-- **The turn SKIPS whoever is down.** `Avanza Turno` walks past downed monsters and downed PCs; with everyone
-  down it stops instead of looping.
-- **`⚠` on a monster.** The telegraph counter, for the rounds-of-warning that §B10 requires every telegraphed
-  move to declare. Click cycles `off → 1 → 2 → 3 → off`. It counts down when the turn pointer COMES BACK to
-  that monster — a telegraph starts on its turn and resolves on its next one — and at zero pulses `⚠ SCATTA`
-  in amber until the GM clicks it away.
-- **`Resetta Round`** rewinds the turn order to the first standing combatant and restores every telegraph to
-  the value it had when the round began — for when a round is replayed after a rules correction. The snapshot
-  is taken AFTER the first combatant's own countdown, never before: a monster that opens the round already
-  firing must come back as `⚠ SCATTA`, not as the value it held a step earlier.
-- **`Resetta Scontro`** restores monster HP to maximum, clears telegraphs and down states, RE-ROLLS monster
-  initiative (`1d20 + initBonus`, which is why `initBonus` is in the data) and re-sorts. For rerunning a fight
-  after a wipe or a retcon.
-- **All numeric fields are PLAIN TEXT** (`inputmode="numeric"`), deliberately: the native spinner arrows are
-  too small to hit during a session. HP/AC/initiative commit on CHANGE, not on every keystroke, so editing
-  never steals focus mid-typing.
+- **`−` / `dmg` / `+` on a monster's HP.** Type the DAMAGE in the small box and press `−` (or just hit Enter, which subtracts): the HP drop by that much and the box clears itself, so a stray second click cannot subtract twice. Press `−` or `+` with the box EMPTY and it steps by 1. The HP field itself stays directly editable — to set an exact value, or restore the maximum, the GM types over it. HP never go below 0.
+- **`In piedi` / `💀 A terra` on a PC.** The GM's only PC-side bookkeeping, because hit points are the players'. Toggled on, the row dims and the name is struck through.
+- **Rows dim automatically at 0 HP** for monsters — the SAME `.down` styling as the PC toggle, so "out of the fight" always looks the same whoever it is.
+- **The turn SKIPS whoever is down.** `Avanza Turno` walks past downed monsters and downed PCs; with everyone down it stops instead of looping.
+- **`⚠` on a monster.** The telegraph counter, for the rounds-of-warning that §B10 requires every telegraphed move to declare. Click cycles `off → 1 → 2 → 3 → off`. It counts down when the turn pointer COMES BACK to that monster — a telegraph starts on its turn and resolves on its next one — and at zero pulses `⚠ SCATTA` in amber for that monster's turn. **A fired telegraph is SPENT and clears itself when the turn moves on**, because a stale SCATTA looks exactly like a freshly armed one and would have the GM firing the move a second time next round; re-arming it during the same turn (1/2/3) keeps it. The GM can also clear it by clicking.
+- **`Resetta Round`** rewinds the turn order to the first standing combatant and restores every telegraph to the value it had when the round began — for when a round is replayed after a rules correction. The snapshot is taken AFTER the first combatant's own countdown, never before: a monster that opens the round already firing must come back as `⚠ SCATTA`, not as the value it held a step earlier.
+- **`Resetta Scontro`** puts the fight back to its OPENING state, for rerunning it after a wipe or a retcon. It restores THE ROSTER, not just the numbers: a combatant DELETED during the fight comes back, and one ADDED during the fight is dropped — the starting line-up is snapshotted ONCE at load (`baseCombatants`) and never re-snapshotted, or the GM's own edits would silently become the new baseline. Then monster HP return to maximum, `isDown`/telegraphs/notes clear, monster initiative is RE-ROLLED (`1d20 + initBonus`, which is why `initBonus` lives in the data) and the table re-sorts; PC initiative empties so those are re-rolled at the table too. **What SURVIVES a reset are the GM's non-combat corrections** — the name typed over "PG 1", a PC's AC, a corrected monster max HP: those are session facts, not fight state, and wiping them would make the button hostile to use.
+- **All numeric fields are PLAIN TEXT** (`inputmode="numeric"`), deliberately: the native spinner arrows are too small to hit during a session. HP/AC/initiative commit on CHANGE, not on every keystroke, so editing never steals focus mid-typing.
 
 # PART B — CAMPAIGN FORMATS
 

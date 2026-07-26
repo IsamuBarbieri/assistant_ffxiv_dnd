@@ -476,8 +476,20 @@
 
     function initTracker() {
       renderTabs();
+      captureBaseRosters();
       captureRoundTelegraphs();
       renderEncounter();
+    }
+
+    // Istantanea del roster di partenza, presa UNA volta al caricamento (mai su
+    // switchTab, o le modifiche del GM diventerebbero la nuova base). Serve a
+    // "Resetta Scontro" per rimettere chi e' stato rimosso e scartare chi e'
+    // stato aggiunto: senza, il reset ripristinava solo lo STATO di chi era
+    // rimasto in lista, non la lista stessa.
+    function captureBaseRosters() {
+      encountersData.forEach((enc) => {
+        enc.baseCombatants = enc.combatants.map((c) => Object.assign({}, c));
+      });
     }
 
     function switchTab(index) {
@@ -728,6 +740,15 @@
       const enc = encountersData[currentEncounterIndex];
       if (enc.combatants.length === 0) return;
 
+      // Un telegrafo a SCATTA e' SPESO: la mossa parte nel turno del mostro, quindi
+      // si spegne quando quel turno finisce. Lasciarlo acceso lo renderebbe identico
+      // a uno appena armato, e al giro dopo il GM lo farebbe scattare una seconda
+      // volta. Un telegrafo RIARMATO nello stesso turno (1/2/3) non viene toccato.
+      const outgoing = enc.combatants[enc.activeTurnIndex];
+      if (outgoing && outgoing.isMonster && outgoing.telegraph === 0) {
+        outgoing.telegraph = null;
+      }
+
       const anyAlive = enc.combatants.some((c) => !isCombatantDown(c));
       if (!anyAlive) {
         enc.activeTurnIndex = 0;
@@ -792,18 +813,43 @@
       const enc = encountersData[currentEncounterIndex];
       enc.round = 1;
 
-      enc.combatants.forEach((c) => {
-        if (c.isMonster) {
-          c.hp = c.maxHp;
-          c.telegraph = null;
-          c.roundStartTelegraph = null;
-          c.isDown = false;
-          const bonus = c.initBonus !== undefined ? c.initBonus : 0;
-          c.init = Math.floor(Math.random() * 20) + 1 + bonus;
-        } else {
-          c.isDown = false;
+      // Il ROSTER torna quello di partenza: chi era stato rimosso rientra, chi
+      // era stato aggiunto sparisce. Le correzioni del GM che NON sono stato di
+      // scontro (nome, CA, PF massimi) sopravvivono: si azzerano solo PF, "a
+      // terra", telegrafo, note e iniziativa.
+      const base = enc.baseCombatants || enc.combatants.map((c) => Object.assign({}, c));
+      const current = enc.combatants;
+
+      enc.combatants = base.map((b) => {
+        const live = current.find((c) => c.id === b.id);
+        const row = Object.assign({}, b);
+        if (live) {
+          row.name = live.name;
+          row.ac = live.ac;
+          row.maxHp = live.maxHp;
         }
+        row.isDown = false;
+        row.telegraph = null;
+        row.roundStartTelegraph = null;
+        row.notes = "";
+        if (row.isMonster) {
+          row.hp = row.maxHp;
+          const bonus = row.initBonus !== undefined ? row.initBonus : 0;
+          row.init = Math.floor(Math.random() * 20) + 1 + bonus;
+        } else {
+          row.hp = 0;
+          row.maxHp = 0;
+          row.init = "";
+        }
+        return row;
       });
+
+      if (enc.combatants.length === 0) {
+        enc.activeTurnIndex = 0;
+        captureRoundTelegraphs();
+        renderEncounter();
+        return;
+      }
 
       sortInitiative();
 
