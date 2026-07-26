@@ -1,13 +1,13 @@
 # 08.0 — CONVENZIONI GLOBALI (una volta sola)
 - MANIFEST (08.1): backbone LOCKED di cutscene/reveal; riprodurre ogni pin, mai droppare/inventare, GATED nascosti. Pin: IN-SCENA / ALTROVE / VISIONE DELL'ECO / REVEAL / GATED.
 - INDICE (08.2-08.6): catena quest reale (giver + step + [duty] + Next). Ordine autoritativo (06 §A14, CGW); reveal-gate 05 Ch.1 + manifest; dialoghi Gamer Escape. Cachati per OGNI quest: ordine, nome, Next MSQ risolto; giver/step spine SOLO dove mostrati (minoranza) — per il resto lo step spine si recupera live (06 §A14).
-- MARCATORI DI CONDENSAZIONE `[COND: …]` (binding, 06 §B2): marcano le SOLE quest condensabili. `[COND: fetch]` = consegna/commissione pura · `[COND: relay]` = relay sociale a basse poste (parla ad A che manda a B, senza scelta/rivelazione/scontro) · `[COND: parallel → <convergenza>]` = cluster di micro-obiettivi paralleli. REGOLA D'ORO: **NON marcato = SI GIOCA**, sempre; un buco nella marcatura costa tempo al tavolo, mai contenuto. MAI `[COND]` su: una quest che nomina una DUTY istanziata, una quest che porta una cutscene/reveal pinnata nei manifest (08.1), una quest-pillar, o qualunque caso dubbio. I marcatori si aggiungono SOLO in una passata di marcatura rivista dal GM, MAI a runtime.
+- MARCATORI DI CONDENSAZIONE `[COND: …]` (binding, 06 §B2): marcano le SOLE quest condensabili. NON INNESCANO NULLA: la condensazione è **innescata dal GM con `/riassumi`**, mai automatica — `/continua` gioca sempre la prossima quest come beat normale, marcata o no. I marcatori DEFINISCONO L'ESTENSIONE del ponte: dove comincia il tratto, dove si ferma (alla prima quest NON marcata, che si gioca in pieno) e cosa ci entra dentro. `[COND: fetch]` = consegna/commissione pura · `[COND: relay]` = relay sociale a basse poste (parla ad A che manda a B, senza scelta/rivelazione/scontro) · `[COND: parallel → <convergenza>]` = cluster di micro-obiettivi paralleli. REGOLA D'ORO: **NON marcato = SI GIOCA**, sempre; un buco nella marcatura costa tempo al tavolo, mai contenuto. MAI `[COND]` su: una quest che nomina una DUTY istanziata, una quest che porta una cutscene/reveal pinnata nei manifest (08.1), una quest-pillar, o qualunque caso dubbio. I marcatori si aggiungono SOLO in una passata di marcatura rivista dal GM, MAI a runtime.
 - MARCATORE `[CUT: <motivo>]` (binding, più forte di `[COND]`): la quest è FUORI dalla campagna — MAI giocata, MAI riassunta in un bridge, MAI usata come bersaglio di '[Info GM] apre'. La catena SCAVALCA la voce e il Next della quest precedente punta direttamente alla prima quest non tagliata. Si usa per contenuto che questo homebrew non implementa (precedente già in uso: le fetch-errand del Crystal Tower). La voce resta nell'indice solo come traccia canonica.
 - OST (08.OST-*): temi di duty/scena risolti da queste tabelle (06 §A23); titoli in inglese (chiave di ricerca).
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.33 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.35 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -601,7 +601,7 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 
 ### CAMPAIGN FINALE & EPILOGUE (binding — terminal beat; detail 06 §B27)
 - The MSQ spine TERMINATES at the quest **Endwalker** — the TERMINAL beat.
-- On its climax (The Dead Ends -> The Final Day / the Endsinger -> the Zenos duel) the LIVE marker enters **[CAMPAGNA CONCLUSA]** and stops offering 'continua'/'prepara' past 6.0 (patches 6.1+ OUT OF SCOPE, Ch.1 / 06 §A19); the wiki flow-driver stops here.
+- On its climax (The Dead Ends -> The Final Day / the Endsinger -> the Zenos duel) the LIVE marker enters **[CAMPAGNA CONCLUSA]** and stops offering 'continua' past 6.0 (patches 6.1+ OUT OF SCOPE, Ch.1 / 06 §A19); the wiki flow-driver stops here.
 - The assistant then OFFERS (never forces) a closing **EPILOGO**: the canonical denouement (homecoming, the Scions' reunion, honouring the fallen, Krile joining, Meteion with the Loporrits), woven with GM-supplied original-colour re-injected per the lean save.
 - Save after finale: [A] Endwalker (completata) · [C] nessuna. Closing marker: '— fine della campagna —'.
 
