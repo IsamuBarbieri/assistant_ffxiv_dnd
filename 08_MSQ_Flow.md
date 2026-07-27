@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.36 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.37 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -668,17 +668,17 @@ Read this (or, for ARR, the inline TRIAL PIN in the 08.2 index) BEFORE building 
 ## 08.OST — TEMI DUTY (consolidato; uso: vedi 08.0)
 #### GENERIC ARR DUNGEON BATTLE THEMES (binding)
 dungeon battle = The Promise of Plunder (early dungeons: Sastasha / Tam-Tara / Copperbell / Toto-Rak) or A Fell Air Falleth (later dungeons) · mid-boss = A Fine Death · final boss = Nemesis — unless a boss-specific theme is noted below.
-- Sastasha — AMBIENTE: From the Depths · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
-- The Tam-Tara Deepcroft — AMBIENTE: Slumber Disturbed · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
-- Copperbell Mines — AMBIENTE: Below · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
-- The Thousand Maws of Toto-Rak — AMBIENTE: A Thousand Screams · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
-- Haukke Manor — AMBIENTE: The Maiden's Lament · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis
-- Brayflox's Longstop — AMBIENTE: Lipflaps on Longstops · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis
-- The Stone Vigil — AMBIENTE: Cold Salvation · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis
-- Snowcloak — AMBIENTE: The Warrens · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTIONS: (mid-boss) Persistence · (final) Pennons Aloft
-- Castrum Meridianum — AMBIENTE: The Emperor's Wont · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTION: (final, Livia) Steel Reason
-- The Praetorium — AMBIENTE: Penitus · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTIONS: (Nero) Steel Reason · (Gaius, final) Bite of the Black Wolf
-- The Keeper of the Lake — AMBIENTE: Silver Tears · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTION: (Midgardsormr, final) Primogenitor
+- Sastasha — (ambient) From the Depths · (battle) The Promise of Plunder · (mid-boss) A Fine Death · (final) Nemesis
+- The Tam-Tara Deepcroft — (ambient) Slumber Disturbed · (battle) The Promise of Plunder · (mid-boss) A Fine Death · (final) Nemesis
+- Copperbell Mines — (ambient) Below · (battle) The Promise of Plunder · (mid-boss) A Fine Death · (final) Nemesis
+- The Thousand Maws of Toto-Rak — (ambient) A Thousand Screams · (battle) The Promise of Plunder · (mid-boss) A Fine Death · (final) Nemesis
+- Haukke Manor — (ambient) The Maiden's Lament · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis
+- Brayflox's Longstop — (ambient) Lipflaps on Longstops · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis
+- The Stone Vigil — (ambient) Cold Salvation · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis
+- Snowcloak — (ambient) The Warrens · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTIONS: (mid-boss) Persistence · (final) Pennons Aloft
+- Castrum Meridianum — (ambient) The Emperor's Wont · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTION: (final, Livia) Steel Reason
+- The Praetorium — (ambient) Penitus · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTIONS: (Nero) Steel Reason · (Gaius, final) Bite of the Black Wolf
+- The Keeper of the Lake — (ambient) Silver Tears · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTION: (Midgardsormr, final) Primogenitor
 - The Bowl of Embers (IFRIT) — Primal Judgment (CGW-listed; the iconic Ifrit track is often 'Fallen Angel')
 - The Navel (TITAN) — Weight of a Whisper -> Weight of His Will -> Weight of the World -> Heartless -> Under the Weight
 - The Howling Eye (GARUDA) — Fallen Angel
@@ -693,16 +693,16 @@ CRYSTAL TOWER (gate):
 - The World of Darkness — (ambient) Blind to the Dark · (battle) Hamartomania · (Cloud of Darkness, final) The Reach of Darkness
 #### GENERIC HW DUNGEON BATTLE THEMES (binding)
 mid-boss & final-boss fights = Ominous Prognisticks (unless a boss-specific theme is noted); HW open-world/zone battle = Melt.
-- The Dusk Vigil — Descent
-- Sohm Al — Slumber Eternal
-- The Aery — Roar of the Wyrm
-- The Vault — Hallowed Halls
-- The Great Gubal Library — Ink Long Dry
-- The Antitower — Upon the Rocks
-- The Aetherochemical Research Facility — Imagination
-- Sohr Khai — Apologies
-- Xelphatol — Grounded
-- Baelsar's Wall — Another Brick
+- The Dusk Vigil — (ambient) Descent · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- Sohm Al — (ambient) Slumber Eternal · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- The Aery — (ambient) Roar of the Wyrm · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- The Vault — (ambient) Hallowed Halls · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- The Great Gubal Library — (ambient) Ink Long Dry · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- The Antitower — (ambient) Upon the Rocks · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- The Aetherochemical Research Facility — (ambient) Imagination · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- Sohr Khai — (ambient) Apologies · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- Xelphatol — (ambient) Grounded · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+- Baelsar's Wall — (ambient) Another Brick · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
 - Thok ast Thok (RAVANA) — Unbending Steel
 - The Limitless Blue (BISMARCK) — Limitless Blue (fase 1) · Woe That Is Madness? (fase 2)
 - The Singularity Reactor (KING THORDAN) — Heroes
@@ -711,14 +711,14 @@ mid-boss & final-boss fights = Ominous Prognisticks (unless a boss-specific them
 #### GENERIC SB DUNGEON BATTLE THEMES (binding)
 dungeon battle/mid-boss = To the Fore · dungeon final boss = Triumph (pattern confirmed by the Bardam’s Mettle row below); SB open-world/zone battle = Looping in the Deepest Fringes.
 - The Sirensong Sea — Dawnbound · EXCEPTIONS: (mid-boss) Persistence · (final) Triumph (CGW-verified)
-- Castrum Abania — Alienus
-- Ala Mhigo — Liberty or Death
-- The Drowned City of Skalla — Far From Home
-- The Burn — Down Where Daemons Dwell
-- Hells' Lid — Answer on High
-- Bardam's Mettle — Most Unworthy · To the Fore · Triumph
-- Doma Castle — Gates of the Moon
-- The Ghimlyt Dark — A Pall Most Murderous
+- Castrum Abania — (ambient) Alienus · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- Ala Mhigo — (ambient) Liberty or Death · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- The Drowned City of Skalla — (ambient) Far From Home · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- The Burn — (ambient) Down Where Daemons Dwell · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- Hells' Lid — (ambient) Answer on High · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- Bardam's Mettle — (ambient) Most Unworthy · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- Doma Castle — (ambient) Gates of the Moon · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
+- The Ghimlyt Dark — (ambient) A Pall Most Murderous · (battle) To the Fore · (mid-boss) To the Fore · (final) Triumph
 - The Pool of Tribute (SUSANO) — Revelation
 - Emanation (LAKSHMI) — Beauty's Wicked Wiles
 - The Royal Menagerie (SHINRYU) — The Worm's Tail
@@ -726,12 +726,12 @@ dungeon battle/mid-boss = To the Fore · dungeon final boss = Triumph (pattern c
 ---
 #### GENERIC ShB DUNGEON BATTLE THEMES (binding)
 dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is noted); ShB open-world/zone battle = Rencounter.
-- Holminster Switch — To Fire and Sword
-- Dohn Mheg — Figments
-- The Qitana Ravel — Unwound
-- Malikah's Well — Deep Down
-- Mt. Gulg — In the Belly of the Beast
-- Amaurot — Mortal Instants
+- Holminster Switch — (ambient) To Fire and Sword · (mid-boss) Insatiable · (final) Insatiable
+- Dohn Mheg — (ambient) Figments · (mid-boss) Insatiable · (final) Insatiable
+- The Qitana Ravel — (ambient) Unwound · (mid-boss) Insatiable · (final) Insatiable
+- Malikah's Well — (ambient) Deep Down · (mid-boss) Insatiable · (final) Insatiable
+- Mt. Gulg — (ambient) In the Belly of the Beast · (mid-boss) Insatiable · (final) Insatiable
+- Amaurot — (ambient) Mortal Instants · (mid-boss) Insatiable · (final) Insatiable
 - The Dancing Plague (TITANIA) — What Angel Wakes Me
 - The Crown of the Immaculate (INNOCENCE) — Insanity
 - The Dying Gasp (HADES) — Invincible
@@ -739,12 +739,12 @@ dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is 
 ---
 #### GENERIC EW DUNGEON BATTLE THEMES (binding)
 dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consistent with the verified Ktisis Hyperboreia / The Dead Ends rows); EW open-world/zone battle = Unbowed.
-- Vanaspati — As the Sky Burns
-- The Tower of Zot — Tower of Zot
-- The Tower of Babil — Garlemald Express
-- Ktisis Hyperboreia — Miracle Works · On Blade's Edge · Finality
-- The Aitiascope — The Aetherial Sea
-- The Dead Ends — Of Countless Stars · On Blade's Edge · Finality
+- Vanaspati — (ambient) As the Sky Burns · (mid-boss) In the Arms of War · (final) Finality
+- The Tower of Zot — (ambient) Tower of Zot · (mid-boss) In the Arms of War · (final) Finality
+- The Tower of Babil — (ambient) Garlemald Express · (mid-boss) In the Arms of War · (final) Finality
+- Ktisis Hyperboreia — (ambient) Miracle Works · (mid-boss) On Blade's Edge · (final) Finality
+- The Aitiascope — (ambient) The Aetherial Sea · (mid-boss) In the Arms of War · (final) Finality
+- The Dead Ends — (ambient) Of Countless Stars · (mid-boss) On Blade's Edge · (final) Finality
 - The Dark Inside (ZODIARK) — Endcaller
 - The Final Day (ENDSINGER) — The Final Day
 - Storm's Crown (BARBARICCIA) — Battle with the Four Fiends (Buried Memory)
