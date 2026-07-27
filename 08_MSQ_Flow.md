@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.38 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.39 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -80,6 +80,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** starting cities (Gridania/Ul'dah/Limsa) -> Scions. MSQ Primals: Ifrit, Titan, Garuda, Ultima Weapon. Antagonists: Gaius + Lahabrea. Crystals: all 6 in ARR, sealed at L8. Gate: Crystal Tower (Mor Dhona, L8).
 
 ### ARR CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
+**SCENE OST FOR THE PINS BELOW (binding, co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** all 6 elemental crystals are collected across ARR, sealed at L8 end (see Blessing of Light block above). No Enthrallment mechanic in ARR. Revamped-duty lock: see the ARR REVAMPED-DUTY LOCK block above (Toto-Rak, Castrum Meridianum, The Praetorium, Cape Westwind, Steps of Faith).
 
 #### L1 — The Echo awakens
@@ -251,6 +252,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **[A] SAVE CONVENTION during the CT arc (binding - answers 'do we save the quest or the dungeon name?'):** the save [A] 'Missione MSQ corrente (EN)' during this arc = the owning CT QUESTLINE QUEST - **Legacy of Allag** (Entry-1/Entry-2 + Labyrinth of the Ancients), **For Prosperity** (Syrcus Tower), **The Light of Hope** (The World of Darkness + the seal) - NEVER a DUTY/raid name. A duty is played INSIDE the quest, so 'Labyrinth of the Ancients' / 'Syrcus Tower' / 'The World of Darkness' belong in 'Ultimo step completato' (e.g. 'completato il Labyrinth of the Ancients'), NEVER in the mission field. These three CT questline titles are VALID [A] mission titles for MISSION-IN-INDEX (06 §B24) even though they are not listed in the 08.2 chain index - treat them as index-valid for the duration of the CT arc. (This mirrors normal MSQ: the mission is always the owning quest, the dungeon is its [duty] step.)
 
 ### CRYSTAL TOWER CANONICAL CUTSCENE & REVEAL MANIFEST (binding - anti-drop / anti-invent - FROZEN v3.13, wiki-audited)
+**SCENE OST FOR THE PINS BELOW (binding, co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** same role & legend as the other 5 manifests (shared block above). The full beat-by-beat IN-SCENA sequence (Entry-1/Entry-2/Labyrinth/Syrcus/World of Darkness/The Light of Hope) is NOT repeated here — it lives in the CRYSTAL TOWER SPINE below, which carries the identical binding weight (never drop/invent/reorder a beat listed there). This block adds only the REVEAL/GATED data not already explicit in the spine:
 - REVEAL (record as known here, state derived, Ch.19.3): G'raha & the Royal Eye; the Allagan/Xande/Amon/Cloud-of-Darkness history; BAHAMUT = DALAMUD; the Tower sealed with G'raha inside.
 - GATED (WARNING ShB): that G'raha will RETURN as the CRYSTAL EXARCH, and the ~200-year-future origin (payoff ShB L18) - NEVER named or anticipated here. (The self-seal 'wake when Eorzea reaches Allagan heights' IS shown here - that part is NOT gated.)
@@ -283,6 +285,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** Dragonsong War; Ishgard; Estinien (Azure Dragoon) vs NIDHOGG; KING THORDAN; ASCIAN PRIME (Igeyorhm + Lahabrea). Crystals: gradual relighting, full restoration at L11. ENTHRALLMENT active until the Blessing returns. No side gate.
 
 ### HEAVENSWARD CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
+**SCENE OST FOR THE PINS BELOW (binding, co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** HW carries the SEALED-BLESSING arc: OFF from L9 (defeated Ascians can't be permanently killed, Hydaelyn's ward gone; the ECHO still keeps the party Tempering-safe, Ch.5.6), relights PARTIALLY after Bismarck (L10), FULLY restored at the Ascian Prime (L11) — announce each transition per §B23. No HW revamped-duty lock (duties intact, use current wiki version).
 
 #### L9 — Ishgard & the Dragonsong War (HW 3.0 opening)
@@ -371,6 +374,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** liberation of ALA MHIGO (Gyr Abania) and DOMA (Othard); antagonist ZENOS yae Galvus; SHINRYU; TSUKUYOMI. Blessing INTACT. No side gate.
 
 ### STORMBLOOD CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
+**SCENE OST FOR THE PINS BELOW (binding, co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** in SB the Blessing is INTACT throughout (the HW Enthrallment mechanic, Ch.5.6, does NOT apply here). No SB revamped-duty lock (duties intact, use current wiki version).
 
 #### L13 — The Ala Mhigan Resistance & the liberation of Doma (SB 4.0, part 1)
@@ -453,6 +457,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 > **LIGHT NOTE (PURELY NARRATIVE - no mechanic):** thanks to the Blessing of Light, the PCs can ABSORB the Lightwardens' Light without becoming Sin Eaters. BUT the Blessing is NOT infallible: in lore the Light accumulates and at the climax (after Innocence) risks transforming the bearer, averted by the plot (Ardbert's intervention / the return of night). Render it ONLY as narrative tension (descriptions, doubts, signs of corruption): NO tracker, threshold or mechanical penalty.
 
 ### SHADOWBRINGERS CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
+**SCENE OST FOR THE PINS BELOW (binding, co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** the Blessing is INTACT in ShB (no Enthrallment mechanic); the accumulating LIGHT is narrative tension only (see LIGHT NOTE above — NO tracker). ShB is the deep-lore arc: many long IN-SCENA cutscenes — render as DEPTH, never as branching (Ch.16.6). No ShB revamped-duty lock (duties intact).
 
 #### L16 — Arrival in the First; Il Mheg & Titania (ShB 5.0, part 1)
@@ -533,6 +538,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** the Final Days; ZODIARK and HYDAELYN; the journey toward the source of despair (Meteion); ELPIS (the Ancients' past); ULTIMA THULE; the final confrontation with the ENDSINGER. Level CAP at 20. No side gate. No post-EW patches. Dawntrail EXCLUDED.
 
 ### ENDWALKER CANONICAL CUTSCENE & REVEAL MANIFEST (binding — anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
+**SCENE OST FOR THE PINS BELOW (binding, co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** EW is played entirely at CAP (milestone L20), so this manifest is organized by STORY PHASE (zone), not by level. This arc lands the DEEPEST gated reveals (Venat = Hydaelyn, the Final Days, Meteion, Dynamis) — after ShB almost nothing remains gated. The Blessing is INTACT. Duty order: Zot -> Babil -> Storm's Crown -> Vanaspati -> The Dark Inside -> Ktisis Hyperboreia -> The Aitiascope -> The Mothercrystal -> The Dead Ends -> The Final Day (the Aitiascope is cleared BEFORE the Mothercrystal, same quest). No EW revamped-duty lock.
 
 **Phase 1 — Sharlayan & Thavnair: the Final Days begin**
