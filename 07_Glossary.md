@@ -1,5 +1,5 @@
 # 07_GLOSSARY - Naming System & Recurring Names (SINGLE SOURCE)
-Version v1.34
+Version v1.35
 
 ## G0 - PRINCIPLE & USAGE
 - NARRATIVE LEVEL: translate by SENSE into "Italian (English)" at the FIRST occurrence, then only Italian. Applies to EVERYTHING built from transparent English words: personal names, surnames, epithets/nicknames, places/settlements, ships/vessels, taverns/inns, organizations/groups/companies, signs, titles. (ABILITY / SPELL / MOVE / ACTION NAMES are a SPECIAL CASE -> see G24: FFXIV/FF-iconic names are KEPT, only the effect is in Italian.) If no standard rendering exists, CREATE one. The English in parentheses is a provenance label.
@@ -191,6 +191,7 @@ For franchise-iconic recurring monsters use the rendering below VERBATIM. For FF
   - Tonberry -> Tomberry (consistent across the WHOLE series)
   - Moogle -> Moguri (see G23)
   - Bomb -> Piros (FFX/FFX-2)
+  - Goobbue -> Gubbue (FFXIV-recurring; FREEZES the drift observed across sessions — 'Gobbue' and 'Gubbue' were both coined for the same creature)
   - Cactuar -> Kyactus (FFX/FFX-2)
   - Coeurl -> Iaguaro (FFX/FFX-2)
   - Flan -> Budino (FFX/FFX-2; colour variants e.g. "Budino nero")

@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.35 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.36 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -668,17 +668,17 @@ Read this (or, for ARR, the inline TRIAL PIN in the 08.2 index) BEFORE building 
 ## 08.OST — TEMI DUTY (consolidato; uso: vedi 08.0)
 #### GENERIC ARR DUNGEON BATTLE THEMES (binding)
 dungeon battle = The Promise of Plunder (early dungeons: Sastasha / Tam-Tara / Copperbell / Toto-Rak) or A Fell Air Falleth (later dungeons) · mid-boss = A Fine Death · final boss = Nemesis — unless a boss-specific theme is noted below.
-- Sastasha — From the Depths
-- The Tam-Tara Deepcroft — Slumber Disturbed
-- Copperbell Mines — Below
-- The Thousand Maws of Toto-Rak — A Thousand Screams
-- Haukke Manor — The Maiden's Lament
-- Brayflox's Longstop — Lipflaps on Longstops
-- The Stone Vigil — Cold Salvation
-- Snowcloak — The Warrens · EXCEPTIONS: (mid-boss) Persistence · (final) Pennons Aloft
-- Castrum Meridianum — The Emperor's Wont · EXCEPTION: (final, Livia) Steel Reason
-- The Praetorium — Penitus · EXCEPTIONS: (Nero) Steel Reason · (Gaius, final) Bite of the Black Wolf
-- The Keeper of the Lake — Silver Tears · EXCEPTION: (Midgardsormr, final) Primogenitor
+- Sastasha — AMBIENTE: From the Depths · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
+- The Tam-Tara Deepcroft — AMBIENTE: Slumber Disturbed · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
+- Copperbell Mines — AMBIENTE: Below · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
+- The Thousand Maws of Toto-Rak — AMBIENTE: A Thousand Screams · battaglia: The Promise of Plunder · mid-boss: A Fine Death · finale: Nemesis
+- Haukke Manor — AMBIENTE: The Maiden's Lament · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis
+- Brayflox's Longstop — AMBIENTE: Lipflaps on Longstops · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis
+- The Stone Vigil — AMBIENTE: Cold Salvation · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis
+- Snowcloak — AMBIENTE: The Warrens · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTIONS: (mid-boss) Persistence · (final) Pennons Aloft
+- Castrum Meridianum — AMBIENTE: The Emperor's Wont · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTION: (final, Livia) Steel Reason
+- The Praetorium — AMBIENTE: Penitus · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTIONS: (Nero) Steel Reason · (Gaius, final) Bite of the Black Wolf
+- The Keeper of the Lake — AMBIENTE: Silver Tears · battaglia: A Fell Air Falleth · mid-boss: A Fine Death · finale: Nemesis · EXCEPTION: (Midgardsormr, final) Primogenitor
 - The Bowl of Embers (IFRIT) — Primal Judgment (CGW-listed; the iconic Ifrit track is often 'Fallen Angel')
 - The Navel (TITAN) — Weight of a Whisper -> Weight of His Will -> Weight of the World -> Heartless -> Under the Weight
 - The Howling Eye (GARUDA) — Fallen Angel
