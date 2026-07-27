@@ -416,6 +416,33 @@ read. A count tells you where to look; it never tells you what is there.
 on a weak model, because a guaranteed-present rule is worth MORE to a weak model, not less. So a strip is
 tested alone, before other changes, and is the first thing rolled back if a checklist item disappears.
 
+## 2.17 Designing a feature AROUND a known model weakness, instead of hoping
+The tactical map (§B8) is the worked example, and the method generalises to any feature added from here on.
+The floor model's documented weakness is **spatial reasoning**; a scale grid is the worst possible task for it.
+The feature shipped anyway, because every design choice was made to REMOVE a spatial decision rather than to
+add a warning:
+
+- **A closed set of labels instead of a free number.** Seven named presets (`CUNICOLO` … `ARENA`) turn "how big
+  is this room" — an estimate — into "what kind of place is this" — a classification, which the model already
+  performs in prose. **This is the transferable move:** when a step needs a quantity the model is bad at,
+  see whether the quantity can be reached by naming instead of measuring.
+- **Read, don't derive.** The room's shape is already written in the 08 arena pins and the beat's own
+  read-aloud; a creature's footprint is a table lookup from the Taglia in the stat block just written. Neither
+  is computed.
+- **Do the arithmetic ONCE, where it can be checked.** The `In caselle:` line converts metres to cells a single
+  time, in a visible place, instead of leaving the GM (or the model) to redo it every round.
+- **Aesthetics chosen for robustness.** Solid-block walls beat box-drawing characters not because they look
+  better but because every wall cell is the SAME character — box-drawing needs the right junction per position,
+  which is topology. No emoji, because double-width glyphs break the alignment that is the map's whole point.
+- **A declared fallback that is the old behaviour.** If the self-check fails, emit the key line without the
+  grid. A wrong map is worse than no map, because the GM copies it onto the mat without re-reading it.
+
+**And the part that was NOT mine:** five of the design's best decisions came from the GM — sizing by real
+shape, the scale being wrong by excess, dropping the axis labels, not drawing the PCs, and "the map is the
+starting state and nothing else", which replaced a weaker rule of mine and removed a symbol. **The person who
+will use the artefact at the table sees things the person writing the rule does not** — the same lesson the
+combat tracker taught (ARCHIVE, cv23-cv28).
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
