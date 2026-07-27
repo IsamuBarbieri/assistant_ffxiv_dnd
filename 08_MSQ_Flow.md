@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.37 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.38 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -770,11 +770,11 @@ CITIES (day / night):
 - Gridania — Wailers and Waterwheels / Dance of the Fireflies
 - Ul'dah — A New Hope / Sultana Dreaming
 ZONES:
-- Black Shroud — Serenity
-- Thanalan — To the Sun
-- La Noscea — On Westerly Winds
-- Coerthas — Fealty
-- Mor Dhona — Intertwined
+- Black Shroud — (ambient) Serenity · (battle) The Land Bends
+- Thanalan — (ambient) To the Sun · (battle) The Land Burns
+- La Noscea — (ambient) On Westerly Winds · (battle) The Land Breathes
+- Coerthas — (ambient) Fealty · (battle) The Land Breaks
+- Mor Dhona — (ambient) Intertwined · (battle) The Land Bleeds
 KEY SCENES (manifest beat -> track):
 - Opening / the Echo vision (L1) — The Echo (the vision theme) · Prelude - Rebirth (title theme). BOUND TO L1 ONLY: 'The Echo' is the OPENING-VISION theme — do NOT reuse it for later Hydaelyn/crystal beats (see the next row).
 - CRYSTAL OBTAINED / Hydaelyn speaks ('Hear... Feel... Think...') — any of the 6 elemental crystals, at its canonical beat (L2 Water, L4 Fire, L4 Lightning, L5 Earth, L6 Ice, L7 Wind) — Prelude - Rebirth (the title/Hydaelyn theme)
@@ -792,12 +792,12 @@ KEY SCENES (manifest beat -> track):
 CITIES (day / night):
 - Ishgard — Solid / Night in the Brume (lower city); upper city: Nobility Obliges / Nobility Sleeps
 ZONES:
-- Coerthas Western Highlands — Against the Wind / Black and White
-- Dravanian Forelands — Painted Foothills / Painted Skies
-- Dravanian Hinterlands — Missing Pages / The Silent Regard of Stars
-- The Churning Mists — Landlords / Skylords
-- The Sea of Clouds — Lost in the Clouds / Close to the Heavens
-- Azys Lla — Order Yet Undeciphered
+- Coerthas Western Highlands — (ambient) Against the Wind / Black and White · (battle) Melt
+- Dravanian Forelands — (ambient) Painted Foothills / Painted Skies · (battle) Melt
+- Dravanian Hinterlands — (ambient) Missing Pages / The Silent Regard of Stars · (battle) Melt
+- The Churning Mists — (ambient) Landlords / Skylords · (battle) Melt
+- The Sea of Clouds — (ambient) Lost in the Clouds / Close to the Heavens · (battle) Melt
+- Azys Lla — (ambient) Order Yet Undeciphered · (battle) Melt
 KEY SCENES:
 - HW opening (FMV) — Heavensward
 - Vocal theme / credits — Dragonsong
@@ -813,12 +813,12 @@ CITIES (day / night):
 - Kugane — Crimson Sunrise / Crimson Sunset
 - Rhalgr's Reach — Impact
 ZONES:
-- The Fringes — Beyond the Wall / Hope Forgotten
-- The Peaks — On High / The Stone Remembers
-- The Lochs — Songs of Salt and Suffering / Old Wounds
-- The Ruby Sea — Liquid Flame
-- Yanxia — A Father's Pride / A Mother's Pride
-- The Azim Steppe — Drowning in the Horizon / He Rises Above
+- The Fringes — (ambient) Beyond the Wall / Hope Forgotten · (battle) Looping in the Deepest Fringes
+- The Peaks — (ambient) On High / The Stone Remembers · (battle) Looping in the Deepest Fringes
+- The Lochs — (ambient) Songs of Salt and Suffering / Old Wounds · (battle) Looping in the Deepest Fringes
+- The Ruby Sea — (ambient) Liquid Flame · (battle) Looping in the Deepest Fringes
+- Yanxia — (ambient) A Father's Pride / A Mother's Pride · (battle) Looping in the Deepest Fringes
+- The Azim Steppe — (ambient) Drowning in the Horizon / He Rises Above · (battle) Looping in the Deepest Fringes
 KEY SCENES:
 - Main theme / vocal — Revolutions
 - Zenos (theme) — The Measure of His Reach
@@ -832,12 +832,12 @@ KEY SCENES:
 CITIES (day / night):
 - The Crystarium — The Dark Which Illuminates the World / Knowledge Never Sleeps
 ZONES:
-- Lakeland — The Source / Unchanging, Everchanging
-- Kholusia — Unmatching Pieces
-- Il Mheg — Fierce and Free / The Faerie Ring
-- Amh Araeng — Sands of Amber / Sands of Blood
-- The Rak'tika Greatwood — Civilizations / A Hopeless Race
-- The Tempest — Full Fathom Five (upper) / 'Neath Dark Waters (Amaurot)
+- Lakeland — (ambient) The Source / Unchanging, Everchanging · (battle) Rencounter
+- Kholusia — (ambient) Unmatching Pieces · (battle) Rencounter
+- Il Mheg — (ambient) Fierce and Free / The Faerie Ring · (battle) Rencounter
+- Amh Araeng — (ambient) Sands of Amber / Sands of Blood · (battle) Rencounter
+- The Rak'tika Greatwood — (ambient) Civilizations / A Hopeless Race · (battle) Rencounter
+- The Tempest — (ambient) Full Fathom Five (upper) / 'Neath Dark Waters (Amaurot) · (battle) Rencounter
 KEY SCENES:
 - Main theme / vocal — Shadowbringers / Tomorrow and Tomorrow
 - Amaurot (descent) — Mortal Instants
@@ -849,12 +849,12 @@ KEY SCENES:
 CITIES (day / night):
 - Old Sharlayan — The Ewer Brimmeth / The Nautilus Knoweth
 ZONES:
-- Thavnair — Divine Words / Prayers Repeated
-- Radz-at-Han (MSQ) — Twilit Terraces
-- Garlemald — White Snow, Black Steel / Black Steel, Cold Embers
-- Mare Lamentorum — One Small Step
-- Elpis — Sky Unsundered / Stars Long Dead
-- Ultima Thule — Echoes in the Distance / Close in the Distance
+- Thavnair — (ambient) Divine Words / Prayers Repeated · (battle) Unbowed
+- Radz-at-Han (MSQ) — (ambient) Twilit Terraces · (battle) Unbowed
+- Garlemald — (ambient) White Snow, Black Steel / Black Steel, Cold Embers · (battle) Unbowed
+- Mare Lamentorum — (ambient) One Small Step · (battle) Unbowed
+- Elpis — (ambient) Sky Unsundered / Stars Long Dead · (battle) Unbowed
+- Ultima Thule — (ambient) Echoes in the Distance / Close in the Distance · (battle) Unbowed
 KEY SCENES:
 - Main theme / vocal — Endwalker - Footfalls
 - Venat / Elpis (instanced battle) — Flow Together
