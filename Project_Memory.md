@@ -1,4 +1,4 @@
-# M1 — PROJECT MEMORY (knowledge file for the MAINTAINER assistant)
+# PM — PROJECT MEMORY (knowledge file for the MAINTAINER assistant)
 
 Version mv1 | Replaces `FFXIV_GEM_Project_MASTER_Handoff.md` (retired, same commit)
 
