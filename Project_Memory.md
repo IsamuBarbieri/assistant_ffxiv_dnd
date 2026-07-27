@@ -1,10 +1,13 @@
-# PM — PROJECT MEMORY (knowledge file for the MAINTAINER assistant)
+# PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv1 | Replaces `FFXIV_GEM_Project_MASTER_Handoff.md` (retired, same commit)
+Version mv2
 
-> **THIS FILE IS NOT PLAY KNOWLEDGE.** It is loaded ONLY into the MAINTAINER assistant, whose job is to develop
-> and audit the system, never to run a session. It must NEVER be uploaded to the Campaign, One-Shot or
-> Loremonger assistants.
+> **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
+> its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
+> from now. It must NEVER be uploaded to the Campaign, One-Shot or Loremonger assistants.
+> *(An earlier plan made this the knowledge of a fourth "Maintainer" assistant with its own instructions file.
+> The GM retired that idea: no fourth assistant exists, `Instructions_Maintainer.txt` was deleted, and this file
+> serves the cold-start need directly.)*
 >
 > **QUARANTINE RULE (binding, read before anything else):** this file records the project's HISTORY, and that
 > history contains commands, rules and file names that NO LONGER EXIST. Every one of them is tagged
@@ -22,14 +25,13 @@ An FFXIV × D&D 5e homebrew campaign assistant. The GM is human; the assistant w
 never speaks to the players. Instructions and knowledge in ENGLISH, output in ITALIAN. Campaign arc =
 A Realm Reborn → Endwalker (Dawntrail excluded from the CAMPAIGN only; DT names and player options exist).
 
-**Four assistants, one knowledge set:**
+**Three assistants, one knowledge set:**
 
 | Assistant | Instructions file | Role |
 |---|---|---|
 | Campaign | `Instructions_Campaign.txt` (cvNN) | runs the MSQ campaign |
 | One-Shot | `Instructions_OneShot.txt` (ovNN) | builds and runs self-contained modules in ACTS |
 | Loremonger | `Instructions_Loremonger.txt` (lvNN) | read-only lore, stat blocks, utilities |
-| **Maintainer** | `Instructions_Maintainer.txt` (mvNN) | audits and develops the system; NEVER plays |
 
 ## 1.1b THE PROJECT IS HOST-AGNOSTIC (binding design constraint)
 The system runs **equivalently on any host** that offers a custom-instructions box plus file-backed retrieval.
@@ -47,6 +49,24 @@ clickable in <host>" as their justification).
   tool-fetched result. This was once a per-host override; it is now the unconditional rule in 06 §A4/§A23,
   which is why the three `PLATFORM OVERRIDE` blocks were deleted from the instruction files (they had become
   no-ops occupying always-on context).
+
+## 1.1c THE THREE INSTRUCTION FILES ARE EDITED TOGETHER (binding, GM decision 2026-07-27)
+A change that touches a rule the assistants SHARE is applied to **all three files in the same pass**, and where
+the rule is the same **the text is identical word for word** — not merely equivalent. This is not tidiness:
+
+- **Divergence is invisible and permanent.** The three files are never read side by side, so a rule updated in
+  `cv` and left stale in `ov` produces a defect that only shows up in a One-Shot session weeks later, with no
+  signal pointing at the cause. Every drift this project has recorded started as "I'll do the other two later".
+- **Identical text makes the next change mechanical.** A shared rule that reads the same everywhere is a
+  find-and-replace; three paraphrases of the same rule are three rewrites that drift a little further apart
+  each time. The stat-block row proved it: it sat at 1,421 B in `ov` and `lv` — the exact pre-strip `cv`
+  version — for as long as it took someone to look.
+- **The exception is real and narrow:** what genuinely DIFFERS per assistant stays different, and should say so
+  explicitly. `/tracker` scope is the model — one artifact, three scopes (campaign = last beat · one-shot =
+  whole module · loremonger = last statted encounter), each stated in its own file next to the shared emission
+  rule.
+- **Verification is part of the edit, not a later pass:** after touching any shared rule, grep the changed
+  string across all three files. Do it BY STRING, never by section (LESSON 2.11).
 
 ## 1.2 The two layers — this is the single most important structural fact
 - **CONTROL layer** = the host's custom-instructions box. **100% in context on EVERY turn.** This is the
@@ -291,8 +311,15 @@ safety net that makes an imperfect Italian name cheap and an untranslated one a 
 HIGH-FREQUENCY BINDINGS list is *not* what this targets — it is a lookup table for names recurring every beat,
 a proven fix, not a per-name exception encoded as an example.)
 
-## 2.11 An alias removed where a command is DEFINED can survive where it is REFERENCED
-Sweep by trigger string, not by section.
+## 2.11 A thing removed where it is DEFINED survives where it is merely REFERENCED
+**Sweep by string, never by section — and the sweep must cover `cv/ov/lv`, not only the `.md` files.**
+Three recorded instances, which is what makes this a rule rather than an anecdote: an alias killed in the
+section that defined a command survived in the sections that referenced it; three retired commands survived as
+NEGATIONS ("there is no /X") long after the roster dropped them; and `00 → index` survived in **all three**
+instruction files after `00` was deleted — in a batch whose own written verification said to check `cv/ov/lv`,
+where only the `.md` files were actually checked.
+The pattern is always the same: the deletion is done where the thing LIVES, and the mind moves on before
+reaching the places that merely POINT at it.
 
 ## 2.12 When reported symptoms do not match the artefact you were handed, check the artefact first
 A test transcript was once pasted OVER the control-layer file, destroying it on disk. It was caught because five
@@ -306,6 +333,19 @@ holding five binding rules gets split, because a chunk boundary can cut a rule f
 found 18 lines in 06 that were *larger than a chunk* (max 5145 chars) and split them; the file grew 0.4% and the
 partial-retrieval exposure went to zero.
 
+**IT APPLIES TO DATA ROWS JUST AS MUCH AS TO RULES — three instances found in one pass, all in 08:**
+- a DUTY's OST row gave one unlabelled track (the ambient) while battle/mid-boss/final sat in a separate
+  preamble line, so a dungeon played its ambient over the boss;
+- a ZONE's row gave only the ambient while the region's battle theme was named nowhere in the data at all, so
+  an open-world fight came out silent;
+- **172 pinned cutscenes named no track**, while the mood themes that govern them sat 660 lines away — which is
+  why the first named Ascian of the campaign played over dungeon ambience.
+
+**The generalisation worth keeping: a data row must carry everything its consumer needs to act on it, because
+the consumer will use only what the row happens to say.** A default living in a preamble is not a default; it
+is a second retrieval that may not happen. When a set is too big to inline everywhere, put the mapping in the
+nearest enclosing HEADER (the manifest fix used six insertions instead of 111 inline tags).
+
 ## 2.14 Three failure categories — do not spend rules on the third
 - **(a)** Absent or ambiguous rule → fix the rule.
 - **(b)** Right rule in the wrong FORM → fix with a template + a testable self-check, never by repeating the ban.
@@ -316,7 +356,37 @@ partial-retrieval exposure went to zero.
 "model gap". Wrong — the narrative beats had run on the *strongest* model. **Prose defects here are
 PROMPT-layer, not model-capability; do not reach for a model upgrade as the fix.**
 
-## 2.15 REJECTED DECISIONS — do not re-propose
+## 2.15 Optimising for the FLOOR model — what actually moved, and what did not
+The GM tests on the weakest available model deliberately, because what holds there holds everywhere. A pass
+built on published guidance for that model family produced a clear split, and the split is the lesson.
+
+**WHAT WORKED:**
+- **One structural form for one kind of object.** 06 was using SIX line shapes for the same thing — a binding
+  rule that already had a name. Normalising 181 lines to a single shape is free (verified: zero words added,
+  zero lost) and gives an unambiguous instruction/data boundary. It also makes an OMISSION visible, which is
+  the same reason §B6's layout rule only started working once it named its atoms (LESSON 2.6).
+- **Shrinking the always-on layer, MEASURED not assumed.** Every candidate row was grep-verified to exist in 06
+  BEFORE removal. cv 27.2 → 21.7 KB, ov −10%, lv −5.5%. The table checklist came through the strip intact,
+  including the two items a previous strip had lost.
+
+**WHAT REFUTED ITS OWN PREMISE — and this is now the more useful half:**
+- The guidance says open-ended negatives ("do not guess") make the model over-index and fail basic logic. 06
+  has 73 of them, which looked like a large finding. Read one by one, **the large majority were already
+  sourcing rules** — "the creature's TYPE comes from its wiki entry, NEVER inferred from its name" — with the
+  positive form one clause away. Rewriting them wholesale would have spent risk on a problem the corpus did
+  not have.
+- The same shape had already appeared: 65 failure-shape exemplars looked like fat, and 53 were load-bearing;
+  the instruction files looked duplicated, and measured 3-5% textual overlap.
+
+**THE METHOD NOTE THAT GENERALISES: measure the FORM, do not count the OCCURRENCES.** Three audit axes in a
+row were sized by a keyword count and all three shrank by an order of magnitude once the matches were actually
+read. A count tells you where to look; it never tells you what is there.
+
+**AND THE ONE PLACE THE TWO GOALS CONFLICT:** stripping the always-on layer is a COST lever that can cost YIELD
+on a weak model, because a guaranteed-present rule is worth MORE to a weak model, not less. So a strip is
+tested alone, before other changes, and is the first thing rolled back if a checklist item disappears.
+
+## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
   there is no insertion point. Even granting one, it would not help: it improves PRECISION over an already
@@ -445,3 +515,22 @@ a Canvas reference.
   the `/riposo` predicate fixed; `00` retired; 05's eight `Cross-references` blocks removed, two of which were
   second copies of NUMBERS; and the 18 oversized rule-lines in 06 split (LESSON 2.13). The data files 01-04 and
   07 passed every check and were left untouched.
+- **cv32 / ov12 / lv11 · 06 v4.90 / 07 v1.35 / 08 v3.40 — THE FLOOR-MODEL PASS (2026-07-27).** Built on published
+  guidance for the weakest model in use, and split cleanly between what worked and what refuted itself
+  (LESSON 2.15). **Delivered:** the always-on layer back on a diet in all three files — cv 27.2 → 21.7 KB, ov
+  −10%, lv −5.5%, every removed row grep-verified in 06 first; 06 normalised to ONE line form for a named
+  binding rule (181 lines, zero words changed); and shared rules now written IDENTICALLY across the three
+  instruction files (§1.1c). **Not done, deliberately:** the mass rewrite of open-ended negations — read one by
+  one, they were already sourcing rules.
+  **Three OST defects, all the same shape (LESSON 2.13):** a duty's row named only its ambient, so dungeons
+  played the ambient over the boss; a zone's row named only its ambient and the region battle themes were
+  nowhere in the data, so open-world fights came out silent; and 172 pinned cutscenes named no track at all,
+  660 lines from the mood table that governs them. Fixed by completing the rows (44 duty, 29 zone) and putting
+  the mood mapping in all six manifest headers. Leve/FATE themes pinned after the GM authorised Fandom for that
+  one lookup — **four of the nine proposed titles were rejected**, two because they were already assigned
+  elsewhere and would have leaked a Stormblood dungeon track, or a primal lead-in, into subquest fights.
+  **New rule from an observed defect:** a beat ENDS at its statted encounter and never narrates past it — the
+  bridge was writing "you got the cutting, the banquet is ready" after the Bottino line, handing the GM a fight
+  whose result was already decided.
+  **Verified on the floor model:** the strip cost nothing on the table checklist, including the two items an
+  earlier strip had lost; the dungeon OST cadence came out correct after the fix.
