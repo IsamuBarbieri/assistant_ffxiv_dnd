@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v4.91 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v4.92 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -1453,19 +1453,54 @@ Technical data, one line per monster, descending initiative.
 ## §B8 — FIGHT SETUP
 Preview + stat block + mechanics, in the ORDER and LAYOUT fixed by §B1 ENCOUNTER PACKAGE: '**Difficoltà:**' + '**Innesco:**' only → 'Da leggere ai PG' → the TACTICAL MAP (below) → '**Tattica:**' / '**Conseguenze:**' → stat block (each telegraphed action carrying its own '**Telegrafo:**' line, §B10) → `#### Bottino` (§A21). The trigger always precedes the read-aloud; nothing else does.
 - **THE TACTICAL MAP REPLACES THE OLD 'Terreno:' PROSE FIELD (binding):** wherever an encounter package is emitted, the terrain block is a SCALE GRID inside a code fence, followed by ONE key line and ONE distances line. It exists so the GM can copy the fight straight onto the physical battle mat, so it is drawn to the mat's own unit: **1 cell = 1,5 m**, the standard square. NO MAP WHERE THERE IS NO PACKAGE: a TRIVIAL-FORMAT skirmish (§B11) keeps its inline mini-stats and gets no grid — the boundary is the package itself, not a new category.
-- **MAP PRESET — pick the LABEL, never invent a size (binding, output-forcing):** the grid is one of SEVEN fixed shapes, chosen by what the place IS. Naming the place is something you already do in prose; measuring it is not, so this is a classification and never an estimate. The chosen preset is DECLARED in the map header, which is also what makes the self-check countable.
+- **MAP PRESET — pick the LABEL, never invent a size (binding, output-forcing):** the grid is one of NINE fixed shapes, chosen by what the place IS. Naming a place is something you already do in prose; measuring it is not, so this is a classification and never an estimate. **Every grid is stated as LARGHEZZA × ALTEZZA — columns first, rows second** — and the chosen preset is DECLARED in the map header, which is what makes the self-check countable.
 
-| Preset | Grid | Real | Use for |
+| Preset | Larghezza × Altezza | Real | Use for |
 |---|---|---|---|
-| `CUNICOLO` | 2 × 12 | 3 × 18 m | the true dungeon corridor — no flanking, an AoE catches everyone |
-| `CORRIDOIO` | 4 × 12 | 6 × 18 m | wide passage, gallery, bridge |
-| `CELLA` | 6 × 6 | 9 × 9 m | cell, guard post, shrine, dead end |
-| `STANZA` | 9 × 8 | 13,5 × 12 m | the DEFAULT: ordinary chamber, storeroom, courtyard |
-| `SALA` | 12 × 10 | 18 × 15 m | great hall, boss chamber, atrium |
-| `ARENA` | 14 × 14 | 21 × 21 m | trials and boss platforms |
-| `APERTO` | 16 × 12 | 24 × 18 m | clearings, camps, open-field fights |
+| `CUNICOLO` | 2 wide × 12 tall | 3 × 18 m | the true dungeon corridor — no flanking, an AoE catches everyone |
+| `CORRIDOIO` | 4 wide × 12 tall | 6 × 18 m | wide passage, gallery, bridge |
+| `CELLA` | 6 wide × 6 tall | 9 × 9 m | cell, guard post, shrine, dead end |
+| `STANZA` | 9 wide × 8 tall | 13,5 × 12 m | the DEFAULT: ordinary chamber, storeroom, courtyard |
+| `SALA` | 12 wide × 10 tall | 18 × 15 m | great hall, boss chamber, atrium |
+| `ARENA` | 14 wide × 14 tall | 21 × 21 m | a SQUARE or irregular boss platform |
+| `APERTO` | 16 wide × 12 tall | 24 × 18 m | clearings, camps, open-field fights |
+| `SALA TONDA` | 10 × 10 circle | 15 m across | a round chamber, ritual room, smaller boss room |
+| `ARENA TONDA` | 14 × 14 circle | 21 m across | a CIRCULAR boss platform |
 
-- **THE PRESET IS READ, NOT GUESSED (binding):** the shape comes from the 08 arena pin where the duty has one ('a circular platform suspended over a chasm' for The Navel) and from the beat's own read-aloud otherwise. The perimeter wall COUNTS as part of the preset — a `SALA 12×10` is 10 rows of 12 cells INCLUDING the frame, leaving 10×8 playable inside.
+- **THE TWO ROUND PRESETS ARE COPIED VERBATIM, NEVER DRAWN (binding, output-forcing — same principle as the §A24.1 tracker template):** a circle on a character grid needs a different indent computed per row, and computing it is exactly what goes wrong. So the silhouettes below are FIXED: reproduce the one you need EXACTLY as written and then place the actors into its cells. Do not recompute it, do not adjust its width, do not round it differently.
+```
+SALA TONDA (10 × 10)
+      · · · ·      
+    · · · · · ·    
+  · · · · · · · ·  
+· · · · · · · · · ·
+· · · · · · · · · ·
+· · · · · · · · · ·
+· · · · · · · · · ·
+  · · · · · · · ·  
+    · · · · · ·    
+      · · · ·      
+```
+```
+ARENA TONDA (14 × 14)
+          · · · ·          
+      · · · · · · · ·      
+    · · · · · · · · · ·    
+  · · · · · · · · · · · ·  
+  · · · · · · · · · · · ·  
+· · · · · · · · · · · · · ·
+· · · · · · · · · · · · · ·
+· · · · · · · · · · · · · ·
+· · · · · · · · · · · · · ·
+  · · · · · · · · · · · ·  
+  · · · · · · · · · · · ·  
+    · · · · · · · · · ·    
+      · · · · · · · ·      
+          · · · ·          
+```
+- **THE SHAPE IS READ, NOT GUESSED — AND A TRIAL IS NOT AUTOMATICALLY ROUND (binding):** take the shape from the 08 arena pin where the duty has one, and from the beat's own read-aloud otherwise. The pins say it explicitly and they disagree with each other on purpose — 'a CIRCULAR platform over the drowned ruins of Amaurot' is `ARENA TONDA`, but the Steps of Faith is 'the BRIDGE' (`CORRIDOIO`), the Whorleater is 'the pitching DECK of the ship' (`SALA`), and Zodiark's is 'a SINGLE-SIDED platform'. Choosing `ARENA TONDA` because something is a trial is a guess; reading the pin is not.
+- **CELL SPACING IS BINDING:** one character per cell, ONE SPACE between cells, always — `· · · ·`, never `····`. Packed cells cannot be counted, and counting is the entire point of a scale map.
+- **THE PERIMETER WALL DEPENDS ON THE PRESET (binding):** an ENCLOSED preset (`CUNICOLO`, `CORRIDOIO`, `CELLA`, `STANZA`, `SALA`) is framed by `█` on all sides, and that frame COUNTS in the stated size — a `SALA 12 × 10` is 10 rows of 12 cells INCLUDING the walls, leaving 10 × 8 playable. An OPEN preset (`ARENA`, `APERTO`, and both round ones) has NO wall: its boundary is the void or open ground, so the floor simply stops. Framing a platform that hangs over a chasm is wrong, and so is leaving a corridor without the rock on either side.
 - **FRAME THE FIGHT, NOT THE PLACE (binding):** inside the preset the grid shows the TACTICALLY RELEVANT area. A wide zone does not become a forty-cell grid: draw where the fight happens.
 - **MAP SYMBOLS — a CLOSED set, one character per cell, all single-width (binding):** never coin a symbol for a new scenario; a coined symbol is one the GM must decode exactly when there is no time.
   - **COVER — the ladder IS the visual weight, darker = blocks more:** `█` wall / total cover (cannot be targeted through) · `▓` three-quarters cover (+5 AC and Dex saves) · `▒` half cover (+2) · `·` open floor.
@@ -1475,10 +1510,11 @@ Preview + stat block + mechanics, in the ORDER and LAYOUT fixed by §B1 ENCOUNTE
   - **ENEMIES AND OBJECTS:** `N` ordinary enemy · `B` boss or mid-boss · `O` a DESTRUCTIBLE object present from the start (it has HP) · `X` an INTERACTIVE element present from the start (terminal, lever — no HP, used with an action).
   - **PCs ARE NEVER DRAWN:** the players place themselves at the table. The map exists to say where the ENEMIES are, which is the one thing the GM does not already know.
 - **SIZE IS FOOTPRINT (binding, 5e):** a creature or object occupies as many cells as its Taglia — Media 1 · Grande 2×2 · Enorme 3×3 · Mastodontica 4×4. READ the Taglia from the stat block you just wrote and expand the letter to that many cells; this is a table lookup, never a judgement. It is also the payoff of the rule that makes Taglia mandatory in §B6 ('the GM needs the board footprint'): now the map draws it.
+- **A BODY BIGGER THAN THE FLOOR IS DRAWN TRUNCATED (binding):** some bosses are so vast that only PART of them stands on the walkable area — the Cloud of Darkness looming over one edge, the Endsinger at the rim of her fragment. Draw ONLY the cells the creature occupies INSIDE the grid, and say in the key that the body continues past the edge ('B la Nube dell'Oscurità — il corpo prosegue oltre il bordo'). Do NOT draw cells outside the playable floor and do NOT shrink the creature to make it fit: the grid answers 'which squares are blocked and where can I stand to reach it', while the full size stays in the stat block's Taglia. A band of `B` along one edge is the correct and useful picture — it says the thing can only be approached from one side and cannot be flanked.
 - **THE MAP IS THE STARTING STATE — and nothing else (binding):** draw ONLY what stands on the field when combat begins. Adds that arrive mid-fight, objects a mechanic materialises, and targets attached to the boss's own body (a heart, a tail) are NOT drawn — a body part has no square of its own because it moves with the creature. All of that lives in the stat block beside the mechanic that triggers it, which is where the GM reads it when it happens; the GM adds the piece to the physical mat at that moment. The map answers ONE question: how do I set this fight up?
 - **THE KEY LINE (binding):** one line under the grid listing ONLY the symbols actually used, each with its game effect — `▒ mezza copertura (+2) · ≈ terreno difficile · * pozza acida (1d6 acido entrando o iniziando il turno)`. Only what is on this map, so it stays short and is read rather than skipped.
 - **THE DISTANCES LINE (binding, and it is where the map earns its keep):** one line converting into CELLS the two or three measurements that matter, INCLUDING the boss's telegraphed areas — `In caselle: dalla porta al boss 6 · Frana = linea 2×12 · Ombra della Terra = raggio 2`. The metres-to-cells conversion is done ONCE here, by you, instead of by the GM at every round.
-- **SELF-CHECK BEFORE EMITTING THE MAP (binding, output-forcing — a testable condition, not a ban):** the preset is named in the header; the number of rows and of cells per row matches THAT preset; every row is written to the preset's full width, blank void cells included; every symbol on the grid appears in the key and every symbol in the key appears on the grid; every symbol belongs to the closed set; each creature's footprint matches the Taglia in its stat block.
+- **SELF-CHECK BEFORE EMITTING THE MAP (binding, output-forcing — a testable condition, not a ban):** the preset is named in the header; **the grid is LARGHEZZA cells wide and ALTEZZA rows tall, in that order** (a `CUNICOLO` is 2 wide and 12 tall, never the reverse); a round preset is reproduced VERBATIM from its silhouette above; cells are separated by one space; an enclosed preset carries its `█` frame and an open one does not; every row is written to the preset's full width, blank void cells included; every symbol on the grid appears in the key and every symbol in the key appears on the grid; every symbol belongs to the closed set; each creature's footprint matches the Taglia in its stat block, truncated at the edge if it does not fit.
 - **MAP FALLBACK (binding):** if the self-check does not pass, emit the KEY LINE ALONE with no grid — a compact prose statement of the terrain's game effects. A wrong map is worse at the table than no map, because the GM copies it onto the mat without re-reading it.
 
 ## §B9 — RITIRATA (il tracker è ora §A24, regola CONDIVISA)
