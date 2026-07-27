@@ -92,6 +92,23 @@ manifest, an OST cadence and a footer does not. Gemini 3.5 Flash-lite was tried 
 the settings actually used (Opus at Medio sits above Sonnet at Alto), so a comparison run at a different
 setting is not comparable. Record the setting whenever a test result is recorded.
 
+**MEASURED, 2026-07-27 — what the reasoning setting actually costs when it is OFF.** Same work (the Toto-Rak
+encounter package) run on Gemini 3.6 Flash with and without extended reasoning:
+
+| | Esteso | Non esteso |
+|---|---|---|
+| HP / damage arithmetic | **7 of 7 correct** | **2 errors of 8** — Coeurl 52 declared vs 59 computed, Acaro 9 vs 7 |
+| Dice | all real | **`1d7`**, which does not exist in 5e |
+| Map footprints | Titan 3×3 exact | wrong on 2 maps of 3 |
+| Language | clean | «*repetir*» for «ripetere» |
+
+**These are SILENT faults** — a boss at 52 HP instead of 59 is not noticed as a wrong number, it is noticed as
+a fight that ended early. Honest limit: **one run per configuration**, so this is an indication, not a
+measurement; the project's own discipline says a single observation is variance. It did NOT change the floor —
+the GM's decision is that the floor is Gemini 3.6 Flash, and rules must hold there **without** leaning on
+reasoning to rescue them. That is precisely why every check added in 06 v4.94 is a COUNT: a condition you can
+count does not need reasoning to pass.
+
 **Ordering caveat, stated honestly:** the sequence is the GM's own observation on THIS workload, and that is
 the only ranking that matters here — published tier names would put a full small model above a "lite" variant,
 which is not what was observed. Do not "correct" it from generic benchmarks.
@@ -369,6 +386,15 @@ partial-retrieval exposure went to zero.
 - **172 pinned cutscenes named no track**, while the mood themes that govern them sat 660 lines away — which is
   why the first named Ascian of the campaign played over dungeon ambience.
 
+**A FOURTH instance, found the same day and different in kind — a rule that GATHERS data for a rule that never
+reads it.** §B10's TRIAL LORE-FIDELITY CHECKLIST obliges you to establish from the wiki «the arena — its real
+look AND its real instant-death / hazard». §B8 draws the arena and never referenced that item, so three
+collaudo maps came out with **zero hazard cells** despite the hazard being mandatory to look up. The other
+three instances were a row missing its own label; this one is **a producer and a consumer in different
+sections, neither naming the other**. Check for it whenever a new rule CONSUMES something an existing rule
+already establishes: the fix is a reciprocal pointer, one line on each side, so the link survives partial
+retrieval from either direction.
+
 **The generalisation worth keeping: a data row must carry everything its consumer needs to act on it, because
 the consumer will use only what the row happens to say.** A default living in a preamble is not a default; it
 is a second retrieval that may not happen. When a set is too big to inline everywhere, put the mapping in the
@@ -442,6 +468,156 @@ shape, the scale being wrong by excess, dropping the axis labels, not drawing th
 starting state and nothing else", which replaced a weaker rule of mine and removed a symbol. **The person who
 will use the artefact at the table sees things the person writing the rule does not** — the same lesson the
 combat tracker taught (ARCHIVE, cv23-cv28).
+
+## 2.18 REPLACING A PROSE FIELD WITH A STRUCTURED ONE SILENTLY DROPS ITS GUARANTEE
+The tactical map replaced the `Terreno:` prose field. `Terreno:` had one property nobody had written down:
+**it could not be empty.** A field whose whole content is a description of the terrain forces the terrain to be
+described. The grid that replaced it made the terrain OPTIONAL — no line of §B8 required a single feature on it
+— and the collaudo returned three maps holding only `█ · _ B`: walled boxes with a monster inside.
+
+**Why it survived every check: a bare grid is trivially consistent.** The self-check verified that every symbol
+on the grid appears in the key and vice versa, which an empty grid satisfies perfectly. **A consistency check
+cannot detect an absence.** Where the old field's guarantee was structural, the new one needed a COUNT — at
+least one overlay, two openings, N cells per creature — and counts are what got added in v4.94.
+
+**The move to make when replacing any field:** before shipping the new form, ask what the OLD form made
+impossible, and check the new form still makes it impossible. Here the answer was "an encounter with no terrain
+described", and the answer should have been found before the collaudo, not by it.
+
+**A second contributor, and it was a wording of mine.** The verbatim rule for the round presets read «reproduce
+it exactly **and then place the actors into its cells**» — it names only N/B/O/X, so it reads as permission to
+add nothing else, and the model complied to the letter. **A rule that enumerates what to add also defines what
+not to add.** When a template is a STARTING POINT, say so in the rule itself; "verbatim" otherwise propagates
+from the shape to the contents.
+
+## 2.19 WHEN TWO BINDING RULES COLLIDE, THE OUTPUT-FORCING ONE WINS AND THE OTHER VANISHES SILENTLY
+Toto-Rak, on the floor model: the 08.1 manifest pinned '[BEFORE the boss] LAHABREA appears and NAMES HIMSELF …
+then unleashes the banemite' — wiki-verified, and the **first named Ascian of the campaign**. §B1 requires
+reproducing EVERY pinned cutscene. It was dropped anyway, and the AFTER-the-boss Echo vision in the same beat
+was not.
+
+**Why:** §B1's ENCOUNTER PACKAGE rule says Difficoltà and Innesco sit above the read-aloud «and NOTHING ELSE».
+Taken literally that FORBIDS a pinned scene in the only place it could go. Two binding rules, and the one that
+is **output-forcing and positional** beat the one that is a general obligation. The model then invented a
+trigger ('the first PC to cross the threshold') to replace the canonical one the pin had supplied.
+
+**The transferable diagnosis: a rule that dictates the SHAPE of the output outranks a rule that dictates its
+CONTENT, whatever both of them say about being binding.** When adding a positional/format rule, ask what
+content could legitimately need that position — and scope the exclusion explicitly. «Nothing else here» must
+say *nothing else FROM THIS PACKAGE*, or it silently deletes everything else in the beat.
+
+**Two multipliers worth remembering.** (1) **A part boundary is where content dies:** the duty was split and
+part 2 opened directly on the encounter package, so the scene sat exactly on the seam. (2) **The measurement
+that stopped the wrong fix:** the GM's instinct was «it isn't pinned, pin it, and probably pin others too».
+Counting first showed **113 pins, only 3 with a position relative to a fight** — the pin existed and said
+exactly where to go. More pinning would have changed nothing. **Count before you conclude what is missing.**
+
+## 2.20 A SIZE THAT INCLUDES ITS OWN FRAME CAN GO NEGATIVE — check the smallest member of a scale
+`CUNICOLO` was specified as '2 wide' with a rule that the `█` perimeter **counts in the stated size**. Two
+cells minus two walls is **zero floor**: the preset could not be drawn. It shipped and survived two collaudi
+untouched, precisely because nothing ever selected it — and `CORRIDOIO` (4 wide → 2 playable) was delivering
+what `CUNICOLO` had promised, so the scale had two labels for one thing.
+
+**The check that would have caught it takes one line: apply the frame rule to the SMALLEST entry in the scale
+and see whether anything is left.** Any table where a dimension includes an overhead has this failure mode at
+its bottom end, and only at its bottom end — which is exactly where it is least likely to be tested.
+
+**The structural fix, not the arithmetic one:** the table now has **two separate columns, GRID (walls in) and
+FLOOR (playable)**, so the two quantities can no longer be confused. A derived number that readers must compute
+in their heads will eventually be computed wrong; print both.
+
+## 2.21 A PROCEDURE BEATS A CHECK — and whichever one is a procedure becomes the real source
+Two rules governed the tactical map's contents. «The map draws what the prose already says» was written as a
+CHECK («every feature named HAS its cells»). «Pick a REGION from the table» was written as a PROCEDURE. The
+model followed the procedure and ignored the check — so the region table, meant to be a *drawing vocabulary*,
+silently became **the menu the contents were chosen from**, and the read-aloud three lines above stopped being
+the source of anything.
+
+**The evidence was unusually clean:** the model wrote «antiche celle in pietra … radici contorte … ragnatele
+spesse come cavi d'acciaio … emerge dal fango», then drew a strip of `▒` against one wall. Another read-aloud
+put «un antico pedestal gelmorriano AL CENTRO della stanza»; the map showed nothing there. **The map and the
+text read to the players described two different rooms.** Nothing was missing from the model's output — the
+LINK was missing.
+
+**The transferable rule: when you want X to be the source, write X as the step that comes first, not as the
+thing verified afterwards.** A check runs (at best) at the end, on output already committed; a procedure runs
+during generation. If a check and a procedure disagree about where content comes from, the procedure wins every
+time, and the check silently reports success on the wrong thing.
+
+**Corollary — an EXAMPLE in a table is a rule in practice. THREE confirmed instances now, so treat it as the
+default expectation, not a curiosity:** (1) the region table's only cover example read `LATO` = «colonnade,
+cover down one side», and cover came out wall-adjacent **8 times out of 8**; (2) the round-silhouette rule said
+«reproduce it exactly and then place THE ACTORS», and the model added actors and nothing else; (3) the
+distances line's example opened with «dalla porta al boss 6», and the output dutifully measured distances
+between two things both already drawn instead of converting the AoE shapes that appear nowhere on the grid.
+**The prose of a rule is read; the example is copied.** Audit examples for bias the same way
+you audit the rule text — and make sure the example demonstrates the case you most want, not the easiest one to
+write.
+
+## 2.22 IMPORT AN ALGORITHM'S ACCEPTANCE CRITERION, NEVER ITS PROCEDURE
+The GM asked whether a known D&D map-generation algorithm could improve the maps. Two useful findings.
+
+**(a) The famous ones solve the wrong problem.** BSP, cellular automata, drunkard's walk and Wave Function
+Collapse generate FLOOR PLANS — rooms and corridors — not the furnishing of a single combat room. Name-matching
+a well-known algorithm to a superficially similar task is a trap.
+
+**(b) The right one is unrunnable, and that does not matter.** Poisson-disc (blue noise) sampling is the correct
+tool for scattering features evenly without clumps, and a floor model cannot execute it. But its defining
+property is a single thing — **minimum distance between features** — and that reduces to two conditions anyone
+can eyeball: *no two overlays touch* and *they are not all against the same wall*.
+
+**The generalisation: take the property the algorithm GUARANTEES and state it as a testable condition; leave the
+algorithm behind.** This is the same move as everywhere else in this project — a condition you can look at or
+count survives on the floor model, a computation does not.
+
+## 2.23 AN UNCONSTRAINED DEGREE OF FREEDOM BECOMES AN ARBITRARY CONSTANT, NOT VARIETY
+The map spec required two openings — «one the party comes in by, one the dungeon continues through» — and never
+said WHICH ONE IS WHICH on the grid. The intuition would be that the model then varies; it does not. **Every
+map of every collaudo came out entered from the top.** Left free, the model picks one option and picks it
+forever, so the effect of the omission was not randomness but a silent convention nobody had chosen — and this
+one put the enemies between the party and the door they had just walked through.
+
+**The check worth running on any spec that names roles without positions:** if a rule distinguishes two things
+by FUNCTION (entrance / exit, near / far, first / second), does anything say which is which in the OUTPUT? If
+not, you do not have flexibility — you have an undeclared default that you will discover only by measuring.
+
+**Related, same day:** «PCs are never drawn» had been written as a pure omission. It only became actionable when
+it acquired its consequence — *keep the two rows nearest the entrance clear, because that is where the GM puts
+them*. **A rule that removes something must say what fills the space**, or the space gets used by whatever else
+is being placed; here it was the boss, two cells from the door.
+
+## 2.24 WORKING NOTES LEAK INTO THE OUTPUT — and a VERBATIM template is the worst place to leave them
+The round-preset silhouettes shipped with headers reading `SALA TONDA (12 × 12) — ENCLOSED, walls included,
+floor 10 across`. The GM asked, correctly, whether that was for them or for the checks. It was for the checks —
+and it reached them **because it sat inside a block whose entire contract is 'reproduce this exactly'.**
+
+**The trap, stated generally: anything written inside a verbatim template is not documentation, it is output.**
+A comment addressed to the model has no way to distinguish itself once the rule says to copy the block
+character for character. Guidance about a template goes in the RULE AROUND IT, never in the template.
+
+**The test to apply to every figure printed at the table:** does the reader need it, or did I need it to check
+myself? Three cases came up together and they resolved differently, which is why the test is worth stating —
+*a size the drawn walls already show* (cut), *'Enorme, 3×3 = 9 caselle', the same fact three times* (trimmed to
+one, because the total is what §B6 means by 'the GM needs the board footprint' AND is the check's anchor), and
+*a distance between two things both already on the grid* (cut: the GM counts four squares with a finger faster
+than they read the sentence). **Redundancy that helps the writer verify is still clutter for the reader.**
+
+## 2.25 A SECOND, WORSE-DEFINED VERSION OF A FEATURE IS HOW A PROJECT SHIPS TWO OF THEM
+Loremonger carried `/schema <luogo>` → §D6 «textual map or map-generation prompt». §D6 was a **two-line stub
+with no spec at all**, written long before the tactical map existed and never revisited. So the project had two
+map features: one fully specified in §B8 and used by two assistants, one undefined and used by the third.
+
+**Nobody would design that on purpose; it arrives by accretion, and only a full read finds it.** The fix was
+not to specify §D6 — it was to DELETE the second entrance and point it at the first. The number stays as an
+empty placeholder (like §A2 and §B9) because renumbering breaks cross-references.
+
+**Search for this shape whenever a feature grows: an older, vaguer rule covering the same ground, that nobody
+updated because nobody was looking at it.** The give-away is a section that is much SHORTER than its neighbours
+while claiming the same scope.
+
+**And the corollary that made it worth doing properly: when the third file joined the shared spec, the
+comparison immediately exposed a drift I had introduced** — 06 had moved to `Grande, 4 caselle` while cv and ov
+still said `Grande 2×2 = 4 caselle`. **Aligning a third consumer is itself a diff test on the other two.**
 
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
