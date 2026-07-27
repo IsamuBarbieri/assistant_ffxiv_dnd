@@ -68,6 +68,34 @@ the rule is the same **the text is identical word for word** — not merely equi
 - **Verification is part of the edit, not a later pass:** after touching any shared rule, grep the changed
   string across all three files. Do it BY STRING, never by section (LESSON 2.11).
 
+## 1.1d THE TEST MATRIX — which models run what, and what the FLOOR is
+Recorded because every optimisation decision is relative to it: a rule is "good enough" only if it holds at the
+floor **of the assistant it belongs to**. GM-observed ordering, weakest first:
+
+| Model | Reasoning setting | Runs |
+|---|---|---|
+| Haiku 4.5 | Esteso | Loremonger |
+| Gemini 3.5 Flash-lite | Esteso | Loremonger |
+| **Gemini 3.6 Flash** | Esteso | **everything — this is the campaign's floor** |
+| Sonnet 5 | Alto | everything |
+| Opus 5 | Medio | everything |
+
+**THE FLOOR IS NOT THE SAME FOR EVERY ASSISTANT, and this is the non-obvious part.** The Campaign's floor is
+Gemini 3.6 Flash; **Loremonger's floor is two tiers lower.** So a Loremonger-specific rule has to survive a
+weaker model than a campaign rule does — counterintuitive, since Loremonger looks like the simpler assistant,
+but it follows from the workload: lookups and stat blocks tolerate a small model, a long narrative beat with a
+manifest, an OST cadence and a footer does not. Gemini 3.5 Flash-lite was tried on a campaign dungeon and
+**dropped Lahabrea and other pinned content** — a clean demonstration of the boundary, not a defect to patch
+(LESSON 2.14(c)).
+
+**The reasoning setting is part of the configuration, not incidental.** The ordering above compares models at
+the settings actually used (Opus at Medio sits above Sonnet at Alto), so a comparison run at a different
+setting is not comparable. Record the setting whenever a test result is recorded.
+
+**Ordering caveat, stated honestly:** the sequence is the GM's own observation on THIS workload, and that is
+the only ranking that matters here — published tier names would put a full small model above a "lite" variant,
+which is not what was observed. Do not "correct" it from generic benchmarks.
+
 ## 1.2 The two layers — this is the single most important structural fact
 - **CONTROL layer** = the host's custom-instructions box. **100% in context on EVERY turn.** This is the
   ONLY guaranteed-present surface, so anything that must fire on EVERY beat (command contract, prose register,
@@ -351,6 +379,8 @@ nearest enclosing HEADER (the manifest fix used six insertions instead of 111 in
 - **(b)** Right rule in the wrong FORM → fix with a template + a testable self-check, never by repeating the ban.
 - **(c)** Capability limit at the floor model → do not spend rules. The GM tests deliberately on the weakest
   model available, as a floor; a failure there that the strong model does not reproduce is category (c).
+  **Check the matrix first (§1.1d): the floor differs per assistant**, so a Loremonger failure may be category
+  (c) at a tier where the same behaviour would be a real defect in the Campaign.
 
 **And a falsification worth keeping:** a prose defect was once attributed to a weak model and declared a
 "model gap". Wrong — the narrative beats had run on the *strongest* model. **Prose defects here are
