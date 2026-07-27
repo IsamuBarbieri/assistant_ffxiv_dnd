@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.39 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.40 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE (binding): this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -768,6 +768,14 @@ dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consiste
 - PRIMAL (primal threat): Wrath of the Eikons
 - GARLEAN (the Empire): Imperial Will · Meteor
 - REFLECTIVE / title / hope: Prelude - Rebirth
+
+**SUBQUEST / FATE / LEVE BATTLE THEMES (binding — 06 §A23; these are the ONLY cached leve/FATE titles, so anything not here falls back to the zone's `(battle)` track):**
+- ordinary SUBQUEST fight (the homebrew default) — Tug of Fate (the standard FATE theme)
+- a COMMISSIONED job / job-board style errand with a fight — Tenacity (the Battlecraft leve theme)
+- the BOSS of a subquest — Hard to Miss (the FATE-boss theme)
+- an EXCEPTIONAL, world-boss-scale threat the party chose to take on — The Thunderer
+- ODIN specifically (the 06 §B20 'seme' example, if it ever becomes playable) — The Corpse Hall
+- NOT usable here (already assigned elsewhere, would mislead): To the Fore = SB dungeon battle/mid-boss · Torn from the Heavens = the PRIMAL overworld lead-in.
 Later expansions REUSE these AND add their own emotional/tense themes; when the specific expansion theme is not cached, apply SEARCH-FIRST (English descriptor) — NEVER a coined title (NO COINED TITLES).
 
 ### 08.OST-SCENE-ARR
