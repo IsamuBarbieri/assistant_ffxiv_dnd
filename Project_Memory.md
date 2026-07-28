@@ -619,6 +619,49 @@ while claiming the same scope.
 comparison immediately exposed a drift I had introduced** — 06 had moved to `Grande, 4 caselle` while cv and ov
 still said `Grande 2×2 = 4 caselle`. **Aligning a third consumer is itself a diff test on the other two.**
 
+## 2.26 A RULE STATED FIVE TIMES AND STILL BROKEN DOES NOT NEED A SIXTH STATEMENT — IT NEEDS A SHAPE
+'A puzzle is solved by the players, not by the dice' was written in FIVE binding places: §E1 principle 1,
+§E1 `PUZZLE != CHECK BLOCK`, §A18's notes, §B12 `TANGIBLE-PUZZLE SALIENCE`, and §B12 `SOLUTION LINE` —
+which even described the correct arrangement. The output violated all five, every time.
+
+**All five were principles or prohibitions. The only thing in the corpus with a concrete TEMPLATE was
+§A18's check block — so §A18's check block is what got emitted**, complete with slot labels that are a
+ladder of RESULTS (`CD Facile (10): [base result / what it gets]`). Applied to a puzzle, 'what it gets'
+*is* 'the die solves it'. **A template does not have to be the right one to win; it only has to be the
+only one.**
+
+**The rule to carry forward: repetition count is evidence about the WRONG THING.** Finding a rule
+already stated five times should stop you from writing a sixth statement and send you looking for the
+shape that is beating it. The fix here was a six-block output form with two countable conditions, not
+another 'never'.
+
+**Two supporting findings worth keeping.**
+- **A prohibition with no alternative leaves the model on the template it can see.** §A18 said rolls do
+  not solve puzzles and did not say what to use instead; adding *where the other shape lives* is the
+  same co-location fix used for the encounter package's 'NOTHING ELSE'.
+- **A rule can contradict itself and lose to its own concrete half.** `SOLUTION LINE` demanded a
+  read-aloud of '1-3 sentences' AND that the solution be deducible from it. The size cap is concrete,
+  the deducibility is not, so the cap won and the puzzle became unsolvable. **When one half of a rule is
+  measurable and the other is a quality, the measurable half is the one that gets obeyed** — check every
+  rule that pairs a limit with an aspiration.
+
+## 2.27 OPEN AUDIT (agreed 2026-07-27, NOT started) — sweep the corpus for rules that have no shape
+The GM's call after three of these surfaced in one day: **the project is probably full of binding rules that
+are never obeyed**, left over from the era before the work moved into VS Code. Sweep 06 and all three
+instruction files for the three shapes, which are now well characterised:
+
+- **(a) Collision** — a rule that dictates the FORM of the output and, read literally, excludes mandatory
+  content. The encounter package's 'NOTHING ELSE' deleted a manifest-pinned scene (LESSON 2.19).
+- **(b) No shape** — a principle repeated in many places with nothing showing how it is done, losing to
+  whatever nearby template IS concrete. The puzzle rule existed FIVE times and lost to §A18's check block
+  (LESSON 2.26). **A high repetition count is the symptom, never the remedy.**
+- **(c) Negative naming** — a retired command or a forbidden label named in the negative, which retrieval
+  feeds back as if valid (`/carica`, `/subquest`, and once a label of my own — LESSON 2.9).
+
+**The method that actually found them, and the reason a text-first audit missed them for months: start from
+a REAL OUTPUT, measure what is missing, and only then go looking for the rule** — which turns out to exist.
+Reading the rules first tells you the corpus is fine.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
