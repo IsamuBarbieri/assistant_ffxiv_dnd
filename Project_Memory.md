@@ -700,6 +700,30 @@ The load gate checked 'a reply to a save must not contain a beat' and never 'a r
 contain a load' — so it policed the direction that was working. **Write both directions when a rule separates
 two modes**; the one you did not think of is the one that fails.
 
+## 2.35 A KEY THAT NAMES AN EFFECT AND NOT A THING BREAKS THE CHAIN THE MAP EXISTS FOR
+`▒ mezza copertura (+2)` is complete as mechanics and useless at the table: the GM cannot tell the players
+what they are hiding behind. The map is drawn FROM the read-aloud, so the key must carry the read-aloud's
+NOUN back out — `▒ detriti di pietra crollati (mezza copertura, +2)`. **Object first, effect in brackets.**
+
+The inversion also makes two other defects visible for free: a symbol whose object you cannot name is a
+symbol that should not be on the grid (the observed key listing a `▒` the grid never drew), and two rooms
+of one dungeon stop coming out as the same picture, because their nouns differ even when their shapes do not.
+
+**General form: when a rule's output loses the concrete noun that produced it, the chain from fiction to
+table breaks at that point — carry the noun through, do not summarise it into its effect.**
+
+## 2.36 A FIRST-MATCH LOOKUP FINDS THE CROSS-REFERENCE, NOT THE RULE
+Twice now an automated check of mine matched the wrong line by taking the first occurrence of a key that
+also appears in cross-references: once reporting a pinned scene missing because "Graffias" appeared in an
+earlier `[Info GM]`, and once splicing a section where `{NOTHINGLEFT}` matched CHUNKING's pointer
+"(NOTHING IS LEFT BEHIND, below)" instead of the clause — leaving the file with two CHUNKING rules and the
+real rule deleted.
+
+**A rule and its pointers share their name; that is the whole point of a pointer.** Match on the line's
+SHAPE, not its content: a rule starts `- **NAME`, a pointer does not. And verify by COUNT (`exactly one
+occurrence of the clause, in each file`), never by "are the copies I found identical" — that passes
+trivially when a file has no copy at all, which is exactly how this survived my check.
+
 ## 2.33 THE FLOOR MODEL'S OWN DOCUMENTATION IS A MEASUREMENT WE NEVER TOOK
 Seven runs of trial and error produced rules that Google's Gemini 3 guide states outright. Four of our
 hard-won lessons are in it: constraints placed early get DROPPED under complexity (which is why the
