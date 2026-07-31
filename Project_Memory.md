@@ -645,7 +645,159 @@ another 'never'.
   measurable and the other is a quality, the measurable half is the one that gets obeyed** — check every
   rule that pairs a limit with an aspiration.
 
-## 2.27 OPEN AUDIT (agreed 2026-07-27, NOT started) — sweep the corpus for rules that have no shape
+## 2.27 AUDIT DONE (2026-07-27, 06 v5.02) — what it found, and what it correctly refused to do
+Outcome first: **one root fix, three retirements, six pointers, two findings killed by measurement.**
+
+**The root, and it is the reusable lesson: 'a roll gives INFORMATION, never the outcome' had been derived
+INDEPENDENTLY three times** — §B20 for hooks, §E5 for mysteries, §B12/§E1 for puzzles — **and was absent
+from §A18, the shared block all three route through**, whose template is a ladder of RESULTS. So every new
+consumer re-invented it, and the puzzle one re-invented it wrongly for months while §B20 already had it
+right. The previous day's puzzle fix was **a patch on one caller mistaken for a root fix**. §A18 now asks
+the question once — *is there an outcome the players must reach themselves?* — with a one-sentence test and
+the three specialisations NAMED so a fourth consumer does not re-derive them.
+**Generalise: when the same principle appears in N sections, the bug is usually in the N+1th place that all
+of them call.** Look for what they share before fixing any of them.
+
+**TWO FINDINGS WERE CANCELLED BY MEASUREMENT, and that is a result, not a failure to act.**
+- The six duplication clusters **do not diverge** (`boss = party level`, `mid-boss = level -2`, tiers
+  10/15/20, `1,5 m` — consistent everywhere). Consolidating would have meant refactoring the cursor/save
+  machinery, the most delicate part of the corpus, for a problem that does not exist.
+- The fifteen 1400+ char lines are **each essentially ONE rule** carrying its rationale and failure shape
+  inline; splitting would separate a rule from its reason.
+**Redundancy that is CONSISTENT is not debt. Only redundancy that can drift is** — and the drift observed
+that day was across FILES (06 vs cv/ov), which the verification script already catches.
+
+**Metrics deliberately not chased** (both previously debunked): '198 prohibitions without an example' —
+the trap audit F3 already dismantled, since most were already sourcing rules — and negative command naming,
+cleaned up in earlier passes.
+
+**The detector worth reusing, because it is mechanical:** orphan sections (nothing in the corpus OR the
+instruction files references them → retrievable only by accident), dangling `§X` references, and phantom
+sets (a rule promising 'the 12 structures' that are listed nowhere). It found 10 orphans, 1 dead reference
+and 1 phantom set in a corpus that had passed several prose-reading audits. **Corto ≠ stub, though:** §C8
+gives a complete format in 53 characters. The criterion is *nobody cites it*, never *it is short*.
+
+## 2.31 "THE MODEL GOT DUMBER" IS ALMOST ALWAYS TWO RULES DRIFTING APART
+Reported symptom: `/continua` re-printed the load block instead of playing, sometimes twice. Measured across
+the archive: **runs 2, 3 and 4 clean; runs 5 and 6 both broken.** A regression with a date, not model decay.
+
+**Cause: three statements of the same rule in `cv`, disagreeing on SCOPE.** The one at the top said 'when the
+GM's message contains a `=== SAVE ===` block' — **no NEWEST** — so with the conversation in context it also
+matched the save from two turns earlier. Two later lines said it correctly, and one of them is the EXECUTION
+CONTRACT that declares it wins over everything. **The wrong one won anyway: it is first, bold, labelled
+'most frequent violation', and it carries a self-check.** Position + emphasis + enforcement beat two correct
+statements further down.
+
+**Why it started firing now, and this is the part worth keeping:** the ambiguity was always there, latent.
+The file grew ~2.5 KB that week and the correct statement drifted further from the ambiguous one. **What
+degrades is not the model — it is the distance between two rules that were never reconciled.** Every
+addition to a file lengthens the gap between rules that contradict each other, so latent ambiguities surface
+as apparent 'model decay'. When a user reports things getting worse, diff the file's growth before doubting
+the model.
+
+**Second lesson, cheap and reusable: a one-directional self-check only catches the failure you imagined.**
+The load gate checked 'a reply to a save must not contain a beat' and never 'a reply to a command must not
+contain a load' — so it policed the direction that was working. **Write both directions when a rule separates
+two modes**; the one you did not think of is the one that fails.
+
+## 2.32 TO STOP A SILENT CUT, MAKE THE LEFTOVER COUNTABLE — a debt declared is a debt paid
+The fixed budget (2.30) kept eating content, and `SPLIT, NEVER SHRINK` was already binding and stated five
+ways. It lost anyway, because **another rule pulled the other way: CHUNKING asked for 'the FEWEST complete
+chunks'.** Between 'never condense' and 'few messages' the model found the exit that violates neither
+LITERALLY — write everything, thinner. Two rules in opposite tension do not average out; the model finds the
+seam between them.
+
+**Fix in three moves, no new prohibition.** (1) **Remove the counter-pressure:** 'fewest' demoted to a
+TIEBREAK among arrangements that all render at full richness. (2) **Give the shape** (2.26): OWE the beat's
+items before writing · stop only AFTER a complete item, never inside one · **DECLARE what is left as a
+`Restano:` line** · the next play command resumes THAT first. (3) **Make it a count** in the pre-send scan:
+unwritten owed items = 0, or the residue line is present.
+
+**The move that matters is the third.** Scaffolding survives because self-checks count it; fiction dies
+because nothing does. `Restano:` is the first mechanism that makes the CUT itself countable — it does not
+buy more budget, it converts an invisible loss into a visible debt the next turn must pay. **When a cap you
+cannot raise is dropping content, stop legislating the content and start counting what fell off.**
+
+## 2.30 A BEAT'S OUTPUT VOLUME IS A FIXED BUDGET — every mandatory rule you add is spent from it
+Measured across six saved runs of the same dungeon: **total output is effectively constant, ~16,500
+characters, whatever the rules say.** Inside that ceiling, one week of fixes grew the tactical map from 462
+to 832 characters (+80%) and the enigma blocks from 2,015 to 2,988 (+48%). In the same step the narrative
+prose fell by 967 — almost exactly the amount added — and a manifest-pinned Echo vision went with it. The
+next run shows the same mechanism in reverse: the prose recovers and the enigma collapses instead, losing
+`Soluzione` and `Indizi`.
+
+**The model balances a fixed budget by dropping whatever is least enforced. Scaffolding has self-checks;
+fiction does not. So the fiction goes, silently, every time.**
+
+**The cost of a rule is never visible in the rule.** It shows up as something unrelated disappearing two
+sections away. Before adding mandatory output, ask what it will displace — and if the answer is 'narrative
+content', that content needs a count too, or a way out.
+
+**And the correction that completes it: a check with no remedy is only an alarm.** The same morning I had
+added the pin COUNT to §A9 and stopped there — a beat that counts its pins and finds them missing still has
+nowhere to put them. `SPLIT, NEVER SHRINK` now lists pinned scenes as protected and names the remedy:
+**if they do not fit, SPLIT the beat.** Pair every new count with the action to take when it fails.
+
+**Method note, and it is why this was findable at all: keep the raw test outputs.** The premise under
+investigation ('it worked before the cleanup') was half wrong — the pre-boss scene had NEVER appeared in six
+runs, and the earlier fix had simply never been re-tested on a complete beat. Six archived extracts settled
+in one query what memory would have argued about indefinitely.
+
+## 2.29 A RULE WITH A SHAPE STILL NEEDS A COUNT — the shape survives ONE instance, the count survives all of them
+The cleanest evidence this project has produced, because both halves are in the SAME output. The five-block
+enigma shape shipped the day before. In the next test the **first** interlude was perfect — five blocks,
+three distinct actions, all seven objects of the solution present in the player-facing text — and the
+**second** had no `Soluzione (GM)` and no `Indizi` at all, with `CD Facile` reading 'cut through the knots',
+i.e. the tier WAS the solution. Same spec, same turn, opposite results.
+
+**The tactical map, given the same kind of scrutiny in the same beat, held on every point** — entrance at
+the bottom, enemy deep, two doors, cover present, boss footprint correct. **The only structural difference
+between them: the map has a countable self-check and the enigma had none.**
+
+**So the ladder has three rungs, not two.** A rule needs (1) a SHAPE, or the nearest template wins
+(LESSON 2.26); and (2) a COUNT, or the shape holds for the first instance and decays for the rest.
+Writing the shape and stopping is a half-fix that looks complete because the first example comes out right.
+
+**Where to put the count: §A9 already exists** as the pre-output scan, one line per failure mode pointing at
+its home section. Extending it beat re-inventing a mechanism — check for the existing checklist before
+adding a new one.
+
+**And a rule requested as an absolute usually is not one — but the FIRST correction can still be too clever.**
+The ask was 'mid-boss and boss are always Grande or larger'. I replaced it with a beast/humanoid split:
+monsters Grande+, humanoids keep their canonical Medium. **The GM rejected that too, and was right** — FFXIV
+is full of humanoid-shaped bosses that are anything but Medium (Susano, Ravana, Zodiark, an Ascian Prime),
+so the taxonomy would have become a list of exceptions the moment it met real content.
+
+**What survived is the invariant with no categories in it at all:** the Taglia is READ from the creature's
+real body, exactly like its look is (§A5, §B10), and the ONE binding constraint is **internal coherence —
+the Taglia and the 'Descrizione visiva' in the same block must describe the same creature.** 'Colossale
+bulbo vegetale' + Media is self-refuting on its face, needs no taxonomy to detect, and is correct for cases
+nobody has thought of yet.
+
+**The reusable move: when a proposed absolute has exceptions, do not codify the exceptions — look for the
+self-checking invariant underneath.** A rule that requires a category system is a rule that will need
+maintenance; a coherence rule maintains itself.
+
+## 2.28 A TOMBSTONE IS DOCUMENTATION FILED IN THE WRONG PLACE
+Retired sections were kept as `§X — RITIRATA (…)` headings so their numbers stayed reserved. Measured after
+five of them accumulated: **§B7, §C3, §D2 and §D6 had ZERO incoming references, and §B9's only two came
+from the other tombstones.** They cited each other and nothing else cited them.
+
+**The stated justification was a false premise.** 'Keep the number so cross-references do not break' answers
+a proposal nobody made — deleting a section simply leaves a gap in the numbering, which `§A2` had already
+demonstrated for months without incident. **Check that a rule's rationale answers a real alternative before
+accepting it**; this one had been repeated into three separate tombstones unexamined.
+
+**The cost was real and the benefit was already paid elsewhere:** every tombstone is a retrievable RAG chunk
+that describes a REMOVED behaviour — LESSON 2.9's shape — while the history it preserves already lives in
+`CHANGELOG.md`, which is dev-only and never uploaded. **History belongs in the file that is not in the
+context window.** 06 went from 77 to 72 sections; the verification invariant changed with it.
+
+**Side effect worth the note:** deleting §D6's tombstone orphaned §D8, because that tombstone was the only
+thing naming it. **Removing dead weight can cut a live thing's only lifeline** — re-run the orphan check
+after any deletion, not just after an addition.
+
+## 2.27b ORIGINAL AUDIT BRIEF (kept for the shapes it names)
 The GM's call after three of these surfaced in one day: **the project is probably full of binding rules that
 are never obeyed**, left over from the era before the work moved into VS Code. Sweep 06 and all three
 instruction files for the three shapes, which are now well characterised:
