@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v5.08 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v5.09 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.

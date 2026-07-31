@@ -700,6 +700,31 @@ The load gate checked 'a reply to a save must not contain a beat' and never 'a r
 contain a load' — so it policed the direction that was working. **Write both directions when a rule separates
 two modes**; the one you did not think of is the one that fails.
 
+## 2.33 THE FLOOR MODEL'S OWN DOCUMENTATION IS A MEASUREMENT WE NEVER TOOK
+Seven runs of trial and error produced rules that Google's Gemini 3 guide states outright. Four of our
+hard-won lessons are in it: constraints placed early get DROPPED under complexity (which is why the
+`/continua` fix only held on the command row, after four correct statements at the top were ignored);
+blanket negatives make the model **"fail to perform basic logic or arithmetic"** (we print `6d10+18` as 45
+while carrying 1,270 negations); the model is **less verbose by default** and must be told to expand (our
+"fixed output budget", 2.30); and verbose prompt engineering makes it **over-analyze**.
+
+**The lesson is procedural: read the floor model's own docs BEFORE the next audit, not after seven
+playtests.** Empirical measurement stays the arbiter — but it should be testing a hypothesis the vendor
+already handed us, not rediscovering it.
+
+## 2.34 A RULE IS LONG BECAUSE IT SAYS MUCH — MEASURE BEFORE PROMISING A CUT
+I sized a 55% reduction from the average rule length (516 B) plus the observation that rules carry
+rationale, and inferred that most of the bulk was argument. **I had already measured the argument: 4% of
+the file.** Both numbers were mine; I let the one that suggested a big win set the target.
+
+The rewrite landed at −27%, −22%, −13%, −10%, −9% by section, and the pattern in the low ones is the
+proof: §B8 is preset tables, two verbatim silhouettes, a closed symbol set and two counted self-checks —
+**all of it irreducible by construction.** Compression cannot beat content.
+
+**Rule for the next estimate: derive the target from what is REMOVABLE (measured), never from total size
+minus a hoped-for ratio.** And when the gap appears mid-job, say it then — the user can still choose a
+different path while the credits are unspent.
+
 ## 2.32 TO STOP A SILENT CUT, MAKE THE LEFTOVER COUNTABLE — a debt declared is a debt paid
 The fixed budget (2.30) kept eating content, and `SPLIT, NEVER SHRINK` was already binding and stated five
 ways. It lost anyway, because **another rule pulled the other way: CHUNKING asked for 'the FEWEST complete
