@@ -67,6 +67,11 @@ the rule is the same **the text is identical word for word** — not merely equi
   rule.
 - **Verification is part of the edit, not a later pass:** after touching any shared rule, grep the changed
   string across all three files. Do it BY STRING, never by section (LESSON 2.11).
+- **SINCE cv50 THE THREE FILES SHARE ONE XML SKELETON,** in this order: `<role> <knowledge> <scope>
+  <output_style>` (with `<example type="register">` and `<bindings>` inside it) `<formats>` (`<encounter_package>
+  <map> <stat_block> <enigma> <nothing_is_left_behind> <beat_end>`, each file carrying the ones it needs)
+  `<media> <commands> <checks> <contract>`; ov alone adds `<workflow>` between `<commands>` and `<checks>`.
+  The skeleton is what makes the by-string check cheap: a shared block sits under the same tag in all three.
 
 ## 1.1d THE TEST MATRIX — which models run what, and what the FLOOR is
 Recorded because every optimisation decision is relative to it: a rule is "good enough" only if it holds at the
@@ -108,6 +113,24 @@ measurement; the project's own discipline says a single observation is variance.
 the GM's decision is that the floor is Gemini 3.6 Flash, and rules must hold there **without** leaning on
 reasoning to rescue them. That is precisely why every check added in 06 v4.94 is a COUNT: a condition you can
 count does not need reasoning to pass.
+
+**WHAT THE FLOOR MODEL ITSELF DOCUMENTS (researched 2026-07-31, Gemini 3.6 Flash, released 2026-07-21).**
+Recorded because the CONTROL LAYER is now written against these five facts, not against generic prompt-craft:
+- **Direct instructions win; verbose prompt engineering is over-analysed.** Rationale written inline — "RATIONALE,
+  measured:", "OBSERVED FAILURE (one real beat)" — is not skimmed, it is reasoned about. The rationale belongs
+  HERE, in this file, not in the always-on box.
+- **Open-ended negative constraints make the model over-index** and drop basic logic or arithmetic. Say what to
+  use, then bound it; never a blanket "do not".
+- **PRIMING FAILURE** (arXiv 2601.08070, *Semantic Gravity Wells*): in 87.5% of violations it is the instruction's
+  own mention of the forbidden token that activates it. **Never print the wrong string in a rule.** The four
+  invented names, `450 PE`, `1d7` and `"Sei tornato"` were teaching material, not guardrails.
+- **Critical restrictions belong on the LAST line**, negative constraints at the end — which is why the EXECUTION
+  CONTRACT is now loaded with the every-turn invariants instead of holding two clauses.
+- **Do not mix formats**; XML gives unambiguous boundaries between instruction, data and example. This is also the
+  native format for Claude Projects, so it is the host-agnostic choice under §1.1b, and it separates instruction
+  syntax from OUTPUT syntax — `**bold**` used to be both.
+- 3.6 Flash carries 1M of context at 91.8% on 128k retrieval. **Distance is no longer the bottleneck; ambiguity
+  is.** A rule that fails now fails because it is unclear, not because it was far away.
 
 **Ordering caveat, stated honestly:** the sequence is the GM's own observation on THIS workload, and that is
 the only ranking that matters here — published tier names would put a full small model above a "lite" variant,
@@ -182,7 +205,7 @@ breaks. The lever for prose is EXEMPLARS, not language (LESSON 2.4).
 `00_Manual_Index` — **RITIRATO** (audit lotto B1). It was routing, which does nothing in a RAG pipeline, plus
 content that already existed elsewhere. Do not recreate it.
 
-Dev-only, never uploaded to a PLAY project: `CHANGELOG.md`, `AUDIT_REPORT.md`, this file, `combat_tracker.html`
+Dev-only, never uploaded to a PLAY project: `CHANGELOG.md`, this file, `combat_tracker.html`
 (the browser-openable copy of the §A24.1 template — **06 §A24.1 is authoritative; the direction is always
 HTML → 06**, and the two must be diff-checked on every touch).
 
@@ -863,6 +886,110 @@ instruction files for the three shapes, which are now well characterised:
 a REAL OUTPUT, measure what is missing, and only then go looking for the rule** — which turns out to exist.
 Reading the rules first tells you the corpus is fine.
 
+## 2.35 AGAINST A WORKING BASELINE, CHANGE ONE THING AND TEST (cv51, 2026-08-01)
+Four consecutive rewrites of the Campaign instructions — cv50 in XML, then two rounds of a pointer-only MIN —
+each carried dozens of simultaneous edits, and **each introduced at least one silent regression**: a `08.1`
+pointer made generic (the manifest pins stopped being owed), bold stripped from an output-forcing clause
+(`/tracker` needed two prompts), the cursor semantics dropped (the campaign replayed its own first beat at
+level 1 with a correct `[A]` in the save), a literal closing line dropped (`/voci` started a subquest instead
+of offering one).
+
+**The line-by-line check that ended it:** all four faults were things the REWRITES had removed, not things the
+baseline lacked. cv49 already had the `/voci` closing line, already said "resume the LIVE cursor", already had
+the bold on the tracker. **The real delta was one item** — the two conditional footer lines, which had never
+been in cv in any version.
+
+So cv51 = cv49 + that one line. Diff: one rule added, one version bump, nothing else.
+
+**The rule this project now works under:** when a baseline has a measured good run, changes to it are made ONE
+AT A TIME and tested against that same benchmark. A rewrite is not an improvement until it beats the baseline
+on the benchmark; until then it is a candidate, kept on disk and out of production. The knowledge produced by
+the failed candidates is not lost — it is LESSONS 2.32-2.34 — and it costs no bytes at the table.
+
+## 2.34 FORMAT COMES FROM RAG; STATE DOES NOT (the cv50-MIN experiment, 2026-08-01)
+A pointer-only Campaign file (9 KB against 29 KB) was built and tested against the Toto-Rak save. The result is
+the sharpest measurement this project has: **it splits cleanly along one line, and the line is not the one the
+visibility test draws.**
+
+**What the 9 KB file got RIGHT, purely from retrieval** — Italian register and prose quality, the 07 bindings
+(`Bosco del Sud`, `Piccolo Rifugio`), the five enigma blocks twice, metric units, the bare GdS, CR = level and
+level −2, the manifest pins (Lahabrea AND the Echo, both in `Restano:`), the `🧭` footer line with both canonical
+options, and 08.1's subtlest rule — that Coeurl o' Nine Tails is an OCHU and must be written as a plant.
+**FORMAT AND CONTENT RETRIEVE FINE.** Every prediction that they would not was wrong.
+
+**What it got WRONG, and every one of them is STATE** — `/continua` replayed the campaign's FIRST beat (Coming
+to Gridania, party at level 1) with a correct `[A]` = Into the Beast's Maw sitting in the loaded save; `/tracker`
+was swallowed by a pending `Restano:` and answered with a beat.
+
+**The mechanism.** A format rule is fetched by a lexically rich context — you are writing a map, §B8 shares its
+vocabulary. A STATE rule has no such handle: the query is `/continua`, which resembles nothing, and the rule is
+not about how to shape output but about **what the command reads and what it changes**. Retrieval has nothing to
+match on, so the rule never arrives and the model falls back on the most likely beat, which is the story's
+beginning.
+
+**The consequence for every future audit:** a command row must state **WHAT IT READS AND WHAT IT CHANGES**, not
+only what it emits. A row reduced to trigger + opening line + §pointer has been stripped of the command itself.
+Same for the world state: the loaded save is never rewound, and that sentence has to be in the always-on layer.
+
+## 2.33 WHAT BELONGS IN THE CONTROL LAYER: THE VISIBILITY TEST (cv50, 2026-07-31)
+The recurring question — "can this be thinned and left to RAG?" — has a decidable answer, and it is NOT the
+length of the rule. **Ask: if this rule does not fire, does the GM SEE that something is wrong?**
+
+- **VISIBLE fault → the knowledge file, with a pointer.** A map drawn to the wrong preset, an unreadable stat
+  block, a shop missing its five specials: the GM catches these at a glance, and every one of them HAS been
+  caught in testing. Retrieval failing here costs one correction, not a silent loss. These also tend to be
+  lexically rich queries (`/negozio` appears in the GM's message AND in §A22), which is the case where retrieval
+  actually works.
+- **INVISIBLE fault → the control layer, whatever it costs.** A boss at 52 HP instead of 59 reads as a fight that
+  ended early. A `🧭` line not printed reads as a beat that ended. An owed item silently cut reads as a beat that
+  was always that size. Nothing in the output points at the cause, so RAG cannot be trusted with it — and the
+  weak query (`/continua` resembles nothing) makes it worse.
+
+Applied at cv50: `<map>` kept only bottom-to-top plus the entry strip, cells-equal-Taglia counted on the grid,
+and cover carrying its number; `<stat_block>` kept only the three arithmetic and coherence faults. Everything
+else points at §B8 / §B6. **This test replaces "is the rule long?" as the audit question.**
+
+## 2.32 THE PROMPT'S FORM IS TUNED TO A FLOOR, AND THE FLOOR MOVES (cv50/ov27/lv21, 2026-07-31)
+The three instruction files were written in the prompt style of an older generation: rule + rationale + observed
+failure shape, all on one line. That style is not neutral on Gemini 3.6 Flash — it is **actively wrong** there
+(see the researched list in §1.1d). Three lessons, all reusable:
+
+- **A prohibition that prints the wrong string teaches it.** This is the sharpest of the three, because the
+  project had built a habit out of it: every rule carried its OBSERVED FAILURE verbatim. Measured elsewhere at
+  87.5% of violations. The replacement is not a softer prohibition — it is the POSITIVE form plus a countable
+  check. `mai 'Cantore dei Boschi'` became the binding `Sentinelle del Bosco (Wood Wailers), one member = 'una
+  Sentinella del Bosco'`, which was already there and already sufficient.
+- **XML separates instruction syntax from output syntax.** Under markdown both layers used `##` and `**`, so the
+  instruction file was written in the same language as the artefact it specifies. This was never diagnosed as a
+  defect because it never produced a clean failure — it produced formatting that drifts. The tags cost bytes and
+  are worth them.
+- **A CROSS-REFERENCE MADE GENERIC IS A CROSS-REFERENCE DELETED.** The OWE step of NOTHING IS LEFT BEHIND said
+  "the **08.1** pins"; the rewrite made it "the **manifest** pins". To a human those read the same. To the model
+  the first is an instruction to OPEN A FILE and the second is a noun. Result: Lahabrea and the Echo vision were
+  not cut from the beat — **they were never owed**, so they did not even reach the `Restano:` line. You cannot
+  defer what you never owed. **When compressing, a file number, a §-code or a command name is never the padding:
+  it is the executable part of the sentence.**
+- **STRIPPING EMPHASIS CAN STRIP THE TRIGGER.** `**EMIT 09 §Z1 VERBATIM**` lost its bold in a tidy-up pass and
+  `/tracker` started needing two prompts to fire. On this floor, bold on an output-forcing clause is load-bearing;
+  the cv48 campaign against `(binding)` markers was about markers with no self-check behind them, NOT about the
+  emphasis on a clause that must produce output THIS turn.
+- **AN OMITTED CONDITIONAL LINE CANCELS A COMMAND, SILENTLY.** The GM's first test of cv50 ended Toto-Rak with no
+  travel option. The two conditional footer lines — `🧭 Viaggio:` and `⏭️ Tratto connettivo:` — had never been in
+  cv at all, in any version: they lived only in 06 §B1, behind retrieval. **A `🧭` not printed cancels `/viaggio`;
+  a `⏭️` not printed cancels `/riassumi`.** The GM cannot choose an option that was never offered, and nothing in
+  the output looks wrong — the beat simply ends. This is §1.2 demonstrated a second time, after cv49 (where 06
+  lost NOTHING IS LEFT BEHIND entirely and the test still passed, because cv carried it). **The rule generalises:
+  a line whose ABSENCE is invisible must live in the control layer, whatever it costs in bytes.**
+- **Parity costs bytes, and that is the correct trade.** Bringing ov and lv up to §1.1c parity ADDED rules they
+  were missing, so both files grew ~3% while cv fell 13%. Do not read a per-file byte count as the score.
+
+**THE −50% PROMISE, MISSED FOR THE SECOND TIME — this is now a pattern, not an accident.** cv48 promised −55% on
+06 and delivered −13.9%; cv50 promised −50% on the control layer and delivered −4% overall. Both estimates were
+derived the same way: from the LENGTH of the average rule, assuming length implies argument. Both times the
+measurement said otherwise. **The rules are long because they say a lot.** The next audit that proposes a
+percentage must first measure what fraction of the target is actually rationale — on cv48 that was 4% — and
+quote THAT number, not a target.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
@@ -985,7 +1112,8 @@ a Canvas reference.
   notice — the GM's design, adopted over mine, because it needs no persisted mode. Command-set cleanup
   (`/prepara`, `/nota`, `/riaggancio` retired). The `/tracker` artifact canonised as a verbatim template, first
   as file 09, then reabsorbed into 06 §A24 as a SHARED rule with three per-assistant scopes.
-- **cv29 / 06 v4.86 — THE FULL-PROJECT AUDIT** (`AUDIT_REPORT.md`). Five axes measured. Results, including the
+- **cv29 / 06 v4.86 — THE FULL-PROJECT AUDIT** (its `AUDIT_REPORT.md` no longer exists; the findings below and
+  the CHANGELOG entry are what survives of it). Five axes measured. Results, including the
   two that refuted the audit's own premises: the instruction files do **not** duplicate 06 (3%/5%/12% textual
   overlap — they are pointers, well factored); and of 65 failure shapes in 06 only **8** failed the anti-bias
   criterion, i.e. **the prose was not fat**. Delivered: three retired-command negations removed (LESSON 2.9);
