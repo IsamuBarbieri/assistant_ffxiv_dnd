@@ -41,10 +41,10 @@ run on another, and this project has already paid for that once (the media rules
 clickable in <host>" as their justification).
 
 **The two host differences that actually exist, and how each is handled:**
-- **The tracker panel.** Some hosts render the emitted HTML into a side panel automatically; on others the GM
-  selects it manually. **Not automatable from our side** — it is host UI, not output. The emission is identical
-  either way, so 06 §A24 forbids compensating for it (no "open the panel" instruction line, no re-emission, and
-  above all no pasting the roster as chat text as a fallback).
+- **The tracker panel — RESOLVED BY REMOVAL (2026-08-03).** This used to be a host difference: some hosts
+  rendered the emitted HTML artifact into a side panel, others did not, and §A24 forbade compensating for it.
+  The tracker is now an EXTERNAL tool (`combat_tracker.html`) the GM opens themselves and feeds by pasting the
+  encounter package, so the assistant emits no artifact at all and the host difference no longer exists.
 - **Media links.** Every image/map/OST reference is a plain SEARCH link the GM clicks — never an embedded or
   tool-fetched result. This was once a per-host override; it is now the unconditional rule in 06 §A4/§A23,
   which is why the three `PLATFORM OVERRIDE` blocks were deleted from the instruction files (they had become
@@ -62,9 +62,9 @@ the rule is the same **the text is identical word for word** — not merely equi
   each time. The stat-block row proved it: it sat at 1,421 B in `ov` and `lv` — the exact pre-strip `cv`
   version — for as long as it took someone to look.
 - **The exception is real and narrow:** what genuinely DIFFERS per assistant stays different, and should say so
-  explicitly. `/tracker` scope is the model — one artifact, three scopes (campaign = last beat · one-shot =
-  whole module · loremonger = last statted encounter), each stated in its own file next to the shared emission
-  rule.
+  explicitly — the per-assistant SCOPE line sits in its own file, next to the identical shared rule. (The
+  worked example used to be `/tracker`'s three scopes; that command was retired on 2026-08-03, but the shape
+  it demonstrated — shared rule verbatim, scope line local — is the standing pattern.)
 - **Verification is part of the edit, not a later pass:** after touching any shared rule, grep the changed
   string across all three files. Do it BY STRING, never by section (LESSON 2.11).
 - **SINCE cv50 THE THREE FILES SHARE ONE XML SKELETON,** in this order: `<role> <knowledge> <scope>
@@ -205,9 +205,14 @@ breaks. The lever for prose is EXEMPLARS, not language (LESSON 2.4).
 `00_Manual_Index` — **RITIRATO** (audit lotto B1). It was routing, which does nothing in a RAG pipeline, plus
 content that already existed elsewhere. Do not recreate it.
 
-Dev-only, never uploaded to a PLAY project: `CHANGELOG.md`, this file, `combat_tracker.html`
-(the browser-openable copy of the §A24.1 template — **06 §A24.1 is authoritative; the direction is always
-HTML → 06**, and the two must be diff-checked on every touch).
+Dev-only, never uploaded to a PLAY project: `CHANGELOG.md` and this file.
+`combat_tracker.html` is neither knowledge nor dev-only: it is the GM's **external table tool**, opened in a
+browser and fed by pasting an encounter package. It is no longer a copy of anything — the template asset
+(`09_Assets.md` §Z1) and the rules that emitted it (06 §A24) were deleted on 2026-08-03, so the HTML is now
+the only version and is authoritative over itself. What 06 §B8 owes it is the INPUT CONTRACT: the
+`Pacchetto Incontro:` title line, the `**Nemici:** <nome> ×N` roster line, and a read-aloud naming the room's
+shape and its objects with the ordinary nouns the tool's `FeatureCatalog` recognises. **Touching the parser or
+the catalog means re-checking §B8's vocabulary lists, and vice versa — that pair is the only coupling left.**
 
 ## 1.7 Structural model #1 — the MSQ flow lives in 08, 05 is RULES only
 - **08.1** = Roadmap ARR→EW + the CANONICAL CUTSCENE & REVEAL MANIFESTS (5 arcs + the Crystal Tower 6th) + the
@@ -1059,7 +1064,11 @@ place, so the archive below can be read without ambiguity — and deliberately N
 | `/riaggancio` | a MODE of `/continua` (06 §B3), not a command |
 | `/torniamo alla MSQ` | `/riprendi MSQ` |
 | `▶ ESEGUO <cmd>` echo line | nothing: the box executes the newest command directly |
-| `09_Tracker.md` | 06 §A24 |
+| `09_Tracker.md` | 06 §A24, poi — |
+| `09_Assets.md` (§Z1 tracker template) | nothing: deleted 2026-08-03, the tool is `combat_tracker.html` |
+| `/tracker` | nothing: retired 2026-08-03, the GM pastes the encounter package into the external tool |
+| 06 §A24 (combat tracker) | nothing: deleted 2026-08-03 |
+| 06 §B8 tactical map (nine presets, region table, symbol set) | nothing: deleted 2026-08-03, the tool draws the map |
 | `00_Manual_Index.md` | nothing: content already lived elsewhere |
 | `GEM_master.json`, `GEM_Builder.html`, tplC/tplL/tplO | the three (now four) instruction files, edited directly |
 | Canvas / Immersive | a self-contained HTML ARTIFACT |

@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.04 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.05 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -223,7 +223,7 @@ Direct question at the start of the evening: "Who already knows the FFXIV story,
 
 ## 2.5 Practical table tools
 - **Memory Sheet (the "save"):** where and how the WORLD/MSQ state is saved (LEAN, sections [A]-[C]: MSQ position, party level, active subquest). It does NOT store the players' inventory nor the crystals/Blessing (player-managed; crystals announced in play, 06 §B23). See Ch. 19.
-- **Combat tracker:** the assistant first gives a TEXT PREVIEW (initiative/AC/HP of monsters), then on "/tracker" an editable tracker with stat blocks and mechanics; PCs roll their own initiative and the GM integrates it. For each encounter the system provides the monsters' abilities and dice.
+- **Combat tracker (EXTERNAL tool, `combat_tracker.html`):** the assistant does NOT build one. It writes the ENCOUNTER PACKAGE (06 §B8) and the GM pastes that text into the tool, which derives the initiative table, the enemy roster and the battle map from it. PCs roll their own initiative and the GM slots it in. For each encounter the assistant still provides the monsters' abilities and dice, in the chat stat block.
 - **Requests to the assistant:** for deeper detail and descriptions, the GM queries the assistant via prompts during or between sessions (see 2.7).
 
 ## 2.6 "Base Starting Lore" package (common knowledge)
@@ -664,7 +664,7 @@ The core of gameplay: telegraphed FFXIV-style combat, where the challenge arises
 
 ## 9.2 Initiative & Tracker
 - The PLAYERS roll their own initiative; the GM slots the monsters into the order.
-- The tracker maintains: initiative order + monster HP (managed by the GM).
+- Initiative order and monster HP are kept in the EXTERNAL tracker (`combat_tracker.html`), fed by pasting the encounter package (06 §B8). The assistant never generates a tracker.
 - For each encounter the GM prepares the MONSTER SHEET: attacks, abilities, damage dice and mechanics.
 
 ## 9.3 Physical telegraph & reaction window
@@ -1215,7 +1215,7 @@ NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WH
 
 ## 19.3 What it tracks (LEAN save, sections [A]-[C], aligned to 06 §B17)
 - **[A] MSQ POSITION:** the current mission (EN) + the LAST COMPLETED step (= resume anchor); nothing predictive (next step, place, milestone are DERIVED from the wiki quest chain, not stored). (Crystals/Blessing are NOT in the save (Aetherytes only flagged in-scene, not tracked) — player-managed and announced in play; see 06 §B23.)
-- **[B] PARTY (table-owned):** number of PCs + current level — copied VERBATIM from the save, NEVER derived from the arc nor 'corrected'. Used for encounter balancing and the tracker PC count.
+- **[B] PARTY (table-owned):** number of PCs + current level — copied VERBATIM from the save, NEVER derived from the arc nor 'corrected'. Used for encounter balancing.
 - **[C] ACTIVE SUBQUEST:** exactly ONE subquest at a time (name + STATE ATTIVA/SOSPESA + progress + MSQ return point), or 'nessuna'; SUSPENDING it (/riprendi MSQ) keeps it, taking a NEW one replaces and loses the previous (Ch. 13). Still a single slot — no parked-leads LIST.
 - **Sessione: N (session counter):** a dedicated table-owned integer (copied VERBATIM, +1 only when beats were played this session); the '=== SAVE ===' header carries no title. Aligned to 06 §B17 (the sole save-template source).
 Everything else is DERIVED, not stored: what the PCs know, NPC reputations, Grand Company state, world-state and the reveal state are all a function of the MSQ position + the internal reveal gates (Ch. 1) - a small save that cannot mis-drive generation with a stale field.
@@ -1264,7 +1264,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | BLESSING OF LIGHT | a party boon from the Crystals: shatters Ascians + wards vs aetherial corruption; NOT Tempering immunity (that is the Echo). | Ch. 5 |
 | CALAMITY / SEVENTH UMBRAL ERA | recent catastrophe (Dalamud/Bahamut); common knowledge. | Ch. 2 |
 | JOB CHANGE | rare, EARNED via a Soul-Crystal subquest (GM discretion, lore-reachable), in town, keep level; no revert/re-swap without a new subquest; no duplicates. | Ch. 3 |
-| COMBAT TRACKER | a text preview + editable tracker (initiative/monster HP). | Ch. 2 / 9 |
+| COMBAT TRACKER | EXTERNAL tool (`combat_tracker.html`): the GM pastes the encounter package into it and it builds initiative, roster and map. | Ch. 2 / 9 |
 | CUTSCENE | in-scene = railed story beat (reactions only, fixed outcome, '[CUTSCENE IN SCENA]'); off-scene = '[CUTSCENE ALTROVE]' surfaced AUTOMATICALLY at the canonical beat, GM-facing, + anti-spoiler warning; GM decides read/keep/skip. | Ch. 16.6 |
 | PHOENIX TAIL | consumable: revive to 1/2 HP + Aether Sickness; shop ONLY (~1,500 Gil). | Ch. 12 |
 | CRAFTING | Downtime (only the skilled): consumables, components ~25% of shop price; never Downs/Tails. | Ch. 14 |

@@ -1,5 +1,66 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-03 — IL TRACKER ESCE DAL SISTEMA (06 v5.11 / 05 v2.05 / cv52 / ov29 / lv23)
+
+**DECISIONE DEL GM, cambio di architettura.** Il tracker di combattimento non è più qualcosa che l'assistente
+GENERA: è `combat_tracker.html`, uno **strumento esterno** che il GM apre nel browser e a cui dà in pasto il
+testo del pacchetto incontro. Il tool ne ricava da solo la tabella iniziativa, il roster nemici, le schede e
+**la mappa tattica**. Di conseguenza tutto ciò che nel sistema serviva a produrre quelle due cose è diventato
+peso morto e va via.
+
+**RIMOSSO (in blocco, non deprecato):**
+- `09_Assets.md` — **file cancellato**. Conteneva solo §Z1, il template HTML da emettere verbatim.
+- `06 §A24` (COMBAT TRACKER) con §A24.1 / §A24.2 / §A24.3 — 48 righe: scope per assistente, contratto dati a
+  due forme di riga, pannello `statblocks`, cosa fanno i controlli, invarianti anti-recupero-parziale.
+- `06 §B8` MAPPA TATTICA — 95 righe: i nove preset con le loro misure, le due silhouette tonde verbatim, la
+  tabella delle sette regioni, il set chiuso di simboli, la regola del bottom-to-top, la riga chiave, la riga
+  distanze e i due self-check contati. §B8 resta come sezione ma cambia mestiere (sotto).
+- Il comando `/tracker` in tutti e tre gli assistenti, e ogni sua traccia: roster comandi §B1, elenco degli
+  interrupt cursor-safe, side-output read-only, self-scan §A9.
+- 05: Ch. 2.5 e Ch. 9.2 riscritti sul tool esterno; il conteggio PG del save non alimenta più un tracker.
+
+**AGGIUNTO — §B8 non descrive più un disegno, descrive un CONTRATTO D'INGRESSO.** Il pacchetto incontro adesso
+ha tre campi che il tool legge, e ognuno fallisce in SILENZIO se manca:
+1. **La riga titolo** `Pacchetto Incontro: <nome dello scontro>`, prima riga del pacchetto. Prima non veniva
+   mai emessa: il parser la cercava già (`combat_tracker.html`, `importFromText`) e non la trovava mai, quindi
+   **ogni scontro importato si chiamava "Nuovo Scontro"**. Difetto trovato leggendo il tool, non le istruzioni.
+2. **La riga roster** `**Nemici:** <nome> ×N · <nome> ×N`, subito sotto `**Innesco:**`, con i nomi identici
+   carattere per carattere alle intestazioni `### ` degli stat block. **È la richiesta esplicita del GM** ed è
+   la correzione di un canale fragile: il numero di nemici veniva DEDOTTO dalla prosa cercando un numerale
+   entro tre parole dal nome (`\btre\b\s+(?:\w+\s+){0,3}<stem>`), che sbaglia su un plurale lontano dal nome,
+   su «un drappello di» e su qualunque nome multi-parola. Ora è una lettura, non un indovinello — e la prosa
+   torna libera di dire «un drappello» senza costare al GM un roster sbagliato.
+3. **Il "Da leggere ai PG" fa doppio lavoro:** è la scena E la sorgente della mappa. Deve NOMINARE LA FORMA
+   della stanza con una parola ordinaria (le sette famiglie che il tool classifica: stretto/cunicolo/passaggio
+   · corridoio/ponte/galleria · sala/grande/ampio/vasto/spazioso · arena/enorme/immenso ·
+   grotta/caverna/antro/cavità · rovine/labirinto · tondo/circolare/ad anello) e NOMINARE LE COSE FISICHE col
+   loro sostantivo comune (rocce, macerie, pilastri, casse, barili, ragnatele, acqua, fango, ghiaccio, fiamme,
+   acido, rovi, trappole, meccanismi… — il vocabolario che il `FeatureCatalog` del tool riconosce).
+   **NON è una regola nuova sulla prosa:** §A1 chiedeva già sostantivi concreti e un blocco che CHIUDE
+   SULL'OSTACOLO. È la stessa richiesta con un costo finalmente visibile: «il disordine della sala» non
+   ammobilia niente, «casse rovesciate e barili spaccati» ammobilia correttamente. Il self-check di §B8 è
+   sceso da due blocchi contati a quattro condizioni.
+
+**MODIFICHE AL TOOL** (`combat_tracker.html`, ora unica versione e autorevole su sé stessa):
+- `importFromText` legge la riga `Nemici:` e la usa come **fonte autorevole** del conteggio; la vecchia
+  deduzione dalla prosa resta come fallback per un pacchetto scritto prima di oggi. Il match sul nome è esatto,
+  con ripiego sulla coda (l'estrazione del nome dallo stat block può trascinarsi un prefisso).
+- La riga roster e la riga titolo sono **escluse dal testo che genera la mappa**: un nemico chiamato «Golem di
+  Pietra» non deve piazzare rocce sul pavimento.
+- La riga titolo accetta anche la forma in grassetto.
+- `FeatureCatalog`: la regex del fuoco copre anche `braci|bracier|tizzon|rogo` («braci» non faceva match su
+  `brace`, e è la parola che la prosa usa davvero).
+
+**COSA RESTA ACCOPPIATO, ed è l'unica cosa da ricordare:** §B8 e il parser di `combat_tracker.html` sono due
+metà dello stesso contratto. Toccare le liste di vocabolario in §B8 senza toccare `FeatureCatalog` (o viceversa)
+produce esattamente il difetto di questa architettura: una prosa perfetta che ammobilia una mappa vuota, senza
+niente che sembri sbagliato.
+
+**VERIFICA:** le due nuove regex sono state riprodotte in Python ed eseguite su un pacchetto d'esempio — titolo
+estratto, roster `{sentinella del bosco: 3, capitano delle sentinelle: 1, mastino: 1}` (nome in grassetto e
+voce senza ×N incluse), riga `Nemici:` assente dal testo-mappa, forma e feature riconosciute. Nessun runtime JS
+in ambiente: il rendering nel browser lo collauda il GM.
+
 ## 09 — Tracker (FILE RITIRATO: il tracker è ora 06 §A24)
 
 > Il file 09 è vissuto un solo commit (e09b0e9) ed è stato riassorbito in 06 §A24. Le voci qui sotto restano
