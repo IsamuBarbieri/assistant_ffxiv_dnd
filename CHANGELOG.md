@@ -1,5 +1,123 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-04 (6) — GLI ELEMENTI SI LEGGONO DAL READ-ALOUD, NON SI SCELGONO (06 v5.17 / cv58 / ov35 / lv29)
+
+Secondo collaudo, e la sezione Arena non combaciava con la prosa che le stava sopra. Il read-aloud diceva
+«una rotonda di pietra Gelmorrana **invasa da ragnatele e sostanze vischiose**», e gli Elementi dichiaravano
+*Acido/Tossina* al centro (che erano le **zanne e la coda del mostro**), *Rocce* a est e ovest (che **nessuna
+frase descriveva** — «pietra Gelmorrana» è di cosa sono fatti i MURI) e *Ragnatele* confinate in una fascia.
+Una riga su tre corrispondeva alla stanza, e le due cose su cui la prosa insisteva mancavano o erano fuori posto.
+
+**1. VIA IL NUMERO DI ELEMENTI.** §B8 suggeriva «three to six entries in a normal fight»: un bersaglio da
+centrare, che si centra riempiendo. Ora la regola è una PROCEDURA: **si scrive prima il read-aloud, poi si
+rilegge la propria prosa e si scrive una riga per ogni cosa che dice essere nella stanza.** Il conteggio si
+decide da sé — una rotonda spoglia ne ha due, un'officina crollata sette, e nessuna delle due sbaglia. Niente
+riempitivi e niente elementi che i giocatori non sentiranno mai nominare.
+
+**2. ANCHE LA ZONA SI LEGGE DALLA PROSA.** La stessa frase che nomina la cosa di solito dice DOVE sta: «lungo
+la parete est» è *fascia est*, «al centro della sala» è *centro*. E **quando la prosa dice tutta la stanza,
+la zona è *ovunque*** — «invasa da», «il pavimento è coperto di», «dappertutto». Il self-check ora confronta
+anche l'ESTENSIONE, non solo il nome.
+
+**3. IL TRACKER RENDE *ovunque* COME DIFFUSO.** Prima «ovunque» voleva dire «una chiazza grande in un punto a
+caso», che è il contrario di «invasa». Ora un elemento dichiarato sull'intero pavimento riceve più GRUPPI più
+piccoli, tenuti staccati fra loro, a parità di budget; un elemento con una zona precisa resta concentrato,
+che è il suo senso. Misurato su 50 mappe da 18×18: 4,6 chiazze contro 1,4, estensione 22,3 contro 10,1.
+
+**4. DUE VOCI NUOVE, entrambe per un buco reale.** *Voragine/Vuoto* — §B10 impone di stabilire il pericolo
+mortale dell'arena di un trial (la spinta nel baratro, la piattaforma sospesa) e poi di dichiararlo, ma nel
+catalogo **non c'era modo di dirlo**. *Cristallo Etereo* — firma di metà delle arene di FFXIV, che finiva
+schiacciata su «Meccanismo». Il catalogo dichiarabile sale a 25.
+
+**5. LA PAROLA DELLA PROSA SCEGLIE LA VOCE.** Aggiunta a §B8 la mappatura che mancava, nel verso giusto:
+*sostanze vischiose, melma, resina* → *Fango/Muffa*; *un crepaccio, il vuoto oltre il bordo* → *Voragine/Vuoto*.
+Il catalogo è lo strato MECCANICO: un suo nome non entra mai nel read-aloud.
+
+## 2026-08-04 (5) — UN MURO NON E' UN ELEMENTO, E UN PILASTRO STA DA SOLO (06 v5.16 / cv57 / ov34 / lv28)
+
+Osservazione del GM: **«Muro di Pietra» finiva in quasi ogni arena**. Due difetti sotto una sola segnalazione.
+
+**1. IL MURO NON SI DICHIARA.** Il perimetro della stanza lo disegnano già `Tipo` e `Forma`; dichiarare un muro
+non lo traccia, **semina pezzi di muratura sul pavimento dove il gruppo combatte**. Il nome però legge come la
+cosa più ovvia da nominare in una stanza di pietra, e l'assistente lo sceglieva per questo. Ora «Muro di
+Pietra» e «Grata/Cancello» sono **fuori dal catalogo dichiarabile** — restano nella tavolozza del tracker,
+per ritoccare a mano una mappa già fatta, ed è esattamente il mestiere per cui esistono. Il catalogo di §B8
+scende a 23 nomi. Chi li dichiara riceve un avviso che dice cosa usare al loro posto.
+
+**2. LA COPERTURA TOTALE IN CAMPO APERTO È UN PILASTRO, E STA DA SOLO.** Un pilastro appoggiato alla parete non
+offre riparo che il muro non desse già, e due pilastri accostati sono un muro corto: in entrambi i casi la
+copertura non vale niente. Il generatore ora lo sa — un elemento `type-cover-total` **non viene mai piazzato
+adiacente a un muro né accanto a un altro pezzo di copertura totale**, e per questi la distanza minima NON si
+allenta quando lo spazio scarseggia: meglio un pilastro in meno che un pilastro inutile. Su un corridoio
+stretto, di conseguenza, i pilastri semplicemente non entrano. Misurato su 60 mappe: 252 pilastri, zero
+attaccati a un muro, zero adiacenti fra loro; il vincolo non tocca rocce, acqua e fango, che continuano a
+lambire le pareti come prima.
+
+## 2026-08-04 (4) — QUATTRO CORREZIONI DAL PRIMO COLLAUDO DELLA SEZIONE ARENA (06 v5.15 / cv56 / ov33 / lv27)
+
+Primo pacchetto vero passato nel tracker con la sezione Arena, e quattro cose non tornavano.
+
+**1. GLI ELEMENTI SENZA TRATTINO VENIVANO RIFIUTATI IN BLOCCO.** Il parser pretendeva `- ` davanti a ogni
+elemento, ma **incollando il pacchetto come testo semplice i punti elenco del markdown spariscono**: un'arena
+scritta a regola d'arte dava «Nessun elemento riconosciuto». Ora dopo `Elementi:` ogni riga non vuota è un
+elemento, il trattino è consentito e non preteso, e si accetta anche l'elenco `·`-separato sulla stessa riga.
+
+**2. VIA LA DESCRIZIONE DELL'AMBIENTE ETICHETTATA.** Un blocco «Descrizione visiva (Ambiente):» sopra il
+pacchetto descriveva in tre frasi la stessa stanza che il «Da leggere ai PG» descrive subito dopo, meglio e al
+posto giusto. Non era in §A4 — era un'invenzione dell'output. Ora §A4 dice che **la descrizione di un luogo è
+prosa giocata e non porta etichetta**: '**Descrizione visiva:**' è una riga di stat block e appartiene a una
+CREATURA o a un PNG (§B6), un luogo non ne ha mai una.
+
+**3. VIA IL CAMPO DELL'ESITO.** Un paragrafo che prevede cosa succede se il gruppo perde o lascia il nemico in
+piedi è una supposizione che il GM deve poi smentire, stampata sopra lo stat block dove compete con quello che
+serve davvero a metà combattimento. L'esito si decide al tavolo, e quando conta per la storia lo porta già la
+riga '[Info GM]' (§B1). Il pacchetto **imposta** lo scontro, non lo risolve.
+
+**4. UN MOSTRO CON TUTTI GLI ATTACCHI TELEGRAFATI NON PUÒ ATTACCARE.** Osservato: un mini-boss le cui uniche
+due azioni erano entrambe telegrafate, e un Multiattacco che combinava esattamente quelle due — una creatura
+che al proprio primo turno non tira nulla. §B10 ora impone che **ogni stat block abbia almeno un attacco SENZA
+'**Telegrafo:**'**, con il conteggio prima dell'invio: il danno di base sta sugli attacchi normali, il
+telegrafo si spende su ciò che merita il preavviso (l'area, la fase, la meccanica da leggere e schivare).
+Nessuna sezione «Azioni Speciali» separata: la riga '**Telegrafo:**' sotto la voce è già ciò che la marca,
+sulla pagina e nel tracker.
+
+**TRACKER, in più:** tutto quello che sta fra il TS e la prima sezione (Resistenze, Immunità, Vulnerabilità)
+non è più reso come una mossa ma entra nel riquadro dei dati difensivi, etichetta in grassetto e valore
+normale. Vale anche per i tracker già salvati, senza toccarne il formato.
+
+## 2026-08-04 (3) — L'AMBIENTE SI DICHIARA, NON SI INDOVINA (06 v5.14 / cv55 / ov32 / lv26)
+
+Segnalazione del GM sul pacchetto «Il Terrore delle Fauci»: **la mappa non ha senso con la descrizione, e in
+prosa non si capisce cosa è ambiente e cosa è roba del mostro**. Il difetto non era tarabile, era strutturale.
+
+**LA CAUSA.** La mappa nasceva da regex sulla prosa del «Da leggere ai PG». Ma un read-aloud descrive il
+MOSTRO almeno quanto la stanza, e nessuna scansione sa distinguerli. Sul Graffias, quattro elementi su quattro
+erano il boss: «la **pozza** d'acido» → Acqua Profonda, «spruzzo di **melma** verdastra» → Fango/Muffa, «coda
+**velenosa**» e «linfa **corrosiva**» → Acido/Tossina, «sulla **pietra**» → Rocce. Nessuno di questi era
+sul pavimento. In più le posizioni erano casuali: il testo diceva «pozza **al centro** della stanza» e l'acido
+finiva in cima alla mappa.
+
+**LA CURA — SEZIONE `#### Arena`, OBBLIGATORIA IN OGNI PACCHETTO (06 §B1/§B8).** L'ambiente si DICHIARA:
+`**Tipo:**` fra nove etichette chiuse, `**Dimensioni:**` in caselle, `**Forma:**` opzionale, e `**Elementi:**`
+con una riga `- <Nome> — <zona>` per elemento, nomi dal catalogo chiuso e zone da un vocabolario chiuso
+(nord/sud/est/ovest/centro/angoli/ingresso/fondo/ovunque). Il tracker semina E fa crescere l'elemento dentro
+quel terzo di pavimento, quindi «Acido/Tossina — centro» mette davvero la pozza in mezzo.
+**NIENTE RIPIEGO:** il motore a regex sulla prosa è stato CANCELLATO (lessico delle forme, `classifyShape`, le
+25 regex del catalogo). Un pacchetto senza sezione Arena non produce una stanza a caso: carica nemici e
+statistiche e lo dice.
+
+**LA REGOLA DI SINCRONIA.** Ogni voce di **Elementi** è nominata nel read-aloud col suo sostantivo ordinario, e
+nel read-aloud non si descrive nessun ambiente che non sia in **Elementi**. Il corpo del mostro è l'eccezione e
+la ragione della regola: si descrive liberamente e non si dichiara mai. Il self-check di §B8 passa da quattro a
+sei condizioni contabili, due delle quali sono un confronto fra due numeri.
+
+**BUG COLLATERALE CHIUSO.** «🔄 Rigenera Mappa» ri-scandiva `narrativeText` INTERO mentre l'import usava solo il
+read-aloud: i due percorsi davano mappe diverse, ed è da lì che nascevano le 🕸️ Ragnatele viste dal GM
+(«bozzoli», in **Conseguenze**). Ora si rigenera dalla sezione Arena salvata sullo scontro.
+
+Riconciliato anche il vecchio elenco campi di §B1, che citava ancora un campo `terreno` mai emesso, e l'esempio
+di failure shape che stampava la stringa `Terreno:` in una regola.
+
 ## 2026-08-04 (2) — UN NOME FRA PARENTESI FACEVA SPARIRE IL MOSTRO (06 v5.13 / cv54 / ov31 / lv25)
 
 Collaudo del GM sul pacchetto «Il Guardiano delle Radici»: **il mostro non compare nel tracker e la mappa non

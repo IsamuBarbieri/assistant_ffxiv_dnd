@@ -210,9 +210,12 @@ Dev-only, never uploaded to a PLAY project: `CHANGELOG.md` and this file.
 browser and fed by pasting an encounter package. It is no longer a copy of anything — the template asset
 (`09_Assets.md` §Z1) and the rules that emitted it (06 §A24) were deleted on 2026-08-03, so the HTML is now
 the only version and is authoritative over itself. What 06 §B8 owes it is the INPUT CONTRACT: the
-`Pacchetto Incontro:` title line, the `**Nemici:** <nome> ×N` roster line, and a read-aloud naming the room's
-shape and its objects with the ordinary nouns the tool's `FeatureCatalog` recognises. **Touching the parser or
-the catalog means re-checking §B8's vocabulary lists, and vice versa — that pair is the only coupling left.**
+`Pacchetto Incontro:` title line, the `**Nemici:** <nome> ×N` roster line, and the `#### Arena` section — Tipo
+from `MapPresets`' labels, Dimensioni, optional Forma, and one `- <Nome> — <zona>` line per element with the
+names the tool's `FeatureCatalog` carries. Since 2026-08-04 the map is DECLARED, not inferred: the prose-scanning
+engine (`ShapeLexicon`, `classifyShape`, the catalog's per-entry regex) was deleted, because a read-aloud
+describes the monster as much as the room and no regex could tell them apart. **Touching the parser or the
+catalog means re-checking §B8's closed lists, and vice versa — that pair is the only coupling left.**
 
 ## 1.7 Structural model #1 — the MSQ flow lives in 08, 05 is RULES only
 - **08.1** = Roadmap ARR→EW + the CANONICAL CUTSCENE & REVEAL MANIFESTS (5 arcs + the Crystal Tower 6th) + the

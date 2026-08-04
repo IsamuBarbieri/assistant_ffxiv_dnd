@@ -105,7 +105,7 @@
     input.name-input:hover, input.name-input:focus { border: 1px solid #4b5563; background-color: #2a2d33; }
     
     .badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 6px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; width: 100%; box-sizing: border-box; transition: background-color 0.2s; }
-    .badge-monster { color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
+    .badge-monster { color: ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
     .badge-pc { background-color: #1e3a8a; color: #93c5fd; }
 
     .hp-cell-container { display: flex; flex-direction: column; gap: 4px; }
@@ -148,10 +148,10 @@
     .sb-edit-btn { background: none; border: 1px solid #4b5563; color: var(--text-muted); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; float: right; margin-bottom: 10px; }
     
     .sb-line1 { color: #e5e7eb; font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; clear: both; }
-    .sb-attributes-raw { color: #9ca3af; font-size: 0.85rem; margin-bottom: 12px; }
+    .sb-attributes-raw { color: #ffffff; font-size: 0.85rem; margin-bottom: 12px; }
     
     .sb-secondary-box { display: flex; flex-direction: column; gap: 4px; margin-bottom: 15px; font-size: 0.85rem; color: #e5e7eb; }
-    .sb-secondary-box strong { color: #9ca3af; font-weight: 600; }
+    .sb-secondary-box strong { color: #ffffff; font-weight: 600; }
     
     .sb-section-title { font-weight: bold; color: #fbbf24; margin-top: 15px; margin-bottom: 6px; border-bottom: 1px solid #4b5563; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; padding-bottom: 2px; }
     .sb-move { font-size: 0.9rem; margin-bottom: 6px; line-height: 1.4; }
@@ -301,7 +301,7 @@
         <div class="map-header">
           <h2 id="mapTitle" style="margin:0; font-size: 1.2rem;"></h2>
           <div id="mapHeaderControls" style="display:flex; gap:8px; align-items:center;">
-            <button class="btn-secondary" onclick="triggerMapRegeneration()" title="Ricalcola architettura e ostacoli dal testo del pacchetto">
+            <button class="btn-secondary" onclick="triggerMapRegeneration()" title="Ridispone pianta ed elementi dalla sezione Arena del pacchetto">
               <span>🔄</span> Rigenera Mappa
             </button>
             <select id="mapPresetSelect" class="btn-secondary" onchange="generateEmptyMap(this.value)" title="Crea una mappa vuota da un modello, tirata a caso ogni volta">
@@ -320,8 +320,8 @@
   <div class="modal-overlay" id="importModal">
     <div class="modal-content">
       <h2 style="margin-top:0;">Importa Incontro</h2>
-      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incolla qui il <strong>testo del pacchetto incontro</strong>. Da questo vengono ricavati nemici, statistiche e mappa. Per riaprire un tracker salvato usa invece <strong>📂 Apri</strong>.</p>
-      <textarea id="importTextarea" class="import-area" placeholder="### Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** ...&#10;**Nemici:** Sentinella del Bosco ×3&#10;&#10;**Da leggere ai PG:** ..."></textarea>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incolla qui il <strong>testo del pacchetto incontro</strong>. Da questo vengono ricavati nemici e statistiche; la mappa esce dalla <strong>sezione Arena</strong>. Per riaprire un tracker salvato usa invece <strong>📂 Apri</strong>.</p>
+      <textarea id="importTextarea" class="import-area" placeholder="### Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** ...&#10;**Nemici:** Sentinella del Bosco ×3&#10;&#10;**Da leggere ai PG:** ...&#10;&#10;#### Arena&#10;**Tipo:** Sala Ampia&#10;**Dimensioni:** 18 × 14&#10;**Elementi:**&#10;- Rocce — angolo nord-est&#10;- Acqua Profonda — fascia est"></textarea>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button class="btn-secondary" onclick="closeImportModal()">Annulla</button>
         <button class="btn-import" style="background-color:var(--success); color:white;" onclick="processImport()">Carica Incontro</button>
@@ -342,45 +342,59 @@
   </div>
 
   <script>
+    // Le sezioni dello stat block (06 §B6): una riga che e' SOLO uno di questi titoli apre una sezione.
+    const SB_SECTION_TITLE = /^(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/i;
+
+    // Il catalogo e' un ELENCO CHIUSO: il pacchetto incontro dichiara gli elementi dell'arena per NOME,
+    // carattere per carattere, nella sua sezione "Arena" (06 §B8). Non si deduce piu' niente dalla prosa:
+    // il "Da leggere ai PG" descrive soprattutto il mostro, e nessuna regex sa distinguere una coda velenosa
+    // da una pozza velenosa. Chi aggiunge una voce qui aggiunge una parola al vocabolario del pacchetto.
     const FeatureCatalog = [
       // Coperture Totali
-      { regex: /muro|pareti di pietra/i, emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
-      { regex: /pilastr|colonn/i, emoji: "♜", name: "Pilastro/Colonna", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
-      { regex: /tronc/i, emoji: "🪵", name: "Tronco Colossale", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
+      // manualOnly: la voce resta nel catalogo e si trascina sulla mappa, ma NON si dichiara in "Elementi:".
+      // Un muro e' il PERIMETRO della stanza, e il perimetro lo disegna gia' il Tipo: dichiararlo semina
+      // pezzi di muro in mezzo al pavimento. In mezzo al campo la copertura totale e' un pilastro.
+      { emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)",
+        manualOnly: 'il perimetro lo disegna il "Tipo". Per una copertura totale in mezzo al campo usa "Pilastro/Colonna"' },
+      { emoji: "♜", name: "Pilastro/Colonna", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
+      { emoji: "🪵", name: "Tronco Colossale", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
 
       // Coperture 3/4 (+5)
-      { regex: /statu|monument|altar/i, emoji: "🗿", name: "Statua/Altare", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
-      { regex: /alber/i, emoji: "🌲", name: "Albero Grosso", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
-      // manualOnly: riconosciuto nel testo ma MAI piazzato in automatico. Una grata o un cancello sono quasi
-      // sempre l'ingresso della stanza, non un ostacolo in mezzo al campo: lo mette il GM dove serve.
-      { regex: /\bgrat[ae]\b|cancell/i, manualOnly: true, emoji: "▦", name: "Grata/Cancello", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des) — solo a mano" },
-      
+      { emoji: "🗿", name: "Statua/Altare", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
+      { emoji: "🌲", name: "Albero Grosso", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
+      { emoji: "▦", name: "Grata/Cancello", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)",
+        manualOnly: 'una grata e\' quasi sempre l\'INGRESSO della stanza, non un ostacolo in mezzo al campo: mettila a mano dove serve' },
+
       // Mezze Coperture (+2)
-      { regex: /rocci|mass[io]|pietr|detriti|stalagmit/i, emoji: "🪨", name: "Rocce", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /maceri/i, emoji: "🧱", name: "Macerie", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /cass|scatol/i, emoji: "📦", name: "Casse", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /baril|\bbott[ei]\b/i, emoji: "🏺", name: "Anfore/Barili", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /tavol|mobili[oa]\b|arred|bancon/i, emoji: "🪑", name: "Mobilio/Tavoli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /barricat|murett|steccat/i, emoji: "🪵", name: "Barricata", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /cespugli|arbust/i, emoji: "🌿", name: "Cespuglio", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /siep[ei]|filar|vign|pergolat|frasch/i, emoji: "🌳", name: "Siepe/Filare", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /carr[oi]\b|carrett|birocc|slitt/i, emoji: "🛒", name: "Carro", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      
+      { emoji: "🪨", name: "Rocce", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🧱", name: "Macerie", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "📦", name: "Casse", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🏺", name: "Anfore/Barili", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🪑", name: "Mobilio/Tavoli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🪵", name: "Barricata", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🌿", name: "Cespuglio", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🌳", name: "Siepe/Filare", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🛒", name: "Carro", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+
       // Terreni Difficili
-      { regex: /acqu|pozz/i, emoji: "💧", name: "Acqua Profonda", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
-      { regex: /solc[hi]|zoll[ae]|terra smossa|aratur|erba alta|sterpagli|cannet|giunch/i, emoji: "🌾", name: "Solchi/Erba Alta", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
-      { regex: /muff|fang|melm/i, emoji: "🦠", name: "Fango/Muffa", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
-      { regex: /ragnatel|bozzol/i, emoji: "🕸️", name: "Ragnatele", cssType: "type-difficult", effect: "Terreno Difficile (Infiammabile)" },
-      { regex: /ghiacci|neve/i, emoji: "🧊", name: "Ghiaccio", cssType: "type-difficult", effect: "Terreno Difficile (Rischio caduta proni)" },
-      
+      { emoji: "💧", name: "Acqua Profonda", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🌾", name: "Solchi/Erba Alta", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🦠", name: "Fango/Muffa", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🕸️", name: "Ragnatele", cssType: "type-difficult", effect: "Terreno Difficile (Infiammabile)" },
+      { emoji: "🧊", name: "Ghiaccio", cssType: "type-difficult", effect: "Terreno Difficile (Rischio caduta proni)" },
+
       // Terreni Pericolosi
-      { regex: /fuoc|fiamm|\blav[ae]\b|magma|brac[ei]|bracier|tizzon|\brogo\b|\bpira\b/i, emoji: "🔥", name: "Fuoco/Lava", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Fuoco (entrando o iniziando il turno)" },
-      { regex: /acid|velen|tossic/i, emoji: "🟢", name: "Acido/Tossina", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Acido (entrando o iniziando il turno)" },
-      { regex: /spunton|\brov[io]\b|\bspin[ae]\b|prun|triboli/i, emoji: "🥀", name: "Rovi/Spine", cssType: "type-hazard", effect: "Pericolo: 1d4 Danni Perforanti (entrando o iniziando il turno)" },
-      { regex: /trappol/i, emoji: "🪤", name: "Trappola", cssType: "type-hazard", effect: "Pericolo: Effetto Trappola (entrando)" },
-      
+      { emoji: "🔥", name: "Fuoco/Lava", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Fuoco (entrando o iniziando il turno)" },
+      { emoji: "🟢", name: "Acido/Tossina", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Acido (entrando o iniziando il turno)" },
+      { emoji: "🥀", name: "Rovi/Spine", cssType: "type-hazard", effect: "Pericolo: 1d4 Danni Perforanti (entrando o iniziando il turno)" },
+      { emoji: "🪤", name: "Trappola", cssType: "type-hazard", effect: "Pericolo: Effetto Trappola (entrando)" },
+      // Il pericolo mortale di mezza arena da trial (06 §B10 item 2): la spinta verso il vuoto, il crepaccio,
+      // la piattaforma sospesa. Mancava, e senza una voce non c'era modo di dichiararlo.
+      { emoji: "🕳️", name: "Voragine/Vuoto", cssType: "type-hazard", effect: "Pericolo: Caduta nel Vuoto (TS Destrezza o si precipita)" },
+
       // Elementi Interattivi
-      { regex: /meccanism|lev[ae]|terminal|consol|interruttor|cristall/i, emoji: "⚙️", name: "Meccanismo", cssType: "type-interactive", effect: "Interattivo (Richiede Azione)" }
+      { emoji: "⚙️", name: "Meccanismo", cssType: "type-interactive", effect: "Interattivo (Richiede Azione)" },
+      { emoji: "🔮", name: "Cristallo Etereo", cssType: "type-interactive", effect: "Interattivo (Richiede Azione)" }
     ];
 
     const warmPaletteRGB = [
@@ -850,25 +864,40 @@
           
           if (activeSb.attributes) html += `<div class="sb-attributes-raw">${escapeHtml(activeSb.attributes)}</div>`;
           
-          if (activeSb.ts || activeSb.skills || activeSb.senses) {
+          // Tutto quello che sta fra il TS e la prima sezione (Resistenze, Immunità, Vulnerabilità, …) e' dato
+          // difensivo, non una mossa: sta nel riquadro con gli altri, etichetta in grassetto e valore normale.
+          // L'import lo lascia in `moves` perche' nel pacchetto sono righe come le altre, quindi si separa qui
+          // — cosi' vale anche per i tracker gia' salvati, senza toccarne il formato.
+          const allMoves = (activeSb.moves || []);
+          let firstSection = allMoves.findIndex(m => SB_SECTION_TITLE.test(m.trim()));
+          if (firstSection < 0) firstSection = allMoves.length;
+          const extraStats = [], bodyMoves = [];
+          allMoves.forEach((m, i) => {
+              const lead = i < firstSection ? /^\**\s*([^:]{2,32}?)\s*\**\s*:\s*(.+)$/.exec(m.trim()) : null;
+              if (lead) extraStats.push([lead[1], lead[2]]); else bodyMoves.push(m);
+          });
+
+          const statRow = (label, value) => `<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</div>`;
+          if (activeSb.ts || activeSb.skills || activeSb.senses || extraStats.length) {
               html += `<div class="sb-secondary-box">`;
-              if (activeSb.ts) html += `<div><strong>TS:</strong> <span style="color:white;">${escapeHtml(activeSb.ts)}</span></div>`;
-              if (activeSb.skills) html += `<div><strong>Abilità:</strong> <span style="color:white;">${escapeHtml(activeSb.skills)}</span></div>`;
-              if (activeSb.senses) html += `<div><strong>Sensi:</strong> <span style="color:white;">${escapeHtml(activeSb.senses)}</span></div>`;
+              if (activeSb.ts) html += statRow("TS", activeSb.ts);
+              if (activeSb.skills) html += statRow("Abilità", activeSb.skills);
+              extraStats.forEach(p => { html += statRow(p[0], p[1]); });
+              if (activeSb.senses) html += statRow("Sensi", activeSb.senses);
               html += `</div>`;
           }
-          
+
           let movesHtml = "";
-          (activeSb.moves || []).forEach(m => {
+          bodyMoves.forEach(m => {
             if (m.trim() === "") return;
-            if (m.match(/^(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/i)) movesHtml += `<div class="sb-section-title">${escapeHtml(m)}</div>`;
+            if (SB_SECTION_TITLE.test(m.trim())) movesHtml += `<div class="sb-section-title">${escapeHtml(m)}</div>`;
             else {
                 let isTelegraph = m.toLowerCase().startsWith('telegrafo:');
                 if (isTelegraph) {
                     movesHtml += `<div class="sb-telegraph">${escapeHtml(m)}</div>`;
                 } else {
-                    const match = m.match(/^([^\.\—\-]+)([\.\—\-].*)$/);
-                    if (match) movesHtml += `<div class="sb-move"><strong>${escapeHtml(match[1])}</strong>${escapeHtml(match[2])}</div>`;
+                    const match = m.match(/^(.+?[\.\—\-])( .*)?$/);
+                    if (match) movesHtml += `<div class="sb-move"><strong>${escapeHtml(match[1])}</strong>${escapeHtml(match[2] || "")}</div>`;
                     else movesHtml += `<div class="sb-move">${escapeHtml(m)}</div>`;
                 }
             }
@@ -899,26 +928,35 @@
     //   single  = struttura isolata e ben distanziata (albero, pilastro, statua, trappola)
     // groups = quanti gruppi distinti · cells = quante caselle per gruppo
     // clump = probabilita' che il pezzo venga posato come blocco 2x2 di quattro caselle 1x1 (nessuna icona grande).
+    // isolated = non tocca mai un muro e non sta mai accanto a un altro pezzo: vedi il commento qui sotto.
     function featureProfile(feat) {
       const n = feat.name;
-      if (/Acqua|Fango|Ghiaccio|Solchi|Ragnatele|Fuoco|Acido|Rovi/i.test(n))   return { mode: 'blob',    groups: [1, 2], cells: [4, 9], clump: 0.35 };
-      if (/Siepe|Barricata|Muro/i.test(n))                                     return { mode: 'line',    groups: [1, 2], cells: [3, 6], clump: 0 };
+      // UNA COPERTURA TOTALE VALE SOLO SE E' AGGIRABILE. Un pilastro appoggiato alla parete non offre riparo
+      // che il muro non desse gia', e due pilastri accostati sono un muro corto: si nega l'una e l'altra cosa.
+      if (feat.cssType === 'type-cover-total')                                 return { mode: 'single',  groups: [1, 3], cells: [1, 1], clump: 0, isolated: true };
+      if (/Acqua|Fango|Ghiaccio|Solchi|Ragnatele|Fuoco|Acido|Rovi|Voragine/i.test(n)) return { mode: 'blob', groups: [1, 2], cells: [4, 9], clump: 0.35 };
+      if (/Siepe|Barricata/i.test(n))                                          return { mode: 'line',    groups: [1, 2], cells: [3, 6], clump: 0 };
       if (/Casse|Anfore|Mobilio|Macerie|Rocce|Cespuglio|Carro/i.test(n))       return { mode: 'cluster', groups: [1, 3], cells: [2, 4], clump: 0.30 };
-      if (/Trappola|Meccanismo|Grata/i.test(n))                                return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
-      return { mode: 'single', groups: [1, 3], cells: [1, 1], clump: 0 };      // alberi, tronchi, pilastri, statue
+      if (/Trappola|Meccanismo|Cristallo/i.test(n))                            return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
+      return { mode: 'single', groups: [1, 3], cells: [1, 1], clump: 0 };      // alberi, statue
     }
 
-    // Mappa vuota da modello: nessun testo letto, nessun elemento piazzato, misure tirate a caso ogni volta.
+    // Mappa vuota da modello: nessuna sezione Arena letta, nessun elemento piazzato, misure tirate a caso.
     function generateEmptyMap(key) {
       const sel = document.getElementById("mapPresetSelect"); sel.value = "";
       if (!key || !MapPresets[key]) return;
-      encountersData[currentEncounterIndex].mapData = generateDynamicMap("", key);
+      encountersData[currentEncounterIndex].mapData = generateDynamicMap(null, key);
       renderVisualMap();
     }
 
+    // Si rigenera dalla sezione Arena SALVATA, non ri-scandendo il testo: prima questa funzione passava
+    // narrativeText intero (Innesco, Tattica, Conseguenze compresi) mentre l'import usava solo il read-aloud,
+    // e i due percorsi davano mappe diverse — le ragnatele nate da «bozzoli» nelle Conseguenze venivano di li'.
     function triggerMapRegeneration() {
       const enc = encountersData[currentEncounterIndex];
-      if (enc.narrativeText) { enc.mapData = generateDynamicMap(enc.narrativeText); renderVisualMap(); }
+      if (!enc.arenaSpec) { alert("Questo scontro non ha una sezione Arena: reimporta il pacchetto, oppure usa 🗺️ Genera Mappa per una mappa vuota da modello."); return; }
+      enc.mapData = generateDynamicMap(enc.arenaSpec);
+      renderVisualMap();
     }
 
     function findEmptySpot(size, prefX, prefY) {
@@ -970,46 +1008,114 @@
       base:     { label: "Stanza Base",         shape: "rect",    w: [10, 12], h: [14, 16] }
     };
 
-    // La forma non si decide col PRIMO termine che combacia, ma a PUNTEGGIO: ogni famiglia somma i pesi dei
-    // suoi termini presenti nel testo e vince la piu' alta. Serve perche' una parola incidentale
-    // («l'acqua della palude filtra dal soffitto», «sbarrano la strada») non deve battere la forma dichiarata
-    // («cunicolo», «il passaggio si stringe»). I pesi dicono quanto un termine e' DAVVERO una forma:
-    // 'cunicolo' lo e' sempre, 'grande' o 'enorme' quasi mai (descrivono il mostro), 'strada' e' di solito una
-    // metafora. `neg` toglie punti allo Spazio Aperto quando il testo dice esplicitamente che si sta al chiuso.
-    const ShapeLexicon = [
-      { preset: 'stretto', terms: [[/cunicol[oi]|strettoia|budello/, 3], [/angust[ieoa]|si stringe|si restringe/, 2.5], [/\bstrett[ieoa]\b/, 2], [/passaggio/, 1.5]] },
-      { preset: 'galleria', terms: [[/galleri[ae]|corridoio|tunnel/, 2.5], [/\bpont[ei]\b|passerell[ae]/, 2]] },
-      { preset: 'sala', terms: [[/\bsalone\b/, 3], [/\bsala\b|\bcamera\b|\bstanza\b|\baula\b/, 2.5], [/ampi[ao]|vast[ao]|spazios[oa]/, 1.5], [/\bgrande\b|\bgrandi\b/, 0.8]] },
-      { preset: 'arena', terms: [[/arena|anfiteatro/, 3], [/piazzale|spianata/, 2], [/immens[oa]/, 1.2], [/enorme/, 1]] },
-      { preset: 'caverna', terms: [[/grotta|caverna|anfratto/, 3], [/\bantro\b|cavit\u00e0/, 2.5]] },
-      { preset: 'rovine', terms: [[/labirinto/, 3], [/rovine|ruder[ea]/, 2.5], [/crollat[oa]|diroccat[oa]/, 1]] },
-      { preset: 'tonda', terms: [[/circolare|ad anello|rotond[oa]/, 3], [/\btond[oa]\b/, 2], [/\bcerchio\b/, 1.5]] },
-      { preset: 'aperto',
-        terms: [[/all'aperto|a cielo aperto|aria aperta/, 4],
-                [/radura|frutteto|\bcampi\b|campo (?:di grano|arato|aperto|coltivato)|coltiv|\bprato\b|prateria|pascolo|\bbosc[hio]\b|foresta|collina|pianura|landa|brughiera|spiaggia|litorala|\bdun[ae]\b|deserto|giardin[io]|\borto\b|piazza|cortile|accampamento|\bmol[oi]\b|banchina|argine|crocevia/, 2],
-                [/palude|acquitrino/, 1.5],
-                [/sentiero|strada|\bvalle\b|solc[hi]/, 0.5]],
-        neg: [[/soffitto|sotterrane|volta|cripta|\bsala\b|\bstanza\b|\bcamera\b|corridoio|cunicolo|galleria|tunnel|\bmura\b|paret[ei]/, 2.5]] }
-    ];
+    // Il "Tipo" della sezione Arena e' un'etichetta di MapPresets. La "Forma" e' opzionale e sovrascrive solo
+    // la geometria, perche' a volte il sapore e la pianta divergono (una Sala Ampia rotonda).
+    const ShapeVocabulary = { "aperta": "open", "circolare": "circle", "irregolare": "cave", "articolata": "complex", "regolare": "rect" };
 
-    function classifyShape(lower) {
-      let best = null, bestScore = 0;
-      ShapeLexicon.forEach(fam => {
-        let score = 0;
-        fam.terms.forEach(t => { if (t[0].test(lower)) score += t[1]; });
-        if (fam.neg) fam.neg.forEach(t => { if (t[0].test(lower)) score -= t[1]; });
-        if (score > bestScore) { bestScore = score; best = fam.preset; }
-      });
-      return bestScore >= 1.5 ? best : null;   // sotto soglia: la prosa non nomina nessuna forma
+    // --- ZONE ---
+    // Nord e' in alto (y=0), le porte stanno a nord e a sud. Una zona e' un rettangolo sul riquadro del
+    // pavimento diviso in terzi: banda X e banda Y si scelgono in modo indipendente, cosi' 'nord', 'centro',
+    // 'angolo nord-est' e 'centro-nord' escono tutti dalla stessa regola, senza casi speciali.
+    // 'ovest' contiene la sottostringa "est": per questo la direzione est si cerca con \best\b.
+    function zoneRect(zoneName, bbox) {
+      const s = (zoneName || "").toLowerCase();
+      if (/ovunque|spars|dappertutto|tutta l|in giro/.test(s)) return { x0: bbox.x0, y0: bbox.y0, x1: bbox.x1, y1: bbox.y1 };
+
+      const hasN = /nord|\bfondo\b/.test(s), hasS = /\bsud\b|ingress|\bsoglia\b/.test(s);
+      const hasE = /\best\b|oriente/.test(s), hasW = /ovest|occidente/.test(s);
+      const hasC = /centro|central|\bmezzo\b/.test(s);
+      if (!hasN && !hasS && !hasE && !hasW && !hasC) return null;   // zona non riconosciuta: non si tira a indovinare
+
+      const band = (a, b) => {
+        const t = (b - a + 1) / 3;
+        return { low: [a, Math.round(a + t) - 1], mid: [Math.round(a + t), Math.round(b - t)], high: [Math.round(b - t) + 1, b], all: [a, b] };
+      };
+      const bx = band(bbox.x0, bbox.x1), by = band(bbox.y0, bbox.y1);
+      const px = hasE ? bx.high : hasW ? bx.low : hasC ? bx.mid : bx.all;
+      const py = hasN ? by.low : hasS ? by.high : hasC ? by.mid : by.all;
+      return { x0: px[0], y0: py[0], x1: px[1], y1: py[1] };
     }
 
-    function generateDynamicMap(narrative, presetKey) {
-      // Con un preset non si legge nessun testo: niente forma dedotta e nessun elemento piazzato.
-      const lower = presetKey ? "" : (narrative || "").toLowerCase();
-      const preset = MapPresets[presetKey || classifyShape(lower) || 'base'];
-      let shape = preset.shape, typeDesc = preset.label;
-      let baseW = rand(preset.w[0], preset.w[1]);
-      let baseH = preset.h ? rand(preset.h[0], preset.h[1]) : baseW;
+    // --- SEZIONE ARENA (06 §B8) ---
+    // L'unica fonte della mappa. Nomi, tipi e zone si risolvono su elenchi CHIUSI: quel che non combacia si
+    // scarta con un avviso, non si interpreta. Prima la mappa nasceva da regex sulla prosa del "Da leggere ai
+    // PG", che pero' descrive soprattutto il MOSTRO: «pozza d'acido», «melma verdastra», «coda velenosa»
+    // riempivano il campo di acqua, fango e acido che nell'arena non esistevano.
+    const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
+
+    function resolveFeatureName(raw) {
+      const n = raw.toLowerCase().replace(/\*+/g, '').trim();
+      return FeatureCatalog.find(c => c.name.toLowerCase() === n)
+          || FeatureCatalog.find(c => c.name.toLowerCase().split('/').some(part => part.trim() === n))
+          || null;
+    }
+
+    function parseArenaSection(text) {
+      const head = /^[\s>*_#-]*\**\s*Arena\b\s*\**\s*:?\s*$/im.exec(text);
+      if (!head) return null;
+
+      let body = text.slice(head.index + head[0].length);
+      const stop = body.search(ARENA_STOP);
+      if (stop !== -1) body = body.slice(0, stop);
+      const sbHere = findStatblockHeaders(body);
+      if (sbHere.length) body = body.slice(0, sbHere[0].index);
+
+      const warnings = [];
+      const field = re => { const m = re.exec(body); return m ? m[1].replace(/\*+/g, '').trim() : null; };
+
+      const tipo = field(/^[\s>*_-]*\**\s*Tipo\s*:\**\s*(.+)$/im);
+      let presetKey = 'base';
+      if (tipo) {
+        const found = Object.keys(MapPresets).find(k => MapPresets[k].label.toLowerCase() === tipo.toLowerCase());
+        if (found) presetKey = found; else warnings.push('Tipo "' + tipo + '" non e\' fra le etichette note: uso "Stanza Base".');
+      } else warnings.push('Manca il campo "Tipo": uso "Stanza Base".');
+
+      let w = null, h = null;
+      const dim = /^[\s>*_-]*\**\s*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)/im.exec(body);
+      if (dim) {
+        w = Math.max(6, Math.min(30, parseInt(dim[1], 10)));
+        h = Math.max(6, Math.min(30, parseInt(dim[2], 10)));
+      } else warnings.push('Manca il campo "Dimensioni": misure tirate a caso dal modello.');
+
+      let shape = null;
+      const forma = field(/^[\s>*_-]*\**\s*Forma\s*:\**\s*(.+)$/im);
+      if (forma) {
+        const key = Object.keys(ShapeVocabulary).find(k => forma.toLowerCase().includes(k));
+        if (key) shape = ShapeVocabulary[key]; else warnings.push('Forma "' + forma + '" non riconosciuta: uso la pianta del Tipo.');
+      }
+
+      // Dopo l'etichetta "Elementi:" OGNI riga non vuota e' un elemento: il trattino e' consentito ma non
+      // preteso. Incollando il pacchetto come testo semplice i punti elenco del markdown spariscono, e
+      // pretenderli voleva dire rifiutare in blocco un'arena scritta a regola d'arte.
+      const em = /^[\s>*_-]*\**\s*Elementi\s*\**\s*:\**[ \t]*(.*)$/im.exec(body);
+      const elemLines = em
+          ? em[1].split(/\s+[·|;]\s+/).concat(body.slice(em.index + em[0].length).split('\n'))
+          : body.split('\n').filter(l => /^[\s>]*[-•*+]\s+/.test(l));   // senza etichetta: solo le righe puntate
+
+      const elements = [];
+      elemLines.forEach(raw => {
+        const line = raw.replace(/^[\s>]*[-•*+]\s*/, '').replace(/\*+/g, '').trim();
+        if (!line || /^(Tipo|Dimensioni|Forma)\s*:/i.test(line)) return;
+        const parts = line.split(/\s*[—–]\s*|\s+-\s+|\s*:\s*/);
+        const feat = resolveFeatureName(parts[0]);
+        if (!feat) { warnings.push('Elemento "' + parts[0].trim() + '" non e\' nel catalogo: ignorato.'); return; }
+        if (feat.manualOnly) { warnings.push('"' + feat.name + '" non si dichiara nella sezione Arena: ' + feat.manualOnly + '.'); return; }
+        const zones = (parts[1] || 'ovunque').split(/\s*[,;]\s*|\s+e\s+/).map(z => z.trim()).filter(Boolean);
+        elements.push({ feat: feat, zones: zones.length ? zones : ['ovunque'] });
+      });
+      if (!elements.length) warnings.push('Nessun elemento riconosciuto: sotto "Elementi:" ci vuole una riga per elemento, "<Nome del catalogo> — <zona>".');
+
+      return { presetKey: presetKey, w: w, h: h, shape: shape, elements: elements, warnings: warnings };
+    }
+
+    // spec = la sezione Arena parsata, unica fonte della mappa. presetKey = mappa vuota da modello: nessuno
+    // spec letto, nessun elemento piazzato.
+    function generateDynamicMap(spec, presetKey) {
+      if (presetKey) spec = null;
+      const preset = MapPresets[presetKey || (spec && spec.presetKey) || 'base'];
+      let shape = (spec && spec.shape) || preset.shape, typeDesc = preset.label;
+      let baseW = (spec && spec.w) || rand(preset.w[0], preset.w[1]);
+      let baseH = (spec && spec.h) || (preset.h ? rand(preset.h[0], preset.h[1]) : baseW);
 
       let grid = Array(baseH).fill().map(() => Array(baseW).fill('wall'));
 
@@ -1070,15 +1176,25 @@
           addDoor(0, 1); addDoor(baseH-1, baseH-2);
       }
 
-      let matchedFeatures = []; FeatureCatalog.forEach(feat => { if (!feat.manualOnly && feat.regex.test(lower)) matchedFeatures.push(feat); });
       let mapData = { w: baseW, h: baseH, typeDesc: typeDesc, grid: grid, placedFeatures: [], entityPositions: {} };
+      const declared = (spec && spec.elements) || [];
 
+      // Riquadro del pavimento: le zone si calcolano su quello che e' calpestabile, non sulla griglia intera.
+      // In una caverna o in una pianta articolata meta' del rettangolo e' roccia, e un terzo contato sui muri
+      // manderebbe 'nord' dove non si cammina.
+      let fx0 = baseW, fy0 = baseH, fx1 = 0, fy1 = 0;
+      for (let y = 0; y < baseH; y++) for (let x = 0; x < baseW; x++) if (grid[y][x] === 'floor') {
+          if (x < fx0) fx0 = x; if (x > fx1) fx1 = x; if (y < fy0) fy0 = y; if (y > fy1) fy1 = y;
+      }
+      const floorBox = (fx1 >= fx0) ? { x0: fx0, y0: fy0, x1: fx1, y1: fy1 } : { x0: 1, y0: 1, x1: baseW - 2, y1: baseH - 2 };
+
+      // Protette solo le caselle porta e le adiacenti: il divieto sull'ultima fascia e' caduto, altrimenti una
+      // zona dichiarata 'ingresso sud' sarebbe inespugnabile per costruzione.
       const isSafeZone = (x, y) => {
-          if (y >= baseH - 3) return true;
-          for(let dy=-2; dy<=2; dy++) for(let dx=-2; dx<=2; dx++) { if(grid[y+dy] && grid[y+dy][x+dx] === 'door') return true; }
+          for(let dy=-1; dy<=1; dy++) for(let dx=-1; dx<=1; dx++) { if(grid[y+dy] && grid[y+dy][x+dx] === 'door') return true; }
           return false;
       };
-      
+
       // --- PIAZZAMENTO A GRUPPI ---
       // Non si sparpagliano icone singole: si semina un gruppo e lo si fa crescere secondo il profilo
       // dell'elemento (chiazza, fila, grappolo, pezzo isolato), con i gruppi tenuti staccati fra loro.
@@ -1090,12 +1206,21 @@
       const cellCap = Math.round(floorCount * 0.26);   // oltre ~1/4 del campo ingombro la mappa diventa illeggibile
 
       const isFree = (x, y) => (
-          x >= 1 && y >= 1 && x <= baseW - 2 && y <= baseH - 3 &&
+          x >= 1 && y >= 1 && x <= baseW - 2 && y <= baseH - 2 &&
           grid[y] && grid[y][x] === 'floor' && !isSafeZone(x, y) && !occupied.has(key(x, y))
       );
       const fits = (x, y, size) => {
           for (let dy = 0; dy < size; dy++) for (let dx = 0; dx < size; dx++) if (!isFree(x + dx, y + dy)) return false;
           return true;
+      };
+      // Vero anche fuori griglia: il bordo e' muro a tutti gli effetti.
+      const touchesWall = (x, y) => {
+          for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+              if (!dx && !dy) continue;
+              const row = grid[y + dy];
+              if (!row || row[x + dx] !== 'floor') return true;
+          }
+          return false;
       };
       const put = (feat, x, y) => {
           occupied.add(key(x, y));
@@ -1104,11 +1229,18 @@
       // Un seme nasce lontano dal resto: e' questo che tiene i gruppi distinti. Ma su una mappa stretta
       // pretendere due caselle di stacco vuol dire non piazzare niente, quindi la distanza si allenta
       // (2 → 1 → 0) finche' un posto si trova: meglio due cose vicine che una cosa assente.
-      const seedSpot = (minSep) => {
-          for (let sep = 2; sep >= minSep; sep--) {
+      // Il seme si tira DENTRO il rettangolo della zona dichiarata; se la zona e' piena o inagibile si
+      // ripiega sull'intero pavimento, perche' un elemento dichiarato deve comparire comunque.
+      const seedSpot = (minSep, rect, p) => {
+          const box = rect || floorBox;
+          // Per un pezzo `isolated` la distanza NON si allenta: meglio un pilastro in meno che un pilastro
+          // appiccicato al muro o in fila con un altro, che come copertura non varrebbe niente.
+          const isolated = !!(p && p.isolated);
+          for (let sep = 2; sep >= (isolated ? 2 : minSep); sep--) {
               for (let a = 0; a < 120; a++) {
-                  const x = rand(1, baseW - 2), y = rand(1, baseH - 3);
+                  const x = rand(box.x0, box.x1), y = rand(box.y0, box.y1);
                   if (!fits(x, y, 1)) continue;
+                  if (isolated && touchesWall(x, y)) continue;
                   if (sep === 0) return { x, y };
                   let near = false;
                   for (let dy = -sep; dy <= sep && !near; dy++) for (let dx = -sep; dx <= sep; dx++) if (occupied.has(key(x + dx, y + dy))) { near = true; break; }
@@ -1122,9 +1254,15 @@
 
       // Semina e crescita di UN gruppo, con un tetto di caselle suo: nessun elemento puo' mangiarsi
       // il budget degli altri.
-      const growGroup = (feat, p, cellQuota, minSep) => {
+      // Il gruppo nasce E cresce dentro il rettangolo della zona: se la chiazza potesse debordare, la zona
+      // dichiarata tornerebbe a essere un suggerimento e la mappa smetterebbe di combaciare col pacchetto.
+      // Zona impraticabile (tutta muro o gia' piena): si ripiega sull'intero pavimento, perche' un elemento
+      // dichiarato deve comunque comparire.
+      const growGroup = (feat, p, cellQuota, minSep, rect) => {
           if (occupied.size >= cellCap) return false;
-          const seed = seedSpot(minSep);
+          let box = rect || floorBox;
+          let seed = seedSpot(minSep, box, p);
+          if (!seed && rect) { box = floorBox; seed = seedSpot(minSep, box, p); }
           if (!seed) return false;
           const wanted = Math.max(1, Math.round(rand(p.cells[0], p.cells[1]) * (p.mode === 'single' ? 1 : Math.min(1.6, scale))));
           const target = Math.max(1, Math.min(wanted, cellQuota));
@@ -1132,7 +1270,7 @@
           // Se serve una massa piu' grossa si posa un blocco 2x2 di quattro caselle 1x1, non un'icona grande.
           const lay = (x, y, laidSoFar) => {
               if (occupied.size >= cellCap) return 0;
-              if (p.clump && laidSoFar + 4 <= target && Math.random() < p.clump && fits(x, y, 2)) {
+              if (p.clump && laidSoFar + 4 <= target && Math.random() < p.clump && x + 1 <= box.x1 && y + 1 <= box.y1 && fits(x, y, 2)) {
                   for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) { put(feat, x + dx, y + dy); groupCells.push([x + dx, y + dy]); }
                   return 4;
               }
@@ -1154,31 +1292,49 @@
                   const d = [[1, 0], [-1, 0], [0, 1], [0, -1]][rand(0, 3)];
                   nx = from[0] + d[0]; ny = from[1] + d[1];
               } else { nx = seed.x + rand(-2, 2); ny = seed.y + rand(-2, 2); }
-              if (nx < 1 || ny < 1 || nx > baseW - 2 || ny > baseH - 3) { if (p.mode === 'line') break; else continue; }
+              if (nx < box.x0 || ny < box.y0 || nx > box.x1 || ny > box.y1) { if (p.mode === 'line') break; else continue; }
               laid += lay(nx, ny, laid);
           }
           return true;
       };
 
-      // VARIETA' PRIMA DI QUANTITA'. Prima passata: UN gruppo garantito per OGNI elemento nominato dal testo,
-      // con una quota di caselle pari a budget/elementi. Su un cunicolo da 39 caselle il vecchio ciclo
-      // esauriva il budget sul secondo elemento e gli ultimi tre non comparivano affatto: cinque sassi al
-      // posto di sasso+macerie+acqua+fango. Poi, a giro e non tutto al primo, i gruppi in piu' previsti dal
-      // profilo, finche' c'e' budget.
-      const quota = Math.max(1, Math.floor(cellCap / Math.max(1, matchedFeatures.length)));
-      const queue = matchedFeatures.map(feat => {
-          const p = featureProfile(feat);
-          return { feat: feat, p: p, left: Math.max(1, Math.round(rand(p.groups[0], p.groups[1]) * scale / 1.4)) };
-      });
+      // VARIETA' PRIMA DI QUANTITA'. Prima passata: UN gruppo garantito per OGNI elemento dichiarato, con una
+      // quota di caselle pari a budget/elementi. Su un cunicolo da 39 caselle il vecchio ciclo esauriva il
+      // budget sul secondo elemento e gli ultimi tre non comparivano affatto: cinque sassi al posto di
+      // sasso+macerie+acqua+fango. Poi, a giro e non tutto al primo, i gruppi in piu' previsti dal profilo,
+      // finche' c'e' budget. Ogni gruppo nasce in una delle zone dichiarate per quell'elemento, a rotazione.
+      const quota = Math.max(1, Math.floor(cellCap / Math.max(1, declared.length)));
+      const isWholeFloor = r => r.x0 === floorBox.x0 && r.y0 === floorBox.y0 && r.x1 === floorBox.x1 && r.y1 === floorBox.y1;
 
-      queue.forEach(q => { q.left -= growGroup(q.feat, q.p, quota, 0) ? 1 : 0; });
+      const queue = declared.map(el => {
+          const base = featureProfile(el.feat);
+          const rects = el.zones.map(z => zoneRect(z, floorBox)).filter(Boolean);
+          const boxes = rects.length ? rects : [floorBox];
+          // 'OVUNQUE' VUOL DIRE DIFFUSO, NON UNA CHIAZZA GRANDE IN UN PUNTO A CASO. Chi scrive «la sala e'
+          // invasa da ragnatele» descrive TUTTA la stanza: a parita' di budget si moltiplicano i GRUPPI e si
+          // rimpicciolisce ciascuno, cosi' l'elemento si legge come pervasivo invece che come una pozza sola
+          // capitata in un angolo. Un elemento con una zona precisa resta concentrato: e' il suo senso.
+          const spread = boxes.length === 1 && isWholeFloor(boxes[0]) && base.mode !== 'single';
+          const p = spread
+              ? { mode: base.mode, clump: base.clump * 0.5, isolated: base.isolated,
+                  groups: [base.groups[0] * 2 + 1, base.groups[1] * 2 + 1],
+                  cells: [Math.max(1, Math.round(base.cells[0] * 0.5)), Math.max(2, Math.round(base.cells[1] * 0.5))] }
+              : base;
+          return { feat: el.feat, p: p, rects: boxes, turn: 0, spread: spread,
+                   left: Math.max(1, Math.round(rand(p.groups[0], p.groups[1]) * scale / 1.4)) };
+      });
+      const nextRect = q => q.rects[(q.turn++) % q.rects.length];
+
+      // Un elemento diffuso non parte mai da minSep 0: le sue chiazze devono restare staccate fra loro,
+      // altrimenti si ricompongono nell'unica macchia che si voleva evitare.
+      queue.forEach(q => { q.left -= growGroup(q.feat, q.p, quota, q.spread ? 1 : 0, nextRect(q)) ? 1 : 0; });
 
       for (let round = 0; round < 6 && occupied.size < cellCap; round++) {
           if (!queue.some(q => q.left > 0)) break;
           queue.forEach(q => {
               if (q.left <= 0 || occupied.size >= cellCap) return;
               q.left--;
-              growGroup(q.feat, q.p, quota, 1);
+              growGroup(q.feat, q.p, quota, 1, nextRect(q));
           });
       }
 
@@ -1357,7 +1513,7 @@
       const hint = document.createElement('div');
       hint.style.cssText = "color:var(--text-muted); font-size:0.75rem; margin-bottom:8px; line-height:1.5;";
       hint.textContent = selectedFeatureUids.size
-          ? `${selectedFeatureUids.size} selezionati — trascinane uno per spostarli, Ctrl o Shift + trascina per copiarli, Canc per eliminarli.`
+          ? `Trascina per spostare, Ctrl o Shift + trascina per copiare, Canc per eliminare.`
           : "Trascina un riquadro sul vuoto per selezionare più elementi (Shift somma).";
       legendContainer.appendChild(hint);
 
@@ -1567,7 +1723,8 @@
             if (!enc.statblocks) enc.statblocks = [];
             if (!enc.combatants) enc.combatants = [];
             if (enc.mapData && Array.isArray(enc.mapData.placedFeatures)) {
-                // Le regex non sopravvivono a JSON.stringify: si riagganciano per nome al catalogo.
+                // Ogni elemento salvato si riaggancia PER NOME alla voce viva del catalogo: cosi' un'emoji o un
+                // effetto corretti nel catalogo valgono anche per i tracker gia' salvati.
                 enc.mapData.placedFeatures.forEach(f => {
                     const known = FeatureCatalog.find(c => c.name === (f.item && f.item.name));
                     if (known) f.item = known;
@@ -1610,20 +1767,6 @@
         return out;
     }
 
-    // Il blocco "Da leggere ai PG", fino alla prima etichetta successiva: e' l'unica parte del pacchetto che
-    // descrive DAVVERO l'ambiente, ed e' quella che §B8 impegna a nominare la forma e le cose.
-    function extractReadAloud(text) {
-        const m = /^[^\n]*\bDa leggere ai PG\b[^\n]*$/im.exec(text);
-        if (!m) return null;
-        const inline = m[0].replace(/^[^\n]*\bDa leggere ai PG\b\s*:?\**\s*/i, '');
-        let rest = text.slice(m.index + m[0].length);
-        const stop = rest.search(/^[\s>*_#-]*\**\s*(?:Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà)\b/im);
-        if (stop !== -1) rest = rest.slice(0, stop);
-        const sbHere = findStatblockHeaders(rest);
-        if (sbHere.length) rest = rest.slice(0, sbHere[0].index);
-        return (inline + "\n" + rest).trim() || null;
-    }
-
     function processImport() {
       let text = document.getElementById("importTextarea").value.trim(); if (!text) return;
       const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster);
@@ -1645,12 +1788,12 @@
 
       const headers = findStatblockHeaders(text);
       let narrativeText = headers.length ? text.substring(0, headers[0].index).trim() : text;
-      // La mappa si costruisce SOLO sul "Da leggere ai PG" (06 §B8). Le altre righe del pacchetto descrivono
-      // regole, non l'ambiente: «Vulnerabilità: fuoco» in uno stat block piazzava roghi in mezzo al campo.
-      let mapSourceText = extractReadAloud(text);
-      if (!mapSourceText) mapSourceText = narrativeText.replace(/^[\s>*_-]*\**\s*(?:Nemici|Difficoltà|Innesco|Tattica|Conseguenze)\s*:.*$/gim, '').replace(/^.*Pacchetto Incontro\s*:.*$/gim, '');
+      // La mappa si costruisce SOLO sulla sezione Arena del pacchetto (06 §B8): tipo, misure, forma ed
+      // elementi con la loro zona. Non c'e' ripiego sulla prosa — un'arena non dichiarata e' un pacchetto
+      // incompleto, e va detto invece di inventare una stanza a caso.
+      const arenaSpec = parseArenaSection(text);
 
-      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
+      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, arenaSpec: arenaSpec, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
 
       for (let hi = 0; hi < headers.length; hi++) {
           const h = headers[hi];
@@ -1710,21 +1853,25 @@
           } else {
               const stem = mName.split(' ')[0].toLowerCase().substring(0, Math.max(3, mName.split(' ')[0].length - 2));
               const numMap = { "un":1, "uno":1, "una":1, "due":2, "tre":3, "quattro":4, "cinque":5, "sei":6, "sette":7, "otto":8, "nove":9, "dieci":10, "1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10 };
-              for (const [word, num] of Object.entries(numMap)) if (new RegExp(`\\b${word}\\b\\s+(?:\\w+\\s+){0,3}${stem}\\w*`, 'i').test(mapSourceText.toLowerCase())) if (num > count) count = num;
+              for (const [word, num] of Object.entries(numMap)) if (new RegExp(`\\b${word}\\b\\s+(?:\\w+\\s+){0,3}${stem}\\w*`, 'i').test(narrativeText.toLowerCase())) if (num > count) count = num;
           }
 
           for (let j = 0; j < count; j++) newEnc.combatants.push({ id: Date.now() + Math.random(), name: count > 1 ? `${mName} ${j+1}` : mName, isMonster: true, initBonus: dexMod, init: Math.floor(Math.random() * 20) + 1 + dexMod, ac: mAc, hp: mHp, maxHp: mHp, isDown: false, telegraph: null, notes: "" });
       }
 
+      newEnc.mapData = arenaSpec ? generateDynamicMap(arenaSpec) : null;
       if (isCurrentEmpty) {
           encountersData[currentEncounterIndex] = newEnc;
-          encountersData[currentEncounterIndex].mapData = generateDynamicMap(mapSourceText);
-      } else { 
-          newEnc.mapData = generateDynamicMap(mapSourceText);
-          encountersData.push(newEnc); currentEncounterIndex = encountersData.length - 1; 
+      } else {
+          encountersData.push(newEnc); currentEncounterIndex = encountersData.length - 1;
       }
-      
+
       closeImportModal(); sortInitiative(); captureBaseRosters(); renderTabs(); renderVisualMap();
+
+      // Il pacchetto e' entrato comunque (nemici, statistiche, iniziativa): quello che manca e' la mappa, e si
+      // dice quale riga non tornava. Un avviso contabile, non un ripiego silenzioso.
+      if (!arenaSpec) alert("Sezione Arena mancante nel pacchetto: nemici e statistiche sono stati caricati, la mappa no.\n\nAggiungi al pacchetto una sezione \"Arena\" con Tipo, Dimensioni ed Elementi, oppure usa 🗺️ Genera Mappa per una mappa vuota da modello.");
+      else if (arenaSpec.warnings.length) alert("Sezione Arena caricata con riserve:\n\n• " + arenaSpec.warnings.join("\n• "));
     }
   </script>
 </body>
