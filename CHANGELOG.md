@@ -1,5 +1,172 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-04 (2) — UN NOME FRA PARENTESI FACEVA SPARIRE IL MOSTRO (06 v5.13 / cv54 / ov31 / lv25)
+
+Collaudo del GM sul pacchetto «Il Guardiano delle Radici»: **il mostro non compare nel tracker e la mappa non
+c'entra niente con la descrizione** — un «cunicolo cupo» dove «il passaggio si stringe» era diventato uno
+Spazio Aperto 23×20 con sedici caselle di fuoco. Tre difetti, e i primi due si tenevano per mano.
+
+**1. L'INTESTAZIONE DELLO STAT BLOCK NON REGGEVA UN NOME NORMALE.** La regex pretendeva che il nome fosse fatto
+di soli `[A-Za-z0-9 '‑]`. L'intestazione vera era
+`Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45…`: le **parentesi** del nome inglese
+spezzavano il match, quindi zero stat block, zero nemici. Non è un caso limite — §A5 chiede il nome canonico e
+il nome inglese fra parentesi è la forma normale di metà del bestiario.
+Ora **si riconosce la RIGA dai suoi campi obbligatori, non il nome**: una riga con un separatore — poi taglia,
+`CA n` e `PF n` (esattamente il formato che §B6 impone) è un'intestazione, e il nome è tutto ciò che sta prima
+del trattone, qualunque carattere contenga. Un eventuale `(nome inglese)` finale viene tolto dal nome, così
+combacia con la riga `Nemici:`. CA, PF e DES si leggono dal BLOCCO e non dall'intestazione: se un campo manca,
+il mostro entra lo stesso invece di sparire.
+
+**2. LA MAPPA LEGGEVA ANCHE LO STAT BLOCK.** Conseguenza diretta del punto 1: fallito il riconoscimento, il
+testo-mappa era l'INTERO pacchetto. «Vulnerabilità: **fuoco**» diventava un incendio sul pavimento. Ora la
+mappa si costruisce **solo sul blocco «Da leggere ai PG»**, ritagliato fino all'etichetta successiva — che è
+quel che §B8 già dichiarava, ma il codice prendeva «tutto quello che sta prima del primo stat block», cioè
+anche Innesco, Tattica e Conseguenze. È anche una rete di sicurezza: se domani un'intestazione sfugge di
+nuovo, lo stat block resta comunque fuori dalla mappa. «Rigenera Mappa» usa la stessa sorgente, altrimenti
+darebbe una mappa diversa da quella appena importata.
+
+**3. LA FORMA SI DECIDEVA COL PRIMO TERMINE CHE COMBACIAVA.** Difetto di progetto, non un termine sbagliato:
+due catene `if/else` in cui la seconda sovrascriveva sempre la prima. «cunicolo» e «il passaggio si stringe»
+fissavano *Passaggio Stretto*; poi «l'acqua della **palude** filtra dal soffitto» e «sbarrano la **strada**»
+— due parole incidentali — lo ribaltavano in *Spazio Aperto*, che per giunta è l'unica forma **senza muri**:
+il cunicolo perdeva le pareti, che erano il punto tattico della scena.
+Sostituito con un **classificatore a punteggio pesato** (piccolo modello bag-of-words, la cosa standard per
+questo mestiere): ogni famiglia somma i pesi di TUTTI i suoi termini presenti e vince il totale piu´ alto,
+sopra una soglia. I pesi dicono quanto un termine è davvero una forma — `cunicolo` 3, `si stringe` 2.5,
+`palude` 1.5, `strada` 0.5 — e lo Spazio Aperto ha dei **termini NEGATIVI** (`soffitto`, `sotterraneo`,
+`pareti`, `cripta`, `corridoio`…): se il testo dice che si sta al chiuso, non gli si tolgono i muri.
+Sul pacchetto reale: *stretto* 7.0, *arena* 1.0, *aperto* −0.5.
+
+**Due parole sono state DEGRADATE, ed è un cambio di contratto che §B8 registra:** `grande` ed `enorme` da sole
+non nominano piu´ una forma. In pratica descrivono il MOSTRO («un **enorme** bulbo vegetale») e la vecchia
+catena le trattava come parole-stanza: è così che un corridoio diventava un'arena. Anche `naturale` è sparito
+dalla famiglia caverna per lo stesso motivo. In cambio sono entrati i sinonimi che mancavano — strettoia,
+budello, angusto, tunnel, andito, passerella, salone, aula, anfratto, ruderi, anfiteatro, piazzale, spianata,
+rotonda — e §B8 e le tre istruzioni li elencano, perché quelle liste e il tool sono le due metà dello stesso
+contratto.
+
+**Semplificazione ricavata:** le misure delle nove forme stavano in due posti (le catene `if/else` e
+`MapPresets`, aggiunta ieri per il menu «Genera Mappa»). Ora c'è solo `MapPresets`, e il classificatore ne
+restituisce la chiave. Le due catene sono sparite.
+
+**NON aggiunto, e vale la pena dirlo:** «spesse radici sotterranee» e i «viticci» del bulbo non ammobiliano
+niente. Una voce `radic|lian|viticc` nel catalogo sembrava ovvia, ma nell'altro pacchetto di collaudo le
+mandragore «brandiscono le loro **radici** come clave»: sarebbe stato lo stesso identico difetto di «clave»
+→ lava, cioè un pezzo del MOSTRO scambiato per arredo. Se servono le radici come terreno difficile, il
+vocabolario di §B8 va esteso con un termine che non sia anche un'arma naturale.
+
+**4. SU UNA MAPPA PICCOLA VINCEVA IL PRIMO ARRIVATO.** Segnalato dal GM sul cunicolo generato dopo le
+correzioni sopra: 5×15, cinque elementi riconosciuti dal testo, e sulla mappa **solo grata e sassi** — cinque
+caselle di Rocce, e Macerie, Acqua e Fango assenti del tutto. Il ciclo esauriva un elemento alla volta: il
+primo prendeva tutti i gruppi che il suo profilo prevedeva, il tetto d'ingombro (26% del pavimento, qui 10
+caselle su 39) finiva sul secondo, e gli ultimi tre non venivano mai raggiunti. Su una radura da 484 caselle
+non si notava; su un cunicolo si.
+**Decisione del GM: su una mappa piccola la VARIETÀ vale piu' della quantità.** Il piazzamento ora fa due
+passate: la prima garantisce **un gruppo per OGNI elemento nominato dal testo**, con una quota di caselle pari
+a `budget / numero di elementi`; la seconda distribuisce **a giro** i gruppi in piu' previsti dai profili,
+finche' resta budget. Nessun elemento puo' piu' mangiarsi la quota degli altri, e un blocco 2x2 viene posato
+solo se ci sta dentro la quota. Anche la distanza minima fra semi si allenta quando serve (2 → 1 → 0): in un
+corridoio largo tre caselle pretendere due caselle di stacco significava non piazzare niente.
+
+**5. GRATE E CANCELLI: RICONOSCIUTI, MAI PIAZZATI DA SOLI.** Nel cunicolo il tool metteva una grata in mezzo
+al corridoio. Ma una grata o un cancello sono quasi sempre l'INGRESSO della stanza — la prosa li nomina di
+continuo («i resti di una cancellata in ferro battuto») e sono una porta, non un ostacolo a metà campo.
+La voce resta nel catalogo, trascinabile a mano dove il GM la vuole, ma porta un flag `manualOnly` e il
+generatore la salta. È un meccanismo generale, non un caso speciale nel ciclo di piazzamento. Di conseguenza
+«grate» e «cancelli» escono dal vocabolario dei sostantivi in §B8 e nelle istruzioni: nominarli non ammobilia
+piu' niente, e lasciarli in lista sarebbe esattamente il difetto invisibile che quell'accoppiamento deve
+evitare.
+
+**INTESTAZIONE DELLA MAPPA SU UNA RIGA SOLA.** «Passaggio Stretto (7 × 18)» e i due comandi non vanno piu' a
+capo: titolo con `white-space: nowrap`, header `flex-wrap: nowrap`, e la `min-width` del pannello — gia'
+calcolata sulla larghezza della griglia — ora è il MASSIMO fra griglia e riga di intestazione. Sotto quella
+misura è il pannello intero ad andare a capo sotto il tracker, che era gia' il comportamento voluto.
+
+**VERIFICA:** le regex nuove sono state riprodotte in Python ed eseguite sui **due pacchetti reali** presi dai
+JSON salvati dal GM.
+— *Guardiano delle Radici*: stat block riconosciuto (`Coeurl a Nove Code`, line1 `Grande · CA 13 · PF 45…`),
+read-aloud isolato (nessuna traccia di «Vulnerabilità» o «Tattica»), forma *stretto*, elementi
+Grata/Cancello · Rocce · Macerie · Acqua · Fango — **nessun fuoco**.
+— *Disinfestazione dei Solchi* (non-regressione): forma *aperto* e gli stessi cinque elementi di prima.
+Anche il piazzamento e' stato riportato in Python: sul cunicolo 5×15, su tre semi diversi, **tutti e cinque
+gli elementi presenti** ogni volta (8-9 caselle su un tetto di 10, quota 2 a testa); sulla radura 22×22
+14-22% di ingombro e i cinque elementi presenti, come prima. Nessun file di conoscenza toccato da questa
+quarta correzione: è politica di piazzamento del tool, non contratto d'ingresso.
+Struttura del blocco `<script>` verificata. **Nessun runtime JS in ambiente: il rendering nel browser lo
+collauda il GM.**
+
+## 2026-08-04 — cv54 / 06 v5.13: LE ISTRUZIONI CAMPAGNA RISCRITTE DA ZERO IN XML, A PUNTATORI (**DA COLLAUDARE**)
+
+Richiesta del GM: ripartire da zero, istruzioni ridotte all'osso che puntano al knowledge, niente hardcoding.
+E' il **terzo tentativo** su questa strada (cv50 XML e i due giri di cv50-MIN sono stati rigettati, LEZIONE
+2.35), quindi e' scritto contro le misure che quei tentativi hanno prodotto invece che contro l'intuizione.
+
+**cv53 → cv54: 31.897 → 19.528 B (−39%).** Il taglio non e' uniforme, ed e' il punto: e' guidato da
+**LEZIONE 2.34 (il formato si recupera dal RAG, lo stato no)** e da **2.33 (il test di visibilita')**.
+
+- **USCITO, perche' il RAG lo recupera dimostrabilmente** — il registro italiano e i suoi esemplari, la
+  tabella dei binding ad alta frequenza (~1,4 KB: nel test MIN `Bosco del Sud` e `Piccolo Rifugio` sono
+  arrivati da 07 senza aiuto), i template dei link media, l'ordine e il layout del pacchetto incontro, la
+  forma dello stat block, i cinque blocchi dell'enigma, le due opzioni canoniche della riga 🧭, il template
+  della riga ⏭️, la conversione metrica. Restano **un puntatore con il codice §, mai una parafrasi**.
+- **RIMASTO INTERO, perche' e' STATO e non formato** — il blocco `<cursor>` (cosa avanza il cursore, cosa e'
+  transiente, gli interrupt cursor-safe) e ogni riga di comando riscritta per dire **COSA LEGGE e COSA
+  CAMBIA**, non solo cosa emette. E' esattamente il guasto di MIN: `/continua` rigioco' il primo beat della
+  campagna con `[A]` corretto nel save, perche' la query `/continua` non assomiglia a niente e la regola non
+  arrivava mai. Il `<commands>` e' ~8 KB dei 19,5 e resta il blocco piu' grosso del file: e' corretto che lo sia.
+- **RIMASTO INTERO, perche' il guasto e' INVISIBILE** — le due righe condizionali del footer (una 🧭 non
+  stampata cancella `/viaggio` in silenzio), NOTHING IS LEFT BEHIND con i suoi quattro passi e il puntatore
+  **08.1 letterale**, la milestone dentro il beat, WRITE LONG, il VOI plurale.
+- **Zero priming (LEZIONE 2.32):** nessuna stringa sbagliata stampata nel file. L'unica coppia
+  giusto/sbagliato sopravvissuta e' il `voi` contro il singolare, dove la coppia *e'* la regola.
+- **`<checks>` a condizioni contabili** e `<contract>` in coda a 5 clausole, per la regola «le restrizioni
+  critiche vanno in ultima riga».
+- **I segnaposto passano da `<nome>` a `{nome}`:** in un file XML una parentesi angolare e' un tag, e un
+  segnaposto in parentesi angolari e' ambiguo per il parser del modello. Nessuno dei tentativi precedenti
+  aveva chiuso questo dettaglio.
+
+**QUATTRO BUCHI VERI TROVATI NEL KNOWLEDGE durante il controllo, e chiusi li' (06 v5.13).** Un puntatore vale
+solo se la sezione puntata contiene davvero la regola: prima di togliere qualsiasi cosa dalle istruzioni ho
+verificato per stringa che vivesse in 05/06/07/08. Quattro non c'erano.
+- **§A1 — LE MISURE IN OUTPUT SONO METRICHE:** la regola viveva SOLO nelle istruzioni. Ora e' una riga
+  output-forcing con la scala completa (1 ft = 0,3 m), la virgola decimale e l'elenco dei posti dove un
+  numero raggiunge il GM (`Vel`, gittate, raggi, portata, distanze nel read-aloud).
+- **§A4 — LA CONTRADDIZIONE DEL MEDIA TOOL:** il primo punto vietava ogni chiamata a tool, poi
+  `HOW TO DO IT` diceva «rephrase to trigger the integrated search» e `HIERARCHY` metteva l'inline al primo
+  posto. Due strati in disaccordo dentro la stessa sezione, ed e' la sezione a cui ora punta `<media>`.
+  Riscritta a link-only, senza inline, con `&tbm=isch` dichiarato parte dell'URL.
+- **§A4 — LA DENSITA' PER BEAT:** diceva «at least at the FIRST occurrence per entity in each answer/act»,
+  che non dice che **il conteggio riparte a ogni beat**. Le istruzioni lo dicevano, il file no. Ora e'
+  esplicito, con il boss e il PNG gia' linkati in un beat precedente nominati come il caso che fallisce.
+- **§B1 — FOOTER ORDER SENZA LA RIGA ⏭️:** l'elenco ordinato del footer aveva quattro voci e la riga
+  connettiva non era una di quelle (viveva 10 righe piu' su, descritta come «accanto alla 🧭»). Ora e' la
+  voce (4), con il marcatore e il suo `Restano:` come (5), e la clausola «decidi ENTRAMBE prima di emettere
+  il footer» accanto all'ordine invece che solo nelle istruzioni.
+
+**CONTROLLO RAG SULLE MODIFICHE A 06 (domanda del GM, e ha trovato roba).** Le lunghezze erano a posto —
+963 / 282 / 477 B per le tre righe nuove, contro un tetto di 2.000 e un massimo di file a 1.879 — ma
+**LEZIONE 2.13 non parla di lunghezza, parla di UNA REGOLA PER UNITA' RECUPERABILE**, e su quel criterio due
+punti erano sbagliati. **(1)** La riga `ENCOUNTER-SCALING SOURCE` di §B1 era arrivata a **1.297 B** e teneva
+tre regole distinte: da dove si leggono PG e livello, il FOOTER ORDER, e la clausola «decidi le due righe
+condizionali prima di emettere il footer». La regola sul footer stava sotto un innesco che parla di
+*scaling degli scontri*. Spezzata in tre bullet — 609 / 448 / 750 B — ognuno con il proprio innesco.
+**(2)** In §A4 le mie due righe nuove hanno lasciato `WIKI-REAL SUBJECTS ONLY` e `URL-ENCODING` appese come
+righe di continuazione indentate sotto un altro bullet (debito preesistente: erano indentate sotto la voce
+`2. CLICKABLE LINK` della HIERARCHY che ho rimosso). Promosse a bullet propri, **zero parole spostate**.
+Nessuna riga di 06 supera i 2.000 caratteri, prima e dopo.
+
+**VERIFICATO MECCANICAMENTE:** roster comandi invariato (14 righe, `/cambio Classe` promosso a riga propria) ·
+zero rimandi § persi (§A5 e §A6 recuperati in un secondo giro) · zero letterali italiani di output persi tra
+quelli che restano nel control layer · zero tag XML non chiusi · zero segnaposto in parentesi angolari.
+
+**DA COLLAUDARE, e il metro e' quello di §1.1d:** il pacchetto Toto-Rak su Gemini 3.6 Flash Esteso, contro
+cv49/cv51. **Due avvertenze dichiarate in anticipo, non scoperte dopo.** (1) Questa e' una riscrittura
+integrale contro un baseline misurato, cioe' esattamente cio' che LEZIONE 2.35 sconsiglia: se il collaudo
+fallisce, la diagnosi non e' «l'XML non funziona» ma «quale singola cosa e' stata tolta», e la risposta va
+cercata riga per riga contro cv53. (2) **La parita' §1.1c e' ROTTA:** `ov` e `lv` sono ancora in forma
+markdown (ov29 / lv23), quindi ogni blocco condiviso ora diverge. O si allineano dopo un collaudo positivo,
+o cv54 resta un candidato.
+
 ## 2026-08-04 — IL TOOL DIVENTA UN'APPLICAZIONE (solo `combat_tracker.html`, nessun file di conoscenza toccato)
 
 Sei richieste del GM dopo il secondo collaudo. Nessuna regola di §B8 cambia: il contratto d'ingresso
