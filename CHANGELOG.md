@@ -1,5 +1,160 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-04 — IL TOOL DIVENTA UN'APPLICAZIONE (solo `combat_tracker.html`, nessun file di conoscenza toccato)
+
+Sei richieste del GM dopo il secondo collaudo. Nessuna regola di §B8 cambia: il contratto d'ingresso
+(riga titolo h3, riga `**Nemici:**`, read-aloud che nomina forma e cose) resta identico.
+
+**SALVA è il salvataggio della SESSIONE, non dello scontro.** «Esporta» salvava solo lo scontro aperto, cioè la
+metà sbagliata: un tab su cinque. Ora il payload è
+`{ app, version: 2, savedAt, currentEncounterIndex, encounters: […] }` — tutti gli scontri, con nemici,
+statistiche, mappe, posizioni delle pedine e pf attuali.
+
+**APRI, accanto a Salva.** Un `<input type=file>` nascosto: si sceglie il JSON e il tracker torna com'era.
+Un solo formato accettato, quello nuovo: nessun supporto ai salvataggi vecchi. **Le regex del
+`FeatureCatalog` non sopravvivono a `JSON.stringify`** — diventano `{}` — quindi in caricamento ogni elemento
+piazzato viene riagganciato PER NOME alla voce viva del catalogo: senza quel passaggio la legenda di una mappa
+ricaricata sarebbe muta.
+
+**IMPORTA è solo testo.** Il ramo che riconosceva un JSON incollato è stato tolto: quel mestiere ora è di Apri.
+Il modale lo dice, e il placeholder mostra la forma vera del pacchetto (`### Pacchetto Incontro:`, `**Nemici:**`).
+
+**IL COLORE DELLA SCHEDA SEGUE LA PEDINA.** I tab delle statistiche erano tutti blu; la riga nel tracker e la
+pedina sulla mappa usavano già `getEnemyColorRGB`. Ora anche il tab: pallino colorato sempre, bordo superiore
+e testo del tab attivo nello stesso RGB. Tre canali, un colore per nemico.
+
+**LEGENDA A SINISTRA DELLA MAPPA quando c'è spazio, e NIENTE BARRE ORIZZONTALI.** Primo tentativo con
+`container-type: inline-size` + `@container`: sbagliato, e in modo istruttivo. `container-type` implica
+`contain: inline-size`, che rende la larghezza dell'elemento indipendente dal contenuto — quindi il
+`min-width: min-content` messo sullo stesso pannello per farlo andare a capo valeva **zero**, e stringendo il
+resizer la griglia usciva dal pannello e si sovrapponeva al tracker. Anche `min-content` senza containment
+si è rivelato instabile: in modalità riga il min-content del pannello CRESCE (mappa + legenda), il pannello si
+allarga, e la scelta del layout si morde la coda. Assetto finale, senza anelli di retroazione:
+`.map-panel` è `flex: 1 1 0` con una `min-width` IN PIXEL scritta da `renderVisualMap` sulla larghezza reale
+della griglia — la larghezza del pannello non dipende mai da come sta messa la roba dentro. Sotto quella
+soglia il pannello va a capo sotto il tracker invece di comprimersi. La disposizione interna la decide un
+`ResizeObserver`: legenda SOTTO la mappa di default, a fianco (`row-reverse`) solo se il pannello ha spazio
+per entrambe. Quindi quando il blocco mappa condivide la riga col tracker la legenda sta sotto, e quando la
+mappa ha una riga tutta sua va a fianco. La legenda è `width: min-content`, cioè esattamente la riga dei
+filtri — l'unico suo contenuto che non va a capo: né troppo larga né con la barra orizzontale.
+Il catalogo NON è più un `<details>`: chiuso, un `<details>` toglie i figli dal flusso, la riga dei filtri
+smetteva di contare e la legenda si restringeva. Ora è un div con un bottone di apertura; da chiuso nav e
+lista restano nel layout (`visibility: hidden; height: 0`), quindi **la legenda è larga uguale aperta o
+chiusa**. Il **Catalogo Completo** ha barra di navigazione propria
+(Tutti / Coperture / Terreno / Pericoli / Interattivi, filtro derivato dal `cssType`, nessun dato nuovo) e
+scorrimento proprio (`max-height: 300px` + `overscroll-behavior: contain`): sfogliarlo non trascina più tutta
+la legenda.
+
+**MAPPA A MANO, DA MODELLO.** «Rigenera Layout» → «Rigenera Mappa», e accanto un menu **Genera Mappa** con le
+nove forme che il generatore sa fare (Spazio Aperto · Grande Arena · Sala Ampia · Rovine Complesse · Caverna
+Irregolare · Struttura Circolare · Galleria · Passaggio Stretto · Stanza Base). Sceglierne una crea una mappa
+VUOTA di quella forma, misure tirate a caso a ogni scelta: la stessa voce due volte dà due caverne diverse.
+Non è un secondo generatore — `generateDynamicMap` prende un secondo argomento opzionale e, quando c'è, non
+legge nessun testo (quindi nessuna forma dedotta e nessun elemento piazzato). Le forme stanno in una tabella
+`MapPresets` che riempie anche il menu, così l'elenco non può sfasarsi.
+
+**SELEZIONE MULTIPLA SULLA MAPPA.** Trascinando un riquadro sul vuoto si selezionano tutti gli elementi che
+ci finiscono dentro (Shift somma alla selezione, Shift+clic su un elemento lo aggiunge o lo toglie). Poi:
+trascinare uno dei selezionati **sposta tutto il gruppo** dello stesso delta, **Ctrl o Shift + trascina lo
+copia** (vale l'uno o l'altro, e la copia funziona anche sul singolo elemento), e
+**Canc** lo cancella. Lo spostamento è tutto-o-niente: se anche una sola casella di destinazione è muro o
+occupata da un elemento non selezionato, il gruppo non si muove. Il riquadro parte solo dal vuoto, così il
+drag&drop nativo del singolo elemento e delle pedine resta intatto. La selezione è tenuta per `uid`, quindi
+cambiando scontro o cancellando un elemento decade da sola. Il tasto Canc è ignorato quando il fuoco è in un
+campo di testo. Sopra la legenda una riga spiega il gesto e, quando c'è una selezione, dice quanti sono.
+L'anteprima di trascinamento nativa mostra solo l'elemento afferrato: per un gruppo se ne costruisce una
+apposta con `setDragImage` (tutte le icone del gruppo, fuori schermo perché l'elemento deve stare nel
+documento) e nel frattempo si sbiadisce l'intero gruppo, non solo la casella cliccata.
+
+**Titolo della mappa vuoto all'avvio:** niente più «Mappa Tattica» e «Nessuna mappa generata» — l'intestazione
+resta vuota finché una mappa non c'è davvero.
+
+**IL PIAZZAMENTO A GRUPPI (la modifica vera).** Il difetto segnalato dal GM su
+`disinfestazione_dei_solchi.json`: contenuto giusto, disposizione senza senso — icone singole sparpagliate a
+caso, e «una pozza d'acqua larga 1,5 m». Il vecchio algoritmo era uno scatter uniforme con distanza minima:
+per costruzione non poteva produrre un raggruppamento. Sostituito con un piazzamento **a semina e crescita**,
+la tecnica standard dei generatori di mappe (seme con separazione minima tra gruppi, poi crescita del gruppo),
+con un profilo d'ingombro EURISTICO per elemento (`featureProfile`):
+
+| profilo | come cresce | chi |
+|---|---|---|
+| `blob` | chiazza contigua, cresciuta da una casella già posata (non da un cammino che vaga: così resta attaccata) | acqua, fango, ghiaccio, solchi/erba alta, ragnatele, fuoco, acido, rovi |
+| `line` | fila dritta, direzione estratta | siepi/filari, barricate, muri |
+| `cluster` | grappolo vicino ma non compatto, entro 2 caselle dal seme | casse, anfore, mobilio, macerie, rocce, cespugli, carri |
+| `single` | pezzo isolato, ben distanziato | alberi, tronchi, pilastri, statue, trappole, meccanismi |
+
+**Nessuna icona grande.** Un primo tentativo con pezzi 2x2 veri è stato scartato dal GM: non c'è modo di
+piazzarli a mano e il generatore li usava come scorciatoia al posto del raggruppamento. Resta una sola taglia,
+1x1, e quando serve una massa più grossa si posa un **blocco 2x2 di quattro caselle 1x1** (`clump`, 30-35% su
+masse naturali, casse, macerie, rocce, cespugli, carri; zero su alberi, pilastri, siepi, trappole). Effetto
+identico a schermo, e ogni casella resta trascinabile e cancellabile da sola.
+
+**Il tetto d'ingombro è esplicito:** `cellCap = 26% delle caselle di pavimento`. Numero e gruppi scalano con
+l'area (`scale`), non con un `rand(1,3)` fisso. La fascia in basso (le 3 righe di schieramento PG) resta
+sgombra come prima.
+
+**RIPULITURA (passata ponytail su tutto il file).** Un difetto vero: in `findEmptySpot` l'occupazione delle
+pedine si leggeva con `Object.values(entityPositions)` e poi `getCombatantSizeById(ep.id)` — ma l'id sta nella
+CHIAVE, non nel valore `{x,y}`, quindi la taglia usciva sempre 1 e una pedina Grande o Enorme non riservava
+le sue caselle. Passato a `Object.entries`. Poi solo tagli: campo `enemyColors` (scritto in quattro punti,
+letto in nessuno — i colori li calcola `getEnemyColorRGB`), classe CSS `.sb-skills-hl` mai usata, il calcolo
+delle radici uniche duplicato dentro `updateCombatant` (ora chiama `getEnemyColorRGB`), la regex acrobatica di
+`getCombatantTokenLabel` (ora riusa `getBaseName`), lo statblock vuoto scritto per esteso in tre punti (ora
+`emptyStatblock()`), la catena a quattro rami del testo Telegrafo, e `getBaseName("Nuovo Nemico")` su una
+costante senza numeri. Nessun cambio di comportamento a parte il difetto sopra.
+
+**VERIFICA:** l'algoritmo è stato riportato in Python ed eseguito su una mappa 22×22 con i cinque elementi
+davvero riconosciuti dal testo della Disinfestazione — 18% e 19% di ingombro su due semi diversi, 7 blocchi
+2x2 per seme, pozze contigue, filari in riga, casse a grappoli, alberi staccati, fascia PG libera. Struttura
+del blocco `<script>` verificata (parentesi e stringhe bilanciate, 1116 righe). **Nessun runtime JS in
+ambiente: il rendering nel browser lo collauda il GM** — in particolare Apri/Salva e la `@container`.
+
+## 2026-08-03 (2) — IL PRIMO COLLAUDO DEL TOOL: TRE DIFETTI VERI (06 v5.12 / cv53 / ov30 / lv24)
+
+Primo scontro davvero importato (`Test.txt` → `disinfestazione_dei_solchi.json`, la Disinfestazione dei Solchi).
+Tre difetti, tutti trovati leggendo l'export JSON e non l'output a schermo.
+
+**1. LA RIGA TITOLO NON SI VEDEVA.** Funzionava, ma era una riga di testo semplice in mezzo alla prosa: in un
+beat con due scontri il GM non trova dove comincia il secondo. Ora è un'INTESTAZIONE h3 — `### Pacchetto
+Incontro: <nome>` — allo stesso livello di 'Lore a Strati' e dei nomi degli stat block (§B6). Il parser la
+leggeva già anche con i cancelletti davanti, quindi è un cambio di sola resa.
+
+**2. IL SISTEMA MAPPE NON SAPEVA COSA FOSSE UNO SPAZIO APERTO.** Un frutteto radurato — senza un muro in vista
+— è stato disegnato come «Sala Ampia» 17×16, muri perimetrali su tutti e quattro i lati e due porte. Le sette
+famiglie di forma erano tutte al chiuso: la sola che generava una mappa senza muri (`shape: "open"`) si
+attivava su *arena/enorme/immenso*, cioè su un'ARENA, non su un campo. Aggiunta l'ottava famiglia, SPAZIO
+APERTO (*all'aperto, a cielo aperto, radura, frutteto, campi, prato, pascolo, bosco, foresta, collina,
+pianura, spiaggia, duna, deserto, palude, giardino, piazza, cortile, accampamento, sentiero, strada*): nessun
+muro, nessuna porta, e misura da mat da esterno reale, 20-24 caselle di lato (≈ 30-36 m), che è la taglia
+standard con cui un DM apparecchia uno scontro campale. Vince sulle altre forme: «ampio frutteto» è un campo,
+non una sala grande.
+
+**3. TRE FUOCHI IN UN FRUTTETO.** Nessuno li aveva nominati. La regex del pericolo da fuoco conteneva lo stem
+`lav` (per «lava») e la prosa diceva «brandendo le loro radici come **clave**». È il difetto tipico di questo
+parser — stem corto senza confine di parola — e non era l'unico: `bott` prendeva «bottino», `mobil`
+«immobile», `spin` «spinta», `grat` «grattare». Tutti e cinque ancorati (`\blav[ae]\b`, `\bbott[ei]\b`,
+`mobili[oa]\b`, `\bspin[ae]\b`, `\bgrat[ae]\b`).
+
+**4. L'AREA ERA GRANDE E MEZZA VUOTA** (osservazione del GM, non un bug singolo). La quota di oggetti per tipo
+era `rand(1,3)` fissa, indipendente dalla superficie: la stessa densità in uno stanzino 10×14 e in un campo
+22×22. Ora segue l'area — `featBudget = area/70`, tra 2 e 9, e la distanza minima tra oggetti scende da 2 a 1
+casella sopra le 300 caselle. Aggiunte anche quattro voci al `FeatureCatalog` per l'esterno, che prima non
+esisteva come ambiente: **Siepe/Filare**, **Carro**, **Solchi/Erba Alta** e i sinonimi mancanti.
+
+**RISULTATO SULLO STESSO TESTO:** prima 3 fuochi inventati + albero + casse + 2 acque in una sala murata;
+adesso spazio aperto senza muri, e alberi · casse · siepi/filari · pozze d'acqua · solchi — tutte e cinque
+nominate davvero dal «Da leggere ai PG», nessuna inventata.
+
+**§B8 AGGIORNATA DI CONSEGUENZA** (è la metà prosa del contratto, e va sempre mossa insieme al parser): l'ottava
+famiglia di forma con la sua nota — *outdoor non è sinonimo di grande, è l'unica forma senza muri* — il
+vocabolario esterno nella lista dei sostantivi, la riga titolo come h3 e le condizione (1) e (3) del
+self-check riscritte. Regola condivisa identica parola per parola nei tre file istruzioni (§1.1c), verificata
+per lunghezza.
+
+**VERIFICA:** le regex sono state estratte dall'HTML e rieseguite in Python sul «Da leggere ai PG» reale di
+`Test.txt` — 25 voci di catalogo, 5 riconosciute, zero fuochi, famiglia OPEN riconosciuta. Il rendering nel
+browser lo collauda il GM.
+
 ## 2026-08-03 — IL TRACKER ESCE DAL SISTEMA (06 v5.11 / 05 v2.05 / cv52 / ov29 / lv23)
 
 **DECISIONE DEL GM, cambio di architettura.** Il tracker di combattimento non è più qualcosa che l'assistente

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FFXIV x D&D 5e - VTT Combat Tracker</title>
+  <title>FFXIV x D&D 5e - Combat Tracker</title>
   <style>
     :root {
       --bg-main: #121418;
@@ -47,7 +47,13 @@
     .resizer:hover, .resizer.dragging { background-color: var(--accent-blue); color: white; }
     .resizer-handle { color: var(--text-muted); font-size: 1.4rem; font-weight: bold; }
 
-    .map-panel { flex: 1 1 400px; background-color: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; }
+    /* flex-basis 0 + min-width in px (impostato da renderVisualMap sulla larghezza della mappa): la larghezza del
+       pannello non dipende mai da come sono disposti legenda e mappa dentro, quindi il layout non puo' oscillare.
+       Sotto quella min-width il pannello va a capo sotto il tracker invece di far debordare la griglia. */
+    .map-panel { flex: 1 1 0; background-color: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; }
+    /* Default: legenda SOTTO la mappa. A fianco solo quando il pannello ha spazio per entrambe (classe da JS). */
+    .map-body { display: flex; flex-direction: column; gap: 15px; align-items: center; flex-grow: 1; }
+    .map-body.legend-side { flex-direction: row-reverse; align-items: flex-start; justify-content: center; }
 
     .tabs-wrapper { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; flex-wrap: wrap; }
     .tabs { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; flex-grow: 1; }
@@ -66,6 +72,9 @@
     button:hover { background-color: var(--accent-hover); }
     button.btn-secondary { background-color: #4b5563; }
     button.btn-secondary:hover { background-color: #374151; }
+    /* Le regole sopra sono scoped a `button.`: il menu a tendina va vestito a parte. */
+    select.btn-secondary { background-color: #4b5563; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: inherit; }
+    select.btn-secondary:hover { background-color: #374151; }
     button.btn-danger { background-color: var(--danger); }
     button.btn-danger:hover { background-color: var(--danger-dark); }
     
@@ -126,7 +135,9 @@
     .statblocks { background-color: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; flex-grow: 1; display: flex; flex-direction: column; }
     .sb-tabs-header { display: flex; gap: 4px; padding: 10px 10px 0 10px; background-color: #141619; border-bottom: 1px solid var(--border-color); overflow-x: auto; scrollbar-width: none; }
     .sb-tab-btn { background-color: #23272e; color: var(--text-muted); border: 1px solid var(--border-color); border-bottom: none; padding: 8px 14px; border-radius: 6px 6px 0 0; cursor: pointer; font-weight: 600; font-size: 0.85rem; white-space: nowrap; transition: 0.15s; }
-    .sb-tab-btn.active { background-color: var(--bg-alt); color: var(--accent-blue); border-top: 2px solid var(--accent-blue); }
+    .sb-tab-btn { display: flex; align-items: center; gap: 7px; }
+    .sb-tab-btn.active { background-color: var(--bg-alt); color: var(--accent-blue); }
+    .sb-tab-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,0.5); }
     
     .sb-content-area { padding: 15px; flex-grow: 1; max-height: 45vh; overflow-y: auto; background-color: var(--bg-alt); }
     .sb-content-area::-webkit-scrollbar { width: 8px; }
@@ -141,7 +152,6 @@
     
     .sb-secondary-box { display: flex; flex-direction: column; gap: 4px; margin-bottom: 15px; font-size: 0.85rem; color: #e5e7eb; }
     .sb-secondary-box strong { color: #9ca3af; font-weight: 600; }
-    .sb-skills-hl { color: inherit; font-weight: normal; }
     
     .sb-section-title { font-weight: bold; color: #fbbf24; margin-top: 15px; margin-bottom: 6px; border-bottom: 1px solid #4b5563; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; padding-bottom: 2px; }
     .sb-move { font-size: 0.9rem; margin-bottom: 6px; line-height: 1.4; }
@@ -154,10 +164,16 @@
     .sb-edit-form textarea { resize: vertical; min-height: 150px; font-family: monospace; font-size: 0.85rem;}
 
     .map-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
-    .visual-map-wrapper { width: 100%; display: flex; justify-content: center; padding-bottom: 15px; overflow-x: auto; }
+    /* Niente scroll orizzontale: il pannello non scende sotto la larghezza della mappa, quindi va a capo sotto il tracker. */
+    .visual-map-wrapper { flex: 0 0 auto; display: flex; justify-content: center; padding-bottom: 15px; }
     
+    .marquee { position: absolute; border: 1px dashed var(--accent-blue); background: rgba(59, 130, 246, 0.15); pointer-events: none; z-index: 20; }
+    /* Fuori schermo ma renderizzato: setDragImage non accetta un elemento staccato dal documento. */
+    .drag-ghost { position: fixed; left: -3000px; top: -3000px; }
+    .map-overlay.selected { outline: 2px solid var(--accent-blue); outline-offset: -2px; box-shadow: 0 0 8px rgba(59, 130, 246, 0.9); }
+
     .visual-map {
-      display: grid; gap: 1px;
+      position: relative; display: grid; gap: 1px;
       background-color: #0f1115; border: 3px solid #000; border-radius: 6px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5); width: max-content; 
     }
@@ -173,7 +189,7 @@
     .draggable-item { cursor: grab; z-index: 5; }
     .draggable-item:active { cursor: grabbing; }
 
-    .map-overlay { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: calc(var(--cell-size) * 0.65); border-radius: 4px; box-sizing: border-box; }
+    .map-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: calc(var(--cell-size) * 0.65); border-radius: 4px; box-sizing: border-box; }
     .type-cover-total { background-color: #1a1c20; color: #4b5563; border: 1px solid #111; box-shadow: inset 0 0 10px #000; font-size: calc(var(--cell-size) * 0.8); }
     .type-cover { background-color: rgba(156, 163, 175, 0.25); border: 2px solid #9ca3af; box-shadow: inset 0 0 6px rgba(0,0,0,0.3); } 
     .type-cover-heavy { background-color: rgba(75, 85, 99, 0.5); border: 2px solid #4b5563; box-shadow: inset 0 0 10px rgba(0,0,0,0.6); } 
@@ -191,11 +207,22 @@
     .entity-token.size-3 { width: calc(300% + 2px); height: calc(300% + 2px); font-size: calc(var(--cell-size) * 1.5); }
     .entity-token.size-4 { width: calc(400% + 3px); height: calc(400% + 3px); font-size: calc(var(--cell-size) * 2.0); }
 
-    .map-legend { display: flex; flex-direction: column; font-size: 0.9rem; background: #17191d; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); margin-top: auto; max-height: 450px; overflow-y: auto; }
+    /* width: min-content = esattamente la riga dei filtri (l'unico contenuto che non va a capo): ne' piu' ne' meno. */
+    .map-legend { flex: 0 0 auto; width: min-content; max-width: 100%; display: flex; flex-direction: column; font-size: 0.9rem; background: #17191d; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); max-height: 520px; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; }
     
-    details { background: #1a1c20; padding: 10px; border-radius: 6px; border: 1px solid #374151; margin-top: 15px; }
-    summary { font-weight: 700; color: #9ca3af; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; outline: none; user-select: none; margin-bottom: 5px; cursor: pointer; transition: color 0.15s; }
-    summary:hover { color: #f3f4f6; }
+    /* Catalogo: barra di navigazione propria e scorrimento proprio, cosi' non trascina tutta la legenda. */
+    .catalog-nav { display: flex; flex-wrap: nowrap; gap: 4px; padding: 8px 0 6px 0; position: sticky; top: 0; background: #1a1c20; z-index: 2; }
+    .catalog-chip { background: #23272e; color: var(--text-muted); border: 1px solid var(--border-color); border-radius: 999px; padding: 3px 9px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; cursor: pointer; }
+    .catalog-chip:hover { color: #f3f4f6; }
+    .catalog-chip.active { background: var(--accent-blue); border-color: var(--accent-blue); color: white; }
+    .catalog-list { max-height: 300px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; padding-right: 6px; }
+
+    .catalog-box { background: #1a1c20; padding: 10px; border-radius: 6px; border: 1px solid #374151; margin-top: 15px; }
+    .catalog-toggle { display: block; width: 100%; text-align: left; background: none; border: none; padding: 0; font-weight: 700; color: #9ca3af; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; user-select: none; margin-bottom: 5px; cursor: pointer; transition: color 0.15s; }
+    .catalog-toggle:hover { color: #f3f4f6; }
+    /* Chiuso, non rimosso: nav e lista restano nel layout, quindi la legenda resta larga uguale aperto o chiuso.
+       (Un <details> chiuso toglie i figli dal flusso e la larghezza min-content crollerebbe.) */
+    .catalog-box.collapsed .catalog-nav, .catalog-box.collapsed .catalog-list { visibility: hidden; height: 0; min-height: 0; padding-top: 0; padding-bottom: 0; margin: 0; overflow: hidden; }
     
     .legend-item { display: flex; align-items: flex-start; gap: 12px; padding-bottom: 8px; padding-top: 8px; border-bottom: 1px solid #2d3139; }
     .legend-item:last-child { border-bottom: none; padding-bottom: 0; }
@@ -215,14 +242,16 @@
 <body>
   <div class="container">
     <header>
-      <h1>FFXIV × D&D 5e — VTT Combat Tracker</h1>
+      <h1>FFXIV × D&D 5e — Combat Tracker</h1>
       <p class="subtitle">Gestione Iniziativa, Statblock & NLP Generazione Mappe</p>
     </header>
 
     <div class="tabs-wrapper" id="tabsWrapper">
       <button class="btn-import" onclick="openImportModal()">📥 Importa</button>
       <div class="tabs" id="tabsHeader"></div>
-      <button class="btn-import" style="margin-left: auto;" onclick="openExportModal()">📤 Esporta</button>
+      <button class="btn-import" style="margin-left: auto;" onclick="document.getElementById('openFileInput').click()" title="Carica un tracker salvato in precedenza">📂 Apri</button>
+      <button class="btn-import" onclick="openExportModal()" title="Salva tutti gli scontri, nemici e mappe">💾 Salva</button>
+      <input type="file" id="openFileInput" accept=".json,application/json" style="display:none" onchange="handleOpenFile(event)">
     </div>
 
     <div class="app-layout" id="appLayout">
@@ -267,13 +296,20 @@
 
       <div class="map-panel" id="mapPanel">
         <div class="map-header">
-          <h2 id="mapTitle" style="margin:0; font-size: 1.2rem;">Mappa Tattica</h2>
-          <button class="btn-secondary" onclick="triggerMapRegeneration()" title="Ricalcola architettura e ostacoli">
-            <span>🔄</span> Rigenera Layout
-          </button>
+          <h2 id="mapTitle" style="margin:0; font-size: 1.2rem;"></h2>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button class="btn-secondary" onclick="triggerMapRegeneration()" title="Ricalcola architettura e ostacoli dal testo del pacchetto">
+              <span>🔄</span> Rigenera Mappa
+            </button>
+            <select id="mapPresetSelect" class="btn-secondary" onchange="generateEmptyMap(this.value)" title="Crea una mappa vuota da un modello, tirata a caso ogni volta">
+              <option value="">🗺️ Genera Mappa</option>
+            </select>
+          </div>
         </div>
-        <div class="visual-map-wrapper"><div id="visualMapContainer" class="visual-map"></div></div>
-        <div id="mapLegendContainer" class="map-legend"></div>
+        <div class="map-body">
+          <div class="visual-map-wrapper"><div id="visualMapContainer" class="visual-map"></div></div>
+          <div id="mapLegendContainer" class="map-legend"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -281,8 +317,8 @@
   <div class="modal-overlay" id="importModal">
     <div class="modal-content">
       <h2 style="margin-top:0;">Importa Incontro</h2>
-      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incolla il testo del pacchetto scontro, <strong>OPPURE</strong> incolla una stringa JSON precedentemente esportata per ripristinare il setup esatto (mappa, posizioni, pf attuali).</p>
-      <textarea id="importTextarea" class="import-area" placeholder="Pacchetto Incontro: Scontro... oppure { ... json ... }"></textarea>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incolla qui il <strong>testo del pacchetto incontro</strong>. Da questo vengono ricavati nemici, statistiche e mappa. Per riaprire un tracker salvato usa invece <strong>📂 Apri</strong>.</p>
+      <textarea id="importTextarea" class="import-area" placeholder="### Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** ...&#10;**Nemici:** Sentinella del Bosco ×3&#10;&#10;**Da leggere ai PG:** ..."></textarea>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button class="btn-secondary" onclick="closeImportModal()">Annulla</button>
         <button class="btn-import" style="background-color:var(--success); color:white;" onclick="processImport()">Carica Incontro</button>
@@ -292,12 +328,11 @@
 
   <div class="modal-overlay" id="exportModal">
     <div class="modal-content" style="max-width: 500px;">
-      <h2 style="margin-top:0;">Esporta Incontro</h2>
-      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Salva lo scontro attuale per poterlo ricaricare in seguito, posizioni della mappa e pf attuali inclusi.</p>
-      <input type="text" id="exportNameInput" placeholder="Nome dell'incontro..." style="margin-bottom: 15px; width: 100%; font-size: 1.1rem; padding: 10px;" />
+      <h2 style="margin-top:0;">Salva Tracker</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Salva <strong>l'intero tracker</strong> — tutti gli scontri aperti, con nemici, statistiche, mappe, posizioni delle pedine e pf attuali. Si riapre con <strong>📂 Apri</strong>.</p>
+      <input type="text" id="exportNameInput" placeholder="Nome del file..." style="margin-bottom: 15px; width: 100%; font-size: 1.1rem; padding: 10px;" />
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button class="btn-secondary" onclick="closeExportModal()">Annulla</button>
-        <button class="btn-import" style="background-color:var(--accent-blue); color:white;" onclick="copyExportData()">📋 Copia</button>
         <button class="btn-import" style="background-color:var(--success); color:white;" onclick="downloadExportData()">💾 Scarica JSON</button>
       </div>
     </div>
@@ -313,27 +348,30 @@
       // Coperture 3/4 (+5)
       { regex: /statu|monument|altar/i, emoji: "🗿", name: "Statua/Altare", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
       { regex: /alber/i, emoji: "🌲", name: "Albero Grosso", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
-      { regex: /grat/i, emoji: "▦", name: "Grata/Cancello", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
+      { regex: /\bgrat[ae]\b|cancell/i, emoji: "▦", name: "Grata/Cancello", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
       
       // Mezze Coperture (+2)
       { regex: /rocci|mass[io]|pietr|detriti|stalagmit/i, emoji: "🪨", name: "Rocce", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { regex: /maceri/i, emoji: "🧱", name: "Macerie", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { regex: /cass|scatol/i, emoji: "📦", name: "Casse", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /baril|bott/i, emoji: "🏺", name: "Anfore/Barili", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { regex: /tavol|mobil|bancon/i, emoji: "🪑", name: "Mobilio/Tavoli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { regex: /baril|\bbott[ei]\b/i, emoji: "🏺", name: "Anfore/Barili", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { regex: /tavol|mobili[oa]\b|arred|bancon/i, emoji: "🪑", name: "Mobilio/Tavoli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { regex: /barricat|murett|steccat/i, emoji: "🪵", name: "Barricata", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { regex: /cespugli|arbust/i, emoji: "🌿", name: "Cespuglio", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { regex: /siep[ei]|filar|vign|pergolat|frasch/i, emoji: "🌳", name: "Siepe/Filare", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { regex: /carr[oi]\b|carrett|birocc|slitt/i, emoji: "🛒", name: "Carro", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       
       // Terreni Difficili
       { regex: /acqu|pozz/i, emoji: "💧", name: "Acqua Profonda", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { regex: /solc[hi]|zoll[ae]|terra smossa|aratur|erba alta|sterpagli|cannet|giunch/i, emoji: "🌾", name: "Solchi/Erba Alta", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
       { regex: /muff|fang|melm/i, emoji: "🦠", name: "Fango/Muffa", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
       { regex: /ragnatel|bozzol/i, emoji: "🕸️", name: "Ragnatele", cssType: "type-difficult", effect: "Terreno Difficile (Infiammabile)" },
       { regex: /ghiacci|neve/i, emoji: "🧊", name: "Ghiaccio", cssType: "type-difficult", effect: "Terreno Difficile (Rischio caduta proni)" },
       
       // Terreni Pericolosi
-      { regex: /fuoc|fiamm|lav|magm|brace|braci|bracier|tizzon|rogo/i, emoji: "🔥", name: "Fuoco/Lava", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Fuoco (entrando o iniziando il turno)" },
+      { regex: /fuoc|fiamm|\blav[ae]\b|magma|brac[ei]|bracier|tizzon|\brogo\b|\bpira\b/i, emoji: "🔥", name: "Fuoco/Lava", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Fuoco (entrando o iniziando il turno)" },
       { regex: /acid|velen|tossic/i, emoji: "🟢", name: "Acido/Tossina", cssType: "type-hazard", effect: "Pericolo: 1d6 Danni Acido (entrando o iniziando il turno)" },
-      { regex: /spunton|rov[io]|spin|prun/i, emoji: "🥀", name: "Rovi/Spine", cssType: "type-hazard", effect: "Pericolo: 1d4 Danni Perforanti (entrando o iniziando il turno)" },
+      { regex: /spunton|\brov[io]\b|\bspin[ae]\b|prun|triboli/i, emoji: "🥀", name: "Rovi/Spine", cssType: "type-hazard", effect: "Pericolo: 1d4 Danni Perforanti (entrando o iniziando il turno)" },
       { regex: /trappol/i, emoji: "🪤", name: "Trappola", cssType: "type-hazard", effect: "Pericolo: Effetto Trappola (entrando)" },
       
       // Elementi Interattivi
@@ -357,12 +395,14 @@
 
     let encountersData = [{ 
       id: "enc_default", title: "Scontro Vuoto", round: 1, activeTurnIndex: 0, 
-      mapData: null, narrativeText: "", enemyColors: {}, 
+      mapData: null, narrativeText: "", 
       combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] 
     }];
     let currentEncounterIndex = 0;
     
     let activeStatblockIndex = 0;
+    let catalogOpen = false;
+    let selectedFeatureUids = new Set();
     let editingStatblockIndex = null;
 
     window.onload = function() { initResizer(); initTracker(); };
@@ -393,9 +433,21 @@
         };
         
         resizer.addEventListener('mousedown', mouseDownHandler);
+        new ResizeObserver(updateMapLayout).observe(document.getElementById('mapPanel'));
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Delete' && e.key !== 'Backspace') return;
+            if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;   // non rubare il tasto ai campi
+            if (!selectedFeatureUids.size) return;
+            e.preventDefault(); deleteSelectedFeatures();
+        });
     }
 
-    function initTracker() { renderTabs(); captureBaseRosters(); renderEncounter(); }
+    function initTracker() {
+      const sel = document.getElementById("mapPresetSelect");
+      Object.entries(MapPresets).forEach(([k, p]) => sel.add(new Option(p.label, k)));
+      renderTabs(); captureBaseRosters(); renderEncounter();
+    }
 
     function renderTabs() {
       const tabsContainer = document.getElementById("tabsHeader");
@@ -429,7 +481,7 @@
     }
     
     function addNewEmptyTab() {
-      encountersData.push({ id: "enc_" + Date.now(), title: "Nuovo Scontro", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", enemyColors: {}, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] });
+      encountersData.push({ id: "enc_" + Date.now(), title: "Nuovo Scontro", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] });
       captureBaseRosters(); switchTab(encountersData.length - 1);
     }
     
@@ -456,13 +508,11 @@
     }
     
     function getCombatantTokenLabel(name) {
-       const match = name.match(/^(.*?)(?:\s+(\d+))?$/);
-       if (!match) return name.charAt(0).toUpperCase();
-       const base = match[1].trim(); const num = match[2];
-       let label = base.charAt(0).toUpperCase();
-       if (num) label += num;
-       return label;
+       const num = name.match(/\s+(\d+)$/);
+       return getBaseName(name).charAt(0).toUpperCase() + (num ? num[1] : "");
     }
+
+    function emptyStatblock(name) { return { name: name, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] }; }
     
     function getCombatantSizeById(id) {
         const enc = encountersData[currentEncounterIndex];
@@ -527,18 +577,9 @@
           if (c.isMonster) {
               const newBase = getBaseName(value);
               
-              // Calcola le radici uniche in tempo reale per mantenere la coerenza dei colori su tutti i token
-              const uniqueBases = [];
-              enc.combatants.filter(m => m.isMonster).forEach(m => {
-                  const bn = getBaseName(m.name);
-                  if(!uniqueBases.includes(bn)) uniqueBases.push(bn);
-              });
-              
               // Aggiorna simultaneamente CSS, Token mappa e badge Tracker di TUTTI i mostri
               enc.combatants.filter(m => m.isMonster).forEach(m => {
-                  const bn = getBaseName(m.name);
-                  const idx = uniqueBases.indexOf(bn);
-                  const colRGB = warmPaletteRGB[idx % warmPaletteRGB.length];
+                  const colRGB = getEnemyColorRGB(getBaseName(m.name));
                   const tLabel = getCombatantTokenLabel(m.name);
                   
                   const row = document.getElementById("row-" + m.id);
@@ -562,8 +603,7 @@
                   let exists = enc.statblocks.find(sb => sb.name.toLowerCase() === newBase.toLowerCase());
                   if (!exists) {
                       const oldSb = enc.statblocks.find(sb => sb.name.toLowerCase() === oldBase.toLowerCase());
-                      if (oldSb) enc.statblocks.push({ ...oldSb, name: newBase });
-                      else enc.statblocks.push({ name: newBase, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] });
+                      enc.statblocks.push(oldSb ? { ...oldSb, name: newBase } : emptyStatblock(newBase));
                   }
                   syncStatblocks();
               }
@@ -587,8 +627,7 @@
         initBonus: 0, init: isM ? Math.floor(Math.random()*20)+1 : null, ac: isM ? 10 : "", hp: isM ? 10 : 0, maxHp: isM ? 10 : 0, isDown: false, telegraph: null, notes: ""
       });
       if (isM) {
-          const newBase = getBaseName("Nuovo Nemico");
-          if (!enc.statblocks.find(sb => sb.name.toLowerCase() === newBase.toLowerCase())) enc.statblocks.push({ name: newBase, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] });
+          if (!enc.statblocks.find(sb => sb.name === "Nuovo Nemico")) enc.statblocks.push(emptyStatblock("Nuovo Nemico"));
           syncStatblocks();
       }
       renderEncounter();
@@ -728,7 +767,8 @@
           let telegBtnHtml = "";
           if (c.isMonster) {
             let tText = "⚠", tClass = "";
-            if (c.telegraph === 1) { tText = "⚠ 1"; tClass = "active"; } else if (c.telegraph === 2) { tText = "⚠ 2"; tClass = "active"; } else if (c.telegraph === 3) { tText = "⚠ 3"; tClass = "active"; } else if (c.telegraph === 0) { tText = "⚠ SCATTA"; tClass = "scatta"; }
+            if (c.telegraph === 0) { tText = "⚠ SCATTA"; tClass = "scatta"; }
+            else if (c.telegraph > 0) { tText = "⚠ " + c.telegraph; tClass = "active"; }
             telegBtnHtml = `<button class="btn-teleg ${tClass}" onclick="cycleTelegraph(${c.id})" title="Telegrafo (1-3 rds)">${tText}</button>`;
           }
 
@@ -762,7 +802,11 @@
 
       enc.statblocks.forEach((sb, index) => {
           const btn = document.createElement("div"); btn.className = "sb-tab-btn " + (index === activeStatblockIndex ? "active" : "");
-          btn.innerHTML = `<span>${escapeHtml(sb.name || "Senza Nome")}</span>`;
+          // Stesso colore della pedina sulla mappa e della riga nel tracker.
+          const rgb = getEnemyColorRGB(sb.name);
+          btn.style.borderTop = `2px solid rgb(${rgb})`;
+          if (index === activeStatblockIndex) { btn.style.color = `rgb(${rgb})`; btn.style.backgroundColor = `rgba(${rgb}, 0.14)`; }
+          btn.innerHTML = `<span class="sb-tab-dot" style="background: rgb(${rgb});"></span><span>${escapeHtml(sb.name || "Senza Nome")}</span>`;
           btn.onclick = () => { activeStatblockIndex = index; editingStatblockIndex = null; renderStatblocks(); };
           tabsWrap.appendChild(btn);
       });
@@ -843,6 +887,30 @@
 
     function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
+    // Euristica d'ingombro: COME sta al mondo l'elemento, non solo quanto ne serve.
+    //   blob    = massa naturale contigua, cresciuta a partire da un seme (una pozza larga 1,5 m non esiste)
+    //   line    = roba che sta in fila (filari, siepi, barricate, muretti)
+    //   cluster = grappolo vicino ma non compatto (casse accatastate, macerie, sassi)
+    //   single  = struttura isolata e ben distanziata (albero, pilastro, statua, trappola)
+    // groups = quanti gruppi distinti · cells = quante caselle per gruppo
+    // clump = probabilita' che il pezzo venga posato come blocco 2x2 di quattro caselle 1x1 (nessuna icona grande).
+    function featureProfile(feat) {
+      const n = feat.name;
+      if (/Acqua|Fango|Ghiaccio|Solchi|Ragnatele|Fuoco|Acido|Rovi/i.test(n))   return { mode: 'blob',    groups: [1, 2], cells: [4, 9], clump: 0.35 };
+      if (/Siepe|Barricata|Muro/i.test(n))                                     return { mode: 'line',    groups: [1, 2], cells: [3, 6], clump: 0 };
+      if (/Casse|Anfore|Mobilio|Macerie|Rocce|Cespuglio|Carro/i.test(n))       return { mode: 'cluster', groups: [1, 3], cells: [2, 4], clump: 0.30 };
+      if (/Trappola|Meccanismo|Grata/i.test(n))                                return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
+      return { mode: 'single', groups: [1, 3], cells: [1, 1], clump: 0 };      // alberi, tronchi, pilastri, statue
+    }
+
+    // Mappa vuota da modello: nessun testo letto, nessun elemento piazzato, misure tirate a caso ogni volta.
+    function generateEmptyMap(key) {
+      const sel = document.getElementById("mapPresetSelect"); sel.value = "";
+      if (!key || !MapPresets[key]) return;
+      encountersData[currentEncounterIndex].mapData = generateDynamicMap("", key);
+      renderVisualMap();
+    }
+
     function triggerMapRegeneration() {
       const enc = encountersData[currentEncounterIndex];
       if (enc.narrativeText) { enc.mapData = generateDynamicMap(enc.narrativeText); renderVisualMap(); }
@@ -856,7 +924,11 @@
                 for(let x=sx; x<sx+size; x++) {
                     if(data.grid[y][x] !== 'floor') return false;
                     if(data.placedFeatures.some(f => f.x===x && f.y===y)) return false;
-                    if(Object.values(data.entityPositions).some(ep => ep.x <= x && x < ep.x + getCombatantSizeById(ep.id) && ep.y <= y && y < ep.y + getCombatantSizeById(ep.id))) return false;
+                    // L'id sta nella CHIAVE, non dentro il valore {x,y}: con Object.values ogni pedina risultava 1x1.
+                    if(Object.entries(data.entityPositions).some(([id, ep]) => {
+                        const s = getCombatantSizeById(Number(id));
+                        return ep.x <= x && x < ep.x + s && ep.y <= y && y < ep.y + s;
+                    })) return false;
                 }
             }
             return true;
@@ -880,17 +952,41 @@
         return {x: Math.floor(data.w/2), y: 1};
     }
 
-    function generateDynamicMap(narrative) {
-      let lower = narrative.toLowerCase(); let baseW = 10, baseH = 14, typeDesc = "Stanza Base", shape = "rect";
+    // Le stesse forme che il testo puo' far scattare, disponibili anche a mano e sempre tirate a caso.
+    const MapPresets = {
+      aperto:   { label: "Spazio Aperto",       shape: "open",    w: [20, 24], h: [20, 24] },
+      arena:    { label: "Grande Arena",        shape: "open",    w: [18, 22], h: [18, 22] },
+      sala:     { label: "Sala Ampia",          shape: "complex", w: [14, 18], h: [14, 16] },
+      rovine:   { label: "Rovine Complesse",    shape: "complex", w: [14, 18], h: [14, 18] },
+      caverna:  { label: "Caverna Irregolare",  shape: "cave",    w: [9, 12],  h: [16, 20] },
+      tonda:    { label: "Struttura Circolare", shape: "circle",  w: [12, 16], h: null },
+      galleria: { label: "Galleria",            shape: "rect",    w: [8, 10],  h: [16, 20] },
+      stretto:  { label: "Passaggio Stretto",   shape: "rect",    w: [5, 7],   h: [14, 18] },
+      base:     { label: "Stanza Base",         shape: "rect",    w: [10, 12], h: [14, 16] }
+    };
+
+    function generateDynamicMap(narrative, presetKey) {
+      const preset = presetKey ? MapPresets[presetKey] : null;
+      // Con un preset non si legge nessun testo: niente forma dedotta e nessun elemento piazzato.
+      let lower = preset ? "" : (narrative || "").toLowerCase();
+      let baseW = 10, baseH = 14, typeDesc = "Stanza Base", shape = "rect";
 
       if (/strett|cunicol|passaggio/i.test(lower)) { baseW = rand(5,7); baseH = rand(14,18); typeDesc = "Passaggio Stretto"; }
       else if (/corridoio|ponte|galleria/i.test(lower)) { baseW = rand(8,10); baseH = rand(16,20); typeDesc = "Galleria"; }
       else if (/grande|ampi|vasto|spazios|sala/i.test(lower)) { baseW = rand(14,18); baseH = rand(14,16); typeDesc = "Sala Ampia"; shape="complex"; }
       else if (/enorme|immens|arena/i.test(lower)) { baseW = rand(18,22); baseH = rand(18,22); typeDesc = "Grande Arena"; shape="open"; }
       
-      if (/grotta|caverna|antro|naturale|cavità/i.test(lower)) { shape = "cave"; typeDesc = "Caverna Irregolare"; baseW = Math.max(baseW, 9); baseH = Math.max(baseH, 16); } 
+      // Spazio aperto: campo, radura, piazza. Nessun muro perimetrale, e la misura standard di un campo di battaglia all'aperto (20-24 caselle da 1,5 m).
+      if (/all'aperto|a cielo aperto|aria aperta|radur|frutteto|verzier|\bcampi\b|campo (?:di grano|arato|aperto|coltivato)|coltiv|solc[hi]|prato|prateri|pascol|bosco|boschi|foresta|collin|pianur|\bvalle\b|landa|brughier|spiaggia|litoral|\bdun[ae]\b|deserto|palude|acquitrin|giardin|\borto\b|piazza|cortile|accampament|\bmolo\b|banchina|argine|sentiero|strada|crocevia/i.test(lower)) { shape = "open"; typeDesc = "Spazio Aperto"; baseW = Math.max(baseW, rand(20, 24)); baseH = Math.max(baseH, rand(20, 24)); }
+      else if (/grotta|caverna|antro|naturale|cavità/i.test(lower)) { shape = "cave"; typeDesc = "Caverna Irregolare"; baseW = Math.max(baseW, 9); baseH = Math.max(baseH, 16); } 
       else if (/rovine|labirint/i.test(lower)) { shape = "complex"; typeDesc = "Rovine Complesse"; baseW = Math.max(baseW, 14); baseH = Math.max(baseH, 14); } 
       else if (/tonda|circolare|anello/i.test(lower)) { shape = "circle"; typeDesc = "Struttura Circolare"; baseW = Math.max(baseW, 12); baseH = baseW; }
+
+      if (preset) {
+          shape = preset.shape; typeDesc = preset.label;
+          baseW = rand(preset.w[0], preset.w[1]);
+          baseH = preset.h ? rand(preset.h[0], preset.h[1]) : baseW;
+      }
 
       let grid = Array(baseH).fill().map(() => Array(baseW).fill('wall'));
 
@@ -960,24 +1056,157 @@
           return false;
       };
       
-      const canPlaceItem = (sx, sy) => {
-          if(grid[sy][sx] !== 'floor' || isSafeZone(sx, sy)) return false;
-          if(mapData.placedFeatures.some(f => f.x===sx && f.y===sy)) return false;
+      // --- PIAZZAMENTO A GRUPPI ---
+      // Non si sparpagliano icone singole: si semina un gruppo e lo si fa crescere secondo il profilo
+      // dell'elemento (chiazza, fila, grappolo, pezzo isolato), con i gruppi tenuti staccati fra loro.
+      const occupied = new Set();
+      const key = (x, y) => x + "," + y;
+
+      let floorCount = 0;
+      for (let y = 0; y < baseH; y++) for (let x = 0; x < baseW; x++) if (grid[y][x] === 'floor') floorCount++;
+      const cellCap = Math.round(floorCount * 0.26);   // oltre ~1/4 del campo ingombro la mappa diventa illeggibile
+
+      const isFree = (x, y) => (
+          x >= 1 && y >= 1 && x <= baseW - 2 && y <= baseH - 3 &&
+          grid[y] && grid[y][x] === 'floor' && !isSafeZone(x, y) && !occupied.has(key(x, y))
+      );
+      const fits = (x, y, size) => {
+          for (let dy = 0; dy < size; dy++) for (let dx = 0; dx < size; dx++) if (!isFree(x + dx, y + dy)) return false;
           return true;
       };
+      const put = (feat, x, y) => {
+          occupied.add(key(x, y));
+          mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_' + Math.random() });
+      };
+      // Un seme nasce lontano da tutto il resto: e' questo che tiene i gruppi distinti.
+      const seedSpot = () => {
+          for (let a = 0; a < 240; a++) {
+              const x = rand(1, baseW - 2), y = rand(1, baseH - 3);
+              if (!fits(x, y, 1)) continue;
+              let near = false;
+              for (let dy = -2; dy <= 2 && !near; dy++) for (let dx = -2; dx <= 2; dx++) if (occupied.has(key(x + dx, y + dy))) { near = true; break; }
+              if (!near) return { x, y };
+          }
+          return null;
+      };
+
+      const scale = Math.max(0.6, Math.min(2.2, (baseW * baseH) / 200));
 
       matchedFeatures.forEach(feat => {
-          let placed = 0, max = rand(1, 3);
-          for(let attempts = 0; attempts < 150 && placed < max; attempts++) {
-              let x = rand(1, baseW-2), y = rand(1, baseH-3);
-              if(canPlaceItem(x, y)) {
-                  let tooClose = mapData.placedFeatures.some(f => Math.abs(f.x-x)<=2 && Math.abs(f.y-y)<=2);
-                  if(!tooClose) { mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_'+Math.random() }); placed++; }
+          const p = featureProfile(feat);
+          const groups = Math.max(1, Math.round(rand(p.groups[0], p.groups[1]) * scale / 1.4));
+          for (let g = 0; g < groups; g++) {
+              if (occupied.size >= cellCap) break;
+              const seed = seedSpot();
+              if (!seed) break;
+              const target = Math.max(1, Math.round(rand(p.cells[0], p.cells[1]) * (p.mode === 'single' ? 1 : Math.min(1.6, scale))));
+              const groupCells = [];
+              // Se serve una massa piu' grossa si posa un blocco 2x2 di quattro caselle 1x1, non un'icona grande.
+              const lay = (x, y) => {
+                  if (occupied.size >= cellCap) return 0;
+                  if (p.clump && Math.random() < p.clump && fits(x, y, 2)) {
+                      for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) { put(feat, x + dx, y + dy); groupCells.push([x + dx, y + dy]); }
+                      return 4;
+                  }
+                  if (!fits(x, y, 1)) return 0;
+                  put(feat, x, y); groupCells.push([x, y]);
+                  return 1;
+              };
+              let laid = lay(seed.x, seed.y);
+              if (!laid || p.mode === 'single') continue;
+              const dir = (p.mode === 'line') ? (rand(0, 1) ? [1, 0] : [0, 1]) : null;
+              let lx = seed.x, ly = seed.y;
+              for (let step = 0; step < target * 8 && laid < target; step++) {
+                  let nx, ny;
+                  if (p.mode === 'line') { lx += dir[0]; ly += dir[1]; nx = lx; ny = ly; }
+                  else if (p.mode === 'blob') {
+                      // Cresce da una casella gia' posata: cosi' la chiazza resta attaccata.
+                      const from = groupCells[rand(0, groupCells.length - 1)];
+                      const d = [[1, 0], [-1, 0], [0, 1], [0, -1]][rand(0, 3)];
+                      nx = from[0] + d[0]; ny = from[1] + d[1];
+                  } else { nx = seed.x + rand(-2, 2); ny = seed.y + rand(-2, 2); }
+                  if (nx < 1 || ny < 1 || nx > baseW - 2 || ny > baseH - 3) { if (p.mode === 'line') break; else continue; }
+                  laid += lay(nx, ny);
               }
           }
       });
 
       return mapData;
+    }
+
+    // --- SELEZIONE MULTIPLA SULLA MAPPA ---
+    // Riquadro trascinato sul vuoto: seleziona gli elementi dentro (Shift somma alla selezione).
+    // Poi: trascinare uno dei selezionati sposta tutto il gruppo, Ctrl+trascina lo copia, Canc lo cancella.
+    function cellUnderPointer(e) {
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        const cell = el && el.closest ? el.closest('.map-cell') : null;
+        if (!cell || !cell.id.startsWith('cell_')) return null;
+        const p = cell.id.split('_');
+        return { x: +p[1], y: +p[2] };
+    }
+
+    function initMapSelection(mapContainer) {
+      mapContainer.onmousedown = (e) => {
+        // Elementi e pedine hanno il loro drag&drop nativo: il riquadro parte solo dal vuoto.
+        if (e.button !== 0 || e.target.closest('.map-overlay') || e.target.closest('.entity-token')) return;
+        const start = cellUnderPointer(e); if (!start) return;
+        e.preventDefault();
+
+        const r = mapContainer.getBoundingClientRect();
+        const x0 = e.clientX - r.left, y0 = e.clientY - r.top;
+        const box = document.createElement('div'); box.className = 'marquee';
+        mapContainer.appendChild(box);
+        let end = start;
+
+        const move = (ev) => {
+            const x1 = ev.clientX - r.left, y1 = ev.clientY - r.top;
+            box.style.left = Math.min(x0, x1) + 'px'; box.style.top = Math.min(y0, y1) + 'px';
+            box.style.width = Math.abs(x1 - x0) + 'px'; box.style.height = Math.abs(y1 - y0) + 'px';
+            const c = cellUnderPointer(ev); if (c) end = c;
+        };
+        const up = (ev) => {
+            document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up);
+            box.remove();
+            if (!ev.shiftKey) selectedFeatureUids.clear();
+            const data = encountersData[currentEncounterIndex].mapData;
+            const ax = Math.min(start.x, end.x), bx = Math.max(start.x, end.x);
+            const ay = Math.min(start.y, end.y), by = Math.max(start.y, end.y);
+            data.placedFeatures.forEach(f => { if (f.x >= ax && f.x <= bx && f.y >= ay && f.y <= by) selectedFeatureUids.add(f.uid); });
+            renderVisualMap();
+        };
+        document.addEventListener('mousemove', move); document.addEventListener('mouseup', up);
+      };
+    }
+
+    // Anteprima di trascinamento con TUTTO il gruppo, non solo l'elemento afferrato.
+    function buildGroupDragImage(e, data, anchor) {
+        const group = data.placedFeatures.filter(f => selectedFeatureUids.has(f.uid));
+        const minX = Math.min(...group.map(f => f.x)), minY = Math.min(...group.map(f => f.y));
+        const maxX = Math.max(...group.map(f => f.x)), maxY = Math.max(...group.map(f => f.y));
+        const anchorCell = document.getElementById(`cell_${anchor.x}_${anchor.y}`);
+        const step = anchorCell.offsetWidth + 1;   // cella + gap della griglia
+
+        const ghost = document.createElement('div');
+        ghost.className = 'drag-ghost';
+        ghost.style.width = ((maxX - minX + 1) * step) + 'px';
+        ghost.style.height = ((maxY - minY + 1) * step) + 'px';
+        group.forEach(f => {
+            const d = document.createElement('div');
+            d.className = 'map-overlay ' + f.item.cssType;
+            d.textContent = f.item.emoji;
+            d.style.cssText += `left:${(f.x - minX) * step}px; top:${(f.y - minY) * step}px; width:${step - 1}px; height:${step - 1}px;`;
+            ghost.appendChild(d);
+        });
+        document.body.appendChild(ghost);
+        e.dataTransfer.setDragImage(ghost, (anchor.x - minX) * step + step / 2, (anchor.y - minY) * step + step / 2);
+        setTimeout(() => ghost.remove(), 0);
+    }
+
+    function deleteSelectedFeatures() {
+        const data = encountersData[currentEncounterIndex].mapData;
+        if (!data || !selectedFeatureUids.size) return;
+        data.placedFeatures = data.placedFeatures.filter(f => !selectedFeatureUids.has(f.uid));
+        selectedFeatureUids.clear(); renderVisualMap();
     }
 
     function createLegendItem(feat, index) {
@@ -990,10 +1219,17 @@
       const enc = encountersData[currentEncounterIndex];
       const mapContainer = document.getElementById("visualMapContainer"); const legendContainer = document.getElementById("mapLegendContainer");
       mapContainer.innerHTML = ""; legendContainer.innerHTML = "";
-      if (!enc.mapData) { document.getElementById("mapTitle").textContent = "Nessuna mappa generata"; return; }
+      if (!enc.mapData) {
+          document.getElementById("mapTitle").textContent = "";
+          document.getElementById("mapPanel").style.minWidth = "";   // niente mappa, niente vincolo di larghezza
+          updateMapLayout(); return;
+      }
       
-      const data = enc.mapData; document.getElementById("mapTitle").textContent = `VTT: ${data.typeDesc} (${data.w} × ${data.h})`;
+      const data = enc.mapData; document.getElementById("mapTitle").textContent = `${data.typeDesc} (${data.w} × ${data.h})`;
       mapContainer.style.gridTemplateColumns = `repeat(${data.w}, var(--cell-size))`;
+      // La selezione e' per uid: quella di uno scontro precedente, o di un elemento cancellato, cade da sola.
+      selectedFeatureUids.forEach(u => { if (!data.placedFeatures.some(f => f.uid === u)) selectedFeatureUids.delete(u); });
+      initMapSelection(mapContainer);
 
       for(let y=0; y<data.h; y++) {
           for(let x=0; x<data.w; x++) {
@@ -1023,11 +1259,26 @@
       data.placedFeatures.forEach(obj => {
           const cell = document.getElementById(`cell_${obj.x}_${obj.y}`);
           if(cell) {
-              const ov = document.createElement('div'); ov.className = `map-overlay draggable-item ${obj.item.cssType}`;
+              const ov = document.createElement('div');
+              ov.className = `map-overlay draggable-item ${obj.item.cssType}` + (selectedFeatureUids.has(obj.uid) ? ' selected' : '');
               ov.textContent = obj.item.emoji; ov.draggable = true; ov.dataset.uid = obj.uid;
-              ov.title = "Trascina per spostare, Doppio Clic per eliminare.";
-              ov.ondragstart = (e) => { e.dataTransfer.setData('uid', obj.uid); setTimeout(()=> ov.style.opacity = '0.4', 0); };
-              ov.ondragend = () => ov.style.opacity = '1';
+              ov.title = obj.item.name + " — Trascina per spostare, Shift+Clic per selezionare, Doppio Clic per eliminare.";
+              ov.onclick = (e) => {
+                  if (!e.shiftKey) return;
+                  if (selectedFeatureUids.has(obj.uid)) selectedFeatureUids.delete(obj.uid); else selectedFeatureUids.add(obj.uid);
+                  renderVisualMap();
+              };
+              ov.ondragstart = (e) => {
+                  e.dataTransfer.setData('uid', obj.uid);
+                  const isGroup = selectedFeatureUids.size > 1 && selectedFeatureUids.has(obj.uid);
+                  if (isGroup) buildGroupDragImage(e, data, obj);
+                  // L'anteprima nativa mostra solo l'elemento afferrato: si sbiadisce tutto il gruppo per dire che si muove tutto.
+                  setTimeout(() => {
+                      if (isGroup) document.querySelectorAll('.map-overlay.selected').forEach(el => el.style.opacity = '0.4');
+                      else ov.style.opacity = '0.4';
+                  }, 0);
+              };
+              ov.ondragend = () => document.querySelectorAll('.map-overlay').forEach(el => el.style.opacity = '1');
               ov.ondblclick = () => { data.placedFeatures = data.placedFeatures.filter(f => f.uid !== obj.uid); renderVisualMap(); };
               cell.appendChild(ov);
           }
@@ -1051,6 +1302,13 @@
           }
       });
 
+      const hint = document.createElement('div');
+      hint.style.cssText = "color:var(--text-muted); font-size:0.75rem; margin-bottom:8px; line-height:1.5;";
+      hint.textContent = selectedFeatureUids.size
+          ? `${selectedFeatureUids.size} selezionati — trascinane uno per spostarli, Ctrl o Shift + trascina per copiarli, Canc per eliminarli.`
+          : "Trascina un riquadro sul vuoto per selezionare più elementi (Shift somma).";
+      legendContainer.appendChild(hint);
+
       let hasActive = false;
       let activeTitle = document.createElement('div');
       activeTitle.className = 'legend-section-title';
@@ -1069,13 +1327,76 @@
            empty.textContent = "Nessun elemento presente."; legendContainer.appendChild(empty);
       }
 
-      let details = document.createElement('details');
-      let summary = document.createElement('summary');
-      summary.textContent = "Catalogo Completo (Trascina sulla mappa)";
-      details.appendChild(summary);
-      
-      FeatureCatalog.forEach((feat, index) => { details.appendChild(createLegendItem(feat, index)); });
-      legendContainer.appendChild(details);
+      legendContainer.appendChild(buildCatalogBox());
+
+      // La griglia e' larga w celle + i gap: il pannello non deve mai scendere sotto questa misura.
+      document.getElementById("mapPanel").style.minWidth = (mapContainer.offsetWidth + 46) + "px";
+      updateMapLayout();
+    }
+
+    // Legenda a fianco della mappa solo se il pannello ha spazio per entrambe; altrimenti sotto.
+    function updateMapLayout() {
+      const body = document.querySelector(".map-body");
+      const map = document.getElementById("visualMapContainer");
+      const legend = document.getElementById("mapLegendContainer");
+      if (!map.offsetWidth || !legend.offsetWidth) { body.classList.remove("legend-side"); return; }
+      const avail = document.getElementById("mapPanel").clientWidth - 40;
+      body.classList.toggle("legend-side", avail >= map.offsetWidth + legend.offsetWidth + 15);
+    }
+
+    const CATALOG_GROUPS = [
+      { id: 'all', label: 'Tutti', css: null },
+      { id: 'cover', label: 'Coperture', css: ['type-cover-total', 'type-cover-heavy', 'type-cover'] },
+      { id: 'difficult', label: 'Terreno', css: ['type-difficult'] },
+      { id: 'hazard', label: 'Pericoli', css: ['type-hazard'] },
+      { id: 'interactive', label: 'Interattivi', css: ['type-interactive'] }
+    ];
+    let catalogFilter = 'all';
+
+    // Il catalogo ha barra e scorrimento propri: sfogliarlo non trascina tutta la legenda.
+    function buildCatalogBox() {
+      const box = document.createElement('div');
+      box.className = 'catalog-box' + (catalogOpen ? '' : ' collapsed');
+      const toggle = document.createElement('button');
+      toggle.className = 'catalog-toggle';
+      const label = () => (catalogOpen ? "▾" : "▸") + " Catalogo Completo (Trascina sulla mappa)";
+      toggle.textContent = label();
+      toggle.onclick = () => {
+        catalogOpen = !catalogOpen;
+        box.classList.toggle('collapsed', !catalogOpen);
+        toggle.textContent = label();
+      };
+      box.appendChild(toggle);
+
+      const nav = document.createElement('div'); nav.className = 'catalog-nav';
+      const list = document.createElement('div'); list.className = 'catalog-list';
+
+      const fill = () => {
+        list.innerHTML = "";
+        const grp = CATALOG_GROUPS.find(g => g.id === catalogFilter);
+        FeatureCatalog.forEach((feat, index) => {
+          if (grp.css && !grp.css.includes(feat.cssType)) return;
+          list.appendChild(createLegendItem(feat, index));
+        });
+      };
+
+      CATALOG_GROUPS.forEach(g => {
+        const chip = document.createElement('button');
+        chip.className = 'catalog-chip' + (g.id === catalogFilter ? ' active' : '');
+        chip.textContent = g.label;
+        chip.onclick = (e) => {
+          e.preventDefault();
+          catalogFilter = g.id;
+          nav.querySelectorAll('.catalog-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          fill();
+        };
+        nav.appendChild(chip);
+      });
+
+      fill();
+      box.appendChild(nav); box.appendChild(list);
+      return box;
     }
 
     function handleMapDrop(e, tgtX, tgtY) {
@@ -1087,14 +1408,36 @@
         const data = encountersData[currentEncounterIndex].mapData;
         const firstRects = {}; document.querySelectorAll('.draggable-item').forEach(el => firstRects[el.dataset.uid || el.dataset.entityId] = el.getBoundingClientRect());
 
-        if (uid) { 
+        const wantsCopy = e.ctrlKey || e.shiftKey;   // Ctrl su Windows, Shift come alternativa: vale l'uno o l'altro
+
+        if (uid) {
             let objSrc = data.placedFeatures.find(o => o.uid === uid);
-            let objTgt = data.placedFeatures.find(f => f.x === tgtX && f.y === tgtY);
-            if(objSrc) {
-                const oldX = objSrc.x, oldY = objSrc.y; objSrc.x = tgtX; objSrc.y = tgtY;
-                if(objTgt) { objTgt.x = oldX; objTgt.y = oldY; } 
+            if (objSrc && selectedFeatureUids.size > 1 && selectedFeatureUids.has(uid)) {
+                // Gruppo selezionato: si sposta (o si copia con Ctrl) in blocco, tutto o niente.
+                const dx = tgtX - objSrc.x, dy = tgtY - objSrc.y;
+                const group = data.placedFeatures.filter(f => selectedFeatureUids.has(f.uid));
+                const free = group.every(f => {
+                    const nx = f.x + dx, ny = f.y + dy;
+                    if (!data.grid[ny] || data.grid[ny][nx] !== 'floor') return false;
+                    return !data.placedFeatures.some(o => !selectedFeatureUids.has(o.uid) && o.x === nx && o.y === ny);
+                });
+                if (free) {
+                    if (wantsCopy) {
+                        const copies = group.map(f => ({ item: f.item, x: f.x + dx, y: f.y + dy, uid: 'f_' + Math.random() }));
+                        data.placedFeatures.push(...copies);
+                        selectedFeatureUids = new Set(copies.map(c => c.uid));
+                    } else group.forEach(f => { f.x += dx; f.y += dy; });
+                }
+            } else if(objSrc) {
+                let objTgt = data.placedFeatures.find(f => f.x === tgtX && f.y === tgtY);
+                if (wantsCopy) {
+                    if (!objTgt) data.placedFeatures.push({ item: objSrc.item, x: tgtX, y: tgtY, uid: 'f_' + Math.random() });
+                } else {
+                    const oldX = objSrc.x, oldY = objSrc.y; objSrc.x = tgtX; objSrc.y = tgtY;
+                    if(objTgt) { objTgt.x = oldX; objTgt.y = oldY; }
+                }
             }
-        } else if (entityId) { 
+        } else if (entityId) {
             let entitySrcPos = data.entityPositions[entityId];
             if (entitySrcPos) {
                 let tgtEntityId = Object.keys(data.entityPositions).find(id => data.entityPositions[id].x === tgtX && data.entityPositions[id].y === tgtY);
@@ -1127,27 +1470,64 @@
     function closeImportModal() { document.getElementById("importModal").style.display = "none"; document.getElementById("importTextarea").value = ""; }
     
     function openExportModal() {
-        const enc = encountersData[currentEncounterIndex]; if (!enc) return;
-        document.getElementById('exportNameInput').value = enc.title;
+        const enc = encountersData[currentEncounterIndex];
+        document.getElementById('exportNameInput').value = "tracker_" + ((enc && enc.title) || "sessione");
         document.getElementById('exportModal').style.display = 'flex';
     }
     function closeExportModal() { document.getElementById('exportModal').style.display = 'none'; }
 
+    // Si salva l'INTERO tracker: tutti gli scontri, non solo quello aperto.
     function getExportPayload() {
-        const enc = JSON.parse(JSON.stringify(encountersData[currentEncounterIndex]));
-        enc.title = document.getElementById('exportNameInput').value.trim() || enc.title;
-        return JSON.stringify(enc, null, 2);
+        return JSON.stringify({
+            app: "ffxiv-combat-tracker",
+            version: 2,
+            savedAt: new Date().toISOString(),
+            currentEncounterIndex: currentEncounterIndex,
+            encounters: encountersData
+        }, null, 2);
     }
 
-    function copyExportData() {
-        const json = getExportPayload(); const ta = document.createElement('textarea');
-        ta.value = json; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
-        closeExportModal();
+    function handleOpenFile(event) {
+        const file = event.target.files && event.target.files[0];
+        event.target.value = "";
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+            let parsed;
+            try { parsed = JSON.parse(reader.result); }
+            catch (e) { alert("File non leggibile: non e' un JSON valido."); return; }
+            loadTrackerPayload(parsed);
+        };
+        reader.readAsText(file);
+    }
+
+    function loadTrackerPayload(parsed) {
+        if (!parsed || !Array.isArray(parsed.encounters) || !parsed.encounters.length) {
+            alert("Questo file non e' un salvataggio del tracker."); return;
+        }
+        const list = parsed.encounters, idx = parsed.currentEncounterIndex || 0;
+
+        encountersData = list;
+        encountersData.forEach(enc => {
+            if (!enc.id) enc.id = "enc_" + Math.random().toString(36).slice(2);
+            if (!enc.statblocks) enc.statblocks = [];
+            if (!enc.combatants) enc.combatants = [];
+            if (enc.mapData && Array.isArray(enc.mapData.placedFeatures)) {
+                // Le regex non sopravvivono a JSON.stringify: si riagganciano per nome al catalogo.
+                enc.mapData.placedFeatures.forEach(f => {
+                    const known = FeatureCatalog.find(c => c.name === (f.item && f.item.name));
+                    if (known) f.item = known;
+                });
+            }
+        });
+        currentEncounterIndex = Math.min(Math.max(0, idx), encountersData.length - 1);
+        activeStatblockIndex = 0; editingStatblockIndex = null;
+        captureBaseRosters(); renderTabs(); renderEncounter();
     }
 
     function downloadExportData() {
         const json = getExportPayload();
-        const name = document.getElementById('exportNameInput').value.trim() || "incontro";
+        const name = document.getElementById('exportNameInput').value.trim() || "tracker";
         const blob = new Blob([json], { type: "application/json" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a'); a.href = url;
@@ -1160,19 +1540,6 @@
       let text = document.getElementById("importTextarea").value.trim(); if (!text) return;
       const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster);
       
-      if (text.startsWith("{") && text.endsWith("}")) {
-          try {
-              const parsed = JSON.parse(text);
-              if (parsed.combatants && parsed.id) {
-                  parsed.id = "enc_" + Date.now();
-                  if (isCurrentEmpty) encountersData[currentEncounterIndex] = parsed;
-                  else { encountersData.push(parsed); currentEncounterIndex = encountersData.length - 1; }
-                  closeImportModal(); sortInitiative(); captureBaseRosters(); renderTabs(); renderEncounter();
-                  return;
-              }
-          } catch(e) {}
-      }
-
       let titleMatch = text.match(/Pacchetto Incontro:\s*\**\s*([^\n]+)/i);
       let title = titleMatch ? titleMatch[1].replace(/\*+/g, '').trim() : "Nuovo Scontro";
 
@@ -1194,7 +1561,7 @@
       // La riga roster e la riga titolo non descrivono l'ambiente: fuori dal testo che genera la mappa.
       let mapSourceText = narrativeText.replace(/^[\s>*_-]*\**\s*Nemici\s*:.*$/gim, '').replace(/^.*Pacchetto Incontro\s*:.*$/gim, '');
 
-      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, enemyColors: {}, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
+      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
 
       let match; statblockRegex.lastIndex = 0; 
       while ((match = statblockRegex.exec(text)) !== null) {
@@ -1206,7 +1573,7 @@
           let lines = text.substring(sIdx, eIdx).trim().split('\n');
           let chunk = text.substring(sIdx, eIdx);
           
-          let sbObj = { name: mName, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] };
+          let sbObj = emptyStatblock(mName);
           
           let line1Str = lines[0].replace(mName, '').replace(/^[\s—\-]+/, '').trim();
           let gdsMatch = chunk.match(/GdS\s*\d+(\/\d+)?/i); 
