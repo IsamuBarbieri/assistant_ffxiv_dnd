@@ -199,6 +199,8 @@
     .type-difficult { background-color: rgba(202, 138, 4, 0.25); border: 1px dashed #eab308; } 
     .type-hazard { background-color: rgba(220, 38, 38, 0.25); border: 1px dotted #ef4444; } 
     .type-interactive { background-color: rgba(96, 165, 250, 0.25); border: 2px dashed #60a5fa; box-shadow: inset 0 0 10px rgba(96, 165, 250, 0.4); }
+    /* Oscuramento, non copertura: la nebbia non dà bonus di CA, toglie la vista. Perciò ha un tipo suo. */
+    .type-obscuring { background-color: rgba(203, 213, 225, 0.22); border: 1px solid rgba(203, 213, 225, 0.45); box-shadow: inset 0 0 12px rgba(226, 232, 240, 0.25); }
 
     .entity-token {
       position: absolute; border-radius: 50%;
@@ -357,7 +359,6 @@
       { emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)",
         manualOnly: 'il perimetro lo disegna il "Tipo". Per una copertura totale in mezzo al campo usa "Pilastro/Colonna"' },
       { emoji: "♜", name: "Pilastro/Colonna", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
-      { emoji: "🪵", name: "Tronco Colossale", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
 
       // Coperture 3/4 (+5)
       { emoji: "🗿", name: "Statua/Altare", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
@@ -373,14 +374,23 @@
       { emoji: "🪑", name: "Mobilio/Tavoli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { emoji: "🪵", name: "Barricata", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { emoji: "🌿", name: "Cespuglio", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🌳", name: "Siepe/Filare", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🌳", name: "Siepe", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { emoji: "🛒", name: "Carro", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
 
       // Terreni Difficili
-      { emoji: "💧", name: "Acqua Profonda", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
-      { emoji: "🌾", name: "Solchi/Erba Alta", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
-      { emoji: "🦠", name: "Fango/Muffa", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🔵", name: "Acqua Profonda", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🟤", name: "Fango", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🦠", name: "Muffa", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      // Le RADICI che invadono un pavimento sono la stanza e restano a scontro finito. I VITICCI di una pianta
+      // carnivora sono la pianta: per questo la voce si chiama "Radici" e basta — un nome "Radici/Viticci"
+      // cucirebbe dentro al catalogo proprio la confusione che il test dell'indomani serve a togliere.
+      { emoji: "🪢", name: "Radici", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      { emoji: "🌾", name: "Erba Alta", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
       { emoji: "🕸️", name: "Ragnatele", cssType: "type-difficult", effect: "Terreno Difficile (Infiammabile)" },
+      { emoji: "🟡", name: "Sabbia", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
+      // Neve e ghiaccio NON sono la stessa voce: la neve alta rallenta, il ghiaccio fa scivolare. Tenerli
+      // separati e' l'unico modo perche' la mappa dica al GM quale delle due regole applicare.
+      { emoji: "❄️", name: "Neve", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
       { emoji: "🧊", name: "Ghiaccio", cssType: "type-difficult", effect: "Terreno Difficile (Rischio caduta proni)" },
 
       // Terreni Pericolosi
@@ -391,10 +401,11 @@
       // Il pericolo mortale di mezza arena da trial (06 §B10 item 2): la spinta verso il vuoto, il crepaccio,
       // la piattaforma sospesa. Mancava, e senza una voce non c'era modo di dichiararlo.
       { emoji: "🕳️", name: "Voragine/Vuoto", cssType: "type-hazard", effect: "Pericolo: Caduta nel Vuoto (TS Destrezza o si precipita)" },
-
+      // La nebbia fitta e il fumo denso sono AREA PESANTEMENTE OSCURATA (5e): non danno copertura, tolgono la
+      // vista. Chi ci sta dentro e' di fatto cieco e tira con svantaggio; chi guarda dentro non vede nulla.
+      { emoji: "🌫️", name: "Nebbia/Fumo", cssType: "type-obscuring", effect: "Pesantemente Oscurato (blocca la vista, non da' copertura)" },
       // Elementi Interattivi
-      { emoji: "⚙️", name: "Meccanismo", cssType: "type-interactive", effect: "Interattivo (Richiede Azione)" },
-      { emoji: "🔮", name: "Cristallo Etereo", cssType: "type-interactive", effect: "Interattivo (Richiede Azione)" }
+      { emoji: "⚙️", name: "Meccanismo", cssType: "type-interactive", effect: "Interattivo (Richiede Azione)" }
     ];
 
     const warmPaletteRGB = [
@@ -933,11 +944,13 @@
       const n = feat.name;
       // UNA COPERTURA TOTALE VALE SOLO SE E' AGGIRABILE. Un pilastro appoggiato alla parete non offre riparo
       // che il muro non desse gia', e due pilastri accostati sono un muro corto: si nega l'una e l'altra cosa.
-      if (feat.cssType === 'type-cover-total')                                 return { mode: 'single',  groups: [1, 3], cells: [1, 1], clump: 0, isolated: true };
-      if (/Acqua|Fango|Ghiaccio|Solchi|Ragnatele|Fuoco|Acido|Rovi|Voragine/i.test(n)) return { mode: 'blob', groups: [1, 2], cells: [4, 9], clump: 0.35 };
+      // Vale per l'ostacolo SOLIDO: la nebbia e' oscuramento, non copertura, e come tutte le masse d'aria
+      // sporca puo' benissimo lambire le pareti.
+      if (/Pilastro|Muro/i.test(n))                                            return { mode: 'single',  groups: [1, 3], cells: [1, 1], clump: 0, isolated: true };
+      if (/Acqua|Fango|Muffa|Radici|Sabbia|Neve|Ghiaccio|Erba Alta|Ragnatele|Fuoco|Acido|Rovi|Voragine|Nebbia/i.test(n)) return { mode: 'blob', groups: [1, 2], cells: [4, 9], clump: 0.35 };
       if (/Siepe|Barricata/i.test(n))                                          return { mode: 'line',    groups: [1, 2], cells: [3, 6], clump: 0 };
       if (/Casse|Anfore|Mobilio|Macerie|Rocce|Cespuglio|Carro/i.test(n))       return { mode: 'cluster', groups: [1, 3], cells: [2, 4], clump: 0.30 };
-      if (/Trappola|Meccanismo|Cristallo/i.test(n))                            return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
+      if (/Trappola|Meccanismo/i.test(n))                                      return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
       return { mode: 'single', groups: [1, 3], cells: [1, 1], clump: 0 };      // alberi, statue
     }
 
@@ -961,8 +974,13 @@
 
     function findEmptySpot(size, prefX, prefY) {
         const data = encountersData[currentEncounterIndex].mapData;
+        // I nemici stanno SEMPRE nella meta' superiore della mappa (i PG entrano dal basso, §B8 porte nord/sud):
+        // non basta che l'angolo del token sia sopra la meta', deve starci l'INTERO cubo. Un mostro Enorme (size 3)
+        // con l'angolo a meta' altezza sporgerebbe di due caselle nella meta' dei giocatori.
+        const halfY = Math.max(1, Math.floor(data.h / 2));
         const canPlace = (sx, sy) => {
             if (sy < 1 || sx < 1 || sy + size > data.h - 1 || sx + size > data.w - 1) return false;
+            if (sy + size - 1 > halfY) return false;
             for(let y=sy; y<sy+size; y++) {
                 for(let x=sx; x<sx+size; x++) {
                     if(data.grid[y][x] !== 'floor') return false;
@@ -987,9 +1005,10 @@
            }
         }
         
+        const yMax = Math.max(1, halfY - size + 1);
         for(let attempts = 0; attempts < 200; attempts++) {
             let x = rand(1, data.w - size - 1);
-            let y = rand(1, Math.floor(data.h * 0.5));
+            let y = rand(1, yMax);
             if (canPlace(x, y)) return {x, y};
         }
         return {x: Math.floor(data.w/2), y: 1};
@@ -1041,13 +1060,25 @@
     // scarta con un avviso, non si interpreta. Prima la mappa nasceva da regex sulla prosa del "Da leggere ai
     // PG", che pero' descrive soprattutto il MOSTRO: «pozza d'acido», «melma verdastra», «coda velenosa»
     // riempivano il campo di acqua, fango e acido che nell'arena non esistevano.
-    const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
+    // 'Pacchetto Incontro' chiude la sezione come tutte le altre etichette: quando il GM incolla DUE pacchetti
+    // insieme, l'Arena del primo arrivava fino all'intestazione del secondo e ne masticava le righe come se
+    // fossero elementi ("Pacchetto Incontro non e' nel catalogo").
+    const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Pacchetto Incontro|Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
 
     function resolveFeatureName(raw) {
       const n = raw.toLowerCase().replace(/\*+/g, '').trim();
       return FeatureCatalog.find(c => c.name.toLowerCase() === n)
           || FeatureCatalog.find(c => c.name.toLowerCase().split('/').some(part => part.trim() === n))
           || null;
+    }
+
+    // Un nome inventato di solito CONTIENE quello giusto ("Radici/Viticci" per "Radici"): l'avviso lo dice,
+    // invece di lasciare il GM a confrontare la sua riga con un elenco di ventisei voci.
+    function suggestFeatureName(raw) {
+      const parole = raw.toLowerCase().replace(/[^a-zà-ù\s\/]/g, ' ').split(/[\s\/]+/).filter(w => w.length > 3);
+      const hit = FeatureCatalog.find(c => !c.manualOnly &&
+          c.name.toLowerCase().split(/[\s\/]+/).some(part => parole.includes(part)));
+      return hit ? ' Forse intendevi "' + hit.name + '"?' : '';
     }
 
     function parseArenaSection(text) {
@@ -1071,10 +1102,14 @@
       } else warnings.push('Manca il campo "Tipo": uso "Stanza Base".');
 
       let w = null, h = null;
-      const dim = /^[\s>*_-]*\**\s*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)/im.exec(body);
+      const dim = /^[\s>*_-]*\**\s*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)\s*(m\b|metri\b)?/im.exec(body);
       if (dim) {
         w = Math.max(6, Math.min(30, parseInt(dim[1], 10)));
         h = Math.max(6, Math.min(30, parseInt(dim[2], 10)));
+        // Le Dimensioni sono in CASELLE (1 casella = 1,5 m). Un'unita' scritta dopo i numeri vuol dire che chi
+        // ha scritto il pacchetto pensava in metri: 12x18 m sono 8x12 caselle, cioe' una sala meta' piu' grande
+        // del dovuto, e senza avviso non lo vedrebbe nessuno.
+        if (dim[3]) warnings.push('"Dimensioni" e\' in CASELLE, non in metri (1 casella = 1,5 m): letto ' + w + ' × ' + h + ' caselle. In metri sarebbero ' + Math.round(w/1.5) + ' × ' + Math.round(h/1.5) + '.');
       } else warnings.push('Manca il campo "Dimensioni": misure tirate a caso dal modello.');
 
       let shape = null;
@@ -1098,7 +1133,7 @@
         if (!line || /^(Tipo|Dimensioni|Forma)\s*:/i.test(line)) return;
         const parts = line.split(/\s*[—–]\s*|\s+-\s+|\s*:\s*/);
         const feat = resolveFeatureName(parts[0]);
-        if (!feat) { warnings.push('Elemento "' + parts[0].trim() + '" non e\' nel catalogo: ignorato.'); return; }
+        if (!feat) { warnings.push('Elemento "' + parts[0].trim() + '" non e\' nel catalogo: ignorato.' + suggestFeatureName(parts[0])); return; }
         if (feat.manualOnly) { warnings.push('"' + feat.name + '" non si dichiara nella sezione Arena: ' + feat.manualOnly + '.'); return; }
         const zones = (parts[1] || 'ovunque').split(/\s*[,;]\s*|\s+e\s+/).map(z => z.trim()).filter(Boolean);
         elements.push({ feat: feat, zones: zones.length ? zones : ['ovunque'] });
@@ -1262,7 +1297,14 @@
           if (occupied.size >= cellCap) return false;
           let box = rect || floorBox;
           let seed = seedSpot(minSep, box, p);
-          if (!seed && rect) { box = floorBox; seed = seedSpot(minSep, box, p); }
+          // Zona satura: il rettangolo si ALLARGA di un passo alla volta, non si salta sull'intera mappa.
+          // Il vecchio ripiego mandava le macerie dichiarate «fascia ovest» a finire a est, che e' peggio
+          // che non piazzarle: la mappa smetteva di combaciare con la prosa proprio dove doveva combaciare.
+          for (let grow = 1; !seed && rect && grow <= 6; grow++) {
+              box = { x0: Math.max(floorBox.x0, rect.x0 - grow), y0: Math.max(floorBox.y0, rect.y0 - grow),
+                      x1: Math.min(floorBox.x1, rect.x1 + grow), y1: Math.min(floorBox.y1, rect.y1 + grow) };
+              seed = seedSpot(minSep, box, p);
+          }
           if (!seed) return false;
           const wanted = Math.max(1, Math.round(rand(p.cells[0], p.cells[1]) * (p.mode === 'single' ? 1 : Math.min(1.6, scale))));
           const target = Math.max(1, Math.min(wanted, cellQuota));
@@ -1299,11 +1341,10 @@
       };
 
       // VARIETA' PRIMA DI QUANTITA'. Prima passata: UN gruppo garantito per OGNI elemento dichiarato, con una
-      // quota di caselle pari a budget/elementi. Su un cunicolo da 39 caselle il vecchio ciclo esauriva il
+      // quota di caselle propria (vedi il peso qui sotto). Su un cunicolo da 39 caselle il vecchio ciclo esauriva il
       // budget sul secondo elemento e gli ultimi tre non comparivano affatto: cinque sassi al posto di
       // sasso+macerie+acqua+fango. Poi, a giro e non tutto al primo, i gruppi in piu' previsti dal profilo,
       // finche' c'e' budget. Ogni gruppo nasce in una delle zone dichiarate per quell'elemento, a rotazione.
-      const quota = Math.max(1, Math.floor(cellCap / Math.max(1, declared.length)));
       const isWholeFloor = r => r.x0 === floorBox.x0 && r.y0 === floorBox.y0 && r.x1 === floorBox.x1 && r.y1 === floorBox.y1;
 
       const queue = declared.map(el => {
@@ -1323,18 +1364,25 @@
           return { feat: el.feat, p: p, rects: boxes, turn: 0, spread: spread,
                    left: Math.max(1, Math.round(rand(p.groups[0], p.groups[1]) * scale / 1.4)) };
       });
+      // IL MEZZO PESA PIU' DELL'ARREDO. Acqua, fango o nebbia su tutto il pavimento sono cio' dentro cui si
+      // combatte: cambiano movimento e vista a ogni turno di ogni combattente, mentre una cassa cambia una
+      // casella. Dividere il budget in parti uguali li rendeva due chiazzette come tutto il resto, cioe' il
+      // contrario di quel che la prosa diceva. Quota proporzionale al peso, non al numero di voci.
+      const pesoTot = queue.reduce((s, q) => s + (q.spread ? 2 : 1), 0);
+      queue.forEach(q => { q.quota = Math.max(1, Math.floor(cellCap * (q.spread ? 2 : 1) / pesoTot)); });
+
       const nextRect = q => q.rects[(q.turn++) % q.rects.length];
 
       // Un elemento diffuso non parte mai da minSep 0: le sue chiazze devono restare staccate fra loro,
       // altrimenti si ricompongono nell'unica macchia che si voleva evitare.
-      queue.forEach(q => { q.left -= growGroup(q.feat, q.p, quota, q.spread ? 1 : 0, nextRect(q)) ? 1 : 0; });
+      queue.forEach(q => { q.left -= growGroup(q.feat, q.p, q.quota, q.spread ? 1 : 0, nextRect(q)) ? 1 : 0; });
 
       for (let round = 0; round < 6 && occupied.size < cellCap; round++) {
           if (!queue.some(q => q.left > 0)) break;
           queue.forEach(q => {
               if (q.left <= 0 || occupied.size >= cellCap) return;
               q.left--;
-              growGroup(q.feat, q.p, quota, 1, nextRect(q));
+              growGroup(q.feat, q.p, q.quota, 1, nextRect(q));
           });
       }
 
@@ -1556,7 +1604,7 @@
 
     const CATALOG_GROUPS = [
       { id: 'all', label: 'Tutti', css: null },
-      { id: 'cover', label: 'Coperture', css: ['type-cover-total', 'type-cover-heavy', 'type-cover'] },
+      { id: 'cover', label: 'Coperture', css: ['type-cover-total', 'type-cover-heavy', 'type-cover', 'type-obscuring'] },
       { id: 'difficult', label: 'Terreno', css: ['type-difficult'] },
       { id: 'hazard', label: 'Pericoli', css: ['type-hazard'] },
       { id: 'interactive', label: 'Interattivi', css: ['type-interactive'] }

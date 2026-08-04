@@ -1,5 +1,110 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-04 (10) — SABBIA E NEVE (06 v5.21 / cv62 / ov39 / lv33)
+
+Su richiesta del GM, due voci in più al catalogo dei terreni: **Sabbia** 🟡 e **Neve** ❄️, entrambe terreno
+difficile. Catalogo dichiarabile a 28.
+
+**NEVE E GHIACCIO SONO DUE VOCI, NON UNA.** La neve alta RALLENTA (costo movimento doppio), il ghiaccio fa
+SCIVOLARE (rischio caduta proni): sono due decisioni diverse al tavolo, e tenerle in una voce sola avrebbe
+lasciato al GM il compito di indovinare quale applicare guardando un'icona. Così la mappa lo dice.
+
+**Sabbia** entra nella famiglia dei dischi colorati — acido 🟢, acqua 🔵, fango 🟤, sabbia 🟡 — che sulla
+mappa si leggono a colpo d'occhio come varianti della stessa domanda: su cosa stai camminando.
+
+## 2026-08-04 (9) — RADICI SÌ, VITICCI NO (06 v5.20 / cv61 / ov38 / lv32)
+
+Il GM importa un pacchetto e il tracker rifiuta «Radici/Viticci». Passato il read-aloud al TEST DELL'INDOMANI,
+il nome conteneva due cose opposte: le **radici** che invadono il pavimento della galleria RESTANO a scontro
+finito e sono la stanza; i **nove viticci spinosi** che frustano l'aria se ne vanno con la pianta e sono il
+mostro. Un buco vero e un errore, dentro la stessa riga.
+
+**+ Radici** 🪢 (terreno difficile), 26ª voce. Si chiama *Radici* e basta: un nome «Radici/Viticci»
+cucirebbe dentro al catalogo proprio la confusione che il test serve a togliere. §B8 lo dice nella mappatura,
+accanto all'esempio.
+
+**AVVISO CHE SUGGERISCE.** Un nome inventato di solito CONTIENE quello giusto: l'avviso ora lo indica —
+«Elemento "Radici/Viticci" non è nel catalogo: ignorato. Forse intendevi "Radici"?» — invece di lasciare il
+GM a confrontare la sua riga con un elenco di ventisei voci. Se nessuna voce condivide una parola, nessun
+suggerimento: meglio niente che un'indicazione inventata.
+
+**DIFETTO SILENZIOSO TROVATO NELLO STESSO PACCHETTO.** Diceva «Dimensioni: 12 × 18 **m**», ma le Dimensioni
+sono in CASELLE: 12 × 18 m sono 8 × 12 caselle, quindi la galleria usciva metà più grande del dovuto e
+nessuno se ne sarebbe accorto. Ora §B8 impone i numeri NUDI («un'unità vuol dire che stavi pensando in
+metri») e il tracker avvisa dicendo anche la conversione giusta.
+
+## 2026-08-04 (8) — DUE DOMANDE AL POSTO DI DUE ELENCHI (06 v5.19 / cv60 / ov37 / lv31)
+
+Rilievo del GM sulle regole appena scritte: **troppe negazioni cucite sul caso di prova**. Audit fatto — il
+blocco Arena era 19% racconto di difetti osservati e 6% citazioni testuali di Toto-Rak. Ma il numero non era
+il problema: il problema era **dove stava l'istruzione operativa**. In tre regole l'operativo era un ELENCO DI
+FRASI, e il principio generale stava in coda o non c'era.
+
+**«Il corpo del mostro non è un elemento»** era un'enumerazione — coda velenosa, spruzzo acido, viticci
+spinosi — destinata ad allungarsi di una voce a ogni caso nuovo. Sostituita dal **TEST DELL'INDOMANI**: *ci
+sarebbe ancora, a scontro finito e cadaveri freddi?* Se sì è la stanza e si dichiara; se no è la creatura e sta
+nello stat block. Copre code, spruzzi, aure, spore, un muro di ghiaccio evocato al secondo round, e non chiede
+se il nemico sia pianta, bestia o macchina — per questo è una domanda e non una lista di parti anatomiche.
+
+**«Dichiara il mezzo»** apriva con cinque frasi italiane e teneva il test in fondo, cioè nell'ordine in cui si
+impara a riconoscere le frasi invece del criterio. Ribaltato nel **TEST DELLA POSIZIONE**: *un PG può starne
+fuori senza muoversi?* Se sì la cosa ha un posto, e la zona è quel posto; se no la cosa NON ha un posto perché
+**è** il posto, e la zona è *ovunque*. Nessun vocabolario da memorizzare: la formulazione varia, il test no.
+
+**«Un muro non è un elemento»** era per l'80% racconto del difetto. Ora apre sul principio — *quello che
+'Tipo' già disegna non si dichiara* — e i due nomi manuali sono una consultazione di due voci, non
+un'euristica.
+
+Le failure shape restano (sono house style e sono prove), ma ridotte a una clausola e chiaramente subordinate
+al test. Misurato dopo: citazioni dal 6% all'**1%**, racconto dei difetti dal 19% al **9%**, blocco da 11.282
+a 10.773 caratteri. Zero residui verbatim del caso di prova. I due test sono nominati e richiamati da §B8, dal
+self-check e dai tre file di istruzioni, così una regola sola vale in tutti i punti che la usano.
+
+**TRACKER:** l'asserzione sul ripiego di zona chiedeva il 100% dentro la fascia, mentre il codice promette
+«non lontano». Test allineato a quel che il codice garantisce davvero: ≥90% dentro, e nessuna casella oltre
+due passi dalla fascia dichiarata.
+
+## 2026-08-04 (7) — IL MEZZO DENTRO CUI SI COMBATTE (06 v5.18 / cv59 / ov36 / lv30)
+
+**IL DIFETTO, visto su due scontri di fila.** Read-aloud: «il **fango sotto i vostri piedi** inizia a
+tremare» → dichiarato *Fango — centro*, e il gruppo guadava una sala asciutta con una pozzanghera. Read-aloud:
+«scendete nei **corridoi allagati** … **l'acqua vi arriva alle ginocchia** e una **densa nebbia** verdastra
+ristagna sulla superficie» → dichiarati né l'acqua né la nebbia, e al loro posto *Acido/Tossina — centro*, una
+sostanza nominata **solo in Innesco e Tattica**, che la mappa non legge per regola. L'acqua e la nebbia ERANO
+lo scontro. Nel primo caso, in più, *Rovi/Spine* erano i **viticci della pianta**, cioè il mostro.
+
+**LA REGOLA NUOVA, e ha un test di una domanda sola.** Prima di elencare l'arredo si dichiara **il MEZZO**:
+cos'è il pavimento adesso e cosa c'è nell'aria — acqua, fango, ghiaccio, ragnatele, erba alta, nebbia, fumo.
+È normalmente la prima riga di **Elementi** ed è normalmente *ovunque*, perché una prosa che mette il gruppo
+DENTRO qualcosa ne ha già dichiarato l'estensione. **IL TEST: un PG può restarne fuori senza muoversi? Se no,
+è *ovunque*.** Il mezzo conta più dell'arredo perché cambia MOVIMENTO e VISTA a ogni turno di ogni
+combattente, mentre una cassa cambia una casella: una cassa mancante non costa nulla, un pavimento allagato
+mancante costa tutto lo scontro.
+
+**CATALOGO RIVISTO** (25 voci dichiarabili, invariato nel numero):
+- **Fango** 🟤 e **Muffa** 🦠 separati — erano una voce sola e non lo sono.
+- **Acqua Profonda** ora 🔵: acido 🟢, acqua 🔵 e fango 🟤 sono lo STESSO disco in tre colori, così sulla
+  mappa si leggono come tre versioni della stessa cosa — il terreno su cui stai.
+- **Erba Alta** (via *Solchi*), **Siepe** (via *Filare*).
+- Via **Cristallo Etereo** e **Tronco Colossale**.
+- **+ Nebbia/Fumo** 🌫️, con un tipo suo (`type-obscuring`) perché in 5e la nebbia fitta **non è copertura**:
+  è area PESANTEMENTE OSCURATA, non dà CA e toglie la vista. Per questo è anche esente dal vincolo dei
+  pilastri: una nube lambisce le pareti, un pilastro no.
+
+**DUE DIFETTI DEL GENERATORE, trovati misurando.**
+1. **La zona satura sparava l'elemento dall'altra parte della sala.** Se il terzo dichiarato era pieno, il
+   ripiego saltava sull'INTERO pavimento: macerie dichiarate «fascia ovest» finivano a est, che è peggio che
+   non piazzarle — la mappa smetteva di combaciare con la prosa proprio dove doveva. Ora il rettangolo si
+   **allarga di un passo alla volta**. Misurato: 215 elementi su 4 voci stipate in un angolo, zero finiti
+   lontano.
+2. **Il mezzo riceveva la stessa fetta di budget di una cassa.** Il budget si divideva in parti uguali, e
+   «acqua ovunque» usciva come due chiazzette. Ora la quota è **proporzionale al peso** e un elemento diffuso
+   pesa doppio: il fango passa dal 49% al **64%** della larghezza calpestabile.
+
+**BUG DELL'IMPORT.** Con DUE pacchetti incollati insieme, la sezione Arena del primo arrivava fino
+all'intestazione del secondo e ne masticava le righe come elementi («Pacchetto Incontro non è nel
+catalogo»). '**Pacchetto Incontro**' è ora una parola di stop come le altre.
+
 ## 2026-08-04 (6) — GLI ELEMENTI SI LEGGONO DAL READ-ALOUD, NON SI SCELGONO (06 v5.17 / cv58 / ov35 / lv29)
 
 Secondo collaudo, e la sezione Arena non combaciava con la prosa che le stava sopra. Il read-aloud diceva
