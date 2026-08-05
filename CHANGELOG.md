@@ -1,5 +1,67 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-05 (3) — VIA IL PIN DELLE POSIZIONI: MASSE AL CENTRO, IL RESTO SPARSO (06 v5.25 / cv66 / ov43 / lv37)
+
+Il GM rigenera la stessa arena e la trova ancora sbagliata: l'acqua spezzata in TRE pozze staccate, le radici
+in quattro grumi separati. «Così è tutto a caso. Togliamo il pin delle posizioni, più semplice, più elegante,
+anche se meno preciso: masse compattate al centro, il resto sparpagliato in maniera radiale, con spazi fra uno
+e l'altro. Guarda come fanno gli algoritmi migliori, stile roguelike.»
+
+**LE ZONE SPARISCONO DAL FORMATO.** `Elementi:` ora è un elenco di NOMI NUDI: `- Rocce`, senza posizione. Chi
+scrive ancora «Rocce — nord» non riceve errori: la zona si legge e si scarta in silenzio, così i pacchetti
+già scritti continuano a importare. Le zone erano una precisione apparente: «nord» è un terzo di una stanza
+di cui l'assistente non vede la forma, mentre il tracker sa dove sono finiti muri, porte e altri elementi.
+
+**IL NUOVO PIAZZAMENTO, in due fasi.**
+1. **MASSE AL CENTRO, COMPATTE.** Acqua, fango, sabbia, acido, lava, ghiaccio, neve, voragine: prendono le
+   caselle libere più vicine al baricentro del pavimento (non al centro geometrico: in una caverna cadrebbe
+   dentro un muro), quindi crescono come un disco. Tetto di 12 caselle perché una pozza dev'essere leggibile,
+   non mangiarsi la stanza. Più masse insieme si dispongono a corona invece di impastarsi.
+2. **IL RESTO SPARSO, con POISSON-DISK (Bridson 2007) + FARTHEST-POINT SAMPLING.** È l'algoritmo che i
+   roguelike usano per spargere oggetti senza reticolo e senza grumi. Ogni casella non può toccare — nemmeno
+   in diagonale — un gruppo diverso dal proprio: i vuoti fra un elemento e l'altro sono parte del risultato.
+
+**TRE DIFETTI TROVATI MISURANDO, non previsti.**
+- **Poisson interrotto presto copre metà stanza.** Fermarsi al numero di semi voluto tiene solo quelli nati
+  vicino al primo punto. Bridson copre tutto solo se lo si lascia saturare, e si sceglie DOPO.
+- **L'ordinamento per distanza dal centro separava gli elementi in metà opposte.** Su una galleria le due
+  caselle simmetriche (y=7 e y=10) distano uguale, finiscono consecutive, e la rotazione ne manda
+  sistematicamente una a nord e una a sud: misurato, radici y=10..16 e macerie y=1..5. Sostituito con
+  farthest-point PER ELEMENTO — a turno ognuno prende il seme più lontano da quelli che ha già.
+- **Un elemento dichiarato poteva non comparire.** Svuotando prima tutti i semi del primo elemento, il tetto
+  di ingombro si esauriva a metà strada. Ripristinata la regola «varietà prima di quantità» (si gira per rango
+  di seme) e aggiunto un recupero finale: un elemento scritto nel pacchetto compare sempre, punto.
+
+**Misurato sul pacchetto reale del GM**, 40 mappe: acqua sempre UNA pozza sola a 1.3 caselle dal centro;
+radici in 4 chiazze medie che coprono l'80% dell'altezza (10° percentile oltre il 40%, contro il 17% del
+difetto segnalato); zero adiacenze fra elementi diversi. Otto esecuzioni consecutive delle cinque suite,
+85/85 ogni volta.
+
+**Suite ritirate**: t4, t5, t8, t9 verificavano il contratto delle zone, che non esiste più. Sostituite da
+t10, che verifica il nuovo. harness e t6 mantenute, con le asserzioni sulle zone riscritte.
+
+## 2026-08-05 (2) — 'OVUNQUE' NON GARANTIVA DI TOCCARE TUTTA LA MAPPA (06 v5.24 / cv65 / ov42 / lv36)
+
+Confronto diretto fra due mappe dallo stesso pacchetto: in una le Radici ("ovunque", Galleria 12×18) sono tutte fra y=13 e y=15, meta' nord della stanza completamente vuota. L'altra le aveva sparse su tutta l'altezza. Il GM: «si puo' pensare diversamente il sistema — le zone cardinali impediscono al tracker di fare un buon lavoro; la pozza resti compatta, il resto si sparga in modo radiale e omogeneo».
+
+**LA DIAGNOSI, non l'architettura.** Le zone non erano il problema — Macerie/nord+est e Acqua/ovest nello stesso pacchetto erano esattamente cio' che il GM voleva (roba pinnata dove la prosa la mette). Il difetto era nel `minSep`: impedisce a due gruppi di toccarsi, ma non impedisce che finiscano per puro caso tutti nella stessa meta' della stanza — la separazione minima non distribuisce, si limita a non far toccare.
+
+**LA CURA — una griglia, non una ricerca cieca.** Per un elemento diffuso la zona (l'intero pavimento per 'ovunque', o la fascia dichiarata) si divide ora in tante celle quanti sono i gruppi previsti, il piu' vicino possibile a un quadrato, ordine mescolato: un gruppo a cella, non tutti a cercare posto nello stesso rettangolo. E **'ovunque' sull'intero pavimento impone ora ALMENO 4 gruppi**, uno per quadrante — con meno gruppi la stanza non puo' toccare tutti e quattro i quadranti per pura conta, indipendentemente da quanto bene si distribuisce la griglia sotto. Misurato sul pacchetto vero del GM, 30 prove: le Radici toccano SEMPRE tutti e quattro i quadranti (minimo 4/4, media 4.0). L'acqua (pozza, zona 'ovest') resta raccolta, mai piu' di 2 quadranti — nessuna regressione sulla distinzione pozza/diffuso della sessione precedente. La stessa griglia vale anche dentro una zona nominata piu' piccola, non solo su 'ovunque'.
+
+## 2026-08-05 — DUE SPANDONO A CASO, UNA STANZA CIRCOLARE DIVENTA UNA CAVERNA (06 v5.23 / cv64 / ov41 / lv35)
+
+Il GM confronta due mappe dallo STESSO pacchetto (Acqua Profonda/centro, Muffa/ovest, Macerie/est, Radici/nord su una Caverna Irregolare 14×12) e ottiene due risultati opposti: in uno le radici sono un piccolo blocco in un angolo, nell'altro sono spanse. In piu’: il read-aloud dice esplicitamente «un vasto atrio **circolare**», ma il pacchetto dichiara `Tipo: Caverna Irregolare`.
+
+**1. IL TERRENO IN UNA ZONA NOMINATA NON SI SPANDEVA MAI, SOLO 'OVUNQUE' LO FACEVA.** Il moltiplicatore che fa crescere piu' gruppi piu' piccoli (introdotto per 'ovunque' come MEZZO) scattava SOLO quando la zona era l'intero pavimento. Una zona nominata come 'nord' restava un singolo blob la cui unica o doppia chiazza finiva dove capitava — a volte spanta per fortuna, a volte tutta in un angolo. **LA STESSA dichiarazione non deve dare esiti opposti da un'importazione all'altra.**
+
+**LA CURA — POZZA CONTRO DIFFUSO, non 'ovunque contro il resto'.** La vera distinzione non era la zona, era la NATURA dell'elemento. **Le pozze** (Acqua Profonda, Fuoco/Lava, Acido/Tossina, Voragine/Vuoto) si raccolgono per gravita' o gravitano attorno a un varco preciso: restano compatte in qualunque zona nominata, per lo stesso motivo per cui "una pozza larga mezza sala" non e' piu' una pozza — **tranne quando la zona e' l'intero pavimento**, il caso in cui 'ovunque' e' il MEZZO (l'acqua alle ginocchia, non due pozzanghere). **Tutto il resto del terreno diffuso** (Fango, Muffa, Radici, Erba Alta, Ragnatele, Rovi/Spine, Ghiaccio, Neve, Sabbia, Nebbia/Fumo) si spande di default in QUALUNQUE zona, nominata o no — radici, muffa e ragnatele coprono un'area per natura, mai un punto solo. Misurato sul pacchetto vero del GM, ripetuto 12 volte: copertura di 'nord' mai sotto un decimo (il tetto di leggibilita' §B8/CHANGELOG-7 condiviso fra quattro elementi su un'arena piccola), in media oltre il 60%.
+
+**Un bug vero scoperto scrivendo il fix**: la prima versione applicava lo spandimento a QUALSIASI modo non 'single', inclusi i grappoli d'arredo (Casse, Macerie, Rocce...) — alzando anche il loro `minSep` da 0 a 1 e facendo sconfinare piu' spesso le zone gia' strette e affollate (i test di saturazione). Ristretto al solo modo `blob` (il terreno): l'arredo resta esattamente come prima.
+
+**2. IL TIPO NON AVEVA UNA MAPPATURA DIRETTA DALLA PROSA.** §B8 elencava le nove etichette ma non diceva MAI esplicitamente «se il read-aloud dice 'circolare', il Tipo e' Struttura Circolare» — Struttura Circolare compariva solo come esempio di un'arena da trial (Amaurot), mai come corrispondenza diretta. Il crollo del soffitto e le radici hanno probabilmente attirato la scelta verso 'caverna' per assonanza tematica, scavalcando l'unica parola che dichiara davvero la forma. Aggiunta la mappatura diretta parola→Tipo (stessa disciplina gia' usata per gli Elementi), con la regola esplicita: **crollo, macerie e radici sono ARREDO (Elementi: Macerie, Radici), mai una parola di forma** — un atrio circolare il cui soffitto e' crollato resta una Struttura Circolare, piena di macerie. Self-check (4) ora conta anche questo.
+
+**Suite di test**: due (harness, t8) erano gia' fragili PRIMA di questa sessione per lo stesso motivo strutturale (contenimento a tolleranza zero su una zona che puo' allargarsi di un passo quando satura); sistemate con la stessa tolleranza "non lontano" (2 caselle) gia' in uso altrove. Verificate stabili su run ripetuti.
+
 ## 2026-08-04 (11) — CASELLE DALL'INIZIO, MAI PIU' METRI DA CONVERTIRE (06 v5.22 / cv63 / ov40 / lv34)
 
 Il GM segnala l'avviso «Dimensioni e' in CASELLE, non in metri» e chiede la cosa giusta: al tavolo, per

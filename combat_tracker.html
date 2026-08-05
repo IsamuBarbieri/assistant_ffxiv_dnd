@@ -947,7 +947,12 @@
       // Vale per l'ostacolo SOLIDO: la nebbia e' oscuramento, non copertura, e come tutte le masse d'aria
       // sporca puo' benissimo lambire le pareti.
       if (/Pilastro|Muro/i.test(n))                                            return { mode: 'single',  groups: [1, 3], cells: [1, 1], clump: 0, isolated: true };
-      if (/Acqua|Fango|Muffa|Radici|Sabbia|Neve|Ghiaccio|Erba Alta|Ragnatele|Fuoco|Acido|Rovi|Voragine|Nebbia/i.test(n)) return { mode: 'blob', groups: [1, 2], cells: [4, 9], clump: 0.35 };
+      // MASSE CONTINUE (`mass`): sostanze che si RACCOLGONO invece di sparpagliarsi — acqua, fango,
+      // sabbia, acido, lava, ghiaccio, neve, il vuoto. Vanno al centro dell'arena come un blocco solo,
+      // perche' una "pozza" spezzata in cinque chiazze non e' una pozza. Tutto il resto (radici, muffa,
+      // ragnatele, erba, rovi, nebbia + arredo) si sparpaglia radialmente attorno a loro.
+      if (/Acqua|Fango|Sabbia|Acido|Fuoco|Ghiaccio|Neve|Voragine/i.test(n))    return { mode: 'blob', groups: [1, 2], cells: [4, 9], clump: 0.35, mass: true };
+      if (/Muffa|Radici|Erba Alta|Ragnatele|Rovi|Nebbia/i.test(n))             return { mode: 'blob', groups: [1, 2], cells: [3, 5], clump: 0.20 };
       if (/Siepe|Barricata/i.test(n))                                          return { mode: 'line',    groups: [1, 2], cells: [3, 6], clump: 0 };
       if (/Casse|Anfore|Mobilio|Macerie|Rocce|Cespuglio|Carro/i.test(n))       return { mode: 'cluster', groups: [1, 3], cells: [2, 4], clump: 0.30 };
       if (/Trappola|Meccanismo/i.test(n))                                      return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
@@ -1031,30 +1036,6 @@
     // la geometria, perche' a volte il sapore e la pianta divergono (una Sala Ampia rotonda).
     const ShapeVocabulary = { "aperta": "open", "circolare": "circle", "irregolare": "cave", "articolata": "complex", "regolare": "rect" };
 
-    // --- ZONE ---
-    // Nord e' in alto (y=0), le porte stanno a nord e a sud. Una zona e' un rettangolo sul riquadro del
-    // pavimento diviso in terzi: banda X e banda Y si scelgono in modo indipendente, cosi' 'nord', 'centro',
-    // 'angolo nord-est' e 'centro-nord' escono tutti dalla stessa regola, senza casi speciali.
-    // 'ovest' contiene la sottostringa "est": per questo la direzione est si cerca con \best\b.
-    function zoneRect(zoneName, bbox) {
-      const s = (zoneName || "").toLowerCase();
-      if (/ovunque|spars|dappertutto|tutta l|in giro/.test(s)) return { x0: bbox.x0, y0: bbox.y0, x1: bbox.x1, y1: bbox.y1 };
-
-      const hasN = /nord|\bfondo\b/.test(s), hasS = /\bsud\b|ingress|\bsoglia\b/.test(s);
-      const hasE = /\best\b|oriente/.test(s), hasW = /ovest|occidente/.test(s);
-      const hasC = /centro|central|\bmezzo\b/.test(s);
-      if (!hasN && !hasS && !hasE && !hasW && !hasC) return null;   // zona non riconosciuta: non si tira a indovinare
-
-      const band = (a, b) => {
-        const t = (b - a + 1) / 3;
-        return { low: [a, Math.round(a + t) - 1], mid: [Math.round(a + t), Math.round(b - t)], high: [Math.round(b - t) + 1, b], all: [a, b] };
-      };
-      const bx = band(bbox.x0, bbox.x1), by = band(bbox.y0, bbox.y1);
-      const px = hasE ? bx.high : hasW ? bx.low : hasC ? bx.mid : bx.all;
-      const py = hasN ? by.low : hasS ? by.high : hasC ? by.mid : by.all;
-      return { x0: px[0], y0: py[0], x1: px[1], y1: py[1] };
-    }
-
     // --- SEZIONE ARENA (06 §B8) ---
     // L'unica fonte della mappa. Nomi, tipi e zone si risolvono su elenchi CHIUSI: quel che non combacia si
     // scarta con un avviso, non si interpreta. Prima la mappa nasceva da regex sulla prosa del "Da leggere ai
@@ -1135,10 +1116,11 @@
         const feat = resolveFeatureName(parts[0]);
         if (!feat) { warnings.push('Elemento "' + parts[0].trim() + '" non e\' nel catalogo: ignorato.' + suggestFeatureName(parts[0])); return; }
         if (feat.manualOnly) { warnings.push('"' + feat.name + '" non si dichiara nella sezione Arena: ' + feat.manualOnly + '.'); return; }
-        const zones = (parts[1] || 'ovunque').split(/\s*[,;]\s*|\s+e\s+/).map(z => z.trim()).filter(Boolean);
-        elements.push({ feat: feat, zones: zones.length ? zones : ['ovunque'] });
+        // La POSIZIONE non si dichiara piu': se un vecchio pacchetto scrive ancora "Rocce — nord", la
+        // zona si legge e si butta senza avvisare, cosi' i pacchetti gia' scritti continuano a importare.
+        elements.push({ feat: feat });
       });
-      if (!elements.length) warnings.push('Nessun elemento riconosciuto: sotto "Elementi:" ci vuole una riga per elemento, "<Nome del catalogo> — <zona>".');
+      if (!elements.length) warnings.push('Nessun elemento riconosciuto: sotto "Elementi:" ci vuole un nome del catalogo per riga.');
 
       return { presetKey: presetKey, w: w, h: h, shape: shape, elements: elements, warnings: warnings };
     }
@@ -1214,38 +1196,40 @@
       let mapData = { w: baseW, h: baseH, typeDesc: typeDesc, grid: grid, placedFeatures: [], entityPositions: {} };
       const declared = (spec && spec.elements) || [];
 
-      // Riquadro del pavimento: le zone si calcolano su quello che e' calpestabile, non sulla griglia intera.
-      // In una caverna o in una pianta articolata meta' del rettangolo e' roccia, e un terzo contato sui muri
-      // manderebbe 'nord' dove non si cammina.
-      let fx0 = baseW, fy0 = baseH, fx1 = 0, fy1 = 0;
+      // Riquadro E BARICENTRO del pavimento. Il "centro dell'arena" e' il baricentro delle caselle
+      // CALPESTABILI, non il centro geometrico della griglia: in una caverna meta' del rettangolo e' roccia,
+      // e il centro geometrico cadrebbe dentro un muro.
+      let fx0 = baseW, fy0 = baseH, fx1 = 0, fy1 = 0, floorCount = 0, sumX = 0, sumY = 0;
       for (let y = 0; y < baseH; y++) for (let x = 0; x < baseW; x++) if (grid[y][x] === 'floor') {
           if (x < fx0) fx0 = x; if (x > fx1) fx1 = x; if (y < fy0) fy0 = y; if (y > fy1) fy1 = y;
+          floorCount++; sumX += x; sumY += y;
       }
       const floorBox = (fx1 >= fx0) ? { x0: fx0, y0: fy0, x1: fx1, y1: fy1 } : { x0: 1, y0: 1, x1: baseW - 2, y1: baseH - 2 };
+      const cx = floorCount ? sumX / floorCount : baseW / 2;
+      const cy = floorCount ? sumY / floorCount : baseH / 2;
 
-      // Protette solo le caselle porta e le adiacenti: il divieto sull'ultima fascia e' caduto, altrimenti una
-      // zona dichiarata 'ingresso sud' sarebbe inespugnabile per costruzione.
+      // Protette solo le caselle porta e le adiacenti: chi entra deve poter entrare.
       const isSafeZone = (x, y) => {
-          for(let dy=-1; dy<=1; dy++) for(let dx=-1; dx<=1; dx++) { if(grid[y+dy] && grid[y+dy][x+dx] === 'door') return true; }
+          for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) { if (grid[y+dy] && grid[y+dy][x+dx] === 'door') return true; }
           return false;
       };
 
-      // --- PIAZZAMENTO A GRUPPI ---
-      // Non si sparpagliano icone singole: si semina un gruppo e lo si fa crescere secondo il profilo
-      // dell'elemento (chiazza, fila, grappolo, pezzo isolato), con i gruppi tenuti staccati fra loro.
-      const occupied = new Set();
+      const occupied = new Map();               // "x,y" -> id del gruppo che la occupa
       const key = (x, y) => x + "," + y;
-
-      let floorCount = 0;
-      for (let y = 0; y < baseH; y++) for (let x = 0; x < baseW; x++) if (grid[y][x] === 'floor') floorCount++;
       const cellCap = Math.round(floorCount * 0.26);   // oltre ~1/4 del campo ingombro la mappa diventa illeggibile
 
-      const isFree = (x, y) => (
-          x >= 1 && y >= 1 && x <= baseW - 2 && y <= baseH - 2 &&
-          grid[y] && grid[y][x] === 'floor' && !isSafeZone(x, y) && !occupied.has(key(x, y))
-      );
-      const fits = (x, y, size) => {
-          for (let dy = 0; dy < size; dy++) for (let dx = 0; dx < size; dx++) if (!isFree(x + dx, y + dy)) return false;
+      const inFloor = (x, y) => x >= 1 && y >= 1 && x <= baseW - 2 && y <= baseH - 2 && grid[y] && grid[y][x] === 'floor';
+      const isFree  = (x, y) => inFloor(x, y) && !isSafeZone(x, y) && !occupied.has(key(x, y));
+
+      // I VUOTI FRA UN GRUPPO E L'ALTRO SONO PARTE DEL RISULTATO, non un residuo: una casella non puo'
+      // toccare - nemmeno in diagonale - un gruppo DIVERSO dal proprio. Senza questo due chiazze vicine si
+      // saldano in un'unica macchia e la mappa torna illeggibile.
+      const freeFor = (gid, x, y) => {
+          if (!isFree(x, y)) return false;
+          for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+              const o = occupied.get(key(x + dx, y + dy));
+              if (o !== undefined && o !== gid) return false;
+          }
           return true;
       };
       // Vero anche fuori griglia: il bordo e' muro a tutti gli effetti.
@@ -1257,134 +1241,183 @@
           }
           return false;
       };
-      const put = (feat, x, y) => {
-          occupied.add(key(x, y));
+      const put = (gid, feat, x, y) => {
+          occupied.set(key(x, y), gid);
           mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_' + Math.random() });
       };
-      // Un seme nasce lontano dal resto: e' questo che tiene i gruppi distinti. Ma su una mappa stretta
-      // pretendere due caselle di stacco vuol dire non piazzare niente, quindi la distanza si allenta
-      // (2 → 1 → 0) finche' un posto si trova: meglio due cose vicine che una cosa assente.
-      // Il seme si tira DENTRO il rettangolo della zona dichiarata; se la zona e' piena o inagibile si
-      // ripiega sull'intero pavimento, perche' un elemento dichiarato deve comparire comunque.
-      const seedSpot = (minSep, rect, p) => {
-          const box = rect || floorBox;
-          // Per un pezzo `isolated` la distanza NON si allenta: meglio un pilastro in meno che un pilastro
-          // appiccicato al muro o in fila con un altro, che come copertura non varrebbe niente.
-          const isolated = !!(p && p.isolated);
-          for (let sep = 2; sep >= (isolated ? 2 : minSep); sep--) {
-              for (let a = 0; a < 120; a++) {
-                  const x = rand(box.x0, box.x1), y = rand(box.y0, box.y1);
-                  if (!fits(x, y, 1)) continue;
-                  if (isolated && touchesWall(x, y)) continue;
-                  if (sep === 0) return { x, y };
-                  let near = false;
-                  for (let dy = -sep; dy <= sep && !near; dy++) for (let dx = -sep; dx <= sep; dx++) if (occupied.has(key(x + dx, y + dy))) { near = true; break; }
-                  if (!near) return { x, y };
-              }
+
+      const prof   = el => featureProfile(el.feat);
+      const masse  = declared.filter(el =>  prof(el).mass);
+      const sparsi = declared.filter(el => !prof(el).mass);
+      let gid = 0;
+
+      // --- 1. LE MASSE CONTINUE STANNO AL CENTRO, COMPATTE ---
+      // Acqua, fango, sabbia, acido, lava, ghiaccio, neve, voragine: sostanze che si raccolgono, non roba
+      // sparpagliata. Ognuna prende le caselle libere PIU' VICINE al proprio ancoraggio, quindi cresce come
+      // un disco invece che come una chiazza a caso. La prima si ancora al baricentro dell'arena; le
+      // successive si scostano di lato quel tanto che basta a non sovrapporsi, disponendosi a corona attorno
+      // alla prima invece di impastarsi in un'unica macchia.
+      // Una pozza dev'essere leggibile, non mangiarsi la stanza: tetto a 12 caselle (un disco di ~4x4),
+      // altrimenti su un'arena piccola resta troppo poco budget per sparpagliare tutto il resto.
+      const massBudget = masse.length ? Math.round(cellCap * (sparsi.length ? 0.45 : 1)) : 0;
+      const perMass    = masse.length ? Math.min(12, Math.max(4, Math.floor(massBudget / masse.length))) : 0;
+      masse.forEach((el, i) => {
+          const ang = (i / Math.max(1, masse.length)) * Math.PI * 2 + Math.random();
+          const off = i === 0 ? 0 : Math.sqrt(perMass) + 1.5;
+          const ax = cx + Math.cos(ang) * off, ay = cy + Math.sin(ang) * off;
+          const g = gid++;
+          const cand = [];
+          for (let y = floorBox.y0; y <= floorBox.y1; y++) for (let x = floorBox.x0; x <= floorBox.x1; x++) {
+              if (isFree(x, y)) cand.push({ x: x, y: y, d: (x - ax) * (x - ax) + (y - ay) * (y - ay) });
           }
-          return null;
-      };
-
-      const scale = Math.max(0.6, Math.min(2.2, (baseW * baseH) / 200));
-
-      // Semina e crescita di UN gruppo, con un tetto di caselle suo: nessun elemento puo' mangiarsi
-      // il budget degli altri.
-      // Il gruppo nasce E cresce dentro il rettangolo della zona: se la chiazza potesse debordare, la zona
-      // dichiarata tornerebbe a essere un suggerimento e la mappa smetterebbe di combaciare col pacchetto.
-      // Zona impraticabile (tutta muro o gia' piena): si ripiega sull'intero pavimento, perche' un elemento
-      // dichiarato deve comunque comparire.
-      const growGroup = (feat, p, cellQuota, minSep, rect) => {
-          if (occupied.size >= cellCap) return false;
-          let box = rect || floorBox;
-          let seed = seedSpot(minSep, box, p);
-          // Zona satura: il rettangolo si ALLARGA di un passo alla volta, non si salta sull'intera mappa.
-          // Il vecchio ripiego mandava le macerie dichiarate «fascia ovest» a finire a est, che e' peggio
-          // che non piazzarle: la mappa smetteva di combaciare con la prosa proprio dove doveva combaciare.
-          for (let grow = 1; !seed && rect && grow <= 6; grow++) {
-              box = { x0: Math.max(floorBox.x0, rect.x0 - grow), y0: Math.max(floorBox.y0, rect.y0 - grow),
-                      x1: Math.min(floorBox.x1, rect.x1 + grow), y1: Math.min(floorBox.y1, rect.y1 + grow) };
-              seed = seedSpot(minSep, box, p);
+          cand.sort((a, b) => a.d - b.d);
+          let n = 0;
+          for (const c of cand) {
+              if (n >= perMass || occupied.size >= cellCap) break;
+              if (!freeFor(g, c.x, c.y)) continue;
+              put(g, el.feat, c.x, c.y); n++;
           }
-          if (!seed) return false;
-          const wanted = Math.max(1, Math.round(rand(p.cells[0], p.cells[1]) * (p.mode === 'single' ? 1 : Math.min(1.6, scale))));
-          const target = Math.max(1, Math.min(wanted, cellQuota));
-          const groupCells = [];
-          // Se serve una massa piu' grossa si posa un blocco 2x2 di quattro caselle 1x1, non un'icona grande.
-          const lay = (x, y, laidSoFar) => {
-              if (occupied.size >= cellCap) return 0;
-              if (p.clump && laidSoFar + 4 <= target && Math.random() < p.clump && x + 1 <= box.x1 && y + 1 <= box.y1 && fits(x, y, 2)) {
-                  for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) { put(feat, x + dx, y + dy); groupCells.push([x + dx, y + dy]); }
-                  return 4;
-              }
-              if (!fits(x, y, 1)) return 0;
-              put(feat, x, y); groupCells.push([x, y]);
-              return 1;
-          };
-          let laid = lay(seed.x, seed.y, 0);
-          if (!laid) return false;
-          if (p.mode === 'single') return true;
-          const dir = (p.mode === 'line') ? (rand(0, 1) ? [1, 0] : [0, 1]) : null;
-          let lx = seed.x, ly = seed.y;
-          for (let step = 0; step < target * 8 && laid < target; step++) {
-              let nx, ny;
-              if (p.mode === 'line') { lx += dir[0]; ly += dir[1]; nx = lx; ny = ly; }
-              else if (p.mode === 'blob') {
-                  // Cresce da una casella gia' posata: cosi' la chiazza resta attaccata.
-                  const from = groupCells[rand(0, groupCells.length - 1)];
-                  const d = [[1, 0], [-1, 0], [0, 1], [0, -1]][rand(0, 3)];
-                  nx = from[0] + d[0]; ny = from[1] + d[1];
-              } else { nx = seed.x + rand(-2, 2); ny = seed.y + rand(-2, 2); }
-              if (nx < box.x0 || ny < box.y0 || nx > box.x1 || ny > box.y1) { if (p.mode === 'line') break; else continue; }
-              laid += lay(nx, ny, laid);
-          }
-          return true;
-      };
-
-      // VARIETA' PRIMA DI QUANTITA'. Prima passata: UN gruppo garantito per OGNI elemento dichiarato, con una
-      // quota di caselle propria (vedi il peso qui sotto). Su un cunicolo da 39 caselle il vecchio ciclo esauriva il
-      // budget sul secondo elemento e gli ultimi tre non comparivano affatto: cinque sassi al posto di
-      // sasso+macerie+acqua+fango. Poi, a giro e non tutto al primo, i gruppi in piu' previsti dal profilo,
-      // finche' c'e' budget. Ogni gruppo nasce in una delle zone dichiarate per quell'elemento, a rotazione.
-      const isWholeFloor = r => r.x0 === floorBox.x0 && r.y0 === floorBox.y0 && r.x1 === floorBox.x1 && r.y1 === floorBox.y1;
-
-      const queue = declared.map(el => {
-          const base = featureProfile(el.feat);
-          const rects = el.zones.map(z => zoneRect(z, floorBox)).filter(Boolean);
-          const boxes = rects.length ? rects : [floorBox];
-          // 'OVUNQUE' VUOL DIRE DIFFUSO, NON UNA CHIAZZA GRANDE IN UN PUNTO A CASO. Chi scrive «la sala e'
-          // invasa da ragnatele» descrive TUTTA la stanza: a parita' di budget si moltiplicano i GRUPPI e si
-          // rimpicciolisce ciascuno, cosi' l'elemento si legge come pervasivo invece che come una pozza sola
-          // capitata in un angolo. Un elemento con una zona precisa resta concentrato: e' il suo senso.
-          const spread = boxes.length === 1 && isWholeFloor(boxes[0]) && base.mode !== 'single';
-          const p = spread
-              ? { mode: base.mode, clump: base.clump * 0.5, isolated: base.isolated,
-                  groups: [base.groups[0] * 2 + 1, base.groups[1] * 2 + 1],
-                  cells: [Math.max(1, Math.round(base.cells[0] * 0.5)), Math.max(2, Math.round(base.cells[1] * 0.5))] }
-              : base;
-          return { feat: el.feat, p: p, rects: boxes, turn: 0, spread: spread,
-                   left: Math.max(1, Math.round(rand(p.groups[0], p.groups[1]) * scale / 1.4)) };
       });
-      // IL MEZZO PESA PIU' DELL'ARREDO. Acqua, fango o nebbia su tutto il pavimento sono cio' dentro cui si
-      // combatte: cambiano movimento e vista a ogni turno di ogni combattente, mentre una cassa cambia una
-      // casella. Dividere il budget in parti uguali li rendeva due chiazzette come tutto il resto, cioe' il
-      // contrario di quel che la prosa diceva. Quota proporzionale al peso, non al numero di voci.
-      const pesoTot = queue.reduce((s, q) => s + (q.spread ? 2 : 1), 0);
-      queue.forEach(q => { q.quota = Math.max(1, Math.floor(cellCap * (q.spread ? 2 : 1) / pesoTot)); });
 
-      const nextRect = q => q.rects[(q.turn++) % q.rects.length];
-
-      // Un elemento diffuso non parte mai da minSep 0: le sue chiazze devono restare staccate fra loro,
-      // altrimenti si ricompongono nell'unica macchia che si voleva evitare.
-      queue.forEach(q => { q.left -= growGroup(q.feat, q.p, q.quota, q.spread ? 1 : 0, nextRect(q)) ? 1 : 0; });
-
-      for (let round = 0; round < 6 && occupied.size < cellCap; round++) {
-          if (!queue.some(q => q.left > 0)) break;
-          queue.forEach(q => {
-              if (q.left <= 0 || occupied.size >= cellCap) return;
-              q.left--;
-              growGroup(q.feat, q.p, q.quota, 1, nextRect(q));
-          });
+      // --- 2. IL RESTO SI SPARPAGLIA: SEMI A DISTANZA MINIMA GARANTITA (Poisson-disk, Bridson 2007) ---
+      // E' l'algoritmo che i roguelike usano per spargere oggetti senza reticolo e senza grumi: ogni seme
+      // nasce ad almeno `minDist` da tutti gli altri, quindi la copertura viene uniforme, restano vuoti fra
+      // un gruppo e l'altro, e non si vede nessuna griglia. Sostituisce il vecchio "tira a caso e spera",
+      // che lasciava meta' stanza vuota quando i tiri cadevano vicini.
+      // Si lascia girare FINO A SATURAZIONE del pavimento e si sceglie DOPO: fermarsi al numero di semi
+      // voluto significa tenere solo quelli nati vicino al primo punto, ed e' cosi' che meta' stanza
+      // restava vuota. Bridson copre tutto solo se lo si lascia finire.
+      function poissonSeeds(minDist) {
+          const pts = [], active = [];
+          let start = null;
+          for (let a = 0; a < 400 && !start; a++) {
+              const x = rand(floorBox.x0, floorBox.x1), y = rand(floorBox.y0, floorBox.y1);
+              if (isFree(x, y)) start = { x: x, y: y };
+          }
+          if (!start) return pts;
+          pts.push(start); active.push(start);
+          const d2 = minDist * minDist;
+          while (active.length && pts.length < 400) {
+              const ai = rand(0, active.length - 1), p = active[ai];
+              let placed = false;
+              for (let k = 0; k < 24; k++) {
+                  const ang = Math.random() * Math.PI * 2, rr = minDist + Math.random() * minDist;
+                  const nx = Math.round(p.x + Math.cos(ang) * rr), ny = Math.round(p.y + Math.sin(ang) * rr);
+                  if (!isFree(nx, ny)) continue;
+                  if (pts.some(q => (q.x - nx) * (q.x - nx) + (q.y - ny) * (q.y - ny) < d2)) continue;
+                  const np = { x: nx, y: ny };
+                  pts.push(np); active.push(np); placed = true; break;
+              }
+              if (!placed) active.splice(ai, 1);
+          }
+          return pts;
       }
+
+      if (sparsi.length) {
+          const restBudget = Math.max(0, cellCap - occupied.size);
+          const wantSeeds  = Math.max(sparsi.length, Math.round(restBudget / 3));
+          // Il raggio si ricava dall'area per seme; il coefficiente sotto 1 li tiene appena piu' fitti di
+          // quanto un impacchettamento perfetto permetterebbe, cosi' il numero di semi voluto entra davvero.
+          const minDist    = Math.max(2, Math.min(5, Math.sqrt(floorCount / Math.max(1, wantSeeds)) * 0.85));
+          const tutti      = poissonSeeds(minDist);
+          // FARTHEST-POINT SAMPLING: fra tutti i semi disponibili si sceglie ogni volta quello PIU'
+          // LONTANO da quelli gia' presi. Mescolare e tagliare non basta — il caso uniforme puo' sempre
+          // pescare quattro punti vicini e lasciare mezza stanza vuota (misurato: 28% di copertura nel
+          // caso peggiore). Cosi' invece il peggiore e' garantito, non sperato; il primo punto resta
+          // casuale, quindi due mappe della stessa arena non escono mai identiche.
+          const seeds = [];
+          if (tutti.length) {
+              const preso = new Set([rand(0, tutti.length - 1)]);
+              seeds.push(tutti[[...preso][0]]);
+              while (seeds.length < wantSeeds && preso.size < tutti.length) {
+                  let best = -1, bestD = -1;
+                  for (let i = 0; i < tutti.length; i++) {
+                      if (preso.has(i)) continue;
+                      let d = Infinity;
+                      for (const q of seeds) {
+                          const dx = q.x - tutti[i].x, dy = q.y - tutti[i].y;
+                          d = Math.min(d, dx * dx + dy * dy);
+                      }
+                      if (d > bestD) { bestD = d; best = i; }
+                  }
+                  if (best < 0) break;
+                  preso.add(best); seeds.push(tutti[best]);
+              }
+          }
+          // I semi si distribuiscono facendo FARTHEST-POINT ANCHE PER ELEMENTO: a turno, ogni elemento si
+          // prende il seme piu' lontano da quelli che ha GIA'. Assegnarli invece a rotazione dopo averli
+          // ordinati per distanza dal centro sembrava sensato ed era il difetto peggiore: su una galleria le
+          // due caselle simmetriche rispetto al centro (y=7 e y=10) distano uguale, finiscono consecutive, e
+          // la rotazione ne manda sistematicamente una a nord e una a sud — un elemento tutto in una meta'
+          // della stanza e l'altro nell'altra (misurato: radici y=10..16, macerie y=1..5).
+          const perElem = sparsi.map(() => []);
+          const rimasti = seeds.slice();
+          let turno = 0;
+          while (rimasti.length) {
+              const miei = perElem[turno];
+              let scelto = 0;
+              if (miei.length) {
+                  let bestD = -1;
+                  for (let i = 0; i < rimasti.length; i++) {
+                      let d = Infinity;
+                      for (const q of miei) {
+                          const dx = q.x - rimasti[i].x, dy = q.y - rimasti[i].y;
+                          d = Math.min(d, dx * dx + dy * dy);
+                      }
+                      if (d > bestD) { bestD = d; scelto = i; }
+                  }
+              } else scelto = rand(0, rimasti.length - 1);
+              miei.push(rimasti.splice(scelto, 1)[0]);
+              turno = (turno + 1) % sparsi.length;
+          }
+
+          const perGroup = Math.max(1, Math.floor(restBudget / Math.max(1, seeds.length)));
+          // VARIETA' PRIMA DI QUANTITA': si gira per RANGO di seme, non elemento per elemento. Svuotando
+          // prima tutti i semi del primo elemento, il tetto di ingombro poteva esaurirsi a meta' strada e
+          // l'ultimo elemento dichiarato non compariva affatto sulla mappa (osservato: il Meccanismo
+          // assente in una mappa su venti). Cosi' invece ognuno prende il suo primo gruppo prima che
+          // chiunque prenda il secondo.
+          const maxSemi = perElem.reduce((m, a) => Math.max(m, a.length), 0);
+          for (let k = 0; k < maxSemi; k++) {
+            perElem.forEach((semi, ei) => {
+              const el = sparsi[ei], p = prof(el), s = semi[k];
+              if (!s) return;
+              {
+                  if (occupied.size >= cellCap) return;
+                  const g = gid++;
+                  if (p.isolated && touchesWall(s.x, s.y)) return;   // un pilastro al muro non ripara nulla
+                  if (!freeFor(g, s.x, s.y)) return;
+                  put(g, el.feat, s.x, s.y);
+                  if (p.mode === 'single' || p.isolated) return;
+                  const target = Math.max(1, Math.min(perGroup, rand(p.cells[0], p.cells[1])));
+                  const cells = [[s.x, s.y]];
+                  for (let step = 0; step < target * 8 && cells.length < target && occupied.size < cellCap; step++) {
+                      const from = cells[rand(0, cells.length - 1)];
+                      const d = [[1, 0], [-1, 0], [0, 1], [0, -1]][rand(0, 3)];
+                      const nx = from[0] + d[0], ny = from[1] + d[1];
+                      if (!freeFor(g, nx, ny)) continue;
+                      put(g, el.feat, nx, ny); cells.push([nx, ny]);
+                  }
+              }
+            });
+          }
+      }
+
+      // RECUPERO FINALE: un elemento DICHIARATO deve comparire, punto. Puo' restare fuori per due motivi
+      // legittimi ma inaccettabili verso il GM — il tetto di ingombro esaurito da chi viene prima, o tutti
+      // i suoi semi finiti a ridosso di un altro gruppo. Qui gli si trova una casella qualsiasi: meglio una
+      // casella sola in un posto mediocre che un elemento scritto nel pacchetto e assente dalla mappa.
+      declared.forEach(el => {
+          if (mapData.placedFeatures.some(f => f.item.name === el.feat.name)) return;
+          const p = prof(el), g = gid++;
+          const liberi = [];
+          for (let y = floorBox.y0; y <= floorBox.y1; y++) for (let x = floorBox.x0; x <= floorBox.x1; x++) {
+              if (!freeFor(g, x, y)) continue;
+              if (p.isolated && touchesWall(x, y)) continue;
+              liberi.push({ x: x, y: y });
+          }
+          if (liberi.length) { const c = liberi[rand(0, liberi.length - 1)]; put(g, el.feat, c.x, c.y); }
+      });
 
       return mapData;
     }
