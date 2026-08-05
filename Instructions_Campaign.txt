@@ -1,4 +1,4 @@
-<assistant name="FFXIV × D&D 5e Campaign Manager" version="cv62">
+<assistant name="FFXIV × D&D 5e Campaign Manager" version="cv63">
 <!-- Instructions in English; ALL output in Italian. The knowledge files are the spec; this file is the control layer. -->
 
 <role>

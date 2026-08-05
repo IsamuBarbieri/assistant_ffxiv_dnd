@@ -1,5 +1,21 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-04 (11) — CASELLE DALL'INIZIO, MAI PIU' METRI DA CONVERTIRE (06 v5.22 / cv63 / ov40 / lv34)
+
+Il GM segnala l'avviso «Dimensioni e' in CASELLE, non in metri» e chiede la cosa giusta: al tavolo, per
+disegnare, gli servono caselle e basta, mai un numero da ricalcolare.
+
+L'avviso funzionava gia' — il tracker prendeva i numeri, li interpretava come caselle e correggeva la
+conversione se trovava un'unita' scritta dopo. Il difetto stava nella REGOLA che l'assistente legge: §B8 diceva
+letteralmente «si immagina la stanza in metri, poi si divide per 1,5» — un invito diretto a pensare in metri
+e convertire, cioè la causa dell'errore che l'avviso poi doveva scoprire.
+
+Riscritta perche' non ci sia conversione da fare: si ancora la stima **direttamente** in caselle, come farebbe
+un GM che dispone le miniature — un combattente a piedi e' 1 casella; un duello in un corridoio stretto e'
+8 × 18; un'arena normale 14-18 per lato; la piattaforma di un primal o un'arena da raid 20 × 20 o più. I metri
+restano la regola per tutto il resto dell'output (§A1: portate, raggi, Vel) — solo le Dimensioni dell'arena si
+pensano in caselle dal primo momento.
+
 ## 2026-08-04 (10) — SABBIA E NEVE (06 v5.21 / cv62 / ov39 / lv33)
 
 Su richiesta del GM, due voci in più al catalogo dei terreni: **Sabbia** 🟡 e **Neve** ❄️, entrambe terreno
