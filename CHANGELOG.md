@@ -1,5 +1,25 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-05 (5) — TRE VOCI RINOMINATE NEL TRACKER, TRE RIGHE MORTE NEL FORMATO (06 v5.27)
+
+Altro giro di modifiche al tracker dal GM: *Albero Grosso* → **Albero**, *Mobilio/Tavoli* → **Mobili/Tavoli**,
+*Acqua Profonda* → **Acqua**. Rinomine cosmetiche nel tool, rotture totali nel formato: i nomi si risolvono
+CARATTERE PER CARATTERE, quindi `- Acqua Profonda` non trovava più niente e l'elemento veniva scartato con un
+avviso. Il pacchetto restava formalmente corretto secondo 06 e la pozza non arrivava sulla mappa — esattamente
+il tipo di guasto silenzioso che il catalogo chiuso serve a rendere impossibile.
+
+**QUATTRO OCCORRENZE, non una:** l'elenco chiuso (§B8 `Elementi:`), la mappatura nome-comune→voce (*una pozza,
+un guado* → *Acqua*, con l'aggiunta di *l'acqua alle ginocchia* perché la vecchia etichetta portava dentro il
+«profonda» che ora va detto in prosa), la lista delle MASSE che si compattano al centro, e la riga del patto
+prosa/mappa (§B8 «*Acqua* si dice 'l'acqua', 'una pozza', 'la fossa allagata'»).
+
+**UN EFFETTO COLLATERALE DELLE RINOMINE, corretto nella stessa passata.** «Non scrivere mai un nome del
+catalogo nel 'Da leggere ai PG'» era una regola sana finché le voci si chiamavano *Acqua Profonda* e *Albero
+Grosso*: erano etichette, e leggerle ad alta voce suonava come leggere l'inventario. Ora che quattro voci SONO
+la parola comune (*Acqua*, *Albero*, *Rocce*, *Macerie*), la regola letta alla lettera vietava di dire «acqua»
+in una stanza allagata. Riscritta su cosa vietava davvero: le BARRE e i qualificatori — *Mobili/Tavoli*,
+*Portale/Teletrasporto*, *Acido/Tossina* — non i nomi italiani nudi.
+
 ## 2026-08-05 (4) — IL TRACKER HA TRENTUNO VOCI, NOI NE DICHIARAVAMO VENTOTTO (06 v5.26 / cv67 / ov44 / lv38)
 
 Revamp del tracker fatto dal GM, non da qui: il catalogo è cambiato sotto i piedi al formato. Nessuna regola
