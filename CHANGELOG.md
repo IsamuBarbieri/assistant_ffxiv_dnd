@@ -1,5 +1,35 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-05 (4) — IL TRACKER HA TRENTUNO VOCI, NOI NE DICHIARAVAMO VENTOTTO (06 v5.26 / cv67 / ov44 / lv38)
+
+Revamp del tracker fatto dal GM, non da qui: il catalogo è cambiato sotto i piedi al formato. Nessuna regola
+riscritta, solo il catalogo riallineato — la mappa nasce da nomi che devono combaciare CARATTERE PER CARATTERE,
+e un nome fuori elenco viene scartato con un avviso, cioè la stanza che volevi non c'è.
+
+**QUATTRO VOCI NUOVE, dichiarabili.** *Oscurità Magica* 🌌 (`type-obscuring`, e il tracker ora le dà una
+famiglia sua, «Visibilità», staccata dalle coperture: acceca ANCHE la scurovisione, dove *Nebbia/Fumo* no —
+due voci perché sono due ruling diversi); *Portale/Teletrasporto* 🌀, *Cerchio Runico* 🔯, *Cristallo
+Instabile* 🔮 (`type-interactive`). Le tre interattive coprono il buco vero di un'arena FFXIV: il varco che
+sputa nemici, il sigillo a terra, lo shard d'aether che ronza — prima esisteva solo *Meccanismo*, cioè la leva.
+Ognuna ha la sua riga di mappatura dal nome comune in prosa (§B8), come tutte le altre.
+
+**VORAGINE/VUOTO PASSA A MANUAL-ONLY, ed è il cambio che rompeva qualcosa.** Nel tracker è diventata una voce
+da tavolozza, da posare a mano. Ha senso: un baratro funziona SOLO dove la meccanica lo vuole — il bordo su cui
+il boss ti spinge, la crepa che spacca la piattaforma — e un vuoto sparso a caso è o decorazione o un TPK. Ma
+§B10 IMPONEVA di dichiararla («la voce esiste esattamente per questo punto della checklist»), quindi il
+pacchetto obbediva a 06 e il tracker la scartava con un avviso: il pericolo ricercato sul wiki non arrivava
+sulla mappa in nessuno dei due modi. Ora §B10 dice il contrario per il solo vuoto — vive nella prosa e in
+**Tattica:** (dove avviene la spinta e quanto costa), e le caselle le posa il GM. Le altre voci fetchate
+(*Fuoco/Lava*, *Acido/Tossina*, *Portale/Teletrasporto*) restano dichiarate come prima.
+
+**TRE CORREZIONI DI COERENZA che senza il riallineamento restavano bugie silenziose.** I MANUAL-ONLY sono
+TRE, non due (e la regola ora dice cosa costa sbagliare: la riga viene SCARTATA, non piazzata a caso). La
+lista delle MASSE che si compattano al centro non contiene più la voragine. Il conteggio in chiusura di lista
+dice trentuno, perché quel numero è l'unico modo per accorgersi di aver aggiunto una voce inventata.
+
+**NON TOCCATO:** parsing, `Tipo:`/`Dimensioni:`/`Forma:`, le nove etichette dei preset, il divieto di zone,
+il test dell'indomani, il test della permanenza. Il revamp non li ha cambiati e non li abbiamo riaperti.
+
 ## 2026-08-05 (3) — VIA IL PIN DELLE POSIZIONI: MASSE AL CENTRO, IL RESTO SPARSO (06 v5.25 / cv66 / ov43 / lv37)
 
 Il GM rigenera la stessa arena e la trova ancora sbagliata: l'acqua spezzata in TRE pozze staccate, le radici
