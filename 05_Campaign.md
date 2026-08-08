@@ -1202,7 +1202,7 @@ Whoever is revived (Raise / Araise / Down / Tail) suffers AETHER SICKNESS for 2 
 
 # CHAPTER 19 — MEMORY SHEET / CONTINUITY
 The campaign's 'save file': the SOURCE OF TRUTH the GM re-reads at the start of every session and updates at the end.
-NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/fine sessione', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
+NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/stop', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
 
 ## 19.1 Purpose
 - Keep the WORLD/CAMPAIGN STATE between sessions.
