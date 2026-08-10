@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.09 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.10 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -8,7 +8,7 @@ Version v6.09 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant oper
 - OUTPUT ABBREVIATION KEY (Italian output tokens): PF=HP | CA=AC | CD=DC | TS=saving throw | GdS=CR | DV=Hit Die/Dice | FOR/DES/COS/INT/SAG/CAR = STR/DEX/CON/INT/WIS/CHA. PG=player character | PNG=NPC | GM | LB=Limit Break | MSQ.
 - DIFFICULTY LABELS (Italian output tokens): Facile=Easy | Media=Medium | Difficile=Hard | Mortale=Deadly. In output ALWAYS use the Italian label, never the English one.
 - SECTION CODES (§A1...§E5, Parts A-E) are STABLE and are referenced by other files (e.g. 05 Campaign). Do NOT renumber them. (The former NAMING section here was retired: the naming system moved to 07 (Glossary); its code is left as a gap, not renumbered.)
-- FILE REFERENCES use the canonical short form "NN (Section)": 01 (Races) | 02 (Classes) | 03 (Spells) | 04 (Bestiary) | 05 (Campaign) | 06 (Procedures_and_Format, this file) | 07 (Glossary, naming) | 08 (MSQ_Flow: 08.1 roadmap+manifests / 08.2-08.6 index / 08.OST-* OST). Internal cross-references to this file use the bare section code (e.g. §B6).
+- FILE REFERENCES use the canonical short form "NN (Section)": 01 (Races) | 02 (Classes) | 03 (Spells) | 04 (Bestiary) — these four are supplied EITHER as four separate files OR merged as the four numbered PARTS of a single `01_Manual`; the NUMBER identifies them in both cases, so a pointer to 02 resolves either way | 05 (Campaign) | 06 (Procedures_and_Format, this file) | 07 (Glossary, naming) | 08 (MSQ_Flow: 08.1 roadmap+manifests / 08.2-08.6 index / 08.OST-* OST). Internal cross-references to this file use the bare section code (e.g. §B6).
 - 08 (MSQ_Flow) = the MSQ FLOW file split out of 05: 08.1 = MSQ roadmap + the 5 cutscene/reveal manifests; 08.2-08.6 = the ordered MSQ index (ARR/HW/SB/ShB/EW); 08.OST-ARR..08.OST-EW = duty OST tables. A '05 Ch. X' reference still = 05 (Campaign rules).
 
 - **FILE CONTRACT:** single reference for SHARED RULES (Part A), CAMPAIGN FORMATS (Part B), ONE-SHOT FORMATS (Part C), UTILITY FORMATS (Part D) and ADVANCED FRAMEWORKS (Part E). The three assistants (Campaign, OneShot, Loremonger) all read Part A; the other parts according to the active mode. If in conflict with the Instructions, the Instructions win.
