@@ -998,6 +998,46 @@ measurement said otherwise. **The rules are long because they say a lot.** The n
 percentage must first measure what fraction of the target is actually rationale — on cv48 that was 4% — and
 quote THAT number, not a target.
 
+## 2.37 UN FILE DI COMPORTAMENTI NEL CANALE RAG COMPETE COL CONTROL LAYER — E VINCE (2026-08-09)
+Isolato con 11 test a variabile singola su un Gem di prova (15 righe di dispatch, risposte letterali,
+nessuna ambiguita' di lettura). Il reperto centrale: **le stesse istruzioni passano con 1,4 MB di
+conoscenza allegata e falliscono appena si aggiunge 06.** Gli altri sette file — razze, classi,
+incantesimi, bestiario, campagna, glossario, flusso MSQ — non disturbano il dispatch di una virgola.
+
+**PERCHE'.** 06 non era conoscenza: era un SECONDO FILE DI ISTRUZIONI parcheggiato nel canale sbagliato.
+265 menzioni di comandi e cinque sezioni che dicono *quando agire*. Recuperate a pezzi, competono con la
+riga di dispatch e la battono, perche' sono piu' lunghe, piu' dettagliate e piu' imperative di lei. Il
+modello non ignora le istruzioni: obbedisce a istruzioni concorrenti che ci abbiamo messo noi.
+
+**LE QUATTRO REGOLE, misurate:**
+- **Le istruzioni non enumerano mai cosa consultare.** Non e' la notazione: `§B6` e «la sezione dello
+  stat block» sono la stessa cosa. E' la LISTA a essere un ordine di recuperare, eseguito a ogni turno
+  anche quando il turno non e' un beat. Misurato: 6,0 KB senza elenco PASSA, 6,4 KB con elenco CADE.
+  Il formato si recupera lo stesso mentre scrivi, perche' li' la query e' lessicalmente ricca (2.34).
+- **Il knowledge dice com'e' fatta una cosa; le istruzioni dicono quando farla.** La formulazione del GM
+  («istruzioni = come usare il knowledge, knowledge = cosa fare») e' giusta a meta': il «cosa fare» nel
+  knowledge e' esattamente cio' che rompe.
+- **Il knowledge non nomina i comandi.** Il token e' l'amo che pesca i chunk di comportamento.
+- **Ogni turno deve avere un token da matchare.** Il save incollato nudo era l'unico turno del sistema
+  senza comando, ed era il piu' fragile. Con `/carica` davanti al blocco, due run pulite di fila.
+
+**IL FOSSILE, e perche' e' il vero costo di questa architettura.** §B2 imponeva «the end-of-step marker
+… stays 'continua'» — sopravvissuto al divieto di §B1, in contraddizione con §B12 che documenta *quel
+marcatore* come causa del continue-momentum. Otto fix mirati non hanno spostato niente perche' una riga
+tre sezioni piu' in la' ordinava il comportamento sbagliato. **Un file di comportamenti che nessuno
+verifica contro il control layer accumula fossili, e prima o poi uno vince su una regola vera.**
+
+**COROLLARIO SU UN MODELLO VELOCE.** La duplicazione sarebbe sopravvivibile su Sonnet o Opus: un modello
+che ragiona a lungo, davanti a due copie in conflitto, le riconcilia. Uno calibrato per decidere in
+fretta prende la prima che incontra. Non e' il contenuto a essere sbagliato: e' **chi possiede cosa**.
+
+## 2.38 UNA SINGOLA RUN NON E' UNA MISURA QUANDO IL GUASTO E' INTERMITTENTE (2026-08-09)
+Per dieci giorni ogni candidato e' stato giudicato su UNA sequenza di quattro messaggi. cv87 ha fatto
+4/4, e' stato promosso a «la versione che funziona», e alla prima ripetizione e' caduto sullo stesso
+turno di sempre. Tutto il tuning fra i 6,0 e i 6,5 KB era rumore, e sono ore.
+**Regola:** un candidato si prova almeno due volte, in chat nuove, e si annota QUALE turno cade, non
+solo se cade. Vale doppio quando il sintomo e' gia' stato descritto come «a volte si', a volte no».
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

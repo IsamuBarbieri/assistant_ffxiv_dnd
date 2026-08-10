@@ -1202,7 +1202,7 @@ Whoever is revived (Raise / Araise / Down / Tail) suffers AETHER SICKNESS for 2 
 
 # CHAPTER 19 — MEMORY SHEET / CONTINUITY
 The campaign's 'save file': the SOURCE OF TRUTH the GM re-reads at the start of every session and updates at the end.
-NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/stop', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/STOP — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
+NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/chiusura', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/CHIUSURA — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
 
 ## 19.1 Purpose
 - Keep the WORLD/CAMPAIGN STATE between sessions.
@@ -1225,16 +1225,14 @@ Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created 
 - At the END OF SESSION, at each MILESTONE, BEFORE and AFTER a SUBQUEST, and at the end of an important FIGHT or MSQ beat. The trigger word, output shape and write-gate mechanics are entirely defined in 06 §B17/§B21/§B24 — not restated here.
 
 ## 19.5 Procedures
-- **LOAD / SESSION START:** triggers on 'session start' / 'load' / 'prepare session' OR when the GM ATTACHES or PASTES a file/text containing a save (header '=== SAVE: ... ===' and/or sections [A]-[C]). In that case: interpret the save as the starting state, give a brief faithful recap, then a brief GM-facing orientation — the CURRENT beat + ONLY the SINGLE next MSQ pillar (one milestone) + the real next wiki step, from the Roadmap (08.1) — NOT a numbered-act index and NOT a gated-reveal box. Do not regenerate the save. Recognition details in 06 B17.
-- **RECAP / CONTINUITY SELF-CHECK:** on 'recap' / 'campaign status' the assistant gives a GM-facing, READ-ONLY snapshot of the LEAN save ([A][B][C] + current beat) — never advancing the MSQ, never writing, never listing PC sheets, never printing a gated-reveal box (upcoming reveals on demand via 'mappa MSQ', 06 §B25). Full operational format + continuity self-check: 06 §B19.
-- **NAMED BEATS (campaign):** the campaign advances as NAMED MSQ/subquest beats from the Roadmap (08.1), one per 'continua'/request; NO numbered 'Atti' and NO invented beats (numbered acts are a One-Shot construct). Operational format: 06 §B1/§B2/§B20.
+- **NO COMMAND SEMANTICS HERE:** when a command fires, what it reads, what it changes and the shape of its reply are governed by the assistant's own instructions, which are always present. This chapter explains WHAT is tracked and WHY, never WHEN to act.
+
 - **MODULE NATURE:** GM material; it may contain operational info and behind-the-scenes notes, but it is NOT canonical, does NOT modify the Memory Sheet and does NOT imply the events will happen.
 - **DENSITY:** each beat must be playable and dense (dialogues, Q&A, checks, detours, fallbacks, encounters in full). Never declare a beat ready by merely summarizing it.
 - **LORE COMPLIANCE:** for real dungeons/quests do not invent origins, factions, voidsent, experiments, corruption or dark forces not verified. Use Knowledge / 08.1 / Gamer Escape or stay generic.
 - **ENCOUNTERS IN THE MODULE:** if a fight is likely, include the GM-facing encounter package. Full stat blocks on request or on 'prepare encounter'.
 - **MIXED SESSIONS:** investigation + dungeon/trial separated into NAMED beats (investigation, hook, dungeon overview, dungeon blocks, boss, closure/save); no numbered acts (06 §B4).
-- **MSQ RE-HOOK:** on 'MSQ re-hook' the assistant proposes plausible, lore-compliant ways to return to the next canonical step.
-- **SAVE (single command):** full trigger word, output shape, recap buckets and delta-gate mechanics live ONLY in 06 §B17 ('/STOP — SEQUENCE OVERVIEW') + §B21 + §B24 — not restated here. Campaign-specific reminder: the written save inherits the table-owned PARTY (N PCs + level) VERBATIM; crystals/Blessing & Aetherytes are NOT save fields (player-managed / in-scene flag only, §B23). Operational detail: subquest slot/Bookmark §B22; structure by content §B20; economy §A20-A22.
+
 - **COMBAT SNAPSHOT:** not an ordinary part of the save; create it only on explicit request.
 
 ## 19.6 The Sheet template

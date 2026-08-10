@@ -1,5 +1,70 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-09 — cv90 / 06 v6.01: IL DISPATCH FUNZIONA, RIPETUTO. 06 non e' conoscenza, e' un secondo prompt
+
+**PRIMO RISULTATO RIPETIBILE:** cv90 + tutti e 8 i file, due run indipendenti, 4/4 su entrambe —
+compreso `/chiusura` dopo un beat di dungeon, il guasto da cui e' partita l'indagine.
+
+**COSA ERA, in tre frasi.** 06 conteneva 265 menzioni di comandi e 5 sezioni di COMPORTAMENTO
+(quando agire, cosa interrompe, cosa avanza il cursore). Recuperate a pezzi dal RAG, competevano col
+control layer e vincevano: piu' lunghe, piu' dettagliate, piu' imperative della riga di dispatch.
+Undici fix precedenti non avevano spostato niente perche' riscrivevano lo strato che perde.
+
+**ISOLAMENTO — 11 test a variabile singola, Gem di prova con 15 righe di dispatch e risposte letterali:**
+
+| istruzioni | knowledge | esito |
+|---|---|---|
+| 0,8 KB | niente | PASS |
+| 0,8 KB | tutti e 8 | FAIL |
+| 0,8 KB | tutto tranne 06 | **PASS** (1,4 MB non disturbano) |
+| 0,8 KB | solo 06 | FAIL |
+| 0,8 KB | 06 senza token di comando | parziale |
+| 0,8 KB | 06 meno B1/B2/B12/B17/B21 | PASS |
+| 26 KB (cv81) | niente | PASS |
+| 26 KB | tutti e 8 | FAIL |
+| 6,0 KB senza §-codici | tutti e 8 | PASS |
+| 6,4 KB **con** §-codici | tutti e 8 | FAIL |
+| **6,2 KB + /carica** | **tutti e 8** | **PASS x2** |
+
+**LE QUATTRO REGOLE RICAVATE (valgono su qualunque modello):**
+1. **Le istruzioni non enumerano mai cosa consultare.** Ne' `§B6` ne' «la sezione dello stat block»:
+   e' la lista in se' a essere un ordine di recuperare, e il modello lo esegue a ogni turno, anche su
+   `/pippo`. Il formato si recupera da solo mentre scrivi, perche' li' la query e' ricca.
+2. **Il knowledge non contiene comportamento.** Solo «com'e' fatta una cosa», mai «quando farla».
+3. **Il knowledge non nomina i comandi.** Il token e' un amo che pesca i chunk sbagliati.
+4. **Ogni turno ha un token da matchare.** Il save incollato nudo era l'unico turno senza comando del
+   sistema, ed era quello che falliva piu' spesso: ora e' `/carica` + blocco. Il blocco da solo e' inerte.
+
+**INTERVENTI.** 06: 284 -> 177 KB, zero token di comando, 10 sezioni di comportamento spostate in
+`06b_Workflow.md` (114 KB, NON allegare). 05 §19.5: rimossi 5 bullet che definivano i trigger di
+LOAD/RECAP/SAVE/RE-HOOK mentre 23 righe sopra lo stesso capitolo dichiara di non essere la fonte dei
+trigger. cv: 26,7 -> 6,2 KB, `/fine sessione` -> `/stop` -> **`/chiusura`** (il token `stop` compariva
+10 volte come parola comune e 4 come comando, nel suo stesso file), `Restano:` -> `Prossimo beat:`
+spostato in cima al footer, `— Fine parte N —` senza «(in corso)» e in ultima posizione.
+
+**FOSSILE TROVATO, ed e' la causa di otto tentativi falliti:** 06 §B2 imponeva «the end-of-step marker
+names the next sub-beat and **stays 'continua'**» — sopravvissuto al divieto di §B1, e in contraddizione
+con §B12 che documenta *quel marcatore* come causa del continue-momentum. Una regola annullata da un
+fossile in un'altra sezione.
+
+**ALTRI DIFETTI REALI CHIUSI:** §A1 misure metriche (non erano in nessun file di conoscenza) · §A4
+contraddizione media tool + densita' per beat · §B1 FOOTER ORDER senza la riga connettiva · §B17 i
+bucket di `/chiusura` erano «three» con due definiti, e cv puntava a `[A][B][C]`, che e' la struttura
+di `/recap` · un rimando morto `§A-COMMAND CHANNEL`.
+
+**DEBITO APERTO, dichiarato:** spostando le 5 sezioni ho portato via anche il FORMATO che ci viveva
+dentro (BEAT HEADER, TAG CHOICE, ENCOUNTER PACKAGE ORDER/LAYOUT, PARTY-REFERENCE LINE). Si vede nei
+collaudi: titolo di quest tradotto, stat block senza CA/PF/Vel, Taglia Media su un corpo «colossale»,
+`9 (2d8+2)` che fa 11. **145 regole in `06b` da rileggere una per una e smistare: forma o momento?**
+La forma torna in 06, il momento resta fuori. Da fare con la ripetizione tripla, non alla cieca.
+
+**METODO, la lezione piu' cara:** per dieci giorni ho letto singole run come misure. Con un guasto
+intermittente non lo sono: cv87 ha fatto 4/4 e alla ripetizione e' caduto. Da qui in avanti, ogni
+candidato si prova almeno due volte in chat nuove prima di dire che funziona.
+
+ov/lv non toccati per decisione del GM: si riscrivono quando cv e' stabile.
+
+
 ## 2026-08-05 (5) — TRE VOCI RINOMINATE NEL TRACKER, TRE RIGHE MORTE NEL FORMATO (06 v5.27)
 
 Altro giro di modifiche al tracker dal GM: *Albero Grosso* → **Albero**, *Mobilio/Tavoli* → **Mobili/Tavoli**,
