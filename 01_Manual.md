@@ -1,8 +1,8 @@
 # 01_MANUAL — Razze, Job, Incantesimi, Bestiario (quattro manuali in un file)
-Version m1.00 | Fusione di 01_Races + 02_Classes + 03_Spells + 04_Bestiary, contenuto invariato.
-Ogni manuale e' una PARTE. Le intestazioni che comparivano identiche in due manuali portano ora un
-suffisso che dice di quale parte sono, perche' due sezioni con lo stesso nome nello stesso file non
-sono distinguibili in fase di recupero.
+GENERATO da build_manual.py — non modificare a mano: la sorgente sono 01/02/03/04.
+Ogni manuale e' una PARTE. I titoli che comparivano identici in due manuali portano un
+suffisso di parte, perche' due sezioni omonime nello stesso file non sono distinguibili
+in fase di recupero.
 
 
 
