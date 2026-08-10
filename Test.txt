@@ -1,9 +1,3 @@
-/pippo
-
-Campagna - FFXIV D&D
-Gem personalizzato
-Il comando /pippo non esiste; il comando reale più vicino è /prova.
-
 /carica
 
 === SAVE ===
@@ -36,69 +30,11 @@ Sessione: 6
 
 === FINE SAVE ===
 
-
-
-
-
-
-
 Campagna - FFXIV D&D
-
 Gem personalizzato
-
 Save caricato: Sessione: 6 · Numero PG: 4 · Livello: 4
-
-Il gruppo si trova nel Bosco del Sud all'ingresso delle Mille Fauci di Toto-Rak, pronto a varcare la soglia dell'antica prigione gelmorrana.
-
-Prossimo step wiki: Into the Beast's Maw (esplorare Le Mille Fauci di Toto-Rak e trarre in salvo l'anziano silfide Frixio)
-
-
-
-
-
-
-
-
-
-/salva
-
-
-
-
-
-Campagna - FFXIV D&D
-
-Gem personalizzato
-
-=== SAVE ===
-
-Sessione: 6
-
-[A] POSIZIONE MSQ
-
-- Missione MSQ corrente (EN): Into the Beast's Maw
-
-- Ultimo step completato: ottenuto da Bloisirant il permesso di entrare nelle Mille Fauci di Toto-Rak
-
-[B] PARTY
-
-- Numero PG: 4
-
-- Livello: 4
-
-[C] SUBQUEST ATTIVA
-
-- Subquest attiva: nessuna
-
-=== FINE SAVE ===
-
-Nessuna variazione rispetto al save caricato.
-
-Campagna - FFXIV D&D
-Gem personalizzato
-Tutto pronto e configurato. Il salvataggio è impostato sulla Sessione 6, all'ingresso delle Mille Fauci di Toto-Rak nel Bosco del Sud.
-
-Quando vuoi procedere, invia pure il comando desiderato (ad esempio /continua).
+Il gruppo si trova nel Bosco del Sud (South Shroud), all'ingresso dell'antica prigione gelmorriana delle Mille Fauci di Toto-Rak, dopo aver ottenuto da Bloisirant l'accesso alla struttura.
+Prossimo step wiki: entrare nelle Mille Fauci di Toto-Rak e trovare Frixio
 
 /continua
 
@@ -110,106 +46,29 @@ Gem personalizzato
 🗺️ Mappa: Le Mille Fauci di Toto-Rak
 🎵 Musica: A Thousand Screams
 
-Varcate l'ingresso architravato delle Mille Fauci di Toto-Rak, lasciandovi alle spalle la guardia di Bloisirant e la luce filtrata del Bosco del Sud (South Shroud). L'umidità dell'antica prigione gelmorrana vi avvolge come un drappo pesante: le pareti in pietra scolpita, risalenti all'epoca in cui i popoli sotterranei cercavano rifugio dalle Elementali, sono ormai stravolte e soffocate da radici colossali, muschio e spore violacee. L'aria odora di terra smossa, acido e vegetazione in decomposizione. Avanzate tra le ombre di corridoi stretti e celle arrugginite, dove il gocciolio dell'acqua stagnante rimbomba sulle volte di pietra erosa.
+Boss del duty (canonici): Coeurl a Nove Code (Coeurl O' Nine Tails — Ochù, due scontri) · Graffias (Banemite, boss finale)
 
-Giunti in una prima camera sotterranea, la strada viene interrotta da un groviglio di radici che pulsano di linfa verdastra.
+Varcate l'imponente portale in pietra intagliata che segna l'ingresso alle Mille Fauci di Toto-Rak, lasciandovi alle spalle la guardia di Bloisirant e la luce filtrata del Bosco del Sud (South Shroud). L'aria aperta della foresta cede il passo a un'atmosfera umida e pesante, impregnata dell'odore acre della vegetazione in decomposizione e della linfa stagna.
 
-🎵 Musica: The Promise of Plunder
+L'antica struttura gelmorriana vi accoglie con la sua architettura dimenticata: pareti di roccia scolpita sprofondano nelle tenebre, sorrette da pilastri di pietra invasi da radici colossali che pendono dalle volte come spessi cavi vegetali. L'acqua gocciola costantemente dalle crepe dell'archivolto, raccogliendosi in ampie pozze melmose lungo il cammino. Avanzate con le armi pugno, superando i resti arrugginiti delle vecchie celle di detenzione, fino a raggiungere la prima vasta camera centrale.
 
-Pacchetto Incontro: Il Primo Guardiano delle Fauci
+Pacchetto Incontro: Il primo guardiano delle Fauci
 Difficoltà: Media
-Innesco: Non appena calpestate le liane al centro della sala, la vegetazione sulla volta si scuote violently e cala un enorme bulbo carnivoro che sbarra il passaggio.
+Innesco: il passaggio della squadra oltre la soglia della prima camera centrale
 Nemici: Coeurl a Nove Code ×1
 
-Da leggere ai PG:
-Sentite il terreno vibrare sotto i vostri stivali. Dall'alto della volta di pietra, un imponente bulbo vegetale dai petali violacei si sgancia dalle radici e ricade al centro della camera con un rombo sordo. Nove lunghi viticci frustanti, ricoperti di linfa corrosiva e spine, si srotolano attorno alla sua massa, sollevandosi a mezz'aria mentre i calici della pianta rilasciano un fumo denso e acido. La creatura si protende verso di voi, sbarrandovi la strada verso i livelli inferiori.
+Da leggere ai PG
+
+L'ampio atrio di pietra gelmorriana è dominato da una profonda avvallamento centrale colmo d'acqua scura e melma. Mentre vi avvicinate al centro della sala per cercare il primo meccanismo di sblocco, il terreno inizia a tremare. Le spesse radici che ricoprono la cavità si contraggono improvvisamente e dal fondo della pozza emerge una figura colossale: un abominevole vegetale carnivoro dal bulbo violaceo, circondato da lunghi viticci frustanti che si sollevano con uno schiocco nell'aria.
+
+🖼️ Immagine: Coeurl O' Nine Tails
 
 Arena
 Tipo: Caverna Irregolare
 Dimensioni: 14 × 14
 Elementi:
 
-Radici
-
 Fango
-
-Macerie
-
-Tattica: La Coeurl a Nove Code cerca di colpire i bersagli in mischia con i suoi viticci per poi spruzzare la linfa acida sul gruppo, bloccando l'accesso alla porta posteriore.
-
-🖼️ Immagine: Coeurl O' Nine Tails
-
-Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45 (6d10+12) · Vel 7,5 m
-FOR 14 (+2) · DES 10 (+0) · COS 14 (+2) · INT 3 (-4) · SAG 10 (+0) · CAR 5 (-3)
-
-Resistenze: acido · veleno
-Immunità: avvelenato (condizioni)
-Sensi: Percezione passiva 10
-GdS 2
-
-Descrizione visiva: Un colossale bulbo vegetale dai petali violacei e calici traslucidi, da cui si dipartono nove spessi viticci frustanti che secernono linfa acida.
-
-Tratti
-Viticci Frustanti. La Coeurl a Nove Code ha vantaggio sulle prove di Atletica effettuate per lottare o afferrare creature di taglia Media o inferiore.
-
-Azioni
-Schianto con Viticcio. Mischia: +4, portata 3 m, un bersaglio. Colpito: 6 (1d8+2) danni contundenti più 2 (1d4) danni da acido.
-
-Spruzzo Acido.
-Telegrafo: Il calice centrale del bulbo si gonfia e pulsa di luce verdastra, accumulando fluido corrosivo prima di rilasciarlo (1 round di preavviso).
-Area: cono di 4,5 m. Ogni creatura nell'area deve effettuare un TS su Costituzione con CD 12, subendo 10 (3d6) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.
-
-Bottino
-Bottino: 35 Gil; parte vendibile: linfa acida incristallizzata (15 Gil)
-
-🎵 Musica: A Thousand Screams
-
-Con il collasso del bulbo carnivoro, le liane che ostruivano il passaggio si ritraggono avvizzite, rivelando l'accesso alla Camera della Confessione (Confession Chamber).
-
-Da leggere ai PG:
-Entrate in una vasta sala rettangolare di chiara fattura gelmorrana. Lungo le pareti si notano nicchie in pietra scolpita e bassorilievi consumati dal tempo. Al centro della stanza sorge un piedistallo di pietra antica collegato a una rete di condotti idraulici e aetherici ricavati nella roccia. La porta pesante che conduce alle sezioni interne della prigione è serrata da contrappesi in pietra, bloccata poiché i condotti idraulici che alimentano il meccanismo sono ostruiti da spessi fittoni e privi della carica eterica necessaria.
-
-Enigma per i PG:
-Sul piedistallo centrale si trova un grande cristallo spento, incastonato sopra una chiusa di pietra. Tre bacini idraulici scavati nella roccia circondano la base: ciascun bacino è inciso con glifi gelmorrani che rappresentano il flusso dell'etere elementale. Tuttavia, le canalizzazioni sono completamente soffocate da radici secche e detriti accumulati negli secoli, impedendo ai contrappesi di scivolare e sbloccare l'entrata.
-
-Soluzione (GM):
-Per attivare il terminale e aprire il passaggio occorre ripristinare il flusso aetherico e idraulico attraverso una delle seguenti tre azioni concrete:
-
-Disostruzione fisica: Ripulire le radici secche e la melma che bloccano la valvola principale del piedistallo tagliando i fittoni o bruciandoli con cura senza danneggiare i glifi in pietra.
-
-Incanalamento magico: Canalizzare etere o incantesimi elementali direttamente nei glifi incisi attorno ai tre bacini, riattivando il cristallo centrale spento.
-
-Allineamento dei contrappesi: Utilizzare le leve e i contrappesi idraulici laterali, riallineando le vasche secondo la sequenza dei simboli gelmorrani scolpiti sulla volta.
-
-Indizi:
-
-CD Facile (10 - Indagare / Natura): Notate che i fittoni che soffocano la valvola centrale sono secchi e friabili: rimuoverli libererà il movimento del meccanismo sottostante.
-
-CD Media (15 - Arcani / Storia): Riconoscete la fattura gelmorrana del terminale: i glifi indicano che il cristallo centrale richiede una piccola scarica d'etere per azionare i contrappesi una volta liberata la chiusa.
-
-CD Difficile (20 - Percezione / Arcani): Individuate la sequenza esatta delle vasche incise sulla volta: allineandole prima di rimuovere il blocco, il meccanismo si aprirà senza opporre alcuna resistenza idraulica.
-
-Fallimento:
-Se un tentativo di forzare il meccanismo fallisce, il condotto rilascia uno sfiato di gas aetherico ristagnante: le creature entro 3 m dal piedistallo devono effettuare un TS su Costituzione con CD 12, subendo 3 (1d6) danni da veleno in caso di fallimento. Il meccanismo rimane tentabile.
-
-🎵 Musica: The Promise of Plunder
-
-Una volta risolto l'enigma del terminale, il cristallo si illumina di una fioca luce azzurrina. Con un mugghio metallico e lo scorrere dell'acqua nei condotti, la pesante porta di pietra scivola verso l'alto, aprendo il corridoio che conduce al Riposo dello Stolto (Fool's Rest).
-
-Tuttavia, all'interno del corridoio acquitrinoso, il terreno è allagato da un palmo d'acqua stagnante e ricoperto da una seconda colonia di vegetazione predatrice.
-
-Pacchetto Incontro: Il Guardiano del Riposo dello Stolto
-Difficoltà: Media
-Innesco: Non appena la prima persona muove un passo nel corridoio allagato, un secondo specidie vegetale emerge dall'acqua stagnante.
-Nemici: Coeurl a Nove Code ×1
-
-Da leggere ai PG:
-Il corridoio stretto è sommerso da un velo d'acqua cupa e vischiosa. Dal fondo dell'androne emerge una seconda Coeurl a Nove Code: le sue radici si espandono nell'acqua stagnante, facendo vibrare la superficie idrica mentre i nove viticci si scagliano lungo le pareti strette della galleria, pronti a bloccarvi il cammino.
-
-Arena
-Tipo: Passaggio Stretto
-Dimensioni: 8 × 16
-Elementi:
 
 Acqua
 
@@ -217,79 +76,251 @@ Radici
 
 Macerie
 
-Tattica: Sfrutta lo spazio stretto della galleria per colpire a sbarramento con lo Spruzzo Acido, mentre l'acqua a terra rende difficile aggirarla.
+Tattica: La creatura rimane al centro della pozza e usa la portata dei suoi viticci per tenere a distanza i combattenti da mischia, preparando le sue spore per colpire l'intero gruppo appena vi concentrate contro di essa.
+
+Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45 (6d10+12) · Vel 7,5 m
+FOR 16 (+3) · DES 10 (+0) · COS 14 (+2) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+TS: COS +4
+Resistenze: danni contundenti
+Immunità: avvelenato (condizione)
+Sensi: vista cieca 9 m, Percezione passiva 11
+GdS 2
+
+Descrizione visiva: Un imponente vegetale carnivoro con un bulbo centrale violaceo, da cui si dipartono spessi viticci e radici nodose che strisciano sul terreno melmoso.
+
+Tratti
+Natura Vegetale. La creatura è un Seedkin (pianta carnivora) e non ha alcuna parentela con i felini a dispetto del nome.
+
+Azioni
+Multiattacco. La creatura effettua due attacchi con Frusta di Radici.
+
+Frusta di Radici. Mischia: +5 a colpire, portata 3 m, un bersaglio. Danno: 8 (1d8+3) danni contundenti.
+
+Nube di Spore. Telegrafo: Il bulbo vegetale si rigonfia accumulando un denso vapore verdastro (1 turno di avviso). Area: cono di 4,5 m. Ogni creatura nella zona deve effettuare un TS di Costituzione CD 12. Fallimento: 9 (2d6+2) danni da veleno e la condizione avvelenato per 1 minuto (ripete il TS alla fine di ogni suo turno per terminare l'effetto). Successo: metà danno e non avvelenato.
+
+Bottino
+Bottino: 45 gil; parte vendibile: radice carnivora intatta (15 gil).
+
+Sconfitto il mostro vegetale, che si accascia nella melma rilasciando un ultimo sospiro fido, la strada verso il livello intermedio della prigione è sbarrata da una massiccia porta in pietra incisa con antichi glifi gelmorriani.
+
+Da leggere ai PG:
+
+La spessa porta in roccia scorrevole chiude ermeticamente il passaggio successivo. Sulla pareti laterali della camera sono incise profonde scanalature che convergono verso un piedistallo di pietra, su cui poggia un terminale idraulico-eterico bloccato da uno spesso groviglio di radici disseccate e da una vasca di linfa luminescente rimasta stagnante.
+
+Enigma per i PG:
+
+Osservando la struttura attorno alla porta, notate che il piedistallo centrale possiede un perno ruotabile in pietra, attualmente serrato dalle radici secche. Accanto al perno si trova la vasca in pietra colma di linfa eterica brillante. Le scanalature incise sulla roccia sembrano destinate a condurre il fluido fino ai contrappesi della porta, ma il canale principale è ostruito e le valvole di drenaggio sono bloccate.
+
+Soluzione (GM):
+Per attivare il terminale e sbloccare la porta occorre completare le seguenti azioni coordinate:
+
+Disostruire il canale tagliando o liberando le radici disseccate che bloccano il perno centrale.
+
+Canalizzare la linfa eterica facendola scorrere lungo i solchi della pietra verso le valvole.
+
+Rilasciare i contrappesi sbloccando il perno di pietra con una spinta coordinata.
+
+Indizi:
+
+CD Facile (10 - Indagare/Arcani): Notate che le scanalature incise nella roccia formano un circuito chiuso che collega la vasca di linfa ai cilindri della porta.
+
+CD Media (15 - Natura/Atletica): Individuate le radici parassite più fragili da tranciare per liberare il perno senza danneggiare il meccanismo sottostante.
+
+CD Difficile (20 - Arcani/Storia): Riconoscete il funzionamento dell'ingegneria idraulico-eterica Gelmorriana, comprendendo l'esatto ordine con cui far scorrere la linfa per evitare contraccolpi di pressione.
+
+Fallimento:
+Se un tentativo fallisce o viene forzato il perno senza liberare le valvole, dal condotto si sprigiona un getto di fluido acido che infligge 3 (1d6) danni da acido a chi opera sul terminale; tuttavia, la pressione accumulata riesce comunque a far scorrere la porta, permettendo il passaggio.
+
+Superato il portale, vi addentrate nella galleria inferiore della prigione, dove l'umidità farsi ancora più intensa.
+
+Pacchetto Incontro: L'agguato nel Riposo dello Stolto
+Difficoltà: Media
+Innesco: il passaggio attraverso il corridoio invaso dalla melma verso il secondo terminale
+Nemici: Coeurl a Nove Code ×1
+
+Da leggere ai PG
+
+Il corridoio si allarga nella Camera del Riposo dello Stolto, dove il soffitto crollato in più punti lascia pendere una fitta vegetazione. Il pavimento è completamente allagato da pozze di sostanza tossica verdastra. Mentre avanzate cercando di evitare i tratti più profondi, una seconda colossale pianta carnivora si sgancia dalla volta superiore, cadendo con un violento impatto nella melma proprio dinanzi a voi.
 
 🖼️ Immagine: Coeurl O' Nine Tails
 
-Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45 (6d10+12) · Vel 7,5 m
-FOR 14 (+2) · DES 10 (+0) · COS 14 (+2) · INT 3 (-4) · SAG 10 (+0) · CAR 5 (-3)
+Arena
+Tipo: Caverna Irregolare
+Dimensioni: 16 × 16
+Elementi:
 
-Resistenze: acido · veleno
-Immunità: avvelenato (condizioni)
-Sensi: Percezione passiva 10
+Acido/Tossina
+
+Radici
+
+Macerie
+
+Tattica: Questa seconda creatura combatte in un ambiente più ampio e sfrutta le pozze d'acido per sbarrare le linee di carica, costringendo i PG a muoversi con cautela attorno al terreno difficile.
+
+Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45 (6d10+12) · Vel 7,5 m
+FOR 16 (+3) · DES 10 (+0) · COS 14 (+2) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+TS: COS +4
+Resistenze: danni contundenti
+Immunità: avvelenato (condizione)
+Sensi: vista cieca 9 m, Percezione passiva 11
 GdS 2
 
-Descrizione visiva: Un colossale bulbo vegetale dai petali violacei e calici traslucidi, da cui si dipartono nove spessi viticci frustanti che secernono linfa acida.
+Descrizione visiva: Un imponente vegetale carnivoro con un bulbo centrale violaceo, da cui si dipartono spessi viticci e radici nodose che strisciano sul terreno melmoso.
 
 Tratti
-Viticci Frustanti. La Coeurl a Nove Code ha vantaggio sulle prove di Atletica effettuate per lottare o afferrare creature di taglia Media o inferiore.
+Natura Vegetale. La creatura è un Seedkin (pianta carnivora) e non ha alcuna parentela con i felini a dispetto del nome.
 
 Azioni
-Schianto con Viticcio. Mischia: +4, portata 3 m, un bersaglio. Colpito: 6 (1d8+2) danni contundenti più 2 (1d4) danni da acido.
+Multiattacco. La creatura effettua due attacchi con Frusta di Radici.
 
-Spruzzo Acido.
-Telegrafo: Il calice centrale del bulbo si gonfia e pulsa di luce verdastra, accumulando fluido corrosivo prima di rilasciarlo (1 round di preavviso).
-Area: cono di 4,5 m. Ogni creatura nell'area deve effettuare un TS su Costituzione con CD 12, subendo 10 (3d6) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.
+Frusta di Radici. Mischia: +5 a colpire, portata 3 m, un bersaglio. Danno: 8 (1d8+3) danni contundenti.
+
+Nube di Spore. Telegrafo: Il bulbo vegetale si rigonfia accumulando un denso vapore verdastro (1 turno di avviso). Area: cono di 4,5 m. Ogni creatura nella zona deve effettuare un TS di Costituzione CD 12. Fallimento: 9 (2d6+2) danni da veleno e la condizione avvelenato per 1 minuto (ripete il TS alla fine di ogni suo turno per terminare l'effetto). Successo: metà danno e non avvelenato.
 
 Bottino
-Bottino: 35 Gil; parte vendibile: linfa acida incristallizzata (15 Gil)
+Bottino: 50 gil; parte vendibile: bulbo sporigeno Gelmorriano (20 gil).
 
-Prossimo beat: Il terminale del Riposo dello Stolto, l'incontro con Lahabrea, il combattimento finale con Graffias e la liberazione dell'anziano silfide Frixio (Cristallo di Fulmine).
+Abbattuto anche il secondo guardiano vegetale, raggiungete la grande scalinata di pietra che sbarra l'accesso alla camera più profonda del complesso: la Camera dell'Abacinazione.
 
+Da leggere ai PG:
+
+In cima alla scalinata vi trovate di fronte al portale imponente della Camera dell'Abacinazione. L'arcata in pietra crollata in più punti è soffocata da spessi fasci di radici intrecciate che bloccano la carrucola del contrappeso. Il secondo terminale Gelmorriano poggia proprio alla base del portale, inghiottito dai detriti.
+
+Prove:
+
+Atletica / Forza (CD Media 15): sollevare il blocco di roccia che incastra la carrucola del portale.
+
+Indagare / Arcani (CD Facile 10): individuare la leva di sblocco manuale nascosta nella nicchia laterale del terminale.
+
+Acrobatica / Agilità (CD Difficile 20): arrampicarsi sulle radici della volta per disincastrare le catene del contrappeso dall'alto.
+
+Conseguenze:
+Il superamento della prova disincastra i meccanismi, permettendo al portale in pietra di sollevarsi lentamente e spalancare l'accesso alla camera finale.
+
+Fallimento:
+Il contrappeso cede improvvisamente durante le manovre: la roccia in caduta colpevole colpisce chi sta operando sulla porta, infliggendo 4 (1d8) danni contundenti, ma l'urto sblocca comunque il portale che si apre permettendovi di proseguire.
+
+Prossimo beat: Il confronto finale nella Camera dell'Abacinazione (confronto con Lahabrea, scontro con Graffias, visione dell'Eco e salvataggio dell'anziano Frixio).
 ⚔️ Rif. gruppo: 4 PG · Lv 4
-[Info GM] prosegue Into the Beast's Maw; prossimo step wiki: attivare il secondo terminale del Riposo dello Stolto ed entrare nella Camera dell'Abacinazione per affrontare Lahabrea e Graffias
-
+[Info GM] prosegue Into the Beast's Maw; prossimo step wiki: sconfiggere Graffias nella Camera dell'Abacinazione
 — Fine parte 1 —
 
-/chiusura
+/continua
 
 Campagna - FFXIV D&D
 Gem personalizzato
-Ancora save: Sessione: 6 · Numero PG: 4 · Livello: 4
+[MSQ — Into the Beast's Maw · Le Mille Fauci di Toto-Rak (Parte 2)] (~30-45 min)
 
-[GIOCATO]
+🖼️ Immagine: Camera dell'Abacinazione
+🎵 Musica: Without Shadow
 
-Ingresso nelle Mille Fauci di Toto-Rak (The Thousand Maws of Toto-Rak) e scontro con la prima Coeurl a Nove Code (Coeurl O' Nine Tails).
+Varcate la soglia della Camera dell'Abacinazione mentre il portale in pietra si blocca alle vostre spalle con un tonfo sordo, sigillando la via di fuga. L'aria all'interno di questa vasta sala circolare è satura di un'energia tetra e soffocante, che fa vibrare la pelle e annebbia la vista.
 
-Risoluzione dell'enigma idraulico/eterico al terminale della Camera della Confessione (Confession Chamber).
+[CUTSCENE IN SCENA] — L'apparizione di Lahabrea
+🖼️ Immagine: Lahabrea
 
-Scontro con la seconda Coeurl a Nove Code nel corridoio allagato prima del Riposo dello Stolto (Fool's Rest).
+Al centro dell'arena, fluttuando a pochi centimetri dal suolo melmoso, vi attende una figura slanciata avvolta in una veste nera come la notte. Il suo volto è celato da una maschera d'osso decorata con glifi rosso sangue. Quando vi nota, la figura incrocia le braccia con innaturale calma.
 
-[DA CONFERMARE]
+«Accogliete le mie congratulazioni, avventurieri. Siete giunti fin qui dimostrando una tenacia degna di nota. Ma la vostra interferenza nei piani del Creatore termina in questo luogo.»
 
-Nessuno.
+Un brivido gelido vi corre lungo la schiena mentre la figura solleva una mano guantata, facendo scaturire dal palmo rivoli di aether nero e violaceo che contorcono la luce della stanza.
 
-Ultimo evento giocato: sconfitto il secondo Coeurl a Nove Code nel corridoio allagato delle Mille Fauci di Toto-Rak.
+«Io sono Lahabrea degli Ascian, servitore dell'unico vero dio. Ho osservato le vostre gesta contro Ifrit... una vittoria insignificante. L'Eco che vi protegge non è che un'irrisoria anomalia nell'etere, un'illusione che non vi salverà dal destino che attende Eorzea.»
 
-Pronto per il salvataggio: usa /salva.
+Lahabrea volta le spalle al gruppo e scaglia la sfera di energia oscura contro una colossale massa gelatinosa che pende dalla volta della caverna. La membrana del bozzolo si squarcia con un suono nauseabondo, liberando una creatura abominevole che cade pesantemente al centro della sala.
 
-/salva
+«Mostratemi se il vostro potere può competere con la vera furia delle Fauci!»
 
-Campagna - FFXIV D&D
-Gem personalizzato
-=== SAVE ===
-Sessione: 7
+Con una risata fredda ed echeggiante, Lahabrea svanisce in un vortice di ombre eteriche, lasciandovi soli di fronte alla minaccia risvegliata.
 
-[A] POSIZIONE MSQ
-- Missione MSQ corrente (EN): Into the Beast's Maw
-- Ultimo step completato: sconfitto il secondo Coeurl a Nove Code nel corridoio allagato delle Mille Fauci di Toto-Rak
+Pacchetto Incontro: Graffias, Guardiano delle Fauci
+Difficoltà: Media
+Innesco: Lahabrea investe di energia oscura il grande bozzolo al centro della camera, risvegliando il colossale aracnode.
+Nemici: Graffias ×1
 
-[B] PARTY
-- Numero PG: 4
-- Livello: 4
+Da leggere ai PG
 
-[C] SUBQUEST ATTIVA
-- Subquest attiva: nessuna
+Dalle viscere del bozzolo infranto emerge un gigantesco aracnode dal carapace verdastro e lucido, dotato di chele spesse come tronchi d'albero e sormontato da una coda segmentata che termina in un enorme pungiglione gocciolante acido. La creatura emette un sibilo stridulo che fa tremare le pareti di pietra, piantando le zampe nella melma e preparando l'attacco.
 
-=== FINE SAVE ===
-Sessione: 6 -> 7; Ultimo step completato: "sconfitto il secondo Coeurl a Nove Code nel corridoio allagato delle Mille Fauci di Toto-Rak".
+🖼️ Immagine: Graffias
+
+Arena
+Tipo: Sala Ampia
+Dimensioni: 16 × 16
+Elementi:
+
+Macerie
+
+Acido/Tossina
+
+Tattica: Graffias combatte al centro della stanza cercando di trafiggere il bersaglio più minaccioso con il suo pungiglione. A metà dello scontro (50% PF), la sua coda diventa vulnerabile agli attacchi diretti e la creatura comincia a deporre bozzoli carnosi attorno all'arena che devono essere distrutti prima che si schiudano.
+
+Graffias — Grande · CA 14 · PF 75 (10d10+20) · Vel 9 m
+FOR 16 (+3) · DES 14 (+2) · COS 14 (+2) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+TS: COS +4, DES +4
+Immunità: avvelenato (condizione)
+Sensi: scurovisione 18 m, Percezione passiva 11
+GdS 4
+
+Descrizione visiva: Un imponente aracnode velenoso e corazzato dal carapace verdastro e scuro, dotato di chele possenti e un enorme pungiglione caudale che trasuda bile corrosiva.
+
+Tratti
+Coda Distruttibile (Fase 50%). Quando Graffias scende a 37 PF o meno (50%), la sua coda si espone e diventa un bersaglio attaccabile separatamente (CA 12, PF 20). Finché la coda è intatta, Graffias può utilizzare l'azione Stoccata di Bile. Se la coda viene distrutta, Graffias perde l'accesso a Stoccata di Bile e subisce 15 danni perforanti immediati.
+
+Azioni
+Multiattacco. Graffias effettua due attacchi con Chele Corazzate.
+
+Chele Corazzate. Mischia: +5 a colpire, portata 1,5 m, un bersaglio. Danno: 8 (1d10+3) danni taglienti.
+
+Stoccata di Bile. Telegrafo: Graffias solleva in alto il pungiglione caudale che trasuda un denso vapore verdastro (1 turno di avviso). Mischia: +5 a colpire, portata 3 m, un bersaglio. Danno: 12 (2d8+3) danni perforanti più 9 (2d8) danni da acido.
+
+Schizzo Corrosivo. Telegrafo: Graffias accumula sostanza acida nello stomaco, rigonfiando visibilmente il torace (1 turno di avviso). Area: cono di 4,5 m. Ogni creatura nell'area deve effettuare un TS di Destrezza CD 12. Fallimento: 13 (3d6+2) danni da acido e la zona colpita diventa ricoperta di bile corrosiva per 1 minuto (terreno difficile; entrare nella zona o iniziare il turno al suo interno infligge 4 (1d7) danni da acido). Successo: metà danno e nessuna chiazza acida sul terreno.
+
+Bozzoli Carnosi. Telegrafo: Graffias vibra faticosamente l'addome depositando 2 bozzoli sulle macerie dell'arena (1 turno di avviso). Ciascun bozzolo ha CA 10, PF 10. Se un bozzolo non viene distrutto prima del turno successivo di Graffias, si schiude liberando un Banemite Minore (Mini-stat: CA 11, PF 10, Attacco: Mischia +3 a colpire, 4 (1d6+1) danni perforanti).
+
+Bottino
+Bottino: 120 gil; parte vendibile: ghiandola di veleno di Banemite (35 gil).
+
+Con un ultimo rantolo stridulo, Graffias si accascia nella melma e il suo colossale carapace si dissolve lentamente in una pozza di fluido nerastro. La pressione soffocante che opprimeva la stanza svanisce, restituendo un silenzio irreale alla prigione gelmorriana.
+
+[CUTSCENE IN SCENA] — Il salvataggio di Frixio e il terzo Cristallo
+🖼️ Immagine: Frixio
+
+Dietro l'alcova dove sorgeva il bozzolo del mostro, scorget un piccolo bozzolo di foglie intrecciate rimasto intatto. Tagliando delicatamente i filamenti vegetali, liberate una figura gracile e fluttuante: un piccolo spirito delle piante dai toni verdastri e dalle delicate ali a forma di petalo. Si tratta di Frixio, l'anziano del popolo sylph di Little Solace.
+
+Frixio apre lentamente i grandi occhi scuri e vi osserva con sollievo, fluttuando faticosamente a mezz'aria.
+
+«Frixio vi ringrazia, coraggiosi camminatori di terra! Frixio pensava che la sua ora fosse giunta nelle grinfie delle Fauci... Ma voi avete scacciato l'uomo mascherato e mostrato grande bontà. Frixio non dimenticherà mai questo gesto!»
+
+Mentre Frixio vi esprime la sua gratitudine, una luce calda e pulsante promana dal centro del vostro petto. Un frammento eterico brillante si stacca dal vuoto e si posa nei palmi delle vostre mani riunite, risplendendo di una pura luminescenza azzurrina e violetta.
+
+🔔 Cristallo di Luce n. 3 (FULMINE) ottenuto!
+
+[VISIONE DELL'ECO] ⚠️ reveal protetto
+🎵 Musica: The Echo
+
+Improvvisamente, la vista vi si appanna. Il mondo attorno a voi sfuma in una cascata di stelle cadenti e luce eterica. Sentite il terreno venire meno sotto i piedi mentre le vostre menti vengono proiettate in una visione condivisa del passato recente.
+
+Vi trovate all'interno di un accampamento militare Garleano ben fortificato. Scorget due ufficiali della XIV Legione in armatura di metallo scuro intenti a discutere attorno a un tavolo tattico.
+
+«I sylph si rifiutano di cedere alle nostre pressioni», dice il primo ufficiale scuotendo la testa. «Le nostre pattuglie non sono riuscite a spingerli al rituale di evocazione di Ramuh. Il piano di catturare il Primal è fallito.»
+
+Dalle ombre dell'accampamento emerge la sagoma dal mantello nero e dalla maschera rossa di Lahabrea, che osserva i soldati imperiali con evidente disprezzo.
+
+«Un contrattempo insignificante», mormora la voce di Lahabrea nella visione. «Lasciate che i selvaggi giochino con le loro divinità. I preparativi per il risveglio dell'arma finale procedono secondo i piani. Quando la macchina Allagana sarà pronta, Eorzea non avrà più alcuna difesa.»
+
+La visione si infrange come vetro e venite riproiettati nella Camera dell'Abacinazione, ancora ansimanti per la vivida premonizione ricevuta.
+
+Ritorno da Buscarron e conclusione della missione
+Scortando con cura l'anziano Frixio fuori dalle fosche Fauci di Toto-Rak, riemergete nella luce accogliente del Bosco del Sud (South Shroud). Raggiungete la locanda de Il Capriccio di Buscarron (Buscarron's Druthers), dove il locandiere Buscarron e la sylph Dellexia vi accolgono con enormi manifestazioni di gioia.
+
+Frixio rassicura i suoi compagni sulla stabilità della pace tra i sylph di Little Solace e la gente della foresta, confermando che il suo popolo non cederà alle lusinghe degli Ascian né evocherà il Primal Ramuh. Buscarron vi stringe caldamente le mani, consegnandovi la ricompensa promessa per il vostro straordinario valore.
+
+La missione MSQ Into the Beast's Maw si conclude con successo!
+
+⚔️ Rif. gruppo: 4 PG · Lv 4
+[Info GM] chiude Into the Beast's Maw; apre A Simple Gift; prossimo step wiki: consegnare l'olio di rosa ad Azeyma a Knolexia a Little Solace
+🧭 Viaggio: diretto (Eterite) → teletrasporto all'Eterite di Camp Tranquil (South Shroud) · senza Eterite (catena reale) → Capriccio di Buscarron → Little Solace (East Shroud)
