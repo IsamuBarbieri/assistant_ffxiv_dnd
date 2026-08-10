@@ -1,6 +1,13 @@
 # 04_BESTIARY — RAIMDELLE CODEX ASGARD
 Version v1.3 | Source: Raimdelle Codex Asgard (community monster manual for the FFXIV x D&D 5e Compendium)
 
+> **THIS FILE IS A DATA ARCHIVE, NOT AN OUTPUT TEMPLATE.** The rows below are creatures compressed to
+> stay small: English labels (AC/HP/STR), fields separated by `|`, and CR followed by its XP figure.
+> **None of that is ever printed.** At the table a stat block has its own shape — Italian labels
+> (CA/PF/FOR), one category per line, no pipes, and the GdS line carrying the bare number with no XP.
+> Take the NUMBERS and the creature's PROFILE from here, never the page layout; and those numbers are
+> a starting point to be scaled to the target GdS, not a value to copy.
+
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. Statblocks reproduced verbatim; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.

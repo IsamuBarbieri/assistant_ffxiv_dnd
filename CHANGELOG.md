@@ -1,5 +1,65 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-11 — IL CONTRATTO D'OUTPUT SALE NELLE ISTRUZIONI; 06b CANCELLATO
+
+**PRIMO TEST SU GPT (OpenAI Projects, 5 file, 01_Manual).** Dispatch **4/4 al primo colpo** —
+`/carica`, `/continua`, `/chiusura`, `/salva`, con save che incrementa 6->7 e il diff. Pin di 08.1
+tutti al posto giusto (Lahabrea prima del boss, Eco dopo, Frixio, Cristallo #3), boss loot per ruolo.
+**Mancavano tutte le immagini e le mappe, e lo stat block era in formato pipe.**
+
+**LA DIAGNOSI, e non era quella che pensavo.** Un test diagnostico («come si scrive uno stat block?»)
+ha mostrato che **06 viene letto benissimo**: GPT ha recitato Taglia<->dado, «niente griglia», «niente
+usa-le-statistiche-di-X», il Telegrafo. Ma ha poi stampato il layout **di 04**, con le pipe, e l'ha
+chiamato «un esempio reale del formato presente nel materiale». **Aveva ragione.** Misurato in
+04_Bestiary: **230 righe con pipe, 112 volte `(… XP)`, 125 `AC `, 143 `HP `, 122 `STR `.**
+
+E' la stessa malattia di queste settimane **un piano piu' sotto**: in 06 avevamo COMPORTAMENTO che
+competeva con le istruzioni; in 04 abbiamo un LAYOUT che compete con §B6 — ed e' concreto, completo e
+ripetuto oltre cento volte. **Una regola astratta non batte cento esempi.** Spiega retroattivamente
+difetti visti su Gemini e attribuiti ad altro (stat block senza CA/PF/Vel, `Sensi` monco).
+
+**DUE INTERVENTI, entrambi host-agnostici.**
+- **04 dichiara di essere un archivio** (in inglese, §1.4): le sue righe sono DATI compressi, mai la
+  forma dell'output; da li' si prendono NUMERI e PROFILO, mai la disposizione della pagina.
+- **`<output_contract>`, IDENTICO nei tre file** (verificato per stringa): la riga d'apertura dello
+  stat block, l'`### ` del pacchetto, `**Nemici:** ×N`, `#### Arena` con Tipo/Dimensioni/Elementi, e i
+  tre template di link. Con la giustificazione in testa: **queste forme sono un'INTERFACCIA, non uno
+  stile** — un programma esterno le legge, quindi devono stare dove sono garantite presenti, non dove
+  si spera che il recupero peschi la sezione giusta.
+  **cv 7.959 · ov 7.790 · lv 6.849 caratteri**, tutti sotto il limite OpenAI di 8k. cv era finito a
+  8.019: stretto il blocco condiviso invece di far divergere un file. In lv il blocco duplicava due
+  righe gia' in `<output>`: rimosse.
+
+**COLLAUDO SU GEMINI (cv95 + 01_Manual): 5/5.** L'aumento da 6,3 a 8,0 KB **non ha rotto il dispatch**.
+E hanno funzionato le regole dei giorni scorsi: 🖼️/🗺️ presenti, 🎵 diversa a ogni scontro con
+**Nemesis** sul boss (controllo #8), boss loot con tre pezzi ed effetti (controllo #7), entrambi i
+Coeurl con stat block completo, e **un ENIGMA e una PROVA di tipo diverso** — la regola di ieri, al
+primo test. Aritmetica dei PF corretta in tutti e tre i blocchi.
+
+**NOMI DELLE SOTTO-AREE (06 v6.11 -> v6.12): la regola si sabotava da sola.** §A6 vieta di nominare
+`Camera dell'Abacinazione` & co. nella prosa player-facing — ed e' violata da sempre. Causa: la stessa
+regola AUTORIZZAVA il nome nei sotto-titoli GM, e il modello scriveva
+`Enigma: Il Terminale del Confessionale` **tre righe sopra** il read-aloud. E' il pozzo gravitazionale
+semantico: la menzione stessa attiva il termine. Ora **anche il sotto-titolo sopra un read-aloud resta
+descrittivo**, e il nome canonico vive lontano dalla prosa, in `[Info GM]` e nel pin. Piu' il
+controllo contato **#9** (nomi di sotto-area dentro `Da leggere ai PG`: 0).
+
+**06b CANCELLATO (110 KB).** Misurato: **l'87% era testo identico a 06**, e le 18 regole "uniche"
+sono tutte coperte in `cv` in forma compressa (il `/carica` copre i cinque LOAD-*, il roster chiuso
+copre NO ALIASES, `<cursor>` copre LIVE STEP e NO PENDING TASK...). Non e' lo spazio il problema: **e'
+una fabbrica di fossili** — fra due mesi qualcuno legge 06b, vede una regola che «manca» e la rimette
+in 06. **E' esattamente cosi' che e' nato il fossile di §B2.** LEZIONE 2.28: la storia va nel CHANGELOG
+e in Project_Memory, non in un file di lapidi. Cancellato anche 06b_SMISTAMENTO (lista di lavoro
+esaurita) e i file di prova.
+
+**UN PATTERN CHE VALE DA SOLO:** tre difetti di fila — bottino del boss, musica, nomi delle stanze —
+erano **regole gia' scritte e disattese**, non regole mancanti. Su questo progetto il rimedio che
+funziona non e' aggiungere una regola: e' renderla CONTABILE. §A9 e' passata da sei a nove controlli.
+**E serve un criterio di ritiro**, che il progetto non ha: una regola resa contabile che fallisce due
+volte non si riscrive una terza — o e' un limite di capacita' (2.14c) o e' nello strato sbagliato, e
+in entrambi i casi esce da 06 e resta come limite noto in Project_Memory.
+
+
 ## 2026-08-10 — QUATTRO INTERVENTI: enigma/prova, i tre file allineati all'XML, il manuale unito
 
 ### 06 v6.09 — l'interludio si sdoppia, il 'tre' torna un minimo (dal collaudo del GM)
