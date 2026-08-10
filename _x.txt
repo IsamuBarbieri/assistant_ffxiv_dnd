@@ -1,0 +1,9 @@
+ocation (dockhands, guards, merchants, refugees, soldiers, tavern patrons...). 'the rumours command' TRIGGER (the ONLY trigger): the rumour/hook block fires on the command 'the rumours command' and on nothing else. NO AL
+
+fugees, soldiers, tavern patrons...). 'the rumours command' TRIGGER (the ONLY trigger): the rumour/hook block fires on the command 'the rumours command' and on nothing else. NO ALIASES — a narrated 'chiediamo in giro' / 
+
+d never force a new hook each generation. 'the rumours command' READ-ONLY & STOP: the rumours/hook block is a READ-ONLY side output — emit it and STOP the turn; it does NOT advance nor generate an MSQ/subquest beat and d
+
+avel line + a 1-line bridge and go straight to the destination beat — NO auto-encounter. A PLAYED travel beat fires ONLY on a trigger: (a) the GM/players ask for it (the command the relevant command, or 'andiamo a piedi'
+
+>>> TOKEN:  the names that must come back identical) · Situazione attuale · Prossimo beat esatto (= the resume point for /riprendi SQ) - **BOUNDED:** one short line per field, no prose, no scene text — the dossi

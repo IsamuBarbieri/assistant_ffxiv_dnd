@@ -1,0 +1,295 @@
+/pippo
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Il comando /pippo non esiste; il comando reale più vicino è /prova.
+
+/carica
+
+=== SAVE ===
+
+Sessione: 6
+
+
+
+[A] POSIZIONE MSQ
+
+    - Missione MSQ corrente (EN): Into the Beast's Maw
+
+    - Ultimo step completato: ottenuto da Bloisirant il permesso di entrare nelle Mille Fauci di Toto-Rak
+
+
+
+[B] PARTY
+
+    - Numero PG: 4
+
+    - Livello: 4
+
+
+
+[C] SUBQUEST ATTIVA
+
+    - Subquest attiva: nessuna
+
+
+
+=== FINE SAVE ===
+
+
+
+
+
+
+
+Campagna - FFXIV D&D
+
+Gem personalizzato
+
+Save caricato: Sessione: 6 · Numero PG: 4 · Livello: 4
+
+Il gruppo si trova nel Bosco del Sud all'ingresso delle Mille Fauci di Toto-Rak, pronto a varcare la soglia dell'antica prigione gelmorrana.
+
+Prossimo step wiki: Into the Beast's Maw (esplorare Le Mille Fauci di Toto-Rak e trarre in salvo l'anziano silfide Frixio)
+
+
+
+
+
+
+
+
+
+/salva
+
+
+
+
+
+Campagna - FFXIV D&D
+
+Gem personalizzato
+
+=== SAVE ===
+
+Sessione: 6
+
+[A] POSIZIONE MSQ
+
+- Missione MSQ corrente (EN): Into the Beast's Maw
+
+- Ultimo step completato: ottenuto da Bloisirant il permesso di entrare nelle Mille Fauci di Toto-Rak
+
+[B] PARTY
+
+- Numero PG: 4
+
+- Livello: 4
+
+[C] SUBQUEST ATTIVA
+
+- Subquest attiva: nessuna
+
+=== FINE SAVE ===
+
+Nessuna variazione rispetto al save caricato.
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Tutto pronto e configurato. Il salvataggio è impostato sulla Sessione 6, all'ingresso delle Mille Fauci di Toto-Rak nel Bosco del Sud.
+
+Quando vuoi procedere, invia pure il comando desiderato (ad esempio /continua).
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Into the Beast's Maw · Le Mille Fauci di Toto-Rak (Parte 1)] (Dungeon · ~45-60 min)
+
+🖼️ Immagine: Le Mille Fauci di Toto-Rak
+🗺️ Mappa: Le Mille Fauci di Toto-Rak
+🎵 Musica: A Thousand Screams
+
+Varcate l'ingresso architravato delle Mille Fauci di Toto-Rak, lasciandovi alle spalle la guardia di Bloisirant e la luce filtrata del Bosco del Sud (South Shroud). L'umidità dell'antica prigione gelmorrana vi avvolge come un drappo pesante: le pareti in pietra scolpita, risalenti all'epoca in cui i popoli sotterranei cercavano rifugio dalle Elementali, sono ormai stravolte e soffocate da radici colossali, muschio e spore violacee. L'aria odora di terra smossa, acido e vegetazione in decomposizione. Avanzate tra le ombre di corridoi stretti e celle arrugginite, dove il gocciolio dell'acqua stagnante rimbomba sulle volte di pietra erosa.
+
+Giunti in una prima camera sotterranea, la strada viene interrotta da un groviglio di radici che pulsano di linfa verdastra.
+
+🎵 Musica: The Promise of Plunder
+
+Pacchetto Incontro: Il Primo Guardiano delle Fauci
+Difficoltà: Media
+Innesco: Non appena calpestate le liane al centro della sala, la vegetazione sulla volta si scuote violently e cala un enorme bulbo carnivoro che sbarra il passaggio.
+Nemici: Coeurl a Nove Code ×1
+
+Da leggere ai PG:
+Sentite il terreno vibrare sotto i vostri stivali. Dall'alto della volta di pietra, un imponente bulbo vegetale dai petali violacei si sgancia dalle radici e ricade al centro della camera con un rombo sordo. Nove lunghi viticci frustanti, ricoperti di linfa corrosiva e spine, si srotolano attorno alla sua massa, sollevandosi a mezz'aria mentre i calici della pianta rilasciano un fumo denso e acido. La creatura si protende verso di voi, sbarrandovi la strada verso i livelli inferiori.
+
+Arena
+Tipo: Caverna Irregolare
+Dimensioni: 14 × 14
+Elementi:
+
+Radici
+
+Fango
+
+Macerie
+
+Tattica: La Coeurl a Nove Code cerca di colpire i bersagli in mischia con i suoi viticci per poi spruzzare la linfa acida sul gruppo, bloccando l'accesso alla porta posteriore.
+
+🖼️ Immagine: Coeurl O' Nine Tails
+
+Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45 (6d10+12) · Vel 7,5 m
+FOR 14 (+2) · DES 10 (+0) · COS 14 (+2) · INT 3 (-4) · SAG 10 (+0) · CAR 5 (-3)
+
+Resistenze: acido · veleno
+Immunità: avvelenato (condizioni)
+Sensi: Percezione passiva 10
+GdS 2
+
+Descrizione visiva: Un colossale bulbo vegetale dai petali violacei e calici traslucidi, da cui si dipartono nove spessi viticci frustanti che secernono linfa acida.
+
+Tratti
+Viticci Frustanti. La Coeurl a Nove Code ha vantaggio sulle prove di Atletica effettuate per lottare o afferrare creature di taglia Media o inferiore.
+
+Azioni
+Schianto con Viticcio. Mischia: +4, portata 3 m, un bersaglio. Colpito: 6 (1d8+2) danni contundenti più 2 (1d4) danni da acido.
+
+Spruzzo Acido.
+Telegrafo: Il calice centrale del bulbo si gonfia e pulsa di luce verdastra, accumulando fluido corrosivo prima di rilasciarlo (1 round di preavviso).
+Area: cono di 4,5 m. Ogni creatura nell'area deve effettuare un TS su Costituzione con CD 12, subendo 10 (3d6) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.
+
+Bottino
+Bottino: 35 Gil; parte vendibile: linfa acida incristallizzata (15 Gil)
+
+🎵 Musica: A Thousand Screams
+
+Con il collasso del bulbo carnivoro, le liane che ostruivano il passaggio si ritraggono avvizzite, rivelando l'accesso alla Camera della Confessione (Confession Chamber).
+
+Da leggere ai PG:
+Entrate in una vasta sala rettangolare di chiara fattura gelmorrana. Lungo le pareti si notano nicchie in pietra scolpita e bassorilievi consumati dal tempo. Al centro della stanza sorge un piedistallo di pietra antica collegato a una rete di condotti idraulici e aetherici ricavati nella roccia. La porta pesante che conduce alle sezioni interne della prigione è serrata da contrappesi in pietra, bloccata poiché i condotti idraulici che alimentano il meccanismo sono ostruiti da spessi fittoni e privi della carica eterica necessaria.
+
+Enigma per i PG:
+Sul piedistallo centrale si trova un grande cristallo spento, incastonato sopra una chiusa di pietra. Tre bacini idraulici scavati nella roccia circondano la base: ciascun bacino è inciso con glifi gelmorrani che rappresentano il flusso dell'etere elementale. Tuttavia, le canalizzazioni sono completamente soffocate da radici secche e detriti accumulati negli secoli, impedendo ai contrappesi di scivolare e sbloccare l'entrata.
+
+Soluzione (GM):
+Per attivare il terminale e aprire il passaggio occorre ripristinare il flusso aetherico e idraulico attraverso una delle seguenti tre azioni concrete:
+
+Disostruzione fisica: Ripulire le radici secche e la melma che bloccano la valvola principale del piedistallo tagliando i fittoni o bruciandoli con cura senza danneggiare i glifi in pietra.
+
+Incanalamento magico: Canalizzare etere o incantesimi elementali direttamente nei glifi incisi attorno ai tre bacini, riattivando il cristallo centrale spento.
+
+Allineamento dei contrappesi: Utilizzare le leve e i contrappesi idraulici laterali, riallineando le vasche secondo la sequenza dei simboli gelmorrani scolpiti sulla volta.
+
+Indizi:
+
+CD Facile (10 - Indagare / Natura): Notate che i fittoni che soffocano la valvola centrale sono secchi e friabili: rimuoverli libererà il movimento del meccanismo sottostante.
+
+CD Media (15 - Arcani / Storia): Riconoscete la fattura gelmorrana del terminale: i glifi indicano che il cristallo centrale richiede una piccola scarica d'etere per azionare i contrappesi una volta liberata la chiusa.
+
+CD Difficile (20 - Percezione / Arcani): Individuate la sequenza esatta delle vasche incise sulla volta: allineandole prima di rimuovere il blocco, il meccanismo si aprirà senza opporre alcuna resistenza idraulica.
+
+Fallimento:
+Se un tentativo di forzare il meccanismo fallisce, il condotto rilascia uno sfiato di gas aetherico ristagnante: le creature entro 3 m dal piedistallo devono effettuare un TS su Costituzione con CD 12, subendo 3 (1d6) danni da veleno in caso di fallimento. Il meccanismo rimane tentabile.
+
+🎵 Musica: The Promise of Plunder
+
+Una volta risolto l'enigma del terminale, il cristallo si illumina di una fioca luce azzurrina. Con un mugghio metallico e lo scorrere dell'acqua nei condotti, la pesante porta di pietra scivola verso l'alto, aprendo il corridoio che conduce al Riposo dello Stolto (Fool's Rest).
+
+Tuttavia, all'interno del corridoio acquitrinoso, il terreno è allagato da un palmo d'acqua stagnante e ricoperto da una seconda colonia di vegetazione predatrice.
+
+Pacchetto Incontro: Il Guardiano del Riposo dello Stolto
+Difficoltà: Media
+Innesco: Non appena la prima persona muove un passo nel corridoio allagato, un secondo specidie vegetale emerge dall'acqua stagnante.
+Nemici: Coeurl a Nove Code ×1
+
+Da leggere ai PG:
+Il corridoio stretto è sommerso da un velo d'acqua cupa e vischiosa. Dal fondo dell'androne emerge una seconda Coeurl a Nove Code: le sue radici si espandono nell'acqua stagnante, facendo vibrare la superficie idrica mentre i nove viticci si scagliano lungo le pareti strette della galleria, pronti a bloccarvi il cammino.
+
+Arena
+Tipo: Passaggio Stretto
+Dimensioni: 8 × 16
+Elementi:
+
+Acqua
+
+Radici
+
+Macerie
+
+Tattica: Sfrutta lo spazio stretto della galleria per colpire a sbarramento con lo Spruzzo Acido, mentre l'acqua a terra rende difficile aggirarla.
+
+🖼️ Immagine: Coeurl O' Nine Tails
+
+Coeurl a Nove Code (Coeurl O' Nine Tails) — Grande · CA 13 · PF 45 (6d10+12) · Vel 7,5 m
+FOR 14 (+2) · DES 10 (+0) · COS 14 (+2) · INT 3 (-4) · SAG 10 (+0) · CAR 5 (-3)
+
+Resistenze: acido · veleno
+Immunità: avvelenato (condizioni)
+Sensi: Percezione passiva 10
+GdS 2
+
+Descrizione visiva: Un colossale bulbo vegetale dai petali violacei e calici traslucidi, da cui si dipartono nove spessi viticci frustanti che secernono linfa acida.
+
+Tratti
+Viticci Frustanti. La Coeurl a Nove Code ha vantaggio sulle prove di Atletica effettuate per lottare o afferrare creature di taglia Media o inferiore.
+
+Azioni
+Schianto con Viticcio. Mischia: +4, portata 3 m, un bersaglio. Colpito: 6 (1d8+2) danni contundenti più 2 (1d4) danni da acido.
+
+Spruzzo Acido.
+Telegrafo: Il calice centrale del bulbo si gonfia e pulsa di luce verdastra, accumulando fluido corrosivo prima di rilasciarlo (1 round di preavviso).
+Area: cono di 4,5 m. Ogni creatura nell'area deve effettuare un TS su Costituzione con CD 12, subendo 10 (3d6) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.
+
+Bottino
+Bottino: 35 Gil; parte vendibile: linfa acida incristallizzata (15 Gil)
+
+Prossimo beat: Il terminale del Riposo dello Stolto, l'incontro con Lahabrea, il combattimento finale con Graffias e la liberazione dell'anziano silfide Frixio (Cristallo di Fulmine).
+
+⚔️ Rif. gruppo: 4 PG · Lv 4
+[Info GM] prosegue Into the Beast's Maw; prossimo step wiki: attivare il secondo terminale del Riposo dello Stolto ed entrare nella Camera dell'Abacinazione per affrontare Lahabrea e Graffias
+
+— Fine parte 1 —
+
+/chiusura
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 6 · Numero PG: 4 · Livello: 4
+
+[GIOCATO]
+
+Ingresso nelle Mille Fauci di Toto-Rak (The Thousand Maws of Toto-Rak) e scontro con la prima Coeurl a Nove Code (Coeurl O' Nine Tails).
+
+Risoluzione dell'enigma idraulico/eterico al terminale della Camera della Confessione (Confession Chamber).
+
+Scontro con la seconda Coeurl a Nove Code nel corridoio allagato prima del Riposo dello Stolto (Fool's Rest).
+
+[DA CONFERMARE]
+
+Nessuno.
+
+Ultimo evento giocato: sconfitto il secondo Coeurl a Nove Code nel corridoio allagato delle Mille Fauci di Toto-Rak.
+
+Pronto per il salvataggio: usa /salva.
+
+/salva
+
+Campagna - FFXIV D&D
+Gem personalizzato
+=== SAVE ===
+Sessione: 7
+
+[A] POSIZIONE MSQ
+- Missione MSQ corrente (EN): Into the Beast's Maw
+- Ultimo step completato: sconfitto il secondo Coeurl a Nove Code nel corridoio allagato delle Mille Fauci di Toto-Rak
+
+[B] PARTY
+- Numero PG: 4
+- Livello: 4
+
+[C] SUBQUEST ATTIVA
+- Subquest attiva: nessuna
+
+=== FINE SAVE ===
+Sessione: 6 -> 7; Ultimo step completato: "sconfitto il secondo Coeurl a Nove Code nel corridoio allagato delle Mille Fauci di Toto-Rak".

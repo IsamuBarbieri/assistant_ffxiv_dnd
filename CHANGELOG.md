@@ -1,5 +1,38 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-09b — 06 v6.07: LA FORMA RIENTRA, IL COMPORTAMENTO NO. E NON ERA IL VOLUME
+
+Smistate a mano le 145 regole finite in `06b`: **118 sono FORMA, 27 sono COMPORTAMENTO.** Non avevamo
+buttato un file di comportamenti con un po' di formato: avevamo buttato un file di FORMATO con dentro
+27 regole velenose.
+
+**RICOSTRUITE in 06 con lo STESSO numero e nome** (tutti i §-rimandi restano validi), ognuna aperta da
+`THIS SECTION IS FORM, NEVER TIMING`: §B1 (forma del beat: header, BEAT ESTIMATE, tag, cutscene pinnate,
+[Info GM] SLIM, footer, pacchetto ORDER/LAYOUT) · §B2 (grana, one-scene rule, continuity handoff) ·
+§B12 (dungeon: mid-boss + interludio, niente trash, split-never-shrink) · §B17 (template del save,
+[A] TITLE OWNERSHIP, QUEST NOT DUTY, CARRY-FORWARD, LEVEL IS NEVER DERIVED) · §B3 · §B19 · §B22 · §B24 · §B25.
+**Resta stub solo §B21** (registro e cursore), che e' comportamento puro.
+
+**06: 177 -> 266 KB. IL DISPATCH HA RETTO.** E' il dato che mancava: **non era il volume, era il
+contenuto.** 89 KB di formato in piu' non disturbano; 27 regole di comportamento si'.
+
+**QUATTRO RESIDUI PREESISTENTI trovati mentre ricostruivo**, mai introdotti da noi: i trigger di `/voci`
+in §B20, il trigger del viaggio in §B26, e un token di comando nel dossier di §B22. 06 e' ora a **zero**
+token di comando e **zero** segnali di comportamento.
+
+**COLLAUDO (cv90 + tutti e 8):** tag con stima · scontro-enigma-scontro · stat block completi ·
+`[Info GM]` di una riga · footer nell'ordine giusto col marcatore nudo in fondo · **i pin di 08.1
+(Lahabrea, Graffias, Frixio, Cristallo) dovuti nel `Prossimo beat:`** · `/salva` fa Sessione 6->7 e
+copia l'ultimo step con la riga di diff.
+
+**INTERMITTENZA, dato nuovo e utile:** il primo `/carica` ha sbagliato, e **il pulsante Ripeti lo ha
+risolto**. Il guasto e' a livello di CAMPIONAMENTO, non deterministico: al tavolo costa un click, non
+una regola. Smettere di inseguirlo con il prompt.
+
+**RESIDUI MINORI:** due parole sporche in output ('violently', 'specidie') · `Sensi` con la sola
+Percezione passiva · un messaggio di troppo dopo `/salva`.
+
+
 ## 2026-08-09 — cv90 / 06 v6.01: IL DISPATCH FUNZIONA, RIPETUTO. 06 non e' conoscenza, e' un secondo prompt
 
 **PRIMO RISULTATO RIPETIBILE:** cv90 + tutti e 8 i file, due run indipendenti, 4/4 su entrambe —
