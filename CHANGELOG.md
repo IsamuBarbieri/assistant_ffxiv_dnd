@@ -1,5 +1,69 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-10 — QUATTRO INTERVENTI: enigma/prova, i tre file allineati all'XML, il manuale unito
+
+### 06 v6.09 — l'interludio si sdoppia, il 'tre' torna un minimo (dal collaudo del GM)
+Quattro difetti, tutti di FORMATO, quindi riparati in 06 senza toccare cv.
+- **INTERLUDIO != ENIGMA.** 06 li aveva fusi (`interlude/enigma`) e definiva UNA sola forma d'output:
+  qualunque cosa stesse fra due scontri usciva enigma a cinque blocchi. Il GM ricordava due oggetti
+  distinti e aveva ragione — la distinzione non era stata persa, **non era mai stata scritta**. Ora
+  sono due tipi e il dungeon li ALTERNA: **ENIGMA** (c'e' uno stato da cambiare; i PG deducono e
+  mettono in atto; cinque blocchi) e **PROVA** (una situazione da attraversare; niente da dedurre;
+  QUATTRO blocchi, **senza `Soluzione (GM)`**, con fallimento fino a una scaramuccia di 1-2 round a
+  mini-stat inline). Le tracce del concetto c'erano gia' (`INTERLUDE IS NEVER A FIGHT`,
+  `BACKGROUND MOB`) ma senza una forma propria, quindi non potevano produrre nulla.
+- **IL 'TRE' ERA DIVENTATO UNA PIANTA DELLA STANZA.** §E1 dice `min 3 solutions` = minimo di MODI DI
+  AGIRE; il modello costruiva tre vasche, tre condotti, tre anelli in tre beat di fila. Ora e' un
+  FLOOR sulle azioni, mai un conteggio di oggetti: un solo meccanismo puo' offrirne tre. Allineati
+  anche §E1 principio 4 e §D5, che diceva `3 solutions` secco.
+- **`Innesco:` CONDIZIONALE.** Si stampa solo se lo scontro ha un innesco vero; se la rissa parte
+  perche' il gruppo e' entrato, la riga si omette — il read-aloud lo dice gia', e parafrasarlo costa
+  al GM una riga da saltare.
+- **VISIBILITA' ESTESA ALLA PROVA + VERBOSITA' DELL'ENIGMA.** Una Prova puo' nominare solo oggetti che
+  il suo read-aloud ha mostrato (osservato: un CD 10 per trovare una leva mai descritta). E cio' che e'
+  in piena vista non costa un tiro: il gradino piu' basso degli `Indizi` deve aggiungere qualcosa di
+  NUOVO, altrimenti la prova non compra niente.
+**§A9 PASSA DA SEI A OTTO CONTROLLI CONTATI**, perche' §A21 e §A23 c'erano gia' e venivano disattese:
+(7) il boss finale stampa i suoi equip drop, non la riga da mid-boss (Graffias aveva avuto bottino da
+mid-boss); (8) una 🎵 per ogni scontro dalla tabella duty, mai l'ambient riusato sul boss (per Toto-Rak:
+ambient *A Thousand Screams*, mid-boss *A Fine Death*, finale **Nemesis**). Tolto anche l'ultimo token
+di comando rimasto in 06, il trigger di `/musica` in §A23.
+
+### ov50 / lv30 / cv93 — i tre file di istruzioni allineati all'XML
+Stesso scheletro e stesse regole ricavate dai test: `role / knowledge / scope / commands /
+beat|act|output / contract`. **cv 6,4 KB · ov 6,2 KB · lv 5,6 KB** (erano 31,9 / 22,7 / 19,8).
+Applicato a ov e lv cio' che era stato misurato solo su cv: zero §-codici e zero elenchi di cose da
+consultare (e' l'enumerazione a essere un ordine di recuperare, eseguito a ogni turno); ogni riga di
+comando dice COSA LEGGE e COSA CAMBIA; «ogni comando piu' in alto e' gia' stato risposto»; contratto
+in fondo con la coda del proprio output dichiarata inerte.
+**Differenze volute:** ov ha `<act>` e l'INDICE DEGLI ATTI come piano che `/atto` rende una voce per
+volta; **lv ha il default ROVESCIATO** — un messaggio senza slash e' una DOMANDA da rispondere, non
+chat, ed e' il suo turno piu' frequente — ed e' il file piu' piccolo perche' il suo pavimento e' due
+gradini sotto (Haiku 4.5 / Flash-lite). **cv93:** rientrato e corretto un segnaposto in parentesi
+angolari, che dentro un file XML e' un tag non chiuso; stesso difetto gia' corretto giorni fa, **da
+ricontrollare a ogni riscrittura del blocco comandi**.
+
+### 01_Manual.md + 06 v6.10 — un file per gli host con pochi slot
+OpenAI Projects (tier free) accetta max 5 file e istruzioni entro 8k caratteri. Le tre istruzioni ci
+stanno gia'; restava il vincolo sui file, 8 -> 5. **Il rischio vero non era la dimensione ma le
+INTESTAZIONI DOPPIE:** 13 titoli comparivano in due manuali (`SCHEMA NOTES` in tutti e quattro;
+`BLACK MAGE`, `SCHOLAR`, `SUMMONER`, `BARD`, `PALADIN`, `SAGE`... in 02 come Job e in 03 come lista di
+incantesimi). Unendo alla cieca il file avrebbe avuto due sezioni omonime, indistinguibili in fase di
+recupero — la stessa classe di guasto delle regole duplicate, applicata ai dati. 28 titoli
+disambiguati con un suffisso di parte, zero collisioni residue, contenuto invariato (+803 B di sole
+intestazioni). **06 v6.10: UNA riga cambiata invece di 26** — i riferimenti a 01-04 sparsi in 06 sono
+NUMERI, e dentro il file unito quelle cifre nominano le PARTI, quindi risolvono in entrambe le
+configurazioni. Nessuna versione di 06 da mantenere in doppio (§1.1b).
+
+### build_manual.py — il manuale unito e' DERIVATO, non un secondo originale
+`01_Manual.md` era una COPIA di 01-04, cioe' l'esatto guasto che questo progetto ha pagato tre volte
+(§B2 contro §B1, i bucket di `/chiusura`, il FOOTER ORDER: tutte copie divergenti, tutte scoperte
+giorni dopo da un output sbagliato). Ora la sorgente sono 01/02/03/04 e il manuale si rigenera con
+`python build_manual.py`. Lo script disambigua i titoli da solo e **asserisce** che non restino
+collisioni: se la fusione smettesse di essere sicura si ferma, invece di produrre un file ambiguo.
+La deriva diventa impossibile per costruzione, non per disciplina.
+
+
 ## 2026-08-09b — 06 v6.07: LA FORMA RIENTRA, IL COMPORTAMENTO NO. E NON ERA IL VOLUME
 
 Smistate a mano le 145 regole finite in `06b`: **118 sono FORMA, 27 sono COMPORTAMENTO.** Non avevamo
