@@ -50,8 +50,7 @@ Stessa struttura nei tre: `role` · `knowledge` · `scope` · `commands` · `bea
 ### Knowledge — si allega
 | file | possiede |
 |---|---|
-| `01_Races` `02_Classes` `03_Spells` `04_Bestiary` | razze, Job, incantesimi, creature |
-| `01_Manual.md` | i quattro qui sopra fusi. **DERIVATO** — vedi sotto |
+| `01_Manual.md` | razze, Job, incantesimi, creature — quattro manuali in quattro PARTI numerate |
 | `05_Campaign.md` | regole di campagna |
 | `06_Procedures_and_Format.md` | **tutti i formati**, 71 sezioni §. Il file che conta di più |
 | `07_Glossary.md` | nomi e rese italiane vincolanti |
@@ -63,27 +62,18 @@ Stessa struttura nei tre: `role` · `knowledge` · `scope` · `commands` · `bea
 | `CHANGELOG.md` | cosa è cambiato, quando e **perché**. Ogni intervento con la sua misura |
 | `Project_Memory.md` | le lezioni: cosa abbiamo provato, cosa ha fallito, cosa non riproporre |
 | `README.md` | questo |
-| `build_manual.py` | rigenera `01_Manual` |
 | `combat_tracker.html` | l'app che il GM apre al tavolo; legge il pacchetto incontro incollato |
 
 ---
 
 ## Come si allega
 
-**Gemini Gems** — nessun limite stretto: i quattro manuali separati, oppure `01_Manual`. Indifferente.
+Cinque file, gli stessi ovunque: **`01_Manual` · `05` · `06` · `07` · `08`.** Sta nel limite di OpenAI
+Projects (max 5 file, istruzioni entro 8.000 caratteri) e va bene anche sui Gemini, che non hanno vincoli.
 
-**OpenAI Projects (free)** — massimo 5 file e istruzioni entro 8.000 caratteri, quindi:
-`01_Manual` · `05` · `06` · `07` · `08`.
-
-`01_Manual` è **generato**, non scritto: la sorgente sono `01`-`04`. Dopo ogni modifica a uno dei quattro:
-
-```
-python build_manual.py
-```
-
-Lo script disambigua i titoli che comparirebbero due volte e si ferma se la fusione non fosse sicura.
-**Non modificare `01_Manual.md` a mano.** In 06 i rimandi ai manuali sono NUMERI, quindi funzionano in
-entrambe le configurazioni: non esistono due versioni di 06 da mantenere.
+I numeri **02, 03 e 04 non esistono più come file**: sono le PARTI dentro `01_Manual`. Il buco nella
+numerazione è voluto — i rimandi negli altri file usano il NUMERO, che identifica la parte, quindi
+continuano a risolvere. Le aggiunte future vanno dentro la parte che le riguarda.
 
 ---
 

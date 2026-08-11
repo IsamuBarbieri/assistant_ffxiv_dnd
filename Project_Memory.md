@@ -193,10 +193,7 @@ breaks. The lever for prose is EXEMPLARS, not language (LESSON 2.4).
 ## 1.6 File map (8 knowledge files, 01-08)
 | File | Role |
 |---|---|
-| `01_Races` | PC race build data (8 playable + Garlean + beast tribes) + Role Action Feats |
-| `02_Classes` | the 22 Jobs: progression, subclasses, resources, artes |
-| `03_Spells` | spell lists by Job + homebrew spells (metric) |
-| `04_Bestiary` | monsters by creature class → genus → species + Primals |
+| `01_Manual` | ONE file, four numbered PARTS: **01** races (8 playable + Garlean + beast tribes, Role Action Feats) · **02** the 22 Jobs (progression, subclasses, resources, artes) · **03** spell lists + homebrew spells · **04** bestiary by creature class → genus → species + Primals. Merged 2026-08-11; 02/03/04 no longer exist as files and the numbering gap is deliberate — pointers use the NUMBER, which names the part |
 | `05_Campaign` | campaign RULES only — Section A, Ch.1-20 (Echo, Blessing, Limit Break, combat, save spec) |
 | `06_Procedures_and_Format` | the assistant's operational formats + shared rules (Parts A-E) — the how-it-behaves layer |
 | `07_Glossary` | the SINGLE naming source: method + parenthesis test + element map + bindings |
@@ -1116,7 +1113,7 @@ place, so the archive below can be read without ambiguity — and deliberately N
 | `GEM_master.json`, `GEM_Builder.html`, tplC/tplL/tplO | the three (now four) instruction files, edited directly |
 | Canvas / Immersive | a self-contained HTML ARTIFACT |
 
-**FALSE POSITIVE, do NOT "fix":** `02_Classes` contains **World Canvas**, an 18th-level class ability. It is not
+**FALSE POSITIVE, do NOT "fix":** `01_Manual` Part 02 (Classes) contains **World Canvas**, an 18th-level class ability. It is not
 a Canvas reference.
 
 ---

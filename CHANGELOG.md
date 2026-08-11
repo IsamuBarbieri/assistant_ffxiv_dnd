@@ -1,5 +1,34 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-11c — 01_Manual diventa la SORGENTE: 01-04 e lo script cancellati, cinque file e basta
+
+Decisione del GM dopo il collaudo riuscito col file unito. `01_Manual` era un DUPLICATO di 01-04,
+tenuto allineato solo dalla disciplina di lanciare `build_manual.py` — e la disciplina, in questo
+progetto, ha gia' fallito tre volte (§B2 contro §B1, i bucket di `/chiusura`, il FOOTER ORDER: tutte
+copie divergenti scoperte giorni dopo). **Ora la sorgente e' una sola.**
+
+**Cancellati:** `01_Races` · `02_Classes` · `03_Spells` · `04_Bestiary` · `build_manual.py`.
+**Restano cinque file di conoscenza:** `01_Manual` · `05` · `06` · `07` · `08` — un solo setup, valido
+sia sui Gemini sia su OpenAI Projects.
+
+**Il buco di numerazione (02, 03, 04) e' voluto** e non fa danni: i rimandi negli altri file usano il
+NUMERO, che ora identifica una PARTE dentro `01_Manual`. Precedente noto: §A2 fu cancellata per intero
+e il buco non ha mai causato nulla. Il contenuto e' stabile — regole di manuale gia' corrette e
+validate — e le aggiunte future vanno dentro la parte che le riguarda.
+
+**RIFERIMENTI RIPULITI PRIMA DI CANCELLARE, non dopo:**
+- `05` citava i quattro **per nome file** in 10 punti (`see 01_Races`, `(02_Classes)`): portati alla
+  forma `01 Races` / `02 Classes`, senza parentesi annidate dove erano gia' dentro una parentesi.
+- `01_Manual` aveva due **autoreferenze** rimaste dai file originali (`section (04_Bestiary)`,
+  `see 03_Spells`): ora puntano alla parte.
+- `06 v6.13`: la convenzione FILE REFERENCES non descrive piu' la configurazione a due opzioni
+  ("o quattro file o un manuale") che non esiste piu'.
+- `README` e `Project_Memory`: mappa dei file e sezione "come si allega" riscritte.
+- Intestazione di `01_Manual` riscritta: **e' la sorgente, non un derivato**. La riga "GENERATO da
+  build_manual.py, non modificare a mano" sarebbe diventata una bugia attiva — avrebbe detto a chi
+  legge di non toccare l'unico file dove ora si scrive.
+
+
 ## 2026-08-11b — combat_tracker: l'intestazione dello statblock puo' stare su due righe
 
 **SINTOMO (GM):** tre pacchetti incontro su tre, la MAPPA si importava e il MOSTRO no.

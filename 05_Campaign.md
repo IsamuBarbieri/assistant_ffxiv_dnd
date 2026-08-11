@@ -273,11 +273,11 @@ When a player wants to know more about a place, faction, culture or NPC within t
 ## 3.1 Ability score generation
 - ONLY method: **STANDARD ARRAY -> 15, 14, 13, 12, 10, 8.**
 - NO point-buy, NO dice rolling.
-- Values are assigned freely to the six abilities, then racial bonuses apply (see 01_Races).
+- Values are assigned freely to the six abilities, then racial bonuses apply (see 01 Races).
 - *Reason:* equal footing among players and predictable encounter balance.
 
 ## 3.2 Playable races (the 8 "enlightened")
-Only these 8 races are playable by PCs. The tribal races remain reserved for NPCs/monsters (see 01_Races and 04_Bestiary).
+Only these 8 races are playable by PCs. The tribal races remain reserved for NPCs/monsters (see 01 Races and 04 Bestiary).
 1. Hyur
 2. Elezen
 3. Lalafell
@@ -286,10 +286,10 @@ Only these 8 races are playable by PCs. The tribal races remain reserved for NPC
 6. Au Ra
 7. Hrothgar
 8. Viera
-Trait, subrace and name details: see file 01_Races (incl. Naming Appendix: Miqo'te / Roegadyn / Xaela / Garlean).
+Trait, subrace and name details: see 01 Races (incl. Naming Appendix: Miqo'te / Roegadyn / Xaela / Garlean).
 
 ## 3.3 Choosing the Job (from level 1)
-- You start as a FULL JOB from level 1: no intermediate "base class" phase. Follow the homebrew manual (02_Classes).
+- You start as a FULL JOB from level 1: no intermediate "base class" phase. Follow the homebrew manual (02 Classes).
 - AVAILABLE JOBS: 22 in total. The wide choice makes multiclassing pointless.
 - NO classic MULTICLASSING: a PC is a single Job.
 - NO DUPLICATES in the party: only one Paladin, one White Mage, etc.
@@ -322,7 +322,7 @@ The background is built TOGETHER, with the assistant, during Session 0 (full pro
 
 ## Character creation checklist
 - [ ] Abilities assigned with Standard Array (15,14,13,12,10,8)
-- [ ] Race chosen from the 8 playable + bonuses applied (01_Races)
+- [ ] Race chosen from the 8 playable + bonuses applied (01 Races)
 - [ ] Job chosen (full from lvl 1), no duplicate in the party
 - [ ] Party with at least 1 Tank + 1 Healer
 - [ ] Coherent background built with the assistant (Ch. 2.2)
@@ -551,13 +551,13 @@ LB3 MAGICAL (AoE, guaranteed full - no save) - lvl 17-20: ~72 to EACH target in 
 - LB3: White Mage (WHM) Pulse of Life | Scholar (SCH) Angel Feathers | Astrologian (AST) Astral Stasis | Sage (SGE) Techne Makre
 
 **PHYSICAL MELEE** - LB1: Braver | LB2: Bladedance
-- LB3: Monk (MNK) Final Heaven | Dragoon (DRG) Dragonsong Dive | Ninja (NIN) Chimatsuri | Samurai (SAM) Doom of the Living | Reaper (RPR) The End | (Viper: see 02_Classes)
+- LB3: Monk (MNK) Final Heaven | Dragoon (DRG) Dragonsong Dive | Ninja (NIN) Chimatsuri | Samurai (SAM) Doom of the Living | Reaper (RPR) The End | (Viper: see 02 Classes)
 
 **PHYSICAL RANGE** - LB1: Big Shot | LB2: Desperado
 - LB3: Bard (BRD) Sagittarius Arrow | Machinist (MCH) Satellite Beam | Dancer (DNC) Crimson Lotus
 
 **MAGICAL** - LB1: Skyshard | LB2: Starstorm
-- LB3: Black Mage (BLM) Meteor | Summoner (SMN) Teraflare | Red Mage (RDM) Vermilion Scourge | (Pictomancer/Blue Mage: see 02_Classes)
+- LB3: Black Mage (BLM) Meteor | Summoner (SMN) Teraflare | Red Mage (RDM) Vermilion Scourge | (Pictomancer/Blue Mage: see 02 Classes)
 
 # CHAPTER 7 — THE 6 CRYSTALS OF LIGHT
 NARRATIVE SIDE of the crystals (the mechanical/chronological part is in Ch. 5).
@@ -1302,7 +1302,7 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | TELEGRAPH / MECHANICS | boss moves announced the round before, with a counter. | Ch. 9 |
 | TEMPERED / TEMPERING | (scientific) = Enthralled/Enthrallment. | Ch. 4 |
 | TRIAL | a single boss with mechanics, faithful to the original. | Ch. 10.7 |
-| BEAST TRIBES | non-human peoples (NPCs/monsters) who summon the Primals. | Ch. 2 (01_Races, 04_Bestiary) |
+| BEAST TRIBES | non-human peoples (NPCs/monsters) who summon the Primals. | Ch. 2 (01 Races, 04 Bestiary) |
 | TRINITY | the Tank / Healer / DPS balance. | Ch. 2 / 3 |
 | WIPE | all Downed: encounter reset (spent consumables stay spent), justified by the Echo. | Ch. 18 (lore in 4) |
 

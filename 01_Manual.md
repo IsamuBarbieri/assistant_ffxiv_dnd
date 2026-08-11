@@ -1,10 +1,13 @@
-# 01_MANUAL — Razze, Job, Incantesimi, Bestiario (quattro manuali in un file)
-GENERATO da build_manual.py — non modificare a mano: la sorgente sono 01/02/03/04.
-Ogni manuale e' una PARTE. I titoli che comparivano identici in due manuali portano un
-suffisso di parte, perche' due sezioni omonime nello stesso file non sono distinguibili
-in fase di recupero.
+# 01_MANUAL — Razze, Job, Incantesimi, Bestiario
+Version m2.00 | Quattro manuali in un file solo: questa e' la SORGENTE, non un derivato.
 
+Ogni manuale e' una PARTE numerata — 01 Razze · 02 Job e Classi · 03 Incantesimi · 04 Bestiario — e i
+riferimenti sparsi negli altri file usano QUEL numero (`01`, `02`, `03`, `04`), che qui identifica la
+parte. I titoli che comparivano identici in due manuali portano un suffisso (`— Job`, `— Incantesimi`):
+due sezioni omonime nello stesso file non sarebbero distinguibili in fase di recupero.
 
+Contenuto stabile: sono regole di manuale, gia' corrette e validate. Le aggiunte future vanno DENTRO la
+parte che le riguarda.
 
 # PARTE 01 — RAZZE
 
@@ -3465,7 +3468,7 @@ A Chocobo trained for battle gains: +1 Hit Die of HP; the Multiattack action (on
 - AC 15 (natural) | HP 75 (10d10+20) | Speed 9 m walk, 9 m fly | CR 8 (3,900 XP)
 - STR 18(+4) DEX 17(+3) CON 14(+2) INT 16(+3) WIS 15(+2) CHA 16(+3)
 - Saving Throws DEX +6, CON +5 | Skills Acrobatics +6, Athletics +7 | Damage Resistances nonmagical b/p/s, lightning | Condition Immunities paralyzed | Senses passive Perception 12 | Languages —
-- Lightning Absorption (lightning damage heals it instead). Magic Weapons. Innate Spellcasting (INT, DC 14, +6): At Will Aero II (*Aerora, see 03_Spells).
+- Lightning Absorption (lightning damage heals it instead). Magic Weapons. Innate Spellcasting (INT, DC 14, +6): At Will Aero II (*Aerora, see Part 03).
 - Actions — Multiattack: 3 Talons. Talon: +7, reach 1.5 m, 13 (2d8+4) slashing. Bombination (Recharge 5–6): point within 36 m, 6 m radius sphere, DC 16 Dexterity save, 4d6 lightning and Slow until end of its next turn (half, no slow). (Credit: Jotunn-Bane.)
 
 ## Genus: Yol
@@ -3650,7 +3653,7 @@ A 90 m radius, 150 m tall cylinder of raging dark winds. Center = the eye of the
   - **Call Followers (1/Day):** summon a Wavespine and a Wavetooth Sahagin within 18 m (own initiative, Leviathan's allies).
 - Legendary Actions (3): Scale Darts (one attack). Water Spout (2 Actions). Summon Wave Spume (2 Actions; within 18 m, own initiative).
 - Mythic Actions (while Call of the Depths active): Briny Darts (ranged +10, range 9/18 m, 15 (2d10+5) piercing; on a hit DC 18 Constitution save or wounded — 11 (2d10) acid at end of each of its turns, re-save to end). Spiral Dive (3 Actions): move up to swim speed in a straight line (usable for walk/fly here), no opportunity attacks; creatures in the path make a DC 19 Dexterity save, 42 (12d6) bludgeoning + pushed to the end (half, no push). (Credit: Yamil.)
-- Note: Wavespine/Wavetooth Sahagin statblocks are in the SPOKEN — Sahagin section (04_Bestiary).
+- Note: Wavespine/Wavetooth Sahagin statblocks are in the SPOKEN — Sahagin section of this part.
 
 ### Wave Spume — Small elemental, unaligned
 - AC 13 (natural) | HP 22 (4d6+8) | Speed 6 m fly (hover), 9 m swim | CR 1 (200 XP)
