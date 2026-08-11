@@ -1492,6 +1492,24 @@
     const SB_HEADER = /^[\s>*#_-]*(.{2,90}?)(?:\s*[—–]\s*|\s+-\s+)((?=[^\n]*\b(?:minuscol|piccol|medi|grand|enorm|mastodontic))(?=[^\n]*\bCA\s*\d+)(?=[^\n]*\bPF\s*\d+)[^\n]*)$/i;
     function cleanMonsterName(raw) { return raw.replace(/\*+/g, '').replace(/\s*\([^)]*\)\s*$/, '').trim(); }
 
+    // Il modello a volte spezza l'intestazione dello statblock su due righe: il nome da solo e,
+    // sotto, "Taglia · CA x · PF y · Vel". SB_HEADER le vuole su una riga sola, quindi qui le
+    // ricuciamo prima di analizzare. Tolleranza in input: quell'output era completo, cambiava un a capo.
+    const SB_STATS_LINE = /^[\s>*#_-]*(?=[^\n]*\b(?:minuscol|piccol|medi|grand|enorm|mastodontic))(?=[^\n]*\bCA\s*\d+)(?=[^\n]*\bPF\s*\d+)[^\n]*$/i;
+    const SB_NOT_A_NAME = /\bCA\s*\d+|\bPF\s*\d+|^[\s>*#_-]*(Arena|Tipo|Dimensioni|Elementi|Tattica|Nemici|Difficolt|Innesco|Bottino|Azioni|Tratti|Reazioni|Multiattacco|Telegrafo|Da leggere|Descrizione|Prove|Conseguenze|Fallimento|Indizi|Soluzione|Enigma)/i;
+    function joinSplitStatblockHeaders(text) {
+        const lines = text.split("\n"); const out = [];
+        for (let i = 0; i < lines.length; i++) {
+            const cur = lines[i], next = lines[i + 1];
+            const bareName = cur && cur.trim().length > 1 && cur.trim().length <= 90
+                && !SB_HEADER.test(cur) && !SB_STATS_LINE.test(cur) && !SB_NOT_A_NAME.test(cur);
+            if (bareName && next && SB_STATS_LINE.test(next)) {
+                out.push(cur.replace(/\*+/g, "").trim() + " \u2014 " + next.trim()); i++;
+            } else { out.push(cur); }
+        }
+        return out.join("\n");
+    }
+
     function findStatblockHeaders(text) {
         const out = []; let pos = 0;
         text.split('\n').forEach(line => { const m = SB_HEADER.exec(line); if (m && cleanMonsterName(m[1])) out.push({ name: cleanMonsterName(m[1]), rest: m[2], index: pos }); pos += line.length + 1; });
@@ -1500,6 +1518,7 @@
 
     function processImport() {
       let text = document.getElementById("importTextarea").value.trim(); if (!text) return;
+      text = joinSplitStatblockHeaders(text);
       const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster);
       
       let titleMatch = text.match(/Pacchetto Incontro:\s*\**\s*([^\n]+)/i); let title = titleMatch ? titleMatch[1].replace(/\*+/g, '').trim() : "Nuovo Scontro";

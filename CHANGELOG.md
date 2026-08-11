@@ -1,5 +1,33 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-11b — combat_tracker: l'intestazione dello statblock puo' stare su due righe
+
+**SINTOMO (GM):** tre pacchetti incontro su tre, la MAPPA si importava e il MOSTRO no.
+
+**CAUSA.** `SB_HEADER` pretende nome + trattino + taglia + CA + PF **sulla stessa riga fisica**. Il
+modello ha scritto il nome su una riga e `Grande · CA 13 · PF 45 (6d10+12) · Vel 6 m` su quella dopo,
+senza trattino: zero header trovati, zero statblock. La mappa funzionava perche' `parseArenaSection`
+e' indipendente e legge una lista etichettata, che e' una forma molto piu' robusta.
+
+**CORRETTO IL TRACKER, NON IL CORPUS.** Da una parte c'e' codice deterministico, dall'altra un
+generatore probabilistico che tre settimane di test hanno dimostrato difficile da inchiodare a una
+stringa esatta — e l'intestazione su riga unica e' la forma piu' fragile dell'intero contratto
+(nome + trattino + taglia + CA + PF, tutto insieme). L'output era **semanticamente completo**:
+cambiava un a capo. Tolleranza in input, rigore in output.
+
+`joinSplitStatblockHeaders()` ricuce nome e riga-statistiche prima dell'analisi, con due guardie
+(`SB_STATS_LINE`, `SB_NOT_A_NAME`) perche' non agganci Arena, Bottino, Tattica o prosa qualunque.
+Il contratto nelle istruzioni resta invariato: la riga unica e' ancora la forma richiesta, il tracker
+ora accetta anche quella spezzata. **Otto casi di prova, 8/8** (quattro che deve trovare, compresa la
+run reale, e quattro che non deve).
+
+**NOTA DI METODO:** la prima applicazione della patch ha corrotto le regex — `` diventato un
+backspace, `
+` un a capo vero, doppio livello di escape. Il file e' rimasto rotto finche' non l'ho
+riletto **byte per byte** invece che a occhio. Su un file di codice, dopo una patch scritta da script,
+il controllo non e' opzionale.
+
+
 ## 2026-08-11 — IL CONTRATTO D'OUTPUT SALE NELLE ISTRUZIONI; 06b CANCELLATO
 
 **PRIMO TEST SU GPT (OpenAI Projects, 5 file, 01_Manual).** Dispatch **4/4 al primo colpo** —

@@ -1,0 +1,421 @@
+/carica
+
+=== SAVE ===
+
+Sessione: 6
+
+
+
+[A] POSIZIONE MSQ
+
+    - Missione MSQ corrente (EN): Into the Beast's Maw
+
+    - Ultimo step completato: ottenuto da Bloisirant il permesso di entrare nelle Mille Fauci di Toto-Rak
+
+
+
+[B] PARTY
+
+    - Numero PG: 4
+
+    - Livello: 4
+
+
+
+[C] SUBQUEST ATTIVA
+
+    - Subquest attiva: nessuna
+
+
+
+=== FINE SAVE ===
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Save caricato: Sessione: 6 · Numero PG: 4 · Livello: 4
+Il gruppo si trova dinanzi all'ingresso delle Mille Fauci di Toto-Rak nel Bosco del Sud, dopo aver ottenuto da Bloisirant il permesso di accedere alla prigione abbandonata.
+Prossimo step wiki: entrare nelle Mille Fauci di Toto-Rak e salvare l'anziano Frixio.
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Into the Beast's Maw · Mille Fauci di Toto-Rak (Parte 1)]
+(Dungeon · ~45-60 min)
+
+[Info GM — Boss del duty: Coeurl a Nove Code (mini-boss, incontrato 2 volte) · Graffias (boss finale)]
+
+L'ingresso nelle prigioni di Gelmorra
+Superato il posto di guardia di Bloisirant, avanzate lungo il sentiero infangato che sprofonda nel cuore del Bosco del Sud (South Shroud). Gli alberi secolari si infittiscono finché la luce del sole non diventa un ricordo, sostituita dalla foschia bluastra della foresta. Dinanzi a voi si spalanca la bocca di pietra lavorata delle Mille Fauci di Toto-Rak: un'antica prigione sotterranea edificata dall'antica civiltà di Gelmorra, rimasta abbandonata per decenni e ora completamente invasa dalla vegetazione sotterranea e dalle creature delle tenebre.
+
+🖼️ Immagine: Mille Fauci di Toto-Rak
+🗺️ Mappa: Mille Fauci di Toto-Rak
+🎵 Musica (Ambiente): A Thousand Screams
+
+Da leggere ai PG:
+Varcate l'imponente portale d'ingresso, lasciandovi alle spalle il fruscio delle foglie del bosco. L'aria diventa gelida, stagna e carica di un odore acuto di vegetazione marcia e muffa. I corridoi di pietra squadrata sono avvolti nell'oscurità, spezzata solo dai bagliori verdastri di licheni luminescenti che ricoprono le pareti. Radici spesse quanto cavi d'acciaio hanno divelto le antiche grate di ferro e spaccato la pavimentazione, trasformando le celle di detenzione in un intricato labirinto naturale. Avanzando tra le ombre, sentite il gocciolio costante dell'acqua e un sibilo viscido che proviene dalle profondità della struttura.
+
+Primo Incontro: Il primo guardiano del cunicolo
+Avanzando lungo il primo snodo sotterraneo, giungete in una vasta camera di intercapedine dove il pavimento è sprofondato, rivelando una pozza di fanghiglia stagnante. Al centro della cavità, un enorme bulbo vegetale si solleva lentamente dal fango, spalancando le sue fauci dentate.
+
+🖼️ Immagine: Coeurl a Nove Code
+🎵 Musica (Scontro): A Fine Death
+
+Pacchetto Incontro: Il primo guardiano del cunicolo
+Difficoltà: Facile
+Nemici: Coeurl a Nove Code ×1
+
+Da leggere ai PG:
+Il fango al centro della camera sussulta rumorosamente. Dalla fanghiglia emerge un colossale bulbo vegetale, avvolto da spessi tentacoli foliacei che frustano l'aria con violenza. La pianta si erge spalancando la fauce centrale ricoperta di aculei rocciosi e inizia a rilasciare una fitta nube di spore tossiche che satura la caverna, sbarrandovi il passaggio verso le sezioni inferiori.
+
+Arena
+Tipo: Caverna Irregolare
+Dimensioni: 12 × 12
+Elementi:
+
+Macerie
+
+Radici
+
+Muffa
+
+Tattica: Il Coeurl a Nove Code sfrutta la propria mole per bloccare l'accesso al corridoio. Tenta di tenere i PG ingaggiati a distanza ravvicinata con le sue frustate foliacei e accumula spore per colpire con un cono tossico telegrafato.
+
+Coeurl a Nove Code
+Grande · CA 13 · PF 45 (6d10+12) · Vel 6 m
+
+FOR 16 (+3) · DES 12 (+1) · COS 14 (+2) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+TS: COS +4
+Resistenze: veleno (danni)
+Immunità: avvelenato (condizioni)
+Sensi: vista cieca 18 m, Percezione passiva 11
+GdS 2
+
+Descrizione visiva: Un colossale bulbo vegetale rigonfio e nerastro, cinto da spessi tentacoli foliacei simili a fruste e da una gran quantità di fauci carnivore minori ricoperte di linfa acida.
+
+Tratti
+Natura Radicata. Il Coeurl a Nove Code ha vantaggio ai tiri di salvezza per evitare di essere spinto o abbattuto a terra.
+
+Azioni
+Multiattacco. Il Coeurl a Nove Code compie due attacchi con Frustata Foliacea.
+
+Frustata Foliacea. Mischia: +5 al tiro per colpire, portata 3 m, un bersaglio. Colpisce: 8 (1d8 + 3) danni contundenti.
+
+Spruzzo di Spore Tossiche.
+Telegrafo: Il bulbo vegetale si rigonfia visibilmente ed emette un sibilo acuto, accumulando una linfa verdastra sui petali (1 round di preavviso).
+I PG situati nell'area di un cono di 4,5 m davanti alla pianta devono effettuare un tiro di salvezza su Costituzione CD 12. Se lo falliscono, subiscono 9 (2d8) danni da veleno e sono avvelenati per 1 minuto. Se lo superano, subiscono la metà dei danni e non rimangono avvelenati. Un PG avvelenato può ripetere il tiro di salvezza alla fine di ciascuno dei suoi turni, terminando l'effetto su di sé in caso di successo.
+
+Bottino
+Bottino: 45 gil; parte vendibile: bulbo di pianta carnivora (15 gil)
+
+Interludio 1: Enigma — Il primo meccanismo di Gelmorra
+🎵 Musica (Ambiente): A Thousand Screams
+
+Sconfitto il guardiano vegetale, la via verso i livelli inferiori resta ostruita da un pesante portale di pietra intagliata e ferro arrugginito.
+
+Da leggere ai PG:
+Oltre i resti della pianta abbattuta, il corridoio conduce a un grande portale ad arco incassato nella roccia. La superficie di pietra porta incise antiche rune gelmorrane ormai prive di energia eterica. Al centro della porta si erge un piedistallo di pietra con incanalature di rame ossidato che penetrano nella muratura. Il passaggio è ermeticamente sigillato.
+
+Enigma per i PG:
+Sul piedistallo centrale vi è un terminale litico con tre cavità circolari scolpite. Da ciascuna cavità parte un canale di rame che corre lungo il pavimento fino ad agganciarsi a contrappesi di ferro sospesi al soffitto, bloccati da un fitto intrico di radici secche. Accanto al piedistallo si erge una piccola fonte d'acqua eterica stagnante che emette un debole chiarore azzurrino.
+
+Soluzione (GM):
+Per sbloccare il portale la squadra deve convogliare l'etere azzurrino della fonte nelle tre cavità del terminale. Ci sono almeno tre approcci concreti per farlo:
+
+Incanalamento Diretto: Rimuovere le radici secche dai contrappesi e versare l'acqua eterica della fonte direttamente nelle incanalature del piedistallo.
+
+Manipolazione Magica: Utilizzare un incantesimo d'acqua, di fulmine o di forza per attivare la conduzione lungo i canali di rame e risvegliare le rune.
+
+Sforzo Meccanico: Forzare i contrappesi di ferro incastrati tra le radici con attrezzi o leve per azionare manualmente i pistoni della porta.
+
+Indizi:
+
+CD Facile (10) — Natura / Indagare: Le radici che avvolgono i contrappesi al soffitto sono secche e infiammabili o facili da tranciare; liberandole, i contrappesi tornerebbero a scorrere.
+
+CD Media (15) — Arcani / Storia: I canali di rame servivano a condurre la carica eterica contenuta nell'acqua sorgiva verso i sigilli runici della porta.
+
+CD Difficile (20) — Percezione / Indagare: La cavità centrale del piedistallo contiene una valvola d'arresto in ottone: azionandola prima di versare l'acqua, l'etere fluisce contemporaneamente in tutti e tre i canali senza disperdersi.
+
+Fallimento:
+Se i PG tentano un'azione errata o falliscono la prova di abilità, il meccanismo accumula una scossa eterica residua: una scarica d'etere colpisce chi sta manipolando il piedistallo, infliggendo 4 (1d7) danni da fulmine (danno leggero) prima che il portale infine si apra lentamente sobbalzando sui binari.
+
+Secondo Incontro: Lo scontro nella galleria allagata
+Discesa la scalinata di pietra oltre il portale, la squadra entra in un lungo cunicolo di passaggio parzialmente allagato dove l'acqua arriva alle caviglie. Un secondo Coeurl a Nove Code emerge improvvisamente dalle tenebre della galleria.
+
+🎵 Musica (Scontro): A Fine Death
+
+Pacchetto Incontro: Lo scontro nella galleria allagata
+Difficoltà: Facile
+Nemici: Coeurl a Nove Code ×1
+
+Da leggere ai PG:
+La galleria di pietra si stringe e il pavimento scompare sotto uno strato d'acqua stagnante e fango nero. Il costante gocciolio dal soffitto viene interrotto da un tonfo sordo: una seconda pianta carnivora si cala dalle radici della volta, ostruendo completamente il passaggio stretto. Il mostro frusta l'acqua con i suoi tentacoli, alzando spruzzi melmosi nell'oscurità.
+
+Arena
+Tipo: Galleria
+Dimensioni: 6 × 18
+Elementi:
+
+Acqua
+
+Fango
+
+Radici
+
+Tattica: La creatura sfrutta lo spazio stretto della galleria per impedire ai PG di aggirarla. L'acqua alle caviglie rende il terreno faticoso per chi tenta di scavalcare le radici.
+
+Coeurl a Nove Code
+Grande · CA 13 · PF 45 (6d10+12) · Vel 6 m
+
+FOR 16 (+3) · DES 12 (+1) · COS 14 (+2) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+TS: COS +4
+Resistenze: veleno (danni)
+Immunità: avvelenato (condizioni)
+Sensi: vista cieca 18 m, Percezione passiva 11
+GdS 2
+
+Descrizione visiva: Un colossale bulbo vegetale rigonfio e nerastro, cinto da spessi tentacoli foliacei simili a fruste e da una gran quantità di fauci carnivore minori ricoperte di linfa acida.
+
+Tratti
+Natura Radicata. Il Coeurl a Nove Code ha vantaggio ai tiri di salvezza per evitare di essere spinto o abbattuto a terra.
+
+Azioni
+Multiattacco. Il Coeurl a Nove Code compie due attacchi con Frustata Foliacea.
+
+Frustata Foliacea. Mischia: +5 al tiro per colpire, portata 3 m, un bersaglio. Colpisce: 8 (1d8 + 3) danni contundenti.
+
+Spruzzo di Spore Tossiche.
+Telegrafo: Il bulbo vegetale si rigonfia visibilmente ed emette un sibilo acuto, accumulando una linfa verdastra sui petali (1 round di preavviso).
+I PG situati nell'area di un cono di 4,5 m davanti alla pianta devono effettuare un tiro di salvezza su Costituzione CD 12. Se lo falliscono, subiscono 9 (2d8) danni da veleno e sono avvelenati per 1 minuto. Se lo superano, subiscono la metà dei danni e non rimangono avvelenati. Un PG avvelenato può ripetere il tiro di salvezza alla fine di ciascuno dei suoi turni, terminando l'effetto su di sé in caso di successo.
+
+Bottino
+Bottino: 50 gil; parte vendibile: linfa vegetale viscosa (20 gil)
+
+Interludio 2: Prova — L'attraversamento del ponte di radici
+🎵 Musica (Ambiente): A Thousand Screams
+
+Eliminato il secondo guardiano, la galleria sbuca su una voragine sotterranea che separa la prima sezione della prigione dal blocco di detenzione principale.
+
+Da leggere ai PG:
+La galleria termina sul ciglio di un crepaccio profondo, dal cui fondo si ode il gorgoglio di acque sotterranee. L'unico passaggio verso la porta dell'isolamento è formato dagli intrecci di imponenti radici di pino silvestre che sono cresciute attraverso le pareti spaccate, formando un ponte naturale stretto e scivoloso ricoperto di muffa umida.
+
+Prove:
+Per attraversare il baratro la squadra può scegliere diversi approcci:
+
+Atletica / Acrobazia (CD 12): Camminare in equilibrio lungo l'intricato ponte di radici evitando i punti scivolosi.
+
+Sopravvivenza / Percezione (CD 10): Individuare gli snodi di radici più soldi e asciutti su cui poggiare i piedi in sicurezza.
+
+Uso di Attrezzi / Cordami (CD 10): Fissare una fune da arrampicata ai sostegni di ferro della parete per assicurare la traversata a tutto il gruppo.
+
+Conseguenze:
+Superata la gola, la squadra raggiunge la soglia dell'ampia anticamera di detenzione finale dove l'aria diventa ancora più pesante.
+
+Fallimento:
+In caso di fallimento della prova, un PG scivola sulla muffa bagnata e rimane sospeso al bordo della radice prima di essere tirato su dai compagni, subendo 3 (1d6) danni contundenti per l'impatto contro la roccia.
+
+Prossimo beat: L'apparizione di Lahabrea, lo scontro finale con Graffias, la visione dell'Eco e il salvataggio dell'anziano Frixio (Parte 2).
+
+⚔️ Rif. gruppo: 4 PG · Lv 4
+[Info GM] prosegue Into the Beast's Maw; prossimo step wiki: affrontare Graffias e salvare Frixio
+
+— Fine parte 1 —
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Into the Beast's Maw · Mille Fauci di Toto-Rak (Parte 2)]
+(Dungeon · ~30-45 min)
+
+[CUTSCENE IN SCENA] — L'apparizione di Lahabrea
+Superato il crepaccio lungo l'intreccio di radici, il gruppo varca la soglia della giunzione centrale di Gelmorra, entrando nella solenne Camera dell'Abacinazione. L'aria qui è così densa da sembrare solida, impregnata di un'energia eterica oscura che fa vibrare la roccia sotto i vostri piedi.
+
+🖼️ Immagine: Lahabrea
+🎵 Musica: Without Shadow
+
+Da leggere ai PG:
+Al centro dell'ampia sala circolare, sospesa a mezzo metro dal suolo bagnato, una figura avvolta in una veste nera con cappuccio galleggia nell'ombra. Sul suo volto privo di lineamenti si accende d'improvviso un bagliore rosso sangue: una maschera eterica dalle forme arcaiche che brilla nell'oscurità.
+
+La figura vi osserva in silenzio per qualche secondo, poi una voce profonda, glaciale ed echeggiante rimbomba nelle vostre menti.
+
+«Così, i cosiddetti eroi che hanno domato la furia di Ifrit sono giunti fin qui. Siete solo un'irritante anomalia nell'etere... ma il vostro viaggio finisce tra queste mura.»
+
+Il personaggio solleva una mano guantata verso la parete di fondo, dove spessi sigilli di ferro e radici trattengono una cavità oscura.
+
+«Io sono Lahabrea degli Ascian, servitore dell'unico vero dio. Questo mondo appartiene alle tenebre, e voi non ne vedrete l'alba.»
+
+Con un gesto secco, una scarica di etere nero investe i sigilli, spezzandoli con uno schianto metallico. Il terreno trema violentemente mentre Lahabrea svanisce in una nebbia di ombre, lasciandovi soli dinanzi al mostro che si risveglia dalla tana.
+
+Il Boss Finale: Graffias
+Dalla cavità spalancata emerge una creatura colossale: uno spaventoso aracnide corazzato ricoperto di aculei e muco acido, le cui chele sbattono furiosamente sollevando spruzzi di melma verde.
+
+🖼️ Immagine: Graffias
+🗺️ Mappa: Mille Fauci di Toto-Rak
+🎵 Musica: Nemesis
+
+Pacchetto Incontro: Il guardiano delle profondità — Graffias
+Difficoltà: Difficile
+Innesco: Lahabrea infrange i sigilli di Gelmorra con l'etere oscuro, risvegliando la creatura e spingendola all'attacco.
+Nemici: Graffias ×1
+
+Da leggere ai PG:
+La colossale creatura aracnide balza al centro della stanza, piantando le zampe chitinose nel fango. Dalla sua coda uncinata gocciola una linfa violacea che fonde la pietra al solo contatto, mentre dai bozzoli carnosi incastrati nelle pareti iniziano a trasudare spore acide. Il mostro spalanca le sue chele imponenti ed emette un sibilo stridulo che fa tremare la volta della caverna.
+
+Arena
+Tipo: Struttura Circolare
+Dimensioni: 16 × 16
+Elementi:
+
+Acido/Tossina
+
+Macerie
+
+Radici
+
+Trappola
+
+Tattica: Graffias sfrutta la sua stazza per dominare l'arena circolare. Nel primo stadio dello scontro attacca con le sue chele e la Puntura di Velenocoda. Raggiunto il 50% dei PF (o se la coda viene distrutta dai PG con attacchi mirati), il mostro perde la spina caudale ma inizia a far esplodere le pozze acido-tossiche nell'arena (Eruzione di Melma Acida) e attiva i bozzoli carnosi lungo le pareti.
+
+Graffias
+Grande · CA 14 · PF 90 (12d10+24) · Vel 9 m
+
+FOR 16 (+3) · DES 14 (+2) · COS 14 (+2) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+TS: DES +4, COS +4
+Resistenze: veleno (danni)
+Immunità: avvelenato (condizioni)
+Sensi: vista cieca 18 m, Percezione passiva 11
+GdS 4
+
+Descrizione visiva: Un colossale aracnide acido dalla corazza chitinosa verdastra, dotato di chele possenti e di una coda uncinata che gocciola linfa corrosiva.
+
+Tratti
+Coda di Graffias (Coda Distruttibile). La coda di Graffias possiede 25 PF dedicati. Se i PG concentrano i propri attacchi sulla coda e la riducono a 0 PF (o quando Graffias scende al di sotto del 50% dei suoi PF totali), la coda viene tranciata: Graffias perde permanentemente l'azione Puntura di Velenocoda.
+
+Azioni
+Multiattacco. Graffias compie un attacco con Chele e un attacco con Schianto Acido.
+
+Chele. Mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpisce: 10 (2d6 + 3) danni taglienti.
+
+Schianto Acido. Mischia: +5 al tiro per colpire, portata 3 m, un bersaglio. Colpisce: 8 (1d10 + 3) danni contundenti più 4 (1d7) danni da acido.
+
+Puntura di Velenocoda.
+Telegrafo: La coda di Graffias si solleva trepidante sopra la corazza e accumula una goccia di veleno violaceo (1 round di preavviso).
+Mischia: +5 al tiro per colpire, portata 4,5 m, un bersaglio. Colpisce: 12 (2d8 + 3) danni perforanti e il bersaglio deve effettuare un tiro di salvezza su Costituzione CD 12. Se lo fallisce, subisce 9 (2d8) danni da veleno ed è avvelenato per 1 minuto. Un PG avvelenato può ripetere il tiro di salvezza alla fine di ciascuno dei suoi turni, terminando l'effetto su di sé in caso di successo.
+
+Eruzione di Melma Acida.
+Telegrafo: Graffias conficca la coda nel terreno o percuote la pavimentazione, facendo ribollire il fango circostante (1 round di preavviso).
+I PG situati in tre aree circolari di 3 m di raggio devono effettuare un tiro di salvezza su Destrezza CD 12. Se lo falliscono, subiscono 11 (2d10) danni da acido; se lo superano, subiscono la metà dei danni. Le aree colpite diventano pozze di fango acido fino al termine dello scontro (un PG che entra in una pozza o vi inizia il turno subisce 3 (1d6) danni da acido).
+
+Nemici Aggiuntivi / Trappole nell'Arena
+Bozzoli Carnosi (Fleshy Pods) — Tre bozzoli vegetali incastrati lungo le pareti (CA 10, PF 10). Se subiscono danni o se un PG si avvicina a meno di 1,5 m da uno di essi, il bozzolo esplode rilasciando spruzzi di linfa acida: tutti i PG entro 3 m devono effettuare un tiro di salvezza su Destrezza CD 11, subendo 7 (2d6) danni da acido in caso di fallimento, o la metà in caso di successo.
+
+Bottino
+Bottino: 120 gil; parti vendibili: guscio chitinoso rigido (45 gil), ghiandola velenosa integro (50 gil).
+
+Equipaggiamento Speciale (3 pezzi per il gruppo):
+
+Cinghia del Veleno di Graffias — Non-comune (~350 gil) · richiede sintonia.
+Cintura in cuoio rinforzata con scaglie di chiting verdastra (Ruolo: Tank / Mischia). Concede +1 ai tiri di salvezza su Costituzione. Una volta per riposo lungo, quando l'utilizzatore colpisce un bersaglio con un attacco con arma da mischia, può infondere la lama con veleno: la creatura colpita deve effettuare un tiro di salvezza su Costituzione CD 12 o rimanere avvelenata per 1 minuto.
+
+Arco Lungo della Zanna Acida — Non-comune (~450 gil) · richiede sintonia.
+Arco lungo intagliato nel guscio ossidato del boss (Ruolo: DPS Fisico Distanza). Fornisce un bonus di +1 ai tiri per colpire e ai danni con le armi a distanza. Una volta per riposo breve, quando l'utilizzatore colpisce un bersaglio con un attacco a distanza, può infliggere 7 (2d6) danni da acido aggiuntivi.
+
+Bastone del Bulbo Rigenerativo — Non-comune (~400 gil) · richiede sintonia.
+Bastone di legno nodoso decorato con licheni luminescenti (Ruolo: Healer). Aumenta di +1 i punti ferita ripristinati da ciascun dado di guarigione delle tue magie di cura. Una volta per riposo lungo, permette di lanciare l'incantesimo Cura (1° livello) senza consumare uno slot incantesimo.
+
+[VISIONE DELL'ECO] — I segreti dei Garleani e l'Arma Finale
+Con un ultimo rantolo stridulo, Graffias crolla al suolo, dissolvendosi in un rivolo di linfa inerte. Mentre la squadra si avvicina alla cella di detenzione al fondo della camera, una scossa di energia eterica attraversa le vostre menti.
+
+🎵 Musica: The Echo
+
+Da leggere ai PG:
+La visione vi travolge contemporaneamente, sfilando dinanzi ai vostri occhi come un ricordo impresso nell'etere della caverna.
+
+⚠️ reveal protetto: l'allusione all'Arma Finale.
+
+Vedete un accampamento militare garleano immerso nella nebbia. Due ufficiali in spessa armatura magitek interrogano un ricognitore: parlano con rabbia della loro incapacità di sottomettere le tribù sylph del Bosco del Sud per costringerle a evocare la loro divinità, il Primal Ramuh.
+
+Dall'ombra delle tende emerge una figura dal volto coperto da una maschera rossa — un altro Ascian. La sua voce sussurra ai soldati garleani con fredda sicurezza: «Non angustiatevi per gli spiriti della foresta. Presto l'Arma Finale risplenderà di nuovo, ed essa renderà del tutto inoffensivi questi presunti dei...»
+
+La visione svanisce d'un tratto, lasciandovi di nuovo nella fredda pietra di Toto-Rak.
+
+[CUTSCENE IN SCENA] — Il salvataggio di Frixio e il Terzo Cristallo
+Spaccate le sbarre arrugginite della cella finale, trovate l'anziano sylph Frixio rannicchiato in un angolo, debole ma sano e salvo.
+
+🖼️ Immagine: Frixio
+🎵 Musica: Prelude - Rebirth
+
+Da leggere ai PG:
+L'anziano sylph solleva il capo foliaceo, librandosi leggermente nell'aria con un debole bagliore dorato.
+
+«Frixio vi ringrazia, coraggiosi camminatori delle strade!» esclama la creatura con la sua voce sottile, parlando di sé in terza persona. «Frixio pensava che le sue foglie sarebbero marcite in questo buco scuro. Voi avete affrontato le ombre e il mostro grande per salvare Frixio. Il popolo di Little Solace non dimenticherà mai la vostra bontà!»
+
+Frixio rovista tra i suoi rametti e trae a sé una pietra sfaccettata che emette scosse di luce azzurrina e violetta.
+
+«Prendete questo. È un dono di gratitudine da parte di Frixio e di tutti i sylph!»
+
+Non appena le vostre mani toccano la pietra, una scarica di energia pura attraversa il vostro corpo. Il cristallo risuona con la vostra anima, rivelandosi come il Cristallo della Luce del Fulmine (#3).
+
+Un'eco solenne risuona nelle vostre menti, profonda e materna:
+
+«Ascoltate... Percepite... Pensate...»
+
+*** OTTENUTO IL CRISTALLO DI LUCE DEL FULMINE (#3) ***
+
+⚔️ Rif. gruppo: 4 PG · Lv 4
+[Info GM] chiude Into the Beast's Maw; apre A Simple Gift; prossimo step wiki: consegnare l'Olio di Rosa di Azeyma a Knolexia a Little Solace
+🧭 Viaggio: diretto (Eterite) → teletrasporto all'Eterite di Camp Tranquil / Gridania, poi a piedi fino a Little Solace
+— Fine parte 2 —
+
+/chiusura
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 6 · Numero PG: 4 · Livello: 4
+
+[GIOCATO]
+
+Completata la missione MSQ "Into the Beast's Maw":
+
+Esplorato il dungeon delle Mille Fauci di Toto-Rak e affrontati i Coeurl a Nove Code.
+
+Superati gli enigmi e i passaggi del complesso sotterraneo di Gelmorra.
+
+Assistito all'apparizione di Lahabrea degli Ascian e sconfitto il boss finale Graffias.
+
+Ottenuta la visione dell'Eco (rivelazione sull'Arma Finale dei Garleani).
+
+Tratto in salvo l'anziano sylph Frixio e ottenuto il Cristallo di Luce del Fulmine (#3).
+
+[DA CONFERMARE]
+
+Nessun evento ambiguo.
+
+Ultimo evento giocato: Sconfitto Graffias, assistito alla visione dell'Eco e tratto in salvo Frixio nelle Mille Fauci di Toto-Rak (completata "Into the Beast's Maw").
+
+Pronto per il salvataggio: usa /salva.
+
+/salva
+
+Campagna - FFXIV D&D
+Gem personalizzato
+=== SAVE ===
+Sessione: 7
+
+[A] POSIZIONE MSQ
+- Missione MSQ corrente (EN): Into the Beast's Maw
+- Ultimo step completato: sconfitto Graffias, assistito alla visione dell'Eco e tratto in salvo Frixio nelle Mille Fauci di Toto-Rak (completata Into the Beast's Maw)
+
+[B] PARTY
+- Numero PG: 4
+- Livello: 4
+
+[C] SUBQUEST ATTIVA
+- Subquest attiva: nessuna
+
+=== FINE SAVE ===
+Sessione 6->7; avanzata e completata la missione MSQ Into the Beast's Maw (sconfitto Graffias, ottenuti visione dell'Eco e Cristallo del Fulmine #3, tratto in salvo Frixio).
