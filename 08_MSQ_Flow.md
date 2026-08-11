@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.42 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.44 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -84,7 +84,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **SPECIFICS:** all 6 elemental crystals are collected across ARR, sealed at L8 end (see Blessing of Light block above). No Enthrallment mechanic in ARR. Revamped-duty lock: see the ARR REVAMPED-DUTY LOCK block above (Toto-Rak, Castrum Meridianum, The Praetorium, Cape Westwind, Steps of Faith).
 
 #### L1 — The Echo awakens
-- VISIONE DELL'ECO: cold-open SHARED Echo vision on the arrival journey (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); hits the WHOLE party — this is the precedent that fixes the party-wide default; NO burning dragon (Ch.1.7).
+- VISIONE DELL'ECO: SHARED Echo vision inside the arrival beat (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); hits the WHOLE party — this is the precedent that fixes the party-wide default; NO burning sky, NO star-shower, NO burning dragon (Ch.1.7). **It falls AFTER the opening fight, not on the road before it** (homebrew, Ch.1.7): the world stops, only the PCs are awake in it, and they see one another receive it.
 - **THIS PIN IS BEAT 0 OF THE CITY CHAIN, PLAYED BEFORE QUEST #1 (`Coming to <City>`), NEVER FOLDED INTO IT.** It is not a quest and has no giver or wiki step, which is exactly why it gets dropped: the 08.2 chain starts at #1 and a walker that reads only the chain never sees it. It is OWED whenever the save sits on `Coming to <City>` with an 'Ultimo step completato' that names Session 0 / the campaign start — that save state means the opening HAS NOT HAPPENED YET (05 Ch.1.7 RAG NOTE: it is played on the FIRST `/continua` after save-0 is loaded). NEVER open the campaign already ashore at the docks/gates with the vision skipped. Per-city staging: the beat-0 entries in 08.2, authoritative detail in 05 Ch.1.7.
 - GATED: the nature of the Echo and of Hydaelyn (Reveal: Eco = NO).
 
@@ -881,7 +881,7 @@ KEY SCENES:
 
 ---
 
-**Scope:** the three starting-city opening chains (levels 1-15), which run BEFORE INSTALLMENT 1. **Each chain opens at ENTRY 0 — the arrival journey + the shared Echo vision — which is NOT a quest** (no giver, no wiki step, absent from every wiki chain listing) and is therefore numbered 0 rather than 1: it is the campaign's first played beat and precedes `Coming to <City>`. See the ARR Manifest L1 pin. Name-scaffold from Gamer Escape (Level 1-15 page). **Endpoints CGW-VERIFIED** (each opener + each envoy). All opening quests are overworld (NO duties); the first dungeon (Sastasha) appears only after convergence, in INSTALLMENT 1.
+**Scope:** the three starting-city opening chains (levels 1-15), which run BEFORE INSTALLMENT 1. **Each chain opens at ENTRY 0 — the arrival journey + the shared Echo vision — which is NOT a quest** (no giver, no wiki step, absent from every wiki chain listing: it is archived ONLY as a cutscene, named `Introduction (<City>)` in Gamer Escape's `Loremonger:` dialogue namespace, one per city) and is therefore numbered 0 rather than 1: it is the campaign's first played beat and precedes `Coming to <City>`. **ALL THREE openings carry ONE pinned fight and the SAME shape** — sick waking with no dream, the peddler, the incident FOUGHT, then the vision, then arrival. The fight is the single HOMEBREW move, and it is one rule, not three inventions: *canon pushes the party out of the incident (below deck, behind the line, waved off) — here it stays in and fights.* The enemies are canon and named in the cutscene itself (pirates / Ixal / Amalj'aa). See the ARR Manifest L1 pin. Name-scaffold from Gamer Escape (Level 1-15 page). **Endpoints CGW-VERIFIED** (each opener + each envoy). All opening quests are overworld (NO duties); the first dungeon (Sastasha) appears only after convergence, in INSTALLMENT 1.
 
 ## CONVERGENCE (CGW-VERIFIED)
 - The player picks ONE starting city -> plays that city's opening chain to its ENVOY quest at L15.
@@ -890,7 +890,7 @@ KEY SCENES:
 
 ---
 ## LIMSA LOMINSA opening (Sea) — giver of #1: Ryssfloh (Yellowjacket), Limsa Lominsa
-0. **[OPENING — The Echo awakens]** the SEA CROSSING to Vylbrand, aboard ship: the shared Echo vision hits all PCs at once mid-voyage (Mothercrystal, 'Hear... Feel... Think...', plural per 07 G27; NO burning dragon), then the ship is **ASSAULTED BY PIRATES** — the campaign's FIRST Pacchetto Incontro, fought on the deck and played in full. Landfall at the Lower Decks; met by the Yellowjackets. **Of the three openings this is the ONLY one carrying a pinned fight** (05 Ch.1.7). Staging: 05 Ch.1.7.
+0. **[OPENING — The Echo awakens]** the SEA CROSSING to Vylbrand, aboard ship. Peddler **Brennan**: the PCs wake sick and sweating with NO dream, and he blames the aether. A ship runs up **PIRATE COLOURS** and opens fire, then closes and **BOARDS** — Pacchetto Incontro on the deck, played in full. **THE VISION COMES AFTER THE FIGHT, NEVER BEFORE:** the world stops and the PCs alone are awake inside it (Mothercrystal, 'Hear... Feel... Think...', plural per 07 G27; NO burning sky, NO star-shower, NO burning dragon), then time resumes and the surviving pirates pull back to their ship. Landfall at the Lower Decks; met by the Yellowjackets. Canon cutscene name: `Introduction (Limsa Lominsa)`. Staging: 05 Ch.1.7.
 1. Coming to Limsa Lominsa   [CGW Next: 'So It Begins' — minor Limsa-opener variance vs GE's 'Close to Home (Limsa Lominsa)'; both are early openers]
 2. Close to Home (Limsa Lominsa)
 3. On to Summerford `[COND: relay]`
@@ -916,7 +916,7 @@ KEY SCENES:
 23. **The Lominsan Envoy** (giver: Merlwyb, Command Room) -> Baderon -> airship to Gridania (Serpent honor guard, Nophica's Altar) -> airship to Ul'dah (Flame honor guard) -> Bartholomew (Hustings Strip) -> **Next: Call of the Sea**
 
 ## GRIDANIA opening (Forest) — giver of #1: Bertennant, New Gridania
-0. **[OPENING — The Echo awakens]** the CARRIAGE ROAD through the Black Shroud into New Gridania: the shared Echo vision hits all PCs at once mid-journey (same vision as the other two cities — Mothercrystal, 'Hear... Feel... Think...', plural per 07 G27; NO burning dragon). Arrival at New Gridania, met by the Wood Wailer Bertennant. **NO pinned fight here** — the road's pressure is the forest itself (the elementals' scrutiny of outsiders, the Wailers' escort); any incident is GM colour, never a required encounter, and it is NOT to be upgraded into one to 'match' Limsa. Staging: 05 Ch.1.7.
+0. **[OPENING — The Echo awakens]** the CARRIAGE ROAD through the Black Shroud into New Gridania. Peddler **Bremondt**: the PCs wake sick with NO dream. **THE MOOGLES** then speak to them on the road and marvel at being seen ('Normal folks can't see or hear us, kupo!') — the first outward sign of the Echo, and it comes BEFORE the vision; it lands on the WHOLE party. A Wood Wailer halts the carriage: a skirmish with the **IXAL** ahead, and canon itself sets the fight up — *'We shall hold them here! Try to break clear!'* Pacchetto Incontro: the Wailers hold the line, the party cuts through. **THE VISION COMES AFTER THE FIGHT, NEVER BEFORE** (same vision and same staging as Limsa), then the Ixal break off among the trees. Arrival at New Gridania, met by the Wood Wailer Bertennant. Canon cutscene name: `Introduction (Gridania)`. Staging: 05 Ch.1.7.
 1. Coming to Gridania   (-> Mother Miounne, Carline Canopy; register as an adventurer) -> Next: Close to Home
 2. Close to Home (Gridania)
 3. To the Bannock `[COND: relay]`
@@ -942,7 +942,7 @@ KEY SCENES:
 23. **The Gridanian Envoy** (giver: Kan-E-Senna, the Lotus Stand) -> Miounne -> airship to Ul'dah (present missive to Zanthael, Bulwark Hall) -> airship to ... -> present missive to Bartholomew (Hustings Strip) -> **Next: Call of the Sea**
 
 ## UL'DAH opening (Desert) — giver of #1: Wymond, Ul'dah - Steps of Nald
-0. **[OPENING — The Echo awakens]** the CARRIAGE CROSSING of Thanalan into Ul'dah - Steps of Nald: the shared Echo vision hits all PCs at once mid-journey (same vision as the other two cities — Mothercrystal, 'Hear... Feel... Think...', plural per 07 G27; NO burning dragon). Arrival at the Steps of Nald, met by Wymond. **NO pinned fight here** — the road's pressure is the desert and a realm still scarred by the Calamity; any incident is GM colour, never a required encounter, and it is NOT to be upgraded into one to 'match' Limsa. Staging: 05 Ch.1.7.
+0. **[OPENING — The Echo awakens]** the CARRIAGE CROSSING of Thanalan into Ul'dah - Steps of Nald. Peddler **Brendt**: the PCs wake sick with NO dream. **BRASS BLADES** stop the carriage for an 'inspection', find somnus on Brendt and squeeze him for a fine — then *'Amalj'aa! Amalj'aa! To arms!'* and the captain bolts. Pacchetto Incontro: the party is caught between corrupt guards in flight and raiding **AMALJ'AA**. Play the shakedown BEFORE the fight and never cut it — it is Ul'dah's character in one scene. **THE VISION COMES AFTER THE FIGHT, NEVER BEFORE** (same vision and same staging as Limsa), then the Amalj'aa withdraw and the Brass Blades resume running from the exact instant they froze. Arrival at the Steps of Nald, met by Wymond. Canon cutscene name: `Introduction (Ul'dah)`. Staging: 05 Ch.1.7.
 1. Coming to Ul'dah   (-> Momodi) -> Next: Close to Home
 2. Close to Home (Ul'dah)
 3. We Must Rebuild `[COND: relay]`

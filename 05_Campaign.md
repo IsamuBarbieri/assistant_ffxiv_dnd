@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.05 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.07 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -145,22 +145,33 @@ Version v2.05 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 
 **BINDING FRAME (all cities):**
 - The party is a GROUP of **Warriors of Light (plural)** — CANON: Eorzeans remember the Calamity's saviours only as several silhouettes of light, names and faces forgotten (cf. Mother Miounne's account). NEVER narrate the campaign as a single hero; every vision, scene, choice and reward addresses ALL PCs.
-- **COLD-OPEN on the arrival journey.** During the trip the **Echo / Hydaelyn's blessing** strikes **all PCs at once**. CANON VISION (verified): a **star-shower falling from a burning SKY** dissolves into a warm, blinding light and a crystalline entity (the Mothercrystal); a maternal voice sounds in their minds, in unison — the 'Hear... Feel... Think...' blessing (fixed Italian PLURAL in 07 G27). **IMPORTANT: NO burning dragon in this vision** — the burning-dragon (Bahamut) imagery belongs to the CALAMITY cinematic/backstory, NOT the personal Echo/Hydaelyn blessing. GM-only: the entity is Hydaelyn; keep it a mystery (Eco: non ancora rivelato).
-- The PCs are **STRANGERS**; the shared vision is the bond (they exchange a look and realise they all saw the same thing). Personal motives stay individual; the Echo is the collective thread that turns strangers into a party.
+- **COLD-OPEN on the arrival journey.** This sequence IS canon and it HAS a name — `Introduction (Limsa Lominsa)` / `(Gridania)` / `(Ul'dah)`, one per city — but it is a CUTSCENE, not a quest: it has no giver and appears in no wiki chain, which is why it is numbered ENTRY 0 and is missed by anything that walks the quest chain.
+- **THE ORDER OF ENTRY 0, identical in all three cities:** (1) the PCs wake on the road sick and sweating **with NO dream** — the travelling PEDDLER blames the aether, and he is WRONG, which is exactly the point; (2) the journey and the peddler's talk, including the question `Perché sei diventato un avventuriero?` put to EVERY PC in turn; (3) the INCIDENT, and it is FOUGHT; (4) **the vision, once the fight is over**; (5) arrival, with the peddler's parting gift and blessing.
+- **THE VISION LANDS AFTER THE FIGHT. This is a deliberate HOMEBREW move** — in canon it comes earlier, in sleep. The reason is structural: the vision is what turns strangers into a party, and asleep they cannot see one another receive it. STAGING: the world STOPS — blades, dust, shouts, falling bodies all hang still — and the PCs alone are awake inside it. When it releases, everything resumes from the exact instant it froze, the survivors break off, and the PCs are left looking at each other.
+- **THE STOPPED WORLD IS NARRATION, NOT A MECHANIC.** No rolls, no actions taken inside it, nothing gained or spent, and it never repeats on demand. It also keeps the secret for free: no one around perceives anything, because no one around is there to perceive it.
+- THE VISION ITSELF: a warm, blinding aetherial light with no sky and no ground, and a crystalline entity within it (the Mothercrystal); a maternal voice sounds in their minds, in unison — the 'Hear... Feel... Think...' blessing (fixed Italian PLURAL in 07 G27). **NO burning sky, NO star-shower and NO burning dragon** — that imagery is the CALAMITY cinematic (Bahamut), not the personal Echo/Hydaelyn blessing. GM-only: the entity is Hydaelyn; keep it a mystery (Eco: non ancora rivelato).
+- The PCs are **STRANGERS** until this moment; the shared vision is the bond, and now they SEE each other receive it. Personal motives stay individual; the Echo is the collective thread that turns strangers into a party.
 - After the vision → arrival → register at the **Adventurers' Guild** with the city hub NPC → first local task = the hook.
 
 **LIMSA LOMINSA** (La Noscea)
-- Arrival: by **ship/ferry**; canonically the ship is **assaulted by pirates** mid-voyage. Met by the **Yellowjackets**.
+- Arrival: by **ship** across the Rhotano Sea. Travelling peddler: **Brennan**. Met at the Lower Decks by the **Yellowjackets** (Ryssfloh).
+- INCIDENT: a ship runs up **pirate colours** and opens fire. Canon stops there — the ship outruns them and the passengers are sent belowdeck. **HOMEBREW: the pirates close and BOARD**, and the fight is on the deck. Brennan's parting line, 'by way of thanks for savin' me arse earlier', only pays off if the boarding happened.
+- Parting blessing (Llymlaen, the Navigator): *'Till sea swallows all.'*
 - Guild hub: **The Drowning Wench** — master **Baderon**.
 - MSQ opening: **Coming to Limsa Lominsa** → **Close to Home** (full ordered chain in 08.2).
 
 **GRIDANIA** (Black Shroud)
-- Arrival: by **carriage** through the forest into **New Gridania**. Met by a **Wood Wailer** (Bertennant).
+- Arrival: by **carriage** through the forest into **New Gridania**. Travelling peddler: **Bremondt**. Met at the Blue Badger Gate by the **Wood Wailer Bertennant**.
+- **THE MOOGLES — canon, and unique to this city.** A moogle speaks to the PCs on the road and is astonished to be seen: *'Normal folks can't see or hear us, which makes you special, kupo!'* This is the FIRST outward sign of the Echo, and it comes BEFORE the vision. It must land on the WHOLE party, never on one PC. It also plants the Shroud thread: *'The wood's been restless of late.'*
+- INCIDENT: a Wood Wailer halts the carriage — a skirmish with the **Ixal** has broken out ahead. The fight needs NO invention here: canon already says *'We shall hold them here! Try to break clear!'* The Wailers hold the line, the party cuts its way through.
+- Parting blessing (Nophica, the Matron): *'May the Matron take him to Her Bosom... serenity, purity, and sanctity.'*
 - Guild hub: **The Carline Canopy** — master **Mother Miounne**.
 - MSQ opening: **Coming to Gridania** → **Close to Home** (full ordered chain in 08.2).
 
 **UL'DAH** (Thanalan)
-- Arrival: by **carriage across the desert** into **Ul'dah – Steps of Nald**. Met by **Wymond**.
+- Arrival: by **carriage across the desert** into **Ul'dah – Steps of Nald**. Travelling peddler: **Brendt**. Met at the Gate of Nald by **Wymond**.
+- INCIDENT: **Brass Blades** stop the carriage for an 'inspection', find prohibited somnus on Brendt and start squeezing him for a fine — then the cry goes up, *'Amalj'aa! Amalj'aa! To arms!'*, and the captain abandons the shakedown. Canon waves the party off; **HOMEBREW: they stay**, caught between corrupt guards in flight and raiding **Amalj'aa**. PLAY THE SHAKEDOWN BEFORE THE FIGHT and never cut it: it is Ul'dah's whole character in one scene, and Brendt says the quiet part out loud — *'Like common bandits, they are, only less honest.'*
+- Parting blessing (Nald'thal, the Traders): *'For by fire are we reborn.'*
 - Guild hub: **The Quicksand** — master **Momodi**.
 - MSQ opening: **Coming to Ul'dah** → **Close to Home** (full ordered chain in 08.2).
 

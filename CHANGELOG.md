@@ -1,5 +1,124 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-11f — 08 v3.44 / 05 v2.07: ENTRY 0 riscritta sulle tre trascrizioni canoniche
+
+Il GM ha recuperato le tre cutscene d'apertura (`Loremonger:Introduction (<Citta>)`, GE non e'
+fetchabile: testo incollato a mano). Sono lo **stesso copione tre volte**, e questo ha smontato
+l'assunto su cui poggiavano le tre voci ENTRY 0.
+
+**ERRORE CORRETTO — «Of the three openings this is the ONLY one carrying a pinned fight».** Falso.
+Ogni citta' ha il suo incidente armato: pirati che aprono il fuoco (Limsa), scaramuccia Wood Wailer
+contro **Ixal** (Gridania), **Brass Blades** che estorcono l'ambulante finche' non arriva l'incursione
+**Amalj'aa** (Ul'dah). Le due frasi `NO pinned fight here` + `NOT to be upgraded into one to 'match'
+Limsa` erano il divieto esplicito di quello che ora facciamo: **ribaltate**, non lasciate a marcire
+(precedente: la riga in §B2 contro §B1, undici tentativi).
+
+**Lo schema vero non era «niente combattimento»: era che i PG vengono TOLTI dalla scena** — *'Get
+below!'* · *'Try to break clear!'* · *'Now go, all of you!'*. Quindi l'homebrew e' **una regola sola,
+non tre invenzioni**: *il gruppo non viene messo al riparo, resta dentro e combatte.* I nemici sono
+canonici e nominati nella cutscene stessa. Gridania non richiede nemmeno quello: *'We shall hold them
+here! Try to break clear!'* e' gia' un invito a passare combattendo.
+
+**VISIONE SPOSTATA DOPO IL COMBATTIMENTO** (decisione del GM). Risolve un problema che avevamo gia':
+05 pretende che la visione sia *il legame* che fa di estranei un gruppo, ma in canon arriva **nel
+sonno**, e da addormentati non possono vedersi riceverla — il legame era **dichiarato, non mostrato**.
+Ora il mondo si ferma a scontro concluso, solo i PG sono svegli dentro, e alla ripresa restano a
+guardarsi. Due rifiniture: **(a)** il mal d'etere resta ma si svuota — i PG si svegliano nauseati
+SENZA sogno e l'ambulante da' la spiegazione sbagliata, che diventa un presagio invece di sparire;
+**(b)** il tempo si ferma a combattimento **finito**, altrimenti i nemici che si ritirano sono un
+salvataggio gratuito e lo scontro non conta piu'. Scritto esplicito che **il tempo fermo e' narrazione,
+non una meccanica** (niente tiri, niente azioni, non si ripete a richiesta) — senza quella riga al
+terzo utilizzo i giocatori se lo aspettano come risorsa. **Il pin non si rompe:** `VISIONE DELL'ECO`
+resta dentro ENTRY 0 e continua a cadere prima dell'arrivo in citta'.
+
+**VISIONE RIPULITA.** 05 diceva *«a star-shower falling from a burning SKY»* e **tre righe dopo**
+*«NO burning dragon — that imagery belongs to the CALAMITY cinematic»*: le due frasi si mordevano, ed
+era stato tolto il drago lasciando il cielo. Le trascrizioni contengono **solo** `Hear... / Feel... /
+Think...`, e il breadcrumb di Limsa e' `The Aetherial Sea`. Ora: luce eterica, niente cielo e niente
+suolo, e il divieto copre **sky + star-shower + dragon**.
+
+**AGGIUNTO, tutto canonico e tutto assente prima:**
+- **L'AMBULANTE**, perno dell'intera apertura e mai censito: **Brennan** (Limsa) · **Bremondt**
+  (Gridania) · **Brendt** (Ul'dah). Spiega il malessere come mal d'etere, chiede a OGNI PG *perche' sei
+  diventato un avventuriero* (giro di tavolo gratis al primo beat), espone la politica locale, manda
+  alla Gilda, si congeda con un regalo.
+- **I MOOGLE di Gridania** — *'Normal folks can't see or hear us, kupo!'*: **primo segno esterno
+  dell'Eco**, prima della visione, su TUTTO il gruppo. E pianta il filo del bosco inquieto.
+- **Le tre benedizioni di congedo**, una per divinita' cittadina: Llymlaen *'Till sea swallows all'* ·
+  Nophica *'serenity, purity, and sanctity'* · Nald'thal *'For by fire are we reborn'*. Chiusura
+  naturale del beat 0.
+- La corruzione dei Brass Blades a Ul'dah, da giocare PRIMA dello scontro: e' il ritratto della citta'
+  in una scena, e Brendt lo dice in chiaro (*'Like common bandits, they are, only less honest'*).
+
+**Confermato dalle trascrizioni, invariato:** Ryssfloh / Bertennant / Wymond come accoglienza, gli
+approdi (Lower Decks, Blue Badger Gate, Gate of Nald), la sequenza verso `Coming to <Citta>`.
+**Divergenza consapevole registrata:** il testo canonico dice *'comes a **lone** adventurer'* — il
+gruppo plurale resta scelta nostra, gia' motivata in Ch.1.7, ma ora si sa che il canon dice il
+contrario.
+
+## 2026-08-11e — 08 v3.43 / 05 v2.06: ENTRY 0 ha un nome canonico, `Introduction (<Citta>)`
+
+**Scoperta del GM:** esiste una sequenza MSQ prima della prima missione, `Introduction (Limsa Lominsa)`,
+e analoghe per le altre due citta'. Check fatto sulle due wiki fissate.
+
+**Verificato su ConsoleGamesWiki** (Gamer Escape continua a dare 403 a ogni fetch — limite noto):
+- `Introduction (Limsa Lominsa)` → **404**, e la pagina `Introduction` non esiste.
+- `Coming to <Citta>` → giver **Ryssfloh** (Limsa) · **Bertennant** (Gridania) · **Wymond** (Ul'dah),
+  tutti e tre `Previous Quest: None listed`. Combaciano ESATTAMENTE con i giver di #1 gia' in 08.2 e
+  con gli NPC d'accoglienza gia' in 05 Ch.1.7.
+- `Close to Home (Limsa Lominsa)` → MSQ, giver Baderon, `Previous Quest: Coming to Limsa Lominsa`.
+
+**I link del GM stanno nel namespace `Loremonger:` di Gamer Escape — l'archivio dei DIALOGHI delle
+cutscene, non quello delle quest** (quelle stanno a titolo nudo). Quindi `Introduction (<Citta>)` e' il
+nome interno della CUTSCENE d'apertura, una per citta'.
+
+**Conseguenza: la riga di 08 NON era sbagliata, e non si tocca.** «*NOT a quest, no giver, no wiki
+step, absent from every wiki chain listing*» regge — CGW da' 404 sulla quest e la catena parte da
+`Coming to`. Era stata anticipata una smentita che non c'e'. Quello che la scoperta aggiunge e' un
+**nome** e una **fonte per i dialoghi**, non una correzione: nessun beat da aggiungere, ordine di gioco
+invariato, ENTRY 0 era gia' al posto giusto e col contenuto giusto.
+
+**Scritto:** il nome canonico nelle tre voci ENTRY 0 di 08.2, nel paragrafo Scope di 08.2 (dove
+rafforza la motivazione invece di sostituirla: *archiviata SOLO come cutscene, nel namespace
+`Loremonger:`*) e nel BINDING FRAME di 05 Ch.1.7. Tre citta' insieme, mai una sola: una parte nominata
+e due no e' l'asimmetria che poi si dimentica.
+
+**NON scritto, di proposito — `Coming to <Citta>` e' un SIDEQUEST su CGW**, non MSQ (categorie
+«Lominsan/Gridanian/Ul'dahn Sidequests»); la prima MSQ vera e' `Close to Home`. I nostri file la
+numerano `1.` in testa alla catena. Al tavolo non cambia NULLA — si gioca in quell'ordine comunque — e
+scriverlo introdurrebbe un rischio reale: un file che dice «#1 tecnicamente e' un sidequest» invita a
+saltarlo. Resta qui come discrepanza nota.
+
+## 2026-08-11d — cv96: `/cambio Classe` rientra nel roster, `/riprendi SQ` prende una riga sua
+
+**Guasto trovato dal GM al tavolo:** `/sessione 0` risponde "non esiste". Ricerca in cronologia: la
+riscrittura XML da zero (cv da 31.9 KB a 6.2 KB) ha lasciato cadere **due** righe di roster, non una —
+`/sessione 0` e `/cambio Classe` — e nessuna delle due aveva una nota qui. Collaterali del "ridotte
+all'osso", non decisioni prese. **Le procedure non erano perse:** stanno intere in `05` (Cap. 2 +
+checklist, Cap. 1.7 per il primo save, Cap. 3.4 per il cambio Job). Mancava solo il dispatch.
+
+**RIMESSO — `/cambio Classe`.** E' materia di CAMPAGNA, non di wiki: il cancello e' la posizione MSQ
+("solo se la subquest e' raggiungibile da dove sta il gruppo ORA"), quindi ha bisogno del cursore e in
+Loremonger non ci puo' stare. Riga scritta senza rimando a `05 Ch.3.4`: la vecchia riga lo aveva, ed e'
+esattamente l'enumerazione che avevamo tolto (una lista di cosa consultare e' un ordine di recuperare,
+eseguito a ogni turno). Il cancello sta nella riga, il resto si recupera da solo.
+
+**NON rimesso — `/sessione 0`, per ora.** Non e' un comando: e' una conversazione. In `lv` un messaggio
+senza `/` e' gia' una domanda a cui rispondere, e "sessione 0" pesca il Cap. 2 in condizioni di
+recupero ideali (capitolo intitolato SESSION 0 SETUP, query ricca di vocabolario, forma gia' presente
+nella checklist finale). **Metterlo in `lv` come comando costerebbe caro:** la Sessione 0 finisce
+scrivendo save-0 (Ch.1.7, "Session 0 ENDS with this save"), e `lv` dichiara READ-ONLY in tre punti
+(role, chiusura di `<commands>`, contract §3). Sarebbe una contraddizione interna nel file che gira sul
+modello piu' debole — la classe di guasto del fossile in §B2, otto tentativi falliti su `/stop`.
+
+**`/riprendi SQ` non era caduto:** c'era, ma sepolto a meta' riga dopo un `·`, condiviso con
+`/riprendi MSQ`. Era illeggibile abbastanza da sembrare assente al GM. Ora ha una riga sua.
+Il tetto di 8.000 caratteri di OpenAI Projects non vincola piu' (il GM usa solo Gemini e Claude
+Projects), quindi la riga condivisa non aveva piu' ragione di esistere. **cv da 7.959 a 8.483 caratteri.**
+
+**DUE modifiche su un baseline con UNA sola run 5/5** — se il collaudo regredisce, lo split di
+`/riprendi` e' il pezzo piu' economico da revertire per primo.
+
 ## 2026-08-11c — 01_Manual diventa la SORGENTE: 01-04 e lo script cancellati, cinque file e basta
 
 Decisione del GM dopo il collaudo riuscito col file unito. `01_Manual` era un DUPLICATO di 01-04,
