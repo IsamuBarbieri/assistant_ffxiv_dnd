@@ -1,20 +1,20 @@
-# 01_MANUAL — Razze, Job, Incantesimi, Bestiario
-Version m2.00 | Quattro manuali in un file solo: questa e' la SORGENTE, non un derivato.
+# 01_MANUAL — Races, Jobs, Spells, Bestiary
+Version m2.01 | Four manuals in one file. THIS IS THE SOURCE, not a generated copy.
 
-Ogni manuale e' una PARTE numerata — 01 Razze · 02 Job e Classi · 03 Incantesimi · 04 Bestiario — e i
-riferimenti sparsi negli altri file usano QUEL numero (`01`, `02`, `03`, `04`), che qui identifica la
-parte. I titoli che comparivano identici in due manuali portano un suffisso (`— Job`, `— Incantesimi`):
-due sezioni omonime nello stesso file non sarebbero distinguibili in fase di recupero.
+Each manual is a numbered PART — 01 Races · 02 Jobs and Classes · 03 Spells · 04 Bestiary — and the
+cross-references in the other files use THAT number (`01`, `02`, `03`, `04`), which here names the part.
+Titles that appeared identically in two manuals carry a suffix (`— Job`, `— Spells`): two sections with
+the same name in one file cannot be told apart at retrieval time.
 
-Contenuto stabile: sono regole di manuale, gia' corrette e validate. Le aggiunte future vanno DENTRO la
-parte che le riguarda.
+The content is stable: manual rules, already corrected and validated. New material goes INSIDE the part
+it belongs to.
 
-# PARTE 01 — RAZZE
+# PART 01 — RACES
 
-# 01_RACES — Races, Beast Tribes, Naming Appendix & Role Feats
+## Contents — races, beast tribes, naming appendix, role action feats
 Version v0.10 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 
-## SCHEMA NOTES — Razze
+## SCHEMA NOTES — Races
 - PRINCIPLE: completeness over brevity. NO lore is cut — prose is preserved in full, only reformatted into clean, parsable sections.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted at source. Decimal POINT in data (1.5 m); render with comma at output (1,5 m).
@@ -1075,9 +1075,9 @@ END OF FILE — 01_Races (9 core races + 18 beast tribes + naming appendix + rol
 
 
 
-# PARTE 02 — JOB E CLASSI
+# PART 02 — JOBS AND CLASSES
 
-# 02_CLASSES — Jobs
+## Contents — the 22 Jobs
 Version v0.8 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 
 ## SCHEMA NOTES — Job
@@ -3022,12 +3022,12 @@ END OF FILE — 02_Classes (COMPLETE — all 22 Jobs: Astrologian, Bard, Black M
 
 
 
-# PARTE 03 — INCANTESIMI
+# PART 03 — SPELLS
 
-# 03_SPELLS
+## Contents — spell lists and homebrew spells
 Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 
-## SCHEMA NOTES — Incantesimi
+## SCHEMA NOTES — Spells
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted (decimal POINT in data; render with comma at output). Key: 5 ft=1.5 m, 10 ft=3 m, 15 ft=4.5 m, 20 ft=6 m, 30 ft=9 m, 40 ft=12 m, 50 ft=15 m, 60 ft=18 m, 80 ft=24 m, 90 ft=27 m, 100 ft=30 m, 120 ft=36 m, 150 ft=45 m, 200 ft=60 m.
@@ -3035,9 +3035,9 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - "*" before a spell name = HOMEBREW spell created for this compendium; its full description is in PART 2 (below). All other spells are official D&D 5e (PHB or expansions — consult the relevant book; bold-source markup from the original was lost in extraction).
 - Spell-name families: Aero/Aerora/Aeroga/Aeroja (wind), Blizzard/Blizzara/Blizzaga/Blizzaja (ice), Fire/Fira/Firaga/Firaja (fire), Thunder/Thundara/Thundaga/Thundaja (lightning), Stone/Stonra/Stonga/Stonja (earth), Water/Watera/Waterga/Waterja, Ruin/Ruinra/Ruinga/Ruinja (unaspected), Bio/Biora/Bioga/Bioja (poison), Dark/Darkra/Darkga/Darkja (necrotic), Cure/Cura/Curada/Curaga/Curaja (heal), Banish/Banishra/Banishga/Banishja (radiant), Ver- spells (Red Mage finishers).
 
-# PART 1 — SPELL LISTS BY CLASS
+## SPELL LISTS BY CLASS (Part 03, section 1)
 
-## ASTROLOGIAN — Incantesimi
+## ASTROLOGIAN — Spells
 - Cantrips: *Aero, Blade Ward, Dancing Lights, *Demi, Friends, Frostbite, Guidance, Gust, Light, Mage Hand, Magic Stone, *Malefic, Mending, Message, Mind Sliver, Minor Illusion, Mold Earth, Resistance, Sacred Flame, Spare the Dying, *Stone, Thaumaturgy, True Strike, *Water, Word of Radiance.
 - 1st: *Aerora, Alarm, Bane, Bless, *Bravery, Cause Fear, Ceremony, Charm Person, Color Spray, Comprehend Languages, Create or Destroy Water, Cure Wounds, *Cure, Detect Evil and Good, Detect Magic, Detect Poison and Disease, Dissonant Whispers, Faerie Fire, Feather Fall, Gift of Alacrity, Guiding Bolt, Healing Word, Heroism, Hex, Identify, Illusory Script, Jump, Mage Armor, Magic Missile, Magnify Gravity, Purify Food and Drink, Sanctuary, Shield of Faith, Silent Image, Silvery Barbs, Sleep, Speak with Animals, *Stonra, Unseen Servant, *Watera, Witch Bolt.
 - 2nd: Aid, Augury, Blindness/Deafness, Blur, Calm Emotions, *Cura, Darkness, *Demira, Detect Thoughts, Enhance Ability, *Faith, Find Traps, Fortune's Favor, Gentle Repose, Healing Spirit, Hold Person, Immovable Object, Invisibility, Lesser Restoration, Levitate, Locate Animals or Plants, Locate Object, Magic Weapon, Mind Spike, Mirror Image, Misty Step, Moonbeam, Nathair's Mischief, Nystul's Magic Aura, Prayer of Healing, *Refresh, See Invisibility, Silence, Skywrite, Spiritual Weapon, Suggestion, Vortex Warp, Warding Bond, Warp Sense, Wristpocket, Zone of Truth.
@@ -3049,14 +3049,14 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Antimagic Field, Antipathy/Sympathy, *Celestial Opposition, Dark Star, Demiplane, Earthquake, Feeblemind, Maddening Darkness, *Meteor, Mighty Fortress, Mind Blank, Reality Break, Sunburst, Telepathy, Tsunami.
 - 9th: Astral Projection, Foresight, Gate, Invulnerability, Mass Heal, Meteor Swarm, Power Word: Heal, Power Word: Kill, Prismatic Wall, Ravenous Void, Time Ravage, Time Stop, True Resurrection, Wish.
 
-## BARD (Gridanian) — Incantesimi
+## BARD (Gridanian) — Spells
 - 1st: Absorb Elements, *Aerora, Alarm, Bane, *Biora, *Bravery, Break, Catapult, Charm Person, Command, Cure Wounds, *Cure, Detect Magic, Detect Poison and Disease, Disguise Self, Dissonant Whispers, Faerie Fire, Feather Fall, Hail of Thorns, Healing Word, Heroism, Identify, Hunter's Mark, Jump, Longstrider, Silvery Barbs, Snare, Tasha's Hideous Laughter, Thunderwave, Zephyr Strike.
 - 2nd: Aid, Air Bubble, Barkskin, Calm Emotions, Cordon of Arrows, Crown of Madness, *Cura, Darkvision, Detect Thoughts, Enhance Ability, Enthrall, *Faith, Find Traps, Gift of Gab, Hold Person, Invisibility, Knock, Lesser Restoration, Locate Animals or Plants, Locate Object, Magic Mouth, Magic Weapon, Mirror Image, Pass Without Trace, Protection from Poison, Pyrotechnics, See Invisibility, Shatter, Silence, Skywrite, Tasha's Mind Whip, Suggestion, Zone of Truth.
 - 3rd: *Aeroga, Antagonize, Bestow Curse, *Bioga, Catnap, Conjure Barrage, *Curada, Dispel Magic, Elemental Weapon, *En-Element, Enemies Abound, *Esuna, Fast Friends, Fear, Flame Arrows, Hypnotic Pattern, Incite Greed, Lightning Arrow, Major Image, Mass Healing Word, Motivational Speech, Nondetection, Protection from Energy, Revivify, Sending, Slow, Tongues, Water Breathing, Water Walk.
 - 4th: *Bar-Element, Charm Monster, Compulsion, Confusion, *Curaga, *De-Element, Dimension Door, Freedom of Movement, Greater Invisibility, Hallucinatory Terrain, Locate Creature, Phantasmal Killer, Polymorph, *Protection, Raulothim's Psychic Lance, *Shell, Stoneskin.
 - 5th: *Aeroja, *Bioja, Conjure Volley, *Curaja, Dominate Person, Dream, Geas, Greater Restoration, Hold Monster, Legend Lore, Mass Cure Wounds, Mislead, Modify Memory, Rary's Telepathic Bond, Scrying, Seeming, Skill Empowerment, Steel Wind Strike, Synaptic Static, Swift Quiver, Teleportation Circle.
 
-## BLACK MAGE — Incantesimi
+## BLACK MAGE — Spells
 - Cantrips: *Bio, *Blizzard, Blade Ward, Chill Touch, Control Flames, Create Bonfire, Dancing Lights, *Fire, Fire Bolt, *Frostbite, Green-Flame Blade, Infestation, Light, Lightning Lure, Mage Hand, Magic Stone, Produce Flame, Ray of Frost, Sapping Sting, Shocking Grasp, Thaumaturgy, *Thunder, Toll the Dead, Vicious Mockery.
 - 1st: Absorb Elements, Bane, *Biora, *Blizzara, Break, Burning Hands, Chaos Bolt, Charm Person, *Dark, Detect Magic, Disguise Self, *Drain, Expeditious Retreat, False Life, Feather Fall, Find Familiar, Find Steed, *Fira, Fog Cloud, Frost Fingers, Grease, Hellish Rebuke, Hex, Ice Knife, Illusory Script, Inflict Wounds, Jump, Longstrider, Mage Armor, Magic Missile, *Osmose, Ray of Sickness, *Scathe, Shield, Silent Image, Sleep, *Thundara.
 - 2nd: Alter Self, Arcane Lock, Blindness/Deafness, Blur, Borrowed Knowledge, Cloud of Daggers, Crown of Madness, Darkness, *Darkra, Darkvision, Detect Thoughts, Dragon's Breath, Find Steed, Flame Blade, Flaming Sphere, Flock of Familiars, Heat Metal, Hold Person, Invisibility, Knock, Levitate, Magic Mouth, Mirror Image, Misty Step, Nathair's Mischief, Nystul's Magic Aura, Pass Without Trace, Phantasmal Force, Pyrotechnics, Rime's Binding Ice, Rope Trick, See Invisibility, Silence, Spider Climb, Suggestion, Tasha's Mind Whip, Vortex Warp, Web.
@@ -3068,7 +3068,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Abi-Dalzim's Horrid Wilting, Antimagic Field, Antipathy/Sympathy, Clone, Demiplane, Dominate Monster, *Doom, Feeblemind, *Foul, Glibness, Illusory Dragon, Incendiary Cloud, Maddening Darkness, Maze, *Meteor, Mind Blank, Power Word: Stun, Telepathy.
 - 9th: Astral Projection, *Demi-Ultima, Gate, Imprisonment, Mass Polymorph, Meteor Swarm, Power Word: Kill, Psychic Scream, Time Stop, True Polymorph, Weird, Wish, *Xenoglossy.
 
-## BLUE MAGE — Incantesimi
+## BLUE MAGE — Spells
 - Cantrips: *Aero, Acid Splash, *Blizzard, Chill Touch, Dancing Lights, *Fire, Fire Bolt, *Frostbite, Gust, Infestation, Lightning Lure, Message, Minor Illusion, Mold Earth, Poison Spray, Prestidigitation, Primal Savagery, Ray of Frost, Resistance, Sapping Sting, Shocking Grasp, *Stone, *Thunder, Thunderclap, True Strike, *Water.
 - 1st: Absorb Elements, *Aerora, Animal Friendship, Armor of Agathys, Beast Bond, *Blizzara, Burning Hands, Catapult, Cause Fear, Color Spray, Comprehend Languages, Create or Destroy Water, Cure Wounds, Detect Magic, Detect Poison and Disease, Earth Tremor, Ensnaring Strike, Entangle, Expeditious Retreat, False Life, *Fira, Feather Fall, Frost Fingers, Grease, Healing Word, Hellish Rebuke, Hunter's Mark, Ice Knife, Identify, Inflict Wounds, Jump, Longstrider, Mage Armor, Magic Missile, Purify Food and Drink, Ray of Sickness, Shield, Silent Image, Speak with Animals, *Stonra, Tasha's Caustic Brew, *Thundara, Thunderwave, *Watera, Witch Bolt, Zephyr Strike.
 - 2nd: Aganazzar's Scorcher, Alter Self, Animal Messenger, Barkskin, Beast Sense, Blindness/Deafness, Blur, Darkness, Darkvision, Detect Thoughts, Dragon's Breath, Enhance Ability, Enlarge/Reduce, Enthrall, Find Steed, Find Traps, Flock of Familiars, Gust of Wind, Heat Metal, Hold Person, Invisibility, Kinetic Jaunt, Knock, Lesser Restoration, Levitate, Locate Animals or Plants, Melf's Acid Arrow, Mirror Image, Misty Step, Nystul's Magic Aura, Pass Without Trace, Protection from Poison, Ray of Enfeeblement, Rime's Binding Ice, See Invisibility, Spider Climb, Summon Beast, Web.
@@ -3080,21 +3080,21 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Abi-Dalzim's Horrid Wilting, Animal Shapes, Earthquake, Feeblemind, Incendiary Cloud, Mind Blank, Power Word: Stun, Tsunami.
 - 9th: Astral Projection, Invulnerability, Mass Heal, Mass Polymorph, Power Word: Heal, Power Word: Kill, Psychic Scream, Shapechange, True Polymorph, True Resurrection, Weird.
 
-## DANCER — Incantesimi
+## DANCER — Spells
 - 1st: *Aerora, Bane, Bless, *Bravery, Cause Fear, Compelled Duel, Cure Wounds, *Cure, Detect Evil and Good, Detect Magic, Detect Poison and Disease, Ensnaring Strike, Entangle, Expeditious Retreat, Faerie Fire, *Fira, Fog Cloud, Healing Word, Heroism, Hex, Hunter's Mark, Mage Armor, Protection from Evil and Good, Shield of Faith, Silent Image, Tasha's Caustic Brew, Tasha's Hideous Laughter, Witch Bolt, Zephyr Strike.
 - 2nd: Alter Self, Barkskin, Blur, Calm Emotions, Charm Person, Crown of Madness, *Cura, Dragon's Breath, Dust Devil, Earthbind, Enhance Ability, Enlarge/Reduce, *Faith, Flame Blade, Flock of Familiars, Gust of Wind, Healing Spirit, Hold Person, Invisibility, Kinetic Jaunt, Lesser Restoration, Levitate, Magic Weapon, Maximilian's Earthen Grasp, Mind Spike, Moonbeam, Nathair's Mischief, Pass Without Trace, Phantasmal Force, *Refresh, Shadow Blade, Skywrite, Spike Growth, Warding Wind, Web.
 - 3rd: *Aeroga, Ashardalon's Stride, Aura of Vitality, Beacon of Hope, Bestow Curse, Blink, Call Lightning, Clairvoyance, *Curada, Dispel Magic, Elemental Weapon, *En-Element, Enemies Abound, *Esuna, Fear, *Firaga, Fly, Gaseous Form, Haste, Hypnotic Pattern, Incite Greed, Intellect Fortress, Major Image, Mass Healing Word, Melf's Minute Meteors, Remove Curse, Revivify, Sleet Storm, Slow, Spirit Shroud, Wall of Sand, Water Breathing, Water Walk, Wind Wall.
 - 4th: Arcane Eye, Aura of Life, Aura of Purity, Banishment, *Bar-Element, Compulsion, Confusion, Control Water, *Curaga, *De-Element, Dominate Beast, Greater Invisibility, Otiluke's Resilient Sphere, Phantasmal Killer, Polymorph, *Protection, *Shell, Stone Shape, Stoneskin, Storm Sphere.
 - 5th: *Aeroja, Animate Objects, Antilife Shell, Circle of Power, Control Winds, Danse Macabre, Dawn, Dispel Evil and Good, Dominate Person, Far Step, *Firaja, Greater Restoration, Hold Monster, Immolation, Mass Cure Wounds, Mislead, Raise Dead, Skill Empowerment, Telekinesis, Tree Stride, Wall of Stone.
 
-## PALADIN (Sultansworn) — Incantesimi
+## PALADIN (Sultansworn) — Spells
 - 1st: *Banish, Bless, *Bravery, Ceremony, *Command, Compelled Duel, Cure Wounds, *Cure, Detect Evil and Good, Detect Magic, Detect Poison and Disease, Guiding Bolt, Heroism, Protection from Evil and Good, Purify Food and Drink, Sanctuary, Searing Smite, Shield of Faith, Sleep, Thunderous Smite, Wrathful Smite.
 - 2nd: Aid, *Banishra, Branding Smite, Calm Emotions, *Cura, Enhance Ability, *Faith, Find Steed, Gentle Repose, Hold Person, Lesser Restoration, Locate Object, Magic Weapon, Moonbeam, Prayer of Healing, Protection from Poison, *Refresh, See Invisibility, Warding Bond, Zone of Truth.
 - 3rd: Aura of Vitality, *Banishga, Beacon of Hope, Blinding Smite, Counterspell, Create Food and Water, Crusader's Mantle, *Curada, Daylight, Dispel Magic, Elemental Weapon, *En-Element, *Esuna, Haste, Magic Circle, Nondetection, Protection from Energy, Remove Curse, Revivify, Spirit Shroud.
 - 4th: Aura of Life, Aura of Purity, Banishment, *Bar-Element, Compulsion, *Curaga, Death Ward, Find Greater Steed, Freedom of Movement, Guardian of Faith, Locate Creature, Otiluke's Resilient Sphere, *Protection, *Shell, Staggering Smite, Stoneskin.
 - 5th: Banishing Smite, *Banishja, Circle of Power, Commune, *Curaja, Destructive Wave, Dispel Evil and Good, Flame Strike, Geas, Hold Monster, Holy Weapon, Scrying, Wall of Force.
 
-## PICTOMANCER — Incantesimi
+## PICTOMANCER — Spells
 - Cantrips: *Aero, Acid Splash, *Blizzard, Create Bonfire, Dancing Lights, Druidcraft, *Fire, Frostbite, Gust, Infestation, Light, Lightning Lure, Mage Hand, Magic Stone, Mold Earth, Poison Spray, Prestidigitation, Produce Flame, Shape Water, *Stone, Sword Burst, *Thunder, *Water.
 - 1st: *Aerora, Arms of Hadar, *Blizzara, Chromatic Orb, Color Spray, Create or Destroy Water, Cure Wounds, Detect Magic, Disguise Self, *Drain, Entangle, Faerie Fire, Find Familiar, *Fira, Fog Cloud, Goodberry, Grease, Healing Word, Ice Knife, Illusory Script, Mage Armor, Magic Missile, *Osmose, Purify Food and Drink, Shield, *Stonra, Tenser's Floating Disk, *Thundara, *Watera, Witch Bolt.
 - 2nd: Aganazzar's Scorcher, Alter Self, Air Bubble, Barkskin, Blur, Cloud of Daggers, Continual Flame, Darkness, Darkvision, Dust Devil, Earthbind, Enlarge/Reduce, Find Steed, Flame Blade, Flaming Sphere, Flock of Familiars, Gust of Wind, Invisibility, Levitate, Maximilian's Earthen Grasp, Melf's Acid Arrow, Misty Step, Moonbeam, Nathair's Mischief, Pyrotechnics, Rime's Binding Ice, Rope Trick, Scorching Ray, Shatter, Skywrite, Snilloc's Snowball Storm, Spiritual Weapon, Spray of Cards, Spike Growth, Summon Beast, Warding Wind, Web, Wither and Bloom.
@@ -3106,7 +3106,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Animal Shapes, Control Weather, Demiplane, Illusory Dragon, Incendiary Cloud, Maddening Darkness, Maze, *Meteor, Mighty Fortress, Sunburst, Tsunami.
 - 9th: Blade of Disaster, Gate, Mass Heal, Mass Polymorph, Meteor Swarm, Prismatic Wall, Shapechange, Storm of Vengeance, True Polymorph, Wish.
 
-## REAPER — Incantesimi
+## REAPER — Spells
 - 1st: Arcane Weapon, Armor of Agathys, Arms of Hadar, Bane, *Bravery, Break, Cause Fear, Chaos Bolt, Compelled Duel, Comprehend Languages, Cure Wounds, *Dark, Detect Evil and Good, Detect Magic, *Drain, False Life, Find Steed, Fog Cloud, Gentle Repose, Hellish Rebuke, Hex, Hunter's Mark, Ice Knife, Identify, Inflict Wounds, Jump, Longstrider, *Osmose, Protection from Evil and Good, Ray of Sickness, Shield, Silent Image, Unseen Servant, Wrathful Smite.
 - 2nd: Alter Self, Arcane Lock, Augury, Blindness/Deafness, Crown of Madness, Darkness, *Darkra, Darkvision, Detect Thoughts, Enhance Ability, Enthrall, Find Traps, Hold Person, Invisibility, Levitate, Magic Weapon, Mirror Image, Misty Step, Pass Without Trace, Phantasmal Force, Ray of Enfeeblement, *Refresh, See Invisibility, Shadow Blade, Silence, Spiritual Weapon, Zone of Truth.
 - 3rd: Animate Dead, Bestow Curse, *Darkga, Dispel Magic, Elemental Weapon, Fear, Feign Death, Fly, Gaseous Form, Haste, Hunger of Hadar, Hypnotic Pattern, Life Transference, Phantom Steed, Remove Curse, Speak with Dead, Spirit Guardians, Spirit Shroud, Summon Shadowspawn, Summon Undead, Vampiric Touch.
@@ -3125,7 +3125,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Antimagic Field, Dominate Monster, Earthquake, Glibness, Incendiary Cloud.
 - 9th: Blade of Disaster, Mass Heal, Meteor Swarm, Power Word: Heal, True Resurrection.
 
-## SAGE — Incantesimi
+## SAGE — Spells
 - Cantrips: Blade Ward, Dancing Lights, Light, Lightning Lure, Mage Hand, Magic Stone, Mending, Message, Mind Sliver, Minor Illusion, Prestidigitation, Resistance, Sapping Sting, Spare the Dying, *Thunder, Thunderclap, True Strike. (Note: Dosis is a class feature, not a spell.)
 - 1st: Absorb Elements, Alarm, Armor of Agathys, Bane, *Bravery, Catapult, Cause Fear, Chromatic Orb, Color Spray, Comprehend Languages, Cure Wounds, *Cure, Detect Evil and Good, Detect Magic, Detect Poison and Disease, *Drain, Expeditious Retreat, Faerie Fire, Feather Fall, Find Familiar, Healing Word, Heroism, Hex, Identify, Illusory Script, Inflict Wounds, Jump, Longstrider, Mage Armor, Magic Missile, *Osmose, Protection from Evil and Good, Ray of Sickness, Sanctuary, Shield, Silent Image, Sleep, Snare, Tenser's Floating Disk, *Thundara, Unseen Servant, Witch Bolt.
 - 2nd: Aid, Air Bubble, Arcane Lock, Blur, Crown of Madness, *Cura, Darkvision, Detect Thoughts, Enhance Ability, Enlarge/Reduce, *Faith, Find Traps, Gentle Repose, Healing Spirit, Hold Person, Invisibility, Knock, Lesser Restoration, Levitate, Locate Object, Mind Spike, Mirror Image, Misty Step, Pass Without Trace, Protection from Poison, See Invisibility, Shatter, Silence, Skywrite, Warding Bond, Zone of Truth.
@@ -3137,7 +3137,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Antimagic Field, Antipathy/Sympathy, Clone, Feeblemind, Glibness, Mind Blank, Sunburst, Telepathy.
 - 9th: Astral Projection, Gate, Imprisonment, Invulnerability, Mass Heal, Power Word: Heal, Prismatic Wall, Time Stop, True Resurrection.
 
-## SCHOLAR — Incantesimi
+## SCHOLAR — Spells
 - Cantrips: Acid Splash, *Bio, Blade Ward, Dancing Lights, Friends, Infestation, Light, Mage Hand, Magic Stone, Mending, Message, Mind Sliver, Minor Illusion, Poison Spray, Prestidigitation, Primal Savagery, Resistance, *Ruin, Sapping Sting, Spare the Dying, Sword Burst, True Strike.
 - 1st: Absorb Elements, Alarm, Bane, *Biora, *Bravery, Catapult, Cause Fear, Charm Person, Chromatic Orb, Color Spray, Command, Comprehend Languages, Cure Wounds, *Cure, Detect Magic, Detect Poison and Disease, Faerie Fire, Feather Fall, Find Familiar, Fog Cloud, Guiding Bolt, Healing Word, Heroism, Identify, Illusory Script, Inflict Wounds, Jump, Longstrider, Mage Armor, Magic Missile, Purify Food and Drink, Ray of Sickness, *Ruinra, Shield, Silent Image, Silvery Barbs, Sleep, Snare, Tasha's Caustic Brew, Tasha's Hideous Laughter, Tenser's Floating Disk, Unseen Servant, Zephyr Strike.
 - 2nd: Aid, Alter Self, Arcane Lock, Blindness/Deafness, Blur, Cloud of Daggers, *Cura, Darkness, Darkvision, Detect Thoughts, Earthbind, Enhance Ability, Enlarge/Reduce, *Faith, Find Steed, Find Traps, Gentle Repose, Healing Spirit, Hold Person, Immovable Object, Invisibility, Knock, Lesser Restoration, Levitate, Magic Weapon, Melf's Acid Arrow, Mirror Image, Misty Step, Phantasmal Force, Prayer of Healing, Protection from Poison, Ray of Enfeeblement, See Invisibility, Silence, Skywrite, Spider Climb, Spike Growth, Suggestion, Warding Bond.
@@ -3149,7 +3149,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Abi-Dalzim's Horrid Wilting, Antimagic Field, Antipathy/Sympathy, Clone, Control Weather, Dominate Monster, Feeblemind, Glibness, Illusory Dragon, Incendiary Cloud, Maze, Mighty Fortress, Mind Blank, Power Word: Stun, Reality Break, Telepathy.
 - 9th: Blade of Disaster, Foresight, Gate, Imprisonment, Invulnerability, Mass Heal, Power Word: Heal, Power Word: Kill, Prismatic Wall, True Polymorph, True Resurrection, Weird, Wish.
 
-## SUMMONER — Incantesimi
+## SUMMONER — Spells
 - Cantrips: *Aero, Blade Ward, *Blizzard, Booming Blade, Control Flames, Create Bonfire, Dancing Lights, *Fire, *Frostbite, Gust, Light, Lightning Lure, Mage Hand, Mind Sliver, Minor Illusion, Mold Earth, Produce Flame, Resistance, *Ruin, Shape Water, *Stone, Thaumaturgy, *Thunder, *Water.
 - 1st: Absorb Elements, *Aerora, Armor of Agathys, *Blizzara, Burning Hands, Chaos Bolt, Chromatic Orb, Create or Destroy Water, Cure Wounds, Detect Magic, *Drain, Earth Tremor, Faerie Fire, Feather Fall, *Fira, Fog Cloud, Frost Fingers, Healing Word, Hellish Rebuke, Heroism, Ice Knife, Jump, Longstrider, Mage Armor, Magic Missile, *Osmose, *Ruinra, Shield, *Stonra, *Thundara, Thunderwave, Unseen Servant, *Watera, Witch Bolt, Zephyr Strike.
 - 2nd: Aganazzar's Scorcher, Air Bubble, Blur, Continual Flame, Darkness, Darkvision, Detect Thoughts, Dragon's Breath, Dust Devil, Earthbind, Enhance Ability, Enlarge/Reduce, Flame Blade, Flaming Sphere, Gust of Wind, Heat Metal, Hold Person, Invisibility, Levitate, Maximilian's Earthen Grasp, Misty Step, Pyrotechnics, Rime's Binding Ice, Scorching Ray, See Invisibility, Shatter, Skywrite, Snilloc's Snowball Storm, Warding Wind.
@@ -3161,7 +3161,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Control Weather, Earthquake, Incendiary Cloud, Sunburst, Tsunami.
 - 9th: Gate, Mass Polymorph, Meteor Swarm, Storm of Vengeance, Time Stop, Weird, Wish.
 
-## WHITE MAGE — Incantesimi
+## WHITE MAGE — Spells
 - Cantrips: *Aero, Create Bonfire, Druidcraft, Friends, Guidance, Gust, Infestation, Light, Mending, Mold Earth, Resistance, Sacred Flame, Shape Water, Spare the Dying, *Stone, Thunderclap, *Water, Word of Radiance.
 - 1st: *Aerora, Bane, *Banish, Bless, *Bravery, Ceremony, *Command, Create or Destroy Water, Cure Wounds, *Cure, Detect Evil and Good, Detect Magic, Detect Poison and Disease, Entangle, Gift of Alacrity, Goodberry, Guiding Bolt, Healing Word, Inflict Wounds, Mage Armor, Protection from Evil and Good, Purify Food and Drink, Shield of Faith, Snare, *Stonra, *Watera.
 - 2nd: Aid, Augury, *Banishra, Barkskin, Blindness/Deafness, Calm Emotions, Continual Flame, *Cura, Dust Devil, *Faith, Find Traps, Gentle Repose, Gust of Wind, Hold Person, Lesser Restoration, Locate Object, Prayer of Healing, Silence, Spike Growth, Spiritual Weapon, Summon Beast, Warding Bond, Warding Wind, Zone of Truth.
@@ -3173,7 +3173,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 - 8th: Antimagic Field, Control Weather, Earthquake, Holy Aura, Mighty Fortress, Sunburst, Tsunami.
 - 9th: Astral Projection, Gate, Mass Heal, Storm of Vengeance, True Resurrection.
 
-# PART 2 — CUSTOM (HOMEBREW) SPELL DESCRIPTIONS
+## CUSTOM (HOMEBREW) SPELL DESCRIPTIONS (Part 03, section 2)
 (All ranges/areas pre-converted to metric. Components are V, S unless noted. "At Higher Levels" = source scaling, verbatim.)
 
 ## WIND — Aero family
@@ -3306,9 +3306,9 @@ END OF FILE — 03_Spells (Part 1: spell lists for 13 caster Jobs; Part 2: ~75 h
 
 
 
-# PARTE 04 — BESTIARIO
+# PART 04 — BESTIARY
 
-# 04_BESTIARY — RAIMDELLE CODEX ASGARD
+## Contents — bestiary (Raimdelle Codex Asgard)
 Version v1.3 | Source: Raimdelle Codex Asgard (community monster manual for the FFXIV x D&D 5e Compendium)
 
 > **THIS FILE IS A DATA ARCHIVE, NOT AN OUTPUT TEMPLATE.** The rows below are creatures compressed to
@@ -3318,7 +3318,7 @@ Version v1.3 | Source: Raimdelle Codex Asgard (community monster manual for the 
 > Take the NUMBERS and the creature's PROFILE from here, never the page layout; and those numbers are
 > a starting point to be scaled to the target GdS, not a value to copy.
 
-## SCHEMA NOTES — Bestiario
+## SCHEMA NOTES — Bestiary
 - PRINCIPLE: completeness over brevity. Statblocks reproduced verbatim; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
 - MEASUREMENTS = metric, pre-converted (decimal POINT in data; render with comma at output). Key: 5 ft=1.5 m, 10 ft=3 m, 15 ft=4.5 m, 20 ft=6 m, 25 ft=7.5 m, 30 ft=9 m, 35 ft=10.5 m, 40 ft=12 m, 45 ft=13.5 m, 50 ft=15 m, 60 ft=18 m, 100 ft=30 m, 120 ft=36 m, 150 ft=45 m, 200 ft=60 m, 300 ft=90 m, 500 ft=150 m.
