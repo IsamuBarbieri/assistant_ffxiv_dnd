@@ -1,5 +1,25 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12s — cv107: potatura. Tolto tutto cio' che era allineamento e non riparazione
+
+cv era cresciuto **da 8.483 a 9.927 caratteri in una sessione, +17%**, e buona parte non riparava
+niente: era la passata di allineamento fra i tre assistenti, fatta **in mezzo a un debug**, contro la
+regola di cambiare una cosa per volta.
+
+**Tolto (−612 caratteri):**
+- la riga di verifica wiki — **06 §A14 la copre gia', output-forcing, per tutti e tre**: era un duplicato,
+  non un allineamento. Ed era nel contenitore sbagliato (lv e ov la tengono in `<scope>`, cv non ne ha uno).
+- `/prova`, `/negozio`, `/cercano` riportati alla riga compatta di cv96: nessun guasto li' era mai stato osservato.
+- `on its own turn`, e le code esplicative della riga delle perifrasi e della forma di `/salva`.
+
+**Rimasto, e perche' ciascuno se lo merita:** la regola media riscritta (unica riparazione MISURATA:
+`/continua` pulito su Pro) · la riga che lega le perifrasi (sblocca 67 regole a ~450 caratteri) ·
+`/salva`+`/confermo` (sostituiscono `/fine`, crescita quasi nulla) · le misure eorzee (la funzione
+richiesta) · `HOW A THING IS MADE` (35 caratteri per l'enunciato dei due strati).
+
+**Bilancio: +832 sul cv96 di partenza (+9,8%)**, non +17%.
+
+
 ## 2026-08-12r — 67 regole della knowledge erano irraggiungibili; `/salva` mostra, `/confermo` scrive
 
 06 non puo' nominare i comandi (1.4), quindi li chiama per ruolo: **13 perifrasi, 67 occorrenze**
