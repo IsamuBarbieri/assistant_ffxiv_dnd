@@ -1132,6 +1132,25 @@ la conversione, il divieto perde. Serve dare al comportamento uno **sbocco corre
 parentesi in metri) e degradare il token vietato a dato di calcolo con un nome che non e' un'unita'
 di output.
 
+## 2.43 UN VERDETTO SPACCATO FRA MODELLI E' UN FALLIMENTO, ED E' DIAGNOSTICO (2026-08-12)
+Su cv101 `/chiusura` **gioca il beat successivo su Gemini 3.1 Pro e funziona su 3.6 Flash**.
+
+**Va letto come FALLIMENTO, non come pareggio.** E dice qualcosa di preciso: una regola rotta o
+contraddittoria fallisce su ENTRAMBI. Se un modello regge, la regola c'e' ed e' leggibile — semplicemente
+non VINCE piu' contro qualcos'altro nel file. **Problema di margine, non di logica.** E un guasto
+dipendente dal modello punta sulle cause da RECUPERO: il modello che ragiona di piu' pesca un capitolo
+della knowledge che quello piu' letterale non pesca.
+
+**3.1 Pro e' il canarino.** Aveva gia' fallito una volta ed era stato recuperato: e' il modello
+sensibile, quindi e' quello su cui tarare. Una passata di Flash non prova nulla. Il protocollo di [2.38]
+si aggiorna: **due run in chat nuove SU 3.1 PRO**, non una per modello.
+
+**Ipotesi in verifica (non ancora misurata):** `/sessione 0` e' l'unica riga di cv che punta a 05 Cap. 2,
+e 05 dichiara che il materiale della Sessione 0 e' CO-LOCATO con la scena d'apertura (`OPENING SCENE
+(cold-open...)`). Avrebbe aperto un canale di recupero verso un capitolo che contiene un beat giocabile,
+dentro il grappolo dei comandi di sessione. Sarebbe l'adiacenza di [2.9] un piano piu' sotto: non fra
+righe del dispatch, ma fra capitoli della knowledge. cv102 la toglie come variabile singola.
+
 ## 2.42 L'ORDINE DEI COMANDI: SI SCRIVE IL PRINCIPIO, NON SI RIMESCOLA LA LISTA (2026-08-12)
 Valutato se dare ai tre roster un ordine esplicito. **No**, tranne un caso.
 
