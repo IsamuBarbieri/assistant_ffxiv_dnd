@@ -79,7 +79,7 @@ continuano a risolvere. Le aggiunte future vanno dentro la parte che le riguarda
 
 ## Come si lavora
 
-Queste non sono buone maniere: sono le cinque cose che, non facendole, sono costate settimane.
+Queste non sono buone maniere: sono le sei cose che, non facendole, sono costate settimane.
 
 **1. Una modifica per volta, contro un baseline che ha una buona corsa misurata.** Quattro riscritture
 integrali hanno introdotto una regressione ciascuna, tutte silenziose.
@@ -96,7 +96,13 @@ sopravvissuta al divieto che l'aveva superata.
 nove). Tre difetti di fila — bottino del boss, musica, nomi delle stanze — erano regole *già scritte* e
 ignorate; il conteggio le ha fatte sparare.
 
-**5. E si ritira, se non basta.** Una regola resa contabile che fallisce **due volte** non si riscrive
+**5. Una correzione non porta con sé la sua giustificazione.** Il perché di una modifica va nel
+`CHANGELOG`, mai nel file di conoscenza: lì la frase «non è X, è Y» non è una prova, è un **secondo
+candidato**, e mette il termine sbagliato nello stesso pezzo recuperabile di quello giusto. Il test è
+uno: *se togliessi la negazione, da dove arriverebbe l'errore?* Se solo dalla frase stessa, si toglie.
+Se dalla wiki che facciamo leggere, o dal nome stesso, resta.
+
+**6. E si ritira, se non basta.** Una regola resa contabile che fallisce **due volte** non si riscrive
 una terza: o è un limite del modello, o è nello strato sbagliato. Esce dal file e resta come limite
 noto in `Project_Memory`. Senza questo, i file crescono e basta.
 

@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.07 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.08 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -101,6 +101,7 @@ Version v2.07 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 *NOTE: the reveal timings below are INDICATIVE (by arc). The GM verifies the exact beat on the Roadmap (Ch. 5 and 08.1).*
 
 ### A) Soul / Divine / Cosmic
+- The NAME **Hydaelyn** and Her errand (claim the Crystals of Light) - **ARR, very early**: She names Herself in the second Echo vision, at quest #5 of the chosen city chain (08.1 ARR Manifest L1, pin #2). The NAME is NOT gated; WHAT She is stays gated per the entries below. Do not confuse the two - a save that has passed that beat may say 'Hydaelyn' freely.
 - AZEM and the group's 'soul-fragment' nature - **ShB/EW**
 - Truth about HYDAELYN & ZODIARK: the WORLD cosmology (Zodiark & Hydaelyn's existence, the world sundered into THIRTEEN reflections, the Ascians' Rejoining) is revealed in **HW (3.2 - the Antitower / Minfilia-Hydaelyn)**, NOT gated to EW; only the deepest truths (Venat IS Hydaelyn; the Ancients / Amaurot - **ShB**; the Final Days & Meteion - **EW**) remain later reveals
 - Soul split into 14 (the Sundering, the Sea of Stars, the soul/reincarnation cycle) - **ShB/EW**
@@ -453,6 +454,7 @@ The Warrior of Light receives 6 Crystals of Light - ONE PER ELEMENT - an excepti
 | 5 | ICE | Isgebind, Stone Vigil |
 | 6 | WIND | Garuda, Howling Eye |
 *GM NOTE:* order VERIFIED. Fire (Ifrit) precedes Lightning. All 6 collected by the Ultima Weapon / The Praetorium.
+*WHERE THE ERRAND COMES FROM:* the party does not simply find crystal #1 — Hydaelyn ASKS for them, by name, in the second Echo vision at quest #5 of the city chain (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`): *'The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them.'* That beat is the origin of this whole table and is PINNED (08.1 ARR Manifest L1). Skip it and Water arrives unasked-for.
 
 > **>>> SPOILER (GM ONLY - DO NOT REVEAL/NAME BEFORE ShB/EW) <<<**
 > The true nature of the group's 'shared bond' - and the identity of the legendary leader associated with that soul crystal (name: AZEM) - are END-GAME REVEALS (Shadowbringers / Endwalker). DO NOT name 'Azem' earlier: use neutral terms (a single Light, a common destiny). That soul crystal, in-game, serves to summon other heroes (Trust): here it is useless anyway, the party is already complete. At most an optional end-Endwalker lore cameo.

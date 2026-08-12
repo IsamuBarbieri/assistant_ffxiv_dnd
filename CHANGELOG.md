@@ -1,5 +1,213 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12e — 08 v3.50: le scene SOCIALI avevano musica solo per caso + una traccia usata nel ruolo sbagliato
+
+Domanda del GM: che ritmo musicale c'e' fra una scena e l'altra, soprattutto nei momenti social e non
+dungeon. Le tabelle coprivano citta', zone, duty e scene-madri; **le tre transienti piu' frequenti no**
+(viaggio, riposo, negozio, per genere di scena — mai per nome di comando, il knowledge non li nomina).
+
+**ERRORE TROVATO STRADA FACENDO — `Where the Heart Is` e' il tema dei QUARTIERI RESIDENZIALI**
+(`Locales I|023`, venduto dai mercanti di alloggi), non un tema di lutto. Era usato come mood di
+morte/addio in **13 punti**: le 6 copie della riga SCENE-KIND, la mood list master e 5 scene-madri —
+Moenbryda, il Banchetto di Sangue, l'addio di G'raha, il sacrificio di Minfilia, Yda/Lyse. Con quel
+mapping il sacrificio di Minfilia prendeva la musica dei quartieri residenziali.
+**Sostituito con `Sacred Bonds`**, l'unica traccia che la wiki etichetta `Sadness Theme` (`Quests|053`).
+`Where the Heart Is` non e' stato cancellato ma **rimesso al suo posto**: mood HOMELY / domestico, una
+scena quieta in un luogo vissuto — che nei momenti social serve davvero.
+*(Caveat: `Sacred Bonds` e' di rilascio EW. Le mood si riusano fra archi per dichiarazione dello stesso
+file, ma se il GM preferisce una traccia ARR per le morti ARR, va scelta e sostituita qui.)*
+
+**Nuovo blocco `SOCIAL / INTERIOR / TRANSIENT`**, tutto verificato:
+- **`Another Round`** ('Tavern Theme') — la sala comune della gilda: Drowning Wench, Quicksand, Carline
+  Canopy. E' il fondale del beat social piu' frequente della campagna e non c'era.
+- **`Behind Closed Doors`** ('Inn Room Theme') per il riposo al coperto · per il campo all'aperto NON
+  esiste una traccia dedicata: si usa l'ambient della zona, variante notturna dove c'e'.
+- Viaggio: l'ambient della zona **attraversata**, non della destinazione; l'arrivo prende quella della
+  destinazione. Negozio: il tema della citta'.
+- `Shelter` ('Sanctuary Theme' HW) · `Thicker than a Knife's Blade` (The Forgotten Knight) ·
+  i tre QG di Grand Company `Into the Adder's Den` / `Maelstrom Command` / `The Hall of Flames`
+  (briefing e commissioni) · `Safety in Numbers` (villaggi delle tribu') · `Coming Home` (Vanu Vanu) ·
+  `Cradle` (Dawn Throne/Onokoro) · `The Mushroomery` (grotta di Matoya).
+
+Categorie escluse dopo verifica: `Ambient` sono effetti sonori (pioggia, falo', grilli), `Others` e'
+contenuto laterale (Eureka, PvP, Firmament). Traghetto, mercato e taverna-generica non esistono come
+temi separati: la taverna e' `Another Round`, gli altri due ricadono sul tema della citta'.
+
+## 2026-08-12d — 08 v3.49 / 06: il blocco OST di HEAVENSWARD era riempito per pattern, non verificato
+
+Controllo richiesto dal GM sulle OST generiche di cutscene/reveal. La mood list si e' rivelata sana; il
+guasto stava accanto, nella tabella duty di HW — **tutte e 10 le righe dicevano
+`(mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks`**, cioe' la regola generica copiata su
+ogni riga invece dei dati della duty. Tutte e 10 riverificate su CGW una per una:
+
+- **Il mid-boss HW non e' Ominous Prognisticks: e' `To the Fore`** (8 duty su 10; eccezioni: Antitower
+  = `A Fine Death`, Sohr Khai 1° boss = `The Seven Jesters`).
+- **META' DEI FINAL HA UNA TRACCIA PROPRIA**, che andava persa: Aery/NIDHOGG = `Primogenitor` ·
+  Vault/Charibert = `The Heavens' Ward` · Sohr Khai/HRAESVELGR = `Primogenitor` · Xelphatol =
+  `Revenge Twofold` · Antitower = `Dancing Calcabrina -> Ominous Prognisticks` · **Aetherochemical
+  Research Facility / ASCIAN PRIME = `Thunderer -> The Maker's Ruin`**. Quest'ultimo e' il climax di
+  3.0: prendeva il tema generico dei corridoi.
+- **Un ambient SBAGLIATO:** Antitower era `Upon the Rocks`, e' `Down the Up Staircase`.
+- **Un ambient INCOMPLETO:** The Vault ha TRE tracce d'area (`Hallowed Halls` · `Toll of the Bells` ·
+  `Stigma`); ne era cachata una, contro la regola «MULTIPLE THEMES — LIST THEM ALL» di §A23 scritta
+  nello stesso file.
+
+**06 — decimo controllo contabile in §A9.** Il controllo (8) conta la musica sugli SCONTRI e si ferma
+li': una cutscene pinnata non emetteva alcun 🎵 e niente se ne accorgeva. Aggiunto **(10) EVERY PINNED
+SCENE HAS ITS OWN 🎵** — si contano i pin scritti nel beat e le 🎵 attaccate, e i due numeri devono
+combaciare. Questo chiude il difetto «musica» che il GM aveva gia' osservato al tavolo, che era una
+regola scritta e non contata.
+
+**MOOD LIST COMPLETATA (2a passata, su insistenza del GM: «non puoi cercare con calma?»).** La prima
+ricerca aveva fallito per METODO, non per mancanza di fonte. La pagina `Orchestrion_Roll` di CGW e'
+troppo grande da leggere in blocco e l'API MediaWiki non e' esposta, ma **le pagine dei singoli rulli
+dichiarano il tema in un template** `{{orchestrioninfo|Categoria|NNN|descrizione}}`, e la ricerca del
+wiki **indicizza il wikitext**. Interrogando `Special:Search` sul nome del template si enumera l'intera
+categoria «Quests» con, per ogni traccia, **cosa suona e quando** — che era esattamente il dato
+mancante. Metodo da riusare.
+
+Aggiunte al blocco master `RECURRING MOOD THEMES`, tutte con la descrizione presa dalla wiki:
+- **Tema di cutscene per ESPANSIONE**, che era il buco vero: HW **`Stone and Steel`** ('Heavensward MSQ
+  Theme') · SB **`Victory or Death`** e `Far East of Eorzea` ('Stormblood Cutscene Theme') · ShB
+  **`A Better Tomorrow`** ('Shadowbringers Cutscene Theme') e `Dangerous Words` ('Story Theme 2') · EW
+  il set generico `Tranquility · Fracture · Damnation · Kiss of Chaos · Return of the Hero · Meteor`
+  (tutti 'Miscellaneous Cutscene Theme') + `Home Beyond the Horizon` per Garlemald.
+- **`From Fear to Fortitude`** ('Solo Instanced Battle Theme') — buco che non avevo nemmeno cercato: la
+  campagna pinna piu' solo duty (Cape Westwind, Steps of Faith, Fordola a Castellum Velodyna,
+  l'evasione di Estinien in 5.1) e nessuna aveva una traccia.
+- `Sacred Bonds` ('Sadness Theme'), piu' stretto di Where the Heart Is che e' addio/lutto · `Bliss`
+  (scena leggera) · e i TEMI PERSONAGGIO per le scene che appartengono a qualcuno: Canticle (i gemelli)
+  · **`Bedlam's Brink` (Solus zos Galvus / Emet-Selch)** · Dreams Aloft (Cid) · The Sands' Secrets
+  (Raubahn) · Ripples in the Sea (Merlwyb) · Dewdrops & Moonbeams (Kan-E-Senna).
+
+La riga SCENE-KIND co-locata coi pin (6 copie) prende solo le due voci che valgono ovunque — solo duty
+e tema di cutscene d'arco — e rimanda al blocco master per il resto.
+
+## 2026-08-12c — 08 v3.47: la regola OST-scena non puo' usare «L1» come sinonimo di «visione d'apertura»
+
+La regola diceva *«an ECHO vision -> The Echo **at L1 ONLY**»*, in 6 copie identiche. Funzionava
+finche' sotto `L1` c'era UNA visione sola. Aggiungendo il pin della visione in cui Hydaelyn si nomina
+(2026-08-12) le visioni sotto L1 sono diventate **due**, e la regola ha iniziato a mandare `The Echo`
+anche sulla seconda — mentre la tabella scena diceva `Prelude - Rebirth` e vietava esplicitamente di
+riusare `The Echo` sui beat Hydaelyn/cristallo. Contraddizione fra due punti del file, causata
+dall'aggiunta del pin.
+
+**Corretto in tutte e 6 le copie:** `The Echo for the OPENING vision (ENTRY 0) ONLY`. E la riga della
+tabella scena passa da `BOUND TO L1 ONLY` a `BOUND TO ENTRY 0 ONLY`. **Il vincolo e' la SCENA, non
+l'etichetta di livello:** un'etichetta di livello e' un contenitore e i contenitori si riempiono.
+
+## 2026-08-12b — 08 v3.46: tolti i FOSSILI DI CORREZIONE (nuova lezione PM 2.39)
+
+Domanda del GM su una riga scritta poche ore prima: *«perche' quando correggi qualcosa metti sempre la
+negazione di quello che hai corretto? Non bastava pinnare Primal Judgment e basta? In teoria se una cosa
+non e' pinnata non puo' uscire, ma qua e' pinnata come sbagliata, non e' una contraddizione?»* **Si'.**
+
+La riga era `IFRIT — Primal Judgment [CGW-verified: … 'Fallen Angel' is GARUDA's theme, never Ifrit's]`.
+Un pin e' un contratto su cosa DEVE comparire: scriverci dentro cosa NON deve comparire lo trasforma in
+un elenco di due candidati, e mette il titolo sbagliato nello **stesso chunk recuperabile** di quello
+giusto. E' la lezione sul priming che avevamo gia' (PM 2.9, misurata sui comandi ritirati) applicata
+al contrario da me, lo stesso giorno.
+
+**Censite 651 costruzioni negative nella knowledge, classificate in quattro famiglie.** Solo UNA non ha
+diritto di esistere — quella dove l'errore esiste solo perche' il nostro file l'ha detto una volta.
+Tolte tutte e sei le occorrenze:
+- `IFRIT` -> ora solo `Primal Judgment [CGW-verified]` (il discriminante positivo c'era gia': la riga di
+  Garuda, due righe sotto, dice Fallen Angel)
+- `**Crossing Paths** (formerly listed "Crossroads")` -> il titolo falso non si stampa piu'
+- Crystal Tower `(no longer a side gate)` -> resta solo l'affermazione positiva
+- quattro `[title corrected]` / `[title corrected: singular]` -> metadati di changelog dentro un chunk
+  di RAG; non nominavano niente, ma occupavano spazio recuperabile per parlare di noi
+
+**RESTANO, e se lo guadagnano** (il discriminante e' il TEST DELLA FONTE, PM 2.39): le negazioni che
+parano un errore proveniente dalla **wiki che diciamo noi al modello di leggere** (*«There is NO
+'Magitek Colossus Rubricatus'»* — Gamer Escape lo elenca davvero) o **dal nome stesso / dai pesi**
+(`Coeurl O' Nine Tails` e' un Ochu; Frixio e' un silfo; Titan e' TERRA dentro un vulcano). E le
+`FAILURE SHAPES` di 06, che nominano una FORMA sbagliata e non un FATTO rivale: non creano un candidato
+concorrente.
+
+**La regola sta in `Project_Memory` 2.39 e nel README (punto 5 di sei), NON nel knowledge** — riguarda
+come scriviamo noi i file, non cosa fa il modello a runtime. Scriverla dentro il knowledge sarebbe
+esattamente l'errore che descrive.
+
+## 2026-08-12 — 08 v3.45 / 05 v2.08: AUDIT COMPLETO DI 08 (mai fatto prima)
+
+Richiesto dal GM: i pin erano stati costruiti a pezzi con una webchat, quindi sospetti. 4.752 righe,
+331 KB, incrociate con `05`. **Metodo:** lettura integrale dei 6 manifest + verifiche MECCANICHE sulla
+catena `Next:` (800 voci) + verifica su CGW dei punti dubbi. Le verifiche meccaniche hanno trovato
+quello che l'occhio non trova.
+
+### GUASTO PRINCIPALE — SETTE quest MSQ consecutive assenti (Stormblood 4.0)
+`The Die Is Cast` (Doma Castle) dichiarava `Next: The World Turned Upside Down`, un nome **che non
+compare da nessun'altra parte nel file**; la voce successiva era `The Lady of Bliss`. Catena reale
+ricostruita su CGW e **inserita per intero**: *The World Turned Upside Down · A Swift and Secret
+Departure · While You Were Away · Rhalgr's Beacon · The Fortunes of War · Rising Fortunes, Rising
+Spirits · The Lure of the Dream*. Il buco cade **esattamente su una giuntura di installment**, che e'
+dove una costruzione a pezzi lascia i vuoti. Dentro c'era anche la **prima sconfitta di FORDOLA**
+(solo duty a Castellum Velodyna) — il personaggio che a L14 porta l'Eco artificiale contro Lakshmi.
+
+### OTTAVA quest assente — `Vows of Virtue, Deeds of Cruelty` (ShB 5.1)
+MSQ vera (giver Alphinaud a Eulmore, con la solo duty **come Estinien** + Arch Ultima). Sparita perche'
+il suo titolo era stato usato come **intestazione della sezione** `## PATCH 5.1` e la voce non e' mai
+stata scritta. `Moving Forward` la puntava nel vuoto. Inserita al suo posto nella catena.
+
+### `Next: Sea of Sorrows` -> `Sea of Sorrow`
+La voce porta la nota *[title corrected: singular]* — il titolo era stato corretto **ma non il
+puntatore che lo cita**. E' la lezione 2.11 in purezza (corretto dove DEFINITO, sopravvissuto dove
+RIFERITO), e stavolta l'ha presa il file che la lezione l'ha prodotta. CGW conferma: singolare.
+
+### SETTE rimandi ai manifest che puntano a livelli inesistenti
+L'indice citava `Manifest tie (08.1 ShB L20..L24)` e `(08.1 SB L16/L17)`, ma il manifest ShB arriva a
+**L19** e quello SB a **L15**. Sette rimandi ciechi. Rimappati sul contenuto: SB L16/L17 -> **L14**
+(Castrum Abania e Ala Mhigo stanno nel climax L14); ShB L20/L21 -> **L16**, L22/L23 -> **L17**,
+L24 -> **L19**.
+
+### La fine della campagna puntava oltre la fine della campagna
+Tre punti dicevano al walker di proseguire su 6.1: la chiusura di 08.5, la chiusura di 08.6
+(*"Next: ENDWALKER PATCHES 6.1-6.55"*) e il `Next:` della quest **Endwalker** stessa. Ma 08.1 dice
+*"THE CAMPAIGN CLOSES ON THE ENDSINGER. No 6.x patches"* e manda il marker a `[CAMPAGNA CONCLUSA]`.
+Erano segnaposto di costruzione rimasti accesi **sul beat piu' importante di tutta la campagna**.
+Ora la quest terminale dice `Next: NONE — TERMINAL BEAT` e `Newfound Adventure` resta registrata solo
+perche' la giuntura non sembri un buco.
+
+### Musiche
+- **NOVE duty ShB senza riga OST**, di cui due MSQ del 5.0 base (**The Twinning**, **Akadaemia
+  Anyder**) piu' i cinque delle patch (Grand Cosmos, Heroes' Gauntlet, Anamnesis Anyder, Matoya's
+  Relict, Paglth'an). La tabella E' il lookup di riferimento: una duty assente rimanda il modello a
+  indovinare, che §A23 vieta. Aggiunta una riga esplicita che applica la regola generica ai boss e
+  manda l'ambient a SEARCH-FIRST — **senza coniare titoli**, che il file stesso proibisce.
+- **Ifrit:** la riga si contraddiceva (*"CGW-listed Primal Judgment; the iconic Ifrit track is often
+  'Fallen Angel'"*) mentre due righe sotto assegnava *Fallen Angel* a GARUDA. CGW verificato: la
+  pagina del Bowl of Embers elenca **solo Primal Judgment**. Nota ambigua rimossa.
+
+### Cross-check con 05
+- `05 Ch.1.6` non diceva **quando si apprende il NOME Hydaelyn**: la lista partiva dalla cosmologia
+  (HW 3.2), lasciando intendere che anche il nome fosse gated. Aggiunta la riga: nome ad ARR molto
+  presto, **natura** gated. Senza, i due file divergevano sul nuovo pin.
+- `05 Ch.5.4` elencava i 6 Cristalli senza dire **da dove nasce l'incarico**. Aggiunta l'origine.
+- Verificati e CONFORMI: ordine dei 6 cristalli (05 Ch.5.4 vs 08.1), stati della Benedizione
+  (05 Ch.5.5/5.6 vs manifest HW), Tiamat = penultimo cristallo, la nota HW 3.2 che dichiara
+  aggiornato Ch.1.6 A (lo e' davvero).
+
+### Stato di salute (per sapere di cosa fidarsi)
+La qualita' di fondo e' **buona**: i manifest ARR/HW/SB/ShB/EW sono dettagliati, i pin pesanti ci sono
+tutti (Lahabrea nominato a Toto-Rak, Haurchefant, Ysayle, Minfilia, la cosmologia 3.2, Yda=Lyse, Azem,
+G'raha, Elidibus cuore di Zodiark, Venat=Hydaelyn), e su **792 anelli della catena il 94% combacia**;
+il resto sono cluster paralleli documentati. I difetti erano quasi tutti **di giuntura**: fine
+installment, fine espansione, titolo usato come intestazione. Falsi allarmi verificati e scartati: le
+note `SCOPE:` sono per-installment e non stantie; `Coming to <Citta>` e' catalogata sidequest su CGW ma
+resta come sta (vedi 2026-08-11e).
+
+### Aperto, non risolto
+- **HW 3.4 (Soul Surrender)** e' l'unico blocco di manifest liquidato come *"a quieter bridge patch"*,
+  senza `REVEAL` ne' `GATED` — ma li' i Guerrieri delle Tenebre rivelano di venire dalla Prima e si
+  chiude la trama di Urianger. Il reveal e' pinnato piu' avanti (ShB L17), quindi non si perde nulla:
+  resta una riga magra, non un buco.
+- **ShB manifest: 5.4 non ha un blocco** (ci sono 5.1, 5.2, 5.3, 5.5). E' un interludio leggero, ma in
+  un manifest anti-drop l'assenza di un numero di patch andrebbe dichiarata.
+- **La fine di FANDANIEL non e' pinnata** nel manifest EW: viene introdotto con un `⚠️ reveal protetto`
+  in Fase 2 e la sua uscita di scena non e' scritta da nessuna parte. Non verificabile su CGW (la
+  pagina non riporta la morte); serve una fonte.
+
 ## 2026-08-11f — 08 v3.44 / 05 v2.07: ENTRY 0 riscritta sulle tre trascrizioni canoniche
 
 Il GM ha recuperato le tre cutscene d'apertura (`Loremonger:Introduction (<Citta>)`, GE non e'

@@ -1035,6 +1035,36 @@ turno di sempre. Tutto il tuning fra i 6,0 e i 6,5 KB era rumore, e sono ore.
 **Regola:** un candidato si prova almeno due volte, in chat nuove, e si annota QUALE turno cade, non
 solo se cade. Vale doppio quando il sintomo e' gia' stato descritto come «a volte si', a volte no».
 
+## 2.39 UNA CORREZIONE NON PORTA CON SE' LA SUA GIUSTIFICAZIONE DENTRO IL KNOWLEDGE (2026-08-12)
+Generalizza [2.9] dai COMANDI ritirati ai FATTI. Trovato dal GM su una riga scritta lo stesso giorno:
+`The Bowl of Embers (IFRIT) — Primal Judgment [CGW-verified: … 'Fallen Angel' is GARUDA's theme, never
+Ifrit's.]` La sua obiezione, testuale: *«in teoria se una cosa non e' pinnata non puo' uscire, ma qua e'
+pinnata come sbagliata, non e' una contraddizione?»* Si'. Un pin e' un contratto su cosa DEVE comparire;
+scriverci dentro cosa non deve comparire lo trasforma in un elenco di DUE candidati, e mette il titolo
+sbagliato nello stesso chunk recuperabile di quello giusto.
+
+**IL TEST DELLA FONTE** — l'unico discriminante che serve: *se togliessi la negazione, da dove
+arriverebbe l'errore?*
+- **Da nessuna parte, se non dalla frase stessa** -> e' un FOSSILE DI CORREZIONE. Si toglie. Il perche'
+  della modifica va nel CHANGELOG, che e' dev-only e non viene recuperato.
+- **Dalla wiki che diciamo NOI al modello di leggere** -> resta (es. *«There is NO 'Magitek Colossus
+  Rubricatus'»*: Gamer Escape lo elenca davvero sulla stessa pagina).
+- **Dai pesi del modello, o dal NOME stesso** -> resta (es. `Coeurl O' Nine Tails` e' un Ochu: il nome
+  E' la trappola). Anche qui, se esiste un discriminante POSITIVO si usa quello: su Ifrit bastava la
+  riga di Garuda due righe sotto.
+- Le `FAILURE SHAPES` di 06 sono un animale diverso e NON ricadono qui: nominano una FORMA sbagliata
+  ("impaccare le tre righe in una"), non un FATTO rivale, quindi non creano un candidato concorrente.
+
+**Perche' continua a ricapitare:** scrivere la giustificazione e' il modo naturale di mostrare il lavoro
+fatto. Ma il posto per mostrarlo e' il CHANGELOG. Nel file di conoscenza quella frase non e' una prova:
+e' un secondo candidato.
+
+**Corollario sul dove sta questa regola:** riguarda come scriviamo NOI i file, non cosa deve fare il
+modello a runtime. Va qui e nel README, MAI dentro il knowledge — scriverla la' sarebbe l'errore che
+descrive. Vedi anche [2.11] (corretto dove DEFINITO, sopravvissuto dove RIFERITO): lo stesso giorno
+`Sea of Sorrow` portava la nota *[title corrected: singular]* mentre il `Next:` che la citava diceva
+ancora il plurale.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

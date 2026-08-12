@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.44 | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.50 (full audit) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -80,16 +80,18 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** starting cities (Gridania/Ul'dah/Limsa) -> Scions. MSQ Primals: Ifrit, Titan, Garuda, Ultima Weapon. Antagonists: Gaius + Lahabrea. Crystals: all 6 in ARR, sealed at L8. Gate: Crystal Tower (Mor Dhona, L8).
 
 ### ARR CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
-**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
+**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** all 6 elemental crystals are collected across ARR, sealed at L8 end (see Blessing of Light block above). No Enthrallment mechanic in ARR. Revamped-duty lock: see the ARR REVAMPED-DUTY LOCK block above (Toto-Rak, Castrum Meridianum, The Praetorium, Cape Westwind, Steps of Faith).
 
 #### L1 — The Echo awakens
 - VISIONE DELL'ECO: SHARED Echo vision inside the arrival beat (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); hits the WHOLE party — this is the precedent that fixes the party-wide default; NO burning sky, NO star-shower, NO burning dragon (Ch.1.7). **It falls AFTER the opening fight, not on the road before it** (homebrew, Ch.1.7): the world stops, only the PCs are awake in it, and they see one another receive it.
 - **THIS PIN IS BEAT 0 OF THE CITY CHAIN, PLAYED BEFORE QUEST #1 (`Coming to <City>`), NEVER FOLDED INTO IT.** It is not a quest and has no giver or wiki step, which is exactly why it gets dropped: the 08.2 chain starts at #1 and a walker that reads only the chain never sees it. It is OWED whenever the save sits on `Coming to <City>` with an 'Ultimo step completato' that names Session 0 / the campaign start — that save state means the opening HAS NOT HAPPENED YET (05 Ch.1.7 RAG NOTE: it is played on the FIRST `/continua` after save-0 is loaded). NEVER open the campaign already ashore at the docks/gates with the vision skipped. Per-city staging: the beat-0 entries in 08.2, authoritative detail in 05 Ch.1.7.
-- GATED: the nature of the Echo and of Hydaelyn (Reveal: Eco = NO).
+- VISIONE DELL'ECO [**#2, and the one where She gives Her NAME** — entry #5 of each city chain: `Lurkers in the Grotto` (Limsa) · `Chasing Shadows` (Gridania) · `Underneath the Sultantree` (Ul'dah); CGW-verified, all three parallel]: after the solo duty a PC takes up a CRYSTAL and the party is pulled in — a TOWERING CRYSTAL, the same voice (`Hear... Feel... Think... Crystal bearer...`), and then the naming: `I am Hydaelyn. All made one. A Light there once was that shone throughout this realm... yet it hath since grown dim.` She sets the task: `The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them.` Hits the WHOLE party. **THIS IS WHERE THE 6-CRYSTALS THREAD BEGINS** (05 Ch.5.4 / Ch.7): drop it and the Blessing of Light arc has no origin, and Crystal #1 at L2 arrives unasked-for.
+- REVEAL: the NAME **Hydaelyn**, and the errand of claiming the Crystals of Light. Both become KNOWN here, not at L2.
+- GATED: WHAT Hydaelyn is, and the nature of the Echo, stay hidden (Reveal: Eco = NO). The name is not the nature.
 
 #### L2 — City climax · Water crystal · the Scions
-- IN-SCENA: the city-questline climax (campaign framing: Serpent Reavers / a local primal plot) -> Hydaelyn's first voice -> Crystal #1 WATER.
+- IN-SCENA: the city-questline climax (campaign framing: Serpent Reavers / a local primal plot) -> Crystal #1 WATER. **NOT Hydaelyn's first voice:** by this beat She has already spoken twice (L1 arrival vision, and the naming at city-chain #5). What is first HERE is the first CRYSTAL, answering the errand She already gave.
 - IN-SCENA (LATER in the L2 chain, AFTER the first dungeons — NOT at the Water-crystal climax): the FORMAL joining of the Scions of the Seventh Dawn at the Waking Sands — canonical beat 'The Scions of the Seventh Dawn' (Minfilia; Thancred, Y'shtola, Papalymo, Yda). WIKI-VERIFIED ORDER within L2: city-questline climax + Water crystal at Sastasha ('It's Probably Pirates') -> Sastasha -> Tam-Tara Deepcroft ('Fire in the Gloom') -> Copperbell Mines ('Into a Copper Hell') -> THEN the Scions meeting; NEVER place Minfilia's meeting before Sastasha / the Water crystal.
 - REVEAL: the Ascians exist only as a SHADOWY BACKGROUND force / foreshadowing — there is NO named on-screen Ascian confrontation yet. The first NAMED Ascian appears later (Lahabrea at Toto-Rak, L4). A masked figure may at most be GLIMPSED as foreshadowing (campaign color), never named here.
 - GATED: Ascian names/goals, Zodiark, the source of the party's tempering-immunity.
@@ -254,7 +256,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **[A] SAVE CONVENTION during the CT arc (answers 'do we save the quest or the dungeon name?'):** the save [A] 'Missione MSQ corrente (EN)' during this arc = the owning CT QUESTLINE QUEST - **Legacy of Allag** (Entry-1/Entry-2 + Labyrinth of the Ancients), **For Prosperity** (Syrcus Tower), **The Light of Hope** (The World of Darkness + the seal) - NEVER a DUTY/raid name. A duty is played INSIDE the quest, so 'Labyrinth of the Ancients' / 'Syrcus Tower' / 'The World of Darkness' belong in 'Ultimo step completato' (e.g. 'completato il Labyrinth of the Ancients'), NEVER in the mission field. These three CT questline titles are VALID [A] mission titles for MISSION-IN-INDEX (06 §B24) even though they are not listed in the 08.2 chain index - treat them as index-valid for the duration of the CT arc. (This mirrors normal MSQ: the mission is always the owning quest, the dungeon is its [duty] step.)
 
 ### CRYSTAL TOWER CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent - FROZEN v3.13, wiki-audited)
-**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
+**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** same role & legend as the other 5 manifests (shared block above). The full beat-by-beat IN-SCENA sequence (Entry-1/Entry-2/Labyrinth/Syrcus/World of Darkness/The Light of Hope) is NOT repeated here — it lives in the CRYSTAL TOWER SPINE below, which carries the identical binding weight (never drop/invent/reorder a beat listed there). This block adds only the REVEAL/GATED data not already explicit in the spine:
 - REVEAL (record as known here, state derived, Ch.19.3): G'raha & the Royal Eye; the Allagan/Xande/Amon/Cloud-of-Darkness history; BAHAMUT = DALAMUD; the Tower sealed with G'raha inside.
 - GATED (WARNING ShB): that G'raha will RETURN as the CRYSTAL EXARCH, and the ~200-year-future origin (payoff ShB L18) - NEVER named or anticipated here. (The self-seal 'wake when Eorzea reaches Allagan heights' IS shown here - that part is NOT gated.)
@@ -287,7 +289,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** Dragonsong War; Ishgard; Estinien (Azure Dragoon) vs NIDHOGG; KING THORDAN; ASCIAN PRIME (Igeyorhm + Lahabrea). Crystals: gradual relighting, full restoration at L11. ENTHRALLMENT active until the Blessing returns. No side gate.
 
 ### HEAVENSWARD CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
-**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
+**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** HW carries the SEALED-BLESSING arc: OFF from L9 (defeated Ascians can't be permanently killed, Hydaelyn's ward gone; the ECHO still keeps the party Tempering-safe, Ch.5.6), relights PARTIALLY after Bismarck (L10), FULLY restored at the Ascian Prime (L11) — announce each transition per §B23. No HW revamped-duty lock (duties intact, use current wiki version).
 
 #### L9 — Ishgard & the Dragonsong War (HW 3.0 opening)
@@ -376,7 +378,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** liberation of ALA MHIGO (Gyr Abania) and DOMA (Othard); antagonist ZENOS yae Galvus; SHINRYU; TSUKUYOMI. Blessing INTACT. No side gate.
 
 ### STORMBLOOD CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
-**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
+**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** in SB the Blessing is INTACT throughout (the HW Enthrallment mechanic, Ch.5.6, does NOT apply here). No SB revamped-duty lock (duties intact, use current wiki version).
 
 #### L13 — The Ala Mhigan Resistance & the liberation of Doma (SB 4.0, part 1)
@@ -459,7 +461,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 > **LIGHT NOTE (PURELY NARRATIVE - no mechanic):** thanks to the Blessing of Light, the PCs can ABSORB the Lightwardens' Light without becoming Sin Eaters. BUT the Blessing is NOT infallible: in lore the Light accumulates and at the climax (after Innocence) risks transforming the bearer, averted by the plot (Ardbert's intervention / the return of night). Render it ONLY as narrative tension (descriptions, doubts, signs of corruption): NO tracker, threshold or mechanical penalty.
 
 ### SHADOWBRINGERS CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
-**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
+**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** the Blessing is INTACT in ShB (no Enthrallment mechanic); the accumulating LIGHT is narrative tension only (see LIGHT NOTE above — NO tracker). ShB is the deep-lore arc: many long IN-SCENA cutscenes — render as DEPTH, never as branching (Ch.16.6). No ShB revamped-duty lock (duties intact).
 
 #### L16 — Arrival in the First; Il Mheg & Titania (ShB 5.0, part 1)
@@ -540,7 +542,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 **REMINDER:** the Final Days; ZODIARK and HYDAELYN; the journey toward the source of despair (Meteion); ELPIS (the Ancients' past); ULTIMA THULE; the final confrontation with the ENDSINGER. Level CAP at 20. No side gate. No post-EW patches. Dawntrail EXCLUDED.
 
 ### ENDWALKER CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
-**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Where the Heart Is · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo at L1 ONLY, later visions keep the scene's own mood theme · a general TENSE moment -> Unspoken. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
+**SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
 **SPECIFICS:** EW is played entirely at CAP (milestone L20), so this manifest is organized by STORY PHASE (zone), not by level. This arc lands the DEEPEST gated reveals (Venat = Hydaelyn, the Final Days, Meteion, Dynamis) — after ShB almost nothing remains gated. The Blessing is INTACT. Duty order: Zot -> Babil -> Storm's Crown -> Vanaspati -> The Dark Inside -> Ktisis Hyperboreia -> The Aitiascope -> The Mothercrystal -> The Dead Ends -> The Final Day (the Aitiascope is cleared BEFORE the Mothercrystal, same quest). No EW revamped-duty lock.
 
 **Phase 1 — Sharlayan & Thavnair: the Final Days begin**
@@ -616,7 +618,7 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 ---
 
 ## Quick Gate / Unlock alignment (whole campaign)
-- **Crystal Tower:** INLINE MANDATORY MSQ FLOW (no longer a side gate) - SEEDED at 2.1 'Laying the Foundation', PLAYED as a fixed ~13-beat arc after 'Build on the Stone' (CID trigger), EXIT to 2.2 'Still Waters'. Mor Dhona. Complete before HW. Lore: Allagan / Xande / Cloud of Darkness / Bahamut=Dalamud / G'raha (ShB Exarch = GATED).
+- **Crystal Tower:** INLINE MANDATORY MSQ FLOW - SEEDED at 2.1 'Laying the Foundation', PLAYED as a fixed ~13-beat arc after 'Build on the Stone' (CID trigger), EXIT to 2.2 'Still Waters'. Mor Dhona. Complete before HW. Lore: Allagan / Xande / Cloud of Darkness / Bahamut=Dalamud / G'raha (ShB Exarch = GATED).
 - `[REC]` **The Binding Coil of Bahamut** (ARR, Mor Dhona) - optional deep-dive tied to the CT Bahamut/Dalamud lore.
 - `[REC]` Hildibrand: ARR (Ul'dah) -> SB (Kugane, Kugane Ohashi) -> EW (Radz-at-Han, Gilded Araya).
 - `[REC]` Primal Fear -> Odin (ARR); Relic -> Chimera/Hydra (ARR); Moggle Mog (ARR).
@@ -687,7 +689,7 @@ dungeon battle = The Promise of Plunder (early dungeons: Sastasha / Tam-Tara / C
 - Castrum Meridianum — (ambient) The Emperor's Wont · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTION: (final, Livia) Steel Reason
 - The Praetorium — (ambient) Penitus · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTIONS: (Nero) Steel Reason · (Gaius, final) Bite of the Black Wolf
 - The Keeper of the Lake — (ambient) Silver Tears · (battle) A Fell Air Falleth · (mid-boss) A Fine Death · (final) Nemesis · EXCEPTION: (Midgardsormr, final) Primogenitor
-- The Bowl of Embers (IFRIT) — Primal Judgment (CGW-listed; the iconic Ifrit track is often 'Fallen Angel')
+- The Bowl of Embers (IFRIT) — Primal Judgment [CGW-verified]
 - The Navel (TITAN) — Weight of a Whisper -> Weight of His Will -> Weight of the World -> Heartless -> Under the Weight
 - The Howling Eye (GARUDA) — Fallen Angel
 - The Whorleater (LEVIATHAN) — Wreck to the Seaman -> Through the Maelstrom
@@ -700,17 +702,17 @@ CRYSTAL TOWER (gate):
 - Syrcus Tower — (ambient) Out of the Labyrinth · (battle) Shattered · (final, Xande) Tumbling Down
 - The World of Darkness — (ambient) Blind to the Dark · (battle) Hamartomania · (Cloud of Darkness, final) The Reach of Darkness
 #### GENERIC HW DUNGEON BATTLE THEMES
-mid-boss & final-boss fights = Ominous Prognisticks (unless a boss-specific theme is noted); HW open-world/zone battle = Melt.
-- The Dusk Vigil — (ambient) Descent · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- Sohm Al — (ambient) Slumber Eternal · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- The Aery — (ambient) Roar of the Wyrm · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- The Vault — (ambient) Hallowed Halls · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- The Great Gubal Library — (ambient) Ink Long Dry · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- The Antitower — (ambient) Upon the Rocks · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- The Aetherochemical Research Facility — (ambient) Imagination · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- Sohr Khai — (ambient) Apologies · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- Xelphatol — (ambient) Grounded · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
-- Baelsar's Wall — (ambient) Another Brick · (mid-boss) Ominous Prognisticks · (final) Ominous Prognisticks
+dungeon mid-boss = To the Fore (shared with SB) · dungeon final boss = Ominous Prognisticks, UNLESS the row names a boss-specific theme — half the HW duties have one; HW open-world/zone battle = Melt. [every row below CGW-verified per duty]
+- The Dusk Vigil — (ambient) Descent · (mid-boss) To the Fore · (final) Ominous Prognisticks
+- Sohm Al — (ambient) Slumber Eternal · (mid-boss) To the Fore · (final, Tioman) Ominous Prognisticks
+- The Aery — (ambient) Roar of the Wyrm · (mid-boss) To the Fore · (final, NIDHOGG) Primogenitor
+- The Vault — (ambient, THREE areas in order) Hallowed Halls · Toll of the Bells · Stigma — (mid-boss) To the Fore · (final, Ser Charibert) The Heavens' Ward
+- The Great Gubal Library — (ambient) Ink Long Dry · (mid-boss) To the Fore · (final, The Everliving Bibliotaph) Ominous Prognisticks
+- The Antitower — (ambient) Down the Up Staircase · (mid-boss) A Fine Death · (final, Calcabrina) Dancing Calcabrina -> Ominous Prognisticks
+- The Aetherochemical Research Facility — (ambient) Imagination · (mid-boss) To the Fore · (final, ASCIAN PRIME) Thunderer -> The Maker's Ruin
+- Sohr Khai — (ambient) Apologies · (mid-boss) The Seven Jesters (1st) · To the Fore (2nd) · (final, HRAESVELGR) Primogenitor
+- Xelphatol — (ambient) Grounded · (mid-boss) To the Fore · (final, Tozol Huatotl) Revenge Twofold
+- Baelsar's Wall — (ambient) Another Brick · (mid-boss) To the Fore · (final) Ominous Prognisticks
 - Thok ast Thok (RAVANA) — Unbending Steel
 - The Limitless Blue (BISMARCK) — Limitless Blue (fase 1) · Woe That Is Madness? (fase 2)
 - The Singularity Reactor (KING THORDAN) — Heroes
@@ -740,6 +742,7 @@ dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is 
 - Malikah's Well — (ambient) Deep Down · (mid-boss) Insatiable · (final) Insatiable
 - Mt. Gulg — (ambient) In the Belly of the Beast · (mid-boss) Insatiable · (final) Insatiable
 - Amaurot — (ambient) Mortal Instants · (mid-boss) Insatiable · (final) Insatiable
+- *ShB MSQ dungeons WITHOUT a cached ambient row — boss music resolves from the GENERIC rule above (Insatiable); for the AMBIENT use §A23 SEARCH-FIRST on the dungeon's English name, and NEVER coin a title:* **The Twinning** · **Akadaemia Anyder** (both 5.0 MSQ) · **The Grand Cosmos** (5.1) · **The Heroes' Gauntlet** · **Anamnesis Anyder** (5.3) · **Matoya's Relict** (5.4) · **Paglth'an** (5.5). (This row exists because the table is the lookup of record: a duty absent from it sends the model back to guessing, which §A23 forbids.)
 - The Dancing Plague (TITANIA) — What Angel Wakes Me
 - The Crown of the Immaculate (INNOCENCE) — Insanity
 - The Dying Gasp (HADES) — Invincible
@@ -763,13 +766,36 @@ dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consiste
 **USE (06 §A23 SCENE-OST-FROM-CACHE):** for open-world ZONE music, a CITY/settlement, or a story CUTSCENE/mood moment, resolve the track from THESE tables — never guess from memory. Titles are the ENGLISH OST names (search key; 07 governs prose display only, never the query). CITY THEMES: where TWO themes exist (day / night) OUTPUT BOTH 🎵 links so the GM picks. A 'to verify' entry falls back to §A23 SEARCH-FIRST (English place/scene descriptor) — NEVER invent a title (§A23 NO COINED TITLES). KEY SCENES = the pinned emotional cutscene tracks; anchor each to the SAME manifest beat (08.1) every time (duty/boss/trial themes stay in 08.OST-ARR..EW). Sources: Fandom + Gamer Escape OST tracklists + Eorzea Songbook.
 
 **RECURRING MOOD THEMES (how FFXIV actually scores cutscenes):** most story cutscenes have NO bespoke track — the game REUSES a small set of situational MOOD themes (sad / tense / Ascian / Primal / Garlean / reflective), mixed freely across scenes, largely shared from ARR onward. A KEY SCENE below WITHOUT a bespoke composed track resolves to the FITTING MOOD theme here (or SEARCH-FIRST if unsure); the bespoke ones (Answers, Dragonsong, Revolutions, The Worm's Tail, Who Brings Shadow, Endcaller, The Final Day, Flow...) are genuine composed set-pieces and stay as-is. VERIFIED recurring set (reused across 2.0+ cutscenes; source: reused-tracks list + Eorzea Songbook):
-- SAD / grief / farewell: Where the Heart Is · Tears for Mor Dhona
+- SAD / grief / farewell: Sacred Bonds ('Sadness Theme') · Tears for Mor Dhona
+- HOMELY / domestic / a quiet scene in a lived-in place: Where the Heart Is ('Residential Districts Theme')
 - ECHO / visions: The Echo
 - TENSE / general threat: Unspoken
 - ASCIAN (Ascian scenes): Without Shadow
 - PRIMAL (primal threat): Wrath of the Eikons
 - GARLEAN (the Empire): Imperial Will · Meteor
 - REFLECTIVE / title / hope: Prelude - Rebirth
+**STORY-CUTSCENE THEME BY EXPANSION** (the recurring MSQ cutscene track of that arc — use when a pinned scene has no row of its own; CGW-verified via each roll's Theme field):
+- ARR story cutscene: Torn from the Heavens (overworld/lead-in) · Forever Lost · Fragments of Forever · Daring Dalliances (all labelled 'Cutscene Music')
+- HW story cutscene: **Stone and Steel** ('Heavensward MSQ Theme') · A Cold Wind ('Heavensward Title Theme')
+- SB story cutscene: **Victory or Death** · **Far East of Eorzea** (both 'Stormblood Cutscene Theme') · Parting Ways (scenes WITH GOSETSU) · Cyan's Theme (Doman Enclave)
+- ShB story cutscene: **A Better Tomorrow** ('Shadowbringers Cutscene Theme') · Dangerous Words ('Shadowbringers Story Theme 2')
+- EW story cutscene: Home Beyond the Horizon (Garlemald) · and the EW-era generic set, all labelled 'Miscellaneous Cutscene Theme': Tranquility · Fracture · Damnation · Kiss of Chaos · Return of the Hero · Meteor
+**SCENE KINDS THAT HAVE A DEDICATED TRACK** (same source):
+- LIGHT / cheeky / happy beat: Bliss ('Cheeky/Happy Theme')
+- **SOLO INSTANCED DUTY: From Fear to Fortitude** ('Solo Instanced Battle Theme') — the campaign pins several (Cape Westwind, Steps of Faith, Fordola at Castellum Velodyna, Estinien's escape in 5.1)
+**SOCIAL / INTERIOR / TRANSIENT — the beats that are neither a zone nor a duty** (CGW-verified via each roll's Theme field; these are the ones a session hits most often between one pinned scene and the next):
+- TAVERN / the adventurers' guild common room (Drowning Wench, Quicksand, Carline Canopy): **Another Round** ('Tavern Theme')
+- THE FORGOTTEN KNIGHT, Ishgard's tavern: Thicker than a Knife's Blade
+- A REST AT A LODGING, an inn room, waking up indoors: **Behind Closed Doors** ('Inn Room Theme')
+- A REST IN THE OPEN / a camp: no dedicated track exists — use the zone's own `(ambient)`, its NIGHT variant where the zone has one
+- A TRAVEL MONTAGE: the `(ambient)` of the zone actually being crossed, not of the destination; the arrival takes the destination's
+- A SHOP / market scene: the settlement's own city theme (day or night as the fiction has it)
+- A SANCTUARY / safe camp in Heavensward: Shelter ('Sanctuary Theme')
+- SCION HQ: The Waking Sands (both the Waking Sands and the Rising Stones)
+- GRAND COMPANY HQ, for a briefing or a commission: Into the Adder's Den (Twin Adder) · Maelstrom Command (Maelstrom) · The Hall of Flames (Immortal Flames)
+- A BEAST-TRIBE SETTLEMENT: Safety in Numbers · (Vanu Vanu: Coming Home · Dawn Throne / Onokoro: Cradle)
+- MATOYA'S CAVE: The Mushroomery
+- CHARACTER THEMES, for a scene that belongs to one person: Canticle (Alphinaud & Alisaie) · Bedlam's Brink (**Solus zos Galvus / Emet-Selch**) · Dreams Aloft (Cid) · The Sands' Secrets (Raubahn) · Ripples in the Sea (Merlwyb) · Dewdrops & Moonbeams (Kan-E-Senna)
 
 **SUBQUEST / FATE / LEVE BATTLE THEMES (06 §A23; these are the ONLY cached leve/FATE titles, so anything not here falls back to the zone's `(battle)` track):**
 - ordinary SUBQUEST fight (the homebrew default) — Tug of Fate (the standard FATE theme)
@@ -792,17 +818,17 @@ ZONES:
 - Coerthas — (ambient) Fealty · (battle) The Land Breaks
 - Mor Dhona — (ambient) Intertwined · (battle) The Land Bleeds
 KEY SCENES (manifest beat -> track):
-- Opening / the Echo vision (L1) — The Echo (the vision theme) · Prelude - Rebirth (title theme). BOUND TO L1 ONLY: 'The Echo' is the OPENING-VISION theme — do NOT reuse it for later Hydaelyn/crystal beats (see the next row).
-- CRYSTAL OBTAINED / Hydaelyn speaks ('Hear... Feel... Think...') — any of the 6 elemental crystals, at its canonical beat (L2 Water, L4 Fire, L4 Lightning, L5 Earth, L6 Ice, L7 Wind) — Prelude - Rebirth (the title/Hydaelyn theme)
+- Opening / the Echo vision (L1) — The Echo (the vision theme) · Prelude - Rebirth (title theme). BOUND TO ENTRY 0 ONLY: 'The Echo' is the ARRIVAL-VISION theme — do NOT reuse it for later Hydaelyn/crystal beats (see the next row).
+- CRYSTAL OBTAINED / Hydaelyn speaks ('Hear... Feel... Think...') — the NAMING vision at city-chain #5 (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`, L1 manifest pin #2), then any of the 6 elemental crystals at its canonical beat (L2 Water, L4 Fire, L4 Lightning, L5 Earth, L6 Ice, L7 Wind) — Prelude - Rebirth (the title/Hydaelyn theme)
 - Scion HQ scenes (Waking Sands / Rising Stones) — The Waking Sands
 - Overworld boss (lead-in Ifrit / Titan / Garuda) — Torn from the Heavens
 - Mor Dhona / Crystal Tower, Allagan-lore melancholy — Now I Know the Truth
 - Crystal Tower (arc theme) — The Crystal Tower
 - Climax L7 (Praetorium -> Ultima Weapon) — Answers
 - ARR epilogue — The Seventh Sun / Dawn of a New Era
-- Moenbryda's death (2.5) — Where the Heart Is (recurring grief theme)
-- Bloody Banquet of Ul'dah / The Parting Glass (2.55) — Without Shadow (the Ascian scene) + Where the Heart Is (betrayal/flight, grief) [recurring themes]
-- G'raha seals himself (The Light of Hope) — The Crystal Tower (arc theme) + Where the Heart Is (farewell)
+- Moenbryda's death (2.5) — Sacred Bonds (the recurring grief theme)
+- Bloody Banquet of Ul'dah / The Parting Glass (2.55) — Without Shadow (the Ascian scene) + Sacred Bonds (betrayal/flight, grief) [recurring themes]
+- G'raha seals himself (The Light of Hope) — The Crystal Tower (arc theme) + Sacred Bonds (farewell)
 
 ### 08.OST-SCENE-HW
 CITIES (day / night):
@@ -821,7 +847,7 @@ KEY SCENES:
 - Thordan's rise/fall — Heroes Never Die -> Heroes
 - Estinien freed (Final Steps of Faith, 3.3) — Freefall / Revenge of the Horde
 - Ysayle's death (Azys Lla, L11) — Footsteps in the Snow (Ysayle's Shiva theme, reused at Azys Lla)
-- Minfilia's sacrifice (Antitower, 3.2) — Where the Heart Is (recurring sacrifice/farewell theme)
+- Minfilia's sacrifice (Antitower, 3.2) — Sacred Bonds (the recurring sacrifice/farewell theme)
 - Papalymo's death (3.5) — Scale and Steel (Shinryu summoning / sacrifice; The Far Edge of Fate)
 
 ### 08.OST-SCENE-SB
@@ -841,7 +867,7 @@ KEY SCENES:
 - Ala Mhigo, assault / liberation (L14) — Liberty or Death
 - Zenos's suicide — The Worm's Tail
 - Tsukuyomi / Yotsuyu (4.3) — Nightbloom / Lunacy / Wayward Daughter
-- Yda is Lyse (L13) — recurring emotional theme (Where the Heart Is; SEARCH-FIRST for a specific SB track)
+- Yda is Lyse (L13) — recurring emotional theme (Sacred Bonds; SEARCH-FIRST for a specific SB track)
 - The call to the First (4.56) — the Shadowbringers motif / recurring theme (SEARCH-FIRST)
 
 ### 08.OST-SCENE-ShB
@@ -3162,6 +3188,15 @@ KEY SCENES:
 - Next: The World Turned Upside Down
 - Manifest tie (08.1 SB L15): DOMA CASTLE — the assault that breaks the imperial garrison and frees the Doman capital; Hien reclaims his father's seat.
 
+**The World Turned Upside Down** — giver: Alphinaud (Yanxia) · MSQ
+- Tansui -> Alphinaud -> Rasho (x2)
+- Next: A Swift and Secret Departure
+- (the liberation of Doma settles; the party's eyes turn back west to Gyr Abania)
+
+**A Swift and Secret Departure** — giver: Alphinaud (Kugane) · MSQ `[COND: relay]`
+- return to the Ruby Bazaar -> Tataru -> Lyse
+- Next: While You Were Away
+
 ---
 
 **SCOPE:** the Qalyana beast-tribe summons LAKSHMI -> the trial of Emanation -> the Ala Mhigan front pushes through THE FRINGES & THE PEAKS toward Specula Imperatoris (L64-68 band).
@@ -3169,6 +3204,29 @@ KEY SCENES:
 **SIDEQUEST-POLLUTION NOTE:** *Delicate as a Flower* (Garima flower-errand) appears in a Next field after The Lure of the Dream but is NOT in the MSQ list — sidequest, excluded. True MSQ = The Lady of Bliss.
 
 ---
+
+**While You Were Away** — giver: Alphinaud (Limsa Lominsa Lower Decks) · MSQ `[COND: relay]`
+- Thancred (Castrum Oriens) -> rendezvous with Conrad -> Pipin
+- Next: Rhalgr's Beacon
+- (the party is back on the western front; the Resistance has not stood still)
+
+**Rhalgr's Beacon** — giver: Raubahn (the Fringes) · MSQ
+- Conrad (Rhalgr's Reach) -> the swarthy Resistance fighter -> the Ala Mhigan Brigade officer -> the hot-blooded youth -> Conrad -> Conrad (Castellum Corvi) -> travel to Castellum Velodyna -> [SOLO DUTY: defeat FORDOLA rem Lupis] -> Lyse
+- Next: The Fortunes of War
+- (FORDOLA's first defeat at the party's hands — the Ala Mhigan collaborator who will later bear the artificial Echo; 08.1 SB L14 ties her Resonant to Lakshmi)
+
+**The Fortunes of War** — giver: Conrad (the Fringes) · MSQ
+- search the Fringes for remnants of the imperial army -> Raubahn -> Conrad
+- Next: Rising Fortunes, Rising Spirits
+
+**Rising Fortunes, Rising Spirits** — giver: Conrad (the Fringes) · MSQ `[COND: fetch]`
+- the Ala Mhigan Resistance gate guard -> Lyse -> M'naago
+- Next: The Lure of the Dream
+- (at the Peering Stones the Qalyana summoning comes to light: the imperials killed the broodmother's daughter)
+
+**The Lure of the Dream** — giver: Alphinaud (the Fringes) · MSQ `[COND: relay]`
+- Sarisha -> Vajra
+- Next: The Lady of Bliss
 
 **The Lady of Bliss** — giver: Vajra (the Fringes) · MSQ
 - follow Vajra to Djanan Qhat -> attune to the aetheryte at Djanan Qhat -> observe Sri Lakshmi and the Qalyana broodmother -> (Alisaie reveals herself) -> [TRIAL: Emanation] defeat SRI LAKSHMI -> the Qalyana broodmother -> report to Lyse
@@ -3229,7 +3287,7 @@ KEY SCENES:
 **The Price of Freedom** — giver: Alphinaud (the Peaks) · MSQ
 - search for imperial patrols between Radiata and Castrum Abania (x2) -> Stark Woad -> lie in wait for imperial soldiers -> stand watch for remaining soldiers -> enter [DUNGEON: Castrum Abania] -> Lyse
 - Next: Raubahn's Invitation
-- Manifest tie (08.1 SB L16): CASTRUM ABANIA — the imperial fortress guarding the road to Ala Mhigo.
+- Manifest tie (08.1 SB L14): CASTRUM ABANIA — the imperial fortress guarding the road to Ala Mhigo.
 
 **Raubahn's Invitation** — giver: Raubahn (Gyr Abania) · MSQ `[COND: relay]`
 - follow Raubahn to Coldhearth
@@ -3268,7 +3326,7 @@ KEY SCENES:
 **Stormblood** (4.0 FINALE quest) — giver: Pipin (the Lochs) · MSQ
 - enter [DUNGEON: Ala Mhigo] -> [TRIAL: The Royal Menagerie] confront SHINRYU -> Lyse -> Alphinaud -> M'naago -> Raubahn -> Yugiri -> Lyse -> Lyse in Rhalgr's Reach
 - FINAL BOSS: ZENOS yae Galvus, merged with SHINRYU in the Royal Menagerie.
-- Manifest tie (08.1 SB L17): ALA MHIGO liberated; Zenos summons/binds Shinryu and is defeated; Lyse leads a free Ala Mhigo. End of 4.0.
+- Manifest tie (08.1 SB L14): ALA MHIGO liberated; Zenos summons/binds Shinryu and is defeated; Lyse leads a free Ala Mhigo. End of 4.0.
 - Next: (Patch 4.1) The Ala Mhigan homecoming arc — see INSTALLMENT 17.
 
 ---
@@ -3678,7 +3736,7 @@ KEY SCENES:
 **Acht-la Ormh Inn** — giver: Seto (Il Mheg) · MSQ
 - investigate the castle gate -> [TRIAL: The Dancing Plague] confront TITANIA -> Urianger
 - Next: The Wheel Turns
-- Manifest tie (08.1 ShB L20): TITANIA, the Lightwarden of Il Mheg (a corrupted pixie king); slain in The Dancing Plague, restoring night to Il Mheg.
+- Manifest tie (08.1 ShB L16): TITANIA, the Lightwarden of Il Mheg (a corrupted pixie king); slain in The Dancing Plague, restoring night to Il Mheg.
 
 **The Wheel Turns** — giver: Thancred (Il Mheg) · MSQ `[COND: relay]`
 - Alisaie in the Crystarium -> Alisaie -> the manager of suites in the Pendants
@@ -3768,7 +3826,7 @@ KEY SCENES:
 **The Burden of Knowledge** — giver: Almet (the Rak'tika Greatwood) · MSQ
 - search the destination -> enter [DUNGEON: The Qitana Ravel] -> Y'shtola
 - Next: Bearing with It
-- Manifest tie (08.1 ShB L21): THE QITANA RAVEL — the Ronkan sanctum; the Rak'tika Lightwarden is slain, restoring night to the Greatwood.
+- Manifest tie (08.1 ShB L16): THE QITANA RAVEL — the Ronkan sanctum; the Rak'tika Lightwarden is slain, restoring night to the Greatwood.
 
 **Bearing with It** — giver: Y'shtola (the Rak'tika Greatwood) · MSQ `[COND: relay]`
 - Almet -> Runar
@@ -3834,7 +3892,7 @@ KEY SCENES:
 - Minfilia -> Magnus -> [SOLO DUTY] defeat RAN'JIT (at Amh Malik) -> Minfilia
 - Next: Crossing Paths
 
-**Crossing Paths** (formerly listed "Crossroads") — giver: Minfilia (Amh Araeng) · MSQ
+**Crossing Paths** — giver: Minfilia (Amh Araeng) · MSQ
 - survey the designated location -> search for Minfilia -> search for Thancred
 - Next: A Fresh Start
 - Manifest tie (08.1 ShB): Thancred gives Minfilia her own name — she becomes RYNE.
@@ -3842,7 +3900,7 @@ KEY SCENES:
 **A Fresh Start** — giver: Ryne (Amh Araeng) · MSQ
 - survey the designated location -> enter [DUNGEON: Malikah's Well] -> Alisaie
 - Next: More than a Hunch
-- Manifest tie (08.1 ShB L22): MALIKAH'S WELL — the ancient Voeburtite waterworks; step toward the Amh Araeng Lightwarden.
+- Manifest tie (08.1 ShB L17): MALIKAH'S WELL — the ancient Voeburtite waterworks; step toward the Amh Araeng Lightwarden.
 
 ---
 
@@ -3911,7 +3969,7 @@ KEY SCENES:
 **Extinguishing the Last Light** — giver: Chai-Nuzz (Kholusia) · MSQ
 - the Crystal Exarch -> Y'shtola -> enter [DUNGEON: Mt. Gulg] -> [TRIAL: The Crown of the Immaculate] confront INNOCENCE -> Ryne
 - Next: Reassuring the Masses
-- Manifest tie (08.1 ShB L23): MT. GULG + INNOCENCE (Vauthry's primal form), the last Lightwarden. Its death floods the Warrior with unspent Light — the near-transformation into a Lightwarden; the true crisis of ShB begins.
+- Manifest tie (08.1 ShB L17): MT. GULG + INNOCENCE (Vauthry's primal form), the last Lightwarden. Its death floods the Warrior with unspent Light — the near-transformation into a Lightwarden; the true crisis of ShB begins.
 
 ---
 
@@ -3938,7 +3996,7 @@ KEY SCENES:
 - Next: To Storm-tossed Seas
 - Manifest tie (08.1 ShB): Urianger reveals the Exarch's true plan — to bear the Light himself and be cast into the rift.
 
-**To Storm-tossed Seas** — giver: Urianger (Sullen, Lakeland) · MSQ `[COND: fetch]` [title corrected]
+**To Storm-tossed Seas** — giver: Urianger (Sullen, Lakeland) · MSQ `[COND: fetch]`
 - Urianger -> investigate suspect rock formations beneath the water's surface (0/2) -> Urianger (x2)
 - Next: Waiting in the Depths
 
@@ -3971,7 +4029,7 @@ KEY SCENES:
 **Shadowbringers** (5.0 FINALE quest) — giver: the Crystal Exarch (the Crystarium) · MSQ
 - Alphinaud -> Urianger -> Y'shtola -> Thancred -> Ryne -> the Capitol attendant -> enter [DUNGEON: Amaurot] -> [TRIAL: The Dying Gasp] confront HADES -> the Crystal Exarch -> Tataru in the Rising Stones
 - FINAL BOSS: HADES — Emet-Selch's true unsundered Ascian form.
-- Manifest tie (08.1 ShB L24): the Warrior nearly becomes a Lightwarden but is anchored by the Scions' aether and Ardbert's soul (the Azem crystal); Emet-Selch falls, mourning his lost people. The Crystal Exarch is revealed as G'raha Tia. End of 5.0.
+- Manifest tie (08.1 ShB L19): the Warrior nearly becomes a Lightwarden but is anchored by the Scions' aether and Ardbert's soul (the Azem crystal); Emet-Selch falls, mourning his lost people. The Crystal Exarch is revealed as G'raha Tia. End of 5.0.
 - Next: (Patch 5.1) Vows of Virtue, Deeds of Cruelty — see INSTALLMENT 26.
 
 ---
@@ -4023,6 +4081,11 @@ KEY SCENES:
 - Next: Vows of Virtue, Deeds of Cruelty
 - (Chai-Nuzz becomes Eulmore's elected leader)
 
+**Vows of Virtue, Deeds of Cruelty** — giver: Alphinaud (Eulmore) · MSQ
+- the Crystal Exarch (the Ocular) -> Tataru (the Rising Stones) -> [SOLO DUTY: escape the imperial palace AS ESTINIEN] -> [SOLO DUTY: defeat ARCH ULTIMA] -> Tataru
+- Next: Old Enemies, New Threats
+- (NOTE: this quest gives PATCH 5.1 its name — which is exactly how it went missing: the title was used as the section header and the quest entry was never written. It is MSQ, and it is the only place the Estinien/Gaius Werlyt thread opens.)
+
 **Vows of Virtue, Deeds of Cruelty** (5.1 finale) — giver: Alphinaud (the Crystarium) · MSQ `[COND: relay]`
 - the Crystal Exarch in the Ocular -> Tataru -> Tataru at the Rising Stones -> Tataru
 - Next: Old Enemies, New Threats
@@ -4069,7 +4132,7 @@ KEY SCENES:
 - Next: Echoes of a Fallen Star
 - Manifest tie (08.1 ShB patch): ANAMNESIS ANYDER — the sunken Ronkan facility mirrored beneath the Tempest.
 
-**Echoes of a Fallen Star** (5.2 finale) — giver: Urianger (Kholusia) · MSQ `[COND: relay]` [title corrected]
+**Echoes of a Fallen Star** (5.2 finale) — giver: Urianger (Kholusia) · MSQ `[COND: relay]`
 - Alphinaud -> Theyler -> the Crystal Exarch -> the manager of suites in the Pendants
 - Next: In the Name of the Light
 
@@ -4159,7 +4222,7 @@ KEY SCENES:
 - Next: The Admiral's Resolve
 - Manifest tie (08.1 ShB patch): MATOYA'S RELICT — Matoya's automated cave laboratory in the Dravanian Hinterlands, overrun.
 
-**The Admiral's Resolve** — giver: Alphinaud (the Dravanian Hinterlands) · MSQ `[COND: parallel → Futures Rewritten]` [title corrected: singular]
+**The Admiral's Resolve** — giver: Alphinaud (the Dravanian Hinterlands) · MSQ `[COND: parallel → Futures Rewritten]`
 - Zanthael on the lower decks of Limsa Lominsa -> Alphinaud -> the leaders of Limsa Lominsa's pirate powers (0/2) -> Alphinaud
 - Next: The Search for Sicard
 
@@ -4236,7 +4299,7 @@ KEY SCENES:
 
 > **SHADOWBRINGERS COMPLETE** (5.0 base + patches 5.1-5.55). Installments 20-28 cover the full ShB main scenario, CGW-verified, full step spines, coordless. Seam confirmed: **Death Unto Dawn -> The Next Ship to Sail**.
 >
-> Next: **ENDWALKER 6.0** build begins — opener **The Next Ship to Sail** (giver at the Rising Stones), Old Sharlayan / Thavnair / Garlemald arc toward the Final Days. Then EW patches 6.1-6.5x.
+> Next: **ENDWALKER 6.0** — opener **The Next Ship to Sail** (giver at the Rising Stones), Old Sharlayan / Thavnair / Garlemald arc toward the Final Days. **6.0 IS THE LAST BLOCK: there are no EW patches here and none are wanted** — the campaign closes on the Endsinger (08.1 CAMPAIGN FINALE, Ch.1, 06 §A19).
 
 # 08.6 — ORDERED MSQ INDEX (AUTHORITATIVE DATA) — ENDWALKER (6.0)
 
@@ -4425,7 +4488,7 @@ KEY SCENES:
 
 **A Trip to the Moon** — giver: G'raha Tia (the Nethergate) · MSQ
 - activate the teleportation device -> the ancient spirit (x2) -> survey the destination -> search the Watcher's Palace for the source of the voice
-- Next: Sea of Sorrows
+- Next: Sea of Sorrow
 - (arrival on the Moon; the Loporrits and the Watcher's Palace)
 
 ---
@@ -4434,7 +4497,7 @@ KEY SCENES:
 
 ---
 
-**Sea of Sorrow** — giver: the Watcher (Mare Lamentorum) · MSQ `[COND: parallel → The Martyr]` [title corrected: singular]
+**Sea of Sorrow** — giver: the Watcher (Mare Lamentorum) · MSQ `[COND: parallel → The Martyr]`
 - speak with the faded / dreaming / forlorn / somber spirit -> approach the lustrous dog and follow it -> the temperamental spirit (x2) -> follow the lustrous dog again -> the anguished spirit
 - Next: The Martyr
 
@@ -4744,9 +4807,9 @@ KEY SCENES:
 **Endwalker** (#108 — 6.0 FINALE) — giver: Alphinaud (Ultima Thule) · MSQ
 - enter [DUNGEON: The Dead Ends] -> confront the Endsinger in [TRIAL: The Final Day] -> [SOLO DUEL: Zenos viator Galvus] -> speak with your comrades (0/8) -> Tataru
 - Reveal beats: the **Endsinger** (the despair-song of Meteion's collective / the will of the dead star) is defeated on **The Final Day**; the Final Days are ended; **Zenos** returns for the final duel and dies as the WoL's "friend."
-- **Next: Newfound Adventure** (ENDWALKER PATCH 6.1 opener)
+- **Next: NONE — TERMINAL BEAT.** (Canon would continue to `Newfound Adventure`, 6.1; OUT OF SCOPE — never opened, never named as 'apre'. Marker: `[CAMPAGNA CONCLUSA]`, then the optional EPILOGO — 08.1 CAMPAIGN FINALE, 06 §B27.)
 
 ---
 
-> **ENDWALKER 6.0 COMPLETE** (108 quests, installments 29-33, CGW-verified, coordless). Seam confirmed: **Endwalker -> Newfound Adventure**.
-> Next: **ENDWALKER PATCHES 6.1-6.55** (Newfound Adventure -> ... -> Growing Light), the last block before the full ARR->EW merge.
+> **ENDWALKER 6.0 COMPLETE** (108 quests, installments 29-33, CGW-verified, coordless).
+> **THIS IS THE END OF THE INDEX AND THE END OF THE CAMPAIGN.** `Newfound Adventure` is the canonical 6.1 successor and is recorded ONLY so the seam is not mistaken for a gap — it is OUT OF SCOPE and is never opened, never named as 'apre', never offered on `/continua`. On the climax of **Endwalker** the marker goes to `[CAMPAGNA CONCLUSA]` and the flow-driver stops (08.1 CAMPAIGN FINALE & EPILOGUE; Ch.1; 06 §A19). Dawntrail EXCLUDED.
