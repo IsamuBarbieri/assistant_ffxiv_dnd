@@ -1,5 +1,31 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12r — 67 regole della knowledge erano irraggiungibili; `/salva` mostra, `/confermo` scrive
+
+06 non puo' nominare i comandi (1.4), quindi li chiama per ruolo: **13 perifrasi, 67 occorrenze**
+(`'the rumours command'` 14, `'the write command'` 13, `'the end-session command'` 9, `'the travel
+command'` 8, `'the bridge command'` 8...). **cv non ne dichiarava nessuna.** Regole su forma
+dell'output, ancore verbatim e perfino un `MUST NOT contain a beat tag` erano scritte per comandi
+senza nome: invisibili.
+
+**Riparato con una riga in `<knowledge>`** che lega ogni perifrasi al suo comando. ~570 caratteri per
+sbloccarne 67. Righe equivalenti in lv (check, image) e ov (act, check, wipe).
+
+**Gate del save a due passi, che §B24 descriveva gia':** *«a 'the end-session command' turn: do NOT
+write ... the write happens only on the 'the write command' turn»*. Ora **`/salva` stampa il recap di
+sola lettura e non scrive**; **`/confermo` scrive**, valido solo nel turno subito dopo — stesso schema
+di `/voci` → `/accettiamo`, con riga di chiusura verbatim. `/fine` (ex `/chiusura`) sparisce: non serve
+piu' un nome che significhi 'recap'.
+
+`[DA CONFERMARE]` → **`[DA VERIFICARE]`** in cv e 06: e' il termine che entrambe le glosse usavano gia',
+ed evita che `/confermo` si sieda accanto al bucket.
+
+Scartato `/stop`, misurato: `stop` compare **21 volte in 06** come `QUEST-STOP`, cioe' la quest che il
+ponte **GIOCA PER INTERO**. Sarebbe stato lo stesso bug con una parola nuova.
+
+cv106 · lv38 · ov58 · 06 v6.20. PM 2.44.
+
+
 ## 2026-08-12q — `/chiusura` diventa `/fine`: il comando collideva col proprio significato
 
 `/chiusura` giocava un nuovo beat su Gemini 3.1 Pro. Il divieto era scritto **cinque volte** (roster

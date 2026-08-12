@@ -1151,6 +1151,39 @@ e 05 dichiara che il materiale della Sessione 0 e' CO-LOCATO con la scena d'aper
 dentro il grappolo dei comandi di sessione. Sarebbe l'adiacenza di [2.9] un piano piu' sotto: non fra
 righe del dispatch, ma fra capitoli della knowledge. cv102 la toglie come variabile singola.
 
+## 2.44 LA KNOWLEDGE CHIAMA I COMANDI PER RUOLO, E NESSUNO DICEVA QUALI FOSSERO (2026-08-12)
+`/chiusura` giocava un beat. Il divieto era scritto CINQUE volte e perdeva. Per [2.26] non serviva una
+sesta scrittura ma la forma che la batteva — e la forma era **la parola stessa**: `/chiusura` e'
+l'italiano di *closing*, e nel corpus `closing scene` / `closing beat` compaiono ~15 volte come **cosa
+dovuta da un beat**, una perfino in cv dentro NOTHING IS LEFT BEHIND. Il comando non veniva frainteso:
+veniva TRADOTTO. (Il git mostra che si chiamava `/fine sessione`: la collisione l'ha creata una rinomina.)
+
+**Ma la causa vera era piu' grande, e l'ha scoperta il fatto di cercarla.** 1.4 vieta ai file di
+knowledge di nominare un comando, quindi 06 li chiama per RUOLO: `'the end-session command'`,
+`'the write command'`, `'the rumours command'`... **Tredici perifrasi, 67 occorrenze. cv ne dichiarava
+ZERO.** Sessantasette regole — forma dell'output, ancore verbatim, perfino un esplicito `MUST NOT
+contain a beat tag` — scritte per comandi che il control layer non nominava mai. Quando arrivava
+`/chiusura`, l'unica forma indirizzabile era quella del beat, e per [2.26] un template non deve essere
+quello giusto per vincere: gli basta essere l'unico.
+
+**Aggravante trovata per strada:** 05 rimandava a *«06 §B17 ... the full '/CHIUSURA — SEQUENCE
+OVERVIEW'»*, una sezione che in 06 non esiste — e nominava i comandi, che 1.4 vieta. Puntatore morto
+verso la procedura che serviva.
+
+**La riparazione non aggiunge forza, aggiunge INDIRIZZABILITA':** una riga in `<knowledge>` che lega
+ogni perifrasi al suo comando. Sblocca 67 regole al prezzo di ~570 caratteri.
+
+**E ha reso possibile una semplificazione che la knowledge chiedeva gia'.** §B24 descriveva da sempre
+DUE turni — *«a 'the end-session command' turn: do NOT write ... the write happens only on the 'the
+write command' turn»*. Il gate a due passi esisteva nel RAG e non esisteva in cv. Ora: **`/salva` mostra
+il recap e non scrive, `/confermo` scrive**, valido solo nel turno immediatamente successivo (stesso
+schema collaudato di `/voci` → `/accettiamo`). Il comando che aveva bisogno di un nome giusto e'
+sparito: non serve piu' una parola che significhi 'recap', perche' il recap e' la prima meta' del salvare.
+
+**Regola da portarsi dietro:** quando la knowledge non puo' nominare una cosa, il control layer DEVE
+dichiarare il nome che la knowledge usa — altrimenti ogni regola scritta con quel nome e' invisibile.
+Prima di aggiungere una regola, verificare che quelle esistenti siano RAGGIUNGIBILI.
+
 ## 2.42 L'ORDINE DEI COMANDI: SI SCRIVE IL PRINCIPIO, NON SI RIMESCOLA LA LISTA (2026-08-12)
 Valutato se dare ai tre roster un ordine esplicito. **No**, tranne un caso.
 

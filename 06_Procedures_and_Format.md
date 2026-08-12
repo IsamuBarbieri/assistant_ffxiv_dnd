@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.19 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.20 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -619,7 +619,7 @@ Sessione: NN
 
 - **END-SESSION GATE ANCHOR QUOTE (output-forcing):** at 'the end-session command' the FIRST line of the recap QUOTES verbatim 'Ancora save: Sessione: N · Numero PG: X · Livello: Y' copied from the loaded save block or the load anchor echo (nearest); if it cannot be quoted, ASK and STOP — no recap without the quoted anchor.
 
-- **END-SESSION RECAP (produced by the 'the end-session command' gate)** produce the §B19 recap in ACTUAL-PLAY form, as a DELTA from the loaded save, in TWO buckets — [GIOCATO] = every LIVE beat (default, canonical outcome) + GM-confirmed events (-> advance [A] completed step + [C] subquest); [DA CONFERMARE] = ONLY what the GM's own inputs left ambiguous (GM validates; never a blanket bucket for unreported LIVE fights). Run the §B19 continuity self-check inside it.
+- **END-SESSION RECAP (produced by the 'the end-session command' gate)** produce the §B19 recap in ACTUAL-PLAY form, as a DELTA from the loaded save, in TWO buckets — [GIOCATO] = every LIVE beat (default, canonical outcome) + GM-confirmed events (-> advance [A] completed step + [C] subquest); [DA VERIFICARE] = ONLY what the GM's own inputs left ambiguous (GM validates; never a blanket bucket for unreported LIVE fights). Run the §B19 continuity self-check inside it.
 
 - **LAST-PLAYED ECHO (output-forcing):** the recap ALSO prints ONE line 'Ultimo evento giocato: <the last completed in-fiction event per the register>' — this line is the WRITE ANCHOR for the [A] step at the next 'the write command'.
 
