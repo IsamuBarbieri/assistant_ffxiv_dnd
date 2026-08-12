@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.08 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.09 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -503,20 +503,20 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 ## 6.3 Effects by role
 - **AREA PRINCIPLE - THE AREA SCALES WITH THE LB LEVEL:** LB1 = SMALL area, LB2 = MEDIUM area, LB3 = LARGE area. Applies to ALL LBs that act on an area or radius (Tank, Healer, Ranged DPS and Magical DPS): as the LB level rises, both the EFFECT AND the SIZE of the area/radius grow. Only Physical Melee DPS is an exception: it is SINGLE-TARGET and has NO area (does not scale in size).
 
-**TANK - Protection (damage reduction for allies; the RADIUS scales with LB level: LB1 6 m | LB2 12 m | LB3 18 m):**
-- LB1 (Shield Wall): damage taken -1/4 | for 1 round | allies within 6 m radius
-- LB2 (Stronghold): damage taken -1/2 | for 1 round | allies within 12 m radius
-- LB3 (per job): damage taken -3/4 | for 2 rounds | allies within 18 m radius [BOSS]
+**TANK - Protection (damage reduction for allies; the RADIUS scales with LB level: LB1 4 yalm | LB2 8 yalm | LB3 12 yalm):**
+- LB1 (Shield Wall): damage taken -1/4 | for 1 round | allies within 4 yalm radius
+- LB2 (Stronghold): damage taken -1/2 | for 1 round | allies within 8 yalm radius
+- LB3 (per job): damage taken -3/4 | for 2 rounds | allies within 12 yalm radius [BOSS]
 
-**HEALER - Healing (in max HP for allies; the RADIUS scales with LB level: LB1 6 m | LB2 12 m | LB3 18 m):**
-- LB1 (Healing Wind): heals 1/4 of max HP | allies within 6 m radius
-- LB2 (Breath of the Earth): heals 1/2 of max HP | allies within 12 m radius
-- LB3 (per job): heals 3/4 of max HP to ALL allies within 18 m radius + RAISES the Downed (to 3/4 HP) WITHOUT Aether Sickness [BOSS] (the definitive wipe-saver)
+**HEALER - Healing (in max HP for allies; the RADIUS scales with LB level: LB1 4 yalm | LB2 8 yalm | LB3 12 yalm):**
+- LB1 (Healing Wind): heals 1/4 of max HP | allies within 4 yalm radius
+- LB2 (Breath of the Earth): heals 1/2 of max HP | allies within 8 yalm radius
+- LB3 (per job): heals 3/4 of max HP to ALL allies within 12 yalm radius + RAISES the Downed (to 3/4 HP) WITHOUT Aether Sickness [BOSS] (the definitive wipe-saver)
 
 **DPS - Damage (see table 6.4):**
 - PHYSICAL MELEE: single target, AUTOMATIC hit (no attack roll), NO save. d12 dice. (No area: hits a single target at any LB level.)
-- PHYSICAL RANGE: a LINE that SCALES with LB level (length x width) -> LB1 6 m x 1.5 m | LB2 12 m x 3 m | LB3 18 m x 4.5 m. Hits every ENEMY in it (allies never, 6.2). AUTOMATIC (no save). d8 dice.
-- MAGICAL: a CIRCLE that SCALES with LB level -> LB1 radius 3 m | LB2 radius 6 m | LB3 radius 9 m. Hits every ENEMY in it (allies never, 6.2). AUTOMATIC (no save). d8 dice.
+- PHYSICAL RANGE: a LINE that SCALES with LB level (length x width) -> LB1 4 yalm x 1 yalm | LB2 8 yalm x 2 yalm | LB3 12 yalm x 3 yalm. Hits every ENEMY in it (allies never, 6.2). AUTOMATIC (no save). d8 dice.
+- MAGICAL: a CIRCLE that SCALES with LB level -> LB1 radius 2 yalm | LB2 radius 4 yalm | LB3 radius 6 yalm. Hits every ENEMY in it (allies never, 6.2). AUTOMATIC (no save). d8 dice.
 - *ALL Limit Breaks are UNAVOIDABLE (like FFXIV):* they land in full — no attack roll and no save. Melee is d12 (single-target, concentrated damage); the AoE types are d8 because they SPREAD the hit across every ENEMY caught in the line/circle — so melee stays the single-target boss-killer while the AoE clears groups, and neither is reduced by a save.
 - Damage type: themed to the job.
 
@@ -530,8 +530,8 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 | 17-20 | 7 dice | 11 dice | 16 dice |
 
 **Die type:** PHYSICAL MELEE = d12 | PHYSICAL RANGE and MAGICAL = d8
-**Area (scales with LB level):** Physical Range = line 6/12/18 m long x 1.5/3/4.5 m wide (LB1/LB2/LB3) | Magical = circle radius 3/6/9 m (LB1/LB2/LB3) | Physical Melee = single target (no area). ENEMIES ONLY — an LB never hits allies (6.2).
-**Support LB radius (scales with LB level):** Tank = radius 6/12/18 m (LB1/LB2/LB3) | Healer = radius 6/12/18 m (LB1/LB2/LB3).
+**Area (scales with LB level):** Physical Range = line 4/8/12 yalm long x 1/2/3 yalm wide (LB1/LB2/LB3) | Magical = circle radius 2/4/6 yalm (LB1/LB2/LB3) | Physical Melee = single target (no area). ENEMIES ONLY — an LB never hits allies (6.2).
+**Support LB radius (scales with LB level):** Tank = radius 4/8/12 yalm (LB1/LB2/LB3) | Healer = radius 4/8/12 yalm (LB1/LB2/LB3).
 
 **Average damage (reference):**
 - MELEE d12 (single, no save): 1-4 ~20/33/52 | 5-8 ~26/46/65 | 9-12 ~33/52/78 | 13-16 ~39/65/91 | 17-20 ~46/72/104
@@ -552,7 +552,7 @@ Official names verified. **PRINCIPLE:** the Limit Break is an epic but RARE burs
 | 13-16 | ~91 | Adult Red Dragon CR17 (256) | ~36% |
 | 17-20 | ~104 | Pit Fiend CR20 (300) | ~35% |
 | 17-20 | ~104 | Ancient Red Dragon CR24 (546) | ~19% |
-LB3 MAGICAL (AoE, guaranteed full - no save) - lvl 17-20: ~72 to EACH target in the 9 m circle (LB3 area).
+LB3 MAGICAL (AoE, guaranteed full - no save) - lvl 17-20: ~72 to EACH target in the 6 yalm circle (LB3 area).
 
 *(*) Campaign bosses are LEGENDARY/ELITE with inflated HP reserves (~1.5x) vs the vanilla MM, so the REAL fractions run BELOW this table: LB3 is ~40-60% of the boss at low tier down to ~23-25% at cap - DECLINING, not a constant 35-45%. The LB is therefore RELATIVELY strongest at low level and gentler at high level, and this sublinear scaling is INTENTIONAL: the LB dice grow linearly (+1-2 per tier) while a class's own damage grows multiplicatively (extra attacks, magic weapons, bigger slots), so holding a constant 'epic %' would require ~doubling the high-tier LB3 dice and would produce boss one-shots. FLOOR (design bar): LB1 is always >= a normal average attack at every tier - melee is guaranteed (~a full single-target turn) and the AoE, now unavoidable, beats a save-halved spell against a boss that would otherwise save. Conclusion: a powerful burst, strongest as an early-game swing, always meaningful (>=~3x a normal round / >=~23% of a boss), but NEVER a one-shot at any tier.*
 

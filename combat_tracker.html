@@ -647,7 +647,7 @@
                   </div>
                   <div style="flex: 2; display: flex; flex-direction: column; gap: 4px;">
                       <label>Allineamento e Tipo</label>
-                      <input type="text" id="editSbLine1" value="${escapeHtml(activeSb.line1 || '')}" placeholder="Es: CA 12 · PF 9 · Vel 9 m">
+                      <input type="text" id="editSbLine1" value="${escapeHtml(activeSb.line1 || '')}" placeholder="Es: CA 12 · PF 9 · Vel 6 yalm">
                   </div>
               </div>
               <label style="margin-top: 6px;">Attributi (FOR, DES...)</label>
@@ -657,7 +657,7 @@
               <label style="color: #93c5fd;">Abilità</label>
               <input type="text" id="editSbSkills" value="${escapeHtml(activeSb.skills || '')}" placeholder="Es: Furtività +4, Percezione +2">
               <label>Sensi</label>
-              <input type="text" id="editSbSenses" value="${escapeHtml(activeSb.senses || '')}" placeholder="Es: Scurovisione 18 m">
+              <input type="text" id="editSbSenses" value="${escapeHtml(activeSb.senses || '')}" placeholder="Es: Scurovisione 12 yalm">
               <label>Azioni, Tratti, Bottino (una mossa per riga)</label>
               <textarea id="editSbMoves" placeholder="Multiattacco — Fa due attacchi.\nMorso — +4, 1d6 danni.">${escapeHtml((activeSb.moves || []).join('\n'))}</textarea>
               <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:5px;">
@@ -847,8 +847,9 @@
       let presetKey = 'base';
       if (tipo) { const found = Object.keys(MapPresets).find(k => MapPresets[k].label.toLowerCase() === tipo.toLowerCase()); if (found) presetKey = found; else warnings.push('Tipo "' + tipo + '" non è fra le etichette note: uso "Stanza Base".'); } else warnings.push('Manca il campo "Tipo": uso "Stanza Base".');
 
-      let w = null, h = null; const dim = /^[\s>*_-]*\**\s*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)\s*(m\b|metri\b)?/im.exec(body);
-      if (dim) { w = Math.max(6, Math.min(30, parseInt(dim[1], 10))); h = Math.max(6, Math.min(30, parseInt(dim[2], 10))); if (dim[3]) warnings.push('"Dimensioni" è in CASELLE, non in metri (1 casella = 1,5 m): letto ' + w + ' × ' + h + ' caselle.'); } else warnings.push('Manca il campo "Dimensioni": misure tirate a caso dal modello.');
+      // 1 casella = 1 yalm, quindi "12 × 8 yalm" è corretto e passa senza avviso; "m"/"metri" no.
+      let w = null, h = null; const dim = /^[\s>*_-]*\**\s*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)\s*(m\b|metri\b|yalm\b)?/im.exec(body);
+      if (dim) { w = Math.max(6, Math.min(30, parseInt(dim[1], 10))); h = Math.max(6, Math.min(30, parseInt(dim[2], 10))); if (dim[3] && !/^yalm$/i.test(dim[3])) warnings.push('"Dimensioni" è in CASELLE, non in metri (1 casella = 1 yalm = 1,5 m): letto ' + w + ' × ' + h + ' caselle.'); } else warnings.push('Manca il campo "Dimensioni": misure tirate a caso dal modello.');
 
       let shape = null; const forma = field(/^[\s>*_-]*\**\s*Forma\s*:\**\s*(.+)$/im);
       if (forma) { const key = Object.keys(ShapeVocabulary).find(k => forma.toLowerCase().includes(k)); if (key) shape = ShapeVocabulary[key]; else warnings.push('Forma "' + forma + '" non riconosciuta.'); }

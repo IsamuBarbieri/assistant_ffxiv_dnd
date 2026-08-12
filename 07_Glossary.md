@@ -1,5 +1,5 @@
 # 07_GLOSSARY - Naming System & Recurring Names (SINGLE SOURCE)
-Version v1.35
+Version v1.36
 
 ## G0 - PRINCIPLE & USAGE
 - NARRATIVE LEVEL: translate by SENSE into "Italian (English)" at the FIRST occurrence, then only Italian. Applies to EVERYTHING built from transparent English words: personal names, surnames, epithets/nicknames, places/settlements, ships/vessels, taverns/inns, organizations/groups/companies, signs, titles. (ABILITY / SPELL / MOVE / ACTION NAMES are a SPECIAL CASE -> see G24: FFXIV/FF-iconic names are KEPT, only the effect is in Italian.) If no standard rendering exists, CREATE one. The English in parentheses is a provenance label.
@@ -237,8 +237,16 @@ G27.2 - OATHS & EXPLETIVES by deity/region:
 - Glory to the Maelstrom! -> Gloria alla Tempesta! (Grand Company; see G10)
 NOTE: these are RECURRING formulas -> fixed rendering, never varied per session. Individual god names stay unchanged (G10); the Grand Company head is la Tempesta (G10), never "Maelstrom".
 
+## G28 - UNITS OF MEASUREMENT (Eorzean, never translated)
+The setting's units REPLACE metri and kg in every output (06 A2 owns WHEN and the conversion; this entry owns HOW THEY ARE WRITTEN).
+- BINDING FORMS: yalm (grid distance, 1 yalm = 1 quadretto) · fulm (height, small objects) · ilm (minutiae) · malm (travel) · ponze (weight) · onze (small weight) · tonze (ships, colossi).
+- NEVER TRANSLATED and never given an Italian equivalent in parentheses: 'iarda', 'libbra', 'piede', 'oncia', 'miglio' are all wrong. These are coined setting words, so G3's parenthesis test does not apply.
+- LOWERCASE always, even after a numeral: '6 yalm', not '6 Yalm'.
+- INVARIABLE IN THE PLURAL, as Italian loanwords are: tre yalm, sei fulm, dodici ponze, due malm. Never 'yalms', never 'ponzi'.
+- The numeral takes the Italian decimal comma when a decimal survives at all ('6,5 fulm'); yalm figures are always whole.
+
 ## NAMING COMPLETE
-G1-G4 = the METHOD (classify -> decompose -> recompose by shape, LEAN principle, parenthesis test). G5-G27 = the FIXED binding renderings: places/orgs/trials ARR->DT, race clans, classes (Job/class -> Classe), villain epithets, Void/cosmology, districts, Primals/summons (Italian vs kept), beast tribes, the G24 ability-name policy (FF-iconic KEPT), G25 bestiary names, G26 Dawntrail, G27 recurring iconic phrases. Single source for naming; 06 + the Campaign instructions point here.
+G1-G4 = the METHOD (classify -> decompose -> recompose by shape, LEAN principle, parenthesis test). G5-G28 = the FIXED binding renderings: places/orgs/trials ARR->DT, race clans, classes (Job/class -> Classe), villain epithets, Void/cosmology, districts, Primals/summons (Italian vs kept), beast tribes, the G24 ability-name policy (FF-iconic KEPT), G25 bestiary names, G26 Dawntrail, G27 recurring iconic phrases. Single source for naming; 06 + the Campaign instructions point here.
 
 ---
-END - 07_Glossary v1.31 (single source for naming). 06 and the Campaign instructions point here.
+END - 07_Glossary v1.36 (single source for naming). 06 and the Campaign instructions point here.

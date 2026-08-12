@@ -1,5 +1,34 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12l — UNITA' EORZEE: yalm / fulm / ilm / malm / ponze sostituiscono metri e kg ovunque
+
+Le tre scale ora coincidono: **1 quadretto = 1 yalm = 1,5 m = 5 ft**. La sovrapposizione esisteva gia'
+a meta' (il tracker ragiona in caselle da 1,5 m), mancava solo il nome dell'ambientazione.
+
+**Le unita', verificate su CGW (pagina `Measurements`):** ilm=pollice · fulm=piede · yalm=3 fulm=iarda
+· malm=1760 yalm=miglio · onze=oncia · ponze=16 onze=libbra · tonze=2000 ponze. Quindi **fulm, ilm,
+malm e ponze sono 1:1 con la fonte 5e** e passano senza aritmetica, tabella dei viaggi (24 malm/giorno)
+e capacita' di carico (Forza × 15 ponze) comprese. Lo **yalm e' l'unica forzatura**: canone 0,9 m,
+qui allungato a 1,5 m per farlo coincidere col quadretto. Il rapporto fulm↔yalm non e' enunciato in
+nessun file — fulm serve alle altezze, yalm alla griglia, non si incontrano mai.
+
+**Due correzioni alla proposta iniziale.** (1) malm = 1 miglio ≈ 1,6 km, non 1,5 km, e ritmo 24
+malm/giorno, non 36: cosi' la tabella dei viaggi del manuale passa invariata. (2) L'esempio della cura
+AoE «raggio 15 yalm» e' stato scartato: importava un numero del videogioco. Vedi PM 2.41.
+
+**Modifiche.** 06 v6.15: §A2 riga 49 riscritta (`MEASUREMENTS IN OUTPUT ARE EORZEAN`), con la scala
+ft÷5, l'assegnazione per registro (griglia→yalm, altezze→fulm, viaggi→malm, pesi→ponze), la failure
+shape dell'origine e quella di superficie (`m`/`kg` accanto a un numero = regola saltata). 01_Manual
+m2.02: **1.356 figure convertite**, quattro schema note riscritte, le 15 righe `- Size:` portate a mano
+in fulm. 05 v2.09: le Limit Break diventano raggi 4/8/12 yalm, linea 4/8/12 × 1/2/3 yalm, cerchio
+2/4/6 yalm. 07 v1.36: nuova **G28** — unita' mai tradotte, minuscole, invariabili al plurale.
+cv97/lv33/ov53. Tracker: `Dimensioni: 12 × 8 yalm` ora passa senza avviso, `m`/`metri` no.
+
+**Deliberatamente NON fatto: nessun undicesimo controllo contabile in §A9.** La regola metrica reggeva
+da sempre senza un controllo dedicato; quella eorzea e' dello stesso tipo. Al suo posto, la failure
+shape di superficie dentro §A2. (PM 2.40.)
+
+
 ## 2026-08-12i — 08 v3.53: verificate su CGW TUTTE le 37 candidate. La marcatura e' completa.
 
 Chiuso il secondo fronte: le 29 candidate rimaste sono state aperte **una per una** sulla wiki, con la

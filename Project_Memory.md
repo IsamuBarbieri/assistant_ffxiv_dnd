@@ -1090,6 +1090,29 @@ chiedano davvero cose incompatibili — se sono solo ridondanti, la ridondanza c
 **Regola:** un controllo contabile si aggiunge o si ritira INTERO ([2.39] per il ritiro). Non si
 condiziona, non si scopa per modalita', non si annida.
 
+## 2.41 UN SISTEMA DI UNITA' E' VOCABOLARIO DI OUTPUT, MAI UNA SORGENTE DI NUMERI (2026-08-12)
+Adottando le unita' eorzee (yalm/fulm/malm/ponze) al posto di metri e kg, il rischio non e' la
+conversione — quella e' aritmetica — ma il fatto che **l'ambientazione e' anche un videogioco con
+numeri propri**. FFXIV stampa «15y radius» su una cura di gruppo; se il modello legge «yalm» come un
+invito a pescare dal gioco, quel raggio arriva al tavolo come 15 quadretti, cioe' un cerchio da 22,5 m
+che ingoia la mappa. La proposta iniziale del GM conteneva esattamente quell'esempio.
+
+**Regola:** l'unita' dice **come si scrive** un numero, mai **da dove viene**. L'origine resta la fonte
+5e, convertita al momento della scrittura. Scritta come failure shape esplicita dentro §A2, perche' un
+numero da MMO in un blocco statistiche sembra perfettamente legittimo: fallisce in silenzio.
+
+**Generalizzazione:** vale per qualunque prestito lessicale da un'ambientazione che abbia una propria
+matematica (valute, livelli, gradi di potenza). Il lessico entra; i numeri no. Se una regola adotta un
+vocabolario, deve dichiarare nella stessa riga quale resta la fonte dei valori.
+
+**Corollario operativo (conversione di massa).** 1.374 figure in metri in 01_Manual sono state
+convertite NEL FILE, non lasciate convertire a runtime: dei metri gia' convertiti *sembrano* output
+finito e vengono ricopiati pari pari, che e' il fallimento che la regola voleva impedire. Lo script ha
+girato in dry run con **fail-fast sui valori non multipli di 1,5**, e quel fail-fast ha isolato le 30
+figure che non erano distanze di griglia ma stature e spessori — cioe' ha trovato da solo la classe di
+dati che andava in fulm e non in yalm. Un convertitore di massa senza fail-fast le avrebbe arrotondate
+in silenzio.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
