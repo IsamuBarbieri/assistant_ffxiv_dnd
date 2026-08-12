@@ -1,5 +1,26 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12n — Parentesi `(10,5m)` a forma fissa, e potatura della prosa nelle regole sulle unita'
+
+Uscita osservata: `7 yalm (pari a 10,5 metri)`. La regola diceva «metri, non piedi» ma non fissava la
+FORMA, e il modello ha glossato in prosa. Ora la parentesi ha una forma sola: **`<numero>m` attaccato,
+niente parole** — `7 yalm (10,5m)` · `3 malm (4,8km)` · `10 ponze (4,5kg)`.
+
+**Potatura.** Il blocco §A2 sulle misure era cresciuto a 3.674 caratteri di spiegazioni: perche' l'1:1
+col piede e' comodo, perche' la parentesi aiuta, dove conviene usarla. La conversione e' matematica e
+non ha bisogno di motivazioni. Riscritto come **tabella** (registro → unita' → fattore dalla fonte 5e →
+equivalente metrico) piu' cinque righe secche: **1.554 caratteri, -58%**. Stessa potatura su G28, sulle
+tre righe del control layer e sulle quattro schema note del manuale.
+
+**Cosa e' sopravvissuto alla potatura, e perche':** i fattori di conversione, la forma della parentesi,
+i numeri PHB (Forza × 15 ponze, 24 malm/giorno) e la riga «la fonte 5e e' l'unica origine di un
+numero, non i valori dell'MMO». Quest'ultima passa il test della fonte di [2.39]: l'errore verrebbe
+dal prior FFXIV del modello anche senza quella frase. Le giustificazioni no: quelle stanno qui e in
+PM 2.41.
+
+06 v6.17 · 01_Manual m2.04 · 07 v1.38 · cv99 / lv35 / ov55.
+
+
 ## 2026-08-12m — La parentesi va in METRI: il piede diventa dato sorgente, non un divieto
 
 Prima run dopo il cambio di unita': `Gittata: 30 yalm (150 piedi)`. La regola diceva letteralmente
