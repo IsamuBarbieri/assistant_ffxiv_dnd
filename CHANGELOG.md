@@ -1,5 +1,17 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12o — cv100: `/sessione 0` torna nel dispatch
+
+Costo reale **+105 caratteri (+1,23%)**, da 8.537 a 8.642. Cosi' poco perche' 05 Cap. 2 contiene gia'
+tutta la Sessione 0 (PURPOSE, ground rules 2.1, background 2.2, end checklist, piu' l'avvertimento di
+1.7 che l'apertura non si narra mai durante la Sessione 0): a cv mancava solo il QUANDO. E la riga
+sempre attiva «ONLY /continua, /riassumi, /viaggio, /riposo produce narrative prose — the roster is
+closed» garantisce gia' che non giochi una scena, quindi non serviva spendere caratteri per dirlo.
+
+Aggiunto anche alla lista multi-parola dello STEP 1 (15 caratteri), senza i quali il match sulla voce
+piu' lunga non lo vede.
+
+
 ## 2026-08-12n — Parentesi `(10,5m)` a forma fissa, e potatura della prosa nelle regole sulle unita'
 
 Uscita osservata: `7 yalm (pari a 10,5 metri)`. La regola diceva «metri, non piedi» ma non fissava la
