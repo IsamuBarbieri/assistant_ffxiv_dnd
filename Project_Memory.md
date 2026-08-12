@@ -1132,6 +1132,27 @@ la conversione, il divieto perde. Serve dare al comportamento uno **sbocco corre
 parentesi in metri) e degradare il token vietato a dato di calcolo con un nome che non e' un'unita'
 di output.
 
+## 2.42 L'ORDINE DEI COMANDI: SI SCRIVE IL PRINCIPIO, NON SI RIMESCOLA LA LISTA (2026-08-12)
+Valutato se dare ai tre roster un ordine esplicito. **No**, tranne un caso.
+
+**Contro il rimescolamento.** Il dispatch di cv e' un baseline MISURATO (2/2 su cv90) e [2.35] dice che
+contro un baseline funzionante si cambia una cosa sola per volta. Riordinare l'intera lista e' la
+riscrittura in blocco che in questo progetto ha gia' introdotto quattro regressioni silenziose. Nessun
+beneficio misurabile in cambio.
+
+**Contro il raggruppamento spinto, un argomento in piu':** l'adiacenza aumenta la CONFONDIBILITA'
+([2.9]). Mettere in fila `/chiusura`, `/salva` e `/recap` avvicina proprio i tre comandi che cv deve
+faticare a distinguere. Raggruppare per funzione aiuta chi legge e danneggia chi deve scegliere.
+
+**L'ordine di cv esiste gia', implicito:** prosa → ciclo del save → sola lettura → subquest → cambi di
+stato → generatori → fallback. Il principio si scrive QUI, non nel file: serve a chi aggiunge un
+comando domani, non al modello. Un comando nuovo va nel suo gruppo, non in fondo — e' l'errore che ho
+fatto appendendo `/sessione 0` fra `/cambio Classe` e `/esito` invece che in testa al ciclo di vita.
+
+**Cosa ha trovato l'analisi dell'ordine, ed e' il suo unico frutto:** in lv `/pg` e' PREFISSO di `/png`,
+l'unica collisione reale nei tre file — e lv era proprio quello a cui mancava la regola del match piu'
+lungo. Cercare un ordine non ha prodotto un ordine: ha prodotto una regola mancante.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

@@ -1,5 +1,34 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12p — cv101 / lv36 / ov56: allineate le regole condivise fra i tre assistenti
+
+Cross-check dei tre file di istruzioni. L'`<output_contract>` era gia' identico parola per parola in
+tutti e tre; le lacune stavano altrove, ed erano regole presenti in un file e assenti in un altro che
+ne aveva lo stesso bisogno.
+
+**Allineato al file che l'aveva scritta meglio:**
+- `HOW A THING IS MADE` (l'enunciato dei due strati) — mancava in **cv**, proprio dove il confine e' piu' delicato.
+- Regola wiki, versione lv con `Cite only those two` e `say so` — mancava del tutto in **cv**, monca in **ov**.
+- Taglia con `colossal is never Media` + **ricalcolo dei PF** (versione cv) — dimezzata in **lv**, assente in **ov**, che pero' scrive statblock.
+- `match the LONGEST entry` — esisteva solo in **cv**.
+- `on its own turn` (mancava in cv) e `answering one twice is the failure` (mancava in lv): la versione completa era quella di **ov**.
+- `/riposo`: `SAFE` → `SICURO` in lv, per parita' con cv e con 1.4.
+- `/prova`, `/negozio`, `/cercano`: cv li liquidava in cinque parole, ora hanno l'argomento e i gradini CD degli altri due.
+
+**ORDINE DEI COMANDI: deciso di NON riordinare** (PM 2.42). Il dispatch di cv e' un baseline misurato e
+l'adiacenza aumenta la confondibilita'. Unico spostamento: `/sessione 0` dalla coda dei cambi di stato
+alla testa del ciclo di vita, prima di `/carica`. Il principio d'ordine e' scritto in PM, non nei file.
+
+**Il frutto vero dell'analisi sull'ordine:** in lv `/pg` e' PREFISSO di `/png`, unica collisione reale
+nei tre roster — e lv era il file senza la regola del match piu' lungo. Ora nominata esplicitamente.
+
+**NON allineato, deliberatamente:** `ANSWER ONLY WHAT WAS ASKED` resta solo in lv. cv e ov sono coperti
+da 06 §A1, e lv ce l'aveva gia' mentre prosava la 'Regola di conversione': propagare una regola che
+abbiamo misurato non mordere e' costo senza beneficio.
+
+cv 8.642 → 9.140 caratteri (+5,8%) · lv 7.027 → 7.367 · ov 7.968 → 8.360.
+
+
 ## 2026-08-12o — cv100: `/sessione 0` torna nel dispatch
 
 Costo reale **+105 caratteri (+1,23%)**, da 8.537 a 8.642. Cosi' poco perche' 05 Cap. 2 contiene gia'
