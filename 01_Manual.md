@@ -1,5 +1,5 @@
 # 01_MANUAL — Races, Jobs, Spells, Bestiary
-Version m2.02 | Four manuals in one file. THIS IS THE SOURCE, not a generated copy.
+Version m2.03 | Four manuals in one file. THIS IS THE SOURCE, not a generated copy.
 
 Each manual is a numbered PART — 01 Races · 02 Jobs and Classes · 03 Spells · 04 Bestiary — and the
 cross-references in the other files use THAT number (`01`, `02`, `03`, `04`), which here names the part.
@@ -17,7 +17,7 @@ Version v0.10 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 ## SCHEMA NOTES — Races
 - PRINCIPLE: completeness over brevity. NO lore is cut — prose is preserved in full, only reformatted into clean, parsable sections.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
-- MEASUREMENTS = EORZEAN, pre-converted at source (06 A2). Grid distances, ranges and speeds are in YALM (1 yalm = 1 quadretto = 5 ft, so the source ft figure divided by 5); body heights and small objects are in FULM (1 fulm = 1 ft, unchanged); minutiae in ILM (= inch); travel in MALM (= mile); weights in PONZE (= libbra, unchanged). Yalm figures are always whole; the only decimals left are half-fulm heights, written with a comma at output (6,5 fulm).
+- MEASUREMENTS = EORZEAN, pre-converted at source (06 A2). Grid distances, ranges and speeds are in YALM (1 yalm = 1 quadretto = 1,5 m; obtained from the source ft figure divided by 5, and that ft figure is never printed); body heights and small objects are in FULM (1 fulm = 1 ft, unchanged); minutiae in ILM (= inch); travel in MALM (= mile); weights in PONZE (= libbra, unchanged). Yalm figures are always whole; the only decimals left are half-fulm heights, written with a comma at output (6,5 fulm). A conversion in brackets is optional and always METRI, never piedi.
 - Mechanics (trait names, conditions, skills, spells) stay English and verbatim. Do NOT invent traits.
 
 # AU RA
@@ -1083,7 +1083,7 @@ Version v0.8 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 ## SCHEMA NOTES — Job
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
-- MEASUREMENTS = EORZEAN, pre-converted (06 A2): distances in YALM, heights in FULM, weights in PONZE. Key: 5 ft=1 yalm, 10 ft=2 yalm, 15 ft=3 yalm, 20 ft=4 yalm, 30 ft=6 yalm, 40 ft=8 yalm, 60 ft=12 yalm, 100 ft=20 yalm, 120 ft=24 yalm.
+- MEASUREMENTS = EORZEAN, pre-converted (06 A2): distances in YALM, heights in FULM, weights in PONZE. The ft figures in the key below are the SOURCE side of an ALREADY-DONE conversion — they exist so the 5e provenance stays checkable, they are NEVER printed and NEVER go in a parenthesis (if a parenthesis is used at all it holds METRI: 1 yalm = 1,5 m). Key: 5 ft=1 yalm, 10 ft=2 yalm, 15 ft=3 yalm, 20 ft=4 yalm, 30 ft=6 yalm, 40 ft=8 yalm, 60 ft=12 yalm, 100 ft=20 yalm, 120 ft=24 yalm.
 - Mechanics (feature names, conditions, spells, dice) stay English and verbatim. Do NOT invent features.
 - HP_ref = default pre-calculated hit points per level (fixed-average method, WITHOUT Constitution). Default PF = HP_ref[level] + (CON modifier x level). This value is STABLE — reuse it identically for the same Job+level. It anchors PF in-range so impossible totals never appear. By Hit Die: d6 = 6 +4/lvl; d8 = 8 +5/lvl; d10 = 10 +6/lvl; d12 = 12 +7/lvl.
 
@@ -3030,7 +3030,7 @@ Version v0.3 | Source: FFXIV x D&D 5e Player Compendium (Dawntrail Edition)
 ## SCHEMA NOTES — Spells
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
-- MEASUREMENTS = EORZEAN, pre-converted (06 A2): distances in YALM, heights in FULM, weights in PONZE. Key: 5 ft=1 yalm, 10 ft=2 yalm, 15 ft=3 yalm, 20 ft=4 yalm, 30 ft=6 yalm, 40 ft=8 yalm, 50 ft=10 yalm, 60 ft=12 yalm, 80 ft=16 yalm, 90 ft=18 yalm, 100 ft=20 yalm, 120 ft=24 yalm, 150 ft=30 yalm, 200 ft=40 yalm.
+- MEASUREMENTS = EORZEAN, pre-converted (06 A2): distances in YALM, heights in FULM, weights in PONZE. The ft figures in the key below are the SOURCE side of an ALREADY-DONE conversion — they exist so the 5e provenance stays checkable, they are NEVER printed and NEVER go in a parenthesis (if a parenthesis is used at all it holds METRI: 1 yalm = 1,5 m). Key: 5 ft=1 yalm, 10 ft=2 yalm, 15 ft=3 yalm, 20 ft=4 yalm, 30 ft=6 yalm, 40 ft=8 yalm, 50 ft=10 yalm, 60 ft=12 yalm, 80 ft=16 yalm, 90 ft=18 yalm, 100 ft=20 yalm, 120 ft=24 yalm, 150 ft=30 yalm, 200 ft=40 yalm.
 - Mechanics (dice, saves, conditions) stay English and verbatim. Do NOT invent spells.
 - "*" before a spell name = HOMEBREW spell created for this compendium; its full description is in PART 2 (below). All other spells are official D&D 5e (PHB or expansions — consult the relevant book; bold-source markup from the original was lost in extraction).
 - Spell-name families: Aero/Aerora/Aeroga/Aeroja (wind), Blizzard/Blizzara/Blizzaga/Blizzaja (ice), Fire/Fira/Firaga/Firaja (fire), Thunder/Thundara/Thundaga/Thundaja (lightning), Stone/Stonra/Stonga/Stonja (earth), Water/Watera/Waterga/Waterja, Ruin/Ruinra/Ruinga/Ruinja (unaspected), Bio/Biora/Bioga/Bioja (poison), Dark/Darkra/Darkga/Darkja (necrotic), Cure/Cura/Curada/Curaga/Curaja (heal), Banish/Banishra/Banishga/Banishja (radiant), Ver- spells (Red Mage finishers).
@@ -3321,7 +3321,7 @@ Version v1.3 | Source: Raimdelle Codex Asgard (community monster manual for the 
 ## SCHEMA NOTES — Bestiary
 - PRINCIPLE: completeness over brevity. Statblocks reproduced verbatim; only reformatted for parsing.
 - DATA LANGUAGE = English (single source of truth). The assistant renders flavor into Italian at OUTPUT.
-- MEASUREMENTS = EORZEAN, pre-converted (06 A2): distances in YALM, heights in FULM, weights in PONZE. Key: 5 ft=1 yalm, 10 ft=2 yalm, 15 ft=3 yalm, 20 ft=4 yalm, 25 ft=5 yalm, 30 ft=6 yalm, 35 ft=7 yalm, 40 ft=8 yalm, 45 ft=9 yalm, 50 ft=10 yalm, 60 ft=12 yalm, 100 ft=20 yalm, 120 ft=24 yalm, 150 ft=30 yalm, 200 ft=40 yalm, 300 ft=60 yalm, 500 ft=100 yalm.
+- MEASUREMENTS = EORZEAN, pre-converted (06 A2): distances in YALM, heights in FULM, weights in PONZE. The ft figures in the key below are the SOURCE side of an ALREADY-DONE conversion — they exist so the 5e provenance stays checkable, they are NEVER printed and NEVER go in a parenthesis (if a parenthesis is used at all it holds METRI: 1 yalm = 1,5 m). Key: 5 ft=1 yalm, 10 ft=2 yalm, 15 ft=3 yalm, 20 ft=4 yalm, 25 ft=5 yalm, 30 ft=6 yalm, 35 ft=7 yalm, 40 ft=8 yalm, 45 ft=9 yalm, 50 ft=10 yalm, 60 ft=12 yalm, 100 ft=20 yalm, 120 ft=24 yalm, 150 ft=30 yalm, 200 ft=40 yalm, 300 ft=60 yalm, 500 ft=100 yalm.
 - Monsters store FIXED hit points here (no HP_ref), in English. ROLE (06 §B6 scale-first): each block is a LORE/CHASSIS reference — use it for the creature's type, signature moves, behaviour and defensive profile (resistances/vulnerabilities/immunities/senses); its printed CR/HP/damage are a STARTING POINT to SCALE to the target GdS (HP within the GdS band-range), NOT a verbatim authority. So a block's own CR need not match the encounter's GdS, and known data errors here are harmless (they get scaled away). Never free-invent numbers — scale from a chassis + the band.
 - ORGANIZATION: 13 creature classes (Ashkin, Beastkin, Cloudkin, Dragon, Forgekin, Primals, Scalekin, Seedkin, Soulkin, Spoken, Vilekin, Voidsent, Wavekin). Within a class, by genus then species.
 - OCR FLAGS: source-extraction errors are flagged inline as [OCR: ...] rather than silently "fixed" or invented.
@@ -3942,7 +3942,7 @@ Lizard-like people of northern Thanalan who worship Ifrit; nomadic, honorable wa
 ### Amalj'aa Archer — Medium humanoid (amalj'aa), Lawful Neutral
 - AC 15 (natural) | HP 25 (3d8+12) | Speed 6 yalm | CR 1 (200 XP)
 - STR 12(+1) DEX 14(+2) CON 18(+4) INT 10(+0) WIS 14(+2) CHA 10(+0) | Senses passive Perception 12 | Languages Common
-- Actions — Multiattack: 2 attacks (Shortsword/Shortbow). Shortsword: +4, reach 2 yalm [OCR: source lists 10 ft reach for a shortsword], 5 (1d6+2) piercing. Shortbow: ranged +4, range 24/64 yalm, 5 (1d6+2) piercing. Devastate (Recharge 5–6): a 2 yalm long, 1 yalm wide line, DC 11 Dexterity save or 5 (1d10) bludgeoning and prone.
+- Actions — Multiattack: 2 attacks (Shortsword/Shortbow). Shortsword: +4, reach 2 yalm [OCR: source lists reach 2 yalm for a shortsword — anomalous, a shortsword reaches 1], 5 (1d6+2) piercing. Shortbow: ranged +4, range 24/64 yalm, 5 (1d6+2) piercing. Devastate (Recharge 5–6): a 2 yalm long, 1 yalm wide line, DC 11 Dexterity save or 5 (1d10) bludgeoning and prone.
 - Bonus Action — Enfire (1/Day): +2 (1d4) fire for 1 minute. (Credit: Soren of Asgard.)
 
 ### Amalj'aa Initiate — Medium humanoid (amalj'aa), Lawful Neutral
@@ -4020,7 +4020,7 @@ Elusive, fluffy winged creatures with mood-colored poms; friendly to those they 
 - STR 8(-1) DEX 18(+4) CON 14(+2) INT 10(+0) WIS 16(+3) CHA 16(+3)
 - Skills Stealth +6 | Senses passive Perception 13 | Languages Common
 - Innate Spellcasting (CHA, DC 13, +5) [OCR: source labels it "sylvan groan's" — copy error]: At will Dancing Lights, Prestidigitation; 3/day Invisibility.
-- Actions — Staff: +1, reach 1 yalm, 1 (1d4-1) bludgeoning. Pom Light: ranged magic +5, reach 1 yalm [OCR: a ranged attack listed with 5 ft reach], 10 (2d6+3) radiant. Pom Cure (3/Day): a creature within 6 yalm recovers 7 (1d8)+3 HP. (Credit: Soren of Asgard.)
+- Actions — Staff: +1, reach 1 yalm, 1 (1d4-1) bludgeoning. Pom Light: ranged magic +5, reach 1 yalm [OCR: a ranged attack listed with reach 1 yalm], 10 (2d6+3) radiant. Pom Cure (3/Day): a creature within 6 yalm recovers 7 (1d8)+3 HP. (Credit: Soren of Asgard.)
 
 ## Genus: Sahagin
 Fish-folk of the Indigo Deep; once known for high-seas banditry, now settling new spawning grounds on western Vylbrand. (Wavespine/Wavetooth serve the primal Leviathan.)

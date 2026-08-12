@@ -1113,6 +1113,25 @@ figure che non erano distanze di griglia ma stature e spessori — cioe' ha trov
 dati che andava in fulm e non in yalm. Un convertitore di massa senza fail-fast le avrebbe arrotondate
 in silenzio.
 
+**Seguito misurato (stessa giornata): la scala di conversione ha innescato l'unita' sorgente.** Prima
+run dopo il cambio, l'assistente ha stampato `Gittata: 30 yalm (150 piedi)`. La regola diceva
+testualmente **«NEVER print 'ft' or 'piedi' next to a number»** e non e' bastato, perche' la riga
+successiva conteneva la scala `5 ft = 1 yalm · 10 = 2 · 15 = 3...` e il manuale altre tre righe
+`Key: 5 ft=1 yalm, ...`. Il piede era **accostato allo yalm decine di volte**: la negazione lo vietava
+e la scala lo rendeva il partner naturale in parentesi. E' [2.9] applicato alle unita' — vietare un
+token mentre lo si accosta al termine giusto lo rende recuperabile.
+
+**Riparazione, che non e' stata rafforzare il divieto:** (a) si e' cambiato lo STATO del piede, da
+«vietato» a «lato sorgente della conversione, come un budget XP»; (b) si e' data alla parentesi un
+contenuto LEGITTIMO — i metri — perche' l'impulso a glossare il numero era la vera causa e andava
+soddisfatto, non represso; (c) ogni definizione e' stata riancorata al metrico (1 yalm = 1,5 m,
+1 fulm = 0,3 m) invece che al piede, lasciando l'1:1 col piede come nota di calcolo.
+
+**Regola generale:** quando una regola vieta un token che la regola stessa deve nominare per spiegare
+la conversione, il divieto perde. Serve dare al comportamento uno **sbocco corretto** (qui: la
+parentesi in metri) e degradare il token vietato a dato di calcolo con un nome che non e' un'unita'
+di output.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

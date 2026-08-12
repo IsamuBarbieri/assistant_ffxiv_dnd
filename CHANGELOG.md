@@ -1,5 +1,28 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12m — La parentesi va in METRI: il piede diventa dato sorgente, non un divieto
+
+Prima run dopo il cambio di unita': `Gittata: 30 yalm (150 piedi)`. La regola diceva letteralmente
+*«NEVER print 'ft' or 'piedi' next to a number»* e non e' bastata, perche' la riga sotto conteneva la
+scala `5 ft = 1 yalm · 10 = 2 · 15 = 3...` e il manuale altre tre righe `Key: 5 ft=1 yalm`. Il piede
+era accostato allo yalm decine di volte: vietato da una frase, reso partner naturale da tutte le altre.
+
+**Non ho rafforzato il divieto.** Tre mosse: (1) la parentesi ha ora un contenuto LEGITTIMO — i
+**metri**, `30 yalm (45 m)`, cioe' yalm × 1,5 — perche' l'impulso a glossare il numero era la causa e
+andava soddisfatto, non represso; (2) il piede cambia stato, da «vietato» a «lato sorgente della
+conversione, come un budget XP: si usa per calcolare, non si stampa»; (3) ogni definizione e' ancorata
+al metrico (1 yalm = 1,5 m · 1 fulm = 0,3 m · 1 ilm = 2,5 cm · 1 malm = 1,6 km · 1 ponze = 0,45 kg),
+con l'1:1 col piede degradato a nota di calcolo.
+
+La parentesi resta **facoltativa**: si usa dove la scala reale aiuta (una gittata lunga, una stanza, un
+salto nel vuoto) e si omette sui numeri corti da griglia, dove `portata 1 yalm` non ha bisogno di
+glossa. In parentesi vanno solo metri, km e kg — mai piedi, miglia, libbre.
+
+06 v6.16 · 01_Manual m2.03 (quattro schema note + le due note OCR che citavano i piedi) · 07 v1.37
+(G28 estesa alla forma con parentesi) · cv98 / lv34 / ov54. PM 2.41 ha il seguito misurato: e' [2.9]
+applicato alle unita'.
+
+
 ## 2026-08-12l — UNITA' EORZEE: yalm / fulm / ilm / malm / ponze sostituiscono metri e kg ovunque
 
 Le tre scale ora coincidono: **1 quadretto = 1 yalm = 1,5 m = 5 ft**. La sovrapposizione esisteva gia'
