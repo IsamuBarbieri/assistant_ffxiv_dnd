@@ -1,5 +1,155 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12i — 08 v3.53: verificate su CGW TUTTE le 37 candidate. La marcatura e' completa.
+
+Chiuso il secondo fronte: le 29 candidate rimaste sono state aperte **una per una** sulla wiki, con la
+stessa domanda (duty? cutscene con un PNG di trama? reveal?). Nessun campione, nessuna stima.
+
+**BILANCIO FINALE: 37 candidate verificate, 8 marcabili, 29 no.** Precisione della sagoma da
+commissione: **22%** — quasi quattro su cinque delle quest che SEMBRANO commissioni portano invece
+trama. La marcatura sul fronte fetch **e' sostanzialmente completa**: non c'e' quasi piu' niente da
+prendere, e l'euristica di forma non e' un buon predittore. Se un giorno servisse riaprire il tema, il
+dato da ricordare e' questo: si verifica, non si stima.
+
+**MARCATE in questo giro (3):** `Presence of the Enemy` (fetch) · `The Curious Case of Giggity` (fetch)
+· `Picking Up the Sledge` (fetch — la wiki nota che fu rimossa in 5.3 «as part of the pruning of the
+ARR main story», cioe' contenuto che SE stesso il gioco ha giudicato superfluo).
+
+**QUATTRO SPINE INCOMPLETE trovate fra le scartate — e sono la parte che conta**, perche' il tag duty
+e' cio' che protegge una quest dalle marcature future. Aggiunte:
+- **`Escape from Castrum Centri`** — DUE solo duty, e dentro c'e' la scoperta che **THANCRED E' POSSEDUTO
+  DA LAHABREA** piu' la prima apparizione dell'ULTIMA WEAPON. Nel nostro spine non c'era nulla di tutto
+  questo.
+- **`The Oracle of Light`** — solo duty con boss: **GENERALE RAN'JIT**.
+- **`Road to Redemption`** — una duty contro un servo dravaniano.
+- **`The Gifted`** — non una duty ma un pin: e' la scena 2.1 in cui **ELIDIBUS si presenta ai Waking
+  Sands**, vista attraverso una VISIONE DELL'ECO.
+
+**Altri reveal grossi incontrati fra le scartate**, a conferma che erano giustamente non marcate:
+`Hope Upon a Flower` (**Fandaniel era Hermes**) · `A Strange New World` (**il sacrificio di Thancred**)
+· `Lost in the Lifestream` (Y'shtola recuperata) · `Moving On` (F'lhaminn viva) · `The Legacy of Our
+Fathers` (il Risonante di Fordola).
+
+**Andamento utile per il futuro:** le commissioni vere si concentrano in **ARR 2.0-2.3**. Da Heavensward
+in poi, delle candidate esaminate NESSUNA era una commissione — la MSQ smette proprio di produrne.
+
+## 2026-08-12h — 08 v3.52: caccia ai marcatori MANCANTI, cinque aggiunti su otto verificati
+
+Seconda direzione dell'audit `[COND]`: le quest che DOVREBBERO essere marcate e non lo sono. Imbuto,
+dalle 812 voci: **318 non marcate** -> tolte quelle che devono restare tali (duty nello spine, rimando
+di manifest, ULTIMA quest di sezione) = **209** -> tolte quelle nominate nella roadmap 08.1 o in un pin
+= **37 candidate con sagoma da commissione**. Di queste ne sono state verificate **otto** su CGW.
+
+**MARCATE (5), tutte con la wiki che le chiama «pure errand»:** `Trial by Turtle` (fetch) ·
+`When the Worm Turns` (fetch) · `Bringing out the Dead` (fetch) · `First Impressions` (fetch) ·
+`A Modest Proposal` (relay).
+
+**NON MARCATE (3) — sono la parte utile del risultato:**
+- **`Road to Redemption`** — sembra una commissione («aiuta i tre cavalieri 0/3») ma **contiene una
+  duty** e il filo di Francel, con il testimone dell'ultimo volo dell'*Enterprise*.
+- **`Believe in Your Sylph`** — Papalymo e Yda in scena, e soprattutto **FRIXIO CONSEGNA IL CRISTALLO
+  qui**: e' il Cristallo #3 FULMINE del manifest ARR L4. Annotato nella voce, perche' e' un pin.
+- **`Mask of Grief`** — consegna di un fiore, ma con la cutscene doppiata dell'omaggio a Moenbryda e i
+  draghi che compaiono: e' la cerniera verso Ishgard.
+
+**IL DATO CHE SERVE PER DECIDERE IL RESTO: 5 su 8.** Circa **un terzo** dei candidati con sagoma da
+commissione porta invece contenuto. Marcare le 32 rimanenti a occhio produrrebbe una decina di errori
+del tipo appena corretto — quindi restano NON marcate, deliberatamente: per la regola d'oro un tag
+mancante costa tempo al tavolo, un tag di troppo cancella una scena. Si verificano a lotti su richiesta.
+
+**Confermato completo il controllo del giro precedente:** censite tutte le notazioni di duty presenti
+nel file (`[DUNGEON:`, `[TRIAL:`, `[SOLO DUTY:`, `[RAID:`, ma anche le forme in prosa tipo
+`[The Sunken Temple of Qarn - dungeon duty: ...]`) e ricontrollate contro i tag: **zero** violazioni
+`[COND]`+duty residue. I due soli riscontri erano note che ESCLUDONO una duty.
+
+## 2026-08-12g — 08 v3.51: UNDICI finali di patch erano marcati condensabili
+
+Audit dei marcatori `[COND]` richiesto dal GM. Su 812 quest ne erano marcate 549. **Le commissioni
+ordinarie sono marcate bene** (verificate a campione: `Forest Friend` = uccidi tre mostri e raccogli
+tre spazzole; `All upon the Watchtowers` = riferisci a tre PNG). Il guasto e' concentrato in un punto
+solo, ed e' sistematico.
+
+**LA CAUSA A MONTE.** La passata di marcatura ha giudicato dallo STEP SPINE. Ma lo spine di una quest
+finale di patch e' indistinguibile da un relay — *«parla con Alisaie -> parla con Alisaie -> parla con
+Alisaie»* — perche' il contenuto sta nelle CUTSCENE, che lo spine non elenca. **I finali sono stati
+marcati proprio perche' sembrano commissioni.** E' la stessa trappola gia' documentata in 08.2 («NEVER
+from the title, which is the method proven unsafe»), un livello piu' sotto.
+
+**UNDICI VIOLAZIONI, tutte verificate su CGW una per una e tutte smarcate.** Con `/riassumi` su quel
+tratto sarebbero sparite in una frase:
+- **`For Those We Can Yet Save` (3.2)** — la conferenza di Falcon's Nest: **ESTINIEN posseduto da
+  NIDHOGG trafigge Vidofnir** e dichiara guerra. Il reveal piu' grosso della patch.
+- **`Return of the Bull` (4.1)** — contiene una **SOLO DUTY contro LAKSHMI** (piu' il riscatto di
+  Fordola e il congedo di Raubahn). Duty istanziata dentro una quest marcata: violazione netta della
+  regola d'oro. Lo spine non la nominava nemmeno: **aggiunta**.
+- **`Vows of Virtue, Deeds of Cruelty` (5.1)** — due solo duty (fuga dal palazzo NEI PANNI DI ESTINIEN,
+  Arch Ultima).
+- `An Ending to Mark a New Beginning` (3.4) — il Griffin riceve gli Occhi di Nidhogg da Elidibus.
+- `Louisoix's Finest Student` (3.5) — **la morte di Papalymo** e Ilberd smascherato come il Griffin.
+- `Rise of a New Sun` (4.2) — una **VISIONE DELL'ECO** (la vera natura di Asahi) + il corpo di Zenos
+  vivo, che il manifest pinna come ALTROVE con reveal protetto.
+- `Under the Moonlight` (4.3) — la tomba di Zenos aperta e VUOTA.
+- `Prelude in Violet` (4.4) — Y'shtola e Urianger colpiti dalla voce; **Solus zos Galvus si palesa e
+  Varis gli spara**, che e' l'ALTROVE pinnato.
+- `Seiryu's Wall` (4.5) — **GAIUS VAN BAELSAR rivelato VIVO** e l'identificazione di Elidibus.
+- `Echoes of a Fallen Star` (5.2) — Elidibus nella pioggia di stelle; l'Eco e' innata, non un dono.
+- `When the Dust Settles` (5.5) — Hydaelyn tace da tempo; **Estinien entra stabilmente negli Scions**.
+
+**DOPPIONE MIO, CORRETTO.** `Vows of Virtue, Deeds of Cruelty` era finita nel file DUE volte: la voce
+che avevo inserito il 2026-08-12 e una che c'era gia'. Il grep con cui avevo controllato cercava
+`^\*\*Vows of Virtue\*\*` e non poteva matchare il titolo completo con la virgola. Le due voci fuse in
+una, con i dati CGW (giver a Eulmore, le due solo duty nello spine).
+
+**RIMANDO DI MANIFEST FUORI POSTO** — ed e' il motivo per cui il tag su `For Those We Can Yet Save` era
+sopravvissuto: il `Manifest tie` della conferenza era attaccato a `Causes and Costs`, che e' l'INDOMANI
+(CGW: «the peace conference is **not** depicted in this quest»). Spostato sulla quest che contiene
+davvero la scena; `Causes and Costs` resta marcata e ora dice cosa e'.
+
+**CONVENZIONE AGGIUNTA in 08.0**, perche' la prossima passata non ripeta l'errore: non si marca dallo
+step spine, come non si marca dal titolo — si aprono le CUTSCENE. E la regola pratica che avrebbe
+trovato dieci di queste undici da sola: **l'ultima quest di una patch o di un installment non si marca
+quasi mai.**
+
+## 2026-08-12f — 06 v6.14: tre regole one-shot che esistevano senza una FORMA, piu' il premio ribaltato
+
+Due one-shot collaudate dal GM (Flash 3.6 e Pro 3.1, stesso soggetto: Hildibrand a Portobirra). Sono
+giocabili entrambe, ma a nessuna delle due usciva quello che un modulo pubblicato ha in testa. **Il
+motivo non era il modello: le regole c'erano gia' e nessuna aveva un template che le stampasse** —
+§C2 chiede «max 3-5 PNG con un tratto distintivo», §C10 da' le quote 20/55/25, §C11 impone lo STRONG
+OPENING. Tutte e tre invisibili in output. E' la classe «regola binding senza forma».
+
+**Dato un template in §C4**, che ora elenca i blocchi del pitch nell'ordine:
+- **AGGANCIO** — chi convoca il gruppo, cosa promette, perche' proprio loro; due righe nel pitch e
+  **giocato** nella scena d'apertura dell'Atto 1. Nei due test nessuno spiegava perche' i PG fossero a
+  Portobirra: Flash lo dichiarava in sinossi senza metterlo in scena, Pro non lo diceva affatto.
+- **DRAMATIS PERSONAE** — subito dopo la sinossi, una riga per PNG: `**{Nome}** — {chi e'}, {tratto} ·
+  Atto {N}`. E' il lookup del GM mentre i giocatori aspettano. Una creatura che combatte e basta NON
+  ci va: sta nel suo statblock.
+- **TEMPO PER OGNI VOCE DELL'INDICE**, ricavato dal totale con le quote di §C10. Un totale da solo non
+  dice al GM se sta andando lungo, che e' l'unica cosa per cui serve una stima.
+
+**NON aggiunta la scalatura per 3/5 giocatori: decisione del GM, la fa a mano al tavolo.**
+
+**§C9 RIBALTATO — «il premio che conta e' quello speso PRIMA della fine».** Osservazione del GM:
+*«alla fine e' un'avventura che finisce, cosa te ne fai di soldi o equip?»* Corretto, e cambia il
+disegno: l'oggetto utile va messo A META' MODULO, nelle mani del gruppo, dove possono decidere se e
+quando spenderlo per vincere — cioe' **coincide con il setup di PLANT AND PAY**. Il miglior bottino di
+una one-shot e' una cosa che ha cambiato l'ultimo combattimento. Il premio di chiusura e' colore: una
+riga, e il pagamento vero e' cosa fa il mondo adesso. I due test lo dimostrano: le Bombe Traccianti di
+Nashu (Flash, Atto 1, usate nel boss) valgono piu' della Fiaschetta di Pro, data dopo l'ultimo colpo.
+
+**IL CONTROLLO CONTABILE (7) NON E' STATO TOCCATO** — e ci ero andato vicino. Avevo scritto una deroga
+one-shot («il conteggio si sposta indietro, 0 pezzi sul boss finale e' corretto»); il GM ha chiesto se
+fosse la cosa giusta e non lo era. **Ripristinato prima del commit.** Due errori: (a) avevo chiamato
+contraddizione una ridondanza — §C9 dice DOVE mettere l'oggetto che conta, (7) dice COSA stampa il
+boss, e si possono fare entrambe; (b) un ramo per modalita' dentro un controllo contabile distrugge la
+proprieta' che li rende efficaci (nessun ragionamento, solo un conteggio), e si romperebbe anche in
+campagna. Costo del comportamento «sbagliato»: una riga di bottino che il GM non legge. Lezione in
+PM 2.40. §C9 ora dice esplicitamente che il bottino di chiusura si stampa normalmente e che (7) vale
+come ovunque: cambia solo DOVE va lo sforzo di design.
+
+Nessuna modifica alle istruzioni `ov`: la forma del modulo e' formato, e il formato vive in 06.
+
 ## 2026-08-12e — 08 v3.50: le scene SOCIALI avevano musica solo per caso + una traccia usata nel ruolo sbagliato
 
 Domanda del GM: che ritmo musicale c'e' fra una scena e l'altra, soprattutto nei momenti social e non

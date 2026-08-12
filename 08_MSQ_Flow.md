@@ -1,13 +1,13 @@
 # 08.0 — CONVENZIONI GLOBALI (una volta sola)
 - MANIFEST (08.1): backbone LOCKED di cutscene/reveal; riprodurre ogni pin, mai droppare/inventare, GATED nascosti. Pin: IN-SCENA / ALTROVE / VISIONE DELL'ECO / REVEAL / GATED.
 - INDICE (08.2-08.6): catena quest reale (giver + step + [duty] + Next). Ordine autoritativo (06 §A14, CGW); reveal-gate 05 Ch.1 + manifest; dialoghi Gamer Escape. Cachati per OGNI quest: ordine, nome, Next MSQ risolto; giver/step spine SOLO dove mostrati (minoranza) — per il resto lo step spine si recupera live (06 §A14).
-- CONDENSATION MARKERS `[COND: …]` (06 §B2): they mark the ONLY condensable quests. THEY TRIGGER NOTHING: condensation is **triggered by the GM with `/riassumi`**, never automatically — `/continua` gioca sempre la prossima quest come beat normale, marcata o no. I marcatori DEFINISCONO L'ESTENSIONE del ponte: dove comincia il tratto, dove si ferma (alla prima quest NON marcata, che si gioca in pieno) e cosa ci entra dentro. `[COND: fetch]` = consegna/commissione pura · `[COND: relay]` = relay sociale a basse poste (parla ad A che manda a B, senza scelta/rivelazione/scontro) · `[COND: parallel → <convergenza>]` = cluster di micro-obiettivi paralleli. REGOLA D'ORO: **NON marcato = SI GIOCA**, sempre; un buco nella marcatura costa tempo al tavolo, mai contenuto. MAI `[COND]` su: una quest che nomina una DUTY istanziata, una quest che porta una cutscene/reveal pinnata nei manifest (08.1), una quest-pillar, o qualunque caso dubbio. I marcatori si aggiungono SOLO in una passata di marcatura rivista dal GM, MAI a runtime.
+- CONDENSATION MARKERS `[COND: …]` (06 §B2): they mark the ONLY condensable quests. THEY TRIGGER NOTHING: condensation is **triggered by the GM with `/riassumi`**, never automatically — `/continua` gioca sempre la prossima quest come beat normale, marcata o no. I marcatori DEFINISCONO L'ESTENSIONE del ponte: dove comincia il tratto, dove si ferma (alla prima quest NON marcata, che si gioca in pieno) e cosa ci entra dentro. `[COND: fetch]` = consegna/commissione pura · `[COND: relay]` = relay sociale a basse poste (parla ad A che manda a B, senza scelta/rivelazione/scontro) · `[COND: parallel → <convergenza>]` = cluster di micro-obiettivi paralleli. REGOLA D'ORO: **NON marcato = SI GIOCA**, sempre; un buco nella marcatura costa tempo al tavolo, mai contenuto. MAI `[COND]` su: una quest che nomina una DUTY istanziata, una quest che porta una cutscene/reveal pinnata nei manifest (08.1), una quest-pillar, o qualunque caso dubbio. I marcatori si aggiungono SOLO in una passata di marcatura rivista dal GM, MAI a runtime. **NON SI MARCA DALLO STEP SPINE, come non si marca dal titolo.** Lo spine di una quest-finale di patch e' indistinguibile da un relay — *«parla con Alisaie -> parla con Alisaie -> parla con Alisaie»* — perche' il contenuto sta nelle CUTSCENE, che lo spine non elenca: e' esattamente cosi' che undici finali di patch sono finiti marcati condensabili (fra cui Estinien posseduto da Nidhogg, una solo duty contro Lakshmi e la rivelazione di Gaius vivo). Prima di marcare, si apre la pagina della quest e si guardano le CUTSCENE. **REGOLA PRATICA: l'ULTIMA quest di una patch o di un installment non si marca quasi mai** — e' li' che la patch mette il suo colpo di scena.
 - MARKER `[CUT: <reason>]` (STRONGER than `[COND]`): the quest is OUT of the campaign — NEVER played, NEVER summarised in a bridge, NEVER the target of an '[Info GM] apre'. The chain SKIPS the entry and the previous quest's Next points straight at the first uncut quest. Used for content this homebrew does not implement (precedente già in uso: le fetch-errand del Crystal Tower). La voce resta nell'indice solo come traccia canonica.
 - OST (08.OST-*): temi di duty/scena risolti da queste tabelle (06 §A23); titoli in inglese (chiave di ricerca).
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.50 (full audit) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.53 (full audit) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -1105,7 +1105,7 @@ KEY SCENES:
 - Ysabel (etiquette) -> Blaisette (nature/pranks) -> Monne (sustenance) -> report to Rolfe
 - Next: First Impressions
 
-**First Impressions** — giver: Rolfe Hawthorne (East Shroud)
+**First Impressions** — giver: Rolfe Hawthorne (East Shroud) `[COND: fetch]`
 - Rosa Hawthorne (preferred gift) -> Curious Tussock (Honey Yard: use amber syrup, slay the ochu) -> present the milkroot to Rolfe
 - Next: First Contact
 
@@ -1125,7 +1125,7 @@ KEY SCENES:
 
 ## ARR — INSTALLMENT 2: Sylph/Ixal diplomacy -> Toto-Rak (Frixio) -> Little Ala Mhigo (VERIFIED, CGW)
 
-**Presence of the Enemy** — giver: Komuxio (East Shroud)
+**Presence of the Enemy** — giver: Komuxio (East Shroud) `[COND: fetch]`
 - talk to residents of Little Solace & the Hawthorne Hut (unfamiliar sightings) -> investigate signs of imperial incursion in the forest -> deliver the quartermaster's log
 - Next: Brotherly Love
 
@@ -1173,6 +1173,7 @@ KEY SCENES:
 **Believe in Your Sylph** — giver: Komuxio (East Shroud)
 - Frixio (discuss peace) -> Vorsaile Heuloix (deliver Frixio's missive)
 - Next: Back from the Wood
+- (NOT condensable: Papalymo and Yda are present, and FRIXIO HANDS OVER THE CRYSTAL here — Crystal #3 LIGHTNING, 08.1 ARR L4 — with the 'a fate far crueler' foreshadow. [CGW-verified])
 
 **Back from the Wood** — giver: Vorsaile Heuloix (New Gridania)
 - Tataru -> Minfilia (the Waking Sands)
@@ -1295,7 +1296,7 @@ KEY SCENES:
 - fattened herring to lure the nix -> lie in wait -> deliver the nix leg to Wheiskaet
 - Next: A Modest Proposal
 
-**A Modest Proposal** — giver: Wheiskaet (Eastern La Noscea)
+**A Modest Proposal** — giver: Wheiskaet (Eastern La Noscea) `[COND: relay]`
 - Landenel (Camp Tranquil, South Shroud: how to obtain a giant adamantoise egg)
 - Next: Trial by Turtle
 
@@ -1307,7 +1308,7 @@ KEY SCENES:
 - inform Kikokutaia / Kikokutaib / Kikokutaic (proceed to the Lower Paths, agaric fly swarms)
 - Next: Trial by Turtle
 
-**Trial by Turtle** — giver: Landenel (South Shroud)
+**Trial by Turtle** — giver: Landenel (South Shroud) `[COND: fetch]`
 - obtain a Giant Adamantoise Egg from the nest -> U'odh Nunh (Forgotten Springs: convince him to aid)
 - Next: The Perfect Prey
 
@@ -1319,7 +1320,7 @@ KEY SCENES:
 - spear as bait -> lure & defeat the Amalj'aa veteran -> present the necklace to U'odh Nunh
 - Next: When the Worm Turns
 
-**When the Worm Turns** — giver: U'odh Nunh (Southern Thanalan)
+**When the Worm Turns** — giver: U'odh Nunh (Southern Thanalan) `[COND: fetch]`
 - slay an angler & take its carcass -> place it in Wellwick worm territory -> slay the Wellwick worm -> return the meat + deliver an item to Wheiskaet
 - Next: There and Back Again
 
@@ -1403,7 +1404,7 @@ KEY SCENES:
 - slay a sabotender del sol (brazo del sol) -> deliver the Aqua del Sol to Marques -> Marques   [converges at Bringing out the Dead]
 - Next: Bringing out the Dead
 
-**Bringing out the Dead** — giver: Sister Eluned (Eastern Thanalan)
+**Bringing out the Dead** — giver: Sister Eluned (Eastern Thanalan) `[COND: fetch]`
 - Merchant (outside the Waking Sands: bodies to transport) -> gather 8 corpses (4+4) to the chocobo carriage at the east gate -> Sister Eluned
 - Next: Bury Me Not on the Lone Prairie
 
@@ -1469,7 +1470,7 @@ KEY SCENES:
 - Next: Road to Redemption
 
 **Road to Redemption** — giver: Haurchefant (Coerthas Central Highlands)
-- find Lord Francel -> aid Francel's three knights (0/3) -> aid Lord Francel -> Haurchefant (report)
+- find Lord Francel -> aid Francel's three knights (0/3) -> [DUTY: a Dravanian minion] -> aid Lord Francel -> Haurchefant (report)
 - Next: Following the Evidence
 
 **Following the Evidence** — giver: Haurchefant (Coerthas Central Highlands)
@@ -1568,7 +1569,7 @@ KEY SCENES:
 - Mimidoa (follow to the Ship Graveyard) -> wait by the campfire -> Mimidoa (after defeating the siren's thralls) -> Davyd (siren no longer a threat) -> Ceana (show the corrupted crystal)
 - Next: The Curious Case of Giggity
 
-**The Curious Case of Giggity** — giver: Ceana (Western La Noscea)
+**The Curious Case of Giggity** — giver: Ceana (Western La Noscea) `[COND: fetch]`
 - Hedyn (Gridania: location of the corrupted crystal + the true-heart lure) -> Giggity the Spriggan (lure & slay, take the corrupted crystal) -> Hedyn
 - Next: Better Late than Never
 
@@ -1643,6 +1644,7 @@ KEY SCENES:
 **Escape from Castrum Centri** — giver: Cid (Mor Dhona)
 - /imperialsalute to 3 Imperial Soldiers (find where comrades are held) -> Imperial Centurion (obtain the imperial identification key) -> Biggs (give the key) -> Steel Door (enter the storage tower) -> Minfilia (after the rescue)
 - Next: The Black Wolf's Ultimatum
+- (NOT condensable: TWO [SOLO DUTY] sequences inside, and it carries the discovery that THANCRED IS POSSESSED BY LAHABREA plus the first sight of the ULTIMA WEAPON. [CGW-verified])
 
 **The Black Wolf's Ultimatum** — giver: Minfilia (Ul'dah - Steps of Nald)
 - Bartholomew (Royal Promenade: admit you to the Fragrant Chamber to plead the Scions' case to the Alliance leaders) -> Minfilia (Waking Sands, after the leaders resolve to fight)
@@ -1775,6 +1777,7 @@ KEY SCENES:
 **The Gifted** — giver: Minfilia (the Waking Sands)
 - Urianger -> white-robed Ascian (search & follow, approach 0/4, speak) -> Minfilia
 - Next: Build on the Stone
+- (NOT condensable: this is the pinned 2.1 scene — ELIDIBUS infiltrates the Waking Sands and names himself 'emissary, bearer of the word of the one true god', witnessed through an ECHO VISION. [CGW-verified])
 
 **Build on the Stone** — giver: Minfilia (the Waking Sands)
 - Minfilia (give Warburton's Journal to Urianger) -> Urianger -> Tataru (Seventh Heaven, Revenant's Toll: gain entrance to the Rising Stones) -> Minfilia (in the Rising Stones)
@@ -1923,7 +1926,7 @@ KEY SCENES:
 - Slafborn (Revenant's Toll) -> slay the hapalit threatening the struggling adventurer (Singing Shards) -> aid her -> /huh -> Slafborn
 - Next: Picking Up the Sledge
 
-**Picking Up the Sledge** — giver: Slafborn (Mor Dhona)
+**Picking Up the Sledge** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
 - Tataru (Rising Stones) -> Brithael (Blacksmiths' Guild) -> /doubt the Prickly Porter -> pick up the box for Tataru -> F'lhaminn (deliver) -> call out \"Tataru\" in Say -> defeat the morbol threatening Tataru -> Tataru -> Tataru (Rising Stones)
 - Next: Guardian of Eorzea
 
@@ -2657,14 +2660,15 @@ KEY SCENES:
 - Emmanellain (outside the Gates of Judgement) -> Emmanellain again (receive House Fortemps colors) -> [Solo Duty] the grand melee: defeat alliance forces + reach 100 Tactical Points -> defeat Raubahn one-on-one -> Emmanellain -> Raubahn -> Thancred
 - Next: For Those We Can Yet Save
 
-**For Those We Can Yet Save** — giver: Ser Aymeric (Coerthas Central Highlands) `[COND: relay]`
+**For Those We Can Yet Save** — giver: Ser Aymeric (Coerthas Central Highlands)
 - Alphinaud -> Artoirel (Falcon's Nest) -> Alphinaud
 - Next: Causes and Costs
+- Manifest tie (08.1 HW L12 3.2): THE PEACE CONFERENCE AT FALCON'S NEST IS IN THIS QUEST. Aymeric and the dragon Vidofnir speak of peace and the Saint Shiva / Hraesvelgr relief is unveiled; ESTINIEN, POSSESSED by NIDHOGG through the two eyes, descends and lances Vidofnir, then takes draconic form and declares war. [CGW-verified]
 
 **Causes and Costs** — giver: Alphinaud (Coerthas Western Highlands) `[COND: relay]`
 - wait for Alphinaud in the intercessory (Camp Dragonhead) -> Alphinaud -> Alphinaud (outside Fortemps Manor)
 - Next: The Man Within (3.3)
-- Manifest tie (08.1 HW L12 3.2): around the 3.2->3.3 seam the Falcon's Nest peace conference is shattered when ESTINIEN, POSSESSED by NIDHOGG (via the two eyes), lances Vidofnir — the 'final chorus' begins. Confirm the exact beat placement at play.
+- (the AFTERMATH of the conference, not the conference: Alphinaud resolves to save Estinien rather than sacrifice him. Carries a brief Papalymo/Yda scene at an Ala Mhigan camp — colour, not a pin.)
 
 ---
 
@@ -2740,7 +2744,7 @@ KEY SCENES:
 - Next: An Ending to Mark a New Beginning
 - Manifest tie (08.1 HW L12 3.1-3.4): the Warriors of Darkness thread — gated origin (they are from the First, ShB).
 
-**An Ending to Mark a New Beginning** — giver: Alphinaud (the Rising Stones, Southern Thanalan) `[COND: relay]`
+**An Ending to Mark a New Beginning** — giver: Alphinaud (the Rising Stones, Southern Thanalan)
 - Alisaie -> Papalymo -> Alphinaud (Rising Stones) -> Alphinaud
 - Next: Tidings from Gyr Abania (3.5)
 
@@ -2767,7 +2771,7 @@ KEY SCENES:
 - Next: Louisoix's Finest Student
 - Manifest tie (08.1 HW L12 3.5): ILBERD, revealed as THE GRIFFIN, at Baelsar's Wall — the plot that leads to summoning SHINRYU with Nidhogg's eyes (climax lands at the 3.56/SB seam).
 
-**Louisoix's Finest Student** — giver: Alphinaud (East Shroud) `[COND: relay]`
+**Louisoix's Finest Student** — giver: Alphinaud (East Shroud)
 - Alisaie (the Rising Stones)
 - Next: The Obvious Solution (3.56)
 
@@ -3381,8 +3385,8 @@ KEY SCENES:
 - wait inside the gate to the Ala Mhigan Quarter -> Raubahn -> Lyse
 - Next: Return of the Bull
 
-**Return of the Bull** — giver: Raubahn (the Lochs) · MSQ `[COND: relay]`
-- join your fellow Scions in the Ala Mhigan Quarter -> the Resistance guard -> Arenvald -> Lyse -> Lyse in Rhalgr's Reach
+**Return of the Bull** — giver: Raubahn (the Lochs) · MSQ
+- join your fellow Scions in the Ala Mhigan Quarter -> the Resistance guard -> Arenvald -> [SOLO DUTY: the Qalyana broodmother summons LAKSHMI in the throne room — fought alongside Arenvald and FORDOLA, freed by Lyse] -> Lyse -> Lyse in Rhalgr's Reach
 - Next: Tidings from the East
 
 ---
@@ -3418,7 +3422,7 @@ KEY SCENES:
 - Yugiri -> Hien
 - Next: Rise of a New Sun
 
-**Rise of a New Sun** — giver: Hien (the Kienkan, Doman Enclave) · MSQ `[COND: relay]`
+**Rise of a New Sun** — giver: Hien (the Kienkan, Doman Enclave) · MSQ
 - Hien (x2) -> Hancock at the Ruby Bazaar in Kugane
 - Next: Gosetsu and Tsuyu
 
@@ -3451,7 +3455,7 @@ KEY SCENES:
 - Next: Under the Moonlight
 - Manifest tie (08.1 SB patch): TSUKUYOMI — Yotsuyu reborn as the Dusk Mother; the Confederates & Doma end the primal at Castrum Fluminis.
 
-**Under the Moonlight** — giver: Alisaie (the Kienkan) · MSQ `[COND: relay]`
+**Under the Moonlight** — giver: Alisaie (the Kienkan) · MSQ
 - Lyse in Rhalgr's Reach -> Lyse at Bloodhowe -> Alisaie at the Rising Stones
 - Next: Emissary of the Dawn
 
@@ -3491,7 +3495,7 @@ KEY SCENES:
 - Y'shtola at the House of the Crooked Coin -> Hien -> Alisaie at the Kienkan -> Thancred in the Ala Mhigan Quarter -> the Resistance guard -> Alisaie
 - Next: Prelude in Violet
 
-**Prelude in Violet** — giver: Alisaie (the Rising Stones) · MSQ `[COND: relay]`
+**Prelude in Violet** — giver: Alisaie (the Rising Stones) · MSQ
 - Alisaie at the Rising Stones -> Alisaie at Maelstrom Command -> Alisaie -> Alisaie at the Rising Stones
 - Next: Soul Searching
 
@@ -3514,7 +3518,7 @@ KEY SCENES:
 - Next: Seiryu's Wall
 - (Maxima of the Populares defects with a proposal of peace)
 
-**Seiryu's Wall** — giver: Hien (the Kienkan) · MSQ `[COND: relay]` [no trial inside — see sidequest note]
+**Seiryu's Wall** — giver: Hien (the Kienkan) · MSQ [no trial inside, but it carries the GAIUS-alive reveal — see the manifest]
 - Hien near the House of the Fierce -> Hien at the Kienkan
 - Next: Parley on the Front Lines
 
@@ -3667,6 +3671,7 @@ KEY SCENES:
 - obtain treated fodder -> feed the treated fodder to the amaro (0/4) -> Lyna -> the Crystarium scout -> Thancred
 - Next: Il Mheg, the Faerie Kingdom
 - (Thancred and the amnesiac Minfilia — the Oracle of Light — in Il Mheg)
+- (NOT condensable: contains a [SOLO DUTY] rescue with a boss fight against GENERAL RAN'JIT, fought alongside Lyna and the twins. [CGW-verified])
 
 **Il Mheg, the Faerie Kingdom** — giver: Thancred (Il Mheg) · MSQ
 - Thancred -> search for looking grass -> deliver the looking grass to Thancred
@@ -4084,11 +4089,7 @@ KEY SCENES:
 **Vows of Virtue, Deeds of Cruelty** — giver: Alphinaud (Eulmore) · MSQ
 - the Crystal Exarch (the Ocular) -> Tataru (the Rising Stones) -> [SOLO DUTY: escape the imperial palace AS ESTINIEN] -> [SOLO DUTY: defeat ARCH ULTIMA] -> Tataru
 - Next: Old Enemies, New Threats
-- (NOTE: this quest gives PATCH 5.1 its name — which is exactly how it went missing: the title was used as the section header and the quest entry was never written. It is MSQ, and it is the only place the Estinien/Gaius Werlyt thread opens.)
-
-**Vows of Virtue, Deeds of Cruelty** (5.1 finale) — giver: Alphinaud (the Crystarium) · MSQ `[COND: relay]`
-- the Crystal Exarch in the Ocular -> Tataru -> Tataru at the Rising Stones -> Tataru
-- Next: Old Enemies, New Threats
+- (5.1 finale)
 
 ---
 
@@ -4132,7 +4133,7 @@ KEY SCENES:
 - Next: Echoes of a Fallen Star
 - Manifest tie (08.1 ShB patch): ANAMNESIS ANYDER — the sunken Ronkan facility mirrored beneath the Tempest.
 
-**Echoes of a Fallen Star** (5.2 finale) — giver: Urianger (Kholusia) · MSQ `[COND: relay]`
+**Echoes of a Fallen Star** (5.2 finale) — giver: Urianger (Kholusia) · MSQ
 - Alphinaud -> Theyler -> the Crystal Exarch -> the manager of suites in the Pendants
 - Next: In the Name of the Light
 
@@ -4273,7 +4274,7 @@ KEY SCENES:
 - Next: When the Dust Settles
 - Manifest tie (08.1 ShB patch): PAGLTH'AN — the Amalj'aa holy ground seized by the Telophoroi; Lunar Bahamut / the summoned menace routed with the Immortal Flames. The star's aether roils — first omen of the coming days.
 
-**When the Dust Settles** (5.5 FINALE) — giver: Alphinaud (Ul'dah - Steps of Nald) · MSQ `[COND: relay]`
+**When the Dust Settles** (5.5 FINALE) — giver: Alphinaud (Ul'dah - Steps of Nald) · MSQ
 - the Phrontistery chirurgeon -> Alphinaud -> Alisaie -> return to the Rising Stones -> Tataru
 - Next: The Company We Keep
 - (Arenvald recovers from wounds taken at Paglth'an; the Scions regroup)

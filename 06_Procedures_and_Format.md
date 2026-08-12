@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.13 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.14 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -765,7 +765,12 @@ Level + number of players mandatory. Target duration (§C11). If present, procee
 
 
 ## §C4 — ACTS-BASED ONE-SHOT MODULE
-1. Verify. 2. Pitch. 3. Acts index. 4. STOP. 5. Acts on request. Index: Act 1 (hook, STRONG OPENING §C11) -> Act 2 (investigation/dungeon) -> Act 3 (boss/resolution) -> Epilogue. **REWARDS: §C9** (gil, consumables, light gear, favours, reputation — never Phoenix Downs/Tails as loot; by CR §A21). **RE-HOOK, if the party stalls: §C8** (Situation → Objective → Constraints → 3-5 options).
+1. Verify. 2. Pitch. 3. Acts index. 4. STOP. 5. Acts on request.
+**THE PITCH CARRIES THESE BLOCKS, IN THIS ORDER:** title · the one-line data strip (Sistema · Livello · Giocatori · Tono · Ambientazione · Durata) · SINOSSI · AGGANCIO · DRAMATIS PERSONAE. Then the index.
+- **AGGANCIO — two lines in the pitch, and PLAYED in the opening scene of Act 1:** WHO calls the party, WHAT they are promised, and why THEM. Named commissioner, stated stakes. A module that opens without answering *perche' siamo qui* hands the table its first argument instead of its first scene; the STRONG OPENING (§C11) is where the hook is dramatized, never a line left in the synopsis.
+- **DRAMATIS PERSONAE — right after the synopsis:** the 3-5 named NPCs of §C2, ONE line each, in this shape: `**{Nome}** — {chi e'}, {tratto distintivo} · Atto {N}`. It is the GM's lookup while the players wait: a name that speaks in an act and is not here is a name the GM has to hunt for mid-scene. A creature that only fights is NOT dramatis personae — it belongs to its stat block.
+- **EVERY INDEX ENTRY CARRIES ITS OWN TIME**, split from the declared total by the §C10 shares (Act 1 ~20% · Act 2 ~55% · Act 3 ~25%): `Atto 1 — {titolo} (~{N} min)`. A single total tells the GM nothing about whether they are running long, which is the only thing a time estimate is for.
+Index: Act 1 (hook, STRONG OPENING §C11) -> Act 2 (investigation/dungeon) -> Act 3 (boss/resolution) -> Epilogue. **REWARDS: §C9** (gil, consumables, light gear, favours, reputation — never Phoenix Downs/Tails as loot; by CR §A21). **RE-HOOK, if the party stalls: §C8** (Situation → Objective → Constraints → 3-5 options).
 
 ## §C5 — ONE-SHOT STRUCTURES
 The structure follows the GENRE and the Act shape already fixed in §C4 — there is no separate catalogue to pick from. For an investigative one use the Three-Clue Rule (§E5); for a dungeon, §C6.
@@ -780,6 +785,7 @@ Forbidden: Echo, Crystals, Blessing, full Primals. Allowed: minor cults, non-Pri
 Situation -> Objective -> Constraints -> 3-5 options.
 
 ## §C9 — ONE-SHOT REWARDS
+**THE REWARD THAT COUNTS IS THE ONE SPENT BEFORE THE END.** The session closes and the characters are put away, so what is handed over at the epilogue is read as a formality. Put the USEFUL object EARLY — mid-module, in the party's hands, where they can decide whether and when to spend it to win: that object IS the PLANT AND PAY setup, and a one-shot's best loot is a thing that changed the last fight. Closing loot still prints in its normal shape (§A21, and the §A9 boss-loot count applies as everywhere else) — it is simply not where the design effort goes: the real closing payment is what the world does differently now (a door opened, a name owed, a rival humbled).
 Gil, consumables, light gear, favors, reputation. Never Phoenix Downs/Tails as loot. Local consequences. Loot by CR: §A21. Vendors/inns if needed: §A22 (by tier; special generated, §A20).
 
 ## §C10 — ONE-SHOT PACING

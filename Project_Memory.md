@@ -1065,6 +1065,31 @@ descrive. Vedi anche [2.11] (corretto dove DEFINITO, sopravvissuto dove RIFERITO
 `Sea of Sorrow` portava la nota *[title corrected: singular]* mentre il `Next:` che la citava diceva
 ancora il plurale.
 
+## 2.40 MAI UN CONDIZIONALE DENTRO UN CONTROLLO CONTABILE (2026-08-12)
+Avevo modificato il controllo (7) di §A9 perche' in una one-shot il bottino di fine modulo non si spende
+piu': «in una one-shot il conteggio si sposta indietro, e 0 pezzi sul boss finale e' corretto». Il GM ha
+chiesto se fosse la cosa giusta — *«a me se stampa bottino mi interessa poco, non lo leggo e bon, non
+vorrei che inquinasse il resto»* — e aveva ragione. Ripristinato.
+
+**Perche' era sbagliata.** I dieci controlli di §A9 valgono per una proprieta' dichiarata nella loro
+stessa riga: *«these are COUNTS, not impressions: each is a list you tick or a sum you redo»*. Non
+chiedono ragionamento, ed e' l'unica ragione per cui reggono dove le regole normali vengono disattese.
+Un ramo per modalita' obbliga il modello a **decidere prima in quale caso si trova** e poi a contare
+un oggetto diverso: reintroduce esattamente il giudizio che il controllo doveva eliminare. E il guasto
+non resterebbe confinato alla one-shot — un controllo indebolito si rompe anche in campagna.
+
+**Il bilancio, che e' il vero test:** il costo del comportamento «sbagliato» era UNA RIGA DI BOTTINO che
+il GM non legge. Il costo di un controllo indebolito e' perdere il meccanismo che ha risolto tre regole
+ignorate (bottino del boss, musica, nomi delle stanze). Non si spende un controllo per un fastidio.
+
+**Errore a monte:** avevo dichiarato «contraddizione» qualcosa che non lo era. §C9 dice DOVE mettere
+l'oggetto che conta, il controllo (7) dice COSA stampa il boss: si possono fare entrambe, sono al
+massimo ridondanti. Prima di invocare [2.11] o la caccia al fossile, verificare che le due regole
+chiedano davvero cose incompatibili — se sono solo ridondanti, la ridondanza costa meno della modifica.
+
+**Regola:** un controllo contabile si aggiunge o si ritira INTERO ([2.39] per il ritiro). Non si
+condiziona, non si scopa per modalita', non si annida.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
