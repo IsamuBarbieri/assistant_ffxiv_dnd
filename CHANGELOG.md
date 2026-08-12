@@ -1,5 +1,39 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12q — `/chiusura` diventa `/fine`: il comando collideva col proprio significato
+
+`/chiusura` giocava un nuovo beat su Gemini 3.1 Pro. Il divieto era scritto **cinque volte** (roster
+chiuso, 'no beat', 'writes nothing', contract 1, contract 4) e perdeva sempre. Per [2.26] una regola
+scritta cinque volte non ne vuole una sesta: vuole che si trovi la forma che la batte.
+
+**La forma era la parola stessa.** `/chiusura` e' l'italiano di *closing*, e nel corpus `closing scene`
+/ `closing beat` / `closing narrative` compaiono ~15 volte come **cosa dovuta da un beat** — una perfino
+in cv, nella riga NOTHING IS LEFT BEHIND: *«name what this beat OWES (... the closing scene)»*. Per un
+modello che legge a senso, `/chiusura` non e' un comando: e' l'ordine di scrivere la scena di chiusura.
+Il git conferma che il comando si chiamava `/fine sessione` e che la collisione l'ha creata una rinomina.
+
+**Rinominato `/fine`** (scelta del GM). Nessun sesto divieto aggiunto; anzi ne e' stato tolto uno.
+
+**Due guasti strutturali trovati per strada:**
+- **05 riga 1218 nominava i comandi** (`'/chiusura', '/salva'`), che 1.4 vieta ai file di knowledge — e
+  rimandava a *«06 §B17 ... the full '/CHIUSURA — SEQUENCE OVERVIEW'»*, **una sezione che in 06 non
+  esiste**. Chi cercava la procedura di fine sessione seguiva un puntatore morto e ripiegava su cio' che
+  vedeva. Rimando riscritto per perifrasi.
+- **06 riga 206** diceva *«needs NO 'Chiusura' label»*, nominando il token in contesto di chiusura beat.
+
+**Reso indirizzabile.** La knowledge chiama quel turno *'the end-session command'* sei volte, senza mai
+dire quale sia; cv non conteneva la stringa `end-session` nemmeno una volta. Ora la riga lo dichiara, e
+le sei regole di 06 (ancora verbatim, due bucket, `MUST NOT contain a beat tag`) diventano raggiungibili
+per nome. Il template inline separato da barre e' diventato **cinque righe distese**.
+
+**RISCHIO NOTO su `/fine`:** in cv esistono gia' `=== FINE SAVE ===` (righe di `/carica` e `/salva`) e
+`— Fine parte N —` (footer del beat). Se il guasto si ripresenta in forma nuova — blocco save stampato,
+o marcatore di fine parte — il primo posto da guardare e' questo, e il ripiego e' `/fine sessione`, che
+non urta nulla e coincide con la perifrasi della knowledge.
+
+cv105 · 06 v6.19 · 05 v2.10.
+
+
 ## 2026-08-12p — cv101 / lv36 / ov56: allineate le regole condivise fra i tre assistenti
 
 Cross-check dei tre file di istruzioni. L'`<output_contract>` era gia' identico parola per parola in

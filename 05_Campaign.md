@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.09 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.10 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -1215,7 +1215,7 @@ Whoever is revived (Raise / Araise / Down / Tail) suffers AETHER SICKNESS for 2 
 
 # CHAPTER 19 — MEMORY SHEET / CONTINUITY
 The campaign's 'save file': the SOURCE OF TRUTH the GM re-reads at the start of every session and updates at the end.
-NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the actual '/chiusura', '/salva' and load mechanics, see 06 §B17 (SAVE template + LOAD + the full '/CHIUSURA — SEQUENCE OVERVIEW'), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
+NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WHY — it is NEVER the source for a command's trigger word, output shape or gate logic. For the end-session recap, the save write and the load mechanics, see 06 §B17 (SAVE template + LOAD), §B21 (LIVE/STUDY modes) and §B24 (the delta gate) — always the sole authoritative source.
 
 ## 19.1 Purpose
 - Keep the WORLD/CAMPAIGN STATE between sessions.
