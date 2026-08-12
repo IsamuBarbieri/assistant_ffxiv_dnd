@@ -1,5 +1,25 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12t — cv108: la riga delle perifrasi aveva gia' reso inutile il template del pre-save
+
+Domanda del GM: *«sei sicuro che il template del pre-save serva in cv? non e' scritto in 06?»* No, non
+serviva — e la cosa notevole e' **quando** ha smesso di servire. Le cinque righe della forma e la riga
+che lega le perifrasi le ho aggiunte **nello stesso commit**, senza accorgermi che la seconda cancellava
+la prima: finche' `'the end-session command'` non era legato a un comando, la forma in 06 era
+irraggiungibile e duplicarla sembrava necessario; nel momento in cui e' legata, il duplicato e' morto.
+
+Verificato prima di cancellare: 06 ha `Ancora save` ×4, `[GIOCATO]` ×2, `[DA VERIFICARE]`,
+`Ultimo evento giocato` ×3, piu' due regole che cv non aveva nemmeno (`MUST NOT contain a beat tag`,
+`do NOT write`). Duplicato puro.
+
+In cv resta solo cio' che e' semantica di comando e non forma: `/salva` e' READ-ONLY e non scrive, e
+chiude sulla riga verbatim che nomina `/confermo` (stesso schema di `/voci` → `/accettiamo`). −349
+caratteri. Corretta anche la riga del cursore, che diceva ancora `/salva` persists it.
+
+**cv 8.483 → 8.966: +483 (+5,7%)**, contro il +17% di stamattina. Il grosso di oggi e' uscito da cv, non
+entrato.
+
+
 ## 2026-08-12s — cv107: potatura. Tolto tutto cio' che era allineamento e non riparazione
 
 cv era cresciuto **da 8.483 a 9.927 caratteri in una sessione, +17%**, e buona parte non riparava
