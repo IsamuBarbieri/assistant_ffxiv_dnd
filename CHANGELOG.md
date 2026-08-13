@@ -1,5 +1,20 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13 — 06 v6.25: la riga musica usciva senza link perche' il corpus la chiamava 'header'
+
+**Pro e Flash passano, terza run solida.** Unico difetto rimasto: il 🎵 usciva come testo semplice,
+mentre 🖼️ e 🗺️ erano link corretti.
+
+**Correlazione misurata:** `Musica header` compariva 3 volte in 06 (5 occorrenze di *header* accanto a
+🎵). `Immagine header` e `Mappa header`: **zero, mai**. L'unica delle tre righe che il corpus chiamava
+'header' era l'unica a uscire senza link — e un header, in markdown, e' `###`, non un collegamento.
+Stessa forma dei `piedi` accanto agli `yalm` e di `/chiusura` accanto a `closing scene`: la parola usata
+per descrivere la cosa vince sulla regola che la descrive.
+
+Tutte e cinque le occorrenze dicono ora `Musica link`, e la definizione si allinea alle altre due:
+*«like the 🖼️ and 🗺️ lines, the OST is a MARKDOWN LINK typed out as text»*.
+
+
 ## 2026-08-12v — FLASH 2/2. Pro 0/2 su `/salva`: assembla il turno dai due vicini di lista
 
 **Flash e' a posto: 2/2 sulla sequenza intera** (`/pippo` → `/carica`+save → `/continua` → `/salva`).
