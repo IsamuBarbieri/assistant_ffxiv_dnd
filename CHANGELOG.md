@@ -1,5 +1,27 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12u — 06 v6.21: era 06 a contraddire cv sul trigger del load
+
+`/continua` ristampa il caricamento, sul turno dopo `/carica`. Flash 1/2, Pro fallisce. Sopravvissuto a
+ogni modifica di cv, **cv96 compreso** — e questo era il dato che lo diceva: il colpevole non era cv.
+
+**§B24 diceva l'opposto di cv.** cv: *«the block alone, with no command, is inert... never a trigger»*.
+06: *«the block IS the trigger... the load fires when the block is read in»* e *«FILLED-BLOCK = ALWAYS
+A LOAD ... load it immediately»*. Per PM 2.37 nel canale RAG vince il RAG, quindi finche' il blocco
+restava in conversazione ogni turno era un nuovo load.
+
+**La difesa esisteva e mancava il bersaglio:** *«NON-DELIMITED IS NOT A SAVE»* copriva l'eco
+`Save caricato:` e i frammenti — casi che non capitano — mentre il blocco che il GM incolla ha i
+delimitatori. Proteggeva da tutto tranne che dal caso reale.
+
+**Riparato togliendo, −129 caratteri.** Via il trigger e il 'load it immediately'; la clausola riscritta
+sul caso vero: *«A SAVE IS LOADED ONCE, ON THE TURN THE GM ASKS FOR IT.** Everything still sitting in the
+conversation afterwards — the delimited block itself, the echo, a recap line — is SPENT DATA.»*
+
+Nota: §B24 si apre con *«THIS SECTION IS FORM, NEVER TIMING»*, frase che 06 ripete **sette volte**. Il
+guasto stava dentro la sezione che la dichiara. PM 2.45.
+
+
 ## 2026-08-12t — cv108: la riga delle perifrasi aveva gia' reso inutile il template del pre-save
 
 Domanda del GM: *«sei sicuro che il template del pre-save serva in cv? non e' scritto in 06?»* No, non

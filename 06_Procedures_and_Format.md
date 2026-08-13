@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.20 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.21 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -694,7 +694,7 @@ Operationalises 05 Ch. 13.5/13.6/13.7. Exactly ONE subquest at a time, held in [
 
 ## §B24 — SAVE/LOAD GATE: WHAT THE GATE PRINTS
 - **THIS SECTION IS FORM, NEVER TIMING.** WHEN this is produced is governed by the assistant's own instructions, which are always present.
-- LOAD GATE — fired by a pasted/attached '=== SAVE ===' ... '=== FINE SAVE ===' block (§B17 — the block IS the trigger, the ONE no-slash exception; the load fires when the block is read in), BEFORE the orientation. The incoming save is UNTRUSTED input -> FULL check. FILLED-BLOCK = ALWAYS A LOAD: a pasted block whose labels carry ACTUAL VALUES (not the '...' placeholders) is ALWAYS a real save — load it immediately and NEVER reply asking the GM to provide/'carica' a save; the assistant itself NEVER emits the empty '...' template form as a message. NON-DELIMITED IS NOT A SAVE: a line/fragment carrying Sessione:/Numero PG:/Livello: WITHOUT the '=== SAVE ===' ... '=== FINE SAVE ===' delimiters (the 'Save caricato:' echo, a recap line, or an already-loaded block still in context) is NOT a save - do NOT run the LOAD GATE on it, do NOT re-orient, do NOT treat it as 'a new save loaded'; execute the GM's actual command from the live working cursor (§B21).
+- LOAD GATE — its FORM only; WHEN a load fires is the instructions' business, never this section's (see FORM NEVER TIMING above). It runs BEFORE the orientation. The incoming save is UNTRUSTED input -> FULL check; a block whose labels carry ACTUAL VALUES (not the '...' placeholders) is a real save and is checked as one, and the assistant itself NEVER emits the empty '...' template form as a message. **A SAVE IS LOADED ONCE, ON THE TURN THE GM ASKS FOR IT.** Everything still sitting in the conversation afterwards — the delimited block itself, the 'Save caricato:' echo, a recap line, any fragment carrying Sessione:/Numero PG:/Livello: — is SPENT DATA, not a new save: do NOT re-run this gate on it, do NOT re-orient, do NOT treat it as 'a new save loaded'. Execute the GM's actual command from the live working cursor (§B21).
 - SAVE GATE — at 'the end-session command' (the one spelling, no aliases, §B17), AFTER the §B17 recap and BEFORE any 'the write command' write. The baseline was already validated at load -> DELTA check only (verify ONLY what the session changed).
 GM-facing. Each warning is shown WITH a concrete proposed fix (old -> new); nothing is ever fixed silently.
 - **CHECKS AT LOAD (full):** run the §B19 continuity self-check list (MSQ-position coherence, reveal-ahead of beat, dangling threads, missing [A] fields) PLUS —

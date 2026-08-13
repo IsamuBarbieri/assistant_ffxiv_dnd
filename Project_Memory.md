@@ -1184,6 +1184,33 @@ sparito: non serve piu' una parola che significhi 'recap', perche' il recap e' l
 dichiarare il nome che la knowledge usa — altrimenti ogni regola scritta con quel nome e' invisibile.
 Prima di aggiungere una regola, verificare che quelle esistenti siano RAGGIUNGIBILI.
 
+## 2.45 LA SEZIONE CHE DICHIARA 'FORM, NEVER TIMING' SETTE VOLTE E POI DECIDE UN TRIGGER (2026-08-12)
+`/continua` ristampava il caricamento del save, sul turno subito dopo `/carica`. Sopravvissuto a OGNI
+modifica di cv, cv96 compreso — perche' **il lato di cv era gia' giusto**: *«the block alone, with no
+command, is inert... never a trigger»*. Era 06 a dire l'opposto, in §B24:
+
+> *«the block IS the trigger, the ONE no-slash exception; the load fires when the block is read in»*
+> *«FILLED-BLOCK = ALWAYS A LOAD ... **load it immediately**»*
+
+Contraddizione diretta col control layer, e per [2.37] nel canale RAG vince il RAG. Finche' il blocco
+resta nel transcript, ogni turno e' un nuovo load.
+
+**La difesa c'era e mancava il bersaglio.** La stessa riga diceva *«NON-DELIMITED IS NOT A SAVE ... do
+NOT re-orient»*: copriva l'eco `Save caricato:` e i frammenti, cioe' i casi che non capitano mai. Il
+blocco che il GM incolla ha i delimitatori. **La clausola proteggeva da tutto tranne che dal caso reale.**
+
+**E la sezione dichiara sette volte** *«THIS SECTION IS FORM, NEVER TIMING. WHEN this is produced is
+governed by the assistant's own instructions»*. Il guasto stava dentro la sezione che si apre con quella
+frase. Una dichiarazione di confine ripetuta sette volte non fa rispettare il confine: va **verificata**.
+
+**Riparato per sottrazione (−129 caratteri):** via il trigger e il 'load it immediately', e la clausola
+difensiva riscritta sul caso vero — *«a save is loaded ONCE, on the turn the GM asks for it; everything
+still in the conversation afterwards, the delimited block included, is SPENT DATA»*.
+
+**Regola da portarsi dietro:** quando un guasto sopravvive a ogni modifica del control layer, **il
+control layer non e' il colpevole**. Cercare la contraddizione nel RAG, e cercarla proprio nelle sezioni
+che giurano di non occuparsi di quella cosa.
+
 ## 2.42 L'ORDINE DEI COMANDI: SI SCRIVE IL PRINCIPIO, NON SI RIMESCOLA LA LISTA (2026-08-12)
 Valutato se dare ai tre roster un ordine esplicito. **No**, tranne un caso.
 
