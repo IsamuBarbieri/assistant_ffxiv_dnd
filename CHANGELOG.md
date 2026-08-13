@@ -1,5 +1,35 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-12v — FLASH 2/2. Pro 0/2 su `/salva`: assembla il turno dai due vicini di lista
+
+**Flash e' a posto: 2/2 sulla sequenza intera** (`/pippo` → `/carica`+save → `/continua` → `/salva`).
+Restano le riparazioni di oggi: regola media senza nomi di strumenti, load gate senza pretesa di trigger,
+perifrasi legate ai comandi. Lo teniamo comunque sotto osservazione.
+
+**Pro fallisce 0/2, e le due uscite hanno la STESSA firma:**
+- `[Info GM] chiude l'apertura (Beat 0); apre Coming to Gridania; prossimo step wiki: ...`
+- `[Info GM] prosegue Coming to Gridania; prossimo step wiki: ...`
+
+Non sono «gioca un beat» e «rifa' il load»: **`[Info GM]` e' un pezzo del FOOTER del beat, `prossimo step
+wiki:` e' un pezzo della riga `/carica`.** Pro non trova una forma propria per il turno e la **assembla
+dai due vicini di lista**. E' [2.26] un'altra volta, sul comando accanto.
+
+**Errore mio, ammesso:** in cv108 avevo tolto *«A delta, never an orientation: no `Prossimo step
+wiki:`»* giudicandola duplicato di 06. **Non lo era: `Prossimo step wiki` non compare in 06 nemmeno una
+volta.** Era l'unica difesa esistente, e l'ho cancellata. La lezione della potatura vale, ma la verifica
+«sta gia' in 06?» va fatta con un grep, non a occhio.
+
+**Riparato in 06 (§B24 SAVE OUTPUT-SHAPE), estendendo la lista di MUST NOT che gia' esisteva** invece di
+rimettere la clausola in cv: il turno non contiene beat tag, **ne' una riga `[Info GM]`, ne' una
+`Prossimo step wiki:`, ne' altri pezzi di footer del beat o di orientamento di load**. Casa sua, e cv
+resta magro.
+
+**Da verificare:** le run di Pro sono state fatte su cv108, che per `/salva` non aveva NESSUNA forma —
+l'avevo stripped io. cv109 ha ripristinato la riga `ENTIRE REPLY`. Va riprovato prima di concludere.
+
+06 v6.23 · cv109.
+
+
 ## 2026-08-12u — 06 v6.21: era 06 a contraddire cv sul trigger del load
 
 `/continua` ristampa il caricamento, sul turno dopo `/carica`. Flash 1/2, Pro fallisce. Sopravvissuto a
