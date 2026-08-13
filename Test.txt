@@ -1,0 +1,202 @@
+/carica
+
+=== SAVE ===
+
+Sessione: 0
+
+
+
+[A] POSIZIONE MSQ
+
+    - Missione MSQ corrente (EN): Coming to Ul'dah
+
+    - Ultimo step completato: Inizio campagna (Sessione 0 completata)
+
+
+
+[B] PARTY
+
+    - Numero PG: 4
+
+    - Livello: 1
+
+
+
+[C] SUBQUEST ATTIVA
+
+    - Subquest attiva: nessuna
+
+
+
+=== FINE SAVE ===
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Save caricato: Sessione: 0 · Numero PG: 4 · Livello: 1
+
+Vi trovate a bordo di una carrozza in viaggio attraverso le torride sabbie del Thanalan, diretti verso le imponenti mura della città-stato mercantile di Ul'dah. L'avventura vera e propria sta per cominciare.
+
+Prossimo step wiki: viaggio in carrozza verso Ul'dah e Risveglio dell'Eco (Scena di Apertura).
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Coming to Ul'dah] (~45-60 min)
+[🎵 Musica (Inizio viaggio): To the Sun]
+🖼️ Immagine: Thanalan
+🗺️ Mappa: Ul'dah
+
+Da leggere ai PG:
+Siete in viaggio da ore. Il sole del Thanalan picchia impietoso sul tetto della carrozza di legno che sobbalza lungo la strada polverosa, trainata da placidi chocobo. L'aria è secca, calda come il respiro di una fornace. Vi risvegliate madidi di sudore freddo, senza il ricordo di alcun sogno, solo con un profondo senso di vertigine. Seduto di fronte a voi, un mercante con un grosso turbante vi osserva con aria comprensiva.
+
+🖼️ Immagine: Brendt
+Dialogo e Interazione:
+Il mercante si sporge in avanti, offrendovi una borraccia d'acqua.
+
+Brendt: «Accidenti, state sudando freddo. Tranquilli, è normale la prima volta. Sarà la densità dell'etere da queste parti a farvi questo effetto... O forse l'emozione del viaggio. Mi chiamo Brendt, lieto di conoscervi.»
+
+Brendt sonda il terreno: «Siete un gruppo eterogeneo, eppure c'è qualcosa nei vostri occhi. Allora, qual è la vostra storia? Perché siete diventati avventurieri e avete scelto di viaggiare fino alla perla del deserto?»
+
+(Lascia il tempo a ogni giocatore di presentare il proprio PG e rispondere. Le sue reazioni: se dicono "Potere/Gloria", ride e consiglia i gladiatori; se dicono "Ricchezza", accenna al Sindacato; se dicono "Fare del bene", sospira dicendo che a Ul'dah la virtù costa cara).
+
+Da leggere ai PG:
+Il viaggio procede, ma all'improvviso la carrozza frena bruscamente. Sentite il rumore di armature di metallo e passi pesanti. Un drappello di miliziani in armatura gialla e spade ricurve sbarra il passo.
+
+🖼️ Immagine: Brass Blades
+Dialogo e Interazione (Le Lame d'Ottone):
+
+Capitano delle Lame d'Ottone: «Ferma il carro! Ispezione doganale per ordine di Ul'dah. Cosa abbiamo qui?» (Fruga nelle casse di Brendt e solleva un fialoide scuro). «Somnus? Questa è merce di contrabbando, mercante.»
+
+Brendt: «C-cosa?! Non è mia! Qualcuno deve averla messa lì!»
+
+Capitano (con un sorriso rapace): «Risparmia il fiato per il giudice. Tuttavia... potremmo chiudere un occhio. Diciamo per una generosa tassa di ispezione.»
+
+Prima che possiate intervenire, un corno di guerra risuona oltre le dune. Una vedetta urla disperata: «Amalj'aa! Amalj'aa! Alle armi!»
+
+Il capitano impallidisce, lascia cadere la fiala e si volta: «Maledizione! Si salvi chi può!» Le Lame d'Ottone scappano a gambe levate.
+
+[🎵 Musica (Scontro): The Land Burns]
+🖼️ Immagine: Amalj'aa
+
+Pacchetto Incontro: L'Assalto degli Amalj'aa
+Difficoltà: Facile
+Innesco: Le Lame d'Ottone disertano e fuggono, lasciando la carrozza esposta all'assalto degli Amalj'aa.
+Nemici: Predone Amalj'aa ×3
+
+Da leggere ai PG:
+Con ruggiti gutturali, le enormi figure rettiliane emergono dal riverbero del calore. Scaglie grigio cenere, muscoli tesi e lame sbrecciate strette nei pugni. Il carro di Brendt vi offre l'unica misera copertura mentre la distesa di sabbia rovente si apre intorno a voi, punteggiata da alcune rocce affioranti. Siete l'unica cosa che si frappone tra i predoni e i passeggeri indifesi.
+
+Arena
+Tipo: Spazio Aperto
+Dimensioni: 14 × 14
+Elementi:
+
+Carro
+
+Sabbia
+
+Rocce
+
+Tattica: I predoni si accaniscono sul bersaglio più corazzato, combattendo con ferocia e puntando a sopraffare i PG in corpo a corpo. Non usano mosse coordinate.
+
+Predone Amalj'aa
+Taglia Media · CA 13 · PF 15 (2d8+6) · Vel 5 yalm
+
+FOR 14 (+2) · DES 12 (+1) · COS 16 (+3) · INT 8 (-1) · SAG 10 (+0) · CAR 8 (-1)
+
+TS: Forza, Costituzione
+Sensi: Percezione passiva 10
+GdS 1/4
+
+Descrizione visiva: imponenti umanoidi lucertola dalle scaglie grigio-cenere, armati di lame rudimentali e coperti da tatuaggi tribali.
+
+Tratti
+Attacchi Selvaggi. Quando il predone mette a segno un colpo critico con un'arma da mischia, può tirare un dado di danno aggiuntivo dell'arma e aggiungerlo ai danni extra del colpo critico.
+
+Azioni
+Schianto. Mischia: +4, portata 1 yalm, un bersaglio. 5 (1d6+2) contundente.
+
+Bottino
+Bottino: 35 gil; parte vendibile: scaglia di Amalj'aa (10 gil).
+
+[VISIONE DELL'ECO]
+⚠️ reveal protetto: il dono dell'Eco
+[🎵 Musica (Visione dell'Eco): The Echo]
+🖼️ Immagine: Mothercrystal
+
+Da leggere ai PG:
+L'ultimo Amalj'aa cade, ma non fate in tempo a rinfoderare le armi. Il tempo... si ferma. Le grida svaniscono. Il calore del sole sparisce. I granelli di polvere sollevati dallo scontro restano sospesi a mezz'aria, immobili. Siete svegli, coscienti e in grado di guardarvi l'un l'altro, ma il mondo intorno a voi è cristallizzato.
+All'improvviso, lo spazio cede. Vi ritrovate sospesi in un vuoto infinito, un mare di stelle turbinanti dominato da un'immensa, calda luce eterica. Davanti a voi fluttua una titanica entità cristallina. Una voce materna, benevola e rassicurante risuona all'unisono nelle vostre menti, purificandovi da ogni fatica:
+«Ascoltate... Percepite... Pensate...»
+Poi, con la stessa violenza con cui è arrivata, la visione si spezza. Sbattete le palpebre e siete di nuovo nel deserto. Il clamore riprende, la polvere ricade a terra. Gli Amalj'aa superstiti indietreggiano e fuggono tra le dune. Siete estranei, ma ora sapete di aver condiviso lo stesso esatto miracolo.
+
+[🎵 Musica (Arrivo in città): A New Hope]
+
+Da leggere ai PG:
+Brendt si sporge dalla carrozza, ancora tremante ma salvo. Dalle sue parole capite che non si è accorto di nulla riguardo al tempo fermo; ha solo visto la vostra destrezza in battaglia. Salite a bordo e il viaggio riprende in sicurezza, finché all'orizzonte si stagliano le mura monumentali e le torri sfarzose di Ul'dah, la città dei mercanti.
+Il carro si ferma alle porte della città, al Cancello di Nald. Brendt scende e vi consegna un modesto anello come ringraziamento per avergli salvato la vita.
+«Spero di fare affari con voi un giorno,» vi dice, stringendovi le mani. «Per le fiamme noi rinasciamo. Che Nald'thal vi protegga.»
+
+🖼️ Immagine: Wymond
+Dialogo e Interazione:
+Appena superate la guardia del cancello, vi si affianca un Hyur dall'aria smaliziata, con piccoli occhiali scuri e un cappello piumato.
+
+Wymond: «Ehilà! Facce nuove al Cancello di Nald, eh? L'abbigliamento puzza di lunghi viaggi, e le armi dicono che sapete usarle. Benvenuti a Ul'dah, la perla del deserto. Siete qui per fare fortuna come avventurieri? Allora ascoltate Wymond: andate diretti alle Sabbie Mobili e parlate con Momodi. Lei vi metterà sulla giusta strada. Dite che vi mando io, non guasta mai.»
+
+[🎵 Musica (Le Sabbie Mobili): Another Round]
+🖼️ Immagine: Momodi
+
+Da leggere ai PG:
+Le Sabbie Mobili è una taverna lussuosa e brulicante di vita, gremita di mercanti, mercenari e viaggiatori. Dietro il lungo bancone circolare di legno lucido, si erge sopra uno sgabello l'impeccabile padrona di casa: una Lalafell sorridente e dai modi pratici.
+
+Momodi: «Benvenuti alle Sabbie Mobili! Io sono Momodi, e se siete qui per bere, ho del vino eccellente. Se invece volete iscrivervi alla Gilda degli Avventurieri, siete nel posto giusto al momento giusto.» Vi porge un pesante registro rilegato in pelle e una penna. «A Ul'dah chi ha Gil detta le regole, ma c'è sempre bisogno di braccia forti. Scrivete qui i vostri nomi. Da oggi la vostra vera vita ha inizio.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+[Info GM] chiude Coming to Ul'dah; apre Close to Home (Ul'dah); prossimo step wiki: parlare con i residenti di Ul'dah per conoscere la città.
+— Fine parte 1 —
+
+/salva
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 0 · Numero PG: 4 · Livello: 1
+
+Recap della sessione
+[GIOCATO]
+
+Viaggio in carrozza nel Thanalan e conversazione con il mercante Brendt.
+
+Ispezione delle Lame d'Ottone, interrotta dall'assalto degli Amalj'aa e fuga delle guardie.
+
+Risveglio dell'Eco: il tempo si ferma e il gruppo condivide la visione del Cristallo Madre ("Ascoltate... Percepite... Pensate...").
+
+Arrivo a Ul'dah, incontro con Wymond al Cancello di Nald e registrazione alla Gilda degli Avventurieri alle Sabbie Mobili con Momodi.
+
+[DA VERIFICARE]
+
+Nessuno.
+
+Note di continuità (GM):
+
+Nessuna incongruenza rilevata. La MSQ procede regolarmente verso "Close to Home (Ul'dah)".
+
+Ultimo evento giocato: parlato con Momodi per l'iscrizione alla Gilda degli Avventurieri
+
+=== SAVE ===
+Sessione: 1
+
+[A] POSIZIONE MSQ
+- Missione MSQ corrente (EN): Coming to Ul'dah
+- Ultimo step completato: parlato con Momodi per l'iscrizione alla Gilda degli Avventurieri
+
+[B] PARTY
+- Numero PG: 4
+- Livello: 1
+
+[C] SUBQUEST ATTIVA
+- Subquest attiva: nessuna
+
+=== FINE SAVE ===
+
+Diff: Sessione 0->1; Ultimo step aggiornato ("parlato con Momodi per l'iscrizione alla Gilda degli Avventurieri").
