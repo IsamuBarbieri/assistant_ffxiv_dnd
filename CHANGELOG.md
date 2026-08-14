@@ -1,5 +1,39 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13h — Audit del rumore su tutti i file, flag Eterite 💎, bottino 💰
+
+**AUDIT DEL RUMORE (05, 06, 07, 08, 01).** Il primo conto diceva 7,7% di cronaca in 06. Era sbagliato:
+sommava le frasi INTERE che contengono un marcatore, ma in quelle frasi il marcatore introduce
+l'esempio dell'output sbagliato, e **l'esempio e' la regola** — test della fonte di [2.39], e [2.26] ha
+misurato che una forma batte un divieto. Il rumore vero era lo **0,07%**.
+
+Tolto: **25 annotazioni di provenienza** — `(observed)`, `(observed, Toto-Rak)`, `(measured)` — in due
+modi diversi: via del tutto quando erano etichette secche, ridotte alla sola parola quando la parentesi
+conteneva l'esempio (`(observed: 'Coeurl a Nove Code — Media'…)` → `('Coeurl a Nove Code — Media'…)`).
+Nessun esempio toccato. Piu' l'unica cronaca del corpus, in 08: *«the older loosely-worded envoy
+sub-steps previously here are removed»*. **−551 caratteri.**
+
+NON toccati, e la ragione: le 37 failure shape (errori che il modello rifa' da solo) e i sei blocchi
+`RATIONALE`, di cui **due non sono motivazioni ma regole** — uno dice dove va la spiegazione di una
+mossa, l'altro regge l'esistenza della sezione Arena. **01_Manual: zero rumore**, i tre riscontri erano
+`used to` nel senso di «impiegato per».
+
+**FLAG ETERITE, riattivato e vincolato.** §B23 lo aveva gia' ma era irraggiungibile: sta in una sezione
+sul SAVE, e chi scrive un beat pesca §A3/§B1. Ora §A3 (descrizione del luogo) lo richiama, e la regola
+dice **💎 accanto al NOME DELL'ETERITE**, che porta il nome del suo insediamento ed e' quello che i
+giocatori si annotano — mai una locanda o un quartiere interno. Failure shape misurata: 💎 finito su
+'Il Baldacchino di Carline' invece che su 'Nuova Gridania'. Copre arrivo, transito e zona vicina.
+
+**BOTTINO 💰.** La moneta precede sempre l'etichetta, intestazione o riga in linea, dichiarata dove le
+etichette si definiscono (§A1) e propagata ai dieci punti che la mostrano. **Il tracker riconosceva
+`Bottino` con regex ANCORATE**: rese opzionali alla moneta in tutte e tre, cosi' i pacchetti gia'
+salvati continuano a importarsi.
+
+**🎵** query rimessa nell'ordine giusto: `FFXIV OST <traccia>`.
+
+06 v6.45 · cv121 / lv50 / ov70.
+
+
 ## 2026-08-13g — 50 regole di 06 erano scritte per un comando senza nome; tracker; 🎵 su ricerca Google
 
 **LA RICOSTRUZIONE DELLE PERIFRASI (la scoperta grossa).** `/viaggio` non compariva mai. Causa: il

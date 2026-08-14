@@ -199,7 +199,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **MSQ TRIAL:** The Navel (TITAN).
 - *** EARTH CRYSTAL (#4) ***
 - **GM NOTES:** Titan = Landslide (knockback), Weight of the Land, Titan's Heart (see Section A Ch. 9).
-- **TRIAL PIN (Titan / The Navel):** EARTH. Arena = a bare rocky platform INSIDE the volcanic caldera at O'Ghomoro — magma/lava in the SURROUNDINGS is canon (it IS inside a volcano), so volcanic ambience is fine; but the platform itself is rock and TITAN IS NOT A FIRE CREATURE. Instant-death = knocked OFF the platform edge by the shockwave (Landslide) into the depths below (a FALL — not a lava-pool boss theme). Boss = a BIPEDAL colossus of living brown ROCK: a massive torso on stout rock legs, glowing molten cracks between the plates; he STANDS and STOMPS (Tumult / Geocrush) — NOT a legless torso anchored to the ground, NOT obsidian dripping fire. Phase = the HEART exposed at 50% → Earthen Fury if not destroyed (survivable). (Moves: Rock Buster, Mountain Buster tank buster, Weight of the Land, Landslide, Tumult, Rock Tomb/Granite Gaol.) [CGW-verified] FAILURE SHAPES (observed): Titan as a fire/magma primal (he is EARTH — only the ENVIRONMENT is volcanic); Titan drawn 'legless' (he has legs and stomps).
+- **TRIAL PIN (Titan / The Navel):** EARTH. Arena = a bare rocky platform INSIDE the volcanic caldera at O'Ghomoro — magma/lava in the SURROUNDINGS is canon (it IS inside a volcano), so volcanic ambience is fine; but the platform itself is rock and TITAN IS NOT A FIRE CREATURE. Instant-death = knocked OFF the platform edge by the shockwave (Landslide) into the depths below (a FALL — not a lava-pool boss theme). Boss = a BIPEDAL colossus of living brown ROCK: a massive torso on stout rock legs, glowing molten cracks between the plates; he STANDS and STOMPS (Tumult / Geocrush) — NOT a legless torso anchored to the ground, NOT obsidian dripping fire. Phase = the HEART exposed at 50% → Earthen Fury if not destroyed (survivable). (Moves: Rock Buster, Mountain Buster tank buster, Weight of the Land, Landslide, Tumult, Rock Tomb/Granite Gaol.) [CGW-verified] FAILURE SHAPES: Titan as a fire/magma primal (he is EARTH — only the ENVIRONMENT is volcanic); Titan drawn 'legless' (he has legs and stomps).
 - `[REC]` Thornmarch (GOOD KING MOGGLE MOG) - OPTIONAL trial (not MSQ).
 
 ### Lvl 6 - Stone Vigil / Isgebind (Ice)
@@ -1009,7 +1009,7 @@ KEY SCENES:
 
 ### Convergence — the Envoy quest (one of three by starting city; all converge to Call of the Sea)
 
-> The three Envoy quests (The Gridanian / Lominsan / Ul'dahn Envoy) are covered with CGW-VERIFIED givers in INSTALLMENT 0 (openings); each ends -> `Call of the Sea`. Use inst.0 as canonical; the older loosely-worded envoy sub-steps previously here are removed.
+> The three Envoy quests (The Gridanian / Lominsan / Ul'dahn Envoy) are covered with CGW-VERIFIED givers in INSTALLMENT 0 (openings); each ends -> `Call of the Sea`. Use inst.0 as canonical.
 
 ### Shared chain
 

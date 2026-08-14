@@ -332,7 +332,7 @@
         document.getElementById('customAlertModal').style.display = 'none';
     }
 
-    const SB_SECTION_TITLE = /^(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/i;
+    const SB_SECTION_TITLE = /^(?:💰\s*)?(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/i;
 
     const FeatureCatalog = [
       { emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)", manualOnly: 'il perimetro lo disegna il "Tipo". Per una copertura totale in mezzo al campo usa "Pilastro/Colonna"' },
@@ -992,7 +992,7 @@
     };
 
     const ShapeVocabulary = { "aperta": "open", "circolare": "circle", "irregolare": "cave", "articolata": "complex", "regolare": "rect" };
-    const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Pacchetto Incontro|Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
+    const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Pacchetto Incontro|Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|💰?\s*Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
 
     // Restituisce la voce di catalogo. Il numero grammaticale scritto dal Gem viene letto a parte da
     // resolveFeatureNumber: singolare = UN elemento solo sulla mappa, plurale = algoritmo di sparpagliamento.
@@ -1742,7 +1742,7 @@
     // sotto, "Taglia · CA x · PF y · Vel". SB_HEADER le vuole su una riga sola, quindi qui le
     // ricuciamo prima di analizzare. Tolleranza in input: quell'output era completo, cambiava un a capo.
     const SB_STATS_LINE = /^[\s>*#_-]*(?=[^\n]*\b(?:minuscol|piccol|medi|grand|enorm|mastodontic))(?=[^\n]*\bCA\s*\d+)(?=[^\n]*\bPF\s*\d+)[^\n]*$/i;
-    const SB_NOT_A_NAME = /\bCA\s*\d+|\bPF\s*\d+|^[\s>*#_-]*(Arena|Tipo|Dimensioni|Elementi|Tattica|Nemici|Difficolt|Innesco|Bottino|Azioni|Tratti|Reazioni|Multiattacco|Telegrafo|Da leggere|Descrizione|Prove|Conseguenze|Fallimento|Indizi|Soluzione|Enigma)/i;
+    const SB_NOT_A_NAME = /\bCA\s*\d+|\bPF\s*\d+|^[\s>*#_-]*(Arena|Tipo|Dimensioni|Elementi|Tattica|Nemici|Difficolt|Innesco|💰?\s*Bottino|Azioni|Tratti|Reazioni|Multiattacco|Telegrafo|Da leggere|Descrizione|Prove|Conseguenze|Fallimento|Indizi|Soluzione|Enigma)/i;
     function joinSplitStatblockHeaders(text) {
         const lines = text.split("\n"); const out = [];
         for (let i = 0; i < lines.length; i++) {
