@@ -1,5 +1,38 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13g — 50 regole di 06 erano scritte per un comando senza nome; tracker; 🎵 su ricerca Google
+
+**LA RICOSTRUZIONE DELLE PERIFRASI (la scoperta grossa).** `/viaggio` non compariva mai. Causa: il
+commit `c18670e` del 10 agosto, che tolse i nomi dei comandi da 06 per curare Flash, aveva convertito
+**50 occorrenze** in un segnaposto generico, `the relevant command`, che non nomina nulla. Regole intere
+erano diventate tautologie — *«the relevant command lo salta, the relevant command lo gioca»* per le due
+opzioni del viaggio; *«una subquest ATTIVA BLOCCA the relevant command ... the relevant command avanza la
+subquest»* per tre comandi diversi. Ricostruite dal file PRECEDENTE alla sostituzione, non a indovinare:
+34 erano `continua`, 10 `riassumi`, 4 `viaggio`, piu' due lette dal contesto e tre doppi articoli.
+Riscritte con le perifrasi di ruolo (1.4: la knowledge non nomina i comandi), tutte gia' legate in cv.
+**Misurato dal GM: `/viaggio` compare e funziona**, in un test da 12 quest con due viaggi, un riposo e
+un ponte narrativo.
+
+**§B1/§B8 allineate a 06.** cv elencava la condizione per `Prossimo beat:`, 🧭 e ⏭️ ma non per il
+marcatore `— Fine parte N —`, che 06 vuole solo a beat incompiuto: ora concordano. E il read-aloud del
+pacchetto era l'UNICA parte nominata descrittivamente invece che con la sua etichetta — ora e'
+`**Da leggere ai PG:**` come tutte le altre.
+
+**🎵 → ricerca Google**, stessa forma di 🖼️ e 🗺️: `google.com/search?q=<track>+ffxiv+ost`. Il
+blocco §A23 passa da quattro paragrafi a tre righe (−1.457 caratteri): cosa e' il link, quale nome ci
+va, come si scrive l'etichetta.
+
+**TRACKER (sei modifiche).** Rosso ai gruppi DUPLICATI invece che al primo tipo incontrato — i sosia sono
+quelli da distinguere a colpo d'occhio; clic sul badge cicla il colore di TUTTO il tipo, salvato
+nell'incontro. Le righe media non finiscono piu' nelle Azioni del mostro precedente. L'import azzera gli
+indici e ridisegna come farebbe un cambio di scheda, e il turno riparte dalla cima dell'iniziativa
+invece di seguire il primo PG. Un combattente aggiunto prende subito il suo posto in iniziativa, e il
+cursore di turno segue l'ENTITA' per id, non il numero di slot. La copia con Shift non anima piu' il
+ritorno dell'originale.
+
+06 v6.40 · cv120 / lv49 / ov69.
+
+
 ## 2026-08-13f — Ripristinato l'URL originale della musica: l'host non era il problema
 
 **Ritrattazione della voce precedente.** Il 🎵 usciva nudo per via delle PARENTESI nell'etichetta

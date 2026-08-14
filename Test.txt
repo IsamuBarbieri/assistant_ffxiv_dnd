@@ -1,0 +1,981 @@
+/carica
+
+=== SAVE ===
+
+Sessione: 3
+
+[A] POSIZIONE MSQ
+
+- Missione MSQ corrente (EN): Prudence at This Junction
+
+- Ultimo step completato: consegnate le prove dell'abbattimento dei coblyn a Warin e ottenuto il sigillo d'ispezione alla Stazione di Black Brush
+
+[B] PARTY
+
+- Numero PG: 4
+
+- Livello: 1
+
+[C] SUBQUEST ATTIVA
+
+- Subquest attiva: nessuna
+
+=== FINE SAVE ===
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Save caricato: Sessione: 3 · Numero PG: 4 · Livello: 1
+Il gruppo si trova alla Stazione di Black Brush (Black Brush Station) nel Thanalan Centrale, dopo aver ripulito i binari dai coblyn e ottenuto il sigillo di sicurezza da Warin.
+Prossimo step wiki: Consegnare la distinta timbrata a Seseriku.
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Prudence at This Junction]
+(Scena social e consegna · ~10-15 min)
+
+🖼️ Immagine: Stazione di Black Brush
+🎵 Musica: To the Sun
+
+Risalite la massicciata polverosa lasciandovi alle spalle i binari di scambio dove Warin, la lancia ancora poggiata alla spalla, controlla con sguardo severo il passaggio del primo convoglio carico di minerale grezzo. L'aria della Stazione di Black Brush (Black Brush Station) è satura dell'odore acre di zolfo, polvere di roccia e grasso per ingranaggi. Davanti all'ufficio della dogana mineraria, all'ombra di un loggiato di travi scure, il capostazione Seseriku picchietta nervosamente le dita corte sul bordo di un pesante registro rilegato in cuoio.
+
+🖼️ Immagine: Seseriku
+
+Non appena vi vede salire i gradini di pietra con la distinta d'ispezione tra le mani, il piccolo Lalafell si raddrizza sulla sedia rialzata, sistemandosi il colletto della casacca da funzionario con un gesto rapido.
+
+«Ah, siete di ritorno! Ditemi che Warin non ha trovato altre scuse per bloccare i vagoni», esclama Seseriku, allungando entrambe le mani verso la pergamena. I suoi occhi scuri saettano avidamente sul sigillo d'inchiostro fresco impresso dal guardiano. «Per tutti i numi del commercio... il timbro di sicurezza! Allora quei maledetti coblyn hanno smesso di rosicchiare i raccordi metallici.»
+
+Il capostazione tira un sospiro rumoroso, afferra un timbro d'ottone e convalida a sua volta il documento con un colpo secco, prima di infilarlo in una cartella metallica già stracolma.
+
+«Il Consorzio Minerario Amajina e Figli non ammette ritardi, e quando i vagoni restano fermi sui binari sono sempre io a dover spiegare agli azionisti di Ul'dah perché il loro oro non si muove. Avete fatto un lavoro pulito, puntuale e senza troppe chiacchiere. Esattamente il tipo di servizio che apprezzo.»
+
+Seseriku allunga una mano sotto il bancone e ne estrae un sacchetto di tela pesante, facendolo tintinnare sul legno segnato dall'usura prima di spingerlo verso di voi.
+
+«Ecco quanto pattuito per l'ispezione e la bonifica: centoottanta Gil tondi tondi, più la mia personale raccomandazione nei registri della stazione.»
+
+Mentre intascate la ricompensa, notate però che l'irrequietezza del capostazione non si è placata: il suo sguardo continua a vagare verso i tavoli all'aperto poco distanti, dove un gruppo di minatori e braccianti sfollati discute a bassa voce con volti tirati e stanchi.
+
+PROVA: Valutare l'aria che tira a Black Brush
+
+Abilità applicabili: Intuizione (per leggere la tensione di Seseriku e degli sfollati), Indagare (per cogliere dettagli nei registri o nelle merci accatastate), Percezione (per ascoltare i frammenti di conversazione tra i braccianti).
+
+CD Facile (10): Notate che molti degli operai seduti ai margini della stazione non hanno attrezzi da lavoro con sé: sono minatori rimasti senza alloggio né ingaggio, costretti ad allontanarsi dai giacimenti più profondi.
+
+CD Media (15): Cogliete discorsi cupi riguardo a un rifugio di fortuna chiamato Speranza Perduta (Lost Hope) e a furti di provviste lungo la linea ferroviaria. Seseriku sembra preoccupato non solo per i profitti, ma per la crescente disperazione di chi ha perso tutto.
+
+CD Difficile (20): Notate che Seseriku tiene da parte una seconda serie di rapporti sigillati con ceralacca rossa: i disordini tra i minatori senza casa non sono semplici lamentele, ma stanno attirando l'attenzione di elementi loschi e predoni che approfittano della miseria per reclutare disperati.
+
+Fallimento: Il trambusto incessante dei carrelli e il fischio a vapore delle caldaie coprono i dettagli dei sussurri; capite soltanto che Seseriku ha un'altra faccenda urgente da sbrigare prima di lasciarvi andare.
+
+Seseriku incrocia le braccia sul petto e vi osserva per un istante, soppesando la vostra disponibilità prima di abbassare leggermente il tono di voce.
+
+«Visto che avete dimostrato di saperci fare con le armi e non avete paura di sporcarvi gli stivali nella polvere del Thanalan... ci sarebbe un'altra questione che richiede fegato saldo e buon senso. Riguarda certa gente che si è accampata dove non dovrebbe e una situazione che rischia di sfuggirci di mano.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Prudence at This Junction; apre Out of House and Home; prossimo step wiki: parlare con Seseriku alla Stazione di Black Brush per accettare la nuova missione
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Out of House and Home]
+(Scena social ed esplorazione · ~10-15 min)
+
+🖼️ Immagine: Speranza Perduta
+🎵 Musica: To the Sun
+
+Seseriku si piega verso di voi oltre il pesante bancone di legno, indicando con un cenno del capo una cassa cerchiata di ferro poggiata all'ombra di un pilastro di sostegno della stazione.
+
+«A Ul'dah dicono che il denaro non dorme mai, ma la verità è che chi non ne ha finisce per non svegliarsi affatto», esordisce il capostazione con un'amarezza inusuale per i mercanti della sua stirpe. «Laggiù, a sud-ovest, c'è una gola polverosa che tutti chiamano Speranza Perduta (Lost Hope). È un accampamento di stracci e lamiere dove si radunano i minatori licenziati, i debitori insolventi e chiunque sia stato masticato e sputato dalle miniere del Consorzio Amajina. La fame e la disidratazione stanno raggiungendo il limite, e quando la gente perde ogni cosa, comincia a prestare ascolto a idee pericolose.»
+
+Il Lalafell picchietta con le nocche sul coperchio della cassa, facendone risuonare il contenuto metallico e asciutto.
+
+«Dentro ci sono gallette, bende pulite, tintura d'aloe e barilotti d'acqua dolce. Non è una donazione ufficiale della compagnia, sia chiaro: se i membri del Sindacato lo sapessero, mi toglierebbero la divisa. Portate queste provviste a Leofric. È un brav'uomo che cerca di tenere insieme quel poco di umanità che resta nell'accampamento. Ditegli che Seseriku non si è dimenticato di loro.»
+
+Caricata la pesante cassa, scendete lungo i tornanti aridi del Thanalan Centrale. Il calore del meriggio sale dal terreno roccioso in onde tremolanti, mentre l'odore di zolfo della stazione lascia gradualmente il posto al sentore di terra secca, polvere sollevata dal vento e cenere spenta.
+
+Dopo circa mezzo malm di cammino verso sud, il sentiero scende in un canalone riparato da pareti di arenaria rossa. Davanti a voi si apre l'accampamento di Speranza Perduta (Lost Hope): decine di baracche improvvisate fatte di assi marce, teli sfilacciati e vecchie lamiere di scarto minerario. Figure emaciate, con gli abiti incrostati di fango secco e i volti segnati dalla fatica, siedono all'ombra delle rocce osservando il vostro arrivo con occhi opachi e guardinghi.
+
+🖼️ Immagine: Leofric
+
+Al centro dell'insediamento, inginocchiato accanto a una stuoia dove giace un giovane colto da febbri convulse, un uomo alto e asciutto vestito di una tunica logora tampona la fronte del malato con un panno umido. Quando vi avvicinate con il carico, Leofric alza lo sguardo, passandosi il dorso della mano sulla fronte imperlata di sudore.
+
+«Pace a voi, viaggiatori», mormora con voce roca ma ferma, alzandosi lentamente in piedi e scorgendo il marchio di Black Brush impresso sul legno della cassa. «Per Thal... acqua pulita e provviste. Seseriku vi manda, non è vero? Che gli dei gliene rendano merito. Qui le razioni sono finite tre giorni fa e le sorgenti vicine sono ormai inquinate dai residui di scavo.»
+
+Leofric apre il coperchio, distribuendo immediatamente due fiasche d'acqua a una madre con un bambino in braccio che si è avvicinata tremando. Poi si volta verso di voi, lo sguardo carico di una cupa stanchezza.
+
+«La carità del capostazione salverà qualche vita questa settimana, ma non curerà il male che serpeggia tra queste tende. La disperazione a Speranza Perduta è diventata terreno fertile per veleni ben peggiori della sete.»
+
+PROVA: Valutare la situazione a Speranza Perduta
+
+Abilità applicabili: Medicina (per esaminare le condizioni dei malati e la natura dei loro mali), Intuizione (per cogliere il nervosismo e i rancori taciuti tra gli sfollati), Percezione (per notare tracce sospette o oggetti insoliti nell'accampamento).
+
+CD Facile (10): Riconoscete che molti degli uomini validi soffrono di debolezza da denutrizione, ma notate anche che alcuni giovani minatori si tengono in disparte, lanciando occhiate cariche di rabbia verso la strada maestra che porta a Ul'dah.
+
+CD Media (15): Notate che tra le baracche più isolate girano voci inquietanti su furti sacrileghi e strani individui mascherati visti aggirarsi attorno alle tombe e alle miniere abbandonate verso sud. Alcuni giovani sembrano aver ricevuto promesse di ricchezza o vendetta.
+
+CD Difficile (20): Esaminando il terreno polveroso vicino a una tenda vuota, individuate una sottile traccia di sabbia vetrificata e un freddo residuo d'etere corrotto, incompatibile con il naturale calore del deserto: qualcuno nell'accampamento ha maneggiato frammenti di cristalli instabili o ha preso parte a un rito proibito.
+
+Fallimento: I lamenti dei malati e l'aria afosa rendono confusa l'indagine; capite soltanto che l'autorità morale di Leofric è l'unica cosa che impedisce all'accampamento di esplodere in una rivolta disperata.
+
+Leofric richiude con cautela la cassa e ripone le bende nella sua sacca di cuoio, poi vi fa cenno di seguirlo verso una sporgenza rocciosa dove il vento del deserto soffia leggermente più fresco.
+
+«Avete visto con i vostri occhi. Chi non ha Gil per vivere a Ul'dah viene spinto qui a morire in silenzio. Ma ora qualcuno sta cercando di sfruttare questa miseria per scopi oscuri, e temo che la linea tra la disperazione e il crimine sia già stata superata.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Out of House and Home; apre Way Down in the Hole; prossimo step wiki: parlare con Leofric a Speranza Perduta per accettare l'incarico sui disordini nella miniera abbandonata
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Way Down in the Hole]
+(Esplorazione e combattimento · ~20-25 min)
+
+🖼️ Immagine: Speranza Perduta
+🎵 Musica: To the Sun
+
+Leofric vi fa cenno di avvicinarvi all'orlo settentrionale della gola, dove la parete rocciosa sprofonda verso un intrico di cunicoli naturali e vecchie gallerie di saggio scavate decenni prima dal Consorzio Amajina. Il vento caldo soffia dal fondo del crepaccio, portando con sé un sentore pungente di terriccio smosso, pietra bagnata e il tanfo acre tipico delle tane di spriggan.
+
+🖼️ Immagine: Leofric
+
+«Alcuni dei nostri giovani più disperati hanno iniziato a calarsi laggiù, nel vecchio pozzo cieco sotto la scarpata», spiega Leofric a bassa voce, incrociando le braccia segnate dal sole. «Speravano di raschiare qualche venuzza di minerale grezzo o recuperare vecchi attrezzi abbandonati per rivenderli a Black Brush. Ma hanno risvegliato qualcosa che si annidava nell'ombra. Sono fuggiti a stento, lasciando picconi, lampade e i loro pochi averi sul fondo del pozzo.»
+
+L'uomo vi guarda con occhi imploranti ma risoluti.
+
+«Se quelle creature dovessero risalire il condotto, le nostre baracche non offrirebbero alcuna difesa ai malati e ai bambini. Scendete laggiù, ripulite la caverna e recuperate le casse di attrezzi che i ragazzi hanno abbandonato. Dimostrate a questa povera gente che non tutto è perduto.»
+
+PROVA: Calarsi nel pozzo e valutare il terreno
+
+Abilità applicabili: Atletica (per scendere lungo le corde logore senza far rumore), Percezione (per individuare i riflessi degli occhi nel buio e la posizione delle casse), Sopravvivenza (per riconoscere i punti di passaggio e le trappole naturali di roccia friabile).
+
+CD Facile (10): Scendete agevolmente sul fondo ghiaioso della cavità, notando le casse di attrezzi rovesciate contro la parete nord.
+
+CD Media (15): Individuate le orme fresche e caotiche degli spriggan e il luccichio opaco dei coblyn mimetizzati tra le macerie, evitando di scivolare sui detriti e garantendo al gruppo una posizione di vantaggio all'ingresso della grotta.
+
+CD Difficile (20): Notate che una delle creature sta rosicchiando un frammento di minerale instabile: anticipando i suoi movimenti, potete posizionarvi in modo da impedirle di scagliare schegge infuocate all'inizio dello scontro.
+
+Fallimento: La discesa è rumorosa; sassi e ghiaia franano sul fondo allertando le creature, che si voltano verso di voi pronte all'attacco.
+
+🎵 Musica: The Land Burns
+
+Pacchetto Incontro: La bonifica del pozzo cieco
+Difficoltà: Media
+
+Innesco: Le creature si avventano contro di voi non appena mettete piede sul fondo sabbioso della caverna, difendendo le casse e i mucchi di minerale grezzo.
+
+Nemici: Spriggan Scavatore ×2 · Coblyn del Pozzo ×2
+
+La luce accecante del Thanalan lascia spazio alla penombra polverosa della caverna sotterranea. Ai piedi della parete rocciosa, tra travi di sostegno marce e carrelli rovesciati, due piccole creature coperte di pelliccia scura e orecchie appuntite stringono zolle di minerale scintillante squittendo con rabbia, mentre due crostacei di pietra e zolfo avanzano facendo schioccare le loro chele minerali per sbarrarvi la strada verso le casse di attrezzi.
+
+Arena
+Tipo: Caverna Irregolare
+Dimensioni: 14 × 12
+Elementi:
+
+Rocce
+
+Macerie
+
+Casse
+
+Tattica: I Coblyn avanzano lentamente in prima linea fungendo da scudo grazie alla loro corazza rocciosa e cercando di colpire con i loro schianti pesanti. Gli Spriggan si tengono a distanza dietro le macerie, lanciando frammenti di minerale e preparandosi a scagliare sassi pesanti contro chiunque cerchi di aggirarli.
+
+🖼️ Immagine: Spriggan
+
+Spriggan Scavatore
+Piccola · CA 12 · PF 9 (2d6+2) · Vel 6 yalm (9m)
+
+FOR 8 (-1) · DES 14 (+2) · COS 12 (+1) · INT 8 (-1) · SAG 10 (+0) · CAR 8 (-1)
+
+Abilità: Furtività +4
+Sensi: scurovisione 12 yalm (18m), Percezione passiva 10
+GdS 1/8
+
+Descrizione visiva: una creatura minuta e scimmiesca dal folto pelo nero, con lunghe orecchie da lepre e occhi lucidi, che stringe gelosamente un pesante blocco di minerale grezzo.
+
+Tratti
+Agilità dei Cunicoli. Lo spriggan può compiere l'azione di Disimpegno o Nascondersi come azione bonus durante ciascuno dei suoi turni.
+
+Azioni
+Graffio. Attacco con arma da mischia: +4 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 4 (1d4 + 2) danni taglienti.
+
+Lancio del Minerale. Attacco con arma a distanza: +4 a colpire, gittata 6/12 yalm (9/18m), un bersaglio. Colpito: 4 (1d4 + 2) danni contundenti.
+
+Lancio del Masso.
+Telegrafo: lo spriggan solleva a fatica il grosso pezzo di minerale sopra la testa, barcollando vistosamente per un intero round prima di scagliarlo.
+Attacco con arma a distanza: +4 a colpire, gittata 6 yalm (9m), un bersaglio. Colpito: 7 (2d4 + 2) danni contundenti e il bersaglio deve superare un TS su Forza con CD 11 o cadere prono.
+
+🖼️ Immagine: Coblyn
+
+Coblyn del Pozzo
+Piccola · CA 13 (armatura naturale) · PF 11 (2d6+4) · Vel 5 yalm (7,5m)
+
+FOR 12 (+1) · DES 10 (+0) · COS 14 (+2) · INT 4 (-3) · SAG 10 (+0) · CAR 6 (-2)
+
+Resistenze: danni contundenti, perforanti e taglienti da attacchi non magici
+Vulnerabilità: danni da tuono
+Sensi: scurovisione 12 yalm (18m), Percezione passiva 10
+GdS 1/8
+
+Descrizione visiva: un'aracnide rocciosa con un carapace ricoperto di incrostazioni di zolfo e minerale ferroso, dotata di chele indurite simili a cunei da minatore.
+
+Tratti
+Corazza Minerale. Il coblyn ha vantaggio sui tiri salvezza contro gli effetti che tentano di spostarlo forzatamente o farlo cadere prono.
+
+Azioni
+Schianto. Attacco con arma da mischia: +3 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 4 (1d6 + 1) danni contundenti.
+
+Scarica di Schegge.
+Telegrafo: il carapace del coblyn vibra rumorosamente ed emette fumo sulfureo per un round.
+Tutte le creature entro 2 yalm (3m) dal coblyn devono effettuare un TS su Destrezza con CD 11. Chi fallisce subisce 5 (1d8 + 1) danni perforanti, oppure la metà dei danni con un successo.
+
+Bottino
+Bottino: 35 Gil; parte vendibile: frammento di minerale ferroso grezzo (15 Gil).
+
+Con l'abbattimento dell'ultimo coblyn, il silenzio torna a regnare sul fondo del pozzo, rotto soltanto dal gocciolio dell'umidità lungo le pareti di roccia rossa. Radunate le casse di legno ricolme di picconi, cunei di ferro e lanterne a olio intatte, le legate saldamente alle funi di risalita per riportarle alla luce del sole.
+
+Risaliti all'accampamento di Speranza Perduta (Lost Hope), trovate Leofric ad attendervi sul ciglio del canalone. Alla vista delle casse recuperate e alla notizia che la caverna è stata sgombrata, l'uomo tira un lungo sospiro di sollievo, asciugandosi le mani sulla tunica.
+
+«Che Thal vi benedica. Questi arnesi permetteranno ai nostri minatori di lavorare su scavi più sicuri a monte, senza dover rischiare la vita nell'oscurità. Ma soprattutto, avete dimostrato che c'è ancora qualcuno a questo mondo disposto a tendere una mano a chi non ha più nulla.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Way Down in the Hole; apre Takin' What They're Givin'; prossimo step wiki: parlare con Leofric a Speranza Perduta per ricevere indicazioni sulle tensioni legate alle donazioni
+
+⏭️ Tratto connettivo: da Takin' What They're Givin' a Storms on the Horizon — 8 quest condensabili, poi si gioca Oh Captain, My Captain (~40-50 min giocate / ~8-10 min riassunte)
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Takin' What They're Givin']
+(Scena social · ~10-15 min)
+
+🖼️ Immagine: Speranza Perduta
+🎵 Musica: To the Sun
+
+Il calore del primo pomeriggio batte impietoso sulle lamiere arrugginite e sui teli consunti di Speranza Perduta (Lost Hope). Attorno al pozzo d'accesso, diversi minatori si sono radunati per scaricare gli attrezzi che avete recuperato dai cunicoli, soppesando i picconi e saggiando il filo dei cunei con espressioni in cui la gratitudine si mescola a una stanchezza senza fondo.
+
+🖼️ Immagine: Leofric
+
+Leofric si passa un braccio sulla fronte madida di sudore, indicando le casse di provviste inviate da Seseriku che giacciono ancora all'ombra della sporgenza rocciosa.
+
+«Gli arnesi daranno lavoro a chi ha ancora le braccia salde, ma laggiù tra le tende c'è chi non ha nemmeno la forza di reggersi in piedi», dice Leofric a bassa voce, porgendovi alcune sacche di tela riempite con gallette di farro, fiasche d'acqua dolce e vasetti di unguento d'aloe. «Se distribuissi io queste razioni, finirei assediato dalla calca prima ancora di raggiungere il limitare del canalone. La disperazione rende ciechi anche gli onesti. Vi chiedo di portare queste provviste a chi ne ha più bisogno: cercate i malati, i più anziani e chi si è rannicchiato nell'ombra senza più la voce per chiedere aiuto.»
+
+Scendete tra i vicoli polverosi dell'accampamento. L'aria ristagna densa tra le baracche, carica dell'odore di ferro arido e cenere spenta.
+
+Verso il settore occidentale, una donna emaciata siede a ridosso di una paratia di legno, stringendo a sé un fanciullo febbricitante; poco distante, un vecchio minatore dalle mani callose e deformate dall'artrite osserva il vuoto con occhi opachi, mentre un giovane bracciante dalla casacca a brandelli stringe i pugni con rabbia mista a diffidenza vedendovi avanzare con le sacche delle provviste.
+
+PROVA: Distribuire i soccorsi e gestire la tensione
+
+Abilità applicabili: Medicina (per individuare chi ha urgenza di cure immediate e somministrare le razioni senza causare shock), Persuasione (per calmare i più diffidenti e rassicurare chi teme ritorsioni o debiti nascosti), Intuizione (per cogliere le voci e lo stato d'animo generale degli sfollati).
+
+CD Facile (10): Riuscite a consegnare l'acqua e il cibo senza creare disordini; la madre scoppia in lacrime di sollievo mentre disseta il figlio, e il vecchio minatore mormora una benedizione a Thal stringendo la vostra mano con le sue dita nodose.
+
+CD Media (15): Il giovane diffidente abbassa la guardia dopo aver compreso che non siete esattori del Consorzio. Masticando una galletta, vi confida a bassa voce che alcuni mercanti senza scrupoli provenienti da sud stanno approfittando della penuria per vendere acqua salmastra e cibo avariato a prezzi da strozzini.
+
+CD Difficile (20): Cogliete dettagli inquietanti tra i sussurri degli accampati: oltre agli strozzini, tra le gole del Thanalan Centrale girano emissari mascherati che promettono ricchezze facili e vendetta contro i ricchi di Ul'dah a chiunque sia disposto a compiere "piccoli furti sacrileghi" o a impugnare le armi.
+
+Fallimento: La consegna delle provviste attira una piccola folla agitata e supplichevole; riuscite a completare la distribuzione prima che la situazione degeneri, ma la tensione nell'accampamento rimane palpabile.
+
+Distribuite le ultime razioni e medicate le piaghe dei più sofferenti, fate ritorno verso la tenda di Leofric al centro del villaggio. L'uomo vi accoglie con un cenno solenne del capo, mentre osserva il lieve mutamento nell'aria dell'accampamento: non un miracolo, ma un momento di respiro per chi credeva di essere stato dimenticato dal mondo.
+
+«Avete portato più di semplici gallette e sorsi d'acqua dolce: avete portato la prova che qualcuno a Black Brush non ha voltato le spalle a questo posto», mormora Leofric con gratitudine. «Ma finché la sete e il bisogno stringeranno questa gola, gli sciacalli continueranno a girarci attorno in cerca di facili prede.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Takin' What They're Givin'; apre Supply and Demands; prossimo step wiki: parlare con Leofric a Speranza Perduta per indagare sulle speculazioni dei mercanti
+
+⏭️ Tratto connettivo: da Supply and Demands a Storms on the Horizon — 7 quest condensabili, poi si gioca Oh Captain, My Captain (~35-45 min giocate / ~7-10 min riassunte)
+
+/riassumi
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Ponte narrativo: Supply and Demands → Oh Captain, My Captain]
+(Ponte narrativo 7 tappe + Combattimento e indagine · ~25-30 min)
+
+🖼️ Immagine: Thanalan Centrale
+🎵 Musica: To the Sun
+
+https://music.youtube.com/search?q=FFXIV+OST+To+the+Sun
+Le ore successive alla distribuzione delle provviste vi vedono percorrere in lungo e in largo i canaloni polverosi e le piste battute del Thanalan Centrale, mentre la morsa della miseria su Speranza Perduta (Lost Hope) rivela le sue radici più profonde e corrotte:
+
+Offerta e Domanda (Supply and Demands): Guidati dalle indicazioni di Leofric, individuate un gruppo di mercanti disonesti accampati lungo il costone roccioso, intenti a nascondere barili d'acqua potabile e sacchi di grano per rivenderli a prezzi da usura agli sfollati; affrontate i bagarini con fermezza, sequestrando le merci accumulate e restituendole alla comunità per garantire una distribuzione equa.
+
+Carne Cruda (Give It to Me Raw): Per sostenere le forze dei minatori convalescenti e dei bambini denutriti, battete le pietraie circostanti a caccia delle bestie locali, abbattendo lucertole delle sabbie e marmotte del deserto per rifornire i focolari del villaggio di carne fresca e nutriente.
+
+Lo Sciame Perfetto (The Perfect Swarm): Rispondendo all'allarme di una vedetta, scendete in una gola secondaria dove un aggressivo sciame di formiche giganti e parassiti delle dune minacciava di contaminare i depositi sotterranei di scorte, sterminando il formicaio prima che potesse raggiungere le tende di Speranza Perduta.
+
+L'Ultima Lettera (Last Letter to Lost Hope): Tra le macerie di un vecchio carrello rovesciato rinvenite le spoglie di un vecchio minatore e una lettera consunta mai recapitata; riportate le ultime parole e il medaglione alla figlia rimasta nell'accampamento, portando un momento di amara e dignitosa chiusura a una famiglia spezzata.
+
+Il Passaggio della Lama (Passing the Blade): Notando la vulnerabilità dell'insediamento contro i predoni della strada maestra, addestrate un manipolo di giovani minatori e consegnate loro armi di scarto e picconi rinforzati, organizzando turni di guardia per difendere l'ingresso della gola.
+
+Sulle Tracce (Following Footfalls): Seguendo segnalazioni di movimenti notturni sospetti, risalite le tracce di stivali militari impressi nella sabbia che si allontanano dal rifugio, cogliendo scambi furtivi tra figure incappucciate e pattuglie deviate.
+
+Tempesta all'Orizzonte (Storms on the Horizon): Mettendo insieme le testimonianze degli sfollati e i registri clandestini sequestrati, scoprite la verità che si cela dietro le vessazioni: il capitano Baldewyn, comandante del presidio locale delle Lame d'Ottone (Brass Blades), sta orchestrando sistematicamente il blocco dei viveri e la protezione dei banditi per costringere i rifugiati all'indigenza o alla servitù.
+
+La resa dei conti con il Capitano
+🖼️ Immagine: Stazione di Black Brush
+
+Risalite la scarpata fino allo spiazzo di carico a nord della Stazione di Black Brush (Black Brush Station). Tra cataste di casse di legname e carri da trasporto merci in sosta, il capitano Baldewyn sta contando un sacchetto di monete d'oro insieme a due guardie fidate e a un sicario prezzolato della malavita locale. Non appena i suoi occhi incrociano i vostri, la sua espressione tronfia si trasforma in una maschera di fredda ostilità.
+
+🖼️ Immagine: Lame d'Ottone
+
+«Sapevo che avrei dovuto farvi sparire insieme a quei pezzenti di Speranza Perduta», sibila Baldewyn sputando a terra e allacciando la cinghia della sciabola. «Credete che a Ul'dah importi qualcosa di quattro straccioni che muoiono di sete? Questa stazione è sotto la mia giurisdizione, e qui la legge sono io. Chiudete loro la bocca, una volta per tutte!»
+
+PROVA: Cogliere la disposizione tattica dei traditori
+
+Abilità applicabili: Intuizione (per anticipare la finta di Baldewyn), Percezione (per individuare la posizione del tiratore dietro le casse), Tattica/Storia (per sfruttare i punti ciechi delle barricate).
+
+CD Facile (10): Notate che il tagliagole sta cercando di aggirarvi lateralmente sfruttando la copertura di un carro di rifornimenti per colpirvi con la balestra.
+
+CD Media (15): Individuate un punto debole nella formazione nemica: disarmando rapidamente una delle guardie potete impedire che vi accerchino contro le cataste di legname.
+
+CD Difficile (20): Anticipate il segnale d'attacco di Baldewyn, ottenendo una frazione di secondo di vantaggio per neutralizzare la linea di tiro del balestriere prima che scocchi il primo dardo.
+
+Fallimento: La guardia corrotta lancia un barile di sabbia verso di voi per sollevare una nube polverosa, impedendovi di individuare subito il tiratore.
+
+🎵 Musica: The Land Burns
+
+https://music.youtube.com/search?q=FFXIV+OST+The+Land+Burns
+Pacchetto Incontro: La resa dei conti con Baldewyn
+Difficoltà: Media
+
+Innesco: Baldewyn sguaina la spada e ordina alle sue guardie corrotte di eliminare i testimoni non appena mostrate le prove dei suoi crimini.
+
+Nemici: Capitano Baldewyn ×1 · Lama d'Ottone Corrotta ×2 · Tagliagole Prezzolato ×1
+
+Sotto il sole cocente del Thanalan, tra le barricate improvvisate e le casse di scorte destinate ai depositi minerari, il capitano corrotto e i suoi complici avanzano a lame sguainate attorno a un carro da carico rovesciato, decisi a seppellire per sempre i loro traffici illeciti nella polvere.
+
+Arena
+Tipo: Spazio Aperto
+Dimensioni: 16 × 14
+Elementi:
+
+Casse
+
+Barricata
+
+Carro
+
+Macerie
+
+Tattica: Le due Lame d'Ottone Corrotte formano una linea difensiva compatta con i loro scudi per proteggere Baldewyn. Il Capitano approfitta della copertura per lanciare la sua Stoccata Pesante contro il bersaglio più isolato. Il Tagliagole Prezzolato resta acquattato dietro il carro per colpire con la balestra, passando ai pugnali solo se costretto al corpo a corpo.
+
+Capitano Baldewyn
+Media · CA 14 (corazza di scaglie) · PF 16 (3d8+3) · Vel 6 yalm (9m)
+
+FOR 14 (+2) · DES 12 (+1) · COS 12 (+1) · INT 10 (+0) · SAG 11 (+0) · CAR 13 (+1)
+
+TS: Forza +4, Costituzione +3
+Abilità: Atletica +4, Intimidire +3
+Sensi: Percezione passiva 10
+GdS 1/4
+
+Descrizione visiva: un ufficiale robusto delle Lame d'Ottone dall'aria arrogante, con baffi curati e un'armatura a scaglie dorate opacizzata dalla polvere del deserto.
+
+Tratti
+Comando Spietato. Gli alleati entro 4 yalm (6m) da Baldewyn aggiungono 1d4 ai tiri per colpire contro i bersagli ingaggiati in mischia dal capitano.
+
+Azioni
+Fendente di Spada. Attacco con arma da mischia: +4 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 6 (1d8 + 2) danni taglienti.
+
+Stoccata Pesante.
+Telegrafo: Baldewyn arretra caricando tutto il peso sulla gamba posteriore ed estendendo la lama dritta in avanti per un affondo potente.
+Attacco con arma da mischia: +4 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 7 (1d10 + 2) danni perforanti e il bersaglio deve superare un TS su Forza con CD 12 o cadere prono.
+
+Lama d'Ottone Corrotta
+Media · CA 13 (cuoio borchiato e scudo) · PF 11 (2d8+2) · Vel 6 yalm (9m)
+
+FOR 12 (+1) · DES 11 (+0) · COS 12 (+1) · INT 9 (-1) · SAG 10 (+0) · CAR 9 (-1)
+
+Sensi: Percezione passiva 10
+GdS 1/8
+
+Descrizione visiva: un soldato mercenario in livrea delle Lame d'Ottone, con lo sguardo sfuggente e uno scudo tondo ammaccato.
+
+Azioni
+Gladio. Attacco con arma da mischia: +3 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 4 (1d6 + 1) danni taglienti.
+
+Tagliagole Prezzolato
+Media · CA 12 (armatura di cuoio) · PF 9 (2d8) · Vel 6 yalm (9m)
+
+FOR 10 (+0) · DES 13 (+1) · COS 10 (+0) · INT 10 (+0) · SAG 10 (+0) · CAR 8 (-1)
+
+Abilità: Furtività +3
+Sensi: Percezione passiva 10
+GdS 1/8
+
+Descrizione visiva: un bandito magro e scattante avvolto in teli color sabbia, con una balestra corta imbracciata e un pugnale alla cintura.
+
+Azioni
+Pugnale. Attacco con arma da mischia: +3 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 3 (1d4 + 1) danni perforanti.
+
+Balestra Leggera. Attacco con arma a distanza: +3 a colpire, gittata 16/64 yalm (24/96m), un bersaglio. Colpito: 5 (1d8 + 1) danni perforanti.
+
+Bottino
+Bottino: 45 Gil; oggetto: 1 Pozione di Cura; parte vendibile: distintivo dorato contraffatto delle Lame d'Ottone (20 Gil).
+
+Con l'ultimo colpo assestato, Baldewyn stramazza nella polvere perdendo la presa sulla sciabola. Disarmato e tenuto sotto tiro, il capitano trema di rabbia e frustrazione mentre le altre guardie corrotte fuggono oltre i binari di scambio.
+
+«Aspettate... non sapete contro chi vi state mettendo», balbetta l'ufficiale tenendosi il costato ferito. «Non ero l'unico... non sono io a decidere chi deve soffrire a Ul'dah! Il denaro dei rifugiati finisce nelle tasche di chi siede nei palazzi alti!»
+
+Mentre legate Baldewyn per consegnarlo al presidio centrale, Seseriku e alcuni testimoni accorrono allarmati dal trambusto. La caduta del capitano corrotto apre una breccia nella rete di silenzi e menzogne che soffoca il Thanalan Centrale.
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Supply and Demands · Give It to Me Raw · The Perfect Swarm · Last Letter to Lost Hope · Passing the Blade · Following Footfalls · Storms on the Horizon · Oh Captain, My Captain; apre Secrets and Lies; prossimo step wiki: parlare con Seseriku alla Stazione di Black Brush per fare rapporto sui complotti scoperti
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Secrets and Lies]
+(Scena social e indagine · ~10-15 min)
+
+🖼️ Immagine: Stazione di Black Brush
+🎵 Musica: To the Sun
+
+https://music.youtube.com/search?q=FFXIV+OST+To+the+Sun
+La polvere sollevata dallo scontro comincia lentamente a depositarsi sui binari della Stazione di Black Brush (Black Brush Station). Il capitano Baldewyn, disarmato e legato stretto con corde di canapa rinforzata, viene trascinato verso l'ufficio di sorveglianza da due guardie rimaste fedeli al loro dovere, mentre una piccola folla di operai e viaggiatori osserva la scena a debita distanza con un misto di sollievo e timore.
+
+🖼️ Immagine: Seseriku
+
+Seseriku raccoglie da terra la borsa di cuoio caduta al capitano e ne rovescia il contenuto sul pesante bancone di legno all'ombra del loggiato: monete d'oro non registrate, una serie di bolle di trasporto contraffatte recanti il sigillo del Consorzio Amajina e un fitto registro cifrato di pagamenti clandestini.
+
+«Per tutti i numi del commercio... sapevo che Baldewyn era un cane avido, ma questo va ben oltre il semplice pizzo sui rifornimenti», esclama il capostazione Lalafell, sfogliando febbrilmente i fogli d'inchiostro fresco mentre scuote il capo con indignazione. «Guardate qui: carichi di minerale dirottati verso depositi segreti, provviste destinate agli sfollati requisite per creare scarsità artificiale e pagamenti indirizzati a intermediari che rispondono direttamente a fazioni corrotte di Ul'dah.»
+
+Seseriku solleva lo sguardo verso di voi, asciugandosi la fronte madida di sudore con una pezzuola di lino.
+
+«La cattura di Baldewyn ha sventato il blocco immediato, ma se questi registri cadessero nelle mani sbagliate o venissero insabbiati da qualche alto ufficiale delle Lame d'Ottone (Brass Blades), non solo la nostra stazione sarà condannata, ma l'intera regione finirà nel caos. Questa documentazione deve arrivare a qualcuno di cui possiamo fidarci ciecamente: Papashan, il capostazione dello Scalo di Smistamento (Dispatch Yard). È un veterano della guardia reale in pensione, un uomo d'onore che sa come muoversi tra i veleni della politica cittadina senza farsi comprare.»
+
+Il piccolo intendente raduna le pergamene, le infila in un astuccio cilindrico di cuoio cerato e lo sigilla con il timbro personale della stazione prima di porgervelo.
+
+PROVA: Decifrare i dettagli delle cospirazioni nei registri
+
+Abilità applicabili: Indagare (per analizzare i registri contabili e le rotte commerciali), Storia (per collegare i nomi dei beneficiari alle casate mercantili di Ul'dah), Intuizione (per cogliere le omissioni e i timori taciuti di Seseriku).
+
+CD Facile (10): Notate che i carichi sequestrati a Speranza Perduta non venivano rivenduti sul mercato comune, ma stoccati in magazzini isolati lungo le rotte carovaniere meridionali.
+
+CD Media (15): Riconoscete sigilli cifrati appartenenti ad agenti dei Monetaristi: il complotto mirava a esasperare la disperazione dei rifugiati per costringerli a vendere le proprie concessioni minerarie a prezzi stracciati.
+
+CD Difficile (20): Notate un appunto cifrato a margine che menziona insoliti movimenti di figure incappucciate e furti di antiche reliquie tombali vicino ai ruderi di Sil'dih, lasciando intendere che qualcuno stia manipolando la corruzione locale per coprire un disegno ben più oscuro.
+
+Fallimento: La fitta rete di numeri e sigilli commerciali risulta confusa e frammentaria; comprendete soltanto che la questione è troppo delicata per essere affidata alle guardie locali e richiede la consegna immediata a Papashan.
+
+🖼️ Immagine: Scalo di Smistamento
+
+Prendete in consegna i documenti sigillati e vi mettete in marcia verso est, seguendo i binari principali fino allo Scalo di Smistamento (The Dispatch Yard). Il calore dell'arenaria rossa riverbera nell'aria secca del Thanalan Centrale, mentre i convogli di carovane si allineano lungo i moli di carico circondati da mura di pietra squadrata.
+
+🖼️ Immagine: Papashan
+
+Presso la torre di vedetta che sovrasta i depositi, un anziano Lalafell con lunghi baffi bianchi e l'inconfondibile portamento fiero dei Cavalieri della Sultana (Sultansworn) scruta l'orizzonte con un cannocchiale d'ottone, l'espressione segnata da una profonda preoccupazione. Non appena vi avvicinate e mostrate il sigillo di Seseriku, Papashan si volta con sollecitudine, accogliendovi con un cenno solenne del capo.
+
+«Ben arrivati, avventurieri. Le notizie da Black Brush hanno viaggiato veloci, ma temo che i nostri problemi non si limitino ai traffici delle Lame d'Ottone», esordisce l'anziano con voce grave ma cortese, prendendo in consegna il cilindro di cuoio. «Mentre voi ripulivate i binari dalla corruzione, una faccenda di estrema gravità ha colpito proprio questo presidio. La nobile Lady Lilira è scomparsa durante una visita d'ispezione, e se non la troviamo prima che i banditi o creature peggiori la intercettino, le conseguenze per la corona saranno incalcolabili.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Secrets and Lies; apre Duty, Honor, Country; prossimo step wiki: parlare con Papashan allo Scalo di Smistamento per iniziare le ricerche di Lady Lilira
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Duty, Honor, Country]
+(Indagine e combattimento · ~20-25 min)
+
+🖼️ Immagine: Scalo di Smistamento
+🎵 Musica: To the Sun
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+To+the+Sun
+Il frastuono dello Scalo di Smistamento (The Dispatch Yard) vi avvolge non appena oltrepassate l'arco di pietra che delimita i binari orientali: carrelli carichi di pietrisco stridono sulle rotaie, mentre gruppi di scaricatori imprecano sotto il peso di casse cerchiate di ferro. L'aria è densa di polvere rossa, fumo di combustione e grasso caldo.
+
+🖼️ Immagine: Papashan
+
+Papashan vi accoglie all'ombra della torretta di controllo, stringendo tra le dita nodose il bastone da passeggio che maschera il suo passato da ufficiale d'élite dei Cavalieri della Sultana (Sultansworn). I suoi folti baffi bianchi vibrano per la costernazione mentre abbassa la voce per non farsi udire dai ferrovieri.
+
+«Lady Lilira è una giovane dama dell'alta nobiltà con un temperamento... fin troppo incline alla fuga e alla pietà per gli oppressi», vi spiega Papashan con tono grave e guardingo. «Era giunta fin qui per visitare i cantieri, ma approfittando della confusione dello scarico merci è sfuggita alla scorta. I miei uomini hanno trovato tracce di passi leggeri che si dirigono verso le gole a nord, nei pressi dei ruderi della vecchia Sil'dih. Se cadesse nelle mani dei predoni o attirasse creature degenerate da quei cunicoli dimenticati, le conseguenze sarebbero irreparabili per l'intera Ul'dah.»
+
+L'anziano Lalafell vi guarda negli occhi, soppesando la vostra risolutezza.
+
+«Dividetevi lungo il perimetro dello scalo: interrogate gli operai per capire quale sentiero abbia preso e seguite le sue tracce nella gola prima che sia troppo tardi. Io radunerò le guardie fidate e vi coprirò le spalle a distanza.»
+
+PROVA: Raccogliere indizi e seguire la pista di Lady Lilira
+
+Abilità applicabili: Indagare (per analizzare le orme e i frammenti di stoffa vicino alle rimesse), Intuizione (per interrogare i ferrovieri reticenti), Percezione (per scorgere movimenti sospetti tra i canaloni di roccia rossa).
+
+CD Facile (10): Un macchinista intimorito confessa di aver visto una ragazza minuta, avvolta in un velo di seta rosa bordato d'oro, allontanarsi verso il canalone cieco a ridosso delle colline di scarto minerario.
+
+CD Media (15): Rinvenite tra i rovi secchi un nastro di broccato profumato d'essenza di loto e individuate orme fresche e leggere accompagnate dai solchi pesanti e sgraziati di bestie necrofaghe che ne stavano seguendo l'odore.
+
+CD Difficile (20): Notate che i predoni locali avevano già teso un piccolo agguato sul costone sovrastante ma sono stati messi in fuga dall'improvviso risveglio di iene delle sabbie e scarabei corazzati attirati dall'odore del sangue fresco.
+
+Fallimento: La fitta polvere sollevata dai convogli rende faticosa la ricerca delle tracce; raggiungete il fondo del canalone giusto in tempo per udire un grido soffocato provenire da una conca rocciosa poco distante.
+
+🖼️ Immagine: Ruderi di Sil'dih
+
+Seguendo la traccia tra pareti di arenaria scoscese e blocchi di pietra squadrata risalenti all'antica Sil'dih, giungete sul fondo di un anfiteatro naturale. Rannicchiata contro un pilastro crollato, una giovane nobile con una veste sgualcita ma finissima osserva terrorizzata due feroci iene del deserto e un massiccio scarafaggio caragnolo che le sbarrano ogni via di fuga, scavando la terra con gli artigli pronti a scattare.
+
+🎵 Musica: The Land Burns
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+The+Land+Burns
+Pacchetto Incontro: Il salvataggio di Lady Lilira
+Difficoltà: Media
+
+Innesco: Le belve avvertono la vostra presenza tra i canaloni e si voltano ringhiando per proteggere la loro preda.
+
+Nemici: Iena del Deserto ×2 · Scarafaggio Caragnolo ×1
+
+Tra blocchi di muratura antica e cumuli di pietrisco friabile sul fondo del canalone, le due belve fameliche vi sbarrano il passo con fauci gocciolanti bava, mentre il pesante insetto corazzato batte le chele metalliche contro la sabbia per proteggere il varco verso la giovane dama.
+
+Arena
+Tipo: Caverna Irregolare
+Dimensioni: 16 × 14
+Elementi:
+
+Rocce
+
+Macerie
+
+Sabbia
+
+Barricata
+
+Tattica: Le due Iene del Deserto cercano di sfruttare la Tattica di Branco aggirando i bersagli isolati e cercando di atterrarli con morsi rapidi. Lo Scarafaggio Caragnolo avanza a testa bassa al centro dell'arena, usando la sua dura corazza per assorbire i colpi e preparando la sua Carica Spianata contro chiunque tenti di raggiungere Lady Lilira.
+
+🖼️ Immagine: Iena
+
+Iena del Deserto
+Media · CA 12 · PF 11 (2d8+2) · Vel 8 yalm (12m)
+
+FOR 12 (+1) · DES 14 (+2) · COS 12 (+1) · INT 3 (-4) · SAG 12 (+1) · CAR 6 (-2)
+
+Abilità: Percezione +3, Furtività +4
+Sensi: scurovisione 12 yalm (18m), Percezione passiva 13
+GdS 1/8
+
+Descrizione visiva: un canide maculato dal pelo ispido color sabbia, con muso robusto, orecchie dritte e mascelle poderose adatte a frantumare le ossa.
+
+Tratti
+Tattica di Branco. La iena ha vantaggio ai tiri per colpire contro una creatura se almeno uno dei suoi alleati si trova entro 1 yalm (1,5m) da essa e non è incapacitato.
+
+Azioni
+Morso. Attacco con arma da mischia: +3 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 4 (1d6 + 1) danni perforanti.
+
+🖼️ Immagine: Scarabeo
+
+Scarafaggio Caragnolo
+Grande · CA 14 (armatura naturale) · PF 19 (3d10+3) · Vel 6 yalm (9m)
+
+FOR 14 (+2) · DES 10 (+0) · COS 12 (+1) · INT 2 (-4) · SAG 10 (+0) · CAR 4 (-3)
+
+Sensi: scurovisione 12 yalm (18m), Percezione passiva 10
+GdS 1/4
+
+Descrizione visiva: un imponente coleottero nero con riflessi bronzei sul pesante carapace e una coppia di mandibole anteriori a forma di tenaglia.
+
+Tratti
+Corazza Chitinosa. Lo scarafaggio riduce di 2 tutti i danni contundenti e taglienti subiti da attacchi non magici.
+
+Azioni
+Serrata di Mandibole. Attacco con arma da mischia: +4 a colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 6 (1d8 + 2) danni taglienti.
+
+Carica Spianata.
+Telegrafo: lo scarafaggio raschia la ghiaia con le zampe posteriori ed emette un sibilo d'aria compressa per un round prima di lanciarsi in avanti.
+Lo scarafaggio si muove in linea retta fino a 6 yalm (9m). Tutte le creature nella sua traiettoria devono superare un TS su Destrezza con CD 12 o subire 7 (1d10 + 2) danni contundenti ed essere gettate a terra prone.
+
+Bottino
+Bottino: 40 Gil; parte vendibile: zampa chitinosa rinforzata (15 Gil).
+
+Con un ultimo sibilo roco, il grande coleottero stramazza tra i ciottoli sollevando un denso sbuffo di polvere, mentre le iene superstiti guaiscono fuggendo verso le fenditure della scarpata.
+
+Nel silenzio improvviso che cala sul canalone, Lady Lilira si raddrizza lentamente scostando il velo dalla fronte. I suoi occhi grandi e luminosi vi osservano con un misto di sollievo regale e stupore fanciullesco, mentre stringe a sé una piccola collana con il sigillo di Nald'thal.
+
+«Sia lodato Thal... siete giunti appena in tempo», mormora la ragazza con una voce limpida e melodiosa, chinando leggermente il capo prima di riassumere un portamento fiero. «Ero scesa fin qui per portare un'offerta e pregare per le anime di coloro che persero la vita durante la caduta dell'antica città. Papashan vi ha mandati, non è vero? Conosco fin troppo bene la sua premura ansiosa.»
+
+I passi affrettati delle guardie e il respiro affannoso del vecchio Lalafell risuonano poco dopo all'ingresso della gola. Papashan scorge la nobildonna sana e salva e tira un sospiro talmente profondo da fargli tremare i baffi, prima di rivolgersi a voi con infinita gratitudine.
+
+«Che i Dodici vi benedicano! Avete protetto la nostra signora dal pericolo e salvaguardato l'onore di questa casata. Torniamo allo scalo prima che la notizia di questa scappatella si diffonda tra i mercanti di Ul'dah: c'è una questione formale che dobbiamo assolutamente celebrare per rendere omaggio al vostro valore.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude Duty, Honor, Country; apre A Matter of Tradition; prossimo step wiki: parlare con Papashan allo Scalo di Smistamento per completare l'omaggio cerimoniale
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — A Matter of Tradition]
+(Scena social ed esplorazione · ~10-15 min)
+
+🖼️ Immagine: Scalo di Smistamento
+🖼️ Immagine: Papashan
+🎵 Musica: To the Sun
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+To+the+Sun
+Rientrati allo Scalo di Smistamento (The Dispatch Yard) sotto il sole implacabile del meriggio, le guardie dei Cavalieri della Sultana (Sultansworn) scortano con premura Lady Lilira verso la palazzina di controllo per farle rinfrescare il viso e medicare le lievi escoriazioni. Papashan vi fa cenno di seguirlo all'ombra delle tettoie di carico, dove l'aria odora di legname secco, canfora e incenso cerimoniale.
+
+🖼️ Immagine: Lady Lilira
+
+L'anziano Lalafell poggia il pesante bastone da passeggio contro una cassa di rifornimenti, asciugandosi la fronte con un fazzoletto candido prima di estrarre da uno scrigno di velluto un'urna di ceramica smaltata e una fiasca d'argento colma d'acqua benedetta nel tempio di Nald'thal.
+
+«La giovane signora è al sicuro, ma il suo cuore è rimasto laggiù, tra quelle pietre crollate», spiega Papashan con voce calda e solenne. «Ogni anno, secondo l'antico costume di Ul'dah, la nobiltà offre una libagione per placare le anime inquiete di coloro che perirono nella caduta della vecchia Sil'dih e durante l'orrore dell'ultima Calamità. Lilira voleva compiere il rito di persona, ma dopo l'agguato non posso permetterle di rischiare di nuovo.»
+
+Papashan solleva l'urna con reverenza e ve la porge con entrambe le mani.
+
+«Portate queste offerte ai tre antichi cippi votivi posti lungo il crinale che domina la gola di Sil'dih. Versate l'acqua purificata sulle pietre e offrite una preghiera di pace ai Dodici. Solo allora la tradizione sarà compiuta e potremo rientrare a corte a testa alta.»
+
+Risalite i sentieri polverosi della scarpata orientale. Lungo la cresta rocciosa, il vento caldo soffia tra blocchi di arenaria squadrata e colonne spezzate, sollevando mulinelli di sabbia attorno a tre antichi altari votivi incisi con il simbolo della bilancia di Nald'thal.
+
+PROVA: Eseguire il rito e interpretare le memorie di Sil'dih
+
+Abilità applicabili: Religione (per officiare la corretta formula rituale di purificazione), Storia (per decifrare gli antichi bassorilievi del regno caduto), Percezione (per cogliere le correnti eteriche che ancora aleggiano attorno ai cippi).
+
+CD Facile (10): Versando l'acqua benedetta sulle pietre arroventate, l'incenso sprigiona un vapore profumato che placa il vento; sentite l'aria attorno a voi farsi più leggera e solenne.
+
+CD Media (15): Riconoscete nelle incisioni logorate le cronache della guerra tra Ul'dah e Sil'dih: le iscrizioni commemorano non solo i soldati caduti, ma anche gli innocenti travolti dalla distruzione della città gemella.
+
+CD Difficile (20): Notate che l'etere locale risuona ancora di una profonda tristezza legata a un antico tradimento; la preghiera sembra risvegliare per un istante un debole riverbero dorato nella pietra, segno che le offerte hanno raggiunto e confortato gli spiriti dei defunti.
+
+Fallimento: Il vento disperde parte dell'acqua prima che tocchi l'altare; riuscite comunque a completare le libagioni recitando le formule solenni, portando a termine il dovere affidatovi.
+
+Compiuto il rito a tutti e tre i cippi, fate ritorno allo Scalo di Smistamento. Papashan vi attende vicino alla carrozza di scorta, già pronta a partire per la capitale. Quando gli confermate che l'acqua è stata versata e le offerte disposte, il vecchio cavaliere china profondamente il capo, mentre Lady Lilira vi rivolge un sorriso luminoso dal finestrino schermato di seta.
+
+«Avete compiuto un'opera pia e degna di memoria», mormora Papashan, facendovi scivolare tra le mani un sacchetto di tela pesante che fa tintinnare centonovanta Gil freschi di conio, accompagnato da una pergamena sigillata con ceralacca dorata. «Questa lettera è per Momodi, alle Sabbie Mobili (The Quicksand). Le notizie sulle vostre gesta sono già giunte all'orecchio del Generale Raubahn, e la corona non lascia mai senza ricompensa chi sa impugnare le armi con onore e cuore saldo. Tornate a Ul'dah: un ricevimento di benvenuto vi attende.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude A Matter of Tradition; apre A Royal Reception; prossimo step wiki: parlare con Momodi alle Sabbie Mobili a Ul'dah per ricevere l'invito formale al banchetto
+
+🧭 Viaggio: diretto (Eterite) → teletrasporto all'Eterite di Ul'dah (Foro di Nald) · a piedi/carovana → strada maestra attraverso il Thanalan Centrale verso la Porta di Nald
+
+/viaggio
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[VIAGGIO — Scalo di Smistamento → Ul'dah]
+(Viaggio · ~10-15 min)
+
+🖼️ Immagine: Thanalan Centrale
+🎵 Musica: To the Sun
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+To+the+Sun
+1. Partenza
+Lasciate alle vostre spalle il fragore metallico e le rimesse dello Scalo di Smistamento (The Dispatch Yard). La lettera di raccomandazione sigillata da Papashan è al sicuro nelle vostre sacche, mentre imboccate la pista maestra che costeggia i binari ferroviari del Consorzio Amajina. Davanti a voi, verso ovest, l'aria calda del primo pomeriggio fa tremolare l'orizzonte, dove le imponenti mura di pietra arenaria dorata di Ul'dah si stagliano contro il cielo terso come una fortezza inespugnabile sorta dalle dune.
+
+2. Il Passaggio
+Il cammino si snoda per circa due malm (3,2 km) attraverso il cuore del Thanalan Centrale. Il vento del deserto soffia a folate calde, sollevando mulinelli di polvere rossa tra gli arbusti secchi e gli affioramenti rocciosi. Lungo la strada lastricata incrociate carovane scortate da mercenari, carretti trainati da robusti chocobo da soma carichi di minerale grezzo e viaggiatori che cercano riparo sotto larghi parasole di tela grezza. Le pattuglie delle Lame d'Ottone (Brass Blades) sorvegliano i bivi principali, mantenendo la tratta relativamente sicura per i traffici commerciali diretti alla capitale.
+
+3. Prova di Viaggio
+(Grado di pericolo della rotta: Tranquillo — il GM tira 1d20, evento su ≤5)
+
+Tiro ≤5 (evento): Lungo il ciglio della strada maestra notate un mercante indipendente fermo all'ombra di una grande roccia con il suo carretto: una ruota si è incastrata tra due massi e il suo chocobo rifiuta di muoversi. Fermandovi ad aiutarlo a disincagliare il veicolo (bastano pochi minuti di sforzo congiunto), l'uomo, immensamente grato per avergli evitato di pagare le salate tariffe di soccorso delle guardie di passaggio, vi offre sorsi di succo d'arancia fresca e vi vende volentieri piccoli beni di conforto e consumabili comuni applicando un piccolo sconto di cortesia.
+
+Tiro >5 (nessun evento): La marcia procede senza alcun imprevisto. Il traffico regolare di mercanti e viaggiatori tiene lontane le fiere del deserto, consentendovi di coprire la distanza a passo costante e regolare sotto il calore del sole.
+
+4. Arrivo
+🖼️ Immagine: Porta di Nald
+
+Verso la fine della marcia, la strada lastricata sale leggermente fino a raggiungere l'imponente arco monumentale della Porta di Nald (Gate of Nald). Le guardie cittadine in armatura a scaglie controllano distrattamente il flusso di mercanti e viandanti che si accalcano all'ingresso.
+
+Varcata la soglia fortificata, l'ombra fresca delle arcate vi accoglie prima di aprirsi sul fragore vibrante del Foro di Nald (Steps of Nald): il brusio incessante delle contrattazioni, il profumo di spezie orientali e l'odore metallico dei banchi di cambio riempiono l'aria della città dorata, mentre la grande scalinata centrale vi guida verso la taverna delle Sabbie Mobili (The Quicksand).
+
+— Arrivo a Ul'dah —
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — A Royal Reception]
+(Scena social, banchetto e visione · ~15-20 min)
+
+🖼️ Immagine: Le Sabbie Mobili
+🖼️ Immagine: Momodi
+🎵 Musica: Another Round
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Another+Round
+Spingete le pesanti porte di legno delle Sabbie Mobili (The Quicksand), lasciandovi alle spalle l'aria arroventata del Foro di Nald (Steps of Nald). All'interno, il brusio familiare di mercanti che contrattano, avventurieri che sbevazzano e monete che tintinnano sui tavoli vi accoglie come un porto sicuro. Dietro il bancone circolare, Momodi vi scorge immediatamente tra la folla e, con un sorriso brillante che le illumina il volto tondo, vi fa cenno di avvicinarvi agitando un panno di lino.
+
+«Guardate un po' chi si rivede tutto intero!», esclama la vivace Lalafell, appoggiando i pugni sui fianchi mentre vi avvicinate. «Altro che novellini del deserto... le voci su quello che avete combinato a Black Brush e a Speranza Perduta sono arrivate prima di voi! E poi Papashan mi ha già fatto recapitare una missiva sigillata con il marchio d'oro dei Cavalieri della Sultana (Sultansworn). Dice che avete salvato Lady Lilira e rimesso al loro posto quei farabutti corrotti.»
+
+Momodi allunga una mano sotto il bancone e ne estrae una busta di pergamena spessa, bordata di filo dorato e sigillata con il timbro scarlatto della Casa Reale di Ul'dah.
+
+«Questo è un invito ufficiale per il ricevimento commemorativo che si terrà stasera nella Camera della Fragranza (The Fragrant Chamber), sulla Passeggiata Reale (Royal Promenade). Non capita tutti i giorni che la Sultana in persona e il Generale Raubahn aprano le porte del palazzo a degli avventurieri appena giunti in città. Sistematevi gli abiti, datevi una ripulita dalla sabbia del Thanalan e salite le grandi scalinate. Ser Bartholomew vi starà aspettando all'ingresso delle sale superiori.»
+
+🖼️ Immagine: Bartholomew
+🎵 Musica: Sultana Dreaming
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Sultana+Dreaming
+Risalite le monumentali gradinate di marmo e pietra arenaria che collegano i mercati inferiori ai palazzi del potere. Presso l'arco dorato che conduce alle sale private del sultanato, Ser Bartholomew, ritto in una lucida corazza cerimoniale con il tabarro delle guardie d'élite, esamina l'invito che gli porgete.
+
+«Tutto in perfetto ordine. I vostri nomi sono stati registrati direttamente su ordine del Generale», dice la guardia con un cenno solenne del capo, scostandosi per aprirvi il passaggio. «Benvenuti alla corte di Ul'dah. Mantenete un contegno degno della presenza di Sua Maestà.»
+
+🖼️ Immagine: Nanamo Ul Namo
+🖼️ Immagine: Raubahn
+
+Varcate le porte della Camera della Fragranza. L'aria è densa di profumi rari, essenze di gelsomino e mirra che bruciano in bracieri d'argento lavorato. Lampadari di cristallo illuminano un pavimento a mosaico policromo dove patrizi dalle vesti di broccato, magnati del Sindacato e alti ufficiali delle Fiamme Immortali (Immortal Flames) sorseggiano vino speziato discutendo a bassa voce.
+
+In fondo alla sala, assisa su un trono rialzato di legno dorato e cuscini di velluto, siede la giovane Sultana Nanamo Ul Namo, affiancata dall'imponente figura del Generale Raubahn Aldynn — il leggendario "Toro di Ala Mhigo" — la cui presenza maestosa e l'enorme spadone alla schiena incutono un rispetto silenzioso in tutti i presenti.
+
+PROVA: Leggere le correnti politiche del ricevimento
+
+Abilità applicabili: Intuizione (per cogliere le fazioni contrapposte tra gli sguardi degli invitati), Storia (per riconoscere i simboli delle grandi casate mercantili), Percezione (per captare i discorsi riservati degli ufficiali).
+
+CD Facile (10): Notate subito la netta spaccatura nella sala: da una parte i ricchi mercanti del Sindacato (Monetaristi) che ostentano gioielli e guardano con freddezza la corte; dall'altra gli ufficiali e i lealisti della Sultana (Realisti) raccolti attorno a Raubahn.
+
+CD Media (15): Cogliete frammenti di conversazione preoccupati: il banchetto non è solo una festa diplomatica, ma la vigilia delle commemorazioni per i cinque anni dalla Calamità. Molti temono che la crescente instabilità delle Tribù Bestiali e le tensioni dell'Impero Garleano stiano per riaccendere la guerra.
+
+CD Difficile (20): Notate che Raubahn scruta continuamente la folla con sguardo vigile, noncurante dell'adulazione dei nobili. Quando i suoi occhi incrociano i vostri, il Generale sembra scorgere qualcosa di insolito nel vostro portamento, facendovi un cenno d'intesa appena percettibile.
+
+Fallimento: Il lusso sfarzoso e il chiacchiericcio formale dei cortigiani distraggono il gruppo; comprendete soltanto che la tensione politica a corte è palpabile dietro i sorrisi di circostanza.
+
+Il Generale Raubahn batte il pesante guanto d'arme sul parapetto del podio, facendo calare un silenzio assoluto nella sala. La sua voce profonda e tonante risuona tra le volte affrescate.
+
+«Cittadini di Ul'dah, illustri ospiti e compagni d'arme. Ci riuniamo stasera nel ricordo di coloro che cinque anni fa diedero la vita sulle piane di Carteneau. Quando la luna rossa Dalamud cadde dal cielo e il fuoco degli inferi minacciò di cancellare ogni cosa, uomini e donne di tutte le nazioni imbracciarono le armi sotto un'unica bandiera...»
+
+Mentre il Generale pronuncia queste parole e solleva il calice, una strana vibrazione attraversa l'aria. Il frastuono della sala sfuma all'improvviso in un ronzio sordo. La luce dorata dei candelabri si fa abbacinante e, all'unisono, il pavimento sotto i vostri piedi sembra dissolversi nel vuoto.
+
+[VISIONE DELL'ECO]
+🖼️ Immagine: Carteneau
+🖼️ Immagine: Louisoix
+🎵 Musica: Forever Lost
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Forever+Lost
+Il mondo attorno a voi si congela in un silenzio assoluto prima di infrangersi come vetro.
+
+Vi ritrovate insieme, spalla a spalla, al centro di una landa spazzata da venti furiosi e fiamme cremisi: la piana di Carteneau. Sopra di voi, il cielo è squarciato da nubi color sangue mentre i frammenti metallici della luna Dalamud precipitano al suolo sollevando colonne di fumo. Al centro dell'apocalisse, un anziano Elezen dai capelli candidi e lo sguardo sereno, l'Arcisalvatore Louisoix Leveilleur, stringe il suo bastone rituale verso il cielo.
+
+Un bagliore di etere dorato purissimo scaturisce dalle sue mani, avvolgendo un gruppo di guerrieri le cui sagome risplendono di luce immacolata. I loro volti sono indistinti, sfumati come un ricordo che sfugge alla mente, ma sentite un legame viscerale e profondo vibrare nei vostri petti, come un'eco che vi chiama attraverso il tempo prima che una deflagrazione di luce bianca cancelli ogni visione.
+
+🎵 Musica: Sultana Dreaming
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Sultana+Dreaming
+Riaprite gli occhi di colpo, ansimando leggermente. Siete di nuovo nella Camera della Fragranza, tra la folla che applaude al brindisi del Generale. Nessuno attorno a voi sembra essersi accorto di nulla, ma il Generale Raubahn ha smesso di parlare e vi sta fissando dritto negli occhi, la mano ferma sull'elsa della spada.
+
+Congedata formalmente la corte, Raubahn scende i gradini del podio e si avvicina a grandi passi verso di voi, torreggiando con la sua imponente statura. Un sorriso fiero e carico di rispetto gli increspa le labbra.
+
+«Avete lo stesso sguardo di chi ha visto l'inferno di persona e non ha abbassato la testa», mormora Raubahn a voce bassa, affinché solo voi possiate udire. «Papashan mi ha detto che siete capaci, ma io vedo qualcosa di più nei vostri occhi. C'è una scintilla... la stessa luce che guidava coloro che salvarono questo reame cinque anni fa.»
+
+Il Generale si volge verso la Sultana Nanamo, che vi osserva dal trono con uno sguardo dolce e solenne, poi torna a guardarvi con determinazione.
+
+«Ul'dah ha bisogno di gente come voi, ma non solo Ul'dah: l'intera Eorzea. Domattina presenterete le vostre credenziali al mio comando. C'è un compito diplomatico di vitale importanza che solo avventurieri dal cuore saldo e senza padrone possono portare a termine per conto della corona.»
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] chiude A Royal Reception; apre The Ul'dahn Envoy; prossimo step wiki: parlare con Raubahn alla Passeggiata Reale per ricevere le credenziali diplomatiche
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — The Ul'dahn Envoy]
+(Scena social e briefing · ~10-15 min)
+
+🖼️ Immagine: Passeggiata Reale
+🖼️ Immagine: Raubahn
+🎵 Musica: The Sands' Secrets
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+The+Sands%27+Secrets
+Il mattino seguente, la luce dorata del sole del Thanalan inonda le arcate monumentali della Passeggiata Reale (Royal Promenade). L'aria fresca della notte nel deserto lascia rapidamente spazio al consueto calore asciutto della capitale. Ai piedi della scalinata che conduce alla Camera della Fragranza, Ser Bartholomew vi riconosce all'istante e vi scorta con un cenno deferente del capo verso la terrazza panoramica affacciata sui tetti squadrati e sulle cupole di Ul'dah.
+
+Il Generale Raubahn Aldynn vi attende con le braccia conserte, la possente corazza da parata ornata dalle insegne delle Fiamme Immortali (Immortal Flames) e la pesante scimitarra legata al fianco. Accanto a lui, assisa su un seggio da campo all'ombra di un baldacchino di seta cremisi, la giovane Sultana Nanamo Ul Namo vi accoglie con un sorriso solenne.
+
+🖼️ Immagine: Nanamo Ul Namo
+
+«Vi ringrazio per essere venuti», esordisce Raubahn con la sua voce profonda e roca, voltandosi verso di voi. «Dopo la cerimonia di ieri sera e la visione che ha scosso le fondamenta del palazzo, Sua Maestà ed io abbiamo discusso a lungo. Cinque anni fa, sulle piane di Carteneau, le tre grandi nazioni di Eorzea combatterono fianco a fianco contro la XIV Legione imperiale. Ma da quando la luna rossa è caduta e i guerrieri di allora sono svaniti nella luce, quella fratellanza ha cominciato a incrinarsi sotto il peso di rivalità commerciali, dispute territoriali e la minaccia costante delle Tribù Bestiali.»
+
+Nanamo si sporge leggermente in avanti, il tono di voce limpido e carico di regale gravità.
+
+«I nostri vicini stanno affrontando le medesime tempeste: le incursioni degli Ixal nelle foreste di Gridania e le razzie dei Sahagin lungo le coste di Limsa Lominsa. Se non rinnoviamo i patti di reciproca assistenza in vista delle cerimonie commemorative della Calamità, il nostro reame cadrà pezzo dopo pezzo prima ancora che l'Impero Garleano decida di marciare a sud.»
+
+Raubahn estrae da una custodia di cuoio rinforzato due pesanti missive sigillate con ceralacca scarlatta, sulle quali è impresso il marchio della bilancia di Nald'thal e del giglio reale.
+
+«Abbiamo bisogno di inviati che non siano vincolati ai mercanti del Sindacato o agli intrighi di corte. Voi avete dimostrato valore sul campo, fegato saldo e la luce negli occhi. Vi affidiamo il compito di ambasciatori della corona: porterete queste missive di persona alla Venerabile Kan-E-Senna a Gridania e all'Ammiraglio Merlwyb Bloefhiswyn a Limsa Lominsa.»
+
+Il Generale vi porge i documenti, poi vi rivolge uno sguardo d'intesa.
+
+«Scendete alle Sabbie Mobili (The Quicksand) e mostrate il sigillo a Momodi. Le ho già dato disposizioni di consegnarvi i lasciapassare ufficiali per l'Aerodromo di Ul'dah (Ul'dah Airship Landing). Che Nald'thal guidi i vostri passi.»
+
+🖼️ Immagine: Le Sabbie Mobili
+🖼️ Immagine: Momodi
+🎵 Musica: Another Round
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Another+Round
+Tornati nel trambusto affollato del Foro di Nald (Steps of Nald), entrate nella sala comune delle Sabbie Mobili. Momodi, intenta a contare un mucchio di ricevute sul bancone, vi fa cenno di avvicinarvi con una risata divertita non appena scorge le lettere sigillate nelle vostre mani.
+
+«Per le palle di Thal, ambasciatori ufficiali del Sultanato! Chi l'avrebbe mai detto quando avete varcato per la prima volta quella porta coperti di sabbia?», dice la Lalafell battendo le mani sul legno scuro. «Scherzi a parte, questo è un onore enorme, ma anche una responsabilità pesante. Volare oltre i confini del Thanalan non è concesso a chiunque: dall'ultima Calamità i cieli sono strettamente pattugliati e i voli commerciali richiedono autorizzazioni speciali.»
+
+Momodi allunga una mano sotto il bancone ed estrae una cartella rigida contenente i vostri lasciapassare di volo personalizzati, contrassegnati dal timbro d'ottone della Gilda degli Avventurieri.
+
+«Ecco a voi i Pass per Aeronave (Airship Passes). Con questi, le guardie all'Aerodromo vi apriranno i cancelli d'imbarco per qualsiasi rotta di linea. Il mio consiglio? A Gridania cercate di non calpestare le foglie sacre e mostrate rispetto agli Elementali, mentre a Limsa tenete una mano sull'elsa e l'altra sul borsello: quei corsari hanno un modo tutto loro di dare il benvenuto.»
+
+PROVA: Valutare l'incarico diplomatico e i protocolli delle città-stato
+
+Abilità applicabili: Storia (per rammentare l'etichetta di corte di Gridania e Limsa Lominsa), Intuizione (per cogliere le preoccupazioni politiche di Raubahn e Nanamo), Persuasione (per ottenere da Momodi consigli riservati sui contatti locali).
+
+CD Facile (10): Ricordate che a Gridania l'autorità spirituale e politica è detenuta dai Chiaroveggenti (Hearers) guidati da Kan-E-Senna, per i quali l'armonia con il Bosco Nero (Black Shroud) viene prima di ogni trattato commerciale.
+
+CD Media (15): A Limsa Lominsa, l'Ammiraglio Merlwyb governa col pugno di ferro cercando di unificare le ciurme pirata sotto la bandiera della Tempesta (The Maelstrom): una dimostrazione diretta di forza e determinazione diplomatica otterrà più rispetto di vuote cerimonie.
+
+CD Difficile (20): Dedurrete che l'invito alle cerimonie commemorative è solo il pretesto formale: Raubahn e la Sultana stanno cercando di riattivare l'antica Alleanza Eorzeana (Eorzean Alliance) prima che le minacce dei Primals e dell'Impero Garleano diventino ingestibili per le singole città-stato.
+
+Fallimento: Le regole dell'alta diplomazia tra le nazioni vi appaiono intricate e piene di insidie formali; comprendete comunque che consegnare le lettere direttamente nelle mani dei capi di stato è l'unico modo per non fallire l'incarico.
+
+Raccolti i pass e sistemate le sacche da viaggio, vi congedate da Momodi tra i saluti e gli auguri degli avventurieri presenti nella taverna. I ponti d'imbarco dell'Aerodromo di Ul'dah vi attendono nei livelli superiori della città, pronti a spalancarvi i cieli di Eorzea.
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+
+[Info GM] prosegue The Ul'dahn Envoy; prossimo step wiki: recarsi all'Aerodromo di Ul'dah, imbarcarsi sull'aeronave per Gridania e consegnare la prima missiva a Kan-E-Senna al Palchetto del Loto
+
+🧭 Viaggio: volo in aeronave → Aerodromo di Ul'dah → Nuova Gridania (Aerodromo di Gridania)
+
+/riposo
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[RIPOSO — La Clessidra (The Hourglass), Ul'dah]
+(Riposo sicuro · ~5-10 min)
+
+🖼️ Immagine: La Clessidra
+🎵 Musica: Behind Closed Doors
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Behind+Closed+Doors
+Da leggere ai PG
+Lasciate alle spalle il fragore del Foro di Nald (Steps of Nald) e salite la scala interna delle Sabbie Mobili che conduce alla locanda della Clessidra (The Hourglass). Varcata la soglia della stanza comune al piano superiore, il calore asciutto della notte desertica e il brusio delle sale inferiori sfumano in una quiete ovattata, dove la luce soffusa delle lampade a olio accarezza tappeti tessuti a mano e letti rassettati con lenzuola di lino fresco.
+
+L'oste / referente
+L'attendente della locanda, un Lalafell dai modi cortesi e la livrea impeccabile, vi accoglie con un lieve inchino e vi porge le chiavi di bronzo delle vostre stanze.
+
+«Le vostre stanze sono pronte, avventurieri. Madama Momodi ha dato disposizioni affinché riceveste le nostre cure migliori prima della partenza di domattina. Godetevi il silenzio e la frescura: l'aria delle sabbie sa essere spietata con chi viaggia senza riposo.»
+
+Pernottamento & cena
+Costo: 5 Gil a persona (o offerto da Momodi per i servigi resi alla corona).
+
+Cena locale: Spezzatino di montone del Thanalan servito con gallette calde alle erbe aromatiche e una caraffa di tè freddo speziato.
+
+Colore
+Dalle grate intarsiate della finestra giunge il soffio fresco della brezza notturna che accarezza i tetti dorati della città addormentata. Lontano, sul piazzale inferiore, i passi ritmici della ronda delle Lame d'Ottone e il rintocco lontano delle campane dell'Ossario scandiscono le ore della notte.
+
+Riposo lungo
+I vostri corpi stanchi trovano finalmente sollievo sui morbidi materassi, mentre la tensione delle battaglie e delle scoperte recenti si scioglie nel sonno profondo.
+
+Al termine del riposo lungo recuperate tutti i Punti Ferita, gli slot incantesimo e le risorse di classe; la barra del Limit Break si svuota completamente. La luce limpida dell'alba filtra attraverso le imposte, annunciando un nuovo giorno di viaggio sui cieli di Eorzea.
+
+— Riposo completato a Ul'dah —
+
+/viaggio
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[VIAGGIO — Ul'dah → Nuova Gridania]
+(Viaggio in aeronave · ~10-15 min)
+
+🖼️ Immagine: Aerodromo di Ul'dah
+🖼️ Immagine: Aeronave
+🎵 Musica: Horizons
+
+HTTP
+https://music.youtube.com/search?q=FFXIV+OST+Horizons
+1. Partenza
+Lasciate la quiete della locana della Clessidra (The Hourglass) e salite le ampie gradinate fino al livello superiore della città, dove si aprono le grandi arcate dell'Aerodromo di Ul'dah (Ul'dah Airship Landing). L'aria risuona del rombo sordo dei motori a ceruleum e del sibilo dell'aria compressa.
+
+Mostrate alle guardie di presidio i lasciapassare d'oro firmati da Momodi e convalidati dal sigillo del Generale Raubahn: i funzionari scattano sull'attenti con un saluto impeccabile, spalancando i cancelli d'imbarco verso la banchina sospesa nel vuoto. Davanti a voi, ancorata alle possenti catene di ferro, un'imponente aeronave di linea spiega i suoi grandi stabilizzatori di tela rinforzata e fa girare le eliche gemelle, pronta a salpare per la rotta aerea verso nord-est.
+
+2. Il Passaggio
+Saliti a bordo sul ponte superiore, i cavi d'ormeggio vengono sganciati e l'aeronave si solleva maestosa nell'aria del mattino. Ul'dah si rimpicciolisce sotto di voi, trasformandosi in una corona di pietra dorata incastonata nelle dune del Thanalan.
+
+Il viaggio copre decine di malm ad alta quota. Il calore secco e polveroso del deserto lascia gradualmente spazio a correnti più fresche e umide man mano che la rotta sorvola i confini montuosi. All'orizzonte, le distese aride cedono il passo a una sterminata distesa verde smeraldo: la fitta chioma del Bosco Nero (Black Shroud), dove alberi colossali, le cui cime svettano per decine di fulm verso il cielo, nascondono fiumi sinuosi e radure velate di nebbia.
+
+3. Prova di Viaggio
+(Grado di pericolo della rotta: Tranquillo — il GM tira 1d20, evento su ≤5)
+
+Tiro ≤5 (evento): Sul ponte di vedetta dell'aeronave incrociate un anziano studioso botanico di Gridania, avvolto in una tunica verde oliva ricamata. Notando il vostro portamento da avventurieri e l'interesse per la foresta sottostante, l'erudito attacca discorso con garbo, spiegandovi le rigide leggi dell'armonia silvana e come non offendere gli Elementali durante il vostro soggiorno; prima di congedarsi, vi fa omaggio di una piccola boccetta di tintura d'eucalipto delle fronde (un balsamo aromatico utile per rinfrescare lo spirito dopo le fatiche del viaggio).
+
+Tiro >5 (nessun evento): La traversata aerea scorre nella più perfetta serenità. Le eliche girano con ritmo regolare tagliando le nuvole passeggere, mentre la brezza fresca dell'alta quota vi permette di riordinare l'equipaggiamento e godervi la straordinaria vista panoramica delle terre selvagge di Eorzea.
+
+4. Arrivo
+🖼️ Immagine: Aerodromo di Gridania
+
+L'aeronave riduce gradualmente la velocità dei rotori, inclinandosi dolcemente per scendere attraverso una vasta apertura tra le chiome secolari fino a toccare terra nella rimessa di legno scuro dell'Aerodromo di Gridania (Gridania Airship Landing).
+
+Varcato il pontile di sbarco, venite accolti dal profumo intenso di corteccia bagnata, muschio selvatico e fiori di bosco, accompagnato dal rumore scrosciante di ruote idrauliche e canali d'acqua pura: siete giunti a Nuova Gridania (New Gridania), il cuore della civiltà forestale.
+
+— Arrivo a Nuova Gridania —
+
+/salva
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 3 · Numero PG: 4 · Livello: 1
+
+[GIOCATO]
+
+Prudence at This Junction: consegnata la distinta timbrata a Seseriku alla Stazione di Black Brush e riscossa la ricompensa.
+
+Out of House and Home: trasportata la cassa di soccorsi e consegnata a Leofric nell'accampamento di Speranza Perduta.
+
+Way Down in the Hole: discesa nel vecchio pozzo minerario, sconfitti spriggan e coblyn, e recuperate le casse di attrezzi.
+
+Takin' What They're Givin': distribuite le razioni d'acqua e cibo agli sfollati e ai malati a Speranza Perduta.
+
+Ponte narrativo (Supply and Demands → Storms on the Horizon) e Oh Captain, My Captain: sgominati i bagarini delle scorte, cacciati parassiti delle dune, addestrata la guardia locale, scoperte le tracce della corruzione e sconfitto in combattimento il capitano Baldewyn delle Lame d'Ottone con i suoi complici a Black Brush.
+
+Secrets and Lies: esaminati i registri cifrati delle merci clandestine con Seseriku e consegnati i documenti a Papashan allo Scalo di Smistamento.
+
+Duty, Honor, Country: rintracciata Lady Lilira tra le gole di Sil'dih, sconfitte le iene del deserto e lo scarafaggio caragnolo e portata in salvo la nobildonna.
+
+A Matter of Tradition: celebrate le libagioni rituali con acqua benedetta ai tre cippi votivi di Sil'dih e ricevuta la lettera di raccomandazione di Papashan per Momodi.
+
+Viaggio (Scalo di Smistamento → Ul'dah).
+
+A Royal Reception: ammessi al ricevimento nella Camera della Fragranza, assistito al discorso di Raubahn, vissuta la visione dell'Eco sulla piana di Carteneau e Louisoix, e ricevuto l'incarico di ambasciatori della corona da Raubahn e dalla Sultana Nanamo.
+
+The Ul'dahn Envoy: ricevute le missive sigillate per le altre città-stato alla Passeggiata Reale e ritirati i Pass per Aeronave da Momodi alle Sabbie Mobili.
+
+Riposo lungo alla locanda della Clessidra a Ul'dah.
+
+Viaggio in aeronave da Ul'dah all'Aerodromo di Nuova Gridania.
+
+[DA VERIFICARE]
+
+Nessuna incongruenza rilevata: progressione lineare e coerente con la catena MSQ.
+
+Ultimo evento giocato: ottenuti i pass per aeronave da Momodi a Ul'dah e completato il volo verso l'Aerodromo di Nuova Gridania per la missione diplomatica.
+
+=== SAVE ===
+Sessione: 4
+
+[A] POSIZIONE MSQ
+
+Missione MSQ corrente (EN): The Ul'dahn Envoy
+
+Ultimo step completato: ottenuti i pass per aeronave alle Sabbie Mobili e sbarcati all'Aerodromo di Nuova Gridania
+
+[B] PARTY
+
+Numero PG: 4
+
+Livello: 1
+
+[C] SUBQUEST ATTIVA
+
+Subquest attiva: nessuna
+=== FINE SAVE ===
+
+Sessione 3->4; MSQ Prudence at This Junction -> The Ul'dahn Envoy (in corso).

@@ -471,10 +471,38 @@
     function closeTab(index) { encountersData.splice(index, 1); if (currentEncounterIndex >= index) currentEncounterIndex = Math.max(0, currentEncounterIndex - 1); activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); renderEncounter(); }
 
     function getBaseName(name) { return name.replace(/\s+\d+$/, '').trim(); }
+    // Ordine di assegnazione dei colori: PRIMA i gruppi DUPLICATI, poi i mostri unici.
+    // Il primo colore della palette e' il rosso, quindi il rosso finisce a chi ha dei sosia —
+    // sono quelli che il GM deve distinguere a colpo d'occhio fra riga, badge e pedina.
+    function enemyColorOrder() {
+        const enc = encountersData[currentEncounterIndex];
+        if (!enc) return [];
+        const counts = {}, seen = [];
+        enc.combatants.filter(c => c.isMonster).forEach(m => {
+            const bn = getBaseName(m.name);
+            if (counts[bn] === undefined) { counts[bn] = 0; seen.push(bn); }
+            counts[bn]++;
+        });
+        return seen.filter(b => counts[b] > 1).concat(seen.filter(b => counts[b] === 1));
+    }
+
     function getEnemyColorRGB(baseName) {
-        const enc = encountersData[currentEncounterIndex]; const activeMonsters = enc.combatants.filter(c => c.isMonster);
-        const uniqueBases = []; activeMonsters.forEach(m => { const bn = getBaseName(m.name); if (!uniqueBases.includes(bn)) uniqueBases.push(bn); });
-        const index = uniqueBases.indexOf(baseName); return index === -1 ? warmPaletteRGB[0] : warmPaletteRGB[index % warmPaletteRGB.length];
+        const enc = encountersData[currentEncounterIndex];
+        const ov = enc && enc.colorOverrides ? enc.colorOverrides[baseName] : undefined;
+        if (ov !== undefined && ov !== null) return warmPaletteRGB[ov % warmPaletteRGB.length];
+        const index = enemyColorOrder().indexOf(baseName);
+        return index === -1 ? warmPaletteRGB[0] : warmPaletteRGB[index % warmPaletteRGB.length];
+    }
+
+    // Clic sul badge: passa al colore successivo della palette e lo fissa per QUEL tipo di mostro.
+    function cycleEnemyColor(baseName) {
+        const enc = encountersData[currentEncounterIndex];
+        if (!enc) return;
+        if (!enc.colorOverrides) enc.colorOverrides = {};
+        const cur = enc.colorOverrides[baseName];
+        const from = (cur !== undefined && cur !== null) ? cur : Math.max(0, enemyColorOrder().indexOf(baseName));
+        enc.colorOverrides[baseName] = (from + 1) % warmPaletteRGB.length;
+        renderEncounter();   // ridisegna riga, badge, pannello statistiche e pedine sulla mappa
     }
     function getCombatantTokenLabel(name) { const num = name.match(/\s+(\d+)$/); return getBaseName(name).charAt(0).toUpperCase() + (num ? num[1] : ""); }
     function emptyStatblock(name) { return { name: name, size: 1, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] }; }
@@ -541,9 +569,12 @@
     }
     
     function sortInitiative() {
-      const enc = encountersData[currentEncounterIndex]; const active = enc.combatants[enc.activeTurnIndex];
+      // Il cursore di turno segue l'ENTITA', non il numero di slot: si annota il suo id prima di
+      // riordinare e lo si ritrova dopo, cosi' un mostro che si infila sopra non sposta il turno.
+      const enc = encountersData[currentEncounterIndex];
+      const activeId = (enc.combatants[enc.activeTurnIndex] || {}).id;
       enc.combatants.sort((a, b) => { const vA = a.init !== null && a.init !== "" ? parseInt(a.init,10) : -999; const vB = b.init !== null && b.init !== "" ? parseInt(b.init,10) : -999; return vB - vA; });
-      if (active) enc.activeTurnIndex = Math.max(0, enc.combatants.indexOf(active)); 
+      if (activeId !== undefined) enc.activeTurnIndex = Math.max(0, enc.combatants.findIndex(c => c.id === activeId));
       autoSelectStatblock(); renderEncounter();
     }
     
@@ -551,7 +582,7 @@
       const isM = type === "monster"; const enc = encountersData[currentEncounterIndex]; const newId = Date.now();
       enc.combatants.push({ id: newId, name: isM ? "Nuovo Nemico" : "Nuovo PG", isMonster: isM, initBonus: 0, init: isM ? Math.floor(Math.random()*20)+1 : null, ac: isM ? 10 : "", hp: isM ? 10 : 0, maxHp: isM ? 10 : 0, isDown: false, telegraph: null, notes: "" });
       if (isM) { if (!enc.statblocks.find(sb => sb.name === "Nuovo Nemico")) enc.statblocks.push(emptyStatblock("Nuovo Nemico")); syncStatblocks(); }
-      renderEncounter();
+      sortInitiative();   // prende subito il suo posto; il cursore di turno resta sulla sua entita'
     }
     
     function cloneCombatant(id) {
@@ -619,7 +650,7 @@
           let colorStyle = "", badgeHtml = "";
           if (c.isMonster) { 
               const colRGB = getEnemyColorRGB(getBaseName(c.name)); colorStyle = `--row-color-rgb: ${colRGB};`; 
-              const tLabel = getCombatantTokenLabel(c.name); badgeHtml = `<span id="badge-${c.id}" class="badge badge-monster" style="background-color: rgb(${colRGB});">${tLabel}</span>`;
+              const tLabel = getCombatantTokenLabel(c.name); const cBase = getBaseName(c.name).replace(/'/g, "\'"); badgeHtml = `<span id="badge-${c.id}" class="badge badge-monster" style="background-color: rgb(${colRGB}); cursor:pointer;" title="Clic per cambiare colore a tutti i ${getBaseName(c.name)}" onclick="event.stopPropagation(); cycleEnemyColor('${cBase}')">${tLabel}</span>`;
           } else { badgeHtml = `<span id="badge-${c.id}" class="badge badge-pc">PG</span>`; }
 
           tr.className = (c.isMonster ? "monster-row" : "pc-row") + (index === enc.activeTurnIndex ? " active-turn" : "") + (isDown ? " down" : "");
@@ -1513,7 +1544,10 @@
             const c = document.getElementById('cell_' + cx + '_' + cy);
             return c ? c.getBoundingClientRect() : null;
         };
-        if (uid) {
+        // Solo per uno SPOSTAMENTO: in una COPIA l'originale resta dov'e', e spostargli il punto di
+        // partenza gli farebbe fare un viaggio di ritorno che non ha compiuto. Le copie sono elementi
+        // nuovi, senza rettangolo di partenza: compaiono e basta.
+        if (uid && !wantsCopy) {
             const src = data.placedFeatures.find(o => o.uid === uid);
             if (src) {
                 const dxC = tgtX - src.x, dyC = tgtY - src.y;
@@ -1758,8 +1792,12 @@
           if (gdsMatch) { let parts = line1Str.split(' · '); parts.splice(1, 0, gdsMatch[0]); sbObj.line1 = parts.join(' · '); } else { sbObj.line1 = line1Str; }
           if(lines[1] && (lines[1].startsWith('FOR') || lines[1].includes('·'))) { sbObj.attributes = lines[1].trim(); }
           
+          // Le righe media (🖼️ 🗺️ 🎵), l'url dell'OST e i delimitatori del code block stanno FRA
+          // uno stat block e l'altro: senza filtro finiscono nelle Azioni del mostro precedente.
+          const SB_NOT_A_MOVE = /^(🖼|🗺|🎵|⚔|🧭|⏭|https?:\/\/|```|HTTP$)/;
           for (let i = 2; i < lines.length; i++) {
-              let l = lines[i].trim(); if (l.startsWith("Descrizione visiva:")) continue;
+              let l = lines[i].trim();
+              if (l.startsWith("Descrizione visiva:") || SB_NOT_A_MOVE.test(l)) continue;
               if (l.match(/^(TS:|Abilità:|Sensi:|GdS)/i)) {
                   let tsM = l.match(/TS:\s*(.*?)(?=Abilità:|Sensi:|GdS|$)/i); let abM = l.match(/Abilità:\s*(.*?)(?=Sensi:|GdS|$)/i); let seM = l.match(/Sensi:\s*(.*?)(?=GdS|$)/i);
                   if (tsM && tsM[1]) { let v = tsM[1].trim(); if (v.endsWith("GdS")) v = v.substring(0, v.length-3).trim(); sbObj.ts = v; }
@@ -1778,7 +1816,12 @@
 
       newEnc.mapData = arenaSpec ? generateDynamicMap(arenaSpec) : null;
       if (isCurrentEmpty) { encountersData[currentEncounterIndex] = newEnc; } else { encountersData.push(newEnc); currentEncounterIndex = encountersData.length - 1; }
-      closeImportModal(); sortInitiative(); captureBaseRosters(); renderTabs(); renderVisualMap();
+      // L'import atterra sul PRIMO slot del nuovo scontro, come farebbe un cambio di scheda: senza
+      // azzerare gli indici il pannello resta puntato sullo stat block scelto nell'incontro precedente.
+      activeStatblockIndex = 0; editingStatblockIndex = null;
+      closeImportModal(); sortInitiative();
+      newEnc.activeTurnIndex = 0;   // scontro nuovo: si parte da chi ha l'iniziativa piu' alta
+      captureBaseRosters(); renderTabs(); renderEncounter();
       if (!arenaSpec) showAlert("Sezione Arena mancante nel pacchetto: nemici e statistiche sono stati caricati, la mappa no.<br><br>Aggiungi al pacchetto una sezione \"Arena\" con Tipo, Dimensioni ed Elementi, oppure usa 🗺️ Genera Mappa per una mappa vuota da modello.");
       else if (arenaSpec.warnings.length) showAlert("Sezione Arena caricata con riserve:<br><br>• " + arenaSpec.warnings.join("<br>• "));
     }
