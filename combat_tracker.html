@@ -144,6 +144,9 @@
     .sb-section-title { font-weight: bold; color: #fbbf24; margin-top: 15px; margin-bottom: 6px; border-bottom: 1px solid #4b5563; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; padding-bottom: 2px; }
     .sb-move { font-size: 0.9rem; margin-bottom: 6px; line-height: 1.4; }
     .sb-move strong { color: #fca5a5; }
+    .sb-spawn { margin-left: 6px; padding: 0 6px; font-size: 0.75rem; line-height: 1.5; border-radius: 4px;
+                border: 1px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; }
+    .sb-spawn:hover { background: var(--accent-blue); color: #fff; }
     
     .sb-telegraph { font-size: 0.85rem; padding: 6px 10px 6px 12px; border-left: 3px solid var(--warning); margin-left: 15px; margin-top: 2px; margin-bottom: 10px; color: #d1d5db; background: rgba(245, 158, 11, 0.05); border-radius: 0 4px 4px 0; font-style: italic; }
 
@@ -505,6 +508,85 @@
         renderEncounter();   // ridisegna riga, badge, pannello statistiche e pedine sulla mappa
     }
     function getCombatantTokenLabel(name) { const num = name.match(/\s+(\d+)$/); return getBaseName(name).charAt(0).toUpperCase() + (num ? num[1] : ""); }
+    // Una mossa che porta dentro CA e PF sta descrivendo una CREATURA EVOCATA, non un effetto:
+    // e' la firma di uno adds che il boss fa comparire a meta' scontro.
+    function moveHasMinion(text) { return /\bCA\s*\d+/i.test(text) && /\bPF\s*\d+/i.test(text); }
+
+    // Si estrae SOLO cio' che serve al tabellone: nome, CA, PF, quanti. Il resto della capsula resta
+    // testo opaco e finisce tale e quale nella scheda: la forma cambia a ogni generazione, strutturarla
+    // sarebbe una scommessa persa.
+    const NUMWORDS = { uno:1, un:1, due:2, tre:3, quattro:4, cinque:5, sei:6, sette:7, otto:8 };
+    function parseMinion(text, fallbackName) {
+        const ac = (text.match(/\bCA\s*(\d+)/i) || [])[1];
+        const hp = (text.match(/\bPF\s*(\d+)/i) || [])[1];
+        let name = (text.match(/\(\s*([^:;()]{2,40}?)\s*:/) || [])[1];
+        if (!name) name = (fallbackName || 'Adds').replace(/[.—-]\s*$/, '').trim();
+        let count = 1;
+        const first = name.split(/\s+/)[0];
+        if (first) {
+            // Quanti: si cerca la parola subito PRIMA del nome. Niente RegExp costruita da stringa,
+            // che obbliga a scappare il nome e si rompe al primo carattere speciale.
+            const at = text.toLowerCase().indexOf(first.toLowerCase());
+            const before = at > 0 ? (text.slice(0, at).trim().split(/\s+/).pop() || '') : '';
+            const w = before.toLowerCase().replace(/[^a-z0-9]/g, '');
+            if (w) count = /^[0-9]+$/.test(w) ? parseInt(w, 10) : (NUMWORDS[w] || 1);
+        }
+        return { name: name, ac: ac ? parseInt(ac,10) : 10, hp: hp ? parseInt(hp,10) : 1,
+                 count: Math.max(1, Math.min(12, count)) };
+    }
+
+    // La capsula arriva come '(Nome: descrizione)'. Si toglie l'involucro e si lascia la sola
+    // descrizione. Se la forma non e' quella, il testo resta intatto: nessuna dipendenza nuova.
+    function minionBody(text) {
+        let d = String(text || '').trim();
+        const cut = d.indexOf(':');
+        if (d.charAt(0) === '(' && cut > 0) d = d.slice(cut + 1);
+        d = d.replace(/^[\s(]+/, '').replace(/[)\s]+$/, '').trim();
+        // Una riga per segmento: si taglia su , ; . solo quando NON segue una cifra, cosi' 1,5m
+        // e 4 (1d4+2) restano interi. Ogni segmento diventa una voce, e il pannello la manda a capo.
+        // Poi si toglie la punteggiatura di giunzione: a fine riga non serve, e un punto finale
+        // farebbe leggere il segmento come 'titolo di mossa', che il pannello stampa in rosa.
+        const trimSeg = (s) => {
+            let x = s.replace(/^[\s,;.]+/, '').replace(/[\s,;.]+$/, '');
+            // una chiusa in piu' e' l'involucro della capsula, non parte del testo: (2d6) resta intatto
+            while (/\)$/.test(x) && (x.split(')').length > x.split('(').length)) {
+                x = x.slice(0, -1).replace(/[\s,;.]+$/, '');
+            }
+            return x.trim();
+        };
+        return d.split(/(?<=[,;.])(?=\s*[^\s\d])/).map(trimSeg).filter(Boolean);
+    }
+
+    function spawnMinionFromMove(sbIdx, moveIdx) {
+        const enc = encountersData[currentEncounterIndex];
+        const src = enc.statblocks[sbIdx]; if (!src) return;
+        const text = (src.moves || [])[moveIdx]; if (!text) return;
+        const title = (text.match(/^(.+?)[.—-]/) || [])[1];
+        const mi = parseMinion(text, title);
+        if (!enc.statblocks.find(s => s.name.toLowerCase() === mi.name.toLowerCase())) {
+            const sb = emptyStatblock(mi.name); sb.spawned = true;
+            sb.line1 = mi.name;
+            sb.moves = minionBody(text);   // la sola descrizione, una riga per segmento
+            enc.statblocks.push(sb);
+        }
+        // Numerati SEMPRE, e si riprende dal piu' alto gia' presente: cosi' una seconda evocazione
+        // continua con 3 e 4 invece di ricreare due omonimi 1 e 2.
+        let start = 0;
+        enc.combatants.forEach(c => {
+            if (getBaseName(c.name).toLowerCase() !== mi.name.toLowerCase()) return;
+            const n = parseInt((c.name.match(/\s+(\d+)$/) || [])[1], 10);
+            start = Math.max(start, isNaN(n) ? 1 : n);
+        });
+        for (let i = 0; i < mi.count; i++) {
+            const id = Date.now() + Math.random();
+            enc.combatants.push({ id: id, name: mi.name + ' ' + (start + i + 1), isMonster: true,
+                initBonus: 0, init: Math.floor(Math.random()*20)+1, ac: mi.ac, hp: mi.hp, maxHp: mi.hp,
+                isDown: false, telegraph: null, notes: '' });
+            if (enc.mapData) enc.mapData.entityPositions[id] = findEmptySpot(1);
+        }
+        syncStatblocks(); sortInitiative();
+    }
+
     function emptyStatblock(name) { return { name: name, size: 1, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] }; }
     
     function getCombatantSizeById(id) {
@@ -752,7 +834,12 @@
             if (SB_SECTION_TITLE.test(m.trim())) movesHtml += `<div class="sb-section-title">${escapeHtml(m)}</div>`;
             else {
                 let isTelegraph = m.toLowerCase().startsWith('telegrafo:');
-                if (isTelegraph) { movesHtml += `<div class="sb-telegraph">${escapeHtml(m)}</div>`; } else { const match = m.match(/^(.+?[\.\—\-])( .*)?$/); if (match) movesHtml += `<div class="sb-move"><strong>${escapeHtml(match[1])}</strong>${escapeHtml(match[2] || "")}</div>`; else movesHtml += `<div class="sb-move">${escapeHtml(m)}</div>`; }
+                // Una mossa che contiene CA e PF descrive uno adds evocato: le si affianca il pulsante che
+                // lo mette sul tabellone. L'indice punta alla mossa dentro la scheda, non al suo testo.
+                // Mai il pulsante su una scheda GENERATA da un altro sgherro: la sua descrizione
+                // contiene CA e PF, quindi si evocherebbe all'infinito.
+                const spawn = (!activeSb.spawned && moveHasMinion(m)) ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>` : "";
+                if (isTelegraph) { movesHtml += `<div class="sb-telegraph">${spawn}${escapeHtml(m)}</div>`; } else { const match = m.match(/^(.+?[\.\—\-])( .*)?$/); if (match) movesHtml += `<div class="sb-move">${spawn}<strong>${escapeHtml(match[1])}</strong>${escapeHtml(match[2] || "")}</div>`; else movesHtml += `<div class="sb-move">${spawn}${escapeHtml(m)}</div>`; }
             }
           });
           if (movesHtml) html += `<div>${movesHtml}</div>`; card.innerHTML = html; contentWrap.appendChild(card);

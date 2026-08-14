@@ -1,5 +1,39 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13i — Tracker: gli sgherri evocati si mettono sul tabellone con un clic
+
+Un boss che evoca creature descrive le loro statistiche DENTRO l'abilita', in una capsula come
+`(Imp del Vuoto: Piccola creatura del Vuoto; CA 12; PF 7 (2d6); Vel 6 yalm, volare 6 yalm; Artigli +4
+…)`. Prima andavano ricreate a mano in mezzo allo scontro.
+
+**RILEVAMENTO.** Una mossa che contiene sia `CA <n>` sia `PF <n>` sta descrivendo una CREATURA, non un
+effetto: e' la firma. Su quella riga compare il pulsante, all'inizio.
+
+**COSA SI ESTRAE, E COSA NO.** Solo le quattro cose che servono al tabellone — nome (fra la parentesi e
+i due punti), CA, PF, quanti (la parola prima del nome, in cifre o in lettere). **Il resto resta testo
+opaco**: strutturare l'abilita' sarebbe una scommessa persa, visto che la forma cambia a ogni
+generazione. La descrizione finisce nella scheda dello sgherro, una riga per segmento, per VEDERE cosa
+fa — non per essere interpretata.
+
+**NUMERAZIONE PROGRESSIVA.** Nascono sempre numerati e si riprende dal piu' alto gia' presente: la
+seconda evocazione continua con 3 e 4 invece di creare due omonimi. Senza, sarebbero indistinguibili in
+iniziativa e sulla mappa, e col medesimo colore (che si assegna per nome base).
+
+**NIENTE LOOP.** Una scheda generata porta un contrassegno e non mostra mai il pulsante: la sua stessa
+descrizione contiene CA e PF, quindi ogni sgherro sarebbe stato un generatore di sgherri.
+
+**PULIZIA DELLA DESCRIZIONE.** Via l'involucro `(Nome: …)`, una riga per segmento, e la punteggiatura
+di giunzione tolta a fine riga — anche perche' un punto finale faceva leggere il segmento come 'titolo
+di mossa' e lo stampava in rosa. Due protezioni: si taglia su `, ; .` **solo se non segue una cifra**
+(cosi' `1,5m` e `4 (1d4+2)` restano interi, e gli attacchi non si spezzano a meta'), e la parentesi
+chiusa si rimuove **solo se ce n'e' una in piu' delle aperte** (cosi' `PF 7 (2d6)` sopravvive).
+
+**DUE GUASTI DI SCRITTURA INTERCETTATI PRIMA DEL RILASCIO.** Quattro `` delle regex diventati
+caratteri di backspace reali, e una classe di caratteri chiusa male (`[\]\]`) che lasciava aperto un
+letterale regex — quest'ultima vista da VS Code. Riparate rimuovendo la RegExp costruita da stringa,
+che era la sola parte a richiedere quell'escaping: il conteggio ora usa una ricerca semplice.
+
+
 ## 2026-08-13h — Audit del rumore su tutti i file, flag Eterite 💎, bottino 💰
 
 **AUDIT DEL RUMORE (05, 06, 07, 08, 01).** Il primo conto diceva 7,7% di cronaca in 06. Era sbagliato:
