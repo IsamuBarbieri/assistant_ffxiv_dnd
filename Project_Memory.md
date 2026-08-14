@@ -1211,6 +1211,28 @@ still in the conversation afterwards, the delimited block included, is SPENT DAT
 control layer non e' il colpevole**. Cercare la contraddizione nel RAG, e cercarla proprio nelle sezioni
 che giurano di non occuparsi di quella cosa.
 
+## 2.46 UNA CORRELAZIONE NON E' UNA CAUSA: L'HOST DEL LINK MUSICA (2026-08-13)
+Il 🎵 usciva come testo nudo mentre 🖼️ e 🗺️ erano link. Correlazione notata: le due che reggono
+sono `google.com/search`, quella che cadeva era `music.youtube.com`. **Ho scambiato quella correlazione
+per la causa** e ho cambiato l'host, quando nello stesso turno avevo gia' trovato e riparato la causa
+vera — le parentesi dentro l'etichetta, che consumano le tonde del markdown (v6.26).
+
+**La prova che l'host non c'entrava e' arrivata dal GM in una frase di passaggio:** *«se premo il
+link»*. Il link c'era, era cliccabile, e il suo host era `music.youtube.com`. Quel dominio si
+linkifica benissimo.
+
+**E la 'riparazione' ha creato un guasto nuovo.** Per compensare l'host avevo messo le parole
+`youtube music` dentro la query; il modello le ha lette come destinazione e **ha ricostruito l'host da
+quelle parole**, producendo `music.youtube.com/search?q=youtube+music+FFXIV+OST+...` — host vecchio,
+query nuova. E' [2.9] un'altra volta: nominare un servizio accanto a un URL fa scrivere quel servizio
+nell'URL.
+
+**Due regole da portarsi dietro.**
+1. Quando in un turno si trova una causa DIMOSTRATA e una correlazione plausibile, si ripara la prima e
+   **si misura prima di toccare la seconda**. Avevo la spiegazione completa e ho cambiato due cose.
+2. Un URL non contiene mai il nome del servizio a cui punta dentro i parametri: il modello lo promuove
+   ad host. Il dominio si scrive una volta, e la query porta solo i termini di ricerca.
+
 ## 2.42 L'ORDINE DEI COMANDI: SI SCRIVE IL PRINCIPIO, NON SI RIMESCOLA LA LISTA (2026-08-12)
 Valutato se dare ai tre roster un ordine esplicito. **No**, tranne un caso.
 

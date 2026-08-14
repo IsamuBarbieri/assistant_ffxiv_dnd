@@ -1,5 +1,23 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13f — Ripristinato l'URL originale della musica: l'host non era il problema
+
+**Ritrattazione della voce precedente.** Il 🎵 usciva nudo per via delle PARENTESI nell'etichetta
+(v6.26), non per l'host. La prova e' nella segnalazione del GM: *«se premo il link»* — il link c'era ed
+era cliccabile con host `music.youtube.com`, quindi quel dominio su Gem funziona.
+
+Peggio: mettendo `youtube music` dentro la query per compensare, il modello ha letto quelle parole come
+destinazione e **ha ricostruito l'host da esse**, restituendo
+`music.youtube.com/search?q=youtube+music+FFXIV+OST+To+the+Sun` — host vecchio e query ridondante che
+sporca la ricerca una volta arrivati.
+
+Ripristinato `https://music.youtube.com/search?q=FFXIV+OST+<track>` nei quattro punti. §A23 ora dice
+esplicitamente che **la query non nomina mai il servizio**: nominarlo fa costruire l'host da quelle
+parole invece che copiarlo. PM 2.46.
+
+06 v6.31 · cv111 / lv40 / ov60.
+
+
 ## 2026-08-13e — Il link musica passa da music.youtube.com a una ricerca Google che punta a YouTube Music
 
 Su Gemini il 🎵 continuava a uscire come testo nudo mentre 🖼️ e 🗺️ erano link corretti. La
