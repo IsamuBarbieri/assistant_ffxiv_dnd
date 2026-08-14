@@ -424,13 +424,7 @@
             e.preventDefault();
             const cur = obj.size || 1;
             const next = Math.max(1, Math.min(4, cur + (e.key === 'ArrowUp' ? 1 : -1)));
-            if (next === cur) return;
-            // L'ancora e' l'angolo in alto a sinistra: se crescendo esce dalla mappa, si rientra
-            // spostando l'oggetto invece di rifiutare il ridimensionamento.
-            obj.size = next;
-            obj.x = Math.max(0, Math.min(obj.x, encR.mapData.w - next));
-            obj.y = Math.max(0, Math.min(obj.y, encR.mapData.h - next));
-            renderVisualMap();
+            if (resizeFeature(encR.mapData, obj, next)) renderVisualMap();
         });
     }
 
@@ -727,6 +721,66 @@
     }
 
     function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    // ---- OCCUPAZIONE DEGLI ELEMENTI ----------------------------------------------------------
+    // Un elemento di taglia N ancora l'angolo in alto a sinistra e copre N x N celle.
+    function featureCells(f) {
+      const s = f.size || 1, out = [];
+      for (let dy = 0; dy < s; dy++) for (let dx = 0; dx < s; dx++) out.push({ x: f.x + dx, y: f.y + dy });
+      return out;
+    }
+
+    // Dentro la mappa e calpestabile. Le mappe salvate senza griglia contano come tutto pavimento.
+    function cellIsFloor(data, x, y) {
+      if (x < 0 || y < 0 || x >= data.w || y >= data.h) return false;
+      if (!data.grid || !data.grid[y]) return true;
+      return data.grid[y][x] === 'floor';
+    }
+
+    // Porta l'elemento alla taglia richiesta.
+    // Rimpicciolire non ha vincoli. Per ingrandire cerca un ancoraggio che CONTENGA la posizione
+    // attuale e sia libero, preferendo quello che sposta meno l'oggetto: cosi' l'icona 'scala dove
+    // c'e' posto'. Se ogni ancoraggio e' bloccato ritenta permettendo di INGLOBARE i soli elementi
+    // dello STESSO tipo, che vengono rimossi. Se nemmeno cosi' entra, non scala e restituisce false.
+    function resizeFeature(data, obj, target) {
+      const cur = obj.size || 1;
+      if (target < 1 || target > 4 || target === cur) return false;
+      if (target < cur) { obj.size = target; return true; }
+
+      const others = data.placedFeatures.filter(f => f.uid !== obj.uid);
+      const anchors = [];
+      for (let ax = obj.x - (target - cur); ax <= obj.x; ax++)
+        for (let ay = obj.y - (target - cur); ay <= obj.y; ay++) anchors.push({ x: ax, y: ay });
+      anchors.sort((a, b) => (Math.abs(a.x - obj.x) + Math.abs(a.y - obj.y)) - (Math.abs(b.x - obj.x) + Math.abs(b.y - obj.y)));
+
+      const tryAnchor = (a, absorb) => {
+        const wanted = new Set();
+        for (let dy = 0; dy < target; dy++) for (let dx = 0; dx < target; dx++) {
+          if (!cellIsFloor(data, a.x + dx, a.y + dy)) return null;
+          wanted.add((a.x + dx) + ',' + (a.y + dy));
+        }
+        const hit = others.filter(f => featureCells(f).some(c => wanted.has(c.x + ',' + c.y)));
+        if (!hit.length) return [];
+        if (!absorb) return null;
+        if (hit.some(f => f.item.name !== obj.item.name)) return null;
+        return hit;
+      };
+
+      for (const absorb of [false, true]) {
+        for (const a of anchors) {
+          const eaten = tryAnchor(a, absorb);
+          if (eaten === null) continue;
+          if (eaten.length) {
+            const gone = new Set(eaten.map(f => f.uid));
+            data.placedFeatures = data.placedFeatures.filter(f => !gone.has(f.uid));
+            eaten.forEach(f => selectedFeatureUids.delete(f.uid));
+          }
+          obj.x = a.x; obj.y = a.y; obj.size = target;
+          return true;
+        }
+      }
+      return false;
+    }
 
     function featureProfile(feat) {
       const n = feat.name;

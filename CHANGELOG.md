@@ -1,5 +1,27 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13c — Tracker: il ridimensionamento occupa celle vere
+
+Il passo precedente cambiava solo il DISEGNO dell'icona: un carro 2×2 si vedeva grande ma il motore
+ragionava sulla sola cella d'ancoraggio, e un altro elemento poteva finirgli sotto. Ora l'occupazione
+e' reale.
+
+**Tre funzioni nuove.** `featureCells(f)` restituisce le N×N celle coperte; `cellIsFloor(data,x,y)`
+dice se una cella e' dentro la mappa e calpestabile (le mappe salvate senza griglia contano come tutto
+pavimento, cosi' i vecchi incontri continuano a funzionare); `resizeFeature(data,obj,target)` fa il
+lavoro.
+
+**Come sceglie dove crescere.** Rimpicciolire non ha vincoli. Per ingrandire genera tutti gli
+ancoraggi che CONTENGONO la posizione attuale, li ordina per quanto poco spostano l'oggetto e prende
+il primo interamente libero: e' il «scala dove c'e' posto». Se ogni ancoraggio e' bloccato, **ritenta
+una seconda passata in cui puo' INGLOBARE gli elementi confinanti, ma solo se sono dello STESSO tipo**
+— quelli inglobati vengono rimossi dalla mappa e dalla selezione. Se non entra nemmeno cosi', non
+scala: la freccia non fa nulla e la mappa non viene ridisegnata.
+
+Restano ancorati alla sola cella d'origine il trascinamento e la selezione multipla: li' l'occupazione
+estesa non e' stata toccata.
+
+
 ## 2026-08-13b — Il save non registra piu' un incarico solo annunciato; tracker: carro singolo e icone scalabili
 
 **IL BUCO NEL SAVE (il piu' grave: perdeva trama).** Il beat chiudeva su Warin che dice *«ho un vero
