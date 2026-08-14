@@ -1,5 +1,45 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13d — Tracker: elementi con impronta vera, selezione e animazione a posto
+
+Rifinitura in piu' passaggi, tutta provata al tavolo dal GM.
+
+**I sei carri, causa vera.** Non bastava il profilo: esiste una TERZA passata, la *decor pass*, che dopo
+il giro tattico semina copie lungo i bordi pescando **a caso** da `sparsi`, senza guardare ne' il
+numero grammaticale ne' il profilo. Ora lavora su un `decorPool` che esclude gli elementi singolari.
+
+**Sovrapposizioni.** `put()` marcava UNA cella anche per un elemento 2×2, quindi il generatore posava
+altro sotto il carro. Ora prenota l'intera impronta, e il nuovo `freeFootprint()` verifica tutte le
+celle PRIMA di scegliere il punto — sia nel giro tattico sia nella decor pass.
+
+**Impronta nativa ovunque:** trascinamento singolo, trascinamento di gruppo, copia con Ctrl e aggiunta
+dalla legenda ragionano tutti su N×N. Lo scambio di posto per trascinamento avviene solo fra elementi
+di taglia UGUALE (con taglie diverse lascerebbe impronte sovrapposte).
+
+**Selezione.** Clic semplice seleziona (e azzera il resto), ri-clic deseleziona, Shift+clic somma. Dopo
+un trascinamento la selezione si azzera **solo se il trascinato non era selezionato**: se stavi
+muovendo cio' che avevi scelto, resta selezionato.
+
+**Animazione.** Partiva dalla posizione d'origine, quindi dopo lo snap l'icona rifaceva tutto il
+tragitto gia' percorso col mouse. Ora parte dalla cella di **rilascio**: l'animazione e' solo la
+correzione dello snap. Vale per elemento singolo, gruppo e pedine (queste ultime tenendo conto
+dell'offset di presa).
+
+**Ridimensionamento (↑/↓), anche in multi-selezione.** Rimpicciolire e' sempre lecito; ingrandire cerca
+un ancoraggio libero che contenga la posizione attuale, e se sono tutti bloccati ritenta inglobando i
+confinanti **solo se dello stesso tipo**. In gruppo: ordine dai piu' piccoli quando si rimpicciolisce e
+dai piu' grandi quando si ingrandisce, cosi' chi cresce trova lo spazio liberato da chi si e' ristretto;
+e i fratelli selezionati non si inglobano a vicenda.
+
+**Accostamento.** Rimpicciolendo, l'ancora fissa in alto a sinistra allontanava di una cella due
+elementi che erano attaccati. Ora si sceglie, dentro la vecchia impronta, la posizione piu' vicina al
+riferimento — e il riferimento sono **PRIMA i compagni di selezione**, poi (se l'elemento e' solo) cio'
+che ha intorno.
+
+**Memoria della posizione.** Un elemento da solo che torna alla taglia di partenza torna anche al punto
+di partenza, se quel posto e' ancora libero. La memoria e' legata alla selezione e si azzera cambiandola.
+
+
 ## 2026-08-13c — Tracker: il ridimensionamento occupa celle vere
 
 Il passo precedente cambiava solo il DISEGNO dell'icona: un carro 2×2 si vedeva grande ma il motore

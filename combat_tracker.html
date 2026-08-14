@@ -386,6 +386,9 @@
     let activeStatblockIndex = 0;
     let catalogOpen = false;
     let selectedFeatureUids = new Set();
+    // Dove stava un elemento prima di iniziare a scalarlo, per rimetterlo li' quando torna alla
+    // taglia di partenza. La memoria vale per UNA selezione: cambiarla la azzera.
+    let resizeMemory = { key: '', items: {} };
     let editingStatblockIndex = null;
 
     window.onload = function() { initResizer(); initTracker(); };
@@ -412,19 +415,33 @@
             if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
             if (!selectedFeatureUids.size) return;
             if (e.key === 'Delete' || e.key === 'Backspace') { e.preventDefault(); deleteSelectedFeatures(); return; }
-            // Freccia su/giu': ridimensiona UNA sola icona fra Media (1) e Mastodontica (4).
-            // Con piu' di un elemento selezionato non si fa nulla: la scala e' per singolo oggetto.
+            // Freccia su/giu': scala fra Media (1) e Mastodontica (4). Funziona anche in multi-selezione:
+            // ogni elemento viene scalato per conto suo, e chi non ha spazio resta com'e'.
             if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
-            if (selectedFeatureUids.size !== 1) return;
             const encR = encountersData[currentEncounterIndex];
             if (!encR || !encR.mapData) return;
-            const uid = [...selectedFeatureUids][0];
-            const obj = encR.mapData.placedFeatures.find(f => f.uid === uid);
-            if (!obj) return;
             e.preventDefault();
-            const cur = obj.size || 1;
-            const next = Math.max(1, Math.min(4, cur + (e.key === 'ArrowUp' ? 1 : -1)));
-            if (resizeFeature(encR.mapData, obj, next)) renderVisualMap();
+            const step = e.key === 'ArrowUp' ? 1 : -1;
+            // Rimpicciolendo si parte dai piu' piccoli, ingrandendo dai piu' grandi: cosi' chi cresce
+            // trova gia' liberato lo spazio di chi si e' ristretto, e l'ordine non falsa il risultato.
+            const picked = encR.mapData.placedFeatures.filter(f => selectedFeatureUids.has(f.uid));
+            const memKey = [...selectedFeatureUids].sort().join('|');
+            if (resizeMemory.key !== memKey) resizeMemory = { key: memKey, items: {} };
+            picked.forEach(f => { if (!resizeMemory.items[f.uid]) resizeMemory.items[f.uid] = { x: f.x, y: f.y, size: f.size || 1 }; });
+            picked.sort((a2, b2) => step > 0 ? (b2.size || 1) - (a2.size || 1) : (a2.size || 1) - (b2.size || 1));
+            let changed = false;
+            picked.forEach(f => { if (resizeFeature(encR.mapData, f, Math.max(1, Math.min(4, (f.size || 1) + step)), selectedFeatureUids)) changed = true; });
+            // Un elemento SOLO che ritorna alla taglia di partenza torna anche al suo posto di partenza,
+            // se nel frattempo non ci si e' messo nulla. In gruppo no: li' comanda la coesione.
+            if (changed && picked.length === 1) {
+                const f = picked[0], mem = resizeMemory.items[f.uid];
+                if (mem && (f.size || 1) === mem.size && (f.x !== mem.x || f.y !== mem.y)
+                    && footprintOnFloor(encR.mapData, mem.x, mem.y, mem.size)
+                    && !featuresOverlapping(encR.mapData, mem.x, mem.y, mem.size, new Set([f.uid])).length) {
+                    f.x = mem.x; f.y = mem.y;
+                }
+            }
+            if (changed) renderVisualMap();
         });
     }
 
@@ -737,15 +754,57 @@
       return data.grid[y][x] === 'floor';
     }
 
+    // L'impronta N x N sta tutta dentro la mappa e su pavimento.
+    function footprintOnFloor(data, x, y, size) {
+      for (let dy = 0; dy < size; dy++) for (let dx = 0; dx < size; dx++)
+        if (!cellIsFloor(data, x + dx, y + dy)) return false;
+      return true;
+    }
+
+    // Gli elementi la cui impronta interseca quella richiesta, esclusi gli uid ignorati.
+    function featuresOverlapping(data, x, y, size, ignore) {
+      const wanted = new Set();
+      for (let dy = 0; dy < size; dy++) for (let dx = 0; dx < size; dx++) wanted.add((x + dx) + ',' + (y + dy));
+      return data.placedFeatures.filter(f => !(ignore && ignore.has(f.uid))
+        && featureCells(f).some(c => wanted.has(c.x + ',' + c.y)));
+    }
+
     // Porta l'elemento alla taglia richiesta.
     // Rimpicciolire non ha vincoli. Per ingrandire cerca un ancoraggio che CONTENGA la posizione
     // attuale e sia libero, preferendo quello che sposta meno l'oggetto: cosi' l'icona 'scala dove
     // c'e' posto'. Se ogni ancoraggio e' bloccato ritenta permettendo di INGLOBARE i soli elementi
     // dello STESSO tipo, che vengono rimossi. Se nemmeno cosi' entra, non scala e restituisce false.
-    function resizeFeature(data, obj, target) {
+    function resizeFeature(data, obj, target, protect) {
       const cur = obj.size || 1;
       if (target < 1 || target > 4 || target === cur) return false;
-      if (target < cur) { obj.size = target; return true; }
+      if (target < cur) {
+        // L'ancora in alto a sinistra allontanerebbe due elementi che erano attaccati: scegliamo,
+        // fra le posizioni interne alla vecchia impronta, quella piu' vicina al vicino piu' prossimo.
+        // A cosa ci si accosta: PRIMA i compagni di selezione, perche' il gruppo deve restare coeso.
+        // Solo se questo elemento e' solo si guarda cosa c'e' intorno. ('protect' vieta di INGLOBARE
+        // i fratelli, non di usarli come riferimento.)
+        const others = data.placedFeatures.filter(f => f.uid !== obj.uid);
+        const siblings = protect ? others.filter(f => protect.has(f.uid)) : [];
+        const near = siblings.length ? siblings : others;
+        const cOf = (x, y, s) => ({ x: x + (s - 1) / 2, y: y + (s - 1) / 2 });
+        const reach = cur + 2;
+        let bestX = obj.x, bestY = obj.y, bestD = Infinity;
+        for (let dy = 0; dy <= cur - target; dy++) for (let dx = 0; dx <= cur - target; dx++) {
+          const nx = obj.x + dx, ny = obj.y + dy;
+          if (!footprintOnFloor(data, nx, ny, target)) continue;
+          const c = cOf(nx, ny, target);
+          let d = Infinity;
+          near.forEach(f => {
+            const fc = cOf(f.x, f.y, f.size || 1);
+            const dist = Math.max(Math.abs(fc.x - c.x), Math.abs(fc.y - c.y));
+            if (dist < d) d = dist;
+          });
+          if (d > reach) d = Infinity;            // nessun vicino utile: non ha senso spostarsi
+          if (d < bestD) { bestD = d; bestX = nx; bestY = ny; }
+        }
+        obj.x = bestX; obj.y = bestY; obj.size = target;
+        return true;
+      }
 
       const others = data.placedFeatures.filter(f => f.uid !== obj.uid);
       const anchors = [];
@@ -763,6 +822,9 @@
         if (!hit.length) return [];
         if (!absorb) return null;
         if (hit.some(f => f.item.name !== obj.item.name)) return null;
+        // Non si ingloba mai un elemento che fa parte della stessa selezione: in multi-selezione
+        // significherebbe cancellare un fratello che l'utente sta ridimensionando insieme a questo.
+        if (protect && hit.some(f => protect.has(f.uid))) return null;
         return hit;
       };
 
@@ -1058,9 +1120,18 @@
           return wCount;
       };
       
+      // Un elemento di taglia N prenota tutte le N x N celle: senza questo il generatore
+      // continuava a posare altra roba sotto un carro 2x2, che ne marcava solo una.
       const put = (gid, feat, x, y, size) => {
-          occupied.set(key(x, y), gid);
-          mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_' + Math.random(), size: size || feat.defaultSize || 1 });
+          const s = size || feat.defaultSize || 1;
+          for (let dy = 0; dy < s; dy++) for (let dx = 0; dx < s; dx++) occupied.set(key(x + dx, y + dy), gid);
+          mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_' + Math.random(), size: s });
+      };
+
+      // L'impronta intera e' libera e dentro il pavimento (per gli elementi piu' grandi di una cella).
+      const freeFootprint = (x, y, s) => {
+          for (let dy = 0; dy < s; dy++) for (let dx = 0; dx < s; dx++) if (!isFree(x + dx, y + dy)) return false;
+          return true;
       };
 
       const prof   = el => featureProfile(el.feat);
@@ -1102,13 +1173,14 @@
               // SINGOLARE: il Gem ha scritto 'Carro', non 'Carri' -> una sola istanza sulla mappa.
               if ((el.singular || p.once) && el._done) { elementTurn = (elementTurn + 1) % sparsi.length; continue; }
               const g = gid++;
+              const elSize = el.feat.defaultSize || 1;
               
               let bestPos = null;
               let bestScore = -Infinity;
 
               for (let y = floorBox.y0; y <= floorBox.y1; y++) {
                   for (let x = floorBox.x0; x <= floorBox.x1; x++) {
-                      if (!isFree(x, y)) continue;
+                      if (!freeFootprint(x, y, elSize)) continue;
 
                       const wCount = touchesWall(x, y);
                       const isCover = el.feat.cssType && el.feat.cssType.includes('cover');
@@ -1177,7 +1249,10 @@
       }
 
       // --- 3. EXTRA BUDGET: PERIMETRO E DETRITI (DECOR PASS) ---
-      if (sparsi.length) {
+      // Gli elementi SINGOLARI non entrano qui: questa passata semina copie a caso lungo i bordi,
+      // ed e' la ragione per cui un solo 'Carro' dichiarato ne faceva comparire sei.
+      const decorPool = sparsi.filter(el => !(el.singular || prof(el).once));
+      if (decorPool.length) {
           const decorBudget = Math.floor(floorCount * 0.08); 
           let decorCount = 0;
           const rMax = Math.max(baseW, baseH) / 2;
@@ -1200,8 +1275,8 @@
 
           for (const cell of edgeCells) {
               if (decorCount >= decorBudget || occupied.size >= totalCap) break;
-              if (!isFree(cell.x, cell.y)) continue;
-              const el = sparsi[rand(0, sparsi.length - 1)];
+              const el = decorPool[rand(0, decorPool.length - 1)];
+              if (!freeFootprint(cell.x, cell.y, el.feat.defaultSize || 1)) continue;
               const isCover = el.feat.cssType && el.feat.cssType.includes('cover');
               const p = prof(el);
 
@@ -1338,8 +1413,20 @@
           const cell = document.getElementById(`cell_${obj.x}_${obj.y}`);
           if(cell) {
               const ov = document.createElement('div'); const oSz = obj.size || 1; ov.className = `map-overlay draggable-item size-${oSz} ${obj.item.cssType}` + (selectedFeatureUids.has(obj.uid) ? ' selected' : '');
-              ov.textContent = obj.item.emoji; ov.draggable = true; ov.dataset.uid = obj.uid; ov.title = obj.item.name + (oSz > 1 ? " (" + ["","Media","Grande","Enorme","Mastodontica"][oSz] + ")" : "") + " — Trascina per spostare, Shift+Clic per selezionare, ↑/↓ per ridimensionare, Doppio Clic per eliminare.";
-              ov.onclick = (e) => { if (!e.shiftKey) return; if (selectedFeatureUids.has(obj.uid)) selectedFeatureUids.delete(obj.uid); else selectedFeatureUids.add(obj.uid); renderVisualMap(); };
+              ov.textContent = obj.item.emoji; ov.draggable = true; ov.dataset.uid = obj.uid; ov.title = obj.item.name + (oSz > 1 ? " (" + ["","Media","Grande","Enorme","Mastodontica"][oSz] + ")" : "") + " — Clic per selezionare, Shift+Clic per aggiungere, ↑/↓ per ridimensionare, Trascina per spostare, Doppio Clic per eliminare.";
+              // Clic semplice: seleziona SOLO questo (e deseleziona il resto). Shift+clic: aggiunge o toglie.
+              ov.onclick = (e) => {
+                  e.stopPropagation();
+                  if (e.shiftKey) {
+                      if (selectedFeatureUids.has(obj.uid)) selectedFeatureUids.delete(obj.uid);
+                      else selectedFeatureUids.add(obj.uid);
+                  } else {
+                      const onlyThis = selectedFeatureUids.size === 1 && selectedFeatureUids.has(obj.uid);
+                      selectedFeatureUids.clear();
+                      if (!onlyThis) selectedFeatureUids.add(obj.uid);
+                  }
+                  renderVisualMap();
+              };
               ov.ondragstart = (e) => { e.dataTransfer.setData('uid', obj.uid); const isGroup = selectedFeatureUids.size > 1 && selectedFeatureUids.has(obj.uid); if (isGroup) buildGroupDragImage(e, data, obj); setTimeout(() => { if (isGroup) document.querySelectorAll('.map-overlay.selected').forEach(el => el.style.opacity = '0.4'); else ov.style.opacity = '0.4'; }, 0); };
               ov.ondragend = () => document.querySelectorAll('.map-overlay').forEach(el => el.style.opacity = '1');
               ov.ondblclick = () => { data.placedFeatures = data.placedFeatures.filter(f => f.uid !== obj.uid); renderVisualMap(); };
@@ -1370,7 +1457,7 @@
           }
       });
 
-      const hint = document.createElement('div'); hint.style.cssText = "color:var(--text-muted); font-size:0.75rem; margin-bottom:8px; line-height:1.5;"; hint.textContent = selectedFeatureUids.size ? `Trascina per spostare, Ctrl o Shift + trascina per copiare, Canc per eliminare.` : "Trascina un riquadro sul vuoto per selezionare più elementi (Shift somma)."; legendContainer.appendChild(hint);
+      const hint = document.createElement('div'); hint.style.cssText = "color:var(--text-muted); font-size:0.75rem; margin-bottom:8px; line-height:1.5;"; hint.textContent = selectedFeatureUids.size ? `↑/↓ ridimensiona · trascina per spostare · Ctrl o Shift + trascina per copiare · Canc per eliminare.` : "Clic su un elemento per selezionarlo, Shift+clic per aggiungerne. Trascina un riquadro sul vuoto per selezionarne più di uno."; legendContainer.appendChild(hint);
 
       let hasActive = false; let activeTitle = document.createElement('div'); activeTitle.className = 'legend-section-title'; activeTitle.textContent = "Elementi in Mappa"; legendContainer.appendChild(activeTitle);
       FeatureCatalog.forEach((feat, index) => { if (data.placedFeatures.some(f => f.item.name === feat.name)) { hasActive = true; legendContainer.appendChild(createLegendItem(feat, index)); } });
@@ -1419,6 +1506,29 @@
         document.querySelectorAll('.draggable-item').forEach(el => firstRects[el.dataset.uid || el.dataset.entityId] = el.getBoundingClientRect());
         const wantsCopy = e.ctrlKey || e.shiftKey;
 
+        // L'animazione deve partire da DOVE L'OGGETTO E' STATO LASCIATO, non da dov'era prima:
+        // quando lo snap lo aggiusta di una casella si vedeva ripartire dal punto d'origine,
+        // rifacendo tutto il tragitto che l'utente aveva gia' fatto col mouse.
+        const cellRect = (cx, cy) => {
+            const c = document.getElementById('cell_' + cx + '_' + cy);
+            return c ? c.getBoundingClientRect() : null;
+        };
+        if (uid) {
+            const src = data.placedFeatures.find(o => o.uid === uid);
+            if (src) {
+                const dxC = tgtX - src.x, dyC = tgtY - src.y;
+                const moving = (selectedFeatureUids.size > 1 && selectedFeatureUids.has(uid))
+                    ? data.placedFeatures.filter(f => selectedFeatureUids.has(f.uid))
+                    : [src];
+                moving.forEach(f => { const r = cellRect(f.x + dxC, f.y + dyC); if (r) firstRects[f.uid] = r; });
+            }
+        } else if (entityId) {
+            const ox = parseInt(e.dataTransfer.getData('offset_x')) || 0;
+            const oy = parseInt(e.dataTransfer.getData('offset_y')) || 0;
+            const r = cellRect(tgtX - ox, tgtY - oy);
+            if (r) firstRects[entityId] = r;
+        }
+
         const getNearestValid = (startX, startY, maxR, isValidFn) => {
             if (isValidFn(startX, startY)) return {x: startX, y: startY};
             for (let r = 1; r < maxR; r++) {
@@ -1446,11 +1556,10 @@
                 const group = data.placedFeatures.filter(f => selectedFeatureUids.has(f.uid));
                 const maxR = Math.max(data.w, data.h);
                 
-                const isGroupValid = (dx, dy) => group.every(f => { 
-                    const nx = f.x + dx, ny = f.y + dy; 
-                    if (nx < 0 || ny < 0 || nx >= data.w || ny >= data.h) return false; 
-                    if (!data.grid[ny] || data.grid[ny][nx] === 'wall') return false; 
-                    return !data.placedFeatures.some(o => !selectedFeatureUids.has(o.uid) && o.x === nx && o.y === ny); 
+                const isGroupValid = (dx, dy) => group.every(f => {
+                    const sz = f.size || 1;
+                    if (!footprintOnFloor(data, f.x + dx, f.y + dy, sz)) return false;
+                    return !featuresOverlapping(data, f.x + dx, f.y + dy, sz, selectedFeatureUids).length;
                 });
                 
                 let bestOffset = getNearestValid(targetDx, targetDy, maxR, isGroupValid);
@@ -1458,24 +1567,30 @@
                 if (bestOffset) { 
                     const finalDx = bestOffset.x, finalDy = bestOffset.y;
                     if (wantsCopy) { 
-                        const copies = group.map(f => ({ item: f.item, x: f.x + finalDx, y: f.y + finalDy, uid: 'f_' + Math.random() })); 
+                        const copies = group.map(f => ({ item: f.item, x: f.x + finalDx, y: f.y + finalDy, uid: 'f_' + Math.random(), size: f.size || 1 })); 
                         data.placedFeatures.push(...copies); 
                         selectedFeatureUids = new Set(copies.map(c => c.uid)); 
                     } else group.forEach(f => { f.x += finalDx; f.y += finalDy; }); 
                 }
             } else if(objSrc) {
+                const srcSz = objSrc.size || 1;
+                const mine = new Set([objSrc.uid]);
                 const isFeatureValid = (sx, sy) => {
-                    if (sx < 0 || sy < 0 || sx >= data.w || sy >= data.h) return false;
-                    if (!data.grid[sy] || data.grid[sy][sx] === 'wall') return false;
-                    if (wantsCopy && data.placedFeatures.some(f => f.x === sx && f.y === sy)) return false;
-                    return true;
+                    if (!footprintOnFloor(data, sx, sy, srcSz)) return false;
+                    const hit = featuresOverlapping(data, sx, sy, srcSz, mine);
+                    if (!hit.length) return true;
+                    if (wantsCopy) return false;
+                    // Lo scambio di posto vale solo fra DUE elementi della stessa taglia: con taglie
+                    // diverse lo scambio lascerebbe impronte sovrapposte.
+                    return hit.length === 1 && (hit[0].size || 1) === srcSz;
                 };
                 
                 let best = getNearestValid(tgtX, tgtY, Math.max(data.w, data.h), isFeatureValid);
                 if (best) {
-                    let objTgt = data.placedFeatures.find(f => f.x === best.x && f.y === best.y);
+                    const hit = featuresOverlapping(data, best.x, best.y, srcSz, mine);
+                    const objTgt = hit.length === 1 ? hit[0] : null;
                     if (wantsCopy) { 
-                        if (!objTgt) data.placedFeatures.push({ item: objSrc.item, x: best.x, y: best.y, uid: 'f_' + Math.random() }); 
+                        if (!objTgt) data.placedFeatures.push({ item: objSrc.item, x: best.x, y: best.y, uid: 'f_' + Math.random(), size: srcSz }); 
                     } else { 
                         const oldX = objSrc.x, oldY = objSrc.y; 
                         objSrc.x = best.x; objSrc.y = best.y; 
@@ -1483,6 +1598,10 @@
                     }
                 }
             }
+            // La selezione si azzera solo se il trascinato NON era selezionato: in quel caso il
+            // clic-e-trascina ha cambiato bersaglio. Se invece stavo muovendo proprio cio' che avevo
+            // scelto, la selezione resta, cosi' le frecce continuano ad agire su quello.
+            if (!selectedFeatureUids.has(uid)) selectedFeatureUids.clear();
         } else if (entityId) {
             let entitySrcPos = data.entityPositions[entityId];
             if (entitySrcPos) {
@@ -1516,14 +1635,13 @@
         } else if (newFeatIdx) { 
             let feat = FeatureCatalog[newFeatIdx]; 
             if (feat) { 
+                const newSz = feat.defaultSize || 1;
                 const isNewFeatureValid = (sx, sy) => {
-                    if (sx < 0 || sy < 0 || sx >= data.w || sy >= data.h) return false;
-                    if (!data.grid[sy] || data.grid[sy][sx] === 'wall') return false;
-                    if (data.placedFeatures.some(f => f.x === sx && f.y === sy)) return false;
-                    return true;
+                    if (!footprintOnFloor(data, sx, sy, newSz)) return false;
+                    return !featuresOverlapping(data, sx, sy, newSz, null).length;
                 };
                 let best = getNearestValid(tgtX, tgtY, Math.max(data.w, data.h), isNewFeatureValid);
-                if (best) data.placedFeatures.push({ item: feat, x: best.x, y: best.y, uid: 'f_'+Math.random() }); 
+                if (best) data.placedFeatures.push({ item: feat, x: best.x, y: best.y, uid: 'f_'+Math.random(), size: newSz }); 
             }
         } else return;
 
