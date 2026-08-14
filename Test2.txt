@@ -1,0 +1,358 @@
+/carica
+
+=== SAVE ===
+
+Sessione: 1
+
+[A] POSIZIONE MSQ
+
+- Missione MSQ corrente (EN): Coming to Ul'dah
+
+- Ultimo step completato: parlato con Momodi per l'iscrizione alla Gilda degli Avventurieri
+
+[B] PARTY
+
+- Numero PG: 4
+
+- Livello: 1
+
+[C] SUBQUEST ATTIVA
+
+- Subquest attiva: nessuna
+
+=== FINE SAVE ===
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Save caricato: Sessione: 1 · Numero PG: 4 · Livello: 1
+Il gruppo si trova a Ul'dah, all'interno della locanda Le Sabbie Mobili, dopo essersi iscritto alla Gilda degli Avventurieri tramite la proprietaria Momodi.
+Prossimo step wiki: parlare con Momodi per completare l'orientamento cittadino in Close to Home (Ul'dah).
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Close to Home (Ul'dah)] (Esplorazione · ~15-20 min)
+🎵 Musica (Giorno): A New Hope
+🎵 Musica (Notte): Sultana Dreaming
+
+🖼️ Immagine: Ul'dah
+
+Da leggere ai PG:
+Il profumo di spezie, carne arrostita e incensi esotici riempie la locanda de Le Sabbie Mobili. L'atmosfera è vibrante, carica delle voci di mercanti e avventurieri da ogni angolo di Eorzea che contrattano o festeggiano. Dietro il bancone in legno scuro, Momodi vi sorride con fare scaltro, asciugando metodicamente un boccale. Siete ufficialmente registrati alla Gilda degli Avventurieri, ma la città è un dedalo di pietra e sabbia in cui i novellini rischiano di farsi spennare al primo incrocio.
+
+🖼️ Immagine: Momodi
+
+Dialogo e Interazione:
+"Benvenuti in famiglia, ragazzi," esclama la Lalafell Dunagialla, appoggiando i pugni sui fianchi. "Ma prima di farvi divorare nel deserto, dovete imparare a muovervi in città. Vi ho preparato un piccolo giro turistico. Tre tappe fondamentali per chiunque voglia sopravvivere a Ul'dah."
+
+Prima tappa - L'Eterite: "Uscite da qui e andate alla Piazza dell'Eterite, nel Foro di Nald. È quel cristallo gigante azzurro. Sintonizzatevi; vi salverà la vita quando avrete bisogno di un ritorno rapido."
+
+Seconda tappa - I Mercati: "Scendete al Pozzo di Thal e cercate la Via degli Zaffiri. Andate da Seseroga, vi spiegherà come funziona il mercato qui... sempre che riusciate a sopportare il suo umore."
+
+Terza tappa - La Gilda: "Infine, visitate la Gilda dei Gladiatori, giù al Colosseo. Anche se sapete già combattere o usate le arti magiche, è bene sapere dove far affilare le lame o cercare commilitoni."
+
+Risposte alle vostre domande:
+
+Se le chiedono di Seseroga: "È un Lalafell che non sorride dal giorno in cui è nato. Ascoltate bene quello che vi dice, perché le regole del commercio sono la vera legge di questa città."
+
+Se chiedono dei pericoli in città: "Non fidatevi di nessuno senza contare le monete due volte. E tenetevi alla larga dai debiti, o finirete a spazzare le arene del Colosseo per pagarli."
+
+Il giro della città:
+Seguendo le indicazioni di Momodi, vi aprite la strada attraverso la folla.
+Toccate l'imponente Eterite pulsante al Foro di Nald, sentendo l'immediata connessione eterica scivolarvi sottopelle. Vi spostate poi nel livello inferiore, il Pozzo di Thal, venendo assaliti dai richiami dei venditori lungo la Via degli Zaffiri; lì, l'impiegato Seseroga vi fa una ramanzina serrata e priva di fronzoli su come non farsi truffare dai mercanti disonesti. Infine, vi affacciate ai bordi del Colosseo, dove il clangore metallico e le urla di incitamento della Gilda dei Gladiatori vi confermano che Ul'dah apprezza lo spettacolo del sangue quasi quanto l'oro.
+
+Ritorno e nuovo incarico:
+Quando tornate a Le Sabbie Mobili, Momodi vi accoglie con un cenno di approvazione.
+"Vedo che non vi siete persi e avete ancora tutti i vostri Gil," ride. "Ottimo. Siete ufficialmente cittadini di Ul'dah, per quanto mi riguarda. E visto che siete pronti..." Abbassa la voce, facendosi più seria e sporgendosi oltre il bancone. "...Papashan, il capo stazione allo Scalo Merci, ha bisogno di avventurieri capaci per la ricostruzione fuori dalle mura. Cercatelo, è un ottimo inizio per farvi un nome."
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+[Info GM] chiude Close to Home (Ul'dah); apre We Must Rebuild; prossimo step wiki: parlare con Papashan allo Scalo Merci.
+⏭️ Tratto connettivo: da We Must Rebuild a Nothing to See Here — 2 quest condensabili, poi si gioca Underneath the Sultantree (~15 min giocate / ~5 riassunte)
+— Fine parte 1 —
+
+/riassumi
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Ponte narrativo: We Must Rebuild → Underneath the Sultantree]
+(Ponte narrativo 2 tappe + Scontro/Rivelazione · ~25 min)
+
+🗺️ Mappa: Central Thanalan
+
+Lasciate le affollate strade di Ul'dah uscendo dal Cancello di Nald e vi dirigete verso lo Scalo Merci (Dispatch Yard) nel Thanalan Centrale. Qui incontrate il mastro di stazione Papashan, un anziano Lalafell che vi accoglie calorosamente tra i lavoratori della ferrovia, ben felice di avere nuovi avventurieri a cui affidare qualche compito per sveltire le operazioni.
+
+Su sua richiesta, trascorrete le ore successive prestando assistenza ai Paladini giurati (Sultansworn) di guardia, tra cui il capitano Owyne. Svolgete ronde, controllate i carichi in partenza e vi abituate alle dinamiche e ai pericoli della landa appena fuori dalle mura della città, dimostrando la vostra affidabilità alla milizia locale.
+
+L'atmosfera tranquilla del lavoro si spezza però quando Papashan vi corre incontro visibilmente allarmato. Una giovane e testarda nobildonna di nome Lilira è sgattaiolata via dalle sue guardie del corpo e si è diretta verso un imponente albero secolare poco distante, noto come l'Albero della Sultana, un luogo in cui recentemente si sono avvertite strane presenze.
+
+Vi precipitate sul posto. Sotto le immense fronde dell'albero trovate la ragazza circondata da un'aura oscura: creature del Vuoto stanno emergendo dal terreno per ghermirla. Prima che possiate fare un passo, un giovane Hyur dai capelli chiari atterra elegantemente tra lei e i mostri, scagliando un pugnale per respingerli.
+"Un po' troppo cresciuti per prendervela con una fanciulla, non trovate?" esclama l'uomo, per poi farvi un cenno con il capo. "Io tengo a bada il grosso del branco. Voi copritemi le spalle!"
+
+🖼️ Immagine: Sultantree
+🎵 Musica: The Land Burns
+
+Pacchetto Incontro: L'Albero della Sultana
+Difficoltà: Facile
+
+Innesco: I voidsent emergono dalle ombre attorno al tronco per attaccare Lilira e il vostro gruppo.
+
+Nemici: Bogy (Voidsent minore) ×3
+
+Da leggere ai PG:
+Il sole del Thanalan sembra oscurarsi sotto la chioma del massiccio albero secolare. Dal terreno sabbioso e tra le rocce affioranti emergono spiriti avvolti in sudari laceri, con un unico occhio malevolo che fissa la giovane Lilira. Mentre il misterioso straniero ingaggia un gruppo di creature ai margini della radura, tre di questi spettri puntano dritti verso di voi, allungando artigli d'ombra.
+
+Arena
+Tipo: Spazio Aperto
+Dimensioni: 15 × 15
+Elementi:
+
+Albero
+
+Rocce
+
+Tattica: I Bogy sono creature fragili ma letali in mischia; cercheranno di raggrupparsi sul bersaglio più vicino. Thancred combatte sullo sfondo (non partecipa meccanicamente alle vostre statistiche).
+
+🖼️ Immagine: Bogy
+
+Bogy (Voidsent minore) — Piccola · CA 12 · PF 9 (2d6+2) · Vel 6 yalm
+FOR 8 (-1) · DES 14 (+2) · COS 12 (+1) · INT 6 (-2) · SAG 10 (+0) · CAR 6 (-2)
+
+Vulnerabilità: radiante
+Immunità: veleno (danni) · avvelenato (condizione)
+Sensi: scurovisione 12 yalm, Percezione passiva 10
+GdS 1/8
+
+Descrizione visiva: uno spirito fluttuante avvolto in brandelli di stoffa scura, con un occhio singolo e malevolo che brilla nell'ombra.
+
+Tratti
+Natura Abissale. Il Bogy non necessita di aria, cibo, bevande o sonno.
+
+Azioni
+Tocco Oscuro. Mischia: +4, portata 1 yalm, un bersaglio. Colpito: 5 (1d6+2) danni necrotici.
+
+Bottino
+Bottino: 40 gil; oggetto: 1 Pozione (Cura 2d4+2 PV).
+
+Non appena l'ultimo spirito si dissolve in nebbia oscura, cala il silenzio. Il giovane Hyur rinfodera i pugnali e si avvicina a voi, ma prima che possa parlare, uno di voi nota un piccolo cristallo scuro caduto dai resti di un mostro. Nel momento in cui lo sfiorate, il mondo intero si ferma.
+
+🎵 Musica: Prelude - Rebirth
+
+[VISIONE DELL'ECO]
+I mostri caduti, la ragazza, lo straniero: ogni cosa si congela nel tempo. Una luce accecante, calda e dorata, vi avvolge tutti contemporaneamente. Vi ritrovate a fluttuare insieme in uno spazio infinito senza cielo né terra, dominato da un colossale e scintillante Cristallo Madre.
+⚠️ reveal protetto: la natura dell'entità e l'origine dell'Eco restano celate.
+
+Una voce materna e onnipresente risuona nelle menti di tutto il gruppo all'unisono.
+"Ascoltate... Percepite... Pensate..."
+"Io sono Hydaelyn. Il tutto fatto uno. Un tempo c'era una Luce che splendeva in questo reame... ma da allora si è affievolita."
+"Il potere di bandire l'Oscurità dimora nei Cristalli di Luce. Mettetevi in viaggio e reclamateli."
+
+La visione svanisce in un lampo. Il fruscio del vento e il respiro dei vostri compagni tornano all'improvviso. State ansimando, e lo straniero vi fissa con un'espressione indecifrabile.
+"Quello sguardo assente..." mormora, incrociando le braccia. "Non dirmi che possedete l'Eco. Davvero molto interessante." Fa un leggero inchino. "Il mio nome è Thancred, a proposito. Sembra che siamo arrivati appena in tempo."
+
+🖼️ Immagine: Thancred Waters
+
+Poco dopo, Papashan arriva di corsa, scortato da un nutrito gruppo di Paladini giurati. Il vecchio mastro di stazione è sollevato nel vedere Lilira illesa e vi ringrazia profusamente per il vostro tempestivo intervento.
+Mentre le guardie scortano la nobildonna al sicuro, Papashan vi consiglia di tornare a Ul'dah e riferire l'accaduto a Momodi, poiché il vostro aiuto merita di essere riconosciuto ufficialmente. Thancred vi saluta con un cenno misterioso, allontanandosi da solo nel deserto.
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+[Info GM] chiude We Must Rebuild · Nothing to See Here · Underneath the Sultantree; apre Step Nine; prossimo step wiki: parlare con Momodi a Ul'dah.
+⏭️ Tratto connettivo: da Step Nine a Out of House and Home — 3 quest condensabili, poi si gioca Way Down in the Hole (~15 min giocate / ~5 riassunte)
+— Fine parte 1 —
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Step Nine] (Scena social · ~10-15 min)
+🎵 Musica: Another Round
+🖼️ Immagine: Le Sabbie Mobili
+
+Da leggere ai PG:
+Rientrate a Ul'dah attraverso l'imponente Cancello di Nald, lasciandovi alle spalle le sabbie roventi del Thanalan Centrale. Il vocio della città vi riavvolge non appena varcate la soglia de Le Sabbie Mobili: il profumo di spezie, vino e arrosto vi accoglie insieme al consueto trambusto di mercanti e soldati di ventura. Dietro il bancone in legno scuro, Momodi vi scorge subito tra la folla, interrompe ciò che sta facendo e vi fa un cenno energetico con la mano, invitandovi ad avvicinarvi.
+
+🖼️ Immagine: Momodi
+
+Dialogo e Interazione:
+"Siete tornati tutti interi, ragazzi!" esclama la Lalafell con un ampio sorriso di sollievo, appoggiando i gomiti sul bancone. "Papashan mi ha inviato un messaggio rapido tramite un corriere dello Scalo Merci. Mi ha raccontato dell'attacco all'Albero della Sultana e di come avete protetto la giovane Lilira prima che quelle abominevoli ombre la ghermissero."
+
+Abbassa leggermente la voce, sporgendosi in avanti con fare confidenziale:
+"E mi ha accennato anche a quel giovanotto dai capelli d'argento... Thancred. Un tipo singolare, non c'è che dire. Dice di essere uno studioso di passaggio, ma si muove con la grazia di un assassino e la parlantina di un politico. Tenetelo d'occhio se lo rincontrate: a Ul'dah chi sa fare troppe cose bene nasconde sempre qualcosa."
+
+Vi squadra dall'alto in basso con fare approvante, poi fa scivolare sul bancone un sacchetto di pelle tintinnante e un piccolo attestato di merito recante il sigillo della Gilda:
+"Avete dimostrato di non essere i soliti novellini pronti a farsi spennare al primo incrocio. Vi siete guadagnati la fiducia della Gilda e la gratitudine personale di Papashan. Ecco la vostra ricompensa ufficiale per l'assistenza prestata fuori dalle mura."
+
+Risposte alle vostre domande:
+
+Se chiedete di Lilira: Momodi vi strizza l'occhio con un sorriso furbo. "È una ragazza testarda e protetta ben oltre quello che dà a vedere. Diciamo solo che ha amici in posizioni molto, molto in alto qui a Ul'dah. Averla tirata fuori dai guai vi ha fatto guadagnare un credito prezioso, credetemi."
+
+Se chiedete di Thancred: "Gira spesso per il Thanalan ultimamente. Si interessa alle anomalie eteriche e ai movimenti delle tribù Amalj'aa. Non è iscritto ufficialmente alla nostra sede, ma collabora volentieri con chiunque gli offra informazioni utili."
+
+Se chiedete dei prossimi incarichi: "Ora che avete dimostrato il vostro valore, è tempo di allargare il giro. Ci sono mercanti alla Via degli Zaffiri che cercano scorte affidabili e segnalazioni di disordini lungo le rotte del Thanalan Occidentale. Parlate con Seseroga ai mercati se volete mettere a frutto il vostro nome."
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+[Info GM] chiude Step Nine; apre Prudence at This Junction; prossimo step wiki: parlare con Seseroga alla Via degli Zaffiri.
+⏭️ Tratto connettivo: da Prudence at This Junction a Out of House and Home — 2 quest condensabili, poi si gioca Way Down in the Hole (~15 min giocate / ~5 riassunte)
+— Fine parte 1 —
+
+/voci
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Tra i tavoli de Le Sabbie Mobili il vocio è fitto. Potete scambiare quattro chiacchiere con Momodi dietro il bancone, origliare le conversazioni dei mercanti della Via degli Zaffiri o parlare con gli avventurieri di passaggio.
+
+PROVA: Raccogliere informazioni a Le Sabbie Mobili
+
+Abilità applicabili: Persuasione (per interrogar l'oste o i clienti), Indagare (per cogliere dettagli nelle conversazioni altrui), Intuizione (per valutare l'affidabilità delle soffiate).
+
+CD Facile (10): Un avventuriero stanco al bancone mormora: «Se cercate lavoro pulito, restate vicini alla Gilda. Fuori dalle mura i mostri sono il problema minore: sono i briganti e le pattuglie disoneste delle Lame d'Ottone che vi spennano prima ancora di estrarre la spada.»
+
+CD Media (15): Momodi vi strizza l'occhio mentre pulisce un boccale: «Seseroga alla Via degli Zaffiri strilla sempre che i borseggiatori rovinano il commercio di Ul'dah, ma la verità è che la milizia chiude un occhio finché il denaro gira nelle casse giuste.»
+
+CD Difficile (20): Un mercante di spezie con l'aria trafelata sussurra al suo socio: «Nel deserto profondo a sud dicono che gli Amalj'aa abbiano radunato le tribù attorno a una titanica entità di puro fuoco... chi si è avvicinato è tornato con lo sguardo spento, privo di ogni volontà.» (seme — non agganciabile ora)
+
+Subquest opzionale (Aggancio):
+
+Nome: La Cassa Scomparsa della Via degli Zaffiri
+
+Committente: Seseroga (impiegato dei mercati alla Via degli Zaffiri, Pozzo di Thal)
+
+Premessa e Obiettivo: Una cassa contenente spezie e tessuti pregiati appena giunti dalla costa è stata sottratta da borseggiatori locali nei vicoli ombrosi vicini al mercato. Seseroga cerca avventurieri disposti a rintracciare i ladri nei vicoli inferiori del Pozzo di Thal e recuperare la merce intatta prima che finisca al mercato nero.
+
+Ricompensa: 100 Gil e 2 Pozioni (Cura 2d4+2 PV).
+
+Per avviare la subquest: /accettiamo. Per proseguire la MSQ: /continua.
+
+/negozio armi
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Mercante: Estelum il Mastro Armaiolo (Hyur Midlander)
+Luogo: Ul'dah, Pozzo di Thal (Via degli Zaffiri)
+Tono: Pragmatico, schietto e affarista; valuta i clienti a colpo d'occhio e non perde tempo in chiacchiere.
+Livello / Rarià: Livello 1 (Rarità oggetti speciali: Non-comune)
+
+Merce di Base (Armi Comuni)
+Spada Lunga / Stocco / Spadone / Maglio / Ascia Bipenne: Prezzo di listino PHB (10–50 Gil).
+
+Spada Corta / Pugnale / Lancia / Bastone Ferrato: Prezzo di listino PHB (2–10 Gil).
+
+Arco Lungo / Arco Corto / Balestra Leggera: Prezzo di listino PHB (25–50 Gil).
+
+Munizioni (20 Frecce / Dardi / Proiettili): 1 Gil.
+
+Servizi
+Affilatura e Riparazione: 2 Gil ad arma (ripristina l'aspetto e cura difetti estetici/minori).
+
+Conversione al Sistema Trigger (Gunblade): 15 Gil (richiede 1 giorno di lavoro).
+
+Oggetti Speciali per Ruolo (Armi Magiche)
+Tank (Paladino / Guerriero / Cavaliere Oscuro / Incursore):
+Gladius dell'Avvertimento — Arma (spada lunga) · Non-comune · 250 Gil
+Effetto: Concede +1 ai tiri per colpire e ai danni. Finché è impugnata, concede vantaggio ai tiri di Iniziativa a chi la impugna e agli alleati entro 3 yalm (4,5m). Chi la impugna non può essere sorpreso mentre è cosciente. Richiede sintonia.
+
+Healer (Mago Bianco / Astrologo / Saggio / Studioso):
+Bastone della Benedizione Eterica — Arma (bastone ferrato / focus) · Non-comuno · 200 Gil
+Effetto: Può essere usato come focus per incantesimi. Quando lanci un incantesimo di 1° livello o superiore che ripristina punti ferita a una creatura, il bersaglio recupera 1d4 punti ferita supplementari. Inoltre, come azione bonus, puoi conferire 2 punti ferita temporanei a un alleato entro 6 yalm (9m) (fino a 3 volte per riposo lungo). Richiede sintonia.
+
+DPS Fisico Mischia (Monaco / Dragoon / Samurai / Ninja / Mietitore / Vipera):
+Lama della Zanna del Serpente — Arma (spada corta) · Non-comuna · 220 Gil
+Effetto: Concede +1 ai tiri per colpire e ai danni. Una volta per turno, quando colpisci una creatura con quest'arma, infliggi 1d4 danni da veleno supplementari e il bersaglio deve superare un TS su Costituzione con CD 12 o essere avvelenato fino all'inizio del tuo turno successivo. Richiede sintonia.
+
+DPS Fisico Distanza (Bardo / Artificiere / Danzatore):
+Arco Lungo del Vento Cacciatore — Arma (arco lungo) · Non-comuno · 240 Gil
+Effetto: Concede +1 ai tiri per colpire e ai danni. I tiri per colpire effettuati con quest'arma ignorano la copertura mezza e tre quarti. Una volta per riposo breve, come azione bonus, puoi aumentare la gittata normale dell'arma di 6 yalm (9m) per quel turno. Richiede sintonia.
+
+DPS Magico (Mago Nero / Evocatore / Mago Rosso / Pittomante):
+Verga dell'Aetere Ardente — Arma (verga / focus) · Non-comuna · 230 Gil
+Effetto: Concede +1 ai tiri per colpire con incantesimi e alla CD dei tiri di salvezza degli incantesimi offensivi. Quando lanci un incantesimo che infligge danni da fuoco o da fulmine, aggiungi +2 danni del medesimo tipo al primo bersaglio colpito. Richiede sintonia.
+
+Ciò che NON vende
+Armature magiche o scudi incantati (rimanda agli armaioli della Via degli Zaffiri).
+
+Consumabili alchemici, pozioni e piume di fenice (acquistabili solo dagli apotecari della gilda).
+
+Oggetti Rari, Molto Rari o Reliquie.
+
+Nota GM: Estelum accetta permute di armi usate al 50% del valore di listino. Se i PG gli mostrano materiali o armi recuperate dai mostri fuori città, offre valutazioni oneste ma rigide.
+
+/continua
+
+Campagna - FFXIV D&D
+Gem personalizzato
+[MSQ — Prudence at This Junction] (Scena social · ~10 min)
+🎵 Musica: To the Sun
+🖼️ Immagine: Black Brush Station
+
+Da leggere ai PG:
+Lasciando le imponenti mura di Ul'dah alle vostre spalle, vi inoltrate lungo le aride e assolate strade del Thanalan Centrale. I massicci binari della ferrovia vi guidano fino alla Stazione di Black Brush, un vivace snodo vitale per le miniere della zona gestite dalla compagnia Amajina & Figli. All'ombra del Coffer & Coffin, la polverosa taverna locale all'aperto, il viavai di minatori sudati e mercanti è incessante.
+Mentre vi guardate intorno in cerca di un impiego, il proprietario della taverna, un uomo di nome Roger, vi nota e vi fa cenno di avvicinarvi al suo bancone improvvisato, asciugandosi le mani su uno straccio.
+
+🖼️ Immagine: Roger
+
+Dialogo e Interazione:
+"Ehi, voi! Avete tutta l'aria di essere avventurieri," vi saluta Roger, versando da bere a un minatore. "Ho la sensazione che siate tagliati per imprese ben più grandi che fare i fattorini in città. Gira voce che qui alla Stazione siamo a corto di personale per la sicurezza, e i ragazzi delle Torce di Pietra non hanno un attimo di pace."
+Vi indica un uomo robusto dall'aria severa poco distante, appoggiato a una cassa di minerali. "Andate a parlare con Warin. È un mercenario veterano che recluta gente in gamba per difendere le proprietà della compagnia. Ma vi avverto: non prende novellini sprovveduti."
+
+🖼️ Immagine: Warin
+
+Vi avvicinate a Warin. L'uomo vi inquadra subito con occhio critico, incrociando le robuste braccia sul petto corazzato.
+"Siete in cerca di lavoro? Noi Torce di Pietra siamo mercenari assoldati per tenere liberi i binari dai parassiti, e mi servirebbe decisamente una mano," ringhia, squadrando le vostre armi e le vostre armature pezzo per pezzo. "Ma prima di mandarvi in mezzo a belve feroci, voglio assicurarmi che non vi facciate ammazzare alla prima curva."
+
+L'Ispezione (Roleplay):
+Warin esige che gli dimostriate la qualità del vostro equipaggiamento, richiedendo che siate vestiti in modo appropriato al combattimento e non con semplici abiti da viaggio logori.
+
+Se i PG mostrano equipaggiamento solido, magari sfoggiando i recenti acquisti fatti dai mercanti di Ul'dah: Warin annuisce solennemente. "Bene. Tutto sembra in ordine. Capaci avventurieri come voi sono rari da queste parti, e non voglio che buttiate via la vostra vita per una crepa nella lorica."
+
+Se i PG sembrano trasandati o disorganizzati: "Per tutti e sette gli inferni! Come pensate di sopravvivere ai mostri conciati in questo modo? Sistematevi l'armatura e affilate le armi, poi ne riparliamo. Non avrò la vostra morte sulla coscienza."
+
+Una volta soddisfatto dell'ispezione, il mercenario sospira.
+"Il fato è un'amante volubile, dopotutto, ma almeno siete preparati. Ho dovuto seppellire troppi commilitoni che avevano ignorato un'ammaccatura nell'elmo. Ora che so che fate sul serio... ho un vero incarico per voi."
+
+⚔️ Rif. gruppo: 4 PG · Lv 1
+[Info GM] chiude Prudence at This Junction; apre Out of House and Home; prossimo step wiki: usare il grappolo di minerale d'argento per attirare e uccidere i coblyn.
+— Fine parte 1 —
+
+/salva
+
+Campagna - FFXIV D&D
+Gem personalizzato
+Ancora save: Sessione: 1 · Numero PG: 4 · Livello: 1
+
+[GIOCATO]
+
+Close to Home (Ul'dah) (completata: completato l'orientamento cittadino a Ul'dah e riferito a Momodi)
+
+We Must Rebuild, Nothing to See Here, Underneath the Sultantree (condensate e giocate: scontro con i Voidsent all'Albero della Sultana, primo incontro con Thancred e visione dell'Eco)
+
+Step Nine (completata: riscossa la ricompensa da Momodi a Le Sabbie Mobili)
+
+Prudence at This Junction (completata: raggiunto il Thanalan Centrale ed effettuata l'ispezione dell'equipaggiamento con Warin a Black Brush)
+
+[DA VERIFICARE]
+
+Nessuna incongruenza rilevata.
+
+Ultimo evento giocato: superata l'ispezione dell'equipaggiamento con Warin alla Stazione di Black Brush e ottenuto l'incarico per fermare i coblyn (Prudence at This Junction)
+
+=== SAVE ===
+Sessione: 2
+
+[A] POSIZIONE MSQ
+
+Missione MSQ corrente (EN): Prudence at This Junction
+
+Ultimo step completato: superata l'ispezione dell'equipaggiamento con Warin alla Stazione di Black Brush e ottenuto l'incarico per fermare i coblyn
+
+[B] PARTY
+
+Numero PG: 4
+
+Livello: 1
+
+[C] SUBQUEST ATTIVA
+
+Subquest attiva: nessuna
+=== FINE SAVE ===
+
+Livello 1 (invariato); avanzato [A] da Coming to Ul'dah a Prudence at This Junction; [C] subquest nessuna.

@@ -1,3 +1,4 @@
+Conversazione con Gemini
 /carica
 
 === SAVE ===

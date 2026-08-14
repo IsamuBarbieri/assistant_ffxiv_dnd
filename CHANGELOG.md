@@ -1,5 +1,42 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13b — Il save non registra piu' un incarico solo annunciato; tracker: carro singolo e icone scalabili
+
+**IL BUCO NEL SAVE (il piu' grave: perdeva trama).** Il beat chiudeva su Warin che dice *«ho un vero
+incarico per voi»* — annunciato, non dato — e `/salva` ha scritto *«ottenuto l'incarico per fermare i
+coblyn»*. Al ricaricamento quella scena non si gioca piu'. Il guardrail esisteva gia' ma solo per la
+quest (*[A] = mai una che l'[Info GM] indicava*), non per lo step.
+
+§B24 LAST-PLAYED ECHO ora dice che l'evento e' uno che il testo ha **risolto**, che un incarico
+OFFERTO o PROMESSO non e' un evento compiuto, e che **se l'ultima cosa del beat e' un annuncio lo step
+e' l'evento risolto precedente**. Con la regola di pareggio che il GM ha chiesto: **a parita' si prende
+sempre il piu' arretrato**, perche' i due errori non sono simmetrici — uno step corto costa una
+rilettura, uno step lungo cancella una scena per sempre.
+
+**TRACKER — i sei carri.** `Carro` stava nella riga dei cluster con `groups:[3,7]`: da tre a sette carri
+per una scena che ne stagiona uno. Ora: profilo proprio a gruppo unico, **`Carovana` aggiunta** al
+catalogo, entrambi **Grande (2×2) di default**.
+
+**NUMERO GRAMMATICALE.** Il catalogo porta le due forme (Carro/Carri, Roccia/Rocce, Cassa/Casse,
+Albero/Alberi, Carovana/Carovane...), il parser legge quale ha scritto il Gem, e **il singolare piazza
+esattamente UN elemento** mentre il plurale usa l'algoritmo di sparpagliamento. In 06 la specifica
+`Elementi:` ora chiede di accordare il numero alla prosa.
+
+**ICONE SCALABILI.** Gli elementi hanno un campo `size` e le classi CSS `.map-overlay.size-2/3/4`,
+speculari a quelle che i token dei mostri avevano gia'. Con **una sola** icona selezionata, ↑ e ↓ la
+scalano fra Media e Mastodontica; se crescendo esce dalla mappa rientra spostandosi.
+
+**DUE LACUNE DI GIOCABILITA', trovate confrontando i beat con la forma dei moduli pubblicati:**
+- §A21 RESOLVE-AND-PRINT copriva il bottino dei mostri ma non le ricompense: il test stampava *«vi
+  consegna la ricompensa pattuita in Gil»*, senza numero, e il GM non ha nulla da dare. Ora copre
+  **ogni pagamento che la finzione consegna**.
+- §A18 era 'check ON DEMAND': nessuna regola chiedeva prove dentro una scena giocata, e infatti il giro
+  di Ul'dah aveva tre luoghi, tre PNG e **zero tiri**. §A10 ora chiede almeno una prova per ogni scena
+  non di combattimento con un'intestazione propria.
+
+06 v6.29.
+
+
 ## 2026-08-13 — 06 v6.25: la riga musica usciva senza link perche' il corpus la chiamava 'header'
 
 **Pro e Flash passano, terza run solida.** Unico difetto rimasto: il 🎵 usciva come testo semplice,

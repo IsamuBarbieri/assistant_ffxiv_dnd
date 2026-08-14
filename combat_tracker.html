@@ -179,6 +179,9 @@
     .type-obscuring { background-color: rgba(203, 213, 225, 0.22); border: 1px solid rgba(203, 213, 225, 0.45); box-shadow: inset 0 0 12px rgba(226, 232, 240, 0.25); }
 
     .entity-token { position: absolute; border-radius: 50%; border: 2px solid #ffffff; color: white; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: 2px 4px 6px rgba(0,0,0,0.8); z-index: 10; text-shadow: 1px 1px 2px black; top: 0; left: 0; box-sizing: border-box; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .map-overlay.size-2 { width: calc(200% + 1px); height: calc(200% + 1px); font-size: calc(var(--cell-size) * 1.3); z-index: 2; }
+    .map-overlay.size-3 { width: calc(300% + 2px); height: calc(300% + 2px); font-size: calc(var(--cell-size) * 1.95); z-index: 2; }
+    .map-overlay.size-4 { width: calc(400% + 3px); height: calc(400% + 3px); font-size: calc(var(--cell-size) * 2.6); z-index: 2; }
     .entity-token.size-1 { width: 100%; height: 100%; font-size: calc(var(--cell-size) * 0.55); }
     .entity-token.size-2 { width: calc(200% + 1px); height: calc(200% + 1px); font-size: calc(var(--cell-size) * 1.0); }
     .entity-token.size-3 { width: calc(300% + 2px); height: calc(300% + 2px); font-size: calc(var(--cell-size) * 1.5); }
@@ -333,19 +336,20 @@
 
     const FeatureCatalog = [
       { emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)", manualOnly: 'il perimetro lo disegna il "Tipo". Per una copertura totale in mezzo al campo usa "Pilastro/Colonna"' },
-      { emoji: "♜", name: "Pilastro/Colonna", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
-      { emoji: "🗿", name: "Statua/Altare", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
-      { emoji: "🌲", name: "Albero", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
+      { emoji: "♜", name: "Pilastro/Colonna", alt: "Pilastri/Colonne", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)" },
+      { emoji: "🗿", name: "Statua/Altare", alt: "Statue/Altari", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
+      { emoji: "🌲", name: "Albero", alt: "Alberi", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)" },
       { emoji: "▦", name: "Grata/Cancello", cssType: "type-cover-heavy", effect: "Copertura 3/4 (+5 CA e TS Des)", manualOnly: 'una grata e\' quasi sempre l\'INGRESSO della stanza, non un ostacolo in mezzo al campo: mettila a mano dove serve' },
-      { emoji: "🪨", name: "Rocce", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🧱", name: "Macerie", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "📦", name: "Casse", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🏺", name: "Anfore/Barili", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🪑", name: "Mobili/Tavoli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🪵", name: "Barricata", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🌿", name: "Cespuglio", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🌳", name: "Siepe", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
-      { emoji: "🛒", name: "Carro", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🪨", name: "Rocce", plural: true, alt: "Roccia", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🧱", name: "Macerie", plural: true, cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "📦", name: "Casse", plural: true, alt: "Cassa", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🏺", name: "Anfore/Barili", plural: true, alt: "Anfora/Barile", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🪑", name: "Mobili/Tavoli", plural: true, alt: "Mobile/Tavolo", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🪵", name: "Barricata", alt: "Barricate", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🌿", name: "Cespuglio", alt: "Cespugli", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🌳", name: "Siepe", alt: "Siepi", cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🛒", name: "Carro", alt: "Carri", defaultSize: 2, cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
+      { emoji: "🐫", name: "Carovana", alt: "Carovane", defaultSize: 2, cssType: "type-cover", effect: "Mezza copertura (+2 CA e TS Des)" },
       { emoji: "🔵", name: "Acqua", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
       { emoji: "🟤", name: "Fango", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
       { emoji: "🦠", name: "Muffa", cssType: "type-difficult", effect: "Terreno Difficile (Costo movimento doppio)" },
@@ -405,10 +409,28 @@
         new ResizeObserver(updateMapLayout).observe(document.getElementById('mapPanel'));
 
         document.addEventListener('keydown', (e) => {
-            if (e.key !== 'Delete' && e.key !== 'Backspace') return;
             if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
             if (!selectedFeatureUids.size) return;
-            e.preventDefault(); deleteSelectedFeatures();
+            if (e.key === 'Delete' || e.key === 'Backspace') { e.preventDefault(); deleteSelectedFeatures(); return; }
+            // Freccia su/giu': ridimensiona UNA sola icona fra Media (1) e Mastodontica (4).
+            // Con piu' di un elemento selezionato non si fa nulla: la scala e' per singolo oggetto.
+            if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+            if (selectedFeatureUids.size !== 1) return;
+            const encR = encountersData[currentEncounterIndex];
+            if (!encR || !encR.mapData) return;
+            const uid = [...selectedFeatureUids][0];
+            const obj = encR.mapData.placedFeatures.find(f => f.uid === uid);
+            if (!obj) return;
+            e.preventDefault();
+            const cur = obj.size || 1;
+            const next = Math.max(1, Math.min(4, cur + (e.key === 'ArrowUp' ? 1 : -1)));
+            if (next === cur) return;
+            // L'ancora e' l'angolo in alto a sinistra: se crescendo esce dalla mappa, si rientra
+            // spostando l'oggetto invece di rifiutare il ridimensionamento.
+            obj.size = next;
+            obj.x = Math.max(0, Math.min(obj.x, encR.mapData.w - next));
+            obj.y = Math.max(0, Math.min(obj.y, encR.mapData.h - next));
+            renderVisualMap();
         });
     }
 
@@ -712,7 +734,8 @@
       if (/Acqua|Fango|Sabbia|Acido|Fuoco|Ghiaccio|Neve|Voragine/i.test(n))    return { mode: 'blob', groups: [1, 2], cells: [4, 9], clump: 0.35, mass: true };
       if (/Muffa|Radici|Erba Alta|Ragnatele|Rovi|Nebbia|Oscurità/i.test(n))             return { mode: 'blob', groups: [2, 4], cells: [1, 4], clump: 0.20 };
       if (/Siepe|Barricata/i.test(n))                                          return { mode: 'line',    groups: [1, 2], cells: [1, 4], clump: 0 };
-      if (/Casse|Anfore|Mobilio|Macerie|Rocce|Cespuglio|Carro/i.test(n))       return { mode: 'cluster', groups: [3, 7], cells: [1, 2], clump: 0 };
+      if (/Carro|Carovana/i.test(n))                                           return { mode: 'single',  groups: [1, 1], cells: [1, 1], clump: 0, once: true };
+      if (/Casse|Anfore|Mobilio|Macerie|Rocce|Cespuglio/i.test(n))             return { mode: 'cluster', groups: [3, 7], cells: [1, 2], clump: 0 };
       if (/Trappola|Meccanismo|Portale|Cristallo|Cerchio/i.test(n))                                      return { mode: 'single',  groups: [1, 2], cells: [1, 1], clump: 0 };
       return { mode: 'single', groups: [1, 3], cells: [1, 1], clump: 0 };
     }
@@ -824,9 +847,21 @@
     const ShapeVocabulary = { "aperta": "open", "circolare": "circle", "irregolare": "cave", "articolata": "complex", "regolare": "rect" };
     const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Pacchetto Incontro|Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
 
+    // Restituisce la voce di catalogo. Il numero grammaticale scritto dal Gem viene letto a parte da
+    // resolveFeatureNumber: singolare = UN elemento solo sulla mappa, plurale = algoritmo di sparpagliamento.
     function resolveFeatureName(raw) {
       const n = raw.toLowerCase().replace(/\*+/g, '').trim();
-      return FeatureCatalog.find(c => c.name.toLowerCase() === n) || FeatureCatalog.find(c => c.name.toLowerCase().split('/').some(part => part.trim() === n)) || null;
+      const match = (s) => s && (s.toLowerCase() === n || s.toLowerCase().split('/').some(part => part.trim() === n));
+      return FeatureCatalog.find(c => match(c.name)) || FeatureCatalog.find(c => match(c.alt)) || null;
+    }
+
+    // true = il Gem l'ha scritto al SINGOLARE (un carro, una roccia) -> se ne piazza esattamente uno.
+    function resolveFeatureNumber(raw, feat) {
+      const n = raw.toLowerCase().replace(/\*+/g, '').trim();
+      const match = (s) => s && (s.toLowerCase() === n || s.toLowerCase().split('/').some(part => part.trim() === n));
+      if (match(feat.name)) return !feat.plural;   // il nome di catalogo e' il plurale solo se marcato
+      if (match(feat.alt))  return !!feat.plural;  // la forma alternativa e' l'altro numero
+      return false;
     }
 
     function suggestFeatureName(raw) {
@@ -861,9 +896,10 @@
       elemLines.forEach(raw => {
         const line = raw.replace(/^[\s>]*[-•*+]\s*/, '').replace(/\*+/g, '').trim(); if (!line || /^(Tipo|Dimensioni|Forma)\s*:/i.test(line)) return;
         const parts = line.split(/\s*[—–]\s*|\s+-\s+|\s*:\s*/); const feat = resolveFeatureName(parts[0]);
+        const singular = feat ? resolveFeatureNumber(parts[0], feat) : false;
         if (!feat) { warnings.push('Elemento "' + parts[0].trim() + '" non è nel catalogo: ignorato.' + suggestFeatureName(parts[0])); return; }
         if (feat.manualOnly) { warnings.push('"' + feat.name + '" non si dichiara nella sezione Arena: ' + feat.manualOnly); return; }
-        elements.push({ feat: feat });
+        elements.push({ feat: feat, singular: singular });
       });
       if (!elements.length) warnings.push('Nessun elemento riconosciuto sotto "Elementi:".');
 
@@ -968,9 +1004,9 @@
           return wCount;
       };
       
-      const put = (gid, feat, x, y) => {
+      const put = (gid, feat, x, y, size) => {
           occupied.set(key(x, y), gid);
-          mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_' + Math.random() });
+          mapData.placedFeatures.push({ item: feat, x: x, y: y, uid: 'f_' + Math.random(), size: size || feat.defaultSize || 1 });
       };
 
       const prof   = el => featureProfile(el.feat);
@@ -1009,6 +1045,8 @@
               if (occupied.size >= tacticalCap) break;
               const el = sparsi[elementTurn];
               const p = prof(el);
+              // SINGOLARE: il Gem ha scritto 'Carro', non 'Carri' -> una sola istanza sulla mappa.
+              if ((el.singular || p.once) && el._done) { elementTurn = (elementTurn + 1) % sparsi.length; continue; }
               const g = gid++;
               
               let bestPos = null;
@@ -1057,8 +1095,9 @@
               if (bestPos) {
                   put(g, el.feat, bestPos.x, bestPos.y);
                   groupsPlaced.push({x: bestPos.x, y: bestPos.y});
+                  el._done = true;
                   
-                  if (!p.isolated) {
+                  if (!p.isolated && !(el.singular || p.once)) {
                       let sizeTarget = rand(p.cells[0], p.cells[1]);
                       let cellsInGroup = [{x: bestPos.x, y: bestPos.y}];
                       
@@ -1244,8 +1283,8 @@
       data.placedFeatures.forEach(obj => {
           const cell = document.getElementById(`cell_${obj.x}_${obj.y}`);
           if(cell) {
-              const ov = document.createElement('div'); ov.className = `map-overlay draggable-item ${obj.item.cssType}` + (selectedFeatureUids.has(obj.uid) ? ' selected' : '');
-              ov.textContent = obj.item.emoji; ov.draggable = true; ov.dataset.uid = obj.uid; ov.title = obj.item.name + " — Trascina per spostare, Shift+Clic per selezionare, Doppio Clic per eliminare.";
+              const ov = document.createElement('div'); const oSz = obj.size || 1; ov.className = `map-overlay draggable-item size-${oSz} ${obj.item.cssType}` + (selectedFeatureUids.has(obj.uid) ? ' selected' : '');
+              ov.textContent = obj.item.emoji; ov.draggable = true; ov.dataset.uid = obj.uid; ov.title = obj.item.name + (oSz > 1 ? " (" + ["","Media","Grande","Enorme","Mastodontica"][oSz] + ")" : "") + " — Trascina per spostare, Shift+Clic per selezionare, ↑/↓ per ridimensionare, Doppio Clic per eliminare.";
               ov.onclick = (e) => { if (!e.shiftKey) return; if (selectedFeatureUids.has(obj.uid)) selectedFeatureUids.delete(obj.uid); else selectedFeatureUids.add(obj.uid); renderVisualMap(); };
               ov.ondragstart = (e) => { e.dataTransfer.setData('uid', obj.uid); const isGroup = selectedFeatureUids.size > 1 && selectedFeatureUids.has(obj.uid); if (isGroup) buildGroupDragImage(e, data, obj); setTimeout(() => { if (isGroup) document.querySelectorAll('.map-overlay.selected').forEach(el => el.style.opacity = '0.4'); else ov.style.opacity = '0.4'; }, 0); };
               ov.ondragend = () => document.querySelectorAll('.map-overlay').forEach(el => el.style.opacity = '1');
