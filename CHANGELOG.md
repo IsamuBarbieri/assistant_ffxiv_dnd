@@ -1,5 +1,27 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-13e — Il link musica passa da music.youtube.com a una ricerca Google che punta a YouTube Music
+
+Su Gemini il 🎵 continuava a uscire come testo nudo mentre 🖼️ e 🗺️ erano link corretti. La
+differenza misurabile era **una sola**: le due che reggono sono `google.com/search`, quella che cadeva
+era `music.youtube.com`. L'host e' l'unica variabile, e l'ipotesi e' che il renderer del Gem linkifichi
+solo certi domini.
+
+**Riparato cambiando SOLO la cosa che era diversa**: stesso host e stessa forma delle altre due, con la
+destinazione spostata dentro la query — `google.com/search?q=youtube+music+FFXIV+OST+<track>`. Su Claude
+il link diretto funzionava; questa forma funziona su entrambi, che e' il criterio host-agnostic del
+progetto.
+
+Nota su una parola: il GM aveva proposto `Google Music`, ma quel servizio (Google Play Music) e' chiuso
+dal 2020 e come testo di ricerca spinge verso pagine morte. La chiave che porta davvero su YouTube
+Music e' **`youtube music`**.
+
+Ripuliti anche tre riferimenti a `music.youtube.com` rimasti dentro le spiegazioni di §A23, che dopo il
+cambio dicevano il falso.
+
+06 v6.30 · cv110 / lv39 / ov59.
+
+
 ## 2026-08-13d — Tracker: elementi con impronta vera, selezione e animazione a posto
 
 Rifinitura in piu' passaggi, tutta provata al tavolo dal GM.
