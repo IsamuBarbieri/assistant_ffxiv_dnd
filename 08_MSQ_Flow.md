@@ -7,7 +7,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.53 (full audit) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.54 (full audit) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -58,7 +58,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ## The Blessing of Light = the 6 Crystals (key mechanic)
 **WHAT IT IS (spoiler-safe lore):** the Blessing of Light is a divine protection tied to Hydaelyn and to the 6 ELEMENTAL crystals (Water, Fire, Lightning, Earth, Ice, Wind) the group collects through its own feats. It wards against aetheric corruption, lets one safely contain large amounts of Light, and is what lets a defeated Ascian be permanently destroyed. (Resistance to Primal TEMPERING is the ECHO's innate gift, NOT the Blessing — Section A Ch. 4.5/7.3.)
 
-> **>>> SPOILER EW / GM ONLY - DO NOT REVEAL BEFORE THE CANONICAL BEAT <<<**
+> **SPOILER EW / GM ONLY - DO NOT REVEAL BEFORE THE CANONICAL BEAT**
 > The Blessing is the Traveler's Ward, Venat/Hydaelyn's spell, tied to the story of the Ancients and the seat of Azem.
 
 **FLOW IN THE CAMPAIGN:**

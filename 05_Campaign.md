@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.10 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.12 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -95,7 +95,7 @@ Version v2.10 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 - 'Hard' reveals are NEVER named or anticipated before their canonical MSQ beat.
 - Until the reveal, always use NEUTRAL TERMS.
 - Reveal timing is driven by the MSQ position (Ch. 19.3), not a stored tracker.
-- In the knowledge modules, gated info lives in '>>> SPOILER (GM ONLY) <<<' boxes (these are INTERNAL GM data, read by the assistant to know what is gated — they are NEVER reprinted in the recap/load output, where a reveal box would prime a leak; upcoming reveals are available on demand via 'mappa MSQ', 06 §B25).
+- In the knowledge modules, gated info is marked by a bold 'SPOILER (GM ONLY)' label (these are INTERNAL GM data, read by the assistant to know what is gated — they are NEVER reprinted in the recap/load output, where a reveal box would prime a leak; upcoming reveals are available on demand via 'mappa MSQ', 06 §B25).
 - In ANY player-facing output: ZERO leaks.
 
 *NOTE: the reveal timings below are INDICATIVE (by arc). The GM verifies the exact beat on the Roadmap (Ch. 5 and 08.1).*
@@ -456,7 +456,7 @@ The Warrior of Light receives 6 Crystals of Light - ONE PER ELEMENT - an excepti
 *GM NOTE:* order VERIFIED. Fire (Ifrit) precedes Lightning. All 6 collected by the Ultima Weapon / The Praetorium.
 *WHERE THE ERRAND COMES FROM:* the party does not simply find crystal #1 — Hydaelyn ASKS for them, by name, in the second Echo vision at quest #5 of the city chain (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`): *'The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them.'* That beat is the origin of this whole table and is PINNED (08.1 ARR Manifest L1). Skip it and Water arrives unasked-for.
 
-> **>>> SPOILER (GM ONLY - DO NOT REVEAL/NAME BEFORE ShB/EW) <<<**
+> **SPOILER (GM ONLY - DO NOT REVEAL/NAME BEFORE ShB/EW)**
 > The true nature of the group's 'shared bond' - and the identity of the legendary leader associated with that soul crystal (name: AZEM) - are END-GAME REVEALS (Shadowbringers / Endwalker). DO NOT name 'Azem' earlier: use neutral terms (a single Light, a common destiny). That soul crystal, in-game, serves to summon other heroes (Trust): here it is useless anyway, the party is already complete. At most an optional end-Endwalker lore cameo.
 
 ## 5.5 The Blessing of Light
@@ -590,7 +590,7 @@ NARRATIVE SIDE of the crystals (the mechanical/chronological part is in Ch. 5).
 - **Narrative rendering:** when one touches a crystal-moment, they ALL feel it.
 - **OPTIONAL (flavor):** the GM may assign each player a symbolic link to an element, with no mechanical effect.
 
-> **>>> SPOILER (GM ONLY - DO NOT REVEAL/NAME BEFORE ShB/EW) <<<**
+> **SPOILER (GM ONLY - DO NOT REVEAL/NAME BEFORE ShB/EW)**
 > The TRUE nature of this 'shared bond' is that the PCs are fragments of a single soul: that of the legendary leader AZEM. It is revealed in Shadowbringers / Endwalker (Emet-Selch, Amaurot, Elpis). IRON RULE: NEVER name 'Azem' (nor the 'soul-fragment' nature) before the reveal. Until then: 'a single Light', 'a common destiny', 'a bond through the Echo'.
 
 ## 7.3 Echo vs Blessing (important distinction for the GM)
@@ -1038,19 +1038,15 @@ Defines the FORMAT for presenting places, scenes, NPCs, objects and events: a ba
 - SPOILER POLICY (Ch. 1): the high layers NEVER reveal gated mysteries.
 
 ## 16.2 The block format (template)
-*(LAYOUT NOTE: the fenced box below is an ILLUSTRATIVE layout for reading here; in ACTUAL OUTPUT the assistant renders these blocks as NORMAL TEXT with bold labels — NEVER inside a code block, 06 §A1. Same for the worked example in 16.5. TWO DIFFERENT 'GM Info': this scene-lore 'GM INFO' box is NOT the per-beat continuity '[Info GM]' line of 06 §B1 — that one is a single continuity line that looks no further than the immediate next step. Neither ever prints a gated reveal or a forward spoiler in output; upcoming reveals are derived / on-demand via 'mappa MSQ', 06 §B25.)*
-```
->>> READ ALOUD <<<
-  [Base description, perceivable by ALL, to read aloud. No rolls.]
+**📖 Da leggere ai PG:** [Base description, perceivable by ALL, to read aloud. No rolls.]
 
---- LAYERED LORE (on a check) ---
-  [CD 10]  First-layer info (common knowledge, evident details).
-  [CD 15]  Intermediate info (specialist knowledge, non-obvious links).
-  [CD 20]  Advanced info (rare knowledge) - always WITHOUT spoilers beyond what is allowed.
+**📜 Lore a Strati:**
+- **CD 10** — First-layer info (common knowledge, evident details).
+- **CD 15** — Intermediate info (specialist knowledge, non-obvious links).
+- **CD 20** — Advanced info (rare knowledge) - always WITHOUT spoilers beyond what is allowed.
 
-[ GM INFO ]
-  [Scene-relevant context FOR THE GM ONLY: what the players can uncover here and how the scene connects to what they are doing NOW. It STILL obeys the reveal-gate (Ch.1): a gated reveal is NEVER named even here, and it looks no further than the current scene. NOT revealed to players.]
-```
+**[👁️ Info GM]**
+[Scene-relevant context FOR THE GM ONLY: what the players can uncover here and how the scene connects to what they are doing NOW. It STILL obeys the reveal-gate (Ch.1): a gated reveal is NEVER named even here, and it looks no further than the current scene. NOT revealed to players.]
 **Usage notes:**
 - The layers are CUMULATIVE: whoever beats CD 15 also gets the CD 10, etc.
 - One roll per PC per scene/object (barring new elements). They can collaborate (help) per 5e rules.
@@ -1094,25 +1090,14 @@ The GM may grant 'free' info or ADVANTAGE based on who the character is:
 
 ## 16.5 Worked example
 *(Scene: the party enters a cavern where a Primal was summoned.)*
-```
->>> READ ALOUD <<<
-  The air vibrates with an unnatural heat. The rock walls are blackened and
-  veined with glowing seams; at the center, a still-smoking heap of ash and
-  the footprints of worshippers all around.
+**📖 Da leggere ai PG:** The air vibrates with an unnatural heat. The rock walls are blackened and veined with glowing seams; at the center, a still-smoking heap of ash and the footprints of worshippers all around.
 
---- LAYERED LORE ---
-  [CD 10 - Nature] The heat and the veins are not volcanic: something alive
-    released an aetheric fire, recently.
-  [CD 15 - Arcana] The zone's aether has been drained and channeled into a
-    sentient fire: it is the signature of a fire PRIMAL.
-  [CD 20 - Religion] The footprints and symbols belong to a tribal summoning
-    rite; the faithful offered their own aether to call forth the deity.
+**📜 Lore a Strati:**
+- **CD 10 - Nature** — The heat and the veins are not volcanic: something alive released an aetheric fire, recently.
+- **CD 15 - Arcana** — The zone's aether has been drained and channeled into a sentient fire: it is the signature of a fire PRIMAL.
+- **CD 20 - Religion** — The footprints and symbols belong to a tribal summoning rite; the faithful offered their own aether to call forth the deity.
 
-[ GM INFO ]
-  The Primal was just summoned and has already moved toward the village down
-  the valley (hook: next Plot Battle, Ch. 10.5). An enthralled (Tempered)
-  survivor is hidden at the back of the cavern and will attack if approached.
-```
+**[👁️ Info GM]** The Primal was just summoned and has already moved toward the village down the valley (hook: next Plot Battle, Ch. 10.5). An enthralled (Tempered) survivor is hidden at the back of the cavern and will attack if approached.
 
 ## 16.6 Cutscene adaptation (in-scene rail vs off-scene auto-surface)
 FFXIV tells much of its story through cutscenes. Two kinds, handled differently; the OFF-SCENE ones are actually easier (closed, GM-facing content) — the IN-SCENE rail is where discipline matters most.

@@ -1,57 +1,497 @@
-[MSQ — Call of the Forest] (Scena social / Viaggio · ~10-15 min)
+vorrei creare una one-shot per 4 pg di livello 3, tono comico-caccia al mostro, con Hildibrand, a Portobirra (La Noscea Occidentale): Una "bestia invisibile" sta prosciugando tutte le riserve di rum e vino della zona. I PG e Hildibrand devono indagare tra marinai alticci, pirati superstiziosi e magazzini distrutti per stanare il colpevole.
 
-🎵 Musica: Another Round
+One Shot - FFXIV D&D
+Gem personalizzato
+La Bestia Invisibile e le Botti Perdute di Portobirra
+Sistema: D&D 5e (2014) · Livello: 3 (4 PG) · Tono: Comico / Caccia al Mostro (Hildibrand Manderville) · Ambientazione: Portobirra (Aleport), La Noscea Occidentale · Durata stimata: ~3 ore (180 min)
 
-🖼️ Immagine: Baderon
+📜 Sinossi
+Un'ondata di panico e astinenza forzata ha colpito il porto di Portobirra (Aleport): una misteriosa "bestia invisibile" si aggira di notte sventrando magazzini e prosciugando fino all'ultima goccia le riserve di rum e vino della zona. I marinai gridano alla maledizione dei pirati, le Giubbe Gialle brancolano nel buio e le taverne sono a secco. A prendere in mano il caso è nientemeno che il celebre Hildibrand Manderville, l'Ispettore Gentiluomo per eccellenza, affiancato dalla sua assistente Nashu Mhakaracca. Insieme al gruppo di avventurieri, Hildibrand condurrà un'indagine tanto caotica quanto strampalata tra piste di alcol vaporizzato, farina da lanciare per svelare l'invisibile e marchingegni esplosivi, per stanare un mostro titanico e spaventosamente assetato.
 
-🖼️ Immagine: The Drowning Wench
+🪝 Aggancio
+La mastra birraia S'dhodjbi e il capitano di porto Ahldfoet hanno promesso una cospicua ricompensa in Gil e una fornitura vitalizia delle migliori selezioni di La Noscea a chiunque catturi il "ladro spettrale". Quando la squadra giunge al molo per rispondere al bando, viene letteralmente travolta dall'arrivo spettacolare (e catastrofico) di Hildibrand Manderville, che li recluta seduta stante come suoi fidati "Ispettori Aggiunti".
 
-Il calore del focolare della Fanciulla Annegata (The Drowning Wench) stempera l'umidità salmastra che ancora vi impregna gli abiti. Sul bancone di legno massiccio, Baderon asciuga energicamente un boccale con uno straccio, prima di versarvi una generosa pinta d'idromele speziato. I marinai e gli avventurieri seduti ai tavoli vicini lanciano occhiate piene di curiosità e rispetto: la voce della caduta del Capitano Madison e della bonifica di Sastasha ha già fatto il giro delle banchine dei Ponti Superiori.
+👥 Dramatis Personae
+Hildibrand Manderville — Ispettore straordinario, deduzioni assurde, pose plastiche impeccabili e totale immunità alle leggi della fisica · Atti 1, 2, 3
 
-Baderon si appoggia sui gomiti, fissandovi con il suo consueto sguardo scaltro e penetrante:
+Nashu Mhakaracca — Assistente devota e allegra, con una passione incontrollabile per candelotti di dinamite ed esplosivi ad alto potenziale · Atti 1, 2, 3
 
-«Avete fatto un lavoro coi fiocchi alle grotte, ve lo riconosco. I Fanti Gialli hanno recuperato il grosso del bottino e i poveracci rapiti sono già sulla via di casa. Ma quando la voce gira tra le gilde, le richieste non tardano ad arrivare. E la vostra fama, amici miei, ha già superato le scogliere di Vylbrand.»
+S'dhodjbi — Ostessa e mastra birraia di Portobirra, disperata per le botti distrutte e furiosa con i marinai che si rifiutano di lavorare · Atti 1, 3
 
-L'oste fruga sotto il bancone ed estrae una spessa busta di pergamena sigillata con ceralacca verde bosco, decorata con l'emblema del giglio di Gridania.
+Capitano Ahldfoet — Vecchio capitano lupo di mare superstizioso, convinto che il fantasma di un antico corsaro sia venuto a rubargli il rum · Atti 1, 2
 
-«Un dispaccio urgente è arrivato direttamente dal Bosco Nero (Black Shroud). Madre Miounne (Mother Miounne), la padrona del Baldacchino di Carline (The Carline Canopy), ha chiesto espressamente l'aiuto di braccia fidate. Pare che laggiù gli alberi siano inquieti e che vecchie ombre stiano riemergendo dalle cripte.
+🗺️ Indice degli Atti
+Atto 1 — Il Mistero delle Botti Volanti (~35 min)
 
-Prendete questa lettera di presentazione e salite a bordo della prima aeronave per Gridania. Miounne sa come trattare chi vale qualcosa; non deludetela.»
+Scena 1: Arrivo esplosivo al molo. Un barile di rum sfreccia a mezz'aria come guidato da mani invisibili e si schianta; ingresso trionfale di Hildibrand e ingaggio del gruppo.
 
-La Traversata nei Cieli
-🎵 Musica: Wailers and Waterwheels
+Scena 2: Rissa al boccale vuoto. Indagini tra i marinai in preda al delirio d'astinenza e rissa comica con i pirati superstiziosi di Ahldfoet.
 
-🗺️ Mappa: New Gridania
+Setup & Payoff (Setup): Recupero della ricetta del Super-Mosto Frizzante di Bacchus combinato con la polvere luminescente tracciante di Nashu.
 
-Raggiunto l'Aerodromo di Limsa Lominsa, mostrate il salvacondotto dell'Ammiragliato. L'aeronave di linea taglia le nubi sopra il Mare di Rhotano, lasciandosi alle spalle le bianche scogliere di La Noscea per inoltrarsi verso l'entroterra del continente di Aldenard. Man mano che vi avvicinate a oriente, la distesa verde cupo della grande foresta primordiale si stende sotto di voi a perdita d'occhio come un oceano di foglie e rami secolari.
+Atto 2 — Tracce di Mosto e Trappole al Rum (~100 min)
 
-L'imbarcazione compie una discesa morbida fino all'attracco di Nuova Gridania (New Gridania). Varcando i ponti di legno sospesi tra cascate e mulini ad acqua, respirate un'aria densa di resina, muschio umido e terra bagnata.
+Scena 1: Il sopralluogo ai magazzini sventrati. Ispezione della scena del crimine, ricerca di indizi sensoriali (fango zuccherino, alito pesante al sapore di prugna fermentata) e ricostruzione "gentiluominesca" di Hildibrand.
 
-Il Baldacchino di Carline
-🖼️ Immagine: Mother Miounne
+Scena 2: L'Enigma della Grande Distilleria. Rimessa in sesto del circuito di alambicchi della banchina per distillare un'esca alcolica irresistibile prima che la bestia colpisca ancora.
 
-🖼️ Immagine: The Carline Canopy
+Scena 3: L'Inseguimento infarinato. Appostamento notturno: la bestia cade nell'esca! Inseguimento caotico tra i vicoli e i pontili lanciando sacchi di farina, polvere pirica e vernice per seguire la sagoma trasparente fino alle grotte della scogliera.
 
-Al centro del borgo cittadino sorge Il Baldacchino di Carline (The Carline Canopy) 💠, la celebre locanda e sede della Gilda degli Avventurieri di Gridania, costruita all'ombra di una colossale cupola d'intrecci arborei. Dietro il bancone, circondata da tazze di tè fumante e registri ordinati, una donna Elezen dai lineamenti gentili e dall'abito sobrio alza lo sguardo verso di voi accogliendovi con un cenno cortese del capo.
+Atto 3 — L'Abbuffata Trasparente e il Colpo di Genio (~45 min)
 
-«Benvenuti a Gridania, avventurieri», esordisce Madre Miounne con una voce melodiosa ma carica di premura. «Baderon mi ha fatto recapitare il vostro rapporto via fonoperla prima ancora che la vostra aeronave toccasse terra. Parlava di una squadra capace di risolvere problemi complessi senza farsi prendere dal panico... ed è esattamente ciò di cui il Bosco ha bisogno in questo momento.»
+Scena 1: Nel covo del bevitore. Infiltrazione nel magazzino sommerso sotto la scogliera di Portobirra, circondato da centinaia di barili svuotati.
 
-Miounne ripone il sigillo sul tavolo e abbassa lievemente il tono:
+Scena 2: Scontro con il Gubbue Spugnoso Ubriaco. Combattimento boss contro il colossale mostro vegetale reso invisibile e iperattivo dai vapori alcolici.
 
-«Mentre voi ripulivate le coste, qui nella foresta l'equilibrio è diventato fragile. I sussurri delle Sentinelle del Bosco (Wood Wailers) parlano di movimenti sospetti nel Bosco Centrale (Central Shroud). Una setta di fanatici, gli Agnelli di Dalamud (Lambs of Dalamud), ha occupato le catacombe sotterranee della Cripta di Tam-Tara (The Tam-Tara Deepcroft). Se non interveniamo subito, i loro riti oscuri potrebbero attirare l'ira delle Elementali su tutta la contrada.»
+Payoff & Epilogo: Utilizzo dell'esca frizzante preparata nell'Atto 1 per farlo starnutire e neutralizzarlo; posa di vittoria di Hildibrand, pagamento della taglia da parte di S'dhodjbi e chiusura della sessione.
 
-PROVA: Raccogliere dettagli e captare le tensioni al Baldacchino di Carline
+Digita /atto 1 per iniziare la stesura del primo atto.
 
-Abilità applicabili: Intuizione (per cogliere le preoccupazioni non dette di Miounne), Percezione (per ascoltare le voci dei mercanti e dei disertori ai tavoli), Storia o Religione (per ricordare chi siano gli Agnelli di Dalamud e la venerazione per la luna caduta).
+/atto 1
 
-CD Facile (10): Gli avventurieri ai tavoli confermano che diversi viandanti sono scomparsi lungo la strada per la Cripta di Tam-Tara. Si parla di canti lugubri e luci scarlatte che filtrano dalle feritoie della roccia durante la notte.
+One Shot - FFXIV D&D
+Gem personalizzato
+Atto 1 — Il Mistero delle Botti Volanti (~35 min)
+🗺️ Mappa: Portobirra
+🎵 Musica: On Westerly Winds
 
-CD Media (15): Gli Agnelli di Dalamud sono superstiti del culto apocalittico fiorito prima della Calamità: credono che il drago Bahamut fosse un dio salvatore e compiono sacrifici di sangue per tentare di risvegliare ciò che resta del suo potere nelle profondità della terra.
+Scena 1: Arrivo esplosivo al molo
+📖 Da leggere ai PG:
+L'odore salmastro del Mare di Rhotano si mescola a un acre sentore di mosto fermentato e alcol evaporato non appena mettete piede sui pontili di legno di Portobirra (Aleport). Il villaggio portuale di La Noscea Occidentale, solitamente brulicante di marinai chiassosi e mercanti di vino, è avvolto in un silenzio spettrale, rotto soltanto dal mormorio di marinai sobri e visibilmente agitati. Davanti alla taverna principale, una donna Miqo'te dai capelli corvini e dal grembiule macchiato di luppolo si sbraccia disperata in mezzo a una montagna di doghe spaccate.
 
-CD Difficile (20): Notate che persino le guardie della Faretra degli Dei (Gods' Quiver) e le Sentinelle del Bosco appaiono tese: le Elementali della foresta stanno reagendo all'odore di necromanzia e corruzione aetherica che sale dalle tombe, minacciando di colpire chiunque si avvicini se la fonte del miasma non verrà estirpata alla radice.
+🖼️ Immagine: S'dhodjbi
 
-Fallimento: Ottenete solo voci confuse e allarmiste sui non-morti che infestano la strada provinciale, attirando su di voi l'attenzione sospettosa di un paio di guardie locali.
+«È una calamità! Una maledizione corsara, ve lo dico io!» grida la donna, rivolgendosi a chiunque le passi a tiro. «Tutte le riserve di rum di Vylbrand e il vino novello delle cantine di Bacchus... spariti! Svuotati nella notte senza che le guardie vedessero anima viva!»
 
-Madre Miounne estrae una mappa dettagliata del Bosco Centrale e ve la porge insieme a un lasciapassare:
+Prima che possiate fare un solo passo verso di lei, un rumore sordo e viscido echeggia lungo la banchina. Una botte di rovere da cento ponze (45kg), sigillata con ceralacca rossa, si solleva a mezz'aria a circa 6 yalm (9m) da voi. Fluttua nel vuoto, ondeggiando goffamente come se fosse stretta tra mascelle invisibili. Con uno schiocco tremendo, il coperchio di legno salta via e un gorgoglio poderoso — GLUG, GLUG, GLUG — risucchia l'intero contenuto in meno di tre secondi. La botte, ormai prosciugata, viene scagliata in aria e precipita proprio al centro della piazza, disintegrandosi in una pioggia di schegge!
 
-«Il Capo Arciere Lewin sta coordinando i pattugliamenti sul posto. Presentatevi a lui e alle sentinelle a guardia della cripta: avrete il supporto della Gilda per scendere nei sepolcri e fermare quegli scellerati prima che sia troppo tardi.»
+🎵 Musica: Agent of Inquiry
+
+Dall'ombra delle tettoie dei magazzini, una figura slanciata compie un balzo teatrale in avanti. L'uomo atterra su un ginocchio, solleva un braccio al cielo con perfetto tempismo scenico e fa brillare un sorriso impeccabile sotto i baffi curati. Il suo completo da gentiluomo è stirato alla perfezione, immune alla polvere del molo. Al suo fianco trotterella un'allegra fanciulla Miqo'te con due grandi candelotti di dinamite infilati nella cintura.
+
+🖼️ Immagine: Hildibrand Manderville
+🖼️ Immagine: Nashu Mhakaracca
+
+«Frenate il panico, bravi cittadini di La Noscea!» tuona l'uomo con voce roboante, sistemandosi il colletto con uno scatto secco del polso. «Io, Hildibrand Manderville, Ispettore Straordinario e Gentiluomo d'Eorzea, sono giunto per fare luce su questa nefandezza! E con me vi è la mia fidata assistente, Miss Nashu!»
+
+«Salve a tutti!» cinguetta Nashu, agitando una miccia accesa prima di spegnerla con un soffio distratto. «L'ispettore dice che i barili hanno preso vita e stanno scappando verso sud!»
+
+«Elementare, mia cara Nashu!» riprende Hildibrand, piantando le mani sui fianchi e gonfiando il petto. «È chiaramente un caso di ammutinamento spontaneo del legno noscean! Ma ditemi, voi quattro che avete l'ardire di fissare il vuoto con sguardo così acuto... volete forse l'onore di essere nominati miei Ispettori Aggiunti in questa mirabolante caccia?»
+
+S'dhodjbi si porta le mani al volto, esasperata: «Ispettori o mercenari, non mi importa chi siate! Se fermate il mostro che sta prosciugando la mia taverna e mi riportate le scorte intatte, vi pagherò 150 Gil a testa e una botte del miglior sidro della costa!»
+
+Scena 2: Rissa al boccale vuoto
+Le indagini sul molo vi portano a esaminare i resti del barile distrutto e a raccogliere informazioni tra i lupi di mare raggruppati davanti ai magazzini sbarrati.
+
+🎲 Prova: Raccogliere Indizi al Molo
+
+Abilità applicabili: Indagare (per analizzare i frammenti della botte), Percezione (per individuare tracce organiche), Intuizione / Persuasione (per interrogare i marinai).
+
+CD Facile (10): Il barile non è esploso dall'interno: presenta profondi solchi circolari e una patina vischiosa e dolciastra attorno al foro di apertura, simile a bava zuccherina mista a mosto.
+
+CD Media (15): I marinai balbettano terrorizzati: il ladro non lascia impronte sul legno asciutto, ma muovendosi fa tremare le assi dei pontili e lascia dietro di sé un pesante odore di frutta marcita e aceto.
+
+CD Difficile (20): Notate una scia di goccioline dense che non cola verso il mare aperto, ma risale lungo la scarpata verso i vecchi magazzini di distillazione abbandonati a nord del porto.
+
+Fallimento: Raccogliete comunque le testimonianze di base, ma attirate le attenzioni sgradite dei marinai più suscettibili, che vi accusano di fare troppe domande e portare sfortuna.
+
+🖼️ Immagine: Capitano Ahldfoet
+
+Mentre esaminate le tracce, un maestoso Roegadyn Lupo di Mare (Sea Wolf) dalla barba brizzolata e la giubba sbottonata avanza barcollando, circondato da un gruppo di bucanieri armati di mannaie e bottiglie rotte. È il Capitano Ahldfoet, la cui nave è bloccata in porto per mancanza di rifornimenti.
+
+«Fermi dove siete, impiccioni da quattro soldi!» ruggisce Ahldfoet, puntandovi contro una pesante ancora d'arrembaggio. «Nessuna bestia può bere trecento galloni di rum in dieci minuti! È lo spettro del capitano Mistbeard che esige il suo tributo di sangue perché non abbiamo fatto sacrifici alla corrente! E voi... voi avete la faccia di quelli che hanno portato il malocchio a Portobirra!»
+
+Hildibrand fa un passo avanti, mettendosi in posa plastica con un dito puntato verso il cielo: «Mio buon capitano! La vostra teoria sul malocchio pecca di rigore scientifico! Vi dimostrerò con una semplice perizia mandibolare che—»
+
+Ahldfoet non lo lascia finire e lancia un boccale di ferro dritto contro la fronte di Hildibrand, che viene sbalzato a gambe all'aria dentro una pila di casse di aringhe. I pirati caricano con urla furiose!
+
+🎵 Musica: A Fell Air Falleth
+
+🗡️ Pacchetto Incontro: Rissa all'Ultimo Goccio
+Difficoltà: Media
+
+Innesco: Il Capitano Ahldfoet lancia il boccale contro Hildibrand e ordina all'equipaggio di cacciare gli "iettatori".
+
+Nemici: Capitano Ahldfoet ×1 · Marinaio Sbronzo dell'Equipaggio ×3
+
+📖 Da leggere ai PG:
+Il piazzale della banchina si trasforma all'istante in un campo di battaglia caotico. I pirati di Ahldfoet caricano a testa bassa agitando mannaie e remi spezzati, accecati dalla rabbia e dall'astinenza forzata da alcol. Alle vostre spalle, Hildibrand si rialza dalle casse di pesce con un'aringa infilata nel bavero e il sorriso ancora intatto, mentre Nashu applaude entusiasta credendo che lo scontro faccia parte di un balletto di benvenuto!
+
+🏟️ Arena
+Tipo: Spazio Aperto
+Dimensioni: 14 × 14 yalm (21 × 21m)
+Elementi:
+
+Casse
+
+Anfore/Barili
+
+Mobili/Tavoli
+
+Tattica:
+Ahldfoet punta dritto verso chi sembra più corazzato o minaccioso, cercando di abbatterlo con il suo Lancio dell'Ancora. I tre marinai sfruttano i tavoli e le pile di casse per cercare accerchiamenti, tentando di sbilanciare i bersagli con bottiglie rotte e colpi bassi. Hildibrand e Nashu restano ai margini: Hildibrand incita la squadra con pose incoraggianti, mentre Nashu si diverte a passare boccali vuoti a chiunque le capiti a tiro.
+
+Capitano Ahldfoet — Media · CA 14 (giaco di maglia) · PF 38 (5d8+15) · Vel 6 yalm
+
+FOR 16 (+3) · DES 12 (+1) · COS 16 (+3) · INT 9 (-1) · SAG 11 (+0) · CAR 12 (+1)
+
+TS: FOR +5, COS +5
+Abilità: Atletica +5, Intimidire +3
+Sensi: Percezione passiva 10
+GdS 1
+
+Descrizione visiva: Un possente Roegadyn dalla pelle verdastra e dal naso schiacciato, coperto di tatuaggi marinareschi e con una vistosa benda su un occhio. Impugna una corta catena legata a una pesante ancora arrugginita.
+
+Tratti
+Testardo come un Faro. Ahldfoet ha vantaggio ai tiri salvezza per evitare di essere spaventato o stordito.
+
+Azioni
+Multiattacco. Ahldfoet effettua due attacchi con la Mannaia da Abbordaggio.
+
+Mannaia da Abbordaggio. Attacco con arma da mischia: +5 al tiro per colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 7 (1d8 + 3) danni taglienti.
+
+Lancio dell'Ancora (Ricarica 5-6). Attacco con arma a distanza: +5 al tiro per colpire, gittata 4 yalm (6m), un bersaglio. Colpito: 10 (2d6 + 3) danni contundenti e il bersaglio deve superare un TS su Forza con CD 13 o cadere prono.
+Telegrafo: Ahldfoet fa roteare la pesante catena sopra la testa per un intero giro, gridando insulti prima di scagliarla.
+
+Marinaio Sbronzo dell'Equipaggio — Media · CA 11 (abiti di cuoio) · PF 13 (2d8+4) · Vel 6 yalm
+
+FOR 13 (+1) · DES 12 (+1) · COS 14 (+2) · INT 8 (-1) · SAG 9 (-1) · CAR 10 (+0)
+
+Abilità: Atletica +3
+Sensi: Percezione passiva 9
+GdS 1/4
+
+Descrizione visiva: Marinai segnati dal sole e dal sale marino, con maglie a righe strappate, occhi arrossati e un'andatura barcollante ma pericolosamente aggressiva.
+
+Tratti
+Furia Astinente. Finché non subisce danni, il marinaio ha vantaggio al suo primo tiro per colpire del combattimento.
+
+Azioni
+Colpo di Bottiglia Rotta. Attacco con arma da mischia: +3 al tiro per colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 4 (1d6 + 1) danni perforanti.
+
+Lancio del Boccale Pesante. Attacco con arma a distanza: +3 al tiro per colpire, gittata 4 yalm (6m), un bersaglio. Colpito: 3 (1d4 + 1) danni contundenti.
+
+💰 Bottino
+45 Gil in monete di bronzo e argento noscean.
+
+1 Pozione di Cura recuperata dalla sacca di Ahldfoet.
+
+Una bottiglia mezza vuota di rum speziato della Costa del Sol.
+
+Scena 3: La Pista di Zucchero e la Polvere di Nashu
+Una volta neutralizzati i marinai (o convinti ad abbassare le armi riducendo Ahldfoet alla ragione), la tensione si scioglie. Hildibrand emerge dalla catasta di aringhe intonso, togliendosi l'ultimo pesce dal taschino con suprema eleganza.
+
+«Una brillante dimostrazione di diplomazia percussiva, egregi colleghi!» esclama Hildibrand, stringendo vigorosamente la mano a ciascuno di voi. «Il capitano qui presente ha chiaramente compreso l'errore delle sue deduzioni superstiziose!»
+
+Ahldfoet, seduto su una botte rovesciata mentre si tiene un impacco di ghiaccio sulla testa, borbotta a denti stretti: «Va bene, va bene... avete la mano pesante. Ma vi dico che quella cosa è reale. Due notti fa ero di guardia al magazzino 4. Ho sentito un respiro pesante come il mantice di una forgia, poi una coltre di vapori dolciastri ha invaso la banchina. Quando ho acceso la lanterna, ho visto l'impronta di un corpo gigantesco schiacciare le assi... ma non c'era nessuno! Soltanto una pozza di sciroppo zuccherino denso come catrame.»
+
+S'dhodjbi si avvicina, annusando il residuo viscido raccolto dalle vostre indagini: «Questo non è rum comune. È residuo di mosto iper-zuccherino... la bestia sta cercando i composti più dolci e concentrati della zona. Se continua così, punterà alla Grande Distilleria sulla scogliera!»
+
+«Magnifico!» esulta Nashu, battendo le mani e tirando fuori dalla bisaccia una boccetta di polvere glitterata verde fosforescente. «Ho io la soluzione perfetta! Se mescoliamo questa polvere luminescente tracciante al mosto d'uva fermentato, chiunque lo berrà inizierà a brillare come una lucciola gigante al buio!»
+
+[SETUP -> Payoff in Atto 3: La miscela di Super-Mosto Frizzante di Bacchus unita alla Polvere Tracciante di Nashu preparata qui servirà nell'Atto 3 per rivelare la sagoma invisibile del Gubbue e farlo starnutire per neutralizzarlo]
+
+S'dhodjbi vi porge la pergamena con la ricetta originale del Super-Mosto Frizzante di Bacchus: «Prendete questa formula. Alla distilleria troverete gli alambicchi necessari per distillare una botte-esca con la polvere di Nashu prima che scenda la notte. Andate e ponete fine a questo scempio!»
+
+Hildibrand scatta sull'attenti, indicando teatralmente la collina sopra il porto: «Il dovere ci chiama, compagni d'indagine! Alla Grande Distilleria! Nessun bevitore spettrale potrà sfuggire alla luce della giustizia!»
+
+— Fine parte 1 —
+
+/atto 2
+
+One Shot - FFXIV D&D
+Gem personalizzato
+Atto 2 — Tracce di Mosto e Trappole al Rum (~100 min)
+🗺️ Mappa: La Noscea Occidentale
+🎵 Musica: The Land Breathes
+
+Scena 1: Il sopralluogo ai magazzini sventrati
+📖 Da leggere ai PG:
+Salendo lungo il crinale di pietra calcarea che sovrasta i moli di Portobirra (Aleport), il vento dell'oceano si fa più tagliente, ma non riesce a disperdere la densa esalazione di zuccheri bruciati e mosto acido. Davanti a voi, il Magazzino 4 si presenta come una carcassa sventrata: le enormi porte in legno di quercia rinforzate in ferro battuto sono state scardinate dall'esterno e piegate verso l'interno come fogli di pergamena. All'interno dell'ampio salone d'attracco, centinaia di barili giacciono sventrati, con le doghe scheggiate rivolte all'infuori e il pavimento in pietra coperto da una melma appiccicosa color ambra scuro.
+
+🖼️ Immagine: Hildibrand Manderville
+
+Hildibrand avanza solennemente tra i calcinacci, estrae un monocolo d'ottone dal taschino e lo punta a un millimetro da una pozzanghera di rum essiccato, sollevando la gamba posteriore in una posa di prodigioso equilibrio acrobatico.
+
+«Ammirate, miei perspicaci colleghi!» esclama Hildibrand, annusando l'aria con enfasi teatrale prima di starnutire rumorosamente e rimettersi subito in postura marziale. «I segni della devastazione sono inequivocabili! L'aggressore è senza ombra di dubbio uno sciame di Mandragore giganti volanti affette da sonnambulismo acuto e intolleranza al luppolo! Notate come il legno sia stato frantumato con brutale precisione vegetale!»
+
+Nashu annuisce vigorosamente, prendendo appunti su un taccuino già annerito dalla polvere pirica: «Ha perfettamente senso, signor Ispettore! Dovremmo far esplodere la collina per sicurezza?»
+
+«Non ancora, mia brillante assistente!» ribatte Hildibrand con un sorriso radioso. «Prima lasciamo che i nostri illustri collaboratori applichino il loro acume forense!»
+
+Mentre l'ispettore esamina con aria concentrata una ragnatela sul soffitto, avete tutto lo spazio per condurre una vera ispezione della scena del crimine.
+
+🎲 Prova: Ispezione della Scena del Crimine
+
+Abilità applicabili: Indagare (per analizzare i danni strutturali e le aperture dei barili), Percezione (per cogliere odori e dettagli fisici nell'ambiente), Natura o Arcana (per identificare la natura del residuo organico).
+
+CD Facile (10): Il pavimento non è coperto solo da alcol, ma da un fitto strato di bava zuccherina mista a filamenti vegetali simili a muschio d'acqua dolce. I barili non sono stati aperti con arnesi: le sommità sono state stappate da una pressione a ventosa colossale, larga quasi 1 yalm (1,5m).
+
+CD Media (15): Lungo le travi spezzate dell'ingresso notate ciuffi di foglie umide e spore spugnose, intrisi di un odore caratteristico: prugna selvatica fermentata e torba di palude. Le pietre del pavimento mostrano crepe da schiacciamento concentrico: la creatura deve pesare diverse tonnellate, ma muovendosi ha lasciato una scia aerea di vapore caldo alcolico che distorce la vista.
+
+CD Difficile (20): Riconoscete la firma biologica della creatura: solo un grande Gubbue (Goobbue) possiede una bocca a imbuto di quelle dimensioni e un apparato fogliare dorsale capace di secernere tali enzimi. Tuttavia, i normali Gubbue sono creature lente e visibili: questo esemplare deve aver assorbito una quantità mostruosa di bacche fermentate di Bacchus ed etere volatile, sviluppando una mutazione che rende il suo corpo rifrangente e trasparente come vetro soffiato!
+
+Fallimento: Trovate comunque le tracce vischiose di base e l'odore di prugna fermentata, ma calpestate una trave pericolante che cede con un gran fragore, facendo crollare una catasta di barili vuoti sopra Hildibrand, che resta incastrato a testa in giù dentro un fusto di rovere (da cui continua a dare ordini con voce rimbombante).
+
+Le tracce zuccherine sul terreno conducono inequivocabilmente verso la vecchia strada lastricata che sale al complesso degli alambicchi: La Grande Distilleria di Portobirra.
+
+Scena 2: L'Enigma della Grande Distilleria
+🎵 Musica: A Fine Death
+
+Raggiungete la monumentale struttura in pietra e rame che sorge sul promontorio sopra la scogliera. La distilleria rifornisce tutte le taverne della costa, ma l'impianto principale è bloccato da giorni per colpa delle incrostazioni di mosto e di tubature disconnesse. Per distillare il barile-esca con la ricetta del Super-Mosto Frizzante di Bacchus unita alla Polvere Luminescente di Nashu, dovete riattivare il circuito di condensazione prima che cali la notte.
+
+📖 Da leggere ai PG:
+L'interno della Grande Distilleria è dominato da una titanica sala a volta in cui troneggiano tre massicce caldaie di rame martellato, collegate tra loro da una rete intricata di condotti in ottone, manometri sibilanti e valvole di sfogo a ruota dentata. Al centro della stanza, una grande serpentina di condensazione in vetro alchemico scende verso un barile rinforzato da cento ponze (45kg), predisposto per la miscela. Sul fondo del circuito, una densa crosta di sciroppo zuccherino fossilizzato ostruisce il sifone di scarico, mentre le tre caldaie emettono fischi irregolari a causa della pressione sbilanciata.
+
+🧩 Enigma per i PG:
+Davanti a voi si trova il pannello di distillazione con tre leve di controllo della pressione (Caldaia Primaria, Serpentina Centrale, Condensatore Finale), una ruota manuale per l'immissione del vapore ad alta temperatura e il serbatoio aperto dove versare gli ingredienti: il mosto di Bacchus fresco, le bacche zuccherine e la fiala di polvere fosforescente di Nashu. L'obiettivo è avviare il processo di distillazione, sciogliere l'ostruzione nel sifone inferiore e bilanciare la pressione dei tre vasi senza far esplodere i condotti di vetro.
+
+Soluzione (GM):
+Per completare con successo la distillazione del Super-Mosto Frizzante di Bacchus, il gruppo deve compiere tre azioni distinte:
+
+Rimuovere l'ostruzione nel sifone inferiore: sciogliere la melma zuccherina versando alcol puro ad alta gradazione dai barili di scarto, applicare calore mirato (un incantesimo di fuoco o una torcia) oppure far saltare l'incrostazione con una micro-carica dosata di Nashu.
+
+Alimentare e termoregolare la serpentina di condensazione: raffreddare la serpentina di vetro all'esterno (tramite incantesimi di freddo, secchi d'acqua marina o regolazione della valvola del refrigerante a mare) mentre si scalda la caldaia primaria per far bollire il mosto.
+
+Calibrare le tre leve di pressione: portare la Caldaia Primaria al massimo, la Serpentina a livello medio e aprire lo sfiato del Condensatore Finale al momento esatto in cui la polvere di Nashu reagisce, creando una miscela effervescente, densa e di un verde smeraldo luminescente.
+
+Indizi:
+
+CD Facile (10) — Natura / Indagare: Le istruzioni incise sulla targa di bronzo della mastra birraia specificano che il mosto di Bacchus richiede uno shock termico immediato: ebollizione rapida nella prima caldaia e raffreddamento istantaneo nella serpentina di vetro, altrimenti il liquido diventa melassa solida.
+
+CD Media (15) — Arcana / Rapidità di Mano: Esaminando la fiala di Nashu, comprendete che la polvere luminescente reagisce con un violento rilascio di gas effervescente non appena tocca l'alcol caldo: la valvola di scarico finale deve essere spalancata in anticipo per evitare una sovrapressione nei tubi di vetro.
+
+CD Difficile (20) — Storia / Intuizione: Un vecchio registro della corporazione dei birrai annota che il sifone di scarico inferiore tende a bloccarsi con i sedimenti zuccherini, ma si dissolve istantaneamente se trattato con solvente alcolico o scaldato fino a liquefarsi prima di aprire il flusso principale.
+
+❌ Fallimento:
+Se il gruppo sbaglia manovra o fallisce i tentativi, la pressione nella serpentina sale vertiginosamente: una valvola di sicurezza salta con un boato sordo, inondando l'officina con un getto di mosto bollente frizzante (ogni PG nell'area subisce 3 (1d6) danni da fuoco). Tuttavia, lo scoppio sblocca forzatamente il sifone intasato e il barile viene comunque riempito con il Super-Mosto Frizzante, sebbene il gruppo ne esca completamente inzuppato e appiccicoso.
+
+Scena 3: L'Inseguimento infarinato
+🎵 Musica: A Fell Air Falleth
+
+Con la botte di Super-Mosto Frizzante Luminescente pronta e sigillata, scendete nuovamente verso il molo per tendere l'agguato al calare della notte.
+
+📖 Da leggere ai PG:
+La notte è scesa su Portobirra, illuminata soltanto dalle fiaccole tremolanti delle sentinelle e dal chiarore argenteo della luna che si riflette sulle onde. Posizionate il monumentale barile al centro del pontile principale, mentre Nashu distribuisce sacchi di farina bianca e barattoli di vernice a tutti i presenti. Hildibrand si è infilato all'interno di una botte vuota, con solo gli occhi e i baffi che spuntano dal foro superiore per "mimetizzarsi con l'ambiente portuale".
+
+Improvvisamente, un soffio potente e roco fa oscillare le lanterne. L'odore di frutta fermentata si fa soffocante. L'aria a 8 yalm (12m) da voi inizia a tremolare come asfalto rovente sotto il sole. Le assi del molo cigolano sotto un peso mostruoso che avanza a passi pesanti.
+
+Una lunga proboscide invisibile si allunga dal nulla, sfonda il coperchio del barile-esca con un rumore secco e inizia ad aspirare la miscela con un gargarismo fragoroso! Nel giro di pochi istanti, il liquido fosforescente entra in circolo: le vene della bestia si illuminano di verde smeraldo all'interno del suo corpo trasparente, delineando la silhouette mostruosa di un colossale Gubbue alto più di 4 fulm (4m)!
+
+L'intruglio frizzante ha però un effetto collaterale immediato: la creatura emette un rutto cavernoso che fa tremare le finestre delle case, lancia un gemito spaventato ed entra in preda a un panico iperattivo, scagliando via i pontili e caricando all'impazzata verso i vicoli del porto!
+
+Come se non bastasse, approfittando del caos e del fumo, una banda di sciacalli opportunisti guidata da un bandito locale balza fuori dalle ombre per depredare i magazzini incustoditi e sbarrarvi la strada!
+
+«Non lasciatelo fuggire!» grida Hildibrand, saltando fuori dalla botte con un balzo acrobatico ma atterrando con i piedi incastrati nel coperchio. «Lanciate la farina! Rivelate la nefandezza!»
+
+🗡️ Pacchetto Incontro: Rissa all'Inseguimento Notturno
+Difficoltà: Media
+
+Innesco: Il Gubbue luminescente si dà alla fuga travolgendo i moli, mentre gli sciacalli del porto tentano di bloccare il gruppo per coprirsi la ritirata con le merci rubate.
+
+Nemici: Capobanda degli Sciacalli ×1 · Coboldo Sciacallo dell'Alcol ×3
+
+📖 Da leggere ai PG:
+I pontili di legno risuonano sotto i tonfi pesanti del Gubbue invisibile che sfreccia via lasciando scie di bolle verdi e polvere glitterata. Davanti a voi, un energumeno con una giubba di cuoio e tre coboldi armati di picconi da scasso e fiasche incendiarie rovesciano casse di aringhe e barili d'olio per sbarrarvi il passaggio e saccheggiare il magazzino!
+
+🏟️ Arena
+Tipo: Galleria
+Dimensioni: 10 × 20 yalm (15 × 30m)
+Elementi:
+
+Casse
+
+Anfore/Barili
+
+Fango
+
+Barricata
+
+Tattica:
+Il Capobanda tenta di bloccare i PG più agili frapponendosi al centro della banchina e usando la sua stazza per spingere i bersagli oltre il bordo del molo. I tre Coboldi bersagliano il gruppo a distanza con fiasche di liquido incendiario prima di fiondarsi sui personaggi feriti sfruttando la loro Tattica di Branco. Durante il combattimento, alla fine di ogni round, il passaggio del Gubbue in fuga causa una scossa: ogni creatura deve superare un TS su Destrezza con CD 11 o cadere prona sulle assi scivolose.
+
+Capobanda degli Sciacalli — Media · CA 14 (giaco di cuoio rinforzato) · PF 33 (6d8+6) · Vel 6 yalm
+
+FOR 15 (+2) · DES 14 (+2) · COS 12 (+1) · INT 10 (+0) · SAG 11 (+0) · CAR 13 (+1)
+
+Abilità: Atletica +4, Intimidire +3
+Sensi: Percezione passiva 10
+GdS 1
+
+Descrizione visiva: Un corpulento pirata di mezza età con una benda sull'occhio, stivali chiodati da banchina e una pesante ascia da spacco macchiata di pece.
+
+Tratti
+Lottatore da Molo. Il Capobanda ha vantaggio alle prove di Forza (Atletica) effettuate per spingere o afferrare una creatura.
+
+Azioni
+Multiattacco. Il Capobanda effettua due attacchi con l'Ascia da Spacco.
+
+Ascia da Spacco. Attacco con arma da mischia: +4 al tiro per colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 6 (1d8 + 2) danni taglienti.
+
+Spallata da Banchina. Attacco con arma da mischia: +4 al tiro per colpire, portata 1 yalm (1,5m), una creatura Media o inferiore. Colpito: 4 (1d4 + 2) danni contundenti e il bersaglio deve superare un TS su Forza con CD 12 o essere spinto indietro di 2 yalm (3m).
+
+Coboldo Sciacallo dell'Alcol — Piccola · CA 13 (armatura di cuoio) · PF 9 (2d6+2) · Vel 6 yalm
+
+FOR 8 (-1) · DES 15 (+2) · COS 12 (+1) · INT 9 (-1) · SAG 10 (+0) · CAR 8 (-1)
+
+Sensi: Scurovisione 12 yalm (18m), Percezione passiva 10
+GdS 1/4
+
+Descrizione visiva: Piccoli uomini-ratto/talpa coperti di stracci da minatore e cappucci di iuta, con denti affilati e cinture cariche di piccole ampolle di alcol infiammabile.
+
+Tratti
+Sensibilità alla Luce Solare. Finché si trova alla luce del sole, il coboldo ha svantaggio ai tiri per colpire e alle prove di Saggezza (Percezione) basate sulla vista.
+
+Tattica di Branco. Il coboldo ha vantaggio a un tiro per colpire contro una creatura se almeno uno dei suoi alleati si trova entro 1 yalm (1,5m) dalla creatura e l'alleato non è incapacitato.
+
+Azioni
+Piccone da Scasso. Attacco con arma da mischia: +4 al tiro per colpire, portata 1 yalm (1,5m), un bersaglio. Colpito: 4 (1d4 + 2) danni perforanti.
+
+Lancio di Fiasca Fiammeggiante. Attacco con arma a distanza: +4 al tiro per colpire, gittata 4 yalm (6m), un bersaglio. Colpito: 4 (1d4 + 2) danni da fuoco.
+
+💰 Bottino
+60 Gil in monete d'argento noscean e dobloni pirata.
+
+2 Fiasche di Fuoco dell'Alchimista (confezionate con alcol distillato di contrabbando).
+
+1 set di arnesi da scasso intagliati in osso di dodo.
+
+Sbaragliati i saccheggiatori, la strada verso la scogliera è libera. I sacchi di farina scagliati da voi e da Nashu hanno ricoperto la sagoma del mostro: un gigantesco colosso coperto di polvere bianca e venature verdi brillanti che barcolla vistosamente verso il mare.
+
+I tonfi e lo scricchiolio di ciottoli franati vi guidano dritti verso una spaccatura naturale nella roccia ai piedi del promontorio: La Grotta Sommersa delle Botti.
+
+Hildibrand si rimette in piedi con uno scatto elastico, spazzolandosi la polvere dal frac con fiero cipiglio: «Eccellente lavoro di squadra, gentiluomini! La bestia è impanata a dovere e ha cercato rifugio nella sua fortezza calcarea! Prepariamoci al grandioso atto finale della nostra indagine!»
+
+— Fine parte 2 —
+
+/atto 3
+
+One Shot - FFXIV D&D
+Gem personalizzato
+Atto 3 — L'Abbuffata Trasparente e il Colpo di Genio (~45 min)
+🗺️ Mappa: Grotte della Scogliera di Portobirra
+🎵 Musica: A Fell Air Falleth
+
+Scena 1: Nel covo del bevitore
+📖 Da leggere ai PG:
+La spaccatura nella scogliera scende ripida verso le viscere della costa, aprendosi in una titanica caverna marina rischiarata dai riflessi smeraldini delle onde che lambiscono la riva sotterranea. L'odore qui dentro è stordente: non più la brezza salmastra di La Noscea, ma una nube densa e soffocante di vapori alcolici, vino evaporato e mosto fermentato che vi fa bruciare gli occhi e pizzicare la gola.
+
+Attorno a voi giace una distesa sterminata di botti sventrate, barili di rovere rovesciati e cerchi di ferro sparsi sulle rocce umide. In fondo alla sala, raggomitolato su un letto improvvisato di doghe e paglia zuccherina, un ammasso colossale alto quasi 5 fulm (5m) si gonfia e si sgonfia al ritmo di un russare cavernoso che fa tremare le stalattiti sul soffitto: HRRR-GLUUUG... HRRR-GLUUUG. La bestia è ricoperta di farina bianca e venata da bagliori verde fosforescente, ma la sua pelle vegetale traspare come gelatina intrisa di rum.
+
+🖼️ Immagine: Hildibrand Manderville
+🖼️ Immagine: Nashu Mhakaracca
+
+Hildibrand avanza in punta di piedi con una camminata esageratamente furtiva, sollevando le ginocchia fino al petto prima di arrestarsi a braccia conserte proprio davanti alla mostruosa testa addormentata.
+
+«Ammirate, miei intemerati colleghi!» sussurra l'ispettore con un tono che rimbomba per tutta la grotta, facendosi beffe di qualsiasi concetto di discrezione. «Il colpevole è infine con le spalle al muro! Un Gubbue selvatico colto da un improvviso e irresistibile desiderio di degustazione enologica! Ma non temete: con la nostra trappola abbiamo in mano la chiave per la resa incondizionata del villico vegetale!»
+
+Nashu estrae dalla bisaccia l'ultima fiala di Super-Mosto Frizzante avanzata dalla distillazione e la sventola allegra: «Ispettore! Se gli facciamo il solletico al naso con le bollicine, esploderà in una pioggia di coriandoli?»
+
+«Una teoria audace, Miss Nashu, ma il nostro piano è assai più raffinato!» replica Hildibrand.
+
+Prima che l'ispettore possa illustrare la sua mirabolante strategia, il mostro emette un sospiro sbronzo e apre due minuscoli occhi cisposi e iniettati di sangue. Con un muggito tonante che fa oscillare le pozze d'acqua, il Gubbue si rimette in piedi sui possenti arti tozzi, strappando via stalattiti e ruggendo vapori alcolici infiammabili contro di voi!
+
+Scena 2: Scontro con il Gubbue Spugnoso Ubriaco
+🎵 Musica: Nemesis
+
+🖼️ Immagine: Gubbue
+
+🗡️ Pacchetto Incontro: Lo Scontro del Mostro Ubriaco
+Difficoltà: Difficile
+
+Innesco: Il Gubbue si sveglia furioso e barcollante, difendendo le ultime scorte di mosto accumulate nella grotta.
+
+Nemici: Gubbue Spugnoso Ubriaco ×1
+
+📖 Da leggere ai PG:
+Il colosso vegetale si drizza in tutta la sua mole spugnosa, scuotendo i rami e i cespugli sul suo dorso. La pelle, resa trasparente dall'enorme quantità di alcol assorbita, scintilla delle venature verdi della polvere luminescente di Nashu, mentre la farina bianca ne delinea a tratti la sagoma gommosa. Con la bocca spalancata a imbuto da cui colano rivoli di mosto zuccherino, la bestia carica a testa bassa barcollando vistosamente!
+
+🏟️ Arena
+Tipo: Caverna Irregolare
+Dimensioni: 16 × 16 yalm (24 × 24m)
+Elementi:
+
+Acqua
+
+Fango
+
+Rocce
+
+Anfore/Barili
+
+Macerie
+
+Tattica:
+Il Gubbue carica i personaggi più vicini sferrando pesanti manate. Essendo ubriaco fradicio, alterna colpi goffi a improvvisi rutti infiammati e schianti sismici.
+[PAYOFF <- Setup in Atto 1]: Se un personaggio usa un'azione per lanciare, spruzzare o far ingerire al mostro la miscela di Super-Mosto Frizzante di Bacchus (o se bersaglia la sacca di mosto luminescente che brilla nel suo stomaco con un attacco o un incantesimo mirato, CD 13), la reazione gassosa interna innesca uno Starnuto Apocalittico: il Gubbue deve superare un TS su Costituzione con CD 14 o subire 14 (4d6) danni da tuono, cadere prono e rimanere stordito fino alla fine del suo turno successivo, perdendo temporaneamente ogni beneficio di occultamento e rigurgitando una fontana di mosto e bolle verdi!
+
+Gubbue Spugnoso Ubriaco — Enorme · CA 13 (armatura naturale) · PF 93 (11d12+22) · Vel 6 yalm
+
+FOR 18 (+4) · DES 8 (-1) · COS 15 (+2) · INT 4 (-3) · SAG 10 (+0) · CAR 6 (-2)
+
+TS: FOR +6, COS +4
+Abilità: Atletica +6
+Resistenze: contundente da attacchi non magici
+Immunità: avvelenato (è già al massimo grado di ebbrezza molecolare)
+Sensi: scurovisione 12 yalm, Percezione passiva 10
+GdS 4
+
+Descrizione visiva: Un colossale essere vegetale a forma di masso bipede con una vasta chioma di rami e muschio sul dorso, la pelle traslucida e scintillante di polvere verde brillante e farina bianca, gli occhi arrossati e un'enorme bocca slabbrata che sbava mosto zuccherino.
+
+Tratti
+Pelle Semi-Trasparente e Farinosa. Gli attacchi a distanza contro il Gubbue hanno svantaggio a meno che la creatura non sia stata ricoperta di liquidi o farina fresca durante il round in corso, o non abbia subito l'effetto del Super-Mosto.
+
+Vapori Alcolici (Aura). Qualsiasi creatura che inizi il proprio turno entro 2 yalm (3m) dal Gubbue deve superare un TS su Costituzione con CD 12 o avere svantaggio ai tiri per colpire fino all'inizio del suo turno successivo a causa delle esalazioni di alcol puro.
+
+Azioni
+Multiattacco. Il Gubbue effettua due attacchi con la Manata Pesante.
+
+Manata Pesante. Attacco con arma da mischia: +6 al tiro per colpire, portata 2 yalm (3m), un bersaglio. Colpito: 13 (2d8 + 4) danni contundenti.
+
+Rutto Alcolico Esplosivo (Ricarica 5-6).
+Telegrafo: Il Gubbue si gonfia a dismisura, portandosi le zampe sulla pancia e tirando indietro il testone mentre un gorgoglio sordo e ribollente scuote il suo ventre per 1 round.
+Azione: Il Gubbue rilascia una fiammata alcolica in un cono di 4 yalm (6m). Ogni creatura nell'area deve effettuare un TS su Destrezza con CD 13, subendo 14 (4d6) danni da fuoco su un fallimento, o la metà dei danni su un successo.
+
+Schianto Barcollante.
+Telegrafo: Il Gubbue barcolla pesantemente all'indietro per poi lanciarsi a peso morto in avanti con tutto il corpo.
+Azione: Ogni creatura entro 2 yalm (3m) dal Gubbue deve superare un TS su Forza con CD 14 o subire 11 (2d6 + 4) danni contundenti ed essere gettata prona.
+
+Azioni Leggendarie
+Il Gubbue può effettuare 1 azione leggendaria alla fine del turno di un altro personaggio:
+
+Scossone Spugnoso. Il Gubbue si scuote con violenza. Tutte le creature entro 1 yalm (1,5m) devono superare un TS su Destrezza con CD 13 o subire 4 (1d4 + 2) danni contundenti ed essere spinte indietro di 1 yalm.
+
+💰 Bottino
+180 Gil in monete d'oro noscean, dobloni pirata e medaglioni d'argento recuperati dai resti delle botti.
+
+2 Pozioni di Cura (ampolle intatte trovate tra i barili).
+
+1 Zanna di Gubbue levigata (frammento d'avorio vegetale, parte vendibile: valore 40 Gil).
+
+Cintura del Bevitore di Bacchus (Oggetto Meraviglioso, Non-comune, valore 350 Gil, richiede sintonia): Una robusta cintura in cuoio noscean con fibbia in ottone a forma di botte. Chi la indossa ottiene vantaggio ai tiri salvezza contro veleni e intossicazioni. Inoltre, una volta per riposo lungo, chi la indossa può usare una reazione quando subisce danni da veleno o acido per dimezzare quel danno.
+
+Bacchetta del Mosto Frizzante (Focus Arcano/Divino, Non-comune, valore 400 Gil, richiede sintonia): Una bacchetta intagliata in legno di vite di Bacchus impregnata di etere alchemico. Conferisce un bonus di +1 ai tiri per colpire con incantesimi e alla CD dei tiri salvezza dei propri incantesimi che infliggono danni da acido, fuoco o veleno. Una volta al giorno, permette di lanciare l'incantesimo Spruzzo Prismatico (Color Spray) senza consumare slot.
+
+Scena 3: L'Epilogo del Gentiluomo
+🎵 Musica: Agent of Inquiry
+
+📖 Da leggere ai PG:
+Con un ultimo, colossale starnuto che deflagra come un colpo di cannone navale, il Gubbue espelle una cascata di schiuma verde luminescente e sciroppo d'uva. La creatura barcolla per tre passi, sbatte le palpebre ormai completamente sobria e crolla a terra a pancia in su, addormentandosi all'istante con un russare placido e sommesso. Dalla sua pelle la trasparenza svanisce gradualmente, restituendo al mostro la sua naturale scorza rugosa e terrosa di corteccia e muschio.
+
+Hildibrand atterra al centro della grotta con un balzo plastico e perfetto, eseguendo una sequenza impeccabile di pose da gentiluomo: petto in fuori, indice puntato al cielo, mano destra sul fianco e un sorriso smagliante che riflette la luce magica della caverna con un sonoro DIIING metallico!
+
+«Vittoria!» esclama Hildibrand, mentre la sua giacca si risistema magicamente senza una singola piega. «Un'altra magistrale deduzione portata a compimento dall'ineguagliabile Ispettore Manderville e dai suoi prodi collaboratori! La bestia non era mossa da malvagità, bensì dall'insaziabile e raffinato palato noscean per le uve di Bacchus!»
+
+«Evviva!» applaude Nashu battendo i piedini e accendendo per errore un candelotto di dinamite prima di lanciarlo distrattamente in acqua, sollevando un innocuo spruzzo salmastro che bagna Hildibrand da capo a piedi (senza minimamente intaccare la sua acconciatura).
+
+Poco dopo, il Capitano Ahldfoet e una squadra di Giubbe Gialle guidata da S'dhodjbi irrompono nella grotta con lanterne e carretti. Alla vista del mostro addormentato e delle decine di barili rari ancora sigillati sul fondo della grotta, la mastra birraia scoppia in lacrime di gioia.
+
+«Per tutti i navigatori del mare di Rhotano... ce l'avete fatta davvero!» esclama S'dhodjbi, stringendovi calorosamente le mani e consegnando a ciascuno di voi una pesante sacca tintinnante di Gil. «Portobirra è salva, le taverne riapriranno stasera stessa e il mostro verrà scortato via dalle guardie forestali verso le colline interne di La Noscea Alta, lontano da ogni cantina!»
+
+Mentre i marinai caricano l'enorme barile di sidro promesso come ricompensa per il vostro gruppo, Hildibrand si volta verso l'orizzonte marino, mettendosi una mano sulla fronte per scrutare il sole calante:
+
+«Il dovere di un gentiluomo non conosce riposo, prodi colleghi! Ovunque vi sia un mistero insoluto, un barile smarrito o un'ingiustizia da raddrizzare a suon di pose plastiche... lì troverete Hildibrand Manderville!»
+
+Con un ultimo inchino trionfale e una risata roboante che riecheggia lungo tutta la banchina di Portobirra, l'ispettore e la sua fedele assistente si allontanano verso la prossima, imprevedibile avventura.
+
+Fine

@@ -1,5 +1,60 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-17 — Merci per origine; il numero della parte; il fulm senza ancora
+
+Tre difetti misurati su run consecutive della stessa one-shot, tre cause diverse.
+
+**IL RUM GIAMAICANO ERA UN VUOTO, NON UNO SBAGLIO.** 07 aveva i demonimi e i luoghi ma nessuna
+regola che li collegasse alle merci: servendo un aggettivo per il rum, il modello pescava dalla
+Terra. Nuova **G29**: le merci si nominano per origine, e il qualificatore si prende da G8/G9 —
+forma generativa, non una lista da mantenere, con la clausola di scarico che una merce senza
+origine e' comunque una merce. Misurato alla run successiva: 'rum di Vylbrand', e la forma si e'
+estesa da sola a 'Rum Pregiato di Portobirra'.
+
+**'— Fine parte 1 —' ALLA FINE DELL'ATTO 2.** L'unico esempio funzionante del marcatore in tutto
+il corpus stava nella regola sullo split dei dungeon, con l'uno scritto dentro. Il modello copiava
+il letterale invece di calcolare N. Riscritto senza cifra: il numero e' sempre quello del pezzo che
+chiude. Corretto alla run successiva.
+
+**L'ULTIMO ATTO NON CHIUDEVA SUL MARCATORE.** Contraddizione fra i livelli: ov dice 'LAST, ALWAYS',
+06 restringeva a 'dungeon-split / unfinished beat / finale only' — tre situazioni scritte nel
+vocabolario della Campagna, nessuna delle quali e' l'ultimo atto di una one-shot. Un ambito
+enumerato batte un 'sempre' generico. Aggiunto il caso mancante.
+
+**IL FULM NON AVEVA UN'ANCORA.** Uscivano '4 fulm (4m)' e '5 fulm (5m)' per la stessa creatura: il
+fattore in §A2 era giusto ma il modello non aveva da dove partire, quindi immaginava un'altezza in
+metri e ci appiccicava l'unita'. Lo yalm non sbaglia mai perche' ha il quadretto. Data al fulm la
+stessa cosa: un Hyur adulto e' alto ~6 fulm, e le stature scalano su una persona.
+
+**APERTO.** `Dimensioni` oscilla fra le run perche' il template dice 'written BARE, no unit' e la
+tabella di §A2 lo elenca fra i campi in yalm: due regole, entrambe soddisfacibili, nessuna vince.
+Le etichette del pitch (Sinossi / Aggancio / Dramatis Personae / Indice) non sono dichiarate in
+nessun template: tre run, tre set di emoji diversi.
+
+06 v6.54 · 07 v1.39.
+
+## 2026-08-16 — Le scatole disegnate spariscono dal corpus; il pacchetto incontro si dichiara chiuso
+
+Nei test continuavano a comparire diagrammi ASCII: uno schema dell'enigma e una mappa, infilati fra un
+blocco e l'altro del pacchetto incontro. La caccia al divieto mancante ha trovato invece il contrario.
+
+**LA FONTE ERA UN USO, NON UN DIVIETO.** 05 e 08 contenevano tre scatole VERE —
+`>>> SPOILER (GM ONLY - ...) <<<` — piu' la riga che ne documentava la convenzione. Il corpus non
+proibiva quella forma: la usava. I due divieti in 06 la ridisegnavano per vietarla, aggiungendo due
+occorrenze in piu'. Tutte convertite in etichetta in grassetto: stessa semantica, nessun disegno.
+
+**LA FORMA DEL PACCHETTO ERA APERTA.** L'ordine dei blocchi dichiarava l'esaustivita' solo in
+posizione («nient'altro SOPRA il read-aloud»), mai globalmente: elencava cosa mettere senza mai dire
+che l'elenco fosse completo. E' negli spazi fra i blocchi che finivano i disegni. Ora la regola dice
+che quei blocchi SONO il pacchetto, che nulla si inserisce fra loro e nulla segue l'ultimo.
+
+**NEGAZIONI RIMOSSE.** `no table or pipes`, `no grid is drawn`, `never pipes/table/columns`,
+`NEVER a pipe table`: nominavano l'artefatto che vietavano, e la forma positiva sta gia' in §A1
+(frasi, etichette in grassetto, link). Tolta anche la razionalizzazione «printing them PRIMES the
+model»: la knowledge non spiega perche'.
+
+05 v2.12 · 06 v6.52 · 08 v3.54.
+
 ## 2026-08-13i — Tracker: gli sgherri evocati si mettono sul tabellone con un clic
 
 Un boss che evoca creature descrive le loro statistiche DENTRO l'abilita', in una capsula come

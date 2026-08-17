@@ -382,7 +382,7 @@
         document.getElementById('customAlertModal').style.display = 'none';
     }
 
-    const SB_SECTION_TITLE = /^(?:💰\s*)?(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/i;
+    const SB_SECTION_TITLE = /^[^\p{L}\n]*(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/iu;
 
     const FeatureCatalog = [
       { emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)", manualOnly: 'il perimetro lo disegna il "Tipo". Per una copertura totale in mezzo al campo usa "Pilastro/Colonna"' },
@@ -1126,7 +1126,7 @@
     };
 
     const ShapeVocabulary = { "aperta": "open", "circolare": "circle", "irregolare": "cave", "articolata": "complex", "regolare": "rect" };
-    const ARENA_STOP = /^[\s>*_#-]*\**\s*(?:Pacchetto Incontro|Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|💰?\s*Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/im;
+    const ARENA_STOP = /^[^\p{L}\n]*(?:Pacchetto Incontro|Tattica|Conseguenze|Info GM|Lore a Strati|Meccaniche|Bottino|Telegrafo|Nemici|Innesco|Difficoltà|Da leggere ai PG)\b/imu;
 
     // Restituisce la voce di catalogo. Il numero grammaticale scritto dal Gem viene letto a parte da
     // resolveFeatureNumber: singolare = UN elemento solo sulla mappa, plurale = algoritmo di sparpagliamento.
@@ -1152,33 +1152,38 @@
     }
 
     function parseArenaSection(text) {
-      const head = /^[\s>*_#-]*\**\s*Arena\b\s*\**\s*:?\s*$/im.exec(text);
+      const head = /^[^\p{L}\n]*Arena\b\s*\**\s*:?\s*$/imu.exec(text);
       if (!head) return null;
 
       let body = text.slice(head.index + head[0].length); const stop = body.search(ARENA_STOP); if (stop !== -1) body = body.slice(0, stop);
       const sbHere = findStatblockHeaders(body); if (sbHere.length) body = body.slice(0, sbHere[0].index);
 
       const warnings = []; const field = re => { const m = re.exec(body); return m ? m[1].replace(/\*+/g, '').trim() : null; };
-      const tipo = field(/^[\s>*_-]*\**\s*Tipo\s*:\**\s*(.+)$/im);
+      const tipo = field(/^[^\p{L}\n]*Tipo\s*:\**\s*(.+)$/imu);
       let presetKey = 'base';
       if (tipo) { const found = Object.keys(MapPresets).find(k => MapPresets[k].label.toLowerCase() === tipo.toLowerCase()); if (found) presetKey = found; else warnings.push('Tipo "' + tipo + '" non è fra le etichette note: uso "Stanza Base".'); } else warnings.push('Manca il campo "Tipo": uso "Stanza Base".');
 
       // 1 casella = 1 yalm, quindi "12 × 8 yalm" è corretto e passa senza avviso; "m"/"metri" no.
-      let w = null, h = null; const dim = /^[\s>*_-]*\**\s*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)\s*(m\b|metri\b|yalm\b)?/im.exec(body);
+      let w = null, h = null; const dim = /^[^\p{L}\n]*Dimensioni\s*:\**\s*(\d+)\s*[x×*]\s*(\d+)\s*(m\b|metri\b|yalm\b)?/imu.exec(body);
       if (dim) { w = Math.max(6, Math.min(30, parseInt(dim[1], 10))); h = Math.max(6, Math.min(30, parseInt(dim[2], 10))); if (dim[3] && !/^yalm$/i.test(dim[3])) warnings.push('"Dimensioni" è in CASELLE, non in metri (1 casella = 1 yalm = 1,5 m): letto ' + w + ' × ' + h + ' caselle.'); } else warnings.push('Manca il campo "Dimensioni": misure tirate a caso dal modello.');
 
       let shape = null; const forma = field(/^[\s>*_-]*\**\s*Forma\s*:\**\s*(.+)$/im);
       if (forma) { const key = Object.keys(ShapeVocabulary).find(k => forma.toLowerCase().includes(k)); if (key) shape = ShapeVocabulary[key]; else warnings.push('Forma "' + forma + '" non riconosciuta.'); }
 
-      const em = /^[\s>*_-]*\**\s*Elementi\s*\**\s*:\**[ \t]*(.*)$/im.exec(body);
+      const em = /^[^\p{L}\n]*Elementi\s*\**\s*:\**[ \t]*(.*)$/imu.exec(body);
       const elemLines = em ? em[1].split(/\s+[·|;]\s+/).concat(body.slice(em.index + em[0].length).split('\n')) : body.split('\n').filter(l => /^[\s>]*[-•*+]\s+/.test(l));
 
       const elements = [];
       elemLines.forEach(raw => {
         const line = raw.replace(/^[\s>]*[-•*+]\s*/, '').replace(/\*+/g, '').replace(/\([^)]*\)/g, '').trim(); if (!line || /^(Tipo|Dimensioni|Forma)\s*:/i.test(line)) return;
-        const parts = line.split(/\s*[—–]\s*|\s+-\s+|\s*:\s*/); const feat = resolveFeatureName(parts[0]);
-        const singular = feat ? resolveFeatureNumber(parts[0], feat) : false;
-        if (!feat) { warnings.push('Elemento "' + parts[0].trim() + '" non è nel catalogo: ignorato.' + suggestFeatureName(parts[0])); return; }
+        const parts = line.split(/\s*[—–]\s*|\s+-\s+|\s*:\s*/);
+        // Il nome finisce alla prima parentesi: dietro ci sta quasi sempre una descrizione
+        // ('Casse (lungo le pareti, mezza copertura)'), che manderebbe a vuoto la ricerca nel
+        // catalogo facendo nascere la mappa senza elementi.
+        const rawName = (parts[0].split('(')[0].trim() || parts[0]);
+        const feat = resolveFeatureName(rawName);
+        const singular = feat ? resolveFeatureNumber(rawName, feat) : false;
+        if (!feat) { warnings.push('Elemento "' + rawName + '" non è nel catalogo: ignorato.' + suggestFeatureName(rawName)); return; }
         if (feat.manualOnly) { warnings.push('"' + feat.name + '" non si dichiara nella sezione Arena: ' + feat.manualOnly); return; }
         elements.push({ feat: feat, singular: singular });
       });
@@ -1876,7 +1881,7 @@
     // sotto, "Taglia · CA x · PF y · Vel". SB_HEADER le vuole su una riga sola, quindi qui le
     // ricuciamo prima di analizzare. Tolleranza in input: quell'output era completo, cambiava un a capo.
     const SB_STATS_LINE = /^[\s>*#_-]*(?=[^\n]*\b(?:minuscol|piccol|medi|grand|enorm|mastodontic))(?=[^\n]*\bCA\s*\d+)(?=[^\n]*\bPF\s*\d+)[^\n]*$/i;
-    const SB_NOT_A_NAME = /\bCA\s*\d+|\bPF\s*\d+|^[\s>*#_-]*(Arena|Tipo|Dimensioni|Elementi|Tattica|Nemici|Difficolt|Innesco|💰?\s*Bottino|Azioni|Tratti|Reazioni|Multiattacco|Telegrafo|Da leggere|Descrizione|Prove|Conseguenze|Fallimento|Indizi|Soluzione|Enigma)/i;
+    const SB_NOT_A_NAME = /\bCA\s*\d+|\bPF\s*\d+|^[^\p{L}\n]*(Arena|Tipo|Dimensioni|Elementi|Tattica|Nemici|Difficolt|Innesco|Bottino|Azioni|Tratti|Reazioni|Multiattacco|Telegrafo|Da leggere|Descrizione|Prove|Conseguenze|Fallimento|Indizi|Soluzione|Enigma)/iu;
     function joinSplitStatblockHeaders(text) {
         const lines = text.split("\n"); const out = [];
         for (let i = 0; i < lines.length; i++) {
