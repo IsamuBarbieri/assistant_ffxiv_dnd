@@ -1,5 +1,29 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-17b — Revisione delle modifiche; l'ultima invocazione scritta per esteso
+
+**REVISIONE.** Riletto tutto quello che avevamo toccato oggi contro le regole del progetto. Quattro
+punti erano scritti male, tutti nostri:
+- **adiacenza.** La parola 'act' era rimasta accanto al marcatore di parte in DUE punti; ne avevamo
+  ripristinato uno solo, e l'output aveva prodotto '— Fine atto 1 —'. Ora zero occorrenze di
+  act/atto entro 90 caratteri dal marcatore.
+- **G29 spiegava invece di prescrivere** ('that is what tells the players…', 'so a qualifier always
+  exists…'). La giustificazione sta in chat e qui, mai nel knowledge. La voce perde un terzo.
+- **la riga del volume** aveva prosa nella colonna che ovunque contiene un'unita': ora `*none*`.
+- **l'ancora del fulm era ristretta ai corpi** ('a body height') mentre la riga copre tutte le
+  altezze: misurato, funzionava sulle persone e falliva su soffitti e creature. Ora 'EVERY height'.
+
+**L'ULTIMA INVOCAZIONE SCRITTA PER ESTESO.** 06 chiamava 'mappa MSQ' per nome, 5 volte, mentre ogni
+altro comando e' chiamato per ruolo (the play command ×46, the travel command ×19, the bridge
+command ×18). Diventa **the flow-map command**, e la mappa e' dichiarata in cv E in lv — senza il
+binding la regola sarebbe invisibile, che e' il modo esatto in cui avevamo perso 67 regole. La forma
+estesa del comando ('+' / 'prossimo') resta documentata come argomento, non come nome.
+
+Nella stessa frase c'era anche l'ultima negazione che disegna il nome dell'artefatto ('NO reveal
+box'): rimossa, la forma positiva era gia' nella riga.
+
+06 v6.60 · 07 v1.40 · cv125 · lv54.
+
 ## 2026-08-17 — Merci per origine; il numero della parte; il fulm senza ancora
 
 Tre difetti misurati su run consecutive della stessa one-shot, tre cause diverse.
@@ -26,12 +50,16 @@ fattore in §A2 era giusto ma il modello non aveva da dove partire, quindi immag
 metri e ci appiccicava l'unita'. Lo yalm non sbaglia mai perche' ha il quadretto. Data al fulm la
 stessa cosa: un Hyur adulto e' alto ~6 fulm, e le stature scalano su una persona.
 
-**APERTO.** `Dimensioni` oscilla fra le run perche' il template dice 'written BARE, no unit' e la
-tabella di §A2 lo elenca fra i campi in yalm: due regole, entrambe soddisfacibili, nessuna vince.
-Le etichette del pitch (Sinossi / Aggancio / Dramatis Personae / Indice) non sono dichiarate in
-nessun template: tre run, tre set di emoji diversi.
+**ETICHETTE DEL PITCH.** Tre run, tre set di emoji diversi, perche' il template di §C4 elencava
+i blocchi in maiuscolo senza icona. Ora le porta scritte: `🎬 Sinossi` · `🪝 Aggancio` ·
+`🎭 Dramatis Personae` · `📑 Indice degli Atti`. 🎬 e non 📜 perche' 📜 e' gia' Lore a Strati:
+un'icona, una cosa. Dichiarate SOLO in 06, mai nelle istruzioni.
 
-06 v6.54 · 07 v1.39.
+**DIMENSIONI: SI LASCIA COSI'.** Il campo oscilla fra '14 × 14' e '14 × 14 yalm' perche' il template
+dice 'written BARE' e la tabella di §A2 lo elenca fra i campi in yalm. Decisione del GM: vanno bene
+entrambe, il tracker le accetta entrambe, e riconciliare le due regole rischia piu' di quanto renda.
+
+06 v6.55 · 07 v1.39.
 
 ## 2026-08-16 — Le scatole disegnate spariscono dal corpus; il pacchetto incontro si dichiara chiuso
 

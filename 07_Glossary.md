@@ -1,5 +1,5 @@
 # 07_GLOSSARY - Naming System & Recurring Names (SINGLE SOURCE)
-Version v1.39
+Version v1.40
 
 ## G0 - PRINCIPLE & USAGE
 - NARRATIVE LEVEL: translate by SENSE into "Italian (English)" at the FIRST occurrence, then only Italian. Applies to EVERYTHING built from transparent English words: personal names, surnames, epithets/nicknames, places/settlements, ships/vessels, taverns/inns, organizations/groups/companies, signs, titles. (ABILITY / SPELL / MOVE / ACTION NAMES are a SPECIAL CASE -> see G24: FFXIV/FF-iconic names are KEPT, only the effect is in Italian.) If no standard rendering exists, CREATE one. The English in parentheses is a provenance label.
@@ -246,8 +246,8 @@ Which unit and how to convert: 06 A2. Here, how they are WRITTEN.
 - BRACKETED CONVERSION, when used: `<numero>m` glued, no words — '7 yalm (10,5m)', '3 malm (4,8km)', '10 ponze (4,5kg)'. Italian decimal comma.
 
 ## G29 - GOODS, DRINKS & FARE (the qualifier is a place or a people of Eorzea)
-Every drink, dish, fabric, tobacco or trade good is named BY ORIGIN, and the origin is Eorzean: that is what tells the players where it comes from, why it is rare and what it costs.
-- SHAPE: <good> + <Eorzean qualifier>, drawn from the G8 demonyms and the G9/G12-G26 places — so a qualifier always exists for any zone, city-state, house or clan already in this glossary.
+Every drink, dish, fabric, tobacco or trade good is named BY ORIGIN, and the origin is Eorzean.
+- SHAPE: <good> + <Eorzean qualifier>, drawn from the G8 demonyms and the G9/G12-G26 places.
 - WORKED: 'rum di Vylbrand' · 'sidro noscean' · 'birra di Portobirra' · 'tè ishgardiano' · 'vino di Bacchus' · 'idromele ala mhigano' · 'tabacco thanalano'.
 - A GOOD WITH NO ORIGIN IS STILL A GOOD: 'rum scuro', 'vino novello', 'birra chiara'. When no Eorzean origin is wanted, the good stands unqualified.
 - Same for flora and fauna in description: the setting's own species (aldcapra, dodo, marmotta di La Noscea, coblino) carry the local colour, per G25.
