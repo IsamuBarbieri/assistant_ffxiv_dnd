@@ -158,7 +158,7 @@ Version v2.12 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 - Arrival: by **ship** across the Rhotano Sea. Travelling peddler: **Brennan**. Met at the Lower Decks by the **Yellowjackets** (Ryssfloh).
 - INCIDENT: a ship runs up **pirate colours** and opens fire. Canon stops there — the ship outruns them and the passengers are sent belowdeck. **HOMEBREW: the pirates close and BOARD**, and the fight is on the deck. Brennan's parting line, 'by way of thanks for savin' me arse earlier', only pays off if the boarding happened.
 - Parting blessing (Llymlaen, the Navigator): *'Till sea swallows all.'*
-- Guild hub: **The Drowning Wench** — master **Baderon**.
+- Guild hub: **The Drowning Wench** — master **Baderon**, a male **Hyur** (Midlander) — a weathered barkeep among a Sea Wolf crowd, and named as a Hyur in the prose that introduces him.
 - MSQ opening: **Coming to Limsa Lominsa** → **Close to Home** (full ordered chain in 08.2).
 
 **GRIDANIA** (Black Shroud)
@@ -166,14 +166,14 @@ Version v2.12 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 - **THE MOOGLES — canon, and unique to this city.** A moogle speaks to the PCs on the road and is astonished to be seen: *'Normal folks can't see or hear us, which makes you special, kupo!'* This is the FIRST outward sign of the Echo, and it comes BEFORE the vision. It must land on the WHOLE party, never on one PC. It also plants the Shroud thread: *'The wood's been restless of late.'*
 - INCIDENT: a Wood Wailer halts the carriage — a skirmish with the **Ixal** has broken out ahead. The fight needs NO invention here: canon already says *'We shall hold them here! Try to break clear!'* The Wailers hold the line, the party cuts its way through.
 - Parting blessing (Nophica, the Matron): *'May the Matron take him to Her Bosom... serenity, purity, and sanctity.'*
-- Guild hub: **The Carline Canopy** — master **Mother Miounne**.
+- Guild hub: **The Carline Canopy** — master **Mother Miounne**, a female **Elezen**.
 - MSQ opening: **Coming to Gridania** → **Close to Home** (full ordered chain in 08.2).
 
 **UL'DAH** (Thanalan)
 - Arrival: by **carriage across the desert** into **Ul'dah – Steps of Nald**. Travelling peddler: **Brendt**. Met at the Gate of Nald by **Wymond**.
 - INCIDENT: **Brass Blades** stop the carriage for an 'inspection', find prohibited somnus on Brendt and start squeezing him for a fine — then the cry goes up, *'Amalj'aa! Amalj'aa! To arms!'*, and the captain abandons the shakedown. Canon waves the party off; **HOMEBREW: they stay**, caught between corrupt guards in flight and raiding **Amalj'aa**. PLAY THE SHAKEDOWN BEFORE THE FIGHT and never cut it: it is Ul'dah's whole character in one scene, and Brendt says the quiet part out loud — *'Like common bandits, they are, only less honest.'*
 - Parting blessing (Nald'thal, the Traders): *'For by fire are we reborn.'*
-- Guild hub: **The Quicksand** — master **Momodi**.
+- Guild hub: **The Quicksand** — master **Momodi**, a female **Lalafell** (Dunesfolk).
 - MSQ opening: **Coming to Ul'dah** → **Close to Home** (full ordered chain in 08.2).
 
 **CONVERGENCE (the 3 paths merge):**
