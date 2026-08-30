@@ -1,5 +1,23 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-30 — Evoluzione tracking orario: coerenza in prosa, salti MSQ, /riposo breve e /attesa
+
+Aggiornato il sistema dell'orario di campagna (`[B] Orario: 0-24`) per renderlo diegeticamente attivo e flessibile:
+
+**COERENZA DELL'ATMOSFERA COL MOMENTO DELLA GIORNATA.** Il momento della giornata (Alba 🌅 0, Mattino ☀️ 1-4, Pomeriggio 🌤️ 5-8, Tardo Pomeriggio 🌇 9-12, Sera 🌆 13-15, Notte 🌙 ≥16) non è più solo una riga nel footer: si integra naturalmente nella descrizione ambientale, nella luce, nelle ombre e nel fermento della scena all'interno della prosa, quando serve.
+
+**SALTO TEMPORALE GUIDATO DA MSQ / SQ (QUEST-FORCED TIME JUMP).** Quando uno step di missione richiede o racconta un momento specifico (es. attendere la sera per un banchetto, la notte per un'infiltrazione, l'alba per un incontro), l'orologio non incrementa con il normale conteggio del beat ma salta all'inizio della fascia oraria target (Alba 0, Mattino 1, Pomeriggio 5, Tardo Pomeriggio 9, Sera 13, Notte 16), segnalando il salto nel footer (`attesa MSQ: {periodo}`).
+
+**RIPOSO BREVE (`/riposo breve`).** Introdotto il comando dedicato per il riposo breve (1 ora): risposta secca di una sola riga, gestione meccanica di Dadi Vita e slot a carico del tavolo come da 5e base, `Orario +1`, nessun beat narrativo. Distinto da `/riposo` che gestisce il riposo lungo prosato con alloggio/bivacco e reset a 0.
+
+**COMANDO ATTESA GENERICA (`/attesa [N ore | periodo]`).** Introdotto il comando di avanzamento orario libero per gestire le attese del gruppo: risposta di una sola riga, avanza l'orologio di N ore o fino alla fascia richiesta.
+
+**ABILITÀ TELEGRAFATE: COLPISCONO SEMPRE (NO TIRO PER COLPIRE, NO TS).** Le azioni nemiche dotate di `Telegrafo:` non usano mai un tiro per colpire (+N al tiro) né concedono Tiri Salvezza: avendo fornito preavviso e finestra di reazione, colpiscono automaticamente chiunque resti nell'area o non attui contromisure/mitigazioni. La contromossa è puramente posizionale e tattica. Gli attacchi base non telegrafati mantengono i normali tiri per colpire.
+
+**IGIENE E PARITÀ.** Rimossa riga duplicata in `Instructions_Campaign.txt` L.43; aggiornati i binding di ruolo (`the short-rest command`, `the wait command`) in cv e 06; allineati §A3, §B1, §B10 e §B28 in 06, Ch. 9.3, 9.6, 14.5/14.6 in 05, e §1.8/§1.10 in PM.
+
+05 v2.14 · 06 v6.63 · cv131 · mv4.
+
 ## 2026-08-17b — Revisione delle modifiche; l'ultima invocazione scritta per esteso
 
 **REVISIONE.** Riletto tutto quello che avevamo toccato oggi contro le regole del progetto. Quattro

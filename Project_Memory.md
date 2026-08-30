@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv2
+Version mv4
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -237,7 +237,7 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
 - **[A] POSIZIONE MSQ** = current quest (EN) + last COMPLETED step (resume anchor; the NEXT step is DERIVED from
   the wiki, never stored). Mission = the owning QUEST, never a duty name, never the just-'apre' quest.
 - **[B] PARTY** = N PG + livello (table-owned, copied VERBATIM, never derived or "corrected").
-  - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Advances each command per the always-on Orario rules in Instructions_Campaign; reset to 0 by `/riposo`. Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
+  - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). The active period colors the narrative prose (lighting, atmosphere, city bustle, quiet). Advances per command (beat +1/+2; short commands +1; `/riposo breve` +1; `/attesa` advances to target hour/period; quest-forced time jumps set the clock directly to the start of the required period; reset to 0 by `/riposo`). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
 - **[C] SUBQUEST ATTIVA** = exactly ONE (or 'nessuna'), with its STATE (ATTIVA/SOSPESA).
 - **Sessione: N** = a dedicated integer (table-owned, copied verbatim, +1 only when beats were played).
 - Reveals, NPC reputations, world-state, Crystals/Blessing and Aetherytes are **NOT** save fields — all derived
@@ -256,9 +256,10 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
   Decumana; Cape Westwind & Steps of Faith = solo instances.
 
 ## 1.10 Encounter, economy and loot in one screen
-- **TIERS:** BOSS = CR party level EXACTLY (difficulty from mechanics + phase longevity; offense in band).
+- **TIERS & TELEGRAPHS:** BOSS = CR party level EXACTLY (difficulty from mechanics + phase longevity; offense in band).
   MID-BOSS = CR level −2. MSQ STORY MOB = lore-first GdS, easy, only outside duties. RETREATING VILLAIN = easy
-  skirmish (may return later as a CR-party boss in its own duty).
+  skirmish (may return later as a CR-party boss in its own duty). Telegraphed moves NEVER roll to hit (+N per colpire)
+  and NEVER grant a Saving Throw (no TS) — they hit automatically if not avoided/countered.
 - **DUNGEON:** no trash; statted encounters = exactly the wiki roster; a short playable interlude between EVERY
   pair of fights, ≥1 a tangible puzzle; FIRST-FIGHT-FIRST; roster pinned at entry; SPLIT-NEVER-SHRINK.
 - **ECONOMY = 5e-2014 rarity ladder by party level**; each special = a real 5e item of that rarity or an

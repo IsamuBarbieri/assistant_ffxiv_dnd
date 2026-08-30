@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.12 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.14 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -686,6 +686,7 @@ The core of gameplay: telegraphed FFXIV-style combat, where the challenge arises
   - A MOVEMENT/positioning reaction: 1 ROUND of warning is enough.
   - A reaction requiring MULTIPLE ACTIONS (destroy a Heart, a structure, an add): a LONGER window.
 - Correctly telegraphed + no reaction = a consequence, but AVOIDABLE for those who react.
+- **TELEGRAPHED MOVES NEVER ROLL TO HIT NOR GRANT SAVES — THEY HIT AUTOMATICALLY:** because the mechanic was telegraphed in advance with a clear reaction window, it carries NEITHER an attack roll (no '+N to hit') NOR a Saving Throw (no TS). If a target remains in the area or fails to react/mitigate, the attack hits automatically and deals its full damage/effect. Counterplay is purely positional and tactical. Routine/untelegraphed basic attacks keep standard attack rolls.
 
 ## 9.4 Gradual introduction (learning curve)
 1. First 'soft' appearance: low penalty, makes the pattern KNOWN.
@@ -698,13 +699,13 @@ MECHANICS FIDELITY: for an MSQ/trial/dungeon boss, REPRODUCE the CURRENT (post-r
 Each boss lists, for each mechanic:
 - **TRIGGER:** when it starts (round N or HP threshold, e.g. 50%).
 - **TELEGRAPH:** the PHYSICAL description of the warning + how many rounds of warning.
-- **THREAT:** what it does (damage/effect/area).
-- **COUNTER:** how to avoid/neutralize it.
+- **THREAT:** what it does (damage/effect/area; automatic hit if not countered/avoided).
+- **COUNTER:** how to avoid/neutralize it (moving away, mitigation, positioning).
 - **CONSEQUENCE (avoidable):** what happens if you do NOT react (NEVER an automatic wipe).
 
 ## 9.6 Mechanics toolbox (reusable, physically sensible)
-- **Telegraphed AoE (physical):** Circle = localized impact; Cone = frontal sweep/breath; Line = charge/tail/beam. Counter: get out (1 round). Dexterity save halves.
-- **Tank buster:** a huge blow on a single target. Counter: mitigation, the Tank's protection, positioning. Physical telegraph.
+- **Telegraphed AoE (physical):** Circle = localized impact; Cone = frontal sweep/breath; Line = charge/tail/beam. Automatic hit on anyone remaining in the area (no attack roll, no TS). Counter: get out during the telegraph window (1 round).
+- **Tank buster:** a huge blow on a single target. Automatic hit (no attack roll, no TS); counter: active mitigation, the Tank's protection, defensive positioning. Physical telegraph.
 - **Knockback / push:** shoves toward REAL hazards (lava, chasm, wall). Counter: position beforehand, anchor yourself.
 - **Weak point / Heart (one-time):** at an HP threshold the boss exposes a priority target with its own HP, to be destroyed within a WIDE window. If not destroyed: a strong punishing blow, but avoidable/survivable.
 - **Adds / structures to destroy:** physical objects readable as 'to be destroyed' (boulders, crystals, totems, pillars, eggs). They have HP; within a window or they reinforce the boss.
@@ -722,9 +723,9 @@ Each boss lists, for each mechanic:
 
 ## 9.9 Practical example - Titan
 *(Fair CR stats; the challenge is in the mechanics.)*
-- **MOUNTAIN BUSTER (tank buster):** Recurring trigger. Telegraph: Titan clenches a giant fist and raises it over the nearest target (1 round). Threat: a devastating single blow. Counter: the Tank's mitigation/protection; the toughest interposes.
-- **WEIGHT OF THE LAND (ground AoE):** Recurring trigger. Telegraph: the ground CRACKS in several spots (1 round). Threat: rock eruptions. Counter: move off the cracks. Dexterity save halves.
-- **LANDSLIDE (cone + push):** Recurring trigger. Telegraph: Titan draws back his forearm for a frontal sweep (1 round). Threat: frontal cone with strong KNOCKBACK. Counter: leave the cone or anchor yourself; mind the edges/cliffs.
+- **MOUNTAIN BUSTER (tank buster):** Recurring trigger. Telegraph: Titan clenches a giant fist and raises it over the nearest target (1 round). Threat: a devastating single blow (automatic hit). Counter: the Tank's mitigation/protection; the toughest interposes.
+- **WEIGHT OF THE LAND (ground AoE):** Recurring trigger. Telegraph: the ground CRACKS in several spots (1 round). Threat: rock eruptions (automatic hit on anyone remaining on the cracks). Counter: move off the cracks.
+- **LANDSLIDE (cone + push):** Recurring trigger. Telegraph: Titan draws back his forearm for a frontal sweep (1 round). Threat: frontal cone with strong KNOCKBACK (automatic hit). Counter: leave the cone or anchor yourself; mind the edges/cliffs.
 - **TITAN'S HEART (weak point, ONE-TIME):** Trigger at 50% HP. Telegraph: the chest opens and reveals a pulsing CORE (a WIDE window, multiple rounds). Threat: if the Heart stays intact, it unleashes EARTHEN FURY (an arena-wide blow). Counter: destroy the Heart within the window. If not in time: the Fury hits but is SURVIVABLE, NOT an automatic wipe.
 - **TREMORS (mounting pressure):** Trigger at intervals after the Heart phase. Telegraph: the ground shakes ever more strongly. Threat: an area damage covering MORE ground each repetition. Counter: move to safe zones; pushes you to close the fight.
 
@@ -975,10 +976,10 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 - PHOENIX DOWNS / TAILS: NOT craftable, only purchasable (Ch. 12).
 - Gathering does NOT feed Crafting (no tracked materials): Gathering gives Gil; Crafting spends Gil.
 - Available activities = ONLY Gathering, Crafting, Research/Study.
-- **DOWNTIME IS UNBOUND FROM /riposo:** the Gathering/Crafting/Research activities above are GM-run table options at any stop; they are NOT tied to a rest command and /riposo does NOT invoke them. The /riposo command (06 §B28) produces a LONG REST only.
+- **DOWNTIME IS UNBOUND FROM REST:** the Gathering/Crafting/Research activities above are GM-run table options at any stop; they are NOT tied to a rest command and the rest command does NOT invoke them. The rest command (06 §B28) produces a LONG REST only.
 
 ## 14.6 Random Events: Travel & Camp (the shared roll)
-One shared mechanic drives both the TRAVEL check (06 §B26 /viaggio) and the CAMP check of a LONG REST outdoors (06 §B28 /riposo). The short rest stays base 5e rules run by the GM (regain slots, spend HD), not assisted by /riposo.
+One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check of a LONG REST outdoors (06 §B28). The short rest stays base 5e rules run by the GM (regain slots, spend HD), acknowledged mechanically (+1 hour to the campaign clock) without generating a scene.
 - **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone GEOGRAPHY (06 §A6/§A8). GEOGRAPHY ANCHOR: a route/camp INSIDE or immediately ADJACENT to a major hub, or in settled/patrolled friendly territory, is **Tranquillo by default** (tamed, watched) — Rischioso/Ostile require the real geography of open wilderness, a contested border, or an infested/hostile zone; do NOT rate the safe approaches of a city as Rischioso (failure shape: a patrolled leg at a city's doorstep tagged Rischioso, which then forced a harder encounter than the place warrants). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
   - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
   - **Rischioso** — open wilderness, a contested border, unsettled land.
@@ -990,7 +991,7 @@ One shared mechanic drives both the TRAVEL check (06 §B26 /viaggio) and the CAM
 - **COMBAT DIFFICULTY = THE DANGER RATING, on the EXISTING engine (no new tables):** when the event is a FIGHT (a travel ambush, a camp agguato), its DIFFICULTY is fixed by the route/zone danger rating and BUILT on the standard encounter engine of Ch.10.2 — **Tranquillo → Facile (Easy)** · **Rischioso → Media (Medium)** · **Ostile → Difficile (Hard)**. Size it to the group's XP budget for that tier (Ch.10.2a thresholds × the Ch.10.2b count multiplier, adjusted for party size Ch.10.3) with BY-THE-BOOK stat blocks (06 §B6, no inflation) — NEVER an ad-hoc/over-tuned block. (Ch.10.4 already flags travel/rest ambushes as target Easy/Medium; this just pins the tier to the rating.) FAILURE SHAPE: a Tranquillo camp that threw 3 creatures of ~55 HP each — many multiples over the Facile budget.
 - **MISS DIFFERS BY BRANCH:** at a CAMP a miss still yields a COLOUR event (a shared meal, a fireside confession, a distant light) — always something. On TRAVEL a miss yields an UNEVENTFUL passage — nothing happens, the journey simply passes.
 - **WATCH ORDER (camp):** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
-- **THE LONG REST ALWAYS COMPLETES (camp):** a resolved ambush does NOT cancel it — /riposo never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
+- **THE LONG REST ALWAYS COMPLETES (camp):** a resolved ambush does NOT cancel it — the rest command never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
 - Design references (structure, not verbatim): DMG "Random Encounters", OSR/Shadowdark watch-checks, the travel/camp procedures of published wilderness adventures.
 
 # CHAPTER 15 — TAVERNS & GOSSIP
