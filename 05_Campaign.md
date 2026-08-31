@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.19 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.20 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -1226,7 +1226,7 @@ NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WH
 - **[A] MSQ POSITION:** the current mission (EN) + the LAST COMPLETED step (= resume anchor); nothing predictive (next step, place, milestone are DERIVED from the wiki quest chain, not stored). (Crystals/Blessing are NOT in the save (Aetherytes only flagged in-scene, not tracked) — player-managed and announced in play; see 06 §B23.)
 - **[B] PARTY (table-owned):** number of PCs + current level — copied VERBATIM from the save, NEVER derived from the arc nor 'corrected'. Used for encounter balancing.
 - **[C] ACTIVE SUBQUEST:** exactly ONE subquest at a time (name + STATE ATTIVA/SOSPESA + progress + MSQ return point), or 'nessuna'; SUSPENDING it (/riprendi MSQ) keeps it, taking a NEW one replaces and loses the previous (Ch. 13). Still a single slot — no parked-leads LIST.
-- **Sessione: N (session counter):** a dedicated table-owned integer (copied VERBATIM, +1 only when beats were played this session); the '=== SAVE ===' header carries no title. Emitted inside a single fenced code block prefixed with `/continua` on line 1 for 1-click resumption. Aligned to 06 §B17 (the sole save-template source).
+- **Sessione: N (session counter):** a dedicated table-owned integer (copied VERBATIM, +1 only when beats were played this session); the '=== SAVE ===' header carries no title. Emitted inside a single fenced code block prefixed with `/carica` on line 1 for 1-click load and orientation. Aligned to 06 §B17 (the sole save-template source).
 Everything else is DERIVED, not stored: what the PCs know, NPC reputations, Grand Company state, world-state and the reveal state are all a function of the MSQ position + the internal reveal gates (Ch. 1) - a small save that cannot mis-drive generation with a stale field.
 Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created only on request (19.5).
 

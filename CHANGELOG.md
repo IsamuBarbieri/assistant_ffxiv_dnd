@@ -1,5 +1,29 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-31c — Riprogettazione comando `/svolta` (ex `/esito`) con generazione immediata del beat
+
+Riprogettato il meccanismo delle deviazioni diegetiche e delle scelte impreviste dei giocatori: ritirato il vecchio comando passivo `/esito` e introdotto **`/svolta`**, che genera immediatamente un beat narrativo giocabile basato sull'input del GM:
+
+**GENERAZIONE IMMEDIATA DEL BEAT NARRATIVO.** `/svolta` entra nel novero dei comandi che producono prosa narrativa e tag di beat (`ONLY /continua, /riassumi, /viaggio, /riposo, /svolta`):
+- Il comando risponde **immediatamente** generando la scena `[MSQ — Svolta: {situazione}]` (o `[SUBQUEST — Svolta: {situazione}]` se una SQ è ATTIVA).
+- Non richiede più un successivo `/continua`: la reazione del mondo e le conseguenze dell'azione dei PG si giocano nel turno stesso.
+
+**DUE LIVELLI DI LIBERTÀ DIEGETICA (MSQ vs SUBQUEST).**
+- **Nella MSQ (Massima Flessibilità di Approccio, Invarianza dei Pilastri)**: I giocatori hanno piena libertà di approccio ai singoli ostacoli (fuga, diplomazia, corruzione, inganni, rifiuti temporanei). Nessun retcon, nessun rimprovero meta; il mondo reagisce realisticamente e la pressione narrativa riconduce organicamente ai nodi obbligati dell'MSQ (pilastri, duty instanziate, rivelazioni/cristalli 08.1).
+- **Nelle Subquest (Libertà Totale e Sovvertimento)**: Le missioni secondarie possono essere stravolte, deviate, fallite, tradite o risolte in modi alieni. Il beat gestisce il fallout locale, aggiorna lo stato della Subquest in [C] (anche portandola a conclusione anticipata/fallita) e libera il campo per il rientro in MSQ.
+
+**CURSORE E ORARIO.**
+- Il cursore narrativo si riallinea allo step coerente con la nuova situazione.
+- L'orario di campagna avanza in base all'attività del beat (+1 narrativo / +2 con combattimento o inseguimento/fuga concitata).
+
+**CONTINUITÀ NARRATIVA E PASSAGGIO DI CONSEGNE SCENICO.** Aggiunta in §B1 la regola output-forcing `SCENE HANDOVER & NPCS IN MOTION`: quando un beat si conclude aprendo lo step successivo, la chiusura narrativa (dopo dialoghi, prove o bottino) deve descrivere la transizione e mettere in moto i PNG (es. il PNG che si avvia in anticipo verso la grotta/scogliera o le tracce che si allontanano), eliminando i salti di teletrasporto dei PNG tra turni consecutivi.
+
+**PREFISSO EXPORT SAVE CODE BLOCK (`/carica`).** Allineato il template di esportazione del blocco save su `/salva`: il blocco di codice markdown emesso contiene `/carica` sulla prima riga (invece di `/continua`), in modo che incollando il blocco in una nuova chat venga immediatamente e correttamente eseguito il comando `/carica` per l'inizializzazione e l'orientamento.
+
+**IGIENE E PARITÀ.** Aggiornato `Instructions_Campaign.txt` (cv136), §B1, §B3, §B17 e §B24 in `06_Procedures_and_Format.md` (v6.70), `05_Campaign.md` (v2.20), §1.8 e tabella quarantena in `Project_Memory.md` (mv9).
+
+05 v2.20 · 06 v6.70 · cv136 · mv9.
+
 ## 2026-08-31b — Ricalibrazione economica 5e trasporti e semplificazione comando `/viaggio`
 
 Ricalibrate le tariffe dei trasporti per allinearle all'economia standard di D&D 5e (`1 Gil = 1 gp`) e semplificata la gestione del comando `/viaggio`:
