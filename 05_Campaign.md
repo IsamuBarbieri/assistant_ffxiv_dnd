@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.17 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.19 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -668,11 +668,12 @@ Always with coherent lore justification:
 
 ## 8.5 Conventional Transport Services & Fares (prices per person / per leg)
 When teleporting is unviable, un-attuned or avoided to conserve Hit Dice, conventional transport is available:
-- **Local riverboat / coastal ferry (barca comune / traghetto locale):** 5–10 Gil.
-- **Chocobo rental (Chocobokeep / nolo per tratta tra avamposti):** 15–25 Gil.
-- **Ocean-going ship / regular ferry (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay):** 30–50 Gil.
-- **Scheduled airship flight (aeronave di linea Highwind Skyways tra città-stato):** 100–120 Gil (MSQ Lv 15 unlock).
-- **Personal riding Chocobo purchase (acquisto permanente):** 300–500 Gil (or Grand Company mount licence at MSQ Lv 20).
+- **Local riverboat / coastal ferry (barca comune / traghetto locale):** 1 Gil per person.
+- **Chocobo rental (Chocobokeep / nolo per singola tratta tra avamposti):** 2 Gil per person / per leg.
+- **Ocean-going ship / regular ferry (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay):** 5 Gil per person.
+- **Scheduled airship flight (aeronave di linea Highwind Skyways tra città-stato):** 10 Gil per person (MSQ Lv 15 unlock).
+- **Personal riding Chocobo purchase (acquisto permanente):** 150 Gil (including tackle and harness; or Grand Company mount licence at MSQ Lv 20).
+- **Transport cost display at head of /viaggio:** when travel involves paid fares (> 0 Gil), the total cost per person and its breakdown are printed at the head of the beat (`💰 Spesa: N Gil a persona (dettaglio)`); if 0 Gil (purely on foot), no cost line is printed.
 
 # CHAPTER 9 — DYNAMIC COMBAT
 The core of gameplay: telegraphed FFXIV-style combat, where the challenge arises from READABLE, ALWAYS-AVOIDABLE mechanics, not from inflated stats nor from timers that kill regardless.

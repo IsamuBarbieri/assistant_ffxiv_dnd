@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv7
+Version mv8
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -237,7 +237,7 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
 - **[A] POSIZIONE MSQ** = current quest (EN) + last COMPLETED step (resume anchor; the NEXT step is DERIVED from
   the wiki, never stored). Mission = the owning QUEST, never a duty name, never the just-'apre' quest.
 - **[B] PARTY** = N PG + livello (table-owned, copied VERBATIM, never derived or "corrected").
-  - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). The active period colors the narrative prose (lighting, atmosphere, city bustle, quiet). Advances per command (beat +1/+2; short commands +1; `/viaggio` a piedi +1/zona, a chocobo +1 ogni 2 zone, volo aeronave / nave oceanica +2, barca locale +1, multitratta = somma durate; `/riposo breve` +1; `/attesa` advances to target hour/period; quest-forced time jumps set the clock directly to the start of the required period; reset to 0 by `/riposo`). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
+  - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). The active period colors the narrative prose (lighting, atmosphere, city bustle, quiet). Advances per command (beat +1/+2; short commands +1; `/viaggio` a piedi +1/zona, `/viaggio chocobo` +1 ogni 2 zone, volo aeronave / nave oceanica +2, barca locale +1, multitratta = somma durate; `/riposo breve` +1; `/attesa` advances to target hour/period; quest-forced time jumps set the clock directly to the start of the required period; reset to 0 by `/riposo`). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
 - **[C] SUBQUEST ATTIVA** = exactly ONE (or 'nessuna'), with its STATE (ATTIVA/SOSPESA).
 - **Sessione: N** = a dedicated integer (table-owned, copied verbatim, +1 only when beats were played).
 - Reveals, NPC reputations, world-state, Crystals/Blessing and Aetherytes are **NOT** save fields — all derived

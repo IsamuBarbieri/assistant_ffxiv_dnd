@@ -1,5 +1,27 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-08-31b — Ricalibrazione economica 5e trasporti e semplificazione comando `/viaggio`
+
+Ricalibrate le tariffe dei trasporti per allinearle all'economia standard di D&D 5e (`1 Gil = 1 gp`) e semplificata la gestione del comando `/viaggio`:
+
+**SEMPLIFICAZIONE COMANDO `/viaggio` E COSTI IN TESTA AL BEAT.** L'unica scelta manuale per il party via terra è tra viaggio a piedi e con Chocobo:
+- `/viaggio` (senza argomenti): default automatico a piedi.
+- `/viaggio chocobo`: viaggio rapido a dorso di Chocobo per le tratte terrestri.
+- Tratte marittime, fluviali e aeree (barche, navi d'alto mare, aeronavi): fisse e obbligate dalla rotta/geografia, integrate e risolte automaticamente nel montaggio narrativo del viaggio senza richiedere parametri manuali.
+- Viaggi multitratta con Chocobo: il costo del noleggio Chocobo (2 Gil a persona) viene addebitato per ciascuna tratta terrestre distinta (es. Chocobo + Nave + Chocobo = 2 Gil + 5 Gil + 2 Gil = 9 Gil a persona).
+- **Riepilogo spese in testa al beat**: se la tratta comporta costi (> 0 Gil), viene stampata subito sotto l'intestazione la riga `💰 Spesa: N Gil a persona (dettaglio: ...)`; se il viaggio è a piedi a costo zero (0 Gil), la riga viene omessa.
+
+**RICALIBRAZIONE ECONOMICA 5e DEI TRASPORTI.** Prezzi convertiti dai valori MMO a cifre calibrate e sostenibili per l'economia 5e:
+- Barca comune / traghetto locale: 1 Gil a persona.
+- Noleggio Chocobo (Chocobokeep / nolo per singola tratta tra avamposti): 2 Gil a persona / tratta.
+- Nave oceanica di linea (es. Limsa ↔ Vesper Bay): 5 Gil a persona.
+- Volo aeronave di linea Highwind Skyways: 10 Gil a persona (sblocco MSQ Lv 15).
+- Acquisto Chocobo permanente da sella: 150 Gil (finimenti inclusi; o licenza Grand Company MSQ Lv 20).
+
+**IGIENE E PARITÀ.** Aggiornato `Instructions_Campaign.txt` (cv135), Ch. 8.5 in `05_Campaign.md` (v2.19), §A22 e §B26 in `06_Procedures_and_Format.md` (v6.68), e §1.8 in `Project_Memory.md` (mv8).
+
+05 v2.19 · 06 v6.68 · cv135 · mv8.
+
 ## 2026-08-31 — Calcolo tempo di viaggio diegetico, costi trasporti e save code block con `/continua`
 
 Aggiornato il calcolo del tempo trascorso durante i viaggi convenzionali (`/viaggio`) e introdotto il listino trasporti di Eorzea:
