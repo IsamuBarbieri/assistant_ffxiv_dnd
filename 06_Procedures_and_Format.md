@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.65 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.66 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -232,6 +232,12 @@ DAWNTRAIL (LOREMONGER / ONE-SHOT ONLY — OUT OF CAMPAIGN SCOPE, §A19):
 - **SELLING / BUY-BACK (the distinction matters):** the ~50% cut applies ONLY to finished GEAR (bought equipment resold at about half its value). SELLABLE PARTS (§A21) are NOT halved: the RIGHT buyer (apothecary buys reagents, smith buys hides/ore, etc.) pays the FULL stamped value, the wrong buyer pays little/nothing; state a 'does not buy' by theme. The assistant lists prices but NEVER tracks the party's purse or inventory (players own it, 05 Ch.19.2).
 - **REPAIRS:** flavour / minor gil only — there is NO durability system to track.
 - **FACTION / BEAST-TRIBE VENDORS:** a tribe's special vendor (Sylph, Amalj'aa, Kobold, etc.) unlocks ONLY after that tribe has been befriended — via its MSQ beat or an optional subquest — - derivable from the MSQ beat that befriends it (or tracked by the GM if via an optional subquest); until then it is absent. Stock = themed tribal goods (still base + generated special per §A20).
+- **TRANSPORT SERVICES & FARES (per person / per leg):** canonical transport options across Eorzea with standard fares (players pay from their sheets; assistant quotes prices in context):
+  - Local riverboat / coastal ferry (barca comune / traghetto locale): 5–10 Gil.
+  - Chocobo rental (Chocobokeep / nolo per tratta tra avamposti): 15–25 Gil.
+  - Ocean-going ship / regular ferry (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay): 30–50 Gil.
+  - Scheduled airship flight (aeronave di linea Highwind Skyways tra città-stato): 100–120 Gil (MSQ Lv 15 unlock).
+  - Personal riding Chocobo purchase (acquisto permanente): 300–500 Gil (or Grand Company mount licence at MSQ Lv 20).
 - **OTHER LOCATIONS:** generate on demand by the same method (real role-NPCs + location lore + level tier). For a CAMPAIGN request stay ARR->EW (§A19).
 
 ## §A23 — MUSIC / OST LINK (shared, all assistants)
@@ -742,11 +748,13 @@ OUTPUT (GM-facing, clean normal text; source = 08.1 Roadmap + Beat Manifest for 
 A journey A->B is NOT MSQ and NOT a subquest — it is a chain between two points. DEFAULT: COMPRESS the journey to the §B2 travel line + a 1-line bridge and go straight to the destination beat — NO auto-encounter. A travel leg is WORTH PLAYING IN FULL when: (b) teleport is CANONICALLY BLOCKED (05 Ch.8.4: aetheric interference, sealed zone, no Aetheryte) so overland is forced; (c) a first-time / long / narratively-significant journey the GM chooses to play.
 - **RESTING IS NOT PART OF TRAVEL:** the travel command is ONLY the transit beat — it does NOT camp, rest, or grant a Long Rest. Resting is its OWN command, the rest command (§B28): to rest during a journey, the GM types the rest command. Do not fold a camp/rest into a [VIAGGIO] beat.
 - **TRAVEL DURATION & ORARIO ADVANCE:** travel consumes diegetic in-game time based on distance and transport mode:
-  - **Overland travel (walking / chocobo / standard carriage):** +1 hour per zone traversed (e.g. adjacent zone: departure → destination = +1 hour; crossing 1 intermediate zone: departure → intermediate → destination = +2 hours; each additional intermediate zone adds +1 hour).
-  - **Airship flight (aeronave tra città-stato):** +2 hours (embarkation, climb/descent, flight).
+  - **Overland on foot (a piedi):** +1 hour per zone traversed (e.g. adjacent zone: departure → destination = +1 hour; crossing 1 intermediate zone = +2 hours; each additional intermediate zone adds +1 hour).
+  - **Riding Chocobo / Chocobo carriage (a dorso di Chocobo / carrozza):** +1 hour per 2 zones traversed (minimum 1 hour). Fast pace on roads; grants immediate disengage / fleeing from terrestrial ambushes without spending resources, or Advantage on Initiative.
+  - **Scheduled airship flight (aeronave di linea tra città-stato):** +2 hours (embarkation, climb/descent, flight).
   - **Ocean crossing / large vessel (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay):** +2 hours.
   - **Local riverboat / coastal ferry (comune barca / traghetto locale):** +1 hour.
-  The footer prints the calculated delta: `⏱️ Orario: N → M (+delta) — {label} ({7+M}:00){emoji}`.
+  - **MULTI-LEG JOURNEYS (viaggi a tratte multiple, es. Chocobo + Aeronave + Chocobo):** unified single travel montage covering all legs; total Orario advance = sum of all leg durations (e.g. 1h + 2h + 1h = +4h); lists total monetary cost per PC (e.g. 160 Gil a testa); exactly ONE travel check (1d20) for the whole journey set in the most wild/interesting leg.
+  - **COMMAND VARIATIONS:** `/viaggio` (default: route from the preceding 🧭 line) or `/viaggio [chocobo | aeronave | nave | a piedi]`. The footer prints the calculated delta: `⏱️ Orario: N → M (+delta) — {label} ({7+M}:00){emoji}`.
 WHEN 'the travel command' FIRES — the beat is a TRAVEL MONTAGE (scene order; ref. Sly Flourish 'Running Travel Scenes', Newbie DM 'Overland Travel Montage'): (1) DEPARTURE — leaving the origin, the road taken; (2) THE PASSAGE — the montage that SHOWS THE WORLD (compressed sensory/lore of the land crossed, time passing); (3) THE TRAVEL CHECK (below); (4) ARRIVAL. Head it '[VIAGGIO — <da> -> <a>]' + a light type/~duration. Register: the beat CLOSES ON THE ARRIVAL (soft), unless the rolled event is itself an obstacle.
 - **THE TRAVEL CHECK ('the travel command'; 05 Ch.14.6, the shared travel/camp roll — THE GM ROLLS):** state the ROUTE'S danger rating + threshold ('tira 1d20, evento su ≤N') and generate BOTH branches in this same beat — '**Tiro ≤N (evento):**' ONE event as a VIGNETTE (not a bare line — who/what/where/why) from the Ch.14.6 menu, its VALENCE skewed by the route's danger rating (Tranquillo → per lo più good/neutral · Rischioso → mixed · Ostile → per lo più bad/hazard; Ch.14.6 VALENCE SKEWS): a helpful traveller / a hidden cache / a merchant with a deal · a vista / a minor NPC · an ambush / an NPC in peril / a §B13 encounter whose DIFFICULTY = the route's danger tier on the 05 Ch.10.2 engine (Tranquillo → Facile · Rischioso → Media · Ostile → Difficile, by-the-book §B6) / an environmental hazard; '**Tiro >N (nessun evento):**' an UNEVENTFUL passage (travel can be quiet). The GM rolls and plays the matching branch. If the '≤N (evento)' branch is a §B13 encounter, it carries its §A4 image BEFORE the stat block like any encounter — the pre-generated branch is NOT exempt from the mandatory media.
 WHY THEY WALK = INTERNAL, NEVER PRINTED ('the travel command'): the reason a journey is played (Aetheryte not yet attuned, or the players choosing to walk to save the teleport's HD cost — 05 Ch.19.2) is TABLE KNOWLEDGE; the beat NEVER narrates or re-explains it (no 'camminate perché…' GM-facing framing) — it just plays the montage.

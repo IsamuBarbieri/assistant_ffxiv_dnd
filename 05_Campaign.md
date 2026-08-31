@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.16 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.17 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -666,6 +666,14 @@ Always with coherent lore justification:
 4. **World limits:** you cannot teleport between different worlds/planes with the ordinary network (e.g. between the Source and the First): a plot device is required.
 **Practical effect:** the party must reach the destination conventionally -> chances for exploration and encounters (Ch. 13 and 10).
 
+## 8.5 Conventional Transport Services & Fares (prices per person / per leg)
+When teleporting is unviable, un-attuned or avoided to conserve Hit Dice, conventional transport is available:
+- **Local riverboat / coastal ferry (barca comune / traghetto locale):** 5–10 Gil.
+- **Chocobo rental (Chocobokeep / nolo per tratta tra avamposti):** 15–25 Gil.
+- **Ocean-going ship / regular ferry (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay):** 30–50 Gil.
+- **Scheduled airship flight (aeronave di linea Highwind Skyways tra città-stato):** 100–120 Gil (MSQ Lv 15 unlock).
+- **Personal riding Chocobo purchase (acquisto permanente):** 300–500 Gil (or Grand Company mount licence at MSQ Lv 20).
+
 # CHAPTER 9 — DYNAMIC COMBAT
 The core of gameplay: telegraphed FFXIV-style combat, where the challenge arises from READABLE, ALWAYS-AVOIDABLE mechanics, not from inflated stats nor from timers that kill regardless.
 
@@ -980,7 +988,7 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 
 ## 14.6 Random Events: Travel & Camp (the shared roll)
 One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check of a LONG REST outdoors (06 §B28). The short rest stays base 5e rules run by the GM (regain slots, spend HD), acknowledged mechanically (+1 hour to the campaign clock) without generating a scene.
-- **TRAVEL TIME & ORARIO PROGRESSION (/viaggio):** traveling overland or via conventional transport consumes in-game hours (+1 per zone traversed; +2 for airship flight or ocean-going ship; +1 for local boat). Advances [B] Orario accordingly.
+- **TRAVEL TIME & ORARIO PROGRESSION (/viaggio):** overland on foot (+1h per zone); riding Chocobo (+1h per 2 zones); scheduled airship or ocean ship (+2h); local boat (+1h). Multi-leg journeys sum the durations of each leg into a single travel montage. Advances [B] Orario accordingly.
 - **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone GEOGRAPHY (06 §A6/§A8). GEOGRAPHY ANCHOR: a route/camp INSIDE or immediately ADJACENT to a major hub, or in settled/patrolled friendly territory, is **Tranquillo by default** (tamed, watched) — Rischioso/Ostile require the real geography of open wilderness, a contested border, or an infested/hostile zone; do NOT rate the safe approaches of a city as Rischioso (failure shape: a patrolled leg at a city's doorstep tagged Rischioso, which then forced a harder encounter than the place warrants). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
   - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
   - **Rischioso** — open wilderness, a contested border, unsettled land.

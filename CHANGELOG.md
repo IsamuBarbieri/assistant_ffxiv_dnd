@@ -1,20 +1,25 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
-## 2026-08-31 — Calcolo tempo di viaggio diegetico e progressione Orario (/viaggio)
+## 2026-08-31 — Calcolo tempo di viaggio diegetico, costi trasporti e save code block con `/continua`
 
-Aggiornato il calcolo del tempo trascorso durante i viaggi convenzionali (`/viaggio`):
+Aggiornato il calcolo del tempo trascorso durante i viaggi convenzionali (`/viaggio`) e introdotto il listino trasporti di Eorzea:
 
 **AVANZAMENTO ORARIO PER DISTANZA E MEZZO DI TRASPORTO.** Il viaggio diegetico consuma tempo in base alla tratta percorsa:
-- Viaggio via terra (a piedi / chocobo / carro): +1 ora per ogni zona attraversata (zona adiacente +1; ogni zona intermedia attraversata +1).
-- Volo in aeronave interregionale: +2 ore (imbarco, decollo/atterraggio, traversata).
+- Viaggio a piedi: +1 ora per ogni zona attraversata.
+- A dorso di Chocobo / carrozza: +1 ora ogni 2 zone attraversate (minimo 1 ora). Passo rapido su strada; permette disingaggio/fuga rapida su agguati terrestri senza spendere risorse o Vantaggio all'Iniziativa.
+- Volo in aeronave interregionale (Highwind Skyways): +2 ore.
 - Nave d'alto mare / traghetto oceanico (es. Limsa ↔ Vesper Bay): +2 ore.
 - Barca comune / traghetto fluviale o costiero locale: +1 ora.
+- Viaggi multitratta (misti): montaggio unico e fluido, durata pari alla somma delle singole tratte, riepilogo costi in Gil e un unico Travel Check (1d20) ambientato sulla tratta più esposta.
+- Parametro opzionale comando: `/viaggio [chocobo | aeronave | nave | a piedi]`.
+
+**LISTINO SERVIZI DI TRASPORTO (Gil a persona / tratta).** Codificate le tariffe canoniche dei trasporti: barca locale 5–10 Gil; noleggio Chocobo (Chocobokeep) 15–25 Gil; nave oceanica di linea 30–50 Gil; volo aeronave di linea 100–120 Gil; Chocobo permanente 300–500 Gil (o licenza Grand Company MSQ Lv 20).
 
 **FORMATO EXPORT DEL SAVE IN CODE BLOCK CON `/continua`.** Sul comando `/salva`, il blocco di salvataggio viene emesso all'interno di un unico blocco di codice markdown (fenced code block) preceduto da `/continua` sulla prima riga (`/continua` + `=== SAVE === ... === FINE SAVE ===`), consentendo al GM di copiare l'intero blocco con il pulsante "Copia" e incollarlo direttamente in una nuova chat per riprendere subito a giocare.
 
-**IGIENE E PARITÀ.** Aggiornato il comando `/viaggio` e `/salva` in `Instructions_Campaign.txt` (cv132), §B17, §B24 e §B26 in `06_Procedures_and_Format.md` (v6.65), Ch. 14.6 e Ch. 19.3 in `05_Campaign.md` (v2.16), e §1.8 in `Project_Memory.md` (mv6).
+**IGIENE E PARITÀ.** Aggiornato il comando `/viaggio` e `/salva` in `Instructions_Campaign.txt` (cv133), §A22, §B17, §B24 e §B26 in `06_Procedures_and_Format.md` (v6.66), Ch. 8.5, Ch. 14.6 e Ch. 19.3 in `05_Campaign.md` (v2.17), e §1.8 in `Project_Memory.md` (mv7).
 
-05 v2.16 · 06 v6.65 · cv132 · mv6.
+05 v2.17 · 06 v6.66 · cv133 · mv7.
 
 ## 2026-08-30 — Evoluzione tracking orario: coerenza in prosa, salti MSQ, /riposo breve e /attesa
 
