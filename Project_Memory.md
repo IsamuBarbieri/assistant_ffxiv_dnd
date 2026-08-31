@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv4
+Version mv6
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -237,13 +237,15 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
 - **[A] POSIZIONE MSQ** = current quest (EN) + last COMPLETED step (resume anchor; the NEXT step is DERIVED from
   the wiki, never stored). Mission = the owning QUEST, never a duty name, never the just-'apre' quest.
 - **[B] PARTY** = N PG + livello (table-owned, copied VERBATIM, never derived or "corrected").
-  - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). The active period colors the narrative prose (lighting, atmosphere, city bustle, quiet). Advances per command (beat +1/+2; short commands +1; `/riposo breve` +1; `/attesa` advances to target hour/period; quest-forced time jumps set the clock directly to the start of the required period; reset to 0 by `/riposo`). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
+  - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). The active period colors the narrative prose (lighting, atmosphere, city bustle, quiet). Advances per command (beat +1/+2; short commands +1; `/viaggio` +1 per zona attraversata, +2 volo aeronave/nave oceanica, +1 barca locale; `/riposo breve` +1; `/attesa` advances to target hour/period; quest-forced time jumps set the clock directly to the start of the required period; reset to 0 by `/riposo`). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
 - **[C] SUBQUEST ATTIVA** = exactly ONE (or 'nessuna'), with its STATE (ATTIVA/SOSPESA).
 - **Sessione: N** = a dedicated integer (table-owned, copied verbatim, +1 only when beats were played).
 - Reveals, NPC reputations, world-state, Crystals/Blessing and Aetherytes are **NOT** save fields — all derived
   live from the MSQ position + the internal reveal gates (05 Ch.1). There is no [D]-[G].
 - **PER-BEAT SCALING LINE** `⚔️ Rif. gruppo: N PG · Lv L` closes every beat: party size and level at the point of
   use, for §B11 scaling and per-PC loot. It carries NO save vocabulary so it can never read as a save.
+- **SAVE BLOCK EXPORT FORMAT:** on `/salva`, the save is emitted inside a single fenced code block prefixed with
+  `/continua` on line 1 (`/continua` + `=== SAVE === ... === FINE SAVE ===`), enabling 1-click copy-paste resumption into a fresh chat.
 
 ## 1.9 Canon model — Echo vs Blessing vs Tempering (do NOT regress)
 - **THE ECHO** = innate, NEVER-removed immunity to TEMPERING, in ANY arc.

@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.14 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.16 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -980,6 +980,7 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 
 ## 14.6 Random Events: Travel & Camp (the shared roll)
 One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check of a LONG REST outdoors (06 §B28). The short rest stays base 5e rules run by the GM (regain slots, spend HD), acknowledged mechanically (+1 hour to the campaign clock) without generating a scene.
+- **TRAVEL TIME & ORARIO PROGRESSION (/viaggio):** traveling overland or via conventional transport consumes in-game hours (+1 per zone traversed; +2 for airship flight or ocean-going ship; +1 for local boat). Advances [B] Orario accordingly.
 - **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone GEOGRAPHY (06 §A6/§A8). GEOGRAPHY ANCHOR: a route/camp INSIDE or immediately ADJACENT to a major hub, or in settled/patrolled friendly territory, is **Tranquillo by default** (tamed, watched) — Rischioso/Ostile require the real geography of open wilderness, a contested border, or an infested/hostile zone; do NOT rate the safe approaches of a city as Rischioso (failure shape: a patrolled leg at a city's doorstep tagged Rischioso, which then forced a harder encounter than the place warrants). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
   - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
   - **Rischioso** — open wilderness, a contested border, unsettled land.
@@ -1216,7 +1217,7 @@ NOT THE PROCEDURE (retrieval note): this chapter explains WHAT is tracked and WH
 - **[A] MSQ POSITION:** the current mission (EN) + the LAST COMPLETED step (= resume anchor); nothing predictive (next step, place, milestone are DERIVED from the wiki quest chain, not stored). (Crystals/Blessing are NOT in the save (Aetherytes only flagged in-scene, not tracked) — player-managed and announced in play; see 06 §B23.)
 - **[B] PARTY (table-owned):** number of PCs + current level — copied VERBATIM from the save, NEVER derived from the arc nor 'corrected'. Used for encounter balancing.
 - **[C] ACTIVE SUBQUEST:** exactly ONE subquest at a time (name + STATE ATTIVA/SOSPESA + progress + MSQ return point), or 'nessuna'; SUSPENDING it (/riprendi MSQ) keeps it, taking a NEW one replaces and loses the previous (Ch. 13). Still a single slot — no parked-leads LIST.
-- **Sessione: N (session counter):** a dedicated table-owned integer (copied VERBATIM, +1 only when beats were played this session); the '=== SAVE ===' header carries no title. Aligned to 06 §B17 (the sole save-template source).
+- **Sessione: N (session counter):** a dedicated table-owned integer (copied VERBATIM, +1 only when beats were played this session); the '=== SAVE ===' header carries no title. Emitted inside a single fenced code block prefixed with `/continua` on line 1 for 1-click resumption. Aligned to 06 §B17 (the sole save-template source).
 Everything else is DERIVED, not stored: what the PCs know, NPC reputations, Grand Company state, world-state and the reveal state are all a function of the MSQ position + the internal reveal gates (Ch. 1) - a small save that cannot mis-drive generation with a stale field.
 Note: the combat SNAPSHOT is NOT an ordinary section of the save; it is created only on request (19.5).
 

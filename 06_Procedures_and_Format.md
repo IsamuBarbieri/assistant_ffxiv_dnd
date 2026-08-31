@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.63 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.65 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -590,10 +590,12 @@ LB1/LB2 by role + LB3 by Job.
 
 - **RESPECT COMPLETED HISTORY:** before narrating, cross-check the completed step in [A] (and the MSQ position it implies) and NEVER assert a first-time / never-before ('il vostro primo volo', 'mai stati qui', 'la prima volta') that the save's history contradicts.
 
-- **EXPORTABLE FORMAT:** clean copy-pasteable text, between header and footer. File name: 'Sessione_<N>.txt' (a convenience label from the 'Sessione:' field; the number is never parsed back from the filename).
+- **EXPORTABLE FORMAT:** clean copy-pasteable text inside a single fenced code block with `/continua` on the first line (so the GM can copy-paste the whole block directly into a new chat to resume). File name: 'Sessione_<N>.txt' (a convenience label from the 'Sessione:' field; the number is never parsed back from the filename).
 
-CANONICAL TEMPLATE (sole source; 05 Ch. 19 points here):
+CANONICAL TEMPLATE (sole source; 05 Ch. 19 points here) — emitted inside a single fenced code block with `/continua` on the first line:
 
+```text
+/continua
 === SAVE ===
 Sessione: NN
 
@@ -610,6 +612,7 @@ Sessione: NN
     - Subquest attiva: nessuna
 
 === FINE SAVE ===
+```
 
 **[C] — SUBQUEST STATE + DOSSIER:** the [C] line ALWAYS carries the subquest STATE — **ATTIVA** or **SOSPESA** — next to the name (e.g. 'Subquest attiva: La Sostituzione (SOSPESA)'); 'nessuna' when the slot is empty. When [C] is 'nessuna', or when the subquest is a REAL wiki sidequest, [C] stays LEAN — name + state + a one-line status, because the wiki can rebuild the rest. When the subquest is one the assistant INVENTED, THE SAVE IS THE ONLY SOURCE OF TRUTH: a fresh chat cannot read the previous conversation and cannot look the quest up, so a lean [C] guarantees the subquest is silently rewritten on reload and its details drift. In that case ONLY, [C] expands into a bounded DOSSIER with these fixed fields, one per line:
     - Nome subquest · Stato (ATTIVA/SOSPESA) · Committente (+ dove si trova) · Premessa/obiettivo · Elementi inventati (NPC, luoghi, indizi, fili aperti — the names that must come back identical) · Situazione attuale · Prossimo beat esatto (= the point the subquest resumes from)
@@ -719,7 +722,7 @@ CHECKS AT SAVE (DELTA only — the loaded baseline is trusted; do NOT re-validat
 - **GATE OUTPUT DISCIPLINE:** the save gate's VISIBLE output is ONLY the anchor quote -> (any warnings + proposed fixes) -> the save block + the 1-line diff — NEVER a narrated procedure/self-instruction preamble ('Controllo di sicurezza: la procedura richiede...', a 'Plaintext' label, or visible reasoning about what the rules demand): the checks run INTERNALLY (§A1 NO DESIGN-PROCESS META).
 - **SAVE OUTPUT-SHAPE (output-forcing):** a 'the end-session command' turn MUST BEGIN with the 'Ancora save: ...' quote and MUST NOT contain a beat tag, an '[Info GM]' line, a 'Prossimo step wiki:' line or any other piece of a BEAT FOOTER or of a LOAD orientation, and MUST NOT begin with 'Save caricato:' (that opening line belongs to a LOAD turn ONLY, forbidden here even as a re-orientation); if the draft begins with '[MSQ —'/'[SUBQUEST —'/'[VIAGGIO —' OR with 'Save caricato:' it is WRONG — delete it and emit the recap+gate. The command 'the end-session command' (one spelling, no aliases, §B17) is NEVER an in-fiction verb, NEVER the momentum/'apre' beat, NEVER a subquest.
 DECISION FLOW (both gates):
-- If ALL checks pass -> LOAD: proceed to the §B1 orientation. SAVE: print the recap, then the '=== SAVE ===' block (§B17), then the 1-line diff, in that order and one after the other.
+- If ALL checks pass -> LOAD: proceed to the §B1 orientation. SAVE: print the recap, then the save inside a fenced code block (/continua on line 1, then === SAVE === ... === FINE SAVE ===, §B17), then the 1-line diff, in that order and one after the other.
 - If ANY warning -> PAUSE. Print a compact 'Controllo caricamento (GM)' (load) or 'Controllo pre-salvataggio (GM)' (save) block: each issue + its proposed fix (old -> new), then ask 'Confermo tutte le correzioni, oppure correggo [campo]?'. Do NOT proceed/write this turn. (This gate question is the ONLY place the word 'confermo' appears — it is a plain Italian question about the proposed CORRECTIONS, never a command: the GM answers it in free text, and a PAUSED gate prints NO save block — the corrections are settled first.)
 - ALWAYS print a 1-line mini-diff of what changed (ONCE — do not re-announce it on later turns, §A1) (e.g. 'Livello 2->4; rimosso campo Cristalli; Bookmark The Navel ripristinato'). NEVER fix a field silently — every change was shown as a proposal first.
 - **GRACEFUL DEGRADATION:** if the model cannot do the band lookup, keep the Livello VERBATIM and simply ASK — never invent a number, never block on a check it cannot run.
@@ -738,6 +741,12 @@ OUTPUT (GM-facing, clean normal text; source = 08.1 Roadmap + Beat Manifest for 
 ## §B26 — TRAVEL / JOURNEY (on-demand, light)
 A journey A->B is NOT MSQ and NOT a subquest — it is a chain between two points. DEFAULT: COMPRESS the journey to the §B2 travel line + a 1-line bridge and go straight to the destination beat — NO auto-encounter. A travel leg is WORTH PLAYING IN FULL when: (b) teleport is CANONICALLY BLOCKED (05 Ch.8.4: aetheric interference, sealed zone, no Aetheryte) so overland is forced; (c) a first-time / long / narratively-significant journey the GM chooses to play.
 - **RESTING IS NOT PART OF TRAVEL:** the travel command is ONLY the transit beat — it does NOT camp, rest, or grant a Long Rest. Resting is its OWN command, the rest command (§B28): to rest during a journey, the GM types the rest command. Do not fold a camp/rest into a [VIAGGIO] beat.
+- **TRAVEL DURATION & ORARIO ADVANCE:** travel consumes diegetic in-game time based on distance and transport mode:
+  - **Overland travel (walking / chocobo / standard carriage):** +1 hour per zone traversed (e.g. adjacent zone: departure → destination = +1 hour; crossing 1 intermediate zone: departure → intermediate → destination = +2 hours; each additional intermediate zone adds +1 hour).
+  - **Airship flight (aeronave tra città-stato):** +2 hours (embarkation, climb/descent, flight).
+  - **Ocean crossing / large vessel (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay):** +2 hours.
+  - **Local riverboat / coastal ferry (comune barca / traghetto locale):** +1 hour.
+  The footer prints the calculated delta: `⏱️ Orario: N → M (+delta) — {label} ({7+M}:00){emoji}`.
 WHEN 'the travel command' FIRES — the beat is a TRAVEL MONTAGE (scene order; ref. Sly Flourish 'Running Travel Scenes', Newbie DM 'Overland Travel Montage'): (1) DEPARTURE — leaving the origin, the road taken; (2) THE PASSAGE — the montage that SHOWS THE WORLD (compressed sensory/lore of the land crossed, time passing); (3) THE TRAVEL CHECK (below); (4) ARRIVAL. Head it '[VIAGGIO — <da> -> <a>]' + a light type/~duration. Register: the beat CLOSES ON THE ARRIVAL (soft), unless the rolled event is itself an obstacle.
 - **THE TRAVEL CHECK ('the travel command'; 05 Ch.14.6, the shared travel/camp roll — THE GM ROLLS):** state the ROUTE'S danger rating + threshold ('tira 1d20, evento su ≤N') and generate BOTH branches in this same beat — '**Tiro ≤N (evento):**' ONE event as a VIGNETTE (not a bare line — who/what/where/why) from the Ch.14.6 menu, its VALENCE skewed by the route's danger rating (Tranquillo → per lo più good/neutral · Rischioso → mixed · Ostile → per lo più bad/hazard; Ch.14.6 VALENCE SKEWS): a helpful traveller / a hidden cache / a merchant with a deal · a vista / a minor NPC · an ambush / an NPC in peril / a §B13 encounter whose DIFFICULTY = the route's danger tier on the 05 Ch.10.2 engine (Tranquillo → Facile · Rischioso → Media · Ostile → Difficile, by-the-book §B6) / an environmental hazard; '**Tiro >N (nessun evento):**' an UNEVENTFUL passage (travel can be quiet). The GM rolls and plays the matching branch. If the '≤N (evento)' branch is a §B13 encounter, it carries its §A4 image BEFORE the stat block like any encounter — the pre-generated branch is NOT exempt from the mandatory media.
 WHY THEY WALK = INTERNAL, NEVER PRINTED ('the travel command'): the reason a journey is played (Aetheryte not yet attuned, or the players choosing to walk to save the teleport's HD cost — 05 Ch.19.2) is TABLE KNOWLEDGE; the beat NEVER narrates or re-explains it (no 'camminate perché…' GM-facing framing) — it just plays the montage.
