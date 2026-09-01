@@ -1,5 +1,22 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-01f — Riorganizzazione Pacchetto Incontro (1-click code block, Victory Fanfare, tab Tattica & Bottino nel Tracker)
+
+Riorganizzazione coordinata tra Control Layer (`cv139`, `ov75`, `lv56`), Knowledge Layer (`06` v6.75) e Table Tool (`combat_tracker.html`):
+- **NUOVA SEQUENZA PACCHETTO INCONTRO (§B1, §B8):**
+  1. `### 🗡️ Pacchetto Incontro: <nome>`
+  2. `**Difficoltà:**` e `**Innesco:**` (se presente)
+  3. `**📖 Da leggere ai PG:**` (prosa narrativa leggibile dal GM, fuori dai code block)
+  4. Blocco meccanico per il tracker in UN unico code block copiabile 1-click (```` ``` ````): `**Nemici:**` (roster ×N) $\rightarrow$ `#### 🏟️ Arena` $\rightarrow$ `**Tattica:**` $\rightarrow$ stat blocks completi $\rightarrow$ `#### 💰 Bottino` (con quota Gil per PG e drop) $\rightarrow$ chiusura ```` ``` ````.
+  5. Subito sotto il code block: `[🎵 Vittoria: Victory Fanfare](https://www.youtube.com/watch?v=nMNRPmX5Eng)` (§A23).
+- **TAB TATTICA & BOTTINO NEL COMBAT TRACKER (`combat_tracker.html`):**
+  - Aggiunto tab `🎯 Tattica & Bottino` nel pannello stat block con vista dedicata e modalità di modifica ("✏️ Modifica", salvataggio e annullamento).
+  - Parser `processImport()` aggiornato: estrae automaticamente `Tattica` e `Bottino`, separa i testi nelle proprietà dell'incontro (`enc.tactics`, `enc.loot`), evita che la sezione `Bottino` finisca nelle mosse dell'ultimo mostro e genera un titolo di fallback intelligente se l'utente incolla solo il blocco di codice a partire da `Nemici:`.
+  - Persistenza garantita nell'export/apertura JSON del tracker.
+- **PARITÀ CONTROL LAYER:** `<output_contract>` aggiornato in perfetta parità letterale su `Instructions_Campaign.txt`, `Instructions_OneShot.txt` e `Instructions_Loremonger.txt`.
+
+06 v6.75 · cv139 · ov75 · lv56 · mv14.
+
 ## 2026-09-01e — Formattazione pulita blocco Bottino (eliminata ripetizione etichetta inline)
 
 Rifinita la formattazione dell'output della sezione Bottino in `06_Procedures_and_Format.md` (§A21):

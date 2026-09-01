@@ -431,7 +431,7 @@
       { id: 4, name: "PG 4", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" }
     ];
 
-    let encountersData = [{ id: "enc_default", title: "Scontro Vuoto", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] }];
+    let encountersData = [{ id: "enc_default", title: "Scontro Vuoto", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] }];
     let currentEncounterIndex = 0;
     let activeStatblockIndex = 0;
     let catalogOpen = false;
@@ -517,7 +517,7 @@
     }
 
     function switchTab(index) { currentEncounterIndex = index; activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); captureRoundTelegraphs(); renderEncounter(); }
-    function addNewEmptyTab() { encountersData.push({ id: "enc_" + Date.now(), title: "Nuovo Scontro", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] }); captureBaseRosters(); switchTab(encountersData.length - 1); }
+    function addNewEmptyTab() { encountersData.push({ id: "enc_" + Date.now(), title: "Nuovo Scontro", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] }); captureBaseRosters(); switchTab(encountersData.length - 1); }
     function closeTab(index) { encountersData.splice(index, 1); if (currentEncounterIndex >= index) currentEncounterIndex = Math.max(0, currentEncounterIndex - 1); activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); renderEncounter(); }
 
     function getBaseName(name) { return name.replace(/\s+\d+$/, '').trim(); }
@@ -813,17 +813,66 @@
     function renderStatblocks() {
       const enc = encountersData[currentEncounterIndex]; const tabsWrap = document.getElementById("sbTabsHeader"); const contentWrap = document.getElementById("sbContentArea");
       tabsWrap.innerHTML = ""; contentWrap.innerHTML = "";
-      if (!enc.statblocks || enc.statblocks.length === 0) { contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 20px 0;'>Nessuna statistica attiva. Aggiungi un Nemico al tracker.</div>"; return; }
 
-      enc.statblocks.forEach((sb, index) => {
+      const briefingBtn = document.createElement("div"); briefingBtn.className = "sb-tab-btn " + (activeStatblockIndex === 'briefing' ? "active" : "");
+      briefingBtn.style.borderTop = "2px solid #3b82f6";
+      if (activeStatblockIndex === 'briefing') { briefingBtn.style.color = "#60a5fa"; briefingBtn.style.backgroundColor = "rgba(59, 130, 246, 0.14)"; }
+      briefingBtn.innerHTML = `<span class="sb-tab-dot" style="background: #3b82f6;"></span><span>🎯 Tattica & Bottino</span>`;
+      briefingBtn.onclick = () => { activeStatblockIndex = 'briefing'; editingStatblockIndex = null; renderStatblocks(); };
+      tabsWrap.appendChild(briefingBtn);
+
+      if (enc.statblocks && enc.statblocks.length > 0) {
+        enc.statblocks.forEach((sb, index) => {
           const btn = document.createElement("div"); btn.className = "sb-tab-btn " + (index === activeStatblockIndex ? "active" : "");
           const rgb = getEnemyColorRGB(sb.name); btn.style.borderTop = `2px solid rgb(${rgb})`;
           if (index === activeStatblockIndex) { btn.style.color = `rgb(${rgb})`; btn.style.backgroundColor = `rgba(${rgb}, 0.14)`; }
           btn.innerHTML = `<span class="sb-tab-dot" style="background: rgb(${rgb});"></span><span>${escapeHtml(sb.name || "Senza Nome")}</span>`;
           btn.onclick = () => { activeStatblockIndex = index; editingStatblockIndex = null; renderStatblocks(); }; tabsWrap.appendChild(btn);
-      });
+        });
+      }
 
-      if (activeStatblockIndex >= enc.statblocks.length) activeStatblockIndex = 0; const activeSb = enc.statblocks[activeStatblockIndex];
+      if (activeStatblockIndex === 'briefing') {
+        if (editingStatblockIndex === 'briefing') {
+          const form = document.createElement("div"); form.className = "sb-edit-form";
+          form.innerHTML = `
+            <label style="color: #60a5fa; font-weight: bold;">🎯 Tattica dello Scontro (Note GM)</label>
+            <textarea id="editEncTactics" style="height: 100px;" placeholder="Strategia di combattimento, priorità bersagli, fasi...">${escapeHtml(enc.tactics || '')}</textarea>
+            <label style="color: #10b981; font-weight: bold; margin-top: 8px;">💰 Bottino & Ricompense</label>
+            <textarea id="editEncLoot" style="height: 80px;" placeholder="Quota Gil per persona, totale, drop materiali/oggetti...">${escapeHtml(enc.loot || '')}</textarea>
+            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
+              <button class="btn-secondary" onclick="editingStatblockIndex = null; renderStatblocks();">Annulla</button>
+              <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveTacticsLoot()">Salva Modifiche</button>
+            </div>`;
+          contentWrap.appendChild(form);
+        } else {
+          const card = document.createElement("div"); card.className = "sb-card";
+          let html = `
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #374151; padding-bottom:6px;">
+              <div style="font-weight:bold; color:#60a5fa; font-size:1.05rem; display:flex; align-items:center; gap:6px;">
+                <span>🎯</span> Scheda Tattica & Bottino
+              </div>
+              <button class="sb-edit-btn" onclick="editingStatblockIndex = 'briefing'; renderStatblocks();">✏️ Modifica</button>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-weight:600; color:#93c5fd; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">🎯 Tattica dello Scontro</div>
+              <div style="background:rgba(0,0,0,0.25); border-left:3px solid #3b82f6; padding:8px 12px; border-radius:4px; line-height:1.5; white-space:pre-wrap; font-size:0.92rem; color:#e5e7eb;">${escapeHtml(enc.tactics || "Nessuna informazione tattica registrata per questo scontro.")}</div>
+            </div>
+            <div>
+              <div style="font-weight:600; color:#34d399; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">💰 Bottino & Drop</div>
+              <div style="background:rgba(0,0,0,0.25); border-left:3px solid #10b981; padding:8px 12px; border-radius:4px; line-height:1.5; white-space:pre-wrap; font-size:0.92rem; color:#e5e7eb;">${escapeHtml(enc.loot || "Nessun bottino registrato per questo scontro.")}</div>
+            </div>`;
+          card.innerHTML = html; contentWrap.appendChild(card);
+        }
+        return;
+      }
+
+      if (!enc.statblocks || enc.statblocks.length === 0) {
+        contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 20px 0;'>Nessuna statistica nemici attiva. Aggiungi un Nemico al tracker oppure consulta la scheda 🎯 Tattica & Bottino.</div>";
+        return;
+      }
+
+      if (typeof activeStatblockIndex !== 'number' || activeStatblockIndex >= enc.statblocks.length) activeStatblockIndex = 0;
+      const activeSb = enc.statblocks[activeStatblockIndex];
 
       if (editingStatblockIndex === activeStatblockIndex) {
           const form = document.createElement("div"); form.className = "sb-edit-form";
@@ -851,7 +900,7 @@
               <input type="text" id="editSbSkills" value="${escapeHtml(activeSb.skills || '')}" placeholder="Es: Furtività +4, Percezione +2">
               <label>Sensi</label>
               <input type="text" id="editSbSenses" value="${escapeHtml(activeSb.senses || '')}" placeholder="Es: Scurovisione 12 yalm">
-              <label>Azioni, Tratti, Bottino (una mossa per riga)</label>
+              <label>Azioni e Tratti (una mossa per riga)</label>
               <textarea id="editSbMoves" placeholder="Multiattacco — Fa due attacchi.\nMorso — +4, 1d6 danni.">${escapeHtml((activeSb.moves || []).join('\n'))}</textarea>
               <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:5px;">
                   <button class="btn-secondary" onclick="editingStatblockIndex = null; renderStatblocks();">Annulla</button>
@@ -891,6 +940,14 @@
           });
           if (movesHtml) html += `<div>${movesHtml}</div>`; card.innerHTML = html; contentWrap.appendChild(card);
       }
+    }
+
+    function saveTacticsLoot() {
+        const enc = encountersData[currentEncounterIndex];
+        enc.tactics = document.getElementById("editEncTactics").value.trim();
+        enc.loot = document.getElementById("editEncLoot").value.trim();
+        editingStatblockIndex = null;
+        renderStatblocks();
     }
 
     function saveStatblock(index) {
@@ -1906,16 +1963,71 @@
       text = joinSplitStatblockHeaders(text);
       const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster);
       
-      let titleMatch = text.match(/Pacchetto Incontro:\s*\**\s*([^\n]+)/i); let title = titleMatch ? titleMatch[1].replace(/\*+/g, '').trim() : "Nuovo Scontro";
+      let titleMatch = text.match(/Pacchetto Incontro:\s*\**\s*([^\n]+)/i);
       const rosterCounts = {}; const rosterLine = text.match(/^[\s>*_-]*\**\s*Nemici\s*:\**\s*([^\n]+)$/im);
       if (rosterLine) { rosterLine[1].split(/[·|;]/).forEach(part => { const m = part.match(/^\s*\**\s*(.+?)\s*\**\s*(?:[x×X]\s*(\d+))?\s*$/); if (!m || !m[1]) return; const nm = m[1].replace(/\*+/g, '').trim(); if (nm) rosterCounts[nm.toLowerCase()] = m[2] ? parseInt(m[2], 10) : 1; }); }
 
+      let title = "";
+      if (titleMatch) {
+        title = titleMatch[1].replace(/\*+/g, '').trim();
+      } else if (rosterLine && rosterLine[1]) {
+        title = "Scontro: " + rosterLine[1].replace(/\*+/g, '').trim();
+      } else {
+        title = "Nuovo Scontro";
+      }
+
+      // Estrazione Tattica GM
+      const tacticsRe = /^[^\p{L}\n]*\**\s*Tattica\s*:\**\s*(.*)$/imu;
+      const tacticsStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bBottino\b|\bNemici\b)/iu;
+      const textLines = text.split('\n');
+      let inTactics = false;
+      let tacticsLines = [];
+      for (let line of textLines) {
+        if (!inTactics) {
+          const tm = tacticsRe.exec(line);
+          if (tm) {
+            inTactics = true;
+            if (tm[1] && tm[1].trim()) tacticsLines.push(tm[1].trim());
+          }
+        } else {
+          if (tacticsStopRe.test(line)) break;
+          tacticsLines.push(line);
+        }
+      }
+      const tactics = tacticsLines.join('\n').trim();
+
+      // Estrazione Bottino
+      const lootRe = /^[^\p{L}\n]*(?:####\s*)?(?:💰\s*)?Bottino\b\s*:?\s*(.*)$/imu;
+      const lootStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bTattica\b|\bNemici\b|\[🎵|```)/iu;
+      let inLoot = false;
+      let lootLines = [];
+      for (let line of textLines) {
+        if (!inLoot) {
+          const lm = lootRe.exec(line);
+          if (lm) {
+            inLoot = true;
+            if (lm[1] && lm[1].trim()) lootLines.push(lm[1].trim());
+          }
+        } else {
+          if (lootStopRe.test(line)) break;
+          lootLines.push(line);
+        }
+      }
+      const loot = lootLines.join('\n').trim();
+
       const headers = findStatblockHeaders(text); let narrativeText = headers.length ? text.substring(0, headers[0].index).trim() : text;
       const arenaSpec = parseArenaSection(text);
-      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, arenaSpec: arenaSpec, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
+      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, tactics: tactics, loot: loot, arenaSpec: arenaSpec, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
+
+      // Se c'è una sezione Bottino dopo i nemici, l'ultimo stat block deve fermarsi prima del bottino
+      const lootHead = /^[^\p{L}\n]*(?:####\s*)?(?:💰\s*)?Bottino\b/imu.exec(text);
+      let textEndLimit = text.length;
+      if (lootHead && headers.length > 0 && lootHead.index > headers[headers.length - 1].index) {
+        textEndLimit = lootHead.index;
+      }
 
       for (let hi = 0; hi < headers.length; hi++) {
-          const h = headers[hi]; const mName = h.name; const eIdx = (hi + 1 < headers.length) ? headers[hi + 1].index : text.length; const chunk = text.substring(h.index, eIdx); const lines = chunk.trim().split('\n');
+          const h = headers[hi]; const mName = h.name; const eIdx = (hi + 1 < headers.length) ? headers[hi + 1].index : textEndLimit; const chunk = text.substring(h.index, eIdx); const lines = chunk.trim().split('\n');
           const acM = chunk.match(/\bCA\s*(\d+)/i), hpM = chunk.match(/\bPF\s*(\d+)/i); const dexM = chunk.match(/\bDES\s*\d+\s*\(\s*([+\-−]?\d+)\s*\)/i);
           const mAc = acM ? parseInt(acM[1], 10) : 10; const mHp = hpM ? parseInt(hpM[1], 10) : 1; const dexMod = dexM ? parseInt(dexM[1].replace('−', '-'), 10) : 0;
           
@@ -1931,9 +2043,9 @@
           if (gdsMatch) { let parts = line1Str.split(' · '); parts.splice(1, 0, gdsMatch[0]); sbObj.line1 = parts.join(' · '); } else { sbObj.line1 = line1Str; }
           if(lines[1] && (lines[1].startsWith('FOR') || lines[1].includes('·'))) { sbObj.attributes = lines[1].trim(); }
           
-          // Le righe media (🖼️ 🗺️ 🎵), l'url dell'OST e i delimitatori del code block stanno FRA
+          // Le righe media (🖼️ 🗺️ 🎵), l'url dell'OST, il bottino e i delimitatori del code block stanno FRA
           // uno stat block e l'altro: senza filtro finiscono nelle Azioni del mostro precedente.
-          const SB_NOT_A_MOVE = /^(🖼|🗺|🎵|⚔|🧭|⏭|https?:\/\/|```|HTTP$)/;
+          const SB_NOT_A_MOVE = /^(🖼|🗺|🎵|⚔|🧭|⏭|https?:\/\/|```|HTTP$|####\s*💰|💰\s*Bottino)/;
           for (let i = 2; i < lines.length; i++) {
               let l = lines[i].trim();
               if (l.startsWith("Descrizione visiva:") || SB_NOT_A_MOVE.test(l)) continue;

@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv13
+Version mv14
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -207,12 +207,8 @@ Dev-only, never uploaded to a PLAY project: `CHANGELOG.md` and this file.
 browser and fed by pasting an encounter package. It is no longer a copy of anything — the template asset
 (`09_Assets.md` §Z1) and the rules that emitted it (06 §A24) were deleted on 2026-08-03, so the HTML is now
 the only version and is authoritative over itself. What 06 §B8 owes it is the INPUT CONTRACT: the
-`Pacchetto Incontro:` title line, the `**Nemici:** <nome> ×N` roster line, and the `#### Arena` section — Tipo
-from `MapPresets`' labels, Dimensioni, optional Forma, and one `- <Nome> — <zona>` line per element with the
-names the tool's `FeatureCatalog` carries. Since 2026-08-04 the map is DECLARED, not inferred: the prose-scanning
-engine (`ShapeLexicon`, `classifyShape`, the catalog's per-entry regex) was deleted, because a read-aloud
-describes the monster as much as the room and no regex could tell them apart. **Touching the parser or the
-catalog means re-checking §B8's closed lists, and vice versa — that pair is the only coupling left.**
+`### 🗡️ Pacchetto Incontro:` title line, `Difficoltà:`, `Innesco:`, `**📖 Da leggere ai PG:**` (narrative outside code blocks), and the 1-click mechanical code block (` ``` `) containing `**Nemici:** <nome> ×N`, `#### 🏟️ Arena` (Tipo, Dimensioni, Elementi), `**Tattica:**`, stat blocks, and `#### 💰 Bottino`. The tool imports the roster, map, tactics and loot, housing tactics and loot in a dedicated tab (`🎯 Tattica & Bottino`) and keeping stat blocks pure. The fight closes with the Victory Fanfare link.
+**Touching the parser or the catalog means re-checking §B8's closed lists, and vice versa — that pair is the only coupling left.**
 
 ## 1.7 Structural model #1 — the MSQ flow lives in 08, 05 is RULES only
 - **08.1** = Roadmap ARR→EW + the CANONICAL CUTSCENE & REVEAL MANIFESTS (5 arcs + the Crystal Tower 6th) + the
@@ -268,6 +264,7 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
   pair of fights, ≥1 a tangible puzzle; FIRST-FIGHT-FIRST; roster pinned at entry; SPLIT-NEVER-SHRINK.
 - **ECONOMY = 5e-2014 rarity ladder by party level**; each special = a real 5e item of that rarity or an
   on-theme reskin; price + FULL EFFECT printed per item.
+- **ENCOUNTER PACKAGE 1-CLICK SHAPE:** narrative ('Da leggere ai PG') is printed outside code blocks for reading aloud; the mechanics are wrapped in ONE fenced code block from '**Nemici:**' to '#### 💰 Bottino' (including Arena, Tattica, stat blocks, and resolved loot) for 1-click clipboard import into `combat_tracker.html`. Followed immediately by the Victory Fanfare link (`[🎵 Vittoria: Victory Fanfare](https://www.youtube.com/watch?v=nMNRPmX5Eng)`).
 - **LOOT RESOLVE-AND-PRINT:** the assistant ROLLS and prints the concrete result, never the dice formula. Emitted under heading '#### 💰 Bottino' without repeating the label on the content line. Loot is never omitted and never empty.
 
 ---
