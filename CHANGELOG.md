@@ -1,5 +1,68 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-01d — Snellimento Control Layer (cv138, lv55) e fix orientamento /carica con template tratto connettivo
+
+Audit completo delle istruzioni e snellimento del Control Layer per ridurre il carico cognitivo dei prompt e garantire l'emissione del tratto connettivo al caricamento:
+
+**FIX ORIENTAMENTO AL CARICAMENTO (`/carica` in Instructions_Campaign.txt).**
+- Risolto il punto cieco per cui `⏭️ Tratto connettivo` veniva omesso al `/carica`: la specifica telegrafica precedente (`pending 🧭 and ⏭️ lines if present`) non forniva al modello né la condizione attiva ($N \ge 2$) né il template della riga, e poiché `/carica` non è un beat narrativo il modello non leggeva la sezione `<beat>`.
+- Inserita direttamente nella specifica di `/carica` la clausola attiva e il template completo: `if 08 chain ahead has 2+ [COND] quests: ⏭️ Tratto connettivo: da {q1} a {q2} — {N} quest condensabili, poi si gioca {STOP} (~X min giocate / ~Y riassunte)`.
+
+**SNELLIMENTO & DEFATICAMENTO ISTRUZIONI (`Instructions_Campaign.txt` cv138).**
+- *Asciugatura aritmetica Orario*: rimosse le formule matematiche duplicate su `/continua`, `/svolta`, `/riassumi` e `/viaggio`, lasciando solo i delta essenziali ed evitando distrazioni cognitive.
+- *Compattazione specifica footer (riga 46)*: ridotto il blocco da 840 a ~460 caratteri asciutti ed esatti, eliminando formulazioni prolisse e delegando le casistiche estese a `06 §B2` e `05 Ch.14.6`.
+- *Riduzione dimensione file*: ridotto il peso di `Instructions_Campaign.txt` di circa 800 byte (da 12.463 B a 11.670 B).
+
+**ALLINEAMENTO ISTRUZIONI CONDIVISE (`Instructions_Loremonger.txt` lv55).**
+- Aggiornato `/negozio` in Loremonger per supportare `[tipo]` includendo la categoria `cavalcature` aggiunta di recente nel manuale.
+- `Instructions_OneShot.txt` verificato: già sincronizzato al 100% nei blocchi comuni.
+
+05 v2.23 · 06 v6.73 · cv138 · lv55 · mv12.
+
+## 2026-09-01c — Integrazione Sistema Meteo (condizioni canoniche, pericoli ambientali 5e e salvataggio pulito)
+
+Introdotto il sistema completo del meteo (`Meteo`) per la Campagna, integrando le condizioni atmosferiche canoniche di FFXIV (da Gamer Escape e ConsoleGamesWiki) sia come abbellimento narrativo per le condizioni standard, sia con regole meccaniche D&D 5e per il tempo avverso, con salvataggio persistente e aggiornamento dinamico:
+
+**DATI CANONICI REGIONALI (05 Ch. 14.7 & 06 §A3).** Roster meteorologici specifici per regione e zona:
+- *La Noscea*: Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Foschia 🌫️), Rain (Pioggia 🌧️), Wind (Vento 💨), Gales (Burrasca 💨).
+- *The Black Shroud*: Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Nebbia fitta 🌫️), Rain (Pioggia 🌧️), Thunder (Tuoni 🌩️), Thunderstorms (Temporale ⛈️), Tension (Tensione / Odin ⚡).
+- *Thanalan*: Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Foschia 🌫️), Dust Storms (Tempesta di sabbia 🌪️), Heat Waves (Ondata di calore 🏜️).
+- *Coerthas*: Snow (Neve ❄️), Blizzards (Tormenta / Bufera 🌨️), Fog (Nebbia gelata 🌫️), Clouds (Coperto ☁️), Clear Skies (Sereno gelido ☀️), Fair Skies (Soleggiato 🌤️).
+- *Mor Dhona*: Clouds (Nuvoloso ☁️), Fog (Nebbia 🌫️), Gloom (Foschia eterea / Gloom 🌌).
+- Espansioni successive (HW, SB, ShB, EW): attingono ai fenomeni eterei canonici dalle wiki (es. Umbral Static, Everlasting Light, Apocalypse).
+
+**EFFETTI MECCANICI DEL TEMPO AVVERSO (5e).**
+- *Pioggia battente / Nubifragio (🌧️)*: area leggermente oscurata (svantaggio a Percezione basata su vista o udito), fiamme libere non magiche estinte, svantaggio agli attacchi con armi a distanza oltre la gittata normale, sentieri sterrati diventano terreno difficile (fango).
+- *Temporale (⛈️)*: effetti della pioggia battente + tuoni costanti (svantaggio automatico a prove di udito) e pericolo fulmini all'aperto.
+- *Nebbia fitta / Foschia / Gloom (🌫️)*: area pesantemente oscurata oltre 6 yalm (9m); svantaggio a Sopravvivenza per orientarsi fuori sentiero.
+- *Tempesta di sabbia (🌪️)*: pesantemente oscurata; TS Costituzione CD 10 ogni ora senza protezioni a occhi e volto o svantaggio a Percezione e tiri per colpire; dune come terreno difficile.
+- *Ondata di calore (🏜️)*: Caldo estremo (DMG 5e), TS Costituzione CD 10 ogni ora con armature medie/pesanti o senza razione doppia d'acqua o 1 livello di sfinimento.
+- *Tormenta / Bufera (🌨️)*: Freddo estremo (DMG 5e), TS Costituzione CD 10 ogni ora senza abiti invernali pesanti o 1 livello di sfinimento; pesantemente oscurata oltre 6 yalm; cumuli di neve come terreno difficile; svantaggio ad attacchi a distanza.
+- *Burrasca (💨)*: vento forte, velocità di volo dimezzata/arrestata (prova di Forza CD 13 per avanzare); svantaggio ad attacchi a distanza.
+
+**DINAMICHE TEMPORALI & RIPOSO LUNGO.**
+- *Avanzamento diurno*: il meteo evolve naturalmente al passaggio delle fasce orarie o dopo 2-3 beat identici.
+- *Transizione di zona (`/viaggio`)*: adotta una condizione canonica della zona di arrivo.
+- *Riposo lungo (`/riposo`)*: azzera l'Orario a 0 e RIGENERA SEMPRE il meteo per la nuova alba (Alba 7:00 🌅), pescando tra quelli canonici della zona.
+- *Comando GM (`/meteo [condizione]`)*: comando di servizio per consultare o impostare il meteo al tavolo.
+
+**FORMATO OUTPUT & IGIENE SAVE (NO EMOJI NEL SAVE).**
+- *Blocco Save [B]*: solo testo pulito senza emoji: `- Meteo: Sereno`. Salvataggi precedenti senza Meteo propongono `Meteo: Sereno` in modo trasparente e non bloccante.
+- *Footer dei Beat*: integrato simmetricamente sulla stessa riga di Orario con emoji posizionata DOPO il meteo:
+  `⏱️ Orario: 5 → 6 (+1) — Pomeriggio (13:00) 🌤️ · Meteo: Pioggia battente 🌧️ [Visibilità ridotta]`
+  `⏱️ Orario: N → 0 (riposo) — Alba (7:00) 🌅 · Meteo: Sereno ☀️`
+
+**RISOLUZIONE DEL CURSORE AL CONFINE DI QUEST AL `/carica` (06 §B1 & §B2).** Esplicitata la regola procedurale per cui, se l'`Ultimo step completato` del save chiude la missione [A], il cursore attivo è posizionato alla soglia della prima quest da giocare sull'indice 08: il controllo dei segnali pendenti (`🧭 Viaggio` e `⏭️ Tratto connettivo` per N ≥ 2) viene valutato obbligatoriamente su tale quest entrante, evitando che il modello ometta il tratto connettivo basandosi sul nome della quest precedente ormai chiusa.
+
+**VERSIONI & FILE AGGIORNATI.**
+- `Instructions_Campaign.txt`: `cv137`.
+- `06_Procedures_and_Format.md`: `v6.73`.
+- `05_Campaign.md`: `v2.23`.
+- `Project_Memory.md`: `mv12`.
+- `CHANGELOG.md`: aggiunto record `2026-09-01c`.
+
+05 v2.23 · 06 v6.73 · cv137 · mv12.
+
 ## 2026-09-01b — Stat block Chocobo, equipaggiamento cavalcature, negozio CAVALCATURE e tariffe trasporti
 
 Integrati gli stat block completi dei 3 tipi di Chocobo cavalcabili, le regole e la tabella dell'equipaggiamento per cavalcature, il nuovo tipo di negozio `CAVALCATURE` e la tabella ufficiale delle tariffe trasporti di Eorzea:

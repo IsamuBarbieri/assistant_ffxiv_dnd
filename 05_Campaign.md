@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.22 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.23 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -1020,6 +1020,30 @@ One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check o
 - **WATCH ORDER (camp):** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
 - **THE LONG REST ALWAYS COMPLETES (camp):** a resolved ambush does NOT cancel it — the rest command never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
 - Design references (structure, not verbatim): DMG "Random Encounters", OSR/Shadowdark watch-checks, the travel/camp procedures of published wilderness adventures.
+
+## 14.7 Environmental Hazards & Eorzean Weather
+- **Eorzean Weather & Aetheric Balance:**
+  Weather throughout Eorzea is governed by shifts in regional elemental aether, observable and predicted by Skywatchers stationed at cities and settlements. In play, weather enriches narration during standard conditions and introduces tactical complications and mechanical obstacles during severe events.
+- **Regional Canonical Weather (Source: Gamer Escape / ConsoleGamesWiki):**
+  - *La Noscea:* Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Foschia 🌫️), Rain (Pioggia 🌧️), Wind (Vento 💨), Gales (Burrasca 💨).
+  - *The Black Shroud:* Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Nebbia fitta 🌫️), Rain (Pioggia 🌧️), Thunder (Tuoni 🌩️), Thunderstorms (Temporale ⛈️), Tension (Tensione / Odin ⚡).
+  - *Thanalan:* Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Foschia 🌫️), Dust Storms (Tempesta di sabbia 🌪️), Heat Waves (Ondata di calore 🏜️).
+  - *Coerthas:* Snow (Neve ❄️), Blizzards (Tormenta / Bufera 🌨️), Fog (Nebbia gelata 🌫️), Clouds (Coperto ☁️), Clear Skies (Sereno gelido ☀️), Fair Skies (Soleggiato 🌤️).
+  - *Mor Dhona:* Clouds (Nuvoloso ☁️), Fog (Nebbia 🌫️), Gloom (Foschia eterea / Gloom 🌌).
+  - *Later Expansions (Heavensward to Endwalker):* zones feature distinct aetheric phenomena (e.g. Umbral Static, Everlasting Light, Apocalypse) sampled directly from canon wiki entries.
+- **Mechanical Hazards (D&D 5e Rules):**
+  - *Heavy Rain / Downpour (Pioggia battente / Nubifragio 🌧️):* area is lightly obscured (disadvantage on Wisdom [Perception] checks relying on sight or hearing); open non-magical flames are extinguished; ranged weapon attacks beyond normal range have disadvantage; dirt tracks become difficult terrain (mud).
+  - *Thunderstorms (Temporale ⛈️):* all effects of Heavy Rain plus continuous deafening thunder (automatic disadvantage on hearing checks); lightning hazard in open terrain for metal armor or elevated silhouettes.
+  - *Dense Fog / Gloom (Nebbia fitta / Foschia 🌫️):* area is heavily obscured beyond 6 yalm / 9 meters (creatures beyond that distance are effectively blinded toward the outside); disadvantage on Wisdom (Survival) navigation checks off-road.
+  - *Dust Storms (Tempesta di sabbia 🌪️):* area is heavily obscured; creatures without eye protection and face covering must succeed on a DC 10 Constitution saving throw each hour or suffer disadvantage on Perception and weapon attack rolls; shifting dunes count as difficult terrain.
+  - *Heat Waves (Ondata di calore 🏜️):* Extreme Heat (DMG 5e): creatures wearing medium or heavy armor, or creatures lacking double daily water rations, must succeed on an hourly DC 10 Constitution saving throw or gain 1 level of exhaustion.
+  - *Blizzards (Tormenta / Bufera 🌨️):* Extreme Cold (DMG 5e): hourly DC 10 Constitution saving throw without cold-weather gear or gain 1 level of exhaustion; area is heavily obscured beyond 6 yalm; snow drifts are difficult terrain; disadvantage on all ranged attacks.
+  - *Gales (Burrasca 💨):* gale-force winds halve flight speeds and require DC 13 Strength checks to advance forward; ranged weapon attacks suffer disadvantage.
+- **Weather Evolution & Long Rest Refresh:**
+  - *Zone Transitions (/viaggio):* travel into a new zone adopts a canon weather condition of that destination.
+  - *Daytime Progression:* weather naturally shifts as Orario advances across time periods or after 2-3 beats without change.
+  - *Long Rest (/riposo):* Orario resets to 0 and weather ALWAYS rerolls/refreshes for the new dawn based on the current zone's canon list.
+  - *GM Override (/meteo):* the GM may inspect or override the weather at any moment via the weather command (`/meteo [condizione]`).
 
 # CHAPTER 15 — TAVERNS & GOSSIP
 The tavern as a social hub between adventures: roleplay and flavor, a light rumor system, and the job board.
