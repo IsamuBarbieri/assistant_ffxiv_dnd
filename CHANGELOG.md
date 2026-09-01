@@ -1,5 +1,44 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-01b — Stat block Chocobo, equipaggiamento cavalcature, negozio CAVALCATURE e tariffe trasporti
+
+Integrati gli stat block completi dei 3 tipi di Chocobo cavalcabili, le regole e la tabella dell'equipaggiamento per cavalcature, il nuovo tipo di negozio `CAVALCATURE` e la tabella ufficiale delle tariffe trasporti di Eorzea:
+
+**STAT BLOCK CHOCOBO (01_Manual.md).** Codificati i 3 esemplari per i PG:
+- **Chocobo da Soma (Draft Chocobo)**: Bestia Grande, GS 1/4, CA 10, PF 19, Vel 8 yalm (12m). Forza 18, capacità di traino e carico raddoppiata (fino a 245 kg carico, 1.225 kg traino). Docile e pauroso, fugge se attaccato.
+- **Chocobo da Sella (Riding Chocobo)**: Bestia Grande, GS 1/4, CA 11, PF 19, Vel 12 yalm (18m / 60 ft). Cavalcatura timorosa: in combattimento disarciona e fugge a meno di superare una prova di Saggezza (Addestrare Animali) CD 13 come reazione.
+- **Chocobo da Battaglia (Battle Chocobo)**: Bestia Grande, GS 1/2, CA 12 (naturale), PF 34, Vel 12 yalm (18m). Addestrato alla guerra (agisce in iniziativa a fianco del padrone, vantaggio contro spaventato). Multiattacco (Becco + Calcio con TS Forza CD 13 per non cadere proni) e reazione bonus *Choco Drop* su proni. *Legame con l'Erba Gysahl*: nutrito con 1 fascio (5 Gil), ottiene 10 PF temporanei e +1 al tiro per colpire per 1 ora.
+
+**EQUIPAGGIAMENTO CAVALCATURE & BARDATURE.** Aggiunta tabella completa con prezzi, pesi ed effetti: Selle (viaggio 25–40 Gil; militare 60 Gil con vantaggio a non cadere), Sacche da sella (15 Gil, +50 kg), Bardature (leggera in cuoio 75 Gil [+1 CA]; pesante in acciaio 200–350 Gil [+3 CA, svantaggio Furtività]), Stallaggio in locanda/scuderia (1–2 Gil/notte) ed Erba Gysahl (5 Gil a fascio).
+
+**NUOVO NEGOZIO `CAVALCATURE` (06 §A22).** Aggiunto tra i tipi di negozio invocabili (`ARMI / ARMATURE / ACCESSORI / CAVALCATURE / CONSUMABILI / GENERALE`). Vende cavalcature permanenti, selle, bardature, sacche, Erba Gysahl e stallaggio. Regola di separazione: il noleggio temporaneo NON si acquista al banco, ma è gestito in automatico da `/viaggio chocobo`.
+
+**TARIFFE TRASPORTI DI EORZEA & REGOLA 2+ ZONE.**
+- Traghetti locali e costieri: 5–15 Gil (chiatte interne: 10–20 Gil).
+- Navi d'alto mare: 30–50 Gil (200–500 Gil rotte pericolose/lunghe es. Kugane).
+- Aeronavi di linea Highwind Skyways: 75–100 Gil (Pass d'Aeronave MSQ Lv 15; charter privato: 500–1.500 Gil).
+- Noleggio Chocobo: 1 zona (tratta breve tra avamposti) = 10–15 Gil a persona | 2+ zone o intera giornata = 20–25 Gil/giorno forfettario a persona (con 50 Gil cauzione restituita al rientro). Con cavalcatura propria = 0 Gil di nolo.
+
+**IGIENE E PARITÀ.** Aggiornato `01_Manual.md`, §A22 e §B2 in `06_Procedures_and_Format.md` (v6.72), Ch. 12.7 in `05_Campaign.md` (v2.22), §1.8 in `Project_Memory.md` (mv11). `Instructions_Campaign.txt` resta asciutto a cv136.
+
+05 v2.22 · 06 v6.72 · cv136 · mv11.
+
+## 2026-09-01 — Bottino in Gil a persona (diviso per Numero PG)
+
+Introdotta la formattazione obbligatoria del bottino monetario espressa a persona dividendo per il numero di giocatori (`N PG` da save [B] / riga `⚔️ Rif. gruppo`), garantendo che la somma delle quote individuali corrisponda esattamente al totale dichiarato:
+
+**FORMATO OUTPUT BOTTINO IN GIL.** La riga `💰 Bottino:` stampa la quota individuale seguita dal totale:
+- Esempio: `💰 Bottino: 25 Gil a persona (totale: 100 Gil); oggetto: 1 Pozione di Cura` (o `35 Gil a persona (totale: 140 Gil)`).
+- Si applica esclusivamente al denaro (solo Gil); consumabili, parti di mostro ed equipaggiamento mantengono la loro assegnazione discreta.
+
+**INVARIANTE DELLA SOMMA ESATTA (`quota × N = Totale`).**
+- Quando il tiro dei dadi dal band CR non è esattamente divisibile per N PG, il totale viene arrotondato al multiplo più vicino di N PG per garantire quote intere e pulite al tavolo senza decimali.
+- Se una ricompensa fissa di quest è intrinsecamente non divisibile, il resto viene assegnato alla cassa comune del party (es. `33 Gil a persona (+1 Gil fondo cassa, totale: 100 Gil)`).
+
+**IGIENE E PARITÀ.** Aggiornato §A21 in `06_Procedures_and_Format.md` (v6.71), Ch. 12.2 in `05_Campaign.md` (v2.21), §1.8 in `Project_Memory.md` (mv10). `Instructions_Campaign.txt` resta inalterato a cv136 per rispetto del principio di igiene (formati derivati dal RAG).
+
+05 v2.21 · 06 v6.71 · cv136 · mv10.
+
 ## 2026-08-31c — Riprogettazione comando `/svolta` (ex `/esito`) con generazione immediata del beat
 
 Riprogettato il meccanismo delle deviazioni diegetiche e delle scelte impreviste dei giocatori: ritirato il vecchio comando passivo `/esito` e introdotto **`/svolta`**, che genera immediatamente un beat narrativo giocabile basato sull'input del GM:

@@ -3428,22 +3428,40 @@ United by flight (wings, aether, or gases). Long tamed for war and transport; so
 ## Genus: Chocobo
 Beasts of burden, intelligent and easy to tame; great allies in work and, with training, in battle.
 
-### Chocobo (Domestic) — Large beast, unaligned
-- AC 11 | HP 9 (2d10) | Speed 12 yalm | CR 1/4 (50 XP)
-- Actions — Beak: +5, reach 1 yalm, 7 (1d8+3) slashing. Claw: +5, reach 1 yalm, 6 (1d6+3) slashing. (Credit: Soren of Asgard.)
+### Draft Chocobo — Large beast, unaligned
+- AC 10 | HP 19 (3d10+3) | Speed 8 yalm | CR 1/4 (50 XP)
+- STR 18 (+4) DEX 10 (+0) CON 13 (+1) INT 3 (-4) WIS 10 (+0) CHA 6 (-2) | Senses passive Perception 10
+- Beast of Burden: carrying and pulling capacity is doubled (can carry up to 540 lbs / 245 kg, pull up to 2,700 lbs / 1,225 kg).
+- Docile & Skittish: if attacked in combat, panics and seeks only to disengage and flee.
+- Actions — Beak: +6 to hit, reach 1 yalm, 8 (1d8+4) piercing.
 
-### Abalathian Chocobo — Large beast, unaligned
-- AC 10 | HP 11 (2d10+2) | Speed 8 yalm | CR 1/4 (50 XP)
-- STR 18(+4) DEX 12(+1) CON 12(+1) INT 3(-4) WIS 11(+0) CHA 7(-2) | Senses passive Perception 10
-- Actions — Beak: +5, reach 1 yalm, 8 (1d8+4) slashing. Claw: +5, reach 1 yalm, 7 (1d6+4) slashing.
+### Riding Chocobo — Large beast, unaligned
+- AC 11 | HP 19 (3d10+3) | Speed 12 yalm | CR 1/4 (50 XP)
+- STR 14 (+2) DEX 13 (+1) CON 12 (+1) INT 3 (-4) WIS 11 (+0) CHA 8 (-1) | Senses passive Perception 10
+- Skittish Mount: when combat breaks out or when it takes damage, the rider must make a DC 13 Wisdom (Animal Handling) check as a reaction. On a failure, the chocobo becomes frightened, dismounts the rider, and flees from battle.
+- Actions — Beak: +4 to hit, reach 1 yalm, 6 (1d8+2) piercing. Claw: +4 to hit, reach 1 yalm, 5 (1d6+2) slashing.
 
-### La Noscean Chocobo — Medium beast, unaligned
-- AC 13 | HP 8 (2d8) | Speed 12 yalm | CR 1/4 (50 XP)
-- STR 14(+2) DEX 16(+3) CON 10(+0) INT 3(-4) WIS 11(+0) CHA 9(-1) | Senses passive Perception 10
-- Actions — Beak: +5, reach 1 yalm, 6 (1d8+2) slashing. Claw: +5, reach 1 yalm, 5 (1d6+2) slashing.
+### Battle Chocobo — Large beast, unaligned
+- AC 12 (natural armor) | HP 34 (4d10+12) | Speed 12 yalm | CR 1/2 (100 XP)
+- STR 16 (+3) DEX 14 (+2) CON 16 (+3) INT 4 (-3) WIS 12 (+1) CHA 10 (+0) | Senses passive Perception 11
+- Saving Throws STR +5, DEX +4, CON +5
+- Battle Trained: acts on the rider's initiative turn (or immediately following). It does not panic or flee in battle, and has advantage on saving throws against being frightened.
+- Gysahl Bond: when fed a bunch of Gysahl Greens (5 Gil), the battle chocobo gains 10 temporary hit points and a +1 bonus to attack rolls for 1 hour.
+- Actions — Multiattack: makes two attacks — one with its Beak and one with its Choco Kick.
+  - Beak: +5 to hit, reach 1 yalm, 7 (1d8+3) piercing.
+  - Choco Kick: +5 to hit, reach 1 yalm, 8 (1d10+3) bludgeoning. If the target is a Medium or smaller creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.
+- Bonus Actions — Choco Drop: if the chocobo moves at least 4 yalm straight toward a prone creature and hits it with an attack on the same turn, it deals an extra 6 (1d12) bludgeoning damage.
 
-### War Chocobo (template)
-A Chocobo trained for battle gains: +1 Hit Die of HP; the Multiattack action (one Beak and one Claw); optionally Barding (adjust AC). Barding AC: Leather +1, Studded Leather +2, Ring Mail 14, Scale Mail +4, Chain Mail / Splint / Plate (as the armor). Sagely Fowl (optional): WIS +2, learns Cure Wounds (WIS casting), may cast it twice per day.
+### Mount Equipment & Barding
+| Item | Cost (Gil) | Weight (ponze/lbs) | Properties & Effects |
+|---|---|---|---|
+| Travel Saddle | 25–40 Gil | 30 / 15 kg | Standard travel saddle with stirrups and harness. |
+| Military Saddle | 60 Gil | 40 / 20 kg | Grants the rider advantage on any check made to remain mounted or avoid being unseated. |
+| Saddlebags | 15 Gil | 8 / 4 kg | Holds up to 100 ponze (50 kg) of gear without encumbering the mount or rider. |
+| Light Barding (Reinforced leather) | 75 Gil | 20 / 10 kg | +1 to the mount's AC (AC 12 riding, AC 13 battle). |
+| Heavy Barding (Steel plate) | 200–350 Gil | 40 / 20 kg | +3 to the mount's AC (AC 14 riding, AC 15 battle); disadvantage on the mount's Stealth checks. |
+| Stabling (Inn or Stables) | 1–2 Gil / night | — | Includes secure shelter, grooming, fresh water and feed. |
+| Gysahl Greens | 5 Gil / bunch | 1 / 0.5 kg | Aromatic green herb. Activates the Battle Chocobo's Gysahl Bond (+10 temp HP, +1 to attack for 1 hour), or rewards/calms a mount. |
 
 ### Dalmascan Red — Large beast, unaligned
 - AC 15 (natural) | HP 136 (16d10+48) | Speed 12 yalm | CR 5 (1,800 XP)

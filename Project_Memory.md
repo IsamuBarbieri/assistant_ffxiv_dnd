@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv9
+Version mv11
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -243,9 +243,10 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
 - Reveals, NPC reputations, world-state, Crystals/Blessing and Aetherytes are **NOT** save fields — all derived
   live from the MSQ position + the internal reveal gates (05 Ch.1). There is no [D]-[G].
 - **PER-BEAT SCALING LINE** `⚔️ Rif. gruppo: N PG · Lv L` closes every beat: party size and level at the point of
-  use, for §B11 scaling and per-PC loot. It carries NO save vocabulary so it can never read as a save.
+  use, for §B11 scaling and per-PC loot (Gil loot is always calculated per PC with exact matching total). It carries NO save vocabulary so it can never read as a save.
 - **SAVE BLOCK EXPORT FORMAT:** on `/salva`, the save is emitted inside a single fenced code block prefixed with
   `/carica` on line 1 (`/carica` + `=== SAVE === ... === FINE SAVE ===`), enabling 1-click copy-paste load & orientation into a fresh chat.
+- **ECONOMIA DEI TRASPORTI & NEGOZIO CAVALCATURE:** tariffe a persona (traghetti 5–15 Gil, navi 30–50 Gil, aeronavi 75–100 Gil; Chocobo 1 zona 10–15 Gil, 2+ zone forfettario 20–25 Gil/giorno; cavalcature proprie 0 Gil). Nuovo negozio 'CAVALCATURE' (vendita Chocobo soma/sella/battaglia, selle, bardature, erba gysahl, stallaggio; noleggio escluso dal negozio, gestito in automatico da /viaggio chocobo).
 
 ## 1.9 Canon model — Echo vs Blessing vs Tempering (do NOT regress)
 - **THE ECHO** = innate, NEVER-removed immunity to TEMPERING, in ANY arc.

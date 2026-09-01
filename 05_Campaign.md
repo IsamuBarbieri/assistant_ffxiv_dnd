@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.20 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.22 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -864,6 +864,7 @@ Costs and rarity are TUNABLE PROPOSALS. Consistent with the anti 'item tax' prin
 - 1 Gil (gold) = 1 gold piece (gp) of D&D 5e. 1:1 conversion.
 - **Minor currencies:** SILVER Gil = silver piece (1 gold Gil = 10 silver); BRONZE Gil = copper piece (1 silver = 10 bronze).
 - Prices below are in GIL (= gp) unless otherwise noted.
+- **Loot & Reward presentation:** Gil loot and rewards are always presented per person (divided by PC count N, from save [B] / party reference line), with the sum of individual shares matching the total declared ('<quota> Gil a persona (totale: <totale> Gil)'). Only Gil is split numerically; consumables, monster parts and gear are awarded as discrete items.
 
 ## 12.3 Revival items (Phoenix)
 Normal healing does NOT revive a Downed character (Ch. 18). You need Raise or the Phoenix items. All apply AETHER SICKNESS (damage/healing dice halved, 2 turns), EXCEPT the Healer LB3.
@@ -902,6 +903,22 @@ Normal healing does NOT revive a Downed character (Ch. 18). You need Raise or th
 - **MERCHANTS / GRAND COMPANY (Ch. 17):** consumables and base gear. (Operational vendor/inn engine + loot-by-CR + buy-back: 06 §A20-A22.)
 - **SUBQUESTS (Ch. 13):** relics, unique items, extra Gil.
 - **Pace:** enough Gil for a REASONABLE stock, without hoarding Tails at will.
+
+## 12.7 Transportation Fares, Mounts & Chocobo Companion
+- **Transport Fares across Eorzea (per person):**
+  - *Local riverboat / ferry:* 5–15 Gil (cargo barge: 10–20 Gil).
+  - *Chocobo rental (Chocobokeep):* 1 zone = 10–15 Gil | 2+ zones / full day = 20–25 Gil/day flat per PC (50 Gil deposit refunded on return). Own mount = 0 Gil rental.
+  - *Ocean-going ship:* 30–50 Gil regular; 200–500 Gil long/dangerous routes (e.g. Kugane, includes rations).
+  - *Scheduled airship (Highwind Skyways):* 75–100 Gil (requires MSQ Lv 15 Airship Pass; private charter: 500–1,500 Gil).
+- **Personal Mount Purchase (Stables / CAVALCATURE vendor):**
+  - *Draft Chocobo:* 50–75 Gil. Large, slow, carries double (pulls cart/cargo). Flees if attacked.
+  - *Riding Chocobo:* 100–150 Gil. Fast, docile. Skittish in combat (dismounts and flees without DC 13 Animal Handling check).
+  - *Battle Chocobo:* 400–600 Gil. Trained for combat (acts on rider's initiative, attacks with Beak and Choco Kick with DC 13 knockdown, Choco Drop, does not flee).
+- **Mount Equipment & Maintenance:**
+  - *Travel Saddle:* 25–40 Gil | *Military Saddle (advantage against falling off):* 60 Gil | *Saddlebags (+50 kg):* 15 Gil.
+  - *Light Barding (leather, +1 AC):* 75 Gil | *Heavy Barding (steel, +3 AC, Stealth disadv.):* 200–350 Gil.
+  - *Stabling (inn/stable):* 1–2 Gil / night.
+  - *Gysahl Greens:* 5 Gil / bunch (activates Battle Chocobo's Gysahl Bond: +10 temp HP, +1 attack for 1 hour).
 
 # CHAPTER 13 — SUBQUESTS
 Subquests are WELCOME: they enrich the world, explore lore and show places the MSQ doesn't touch. But they must be handled with consistency and fidelity.
