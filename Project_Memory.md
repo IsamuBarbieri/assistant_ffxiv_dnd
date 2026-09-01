@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv12
+Version mv13
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -268,8 +268,7 @@ catalog means re-checking §B8's closed lists, and vice versa — that pair is t
   pair of fights, ≥1 a tangible puzzle; FIRST-FIGHT-FIRST; roster pinned at entry; SPLIT-NEVER-SHRINK.
 - **ECONOMY = 5e-2014 rarity ladder by party level**; each special = a real 5e item of that rarity or an
   on-theme reskin; price + FULL EFFECT printed per item.
-- **LOOT RESOLVE-AND-PRINT:** the assistant ROLLS and prints the concrete result, never the dice formula.
-  Loot is never omitted and never empty.
+- **LOOT RESOLVE-AND-PRINT:** the assistant ROLLS and prints the concrete result, never the dice formula. Emitted under heading '#### 💰 Bottino' without repeating the label on the content line. Loot is never omitted and never empty.
 
 ---
 

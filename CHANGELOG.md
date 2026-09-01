@@ -1,5 +1,14 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-01e — Formattazione pulita blocco Bottino (eliminata ripetizione etichetta inline)
+
+Rifinita la formattazione dell'output della sezione Bottino in `06_Procedures_and_Format.md` (§A21):
+- **ELIMINATA LA RIDONDANZA DELL'ETICHETTA INLINE:** Sotto l'intestazione di blocco `#### 💰 Bottino` (o `💰 Bottino`), la riga di contenuto stampa direttamente il bottino risolto (`<quota> Gil a persona (totale: <totale> Gil)[; drop]`) senza ripetere inutilmente il prefisso `💰 Bottino:` all'inizio della riga.
+- **PARITÀ CON REGOLE DI FORMATTAZIONE (§A1/§A9):** Le etichette di blocco con emoji identificano la sezione; i campi interni non duplicano il titolo del blocco.
+- **COMPATIBILITÀ TABLE & TRACKER:** Piena compatibilità con `combat_tracker.html`, che aggancia il titolo di sezione `Bottino` nello stat block e ne mostra ora l'entrata pulita senza testo duplicato.
+
+06 v6.74 · mv13.
+
 ## 2026-09-01d — Snellimento Control Layer (cv138, lv55) e fix orientamento /carica con template tratto connettivo
 
 Audit completo delle istruzioni e snellimento del Control Layer per ridurre il carico cognitivo dei prompt e garantire l'emissione del tratto connettivo al caricamento:
