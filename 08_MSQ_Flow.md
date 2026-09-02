@@ -1,13 +1,15 @@
 # 08.0 — CONVENZIONI GLOBALI (una volta sola)
 - MANIFEST (08.1): backbone LOCKED di cutscene/reveal; riprodurre ogni pin, mai droppare/inventare, GATED nascosti. Pin: IN-SCENA / ALTROVE / VISIONE DELL'ECO / REVEAL / GATED.
 - INDICE (08.2-08.6): catena quest reale (giver + step + [duty] + Next). Ordine autoritativo (06 §A14, CGW); reveal-gate 05 Ch.1 + manifest; dialoghi Gamer Escape. Cachati per OGNI quest: ordine, nome, Next MSQ risolto; giver/step spine SOLO dove mostrati (minoranza) — per il resto lo step spine si recupera live (06 §A14).
+- CHECKPOINT `[GATE]`: snodo o condizione obbligatoria di avanzamento della MSQ (dungeon, trial, reveal, sigillo/cristallo).
+- SUBQUEST RACCOMANDATE `[REC]`: contenuti secondari canonici consigliati (dungeon opzionali canonici, trial opzionali, alliance raid, la saga di Hildibrand Manderville, Coil of Bahamut, ecc.) sbloccati al progredire della MSQ ed eleggibili come subquest tramite `/voci` (06 §B22); non obbligatori per la MSQ ma pienamente giocabili al tavolo.
 - CONDENSATION MARKERS `[COND: …]` (06 §B2): they mark the ONLY condensable quests. THEY TRIGGER NOTHING: condensation is **triggered by the GM with `/riassumi`**, never automatically — `/continua` gioca sempre la prossima quest come beat normale, marcata o no. I marcatori DEFINISCONO L'ESTENSIONE del ponte: dove comincia il tratto, dove si ferma (alla prima quest NON marcata, che si gioca in pieno) e cosa ci entra dentro. `[COND: fetch]` = consegna/commissione pura · `[COND: relay]` = relay sociale a basse poste (parla ad A che manda a B, senza scelta/rivelazione/scontro) · `[COND: parallel → <convergenza>]` = cluster di micro-obiettivi paralleli. REGOLA D'ORO: **NON marcato = SI GIOCA**, sempre; un buco nella marcatura costa tempo al tavolo, mai contenuto. MAI `[COND]` su: una quest che nomina una DUTY istanziata, una quest che porta una cutscene/reveal pinnata nei manifest (08.1), una quest-pillar, o qualunque caso dubbio. I marcatori si aggiungono SOLO in una passata di marcatura rivista dal GM, MAI a runtime. **NON SI MARCA DALLO STEP SPINE, come non si marca dal titolo.** Lo spine di una quest-finale di patch e' indistinguibile da un relay — *«parla con Alisaie -> parla con Alisaie -> parla con Alisaie»* — perche' il contenuto sta nelle CUTSCENE, che lo spine non elenca: e' esattamente cosi' che undici finali di patch sono finiti marcati condensabili (fra cui Estinien posseduto da Nidhogg, una solo duty contro Lakshmi e la rivelazione di Gaius vivo). Prima di marcare, si apre la pagina della quest e si guardano le CUTSCENE. **REGOLA PRATICA: l'ULTIMA quest di una patch o di un installment non si marca quasi mai** — e' li' che la patch mette il suo colpo di scena.
 - MARKER `[CUT: <reason>]` (STRONGER than `[COND]`): the quest is OUT of the campaign — NEVER played, NEVER summarised in a bridge, NEVER the target of an '[Info GM] apre'. The chain SKIPS the entry and the previous quest's Next points straight at the first uncut quest. Used for content this homebrew does not implement (precedente già in uso: le fetch-errand del Crystal Tower). La voce resta nell'indice solo come traccia canonica.
 - OST (08.OST-*): temi di duty/scena risolti da queste tabelle (06 §A23); titoli in inglese (chiave di ricerca).
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.54 (full audit) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.56 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -27,7 +29,12 @@ Reference: see Section A Ch. 5 (Milestone Progression); this file is its detail.
 **LEVELS (milestone compression, no XP):** ARR 1-8 | HW 9-12 | SB 13-15 | ShB 16-19 | EW 20 (cap)
 *NOTE: the campaign runs on milestone levels 1-20 (Ch. 5); beats are identified by NAME and sequence, not by in-game level numbers.*
 
-**LEGEND:** `[GATE]`=mandatory to proceed | `[REC]`=recommended (unlocks valuable trials/dungeons/alliances) | `[OPT]`=optional, zone-themed | `[CUT]`=low-value/unreachable fetch.
+**LEGEND DEI MARCATORI:**
+- `[GATE]` = checkpoint obbligatorio della MSQ (dungeon, trial, reveal, sigillo/cristallo) necessario per avanzare.
+- `[REC]` = **RECOMMENDED optional content / subquest** (trial opzionali, alliance raid, dungeon opzionali canonici, la saga di Hildibrand Manderville, Coil of Bahamut): contenuti secondari canonici consigliati, non obbligatori per la MSQ ma sbloccati al progredire della storia ed eleggibili come subquest tramite `/voci` (06 §B22).
+- `[OPT]` = contenuti raid puramente opzionali paralleli (es. Eden).
+- `[CUT]` = contenuti tagliati dalla campagna (quest di feature/materia non implementate nel regolamento, fetch-errand fuori mano e irrilevanti): vengono saltati a piè pari dalla catena, mai giocati e mai riassunti.
+- `[COND: …]` = marcatori di condensazione per quest MSQ a bassa agency (`fetch`, `relay`, `parallel`), attivabili dal GM con il comando `/riassumi` (06 §B2). Regola d'oro: **NON marcato = SI GIOCA**.
 
 **LOGICAL-THREAD RULE:** activate a quest only if the PCs can reach it (ZONE consistency + MSQ point); its lore must not foreshadow events not yet occurred. No hooks from the other side of the world.
 
@@ -87,6 +94,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - VISIONE DELL'ECO: SHARED Echo vision inside the arrival beat (Hydaelyn/Mothercrystal; 'Hear... Feel... Think...'); hits the WHOLE party — this is the precedent that fixes the party-wide default; NO burning sky, NO star-shower, NO burning dragon (Ch.1.7). **It falls AFTER the opening fight, not on the road before it** (homebrew, Ch.1.7): the world stops, only the PCs are awake in it, and they see one another receive it.
 - **THIS PIN IS BEAT 0 OF THE CITY CHAIN, PLAYED BEFORE QUEST #1 (`Coming to <City>`), NEVER FOLDED INTO IT.** It is not a quest and has no giver or wiki step, which is exactly why it gets dropped: the 08.2 chain starts at #1 and a walker that reads only the chain never sees it. It is OWED whenever the save sits on `Coming to <City>` with an 'Ultimo step completato' that names Session 0 / the campaign start — that save state means the opening HAS NOT HAPPENED YET (05 Ch.1.7 RAG NOTE: it is played on the FIRST `/continua` after save-0 is loaded). NEVER open the campaign already ashore at the docks/gates with the vision skipped. Per-city staging: the beat-0 entries in 08.2, authoritative detail in 05 Ch.1.7.
 - VISIONE DELL'ECO [**#2, and the one where She gives Her NAME** — entry #5 of each city chain: `Lurkers in the Grotto` (Limsa) · `Chasing Shadows` (Gridania) · `Underneath the Sultantree` (Ul'dah); CGW-verified, all three parallel]: after the solo duty a PC takes up a CRYSTAL and the party is pulled in — a TOWERING CRYSTAL, the same voice (`Hear... Feel... Think... Crystal bearer...`), and then the naming: `I am Hydaelyn. All made one. A Light there once was that shone throughout this realm... yet it hath since grown dim.` She sets the task: `The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them.` Hits the WHOLE party. **THIS IS WHERE THE 6-CRYSTALS THREAD BEGINS** (05 Ch.5.4 / Ch.7): drop it and the Blessing of Light arc has no origin, and Crystal #1 at L2 arrives unasked-for.
+- VISIONE DELL'ECO [The City Banquets / Carteneau Memorial — entry before the Envoy in each city chain: `A Mizzenmast Repast` (Limsa) · `Renewing the Covenant` (Gridania) · `A Royal Reception` (Ul'dah)]: during the solemn assembly, an Echo vision strikes the party — the BATTLE OF CARTENEAU 5 years prior, the fall of Dalamud, the emergence of Bahamut, and Archon LOUISOIX LEVEILLEUR offering his life and prayers to seal the dragon in a cage of light and cast the Warriors of Light forward in time. Hits the WHOLE party.
 - REVEAL: the NAME **Hydaelyn**, and the errand of claiming the Crystals of Light. Both become KNOWN here, not at L2.
 - GATED: WHAT Hydaelyn is, and the nature of the Echo, stay hidden (Reveal: Eco = NO). The name is not the nature.
 
@@ -170,7 +178,6 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **OPENING (BEAT 0):** the arrival journey + the shared Echo vision, played BEFORE quest #1 of the chosen city chain — see the L1 manifest pin above and the beat-0 entries in 08.2. Authoritative staging: 05 Ch.1.7 (ARR CAMPAIGN OPENING).
 - **ZONE:** starting city + starting zones (Black Shroud / La Noscea / Thanalan).
 - **GM NOTES:** the Echo is the party's shared gift (Warriors of Light).
-- `[REC]` Hildibrand - "The Three Collectors" (Ul'dah).
 
 ### Lvl 2 - Crystal #1 (Water) + the Scions
 - **BEAT:** see ARR Manifest L2 above.
@@ -182,7 +189,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **BEAT:** see ARR Manifest L3 above.
 - **ZONE:** Thanalan / Black Shroud / La Noscea.
 - **GM NOTES:** seed Enthrallment.
-- `[OPT]` optional ARR themed dungeons. `[CUT]` courier between disconnected zones.
+- `[REC]` Optional Subquest Dungeons (Thanalan): Halatali (Eastern Thanalan · Nedrick Ironheart, Vesper Bay; sblocco: dopo `Call of the Sea`); The Sunken Temple of Qarn (Southern Thanalan · Nedrick Ironheart; sblocco: dopo `Beyond the Sunken Temple`); Cutter's Cry (Central Thanalan · Sibold, Ul'dah; sblocco: dopo `Lord of Crags` / Titano). `[CUT]` courier between disconnected zones.
 
 ### Lvl 4 - Ifrit (Fire) + Frixio (Lightning)
 - **BEAT:** see ARR Manifest L4 above.
@@ -208,6 +215,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **MSQ DUNGEON:** The Stone Vigil (Isgebind).
 - *** ICE CRYSTAL (#5) ***
 - **GM NOTES:** pivot toward Garlemald; introduce Cid and the Enterprise.
+- `[REC]` Optional Subquest Dungeons (Coerthas): Dzemael Darkhold (Coerthas · Carrilaut; sblocco: dopo `For the Sky`); The Aurum Vale (Coerthas · Nedrick Ironheart; sblocco: dopo `In Pursuit of the Past`).
 
 ### Lvl 7 - Garuda (Wind) + Ultima Weapon + Praetorium (Climax 2.0)
 - **BEAT:** see ARR Manifest L7 above.
@@ -230,7 +238,9 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **CRYSTAL TOWER (inline mandatory MSQ flow - see the CRYSTAL TOWER ARC block at the end of Arc 1):** seeded at 'Laying the Foundation' (2.1), played as a fixed ~13-beat arc after 'Build on the Stone' via CID, exit to 2.2 'Still Waters'. Lore: Allagan / Xande / Cloud of Darkness / Bahamut=Dalamud / G'raha (ShB Exarch = GATED). Complete before HW.
 - *** END OF L8: MIDGARDSORMR SNUFFS THE 6 CRYSTALS (Blessing sealed) ***
 - **GM NOTES:** without the Blessing, in HW defeated Ascians can't be permanently killed (they flee); the ECHO still keeps the party Tempering-safe.
-- `[REC]` Hildibrand continues; Primal Fear -> Odin; Relic -> Chimera/Hydra.
+- `[REC]` Optional Subquest Dungeons (post-2.0, sblocco dopo `The Ultimate Weapon`): The Wanderer's Palace (Upper La Noscea · Allene); Amdapor Keep (South Shroud · Nedrick Ironheart); Pharos Sirius (Aleport · Diamanda).
+- `[REC]` Hildibrand Manderville (ARR, sblocco dopo `The Ultimate Weapon`): 'The Rise and Fall of Gentlemen' (Ul'dah, Steps of Nald · Wymond) -> l'ispettore Hildibrand creduto perito a Dalamud ritrovato da Nashu Mhakaracca, l'investigatore Briardien, la giornalista Ellie, Godbert & Julyan Manderville -> 3 Trial canonici: Battle on the Big Bridge (Gilgamesh & Enkidu, 2.2), The Dragon's Neck (Ultros & Typhon, 2.4), Battle in the Big Keep (Gilgamesh 8-arms & Enkidu primal, 2.5) -> Hildibrand sparato nella stratosfera.
+- `[REC]` Primal Fear -> Odin (The Urth's Fount, South Shroud · O-App-Pesi); Relic Weapon -> A Relic Reborn (Chimera / Dhorme Chimera & Hydra / Halatali, Gerolt, Hyrstmill).
 - *END OF ARC 1 -> flight to Coerthas: HEAVENSWARD begins (lvl 9).*
 
 ---
@@ -296,7 +306,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - IN-SCENA: fleeing the Ul'dah coup, the party reaches ISHGARD; House Fortemps (Count Edmont) shelters them, vouched for by HAURCHEFANT. The Blessing is SEALED -> defeated Ascians can't be permanently killed (they flee) and Hydaelyn's ward is gone; the ECHO still protects from Tempering (Ch.5.6).
 - IN-SCENA: meet Ser AYMERIC (Lord Commander of the Temple Knights) and ESTINIEN (the Azure Dragoon); the Dragonsong War, the Holy See and the heretics are established.
 - IN-SCENA: YSAYLE (formerly 'Lady Iceheart') joins the party as a guide toward the dragons.
-- Dungeons: The Dusk Vigil -> Sohm Al.
+- Dungeons: Sohm Al (first MSQ dungeon; `[OPT]` The Dusk Vigil is an optional side-dungeon in Western Coerthas).
 - GATED: the Dragonsong War's true origin (revealed at L10); the deeper Ascian cosmology.
 
 #### L10 — The truth, Ravana, the Aery, THE VAULT (Haurchefant), Bismarck (HW 3.0 mid)
@@ -346,7 +356,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **BEAT:** see HW Manifest L9 above.
 - **ZONE:** Coerthas Western Highlands; Ishgard (Foundation/Pillars); Dravania.
 - **>> WITHOUT THE BLESSING:** defeated Ascians escape/return and Hydaelyn's ward is gone; the ECHO still keeps the party Tempering-safe (Section A Ch. 5.6).
-- **MSQ DUNGEONS (order):** The Dusk Vigil -> Sohm Al.
+- **MSQ DUNGEON:** Sohm Al (first MSQ dungeon; `[REC]` The Dusk Vigil is an optional subquest dungeon in Western Coerthas · Wealdtheow; sblocco: dopo `All Dogs Have Their Day`).
 - **GM NOTES:** dark/gothic tone; faith, dogma, heretics and dragons.
 
 ### Lvl 10 - Ravana, Nidhogg, Bismarck
@@ -370,6 +380,8 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **MSQ DUNGEONS:** The Antitower (3.2); Sohr Khai (3.3); Xelphatol (3.4); Baelsar's Wall (3.5).
 - **MSQ TRIAL:** The Final Steps of Faith (NIDHOGG, 3.3).
 - **GM NOTES:** the WARRIORS OF DARKNESS (3.1-3.4, from the First) are ShB lore seeds.
+- `[REC]` Optional Subquest Dungeons (post-3.0, sblocco dopo `Heavensward`): Neverreap (The Sea of Clouds · Sanu Vali); The Fractal Continuum (Azys Lla · Notched Bone); Saint Mocianne's Arboretum (Dravanian Hinterlands · Tetchy Treasure Hunter).
+- `[REC]` Hildibrand a Ishgard (Further Hildibrand Adventures, sblocco dopo `Heavensward` e Hildibrand ARR): 'A Gentleman Falls, Rather Than Flies' (Ishgard, Foundation / The Jeweled Crozier · Nashu Mhakaracca) -> Hildibrand ritrovato piantato di testa nelle nevi di Coerthas, l'inquisitore Cyr dei Cavalieri del Tempio, l'automa amnesico "Gigi" (prototipo Sharlayan stile Vivi), i suplex di Godbert a Dravania e l'adozione di Gigi nella famiglia Manderville.
 - *END OF ARC 2 -> Baelsar's Wall: STORMBLOOD begins (lvl 13).*
 
 ---
@@ -410,14 +422,14 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ##### 4.2 (Rise of a New Sun):
 - IN-SCENA: Gosetsu is found alive with an AMNESIAC YOTSUYU (now 'Tsuyu'); ASAHI sas Brutus (Yotsuyu's adoptive step-brother) arrives under a banner of peace to arrange a prisoner exchange — secretly a fanatical Zenos-worshipper.
 - ALTROVE: a physician tends a stirring patient — Zenos's body, alive. ⚠️ reveal protetto.
-- Dungeon: The Burn.
+- Dungeon: Hells' Lid.
 
 *4.3 (Under the Moonlight) — Tsukuyomi:*
 - IN-SCENA: confronted by her abusive adoptive parents, YOTSUYU's memories return; at the prisoner exchange Asahi triggers a summoning and Yotsuyu becomes the primal TSUKUYOMI (Castrum Fluminis). After her defeat she kills Asahi and dies. [WIKI-VERIFIED — this trial is PATCH 4.3, not 4.1.]
 - REVEAL: Zenos's body is confirmed alive and worn by an Ascian (still unnamed here).
 
 ##### 4.4 (Prelude in Violet):
-- IN-SCENA: the hunt for the truth of Zenos's resurrection; Hien reactivates the Allagan 'Seiryu's Wall' and the Burn is identified as fallen Azys Lla (Y'shtola). Dungeon: Hells' Lid.
+- IN-SCENA: the hunt for the truth of Zenos's resurrection; Hien reactivates the Allagan 'Seiryu's Wall' and the party traverses the white desert to protect Doma (Y'shtola). Dungeon: The Burn.
 - IN-SCENA [the Shadowhunter]: GAIUS van Baelsar is revealed ALIVE and confirms the Ascian wearing Zenos's body is ELIDIBUS the Emissary.
 - ALTROVE [Garlemald]: EMPEROR VARIS zos Galvus and ELIDIBUS — the Empire was founded with Ascian aid; they intend to trigger further Calamities to REJOIN the reflections. ⚠️ reveal protetto (reinforces the HW 3.2 cosmology with the Empire's role).
 - REVEAL: ELIDIBUS is the Ascian in Zenos's body; the Garlean-Ascian pact and the Rejoining agenda.
@@ -435,6 +447,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **ZONE:** Gyr Abania (Rhalgr's Reach, Fringes/Peaks/Lochs); Othard.
 - **MSQ DUNGEON/TRIAL (ORDER):** The Sirensong Sea -> The Pool of Tribute (SUSANO) -> Bardam's Mettle -> Doma Castle -> Emanation (LAKSHMI) -> Castrum Abania. (NOTE: Castrum Abania is the HINGE into the L14 Gyr Abania assault — the SB Manifest narrates it under L14; treat the L13/L14 split as SOFT.)
 - **GM NOTES:** themes of liberation and identity; Zenos the relentless hunter.
+- `[REC]` Optional Subquest Dungeon: Shisui of the Violet Tides (The Ruby Sea · Kurenai, Sui-no-Sato; sblocco: durante la visita a Sui-no-Sato, dopo la quest MSQ `The Midst of the Green`).
 
 ### Lvl 14 - Zenos, Shinryu and the battle of Ala Mhigo (Climax 4.0)
 - **BEAT:** see SB Manifest L14 above.
@@ -445,12 +458,13 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ### Lvl 15 - Post-SB (4.1-4.56): Tsukuyomi and the shadow of the Ascians
 - **BEAT:** see SB Manifest L15 (4.1-4.56) above.
 - **ZONE:** Yanxia (Castrum Fluminis); Gyr Abania; Garlemald (intro).
-- **MSQ DUNGEON/TRIAL (ORDER):** The Drowned City of Skalla (4.1) -> The Burn (4.2) -> Castrum Fluminis (TSUKUYOMI, 4.3) -> Hells' Lid (4.4) -> The Ghimlyt Dark (4.5).
+- **MSQ DUNGEON/TRIAL (ORDER):** The Drowned City of Skalla (4.1) -> Hells' Lid (4.2) -> Castrum Fluminis (TSUKUYOMI, 4.3) -> The Burn (4.4) -> The Ghimlyt Dark (4.5).
 - **GM NOTES:** 4.5 sets up the call to the First: a direct hook to ShB.
+- `[REC]` Optional Subquest Dungeons (post-4.0, sblocco dopo `Stormblood`): The Temple of the Fist (Rhalgr's Reach / The Fringes · Ortwin); Kugane Castle (Kugane · Trading Co Associate); The Swallow's Compass (Yanxia · Bunchin, Tamamizu via Four Lords dopo `Go East, Angel`).
 - `[REC]` Return to Ivalice alliance: "Dramatis Personae", Kugane.
 - `[REC]` The Four Lords -> Byakko, Suzaku, Seiryu (Ruby Sea).
 - `[REC]` Monster Hunter collab -> Rathalos (The Great Hunt), Kugane.
-- `[REC]` Hildibrand (SB) -> Kugane Ohashi (trial), Kugane.
+- `[REC]` Hildibrand a Kugane (Even Further Hildibrand Adventures, sblocco dopo `Stormblood` e Hildibrand HW): 'A Hingan Tale: Nashu Goes East' (Kugane · Conspicuously Inconspicuous Man) -> l'ufficiale della Sekiseigumi Shigure, il mercante corrotto Akebono, il ladro lupo e la spada Soboro Sukehiro -> Trial canonico: Kugane Ohashi (Yojimbo / Greg & Daigoro, 4.56) -> Hildibrand risucchiato in una Fenditura Interdimensionale del vuoto.
 - *END OF ARC 3 -> the call to the First: SHADOWBRINGERS begins (lvl 16).*
 
 ---
@@ -469,15 +483,15 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - IN-SCENA: the FLOOD OF LIGHT — a century ago primordial Light drowned Norvrandt and birthed the Sin Eaters; it was halted by MINFILIA and her companions (her sacrifice; her successor line leads to Ryne).
 - IN-SCENA: EULMORE, the decadent city feasting under the shadow of the end (Vauthry); Kholusia.
 - IN-SCENA [The Dancing Plague]: TITANIA, the pixie king, the Lightwarden of IL MHEG; on its defeat the party absorbs the Light and NIGHT returns to Il Mheg (Feo Ul becomes the new Titania).
-- Dungeons: Holminster Switch -> Dohn Mheg -> The Qitana Ravel.
+- Dungeons: Holminster Switch -> Dohn Mheg.
 - REVEAL: the First, the Flood of Light, the Sin Eaters, the Lightwardens, the party as the Warrior of Darkness; EMET-SELCH appears as a sardonic, ambiguous 'ally'.
 - GATED: Emet-Selch's true nature; the Exarch's identity; Vauthry's Lightwarden origin; the soul of Azem.
 
-#### L17 — Amh Araeng, Mt. Gulg & Innocence (ShB 5.0, part 2)
-- IN-SCENA: Amh Araeng with RYNE (the trolley, the Talos, Nabaath Areng); the Rak'tika Greatwood (the Night's Blessed, Y'shtola's home).
+#### L17 — Rak'tika, Amh Araeng, Mt. Gulg & Innocence (ShB 5.0, part 2)
+- IN-SCENA: the Rak'tika Greatwood (the Night's Blessed, Y'shtola's home); Amh Araeng with RYNE (the trolley, the Talos, Nabaath Areng).
 - IN-SCENA: the WARRIORS OF DARKNESS of Heavensward are revealed to have been FROM THE FIRST — Ardbert's band came to the Source hoping to trigger a Calamity that would save their own dying, Light-flooded world.
 - IN-SCENA [The Crown of the Immaculate]: VAUTHRY, ruler of Eulmore, ascends into the Lightwarden INNOCENCE (Mt. Gulg); on his defeat night returns to Kholusia — but the party has now drunk SO MUCH Light it risks turning into a Sin Eater itself (narrative tension only, LIGHT NOTE; Ardbert's spirit lingers at the party's side).
-- Dungeons: Malikah's Well -> Mt. Gulg.
+- Dungeons: The Qitana Ravel -> Malikah's Well -> Mt. Gulg.
 - REVEAL: the Warriors of Darkness were of the First; Vauthry's Lightwarden origin; the party's mounting Light-sickness.
 - GATED: the Exarch = G'raha; Emet-Selch's Unsundered nature; Amaurot / the soul of Azem.
 
@@ -512,13 +526,13 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 ### Lvl 16 - Norvrandt and the first Lightwardens
 - **BEAT:** see ShB Manifest L16 above.
 - **ZONE:** Lakeland (Crystarium); Kholusia (Eulmore); Il Mheg.
-- **MSQ DUNGEON/TRIAL (ORDER):** Holminster Switch -> Dohn Mheg -> The Qitana Ravel -> The Dancing Plague (TITANIA, Lightwarden of Il Mheg).
+- **MSQ DUNGEON/TRIAL (ORDER):** Holminster Switch -> Dohn Mheg -> The Dancing Plague (TITANIA, Lightwarden of Il Mheg).
 - **GM NOTES:** introduce the ambiguous EMET-SELCH; the price of absorbed Light (narrative tension only, see LIGHT NOTE).
 
 ### Lvl 17 - Innocence and the Warrior of Darkness
 - **BEAT:** see ShB Manifest L17 above.
-- **ZONE:** Amh Araeng; Mt. Gulg; The Rak'tika Greatwood.
-- **MSQ DUNGEON/TRIAL (ORDER):** Malikah's Well -> Mt. Gulg -> The Crown of the Immaculate (INNOCENCE).
+- **ZONE:** The Rak'tika Greatwood; Amh Araeng; Mt. Gulg.
+- **MSQ DUNGEON/TRIAL (ORDER):** The Qitana Ravel -> Malikah's Well -> Mt. Gulg -> The Crown of the Immaculate (INNOCENCE).
 - **GM NOTES:** the absorbed Light reaches its peak: risk of Sin Eater (narrative only, see LIGHT NOTE).
 
 ### Lvl 18 - Emet-Selch and Amaurot
@@ -531,9 +545,11 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 - **ZONE:** The Tempest; Source (post).
 - **MSQ TRIAL (ORDER):** The Dying Gasp (HADES) -> The Seat of Sacrifice (ELIDIBUS, 5.3).
 - **GM NOTES:** Hades = an epic phased boss (see Section A Ch. 9).
+- `[REC]` Optional Subquest Dungeons (post-5.0, sblocco dopo `Shadowbringers`): The Twinning (The Crystarium · Bethana; lore Ironworks/Tycoon, richiede Crystal Tower); Akadaemia Anyder (The Tempest · Overwhelmed Ondo; lore creazione di Amaurot).
 - `[REC]` YoRHa: Dark Apocalypse alliance: "Word about Komra", Kholusia.
 - `[REC]` Sorrow of Werlyt -> Ruby/Emerald/Diamond Weapon (The Lochs).
 - `[OPT]` EDEN raid (Eden's Gate/Verse/Promise): ShB optional raid content.
+- `[REC]` Hildibrand (interludio dimensionale): disperso nella Fenditura tra i mondi dopo gli eventi di Kugane; breve cameo spettrale nel dungeon MSQ The Heroes' Gauntlet (Patch 5.3) quando i varchi si aprono a Norvrandt.
 - *END OF ARC 4 -> return to the Source: ENDWALKER begins (lvl 20).*
 
 ---
@@ -543,28 +559,27 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 
 ### ENDWALKER CANONICAL CUTSCENE & REVEAL MANIFEST (anti-drop / anti-invent — FROZEN v3.0, wiki-audited)
 **SCENE OST FOR THE PINS BELOW (co-located on purpose — 06 §A23):** a pinned cutscene takes its track by SCENE KIND — ASCIAN scene (Lahabrea, Igeyorhm, Elidibus, Nabriales, Emet-Selch...) -> Without Shadow · a DEATH / farewell / grief scene -> Sacred Bonds · a PRIMAL threat -> Wrath of the Eikons · a GARLEAN / Empire scene -> Imperial Will (or Meteor) · a CRYSTAL obtained / Hydaelyn speaking -> Prelude - Rebirth · an ECHO vision -> The Echo for the OPENING vision (ENTRY 0) ONLY, every later vision keeps the scene's own mood theme · a general TENSE moment -> Unspoken · a SOLO instanced duty -> From Fear to Fortitude · any other STORY cutscene -> that arc's MSQ cutscene theme (HW Stone and Steel · SB Victory or Death · ShB A Better Tomorrow), listed in full in 08.OST-SCENE. Anything not listed keeps the beat's own duty/zone track. NEVER a coined title.
-**SPECIFICS:** EW is played entirely at CAP (milestone L20), so this manifest is organized by STORY PHASE (zone), not by level. This arc lands the DEEPEST gated reveals (Venat = Hydaelyn, the Final Days, Meteion, Dynamis) — after ShB almost nothing remains gated. The Blessing is INTACT. Duty order: Zot -> Babil -> Storm's Crown -> Vanaspati -> The Dark Inside -> Ktisis Hyperboreia -> The Aitiascope -> The Mothercrystal -> The Dead Ends -> The Final Day (the Aitiascope is cleared BEFORE the Mothercrystal, same quest). No EW revamped-duty lock.
+**SPECIFICS:** EW is played entirely at CAP (milestone L20), so this manifest is organized by STORY PHASE (zone), not by level. This arc lands the DEEPEST gated reveals (Venat = Hydaelyn, the Final Days, Meteion, Dynamis) — after ShB almost nothing remains gated. The Blessing is INTACT. Duty order: Zot -> Babil -> The Dark Inside [Zodiark] -> Vanaspati -> Ktisis Hyperboreia -> The Aitiascope -> The Mothercrystal [Hydaelyn] -> The Dead Ends -> The Final Day [Endsinger] (the Aitiascope is cleared BEFORE the Mothercrystal, same quest). No EW revamped-duty lock.
 
 **Phase 1 — Sharlayan & Thavnair: the Final Days begin**
 - IN-SCENA: return to the Source; OLD SHARLAYAN (the Forum; Fourchenault refuses to act; Krile); the Scions regroup and split toward Thavnair and Garlemald.
-- IN-SCENA: THAVNAIR / Radz-at-Han (Vrtra, the Satrap, Matsya); the FINAL DAYS strike — despair turns people into BLASPHEMIES (aether-beasts born of anguish) under a burning sky.
+- IN-SCENA: THAVNAIR / Radz-at-Han (Vrtra, the Satrap, Matsya); the first signs of the crisis.
 - IN-SCENA [The Tower of Zot]: the Magus Sisters (Telophoroi agents); the plot around the towers rising across the star.
-- REVEAL: the Final Days are HERE (blasphemies from despair); FANDANIEL and the Telophoroi are raising towers worldwide.
+- REVEAL: FANDANIEL and the Telophoroi are raising towers worldwide to drain aether.
 - GATED: Meteion; the true origin of the Final Days; Venat = Hydaelyn; Dynamis.
 
 **Phase 2 — Garlemald: the fallen empire, Zenos & Fandaniel**
 - IN-SCENA: GARLEMALD in ruin and winter; the Eorzean/Alliance relief effort; ZENOS (back in his OWN body) stalks the party, caring only for their promised duel.
 - ALTROVE [the towers]: FANDANIEL — the Sundered Ascian (the persona of Amon) — gleefully nihilistic, allied with Zenos, means to trigger the Final Days for pure OBLIVION (not the Rejoining). ⚠️ reveal protetto (his end-goal / Meteion link).
-- IN-SCENA [The Tower of Babil]: the magitek tower; the primal ANIMA bound within.
-- IN-SCENA [Storm's Crown]: BARBARICCIA, an Archfiend of the Telophoroi.
+- IN-SCENA [The Tower of Babil]: the magitek tower; the primal ANIMA bound within; the gateway to the Moon opens.
 - REVEAL: Fandaniel wants annihilation, not the Ascians' Rejoining; Zenos's single obsession.
 - GATED: Meteion / the source of despair; Venat = Hydaelyn.
 
-**Phase 3 — Mare Lamentorum (the Moon): Zodiark's truth**
+**Phase 3 — Mare Lamentorum (the Moon): Zodiark's fall & the Final Days**
 - IN-SCENA: the MOON; the LOPORRITS (built by Hydaelyn as an ark to shelter mankind); the truth of ZODIARK — the Ancients summoned him NOT as a villain but to SAVE the star from the FIRST Final Days, sacrificing half their own number; Venat later opposed further sacrifice.
-- IN-SCENA [Vanaspati]: back on the star, a land overrun as the Final Days spread (blasphemy).
-- IN-SCENA [The Dark Inside]: ZODIARK is confronted and defeated — but this strips the star of its ancient ward, laying it bare to the Final Days.
-- REVEAL: Zodiark was the Ancients' grief-born SAVIOUR (the Ascians' framing overturned); the Sundering reframed.
+- IN-SCENA [The Dark Inside]: ZODIARK is confronted and defeated by Fandaniel's suicidal plunge — stripping the star of its ancient ward and laying it bare to the Final Days.
+- IN-SCENA [Vanaspati]: back on the star, the celestial shield falls and the FINAL DAYS strike Thavnair in full horror — despair turns people into BLASPHEMIES (aether-beasts born of anguish) under a burning sky.
+- REVEAL: Zodiark was the Ancients' grief-born SAVIOUR (the Ascians' framing overturned); his death unleashes the true Final Days across the star.
 - GATED: Venat = Hydaelyn (imminent); Meteion; Dynamis.
 
 **Phase 4 — Elpis (the past): Venat, Hermes & Meteion**
@@ -576,7 +591,7 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 
 **Phase 5 — Hydaelyn's farewell & the launch**
 - IN-SCENA: return to the present; VENAT IS HYDAELYN, fully confirmed; she asks to be TESTED so she may pass on her strength.
-- IN-SCENA [The Aitiascope]: the rift the ship crosses on the way toward the source of despair.
+- IN-SCENA [The Aitiascope]: the rift the ship crosses into the aetherial sea to reach the Mothercrystal.
 - IN-SCENA [The Mothercrystal]: HYDAELYN (Venat) — the party battles her; she entrusts her power and her hope, then fades.
 - REVEAL: Hydaelyn = Venat; her farewell and final gift.
 
@@ -593,20 +608,20 @@ IGNORE the MMO player-count in all cases — build for the actual party (Ch.10.3
 Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyrinthos -> Thavnair (Radz-at-Han) -> Garlemald -> Mare Lamentorum (the Moon) -> Elpis (the past) -> Ultima Thule.
 
 **Sub-beats, dungeons/trials in verified MSQ order:**
-1. The Tower of Zot - [Thavnair/border - Magus Sisters]
-2. The Tower of Babil - [Garlemald]
-3. Storm's Crown - BARBARICCIA - [Telophoroi / Archfiends]
-4. Vanaspati - [Thavnair, Final Days / Blasphemy]
-5. The Dark Inside - ZODIARK
-6. Ktisis Hyperboreia - [Elpis - the past, Venat/Hermes]
-7. The Aitiascope - [toward Ultima Thule]
-8. The Mothercrystal - HYDAELYN
-9. The Dead Ends - [Ultima Thule]
-10. The Final Day - ENDSINGER  *** FINAL CLIMAX / END OF CAMPAIGN ***
+1. The Tower of Zot - [Thavnair - Magus Sisters]
+2. The Tower of Babil - [Garlemald - Anima]
+3. The Dark Inside [ZODIARK] - [The Moon - celestial ward broken]
+4. Vanaspati - [Thavnair - Final Days / Blasphemies]
+5. Ktisis Hyperboreia - [Elpis - the past, Venat/Hermes]
+6. The Aitiascope - [Labyrinthos / Mothercrystal threshold]
+7. The Mothercrystal [HYDAELYN] - [Mothercrystal - Venat's test]
+8. The Dead Ends - [Ultima Thule - dead worlds]
+9. The Final Day [ENDSINGER] - [edge of universe]  *** FINAL CLIMAX / END OF CAMPAIGN ***
 
 **GM NOTES:** the grand finale of the whole saga (ARR->EW). Themes: Azem's soul, the Blessing, the group's bond, the power of hope (Dynamis) and the companions' sacrifices at Ultima Thule. Maximum emotional weight; LB3 at full availability for the climax.
 - `[REC]` Myths of the Realm alliance: "A Mission in Mor Dhona", Old Sharlayan.
-- `[REC]` Hildibrand (EW) -> The Gilded Araya (trial), Radz-at-Han.
+- `[REC]` Hildibrand a Radz-at-Han (Somehow Further Hildibrand Adventures, sblocco dopo `Endwalker` e Hildibrand SB): 'The Sleeping Gentleman' (Radz-at-Han · Excitable Youth) -> salvataggio di Hildibrand dal Primo Mondo (Norvrandt), l'alieno PuPu alla ricerca del compagno, il cospirazionista Delion, il clone Brandihild, le origini extraterrestri di Godbrand e le Armi Manderville forgiate da Godbert -> Trial canonico: The Gilded Araya (Asura, 6.55).
+- `[EXCLUDED]` EW optional dungeons (Smileton, The Stigma Dreamscape) unlock strictly post-6.0 finale and are excluded from the campaign.
 - *THE CAMPAIGN CLOSES ON THE ENDSINGER. No 6.x patches. Dawntrail EXCLUDED.*
 
 ### CAMPAIGN FINALE & EPILOGUE (terminal beat; detail 06 §B27)
@@ -620,30 +635,49 @@ Level CAP: all of EW is played at 20. **ZONES in order:** Old Sharlayan / Labyri
 ## Quick Gate / Unlock alignment (whole campaign)
 - **Crystal Tower:** INLINE MANDATORY MSQ FLOW - SEEDED at 2.1 'Laying the Foundation', PLAYED as a fixed ~13-beat arc after 'Build on the Stone' (CID trigger), EXIT to 2.2 'Still Waters'. Mor Dhona. Complete before HW. Lore: Allagan / Xande / Cloud of Darkness / Bahamut=Dalamud / G'raha (ShB Exarch = GATED).
 - `[REC]` **The Binding Coil of Bahamut** (ARR, Mor Dhona) - optional deep-dive tied to the CT Bahamut/Dalamud lore.
-- `[REC]` Hildibrand: ARR (Ul'dah) -> SB (Kugane, Kugane Ohashi) -> EW (Radz-at-Han, Gilded Araya).
+- `[REC]` **La Saga di Hildibrand Manderville (Episodi e Trial canonici da ARR a EW):**
+  - **ARR (2.1–2.55):** *Hildibrand Adventures* (sblocco: dopo la quest MSQ `The Ultimate Weapon`) — Inizio: Ul'dah, Steps of Nald · Wymond (`The Rise and Fall of Gentlemen`). Con Nashu Mhakaracca, Briardien, Ellie, Godbert & Julyan Manderville. Include **3 Trial canonici**:
+    - `[TRIAL]` **Battle on the Big Bridge** (2.2) — Gilgamesh (Greg) & Enkidu (il pollo verde) a Griffin Crossing.
+    - `[TRIAL]` **The Dragon's Neck** (2.4) — Ultros & Typhon nel Colosseo di Ul'dah.
+    - `[TRIAL]` **Battle in the Big Keep** (2.5) — Gilgamesh a 8 braccia ed Enkidu primal. (Finale: Hildibrand sparato nella stratosfera).
+  - **HW (3.2–3.56):** *Further Hildibrand Adventures* (sblocco: dopo `Heavensward` e completamento Hildibrand ARR) — Inizio: Ishgard, Foundation / The Jeweled Crozier · Nashu (`A Gentleman Falls, Rather Than Flies`). Hildibrand ritrovato a testa in giù nelle nevi di Coerthas, l'inquisitore Cyr dei Cavalieri del Tempio, l'automa amnesico "Gigi" (prototipo Sharlayan stile Vivi), i suplex di Godbert a Dravania e l'adozione di Gigi nella famiglia Manderville.
+  - **SB (4.1–4.56):** *Even Further Hildibrand Adventures* (sblocco: dopo `Stormblood` e completamento Hildibrand HW) — Inizio: Kugane · Conspicuously Inconspicuous Man (`A Hingan Tale: Nashu Goes East`). L'ufficiale della Sekiseigumi Shigure, il mercante corrotto Akebono, il ladro lupo e la katana Soboro Sukehiro. Include **1 Trial canonico**:
+    - `[TRIAL]` **Kugane Ohashi** (4.56) — Yojimbo (che si rivela essere Gilgamesh/Greg con Daigoro). (Finale: Hildibrand risucchiato in una Fenditura Interdimensionale del vuoto).
+  - **ShB (5.0–5.3):** Hildibrand disperso nella Fenditura tra i mondi; breve cameo spettrale nel dungeon MSQ *The Heroes' Gauntlet* (5.3) quando i portali si aprono a Norvrandt.
+  - **EW (6.15–6.55):** *Somehow Further Hildibrand Adventures* (sblocco: dopo `Endwalker` e completamento Hildibrand SB) — Inizio: Radz-at-Han · Excitable Youth (`The Sleeping Gentleman`). Hildibrand recuperato dal Primo Mondo in stato di trance, l'alieno PuPu alla ricerca del compagno, il cospirazionista Delion, il clone Brandihild, le origini extraterrestri di Godbrand e le Armi Manderville forgiate da Godbert. Include **1 Trial canonico**:
+    - `[TRIAL]` **The Gilded Araya** (6.55) — **Asura**, divinità guerriera a sei braccia e tre volti.
 - `[REC]` Primal Fear -> Odin (ARR); Relic -> Chimera/Hydra (ARR); Moggle Mog (ARR).
 - `[REC]` Warring Triad (HW); Void Ark alliance (HW).
 - `[REC]` Return to Ivalice alliance (SB); Four Lords (SB); Rathalos (SB).
 - `[REC]` YoRHa alliance (ShB); Sorrow of Werlyt (ShB). `[OPT]` Eden (ShB).
-- `[REC]` Myths of the Realm alliance (EW).
-- `[OPT]` Optional dungeons per expansion: zone-themed, never on the critical path.
-- `[CUT]` Minor fetch quests not tied to the current zone/MSQ.
+- `[REC]` **Canonical Optional Dungeons as Subquests (ARR -> ShB)** — eligible detours via `/voci` (06 §B22) anchored to their MSQ unlock prerequisite (no MMO levels, pure MSQ quest gates):
+  - **ARR:**
+    - `[REC]` **Halatali** (Eastern Thanalan · Nedrick Ironheart, Vesper Bay) — sblocco: dopo la quest MSQ `Call of the Sea` (arrivo a Vesper Bay).
+    - `[REC]` **The Sunken Temple of Qarn** (Southern Thanalan · Nedrick Ironheart, Vesper Bay) — sblocco: dopo la quest MSQ `Beyond the Sunken Temple` (Little Ala Mhigo).
+    - `[REC]` **Cutter's Cry** (Central Thanalan · Sibold, Ul'dah) — sblocco: dopo la sconfitta di Titano nella quest MSQ `Lord of Crags`.
+    - `[REC]` **Dzemael Darkhold** (Coerthas Central Highlands · Carrilaut, First Dicaste) — sblocco: durante l'arco di Coerthas, dopo la quest MSQ `For the Sky`.
+    - `[REC]` **The Aurum Vale** (Coerthas Central Highlands · Nedrick Ironheart, Vesper Bay) — sblocco: dopo aver localizzato l'Enterprise nella quest MSQ `In Pursuit of the Past`.
+    - `[REC]` **The Wanderer's Palace** (Upper La Noscea, Bronze Lake · Allene, Vesper Bay) — sblocco: dopo la vittoria finale di 2.0 nella quest MSQ `The Ultimate Weapon`.
+    - `[REC]` **Amdapor Keep** (South Shroud · Nedrick Ironheart, Vesper Bay) — sblocco: dopo la vittoria finale di 2.0 nella quest MSQ `The Ultimate Weapon`.
+    - `[REC]` **Pharos Sirius** (Western La Noscea, Aleport · Diamanda) — sblocco: dopo la vittoria finale di 2.0 nella quest MSQ `The Ultimate Weapon`.
+  - **HW:**
+    - `[REC]` **The Dusk Vigil** (Coerthas Western Highlands · Wealdtheow, The Convictory) — sblocco: all'arrivo a Western Coerthas, dopo la quest MSQ `All Dogs Have Their Day`.
+    - `[REC]` **Neverreap** (The Sea of Clouds · Sanu Vali, Ok' Zundu) — sblocco: dopo la sconfitta di Re Thordan nella quest finale 3.0 `Heavensward`.
+    - `[REC]` **The Fractal Continuum** (Azys Lla · Notched Bone, Idyllshire) — sblocco: dopo la sconfitta di Re Thordan nella quest finale 3.0 `Heavensward`.
+    - `[REC]` **Saint Mocianne's Arboretum** (Dravanian Hinterlands · Tetchy Treasure Hunter, Idyllshire) — sblocco: dopo la sconfitta di Re Thordan nella quest finale 3.0 `Heavensward`.
+  - **SB:**
+    - `[REC]` **Shisui of the Violet Tides** (The Ruby Sea · Kurenai, Sui-no-Sato) — sblocco: durante la visita a Sui-no-Sato, dopo la quest MSQ `The Midst of the Green`.
+    - `[REC]` **The Temple of the Fist** (Rhalgr's Reach / The Fringes · Ortwin, Rhalgr's Reach) — sblocco: dopo la liberazione di Ala Mhigo nella quest finale 4.0 `Stormblood`.
+    - `[REC]` **Kugane Castle** (Kugane · East Aldenard Trading Company Associate) — sblocco: dopo la liberazione di Ala Mhigo nella quest finale 4.0 `Stormblood`.
+    - `[REC]` **The Swallow's Compass** (Yanxia · Bunchin, Tamamizu) — sblocco: durante l'arco dei Four Lords (Patch 4.3), dopo la quest MSQ `Go East, Angel`.
+  - **ShB:**
+    - `[REC]` **The Twinning** (The Crystarium · Bethana) — sblocco: dopo la sconfitta di Hades nella quest finale 5.0 `Shadowbringers` (richiede completamento Crystal Tower; lore Ironworks/Tycoon).
+    - `[REC]` **Akadaemia Anyder** (The Tempest · Overwhelmed Ondo) — sblocco: dopo la sconfitta di Hades nella quest finale 5.0 `Shadowbringers` (lore creazione di Amaurot).
+  - **EW:** *EXCLUDED* (tutti i dungeon opzionali di EW come Smileton e The Stigma Dreamscape si sbloccano tassativamente dopo il finale della campagna 6.0 e sono esclusi dal perimetro).
+- `[CUT]` Quest di feature/materia non implementate nel regolamento o fetch-errand secondari/scollegati non pertinenti alla campagna.
 - **EXCLUDED:** Bozja / Save the Queen; all post-Endwalker patches; Dawntrail.
 
 *[END OF ROADMAP - ARR -> EW COMPLETE AND VERIFIED.]*
-
-# 08.2 — ORDERED MSQ INDEX (AUTHORITATIVE DATA) — A REALM REBORN (2.0 -> 2.55)
-
-**STATUS:** merged in v1.55 (with the 3 fixes applied). Single source = Console Games Wiki (every quest walked via its `Next`); name-scaffold cross-checked on Gamer Escape. ~330 quests in PLAY ORDER: 3 starting-city openings + base 2.0 + patches 2.1-2.55.
-
-(convenzioni: vedi 08.0)
-
-**FOLDED BACKFILLS (read at their noted positions):** Shadow of Darkness / The Bear and the Young'uns' Cares / Wilred Wants You (inst.3 -> belong in inst.2); The Scions of the Seventh Dawn quest + The Company You Keep (inst.5 -> belong in inst.1); Fool Me Twice (inst.7 -> belongs in inst.6).
-
-**FIXES APPLIED IN v1.55 (all three done, not merely noted):**
-1. ORDER — Garuda (Lady of the Vortex) is BEFORE Cape Westwind (Operation Archon); the roadmap L6/L7 was corrected to match (Cape Westwind moved to L7).
-2. ENVOY — the three Envoy quests are canonical in inst.0 (CGW-verified givers); inst.1's duplicate sub-steps were removed.
-3. PENDING — Best-laid Schemes giver filled (Ilberd, Wellwick Wood, GE-verified); the phantom 'Warrior of Light' transition removed (The Ultimate Weapon -> The Price of Principles direct, GE-verified).
 
 ---
 
@@ -697,6 +731,8 @@ dungeon battle = The Promise of Plunder (early dungeons: Sastasha / Tam-Tara / C
 - The Akh Afah Amphitheatre (SHIVA) — Footsteps in the Snow -> Oblivion
 - The Porta Decumana (ULTIMA WEAPON) — The Maker's Ruin -> Ultima
 - Cape Westwind (RHITAHTYN) — Steel Reason (imperial battle theme; solo instance)
+- Battle on the Big Bridge / Battle in the Big Keep (GILGAMESH) — Battle on the Big Bridge
+- The Dragon's Neck (ULTROS & TYPHON) — Decisive Battle
 CRYSTAL TOWER (gate):
 - Labyrinth of the Ancients — (ambient) Hubris · (battle) Ever Upwards · (final, Phlegethon) Tumbling Down
 - Syrcus Tower — (ambient) Out of the Labyrinth · (battle) Shattered · (final, Xande) Tumbling Down
@@ -733,6 +769,7 @@ dungeon battle/mid-boss = To the Fore · dungeon final boss = Triumph (pattern c
 - Emanation (LAKSHMI) — Beauty's Wicked Wiles
 - The Royal Menagerie (SHINRYU) — The Worm's Tail
 - Castrum Fluminis (TSUKUYOMI) — Wayward Daughter
+- Kugane Ohashi (YOJIMBO / GILGAMESH) — Battle on the Big Bridge (Stormblood Version)
 ---
 #### GENERIC ShB DUNGEON BATTLE THEMES
 dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is noted); ShB open-world/zone battle = Rencounter.
@@ -742,7 +779,7 @@ dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is 
 - Malikah's Well — (ambient) Deep Down · (mid-boss) Insatiable · (final) Insatiable
 - Mt. Gulg — (ambient) In the Belly of the Beast · (mid-boss) Insatiable · (final) Insatiable
 - Amaurot — (ambient) Mortal Instants · (mid-boss) Insatiable · (final) Insatiable
-- *ShB MSQ dungeons WITHOUT a cached ambient row — boss music resolves from the GENERIC rule above (Insatiable); for the AMBIENT use §A23 SEARCH-FIRST on the dungeon's English name, and NEVER coin a title:* **The Twinning** · **Akadaemia Anyder** (both 5.0 MSQ) · **The Grand Cosmos** (5.1) · **The Heroes' Gauntlet** · **Anamnesis Anyder** (5.3) · **Matoya's Relict** (5.4) · **Paglth'an** (5.5). (This row exists because the table is the lookup of record: a duty absent from it sends the model back to guessing, which §A23 forbids.)
+- *ShB dungeons WITHOUT a cached ambient row — boss music resolves from the GENERIC rule above (Insatiable); for the AMBIENT use §A23 SEARCH-FIRST on the dungeon's English name, and NEVER coin a title:* **The Twinning** · **Akadaemia Anyder** (both 5.0 optional post-MSQ) · **The Grand Cosmos** (5.1) · **Anamnesis Anyder** (5.2) · **The Heroes' Gauntlet** (5.3) · **Matoya's Relict** (5.4) · **Paglth'an** (5.5). (This row exists because the table is the lookup of record: a duty absent from it sends the model back to guessing, which §A23 forbids.)
 - The Dancing Plague (TITANIA) — What Angel Wakes Me
 - The Crown of the Immaculate (INNOCENCE) — Insanity
 - The Dying Gasp (HADES) — Invincible
@@ -750,16 +787,17 @@ dungeon boss fights (mid & final) = Insatiable (unless a boss-specific theme is 
 ---
 #### GENERIC EW DUNGEON BATTLE THEMES
 dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consistent with the verified Ktisis Hyperboreia / The Dead Ends rows); EW open-world/zone battle = Unbowed.
-- Vanaspati — (ambient) As the Sky Burns · (mid-boss) In the Arms of War · (final) Finality
 - The Tower of Zot — (ambient) Tower of Zot · (mid-boss) In the Arms of War · (final) Finality
 - The Tower of Babil — (ambient) Garlemald Express · (mid-boss) In the Arms of War · (final) Finality
+- The Dark Inside (ZODIARK) — Endcaller
+- Vanaspati — (ambient) As the Sky Burns · (mid-boss) In the Arms of War · (final) Finality
 - Ktisis Hyperboreia — (ambient) Miracle Works · (mid-boss) On Blade's Edge · (final) Finality
 - The Aitiascope — (ambient) The Aetherial Sea · (mid-boss) In the Arms of War · (final) Finality
-- The Dead Ends — (ambient) Of Countless Stars · (mid-boss) On Blade's Edge · (final) Finality
-- The Dark Inside (ZODIARK) — Endcaller
-- The Final Day (ENDSINGER) — The Final Day
-- Storm's Crown (BARBARICCIA) — Battle with the Four Fiends (Buried Memory)
 - The Mothercrystal (HYDAELYN) — Your Answer
+- The Dead Ends — (ambient) Of Countless Stars · (mid-boss) On Blade's Edge · (final) Finality
+- The Final Day (ENDSINGER) — The Final Day
+- The Gilded Araya (ASURA) — Final Fantasy IV: Battle 2 (Endwalker)
+- Storm's Crown (BARBARICCIA) — Battle with the Four Fiends [Patch 6.2 bonus / fuori campagna]
 
 ## 08.OST-SCENE-ARR..EW — SCENE / MOOD OST TABLES (city / zone / cutscene) — added v3.14
 
@@ -782,6 +820,7 @@ dungeon mid-boss = In the Arms of War · dungeon final boss = Finality (consiste
 - EW story cutscene: Home Beyond the Horizon (Garlemald) · and the EW-era generic set, all labelled 'Miscellaneous Cutscene Theme': Tranquility · Fracture · Damnation · Kiss of Chaos · Return of the Hero · Meteor
 **SCENE KINDS THAT HAVE A DEDICATED TRACK** (same source):
 - LIGHT / cheeky / happy beat: Bliss ('Cheeky/Happy Theme')
+- HILDIBRAND / COMEDY INVESTIGATION: Agent of Inquiry ('Hildibrand's Theme')
 - **SOLO INSTANCED DUTY: From Fear to Fortitude** ('Solo Instanced Battle Theme') — the campaign pins several (Cape Westwind, Steps of Faith, Fordola at Castellum Velodyna, Estinien's escape in 5.1)
 **SOCIAL / INTERIOR / TRANSIENT — the beats that are neither a zone nor a duty** (CGW-verified via each roll's Theme field; these are the ones a session hits most often between one pinned scene and the next):
 - TAVERN / the adventurers' guild common room (Drowning Wench, Quicksand, Carline Canopy): **Another Round** ('Tavern Theme')
@@ -907,6 +946,21 @@ KEY SCENES:
 
 ---
 
+# 08.2 — ORDERED MSQ INDEX (AUTHORITATIVE DATA) — A REALM REBORN (2.0 -> 2.55)
+
+**STATUS:** merged in v1.55 (with the 3 fixes applied). Single source = Console Games Wiki (every quest walked via its `Next`); name-scaffold cross-checked on Gamer Escape. ~330 quests in PLAY ORDER: 3 starting-city openings + base 2.0 + patches 2.1-2.55.
+
+(convenzioni: vedi 08.0)
+
+**FOLDED BACKFILLS (read at their noted positions):** Shadow of Darkness / The Bear and the Young'uns' Cares / Wilred Wants You (inst.3 -> belong in inst.2); The Scions of the Seventh Dawn quest + The Company You Keep (inst.5 -> belong in inst.1); Fool Me Twice (inst.7 -> belongs in inst.6).
+
+**FIXES APPLIED IN v1.55 (all three done, not merely noted):**
+1. ORDER — Garuda (Lady of the Vortex) is BEFORE Cape Westwind (Operation Archon); the roadmap L6/L7 was corrected to match (Cape Westwind moved to L7).
+2. ENVOY — the three Envoy quests are canonical in inst.0 (CGW-verified givers); inst.1's duplicate sub-steps were removed.
+3. PENDING — Best-laid Schemes giver filled (Ilberd, Wellwick Wood, GE-verified); the phantom 'Warrior of Light' transition removed (The Ultimate Weapon -> The Price of Principles direct, GE-verified).
+
+---
+
 **Scope:** the three starting-city opening chains (levels 1-15), which run BEFORE INSTALLMENT 1. **Each chain opens at ENTRY 0 — the arrival journey + the shared Echo vision — which is NOT a quest** (no giver, no wiki step, absent from every wiki chain listing: it is archived ONLY as a cutscene, named `Introduction (<City>)` in Gamer Escape's `Loremonger:` dialogue namespace, one per city) and is therefore numbered 0 rather than 1: it is the campaign's first played beat and precedes `Coming to <City>`. **ALL THREE openings carry ONE pinned fight and the SAME shape** — sick waking with no dream, the peddler, the incident FOUGHT, then the vision, then arrival. The fight is the single HOMEBREW move, and it is one rule, not three inventions: *canon pushes the party out of the incident (below deck, behind the line, waved off) — here it stays in and fights.* The enemies are canon and named in the cutscene itself (pirates / Ixal / Amalj'aa). See the ARR Manifest L1 pin. Name-scaffold from Gamer Escape (Level 1-15 page). **Endpoints CGW-VERIFIED** (each opener + each envoy). All opening quests are overworld (NO duties); the first dungeon (Sastasha) appears only after convergence, in INSTALLMENT 1.
 
 ## CONVERGENCE (CGW-VERIFIED)
@@ -917,81 +971,283 @@ KEY SCENES:
 ---
 ## LIMSA LOMINSA opening (Sea) — giver of #1: Ryssfloh (Yellowjacket), Limsa Lominsa
 0. **[OPENING — The Echo awakens]** the SEA CROSSING to Vylbrand, aboard ship. Peddler **Brennan**: the PCs wake sick and sweating with NO dream, and he blames the aether. A ship runs up **PIRATE COLOURS** and opens fire, then closes and **BOARDS** — Pacchetto Incontro on the deck, played in full. **THE VISION COMES AFTER THE FIGHT, NEVER BEFORE:** the world stops and the PCs alone are awake inside it (Mothercrystal, 'Hear... Feel... Think...', plural per 07 G27; NO burning sky, NO star-shower, NO burning dragon), then time resumes and the surviving pirates pull back to their ship. Landfall at the Lower Decks; met by the Yellowjackets. Canon cutscene name: `Introduction (Limsa Lominsa)`. Staging: 05 Ch.1.7.
-1. Coming to Limsa Lominsa   [CGW Next: 'So It Begins' — minor Limsa-opener variance vs GE's 'Close to Home (Limsa Lominsa)'; both are early openers]
-2. Close to Home (Limsa Lominsa)
-3. On to Summerford `[COND: relay]`
-4. Dressed to Call `[COND: fetch]`
-5. Lurkers in the Grotto
-6. Washed Up `[COND: parallel → Double Dealing]`
-7. Double Dealing
-8. Loam Maintenance `[COND: fetch]`
-9. Plowshares to Swords
-10. Just Deserts
-11. Sky-high `[COND: relay]`
-12. Thanks a Million `[COND: fetch]`
-13. Relighting the Torch `[COND: fetch]`
-14. On to the Drydocks `[COND: fetch]`
-15. Without a Doubt `[COND: relay]`
-16. Righting the Shipwright `[COND: fetch]`
-17. Do Angry Pirates Dream
-18. Victory in Peril
-19. Men of the Blue Tattoos `[COND: fetch]`
-20. Feint and Strike
-21. High Society `[COND: fetch]`
-22. A Mizzenmast Repast
+1. **Coming to Limsa Lominsa** — giver: Ryssfloh (Limsa Lominsa Lower Decks)
+- Grehfarr (The Crow's Lift) -> Baderon (The Drowning Wench: register at Adventurers' Guild)
+- Next: Close to Home (Limsa Lominsa)
+
+2. **Close to Home (Limsa Lominsa)** — giver: Baderon (Limsa Lominsa Upper Decks)
+- Ahtbyrm (The Octant / Aetheryte Plaza: tune to Aetheryte) -> Muriel (Hawkers' Round / Lower Decks: tour the markets) -> Baderon (The Drowning Wench: complete initiation; unlocks Return)
+- Next: On to Summerford
+
+3. **On to Summerford** — giver: Baderon (Limsa Lominsa Upper Decks) `[COND: relay]`
+- Staelwyrn (Summerford Farms, Middle La Noscea: deliver Baderon's letter)
+- Next: Dressed to Call
+
+4. **Dressed to Call** — giver: Staelwyrn (Middle La Noscea) `[COND: fetch]`
+- equip gear in head, body, hands, legs, and feet slots (item level 5+) -> inspect Staelwyrn
+- Next: Lurkers in the Grotto
+
+5. **Lurkers in the Grotto** — giver: Staelwyrn (Middle La Noscea)
+- Seasong Grotto -> [SOLO DUTY: fight suspicious intruders and voidsent alongside Y'shtola] -> report to Staelwyrn
+- Next: Washed Up
+
+6. **Washed Up** — giver: Staelwyrn (Middle La Noscea) `[COND: parallel → Double Dealing]`
+- search Cookpot shoreline for flotsam (0/3 salvaged crates) -> deliver to Staelwyrn
+- Next: Double Dealing
+
+7. **Double Dealing** — giver: Staelwyrn (Middle La Noscea)
+- investigate pirate markings near Agelyss River -> confront Seeker pirates -> report to Staelwyrn
+- Next: Loam Maintenance
+
+8. **Loam Maintenance** — giver: Gurcant (Middle La Noscea) `[COND: fetch]`
+- slay ground squirrels (0/3) -> collect damp loam (0/3) -> deliver to Gurcant
+- Next: Plowshares to Swords
+
+9. **Plowshares to Swords** — giver: Pfrewahl (Middle La Noscea)
+- motivate discouraged farmhands (/cheer or /soothe 0/3) -> report to Pfrewahl
+- Next: Just Deserts
+
+10. **Just Deserts** — giver: Staelwyrn (Middle La Noscea)
+- Wenyld -> [SOLO DUTY: defend Wenyld's field against the masked mage / Ascian harbinger and summoned gargoyle alongside Y'shtola] -> Staelwyrn (unlocks Inn Rooms & Guildleves)
+- Next: Sky-high
+
+11. **Sky-high** — giver: Baderon (Limsa Lominsa Upper Decks) `[COND: relay]`
+- Wyrkrhit (Swiftperch, Western La Noscea: deliver Baderon's instructions)
+- Next: Thanks a Million
+
+12. **Thanks a Million** — giver: Wyrkrhit (Western La Noscea) `[COND: fetch]`
+- deliver supply crates to Swiftperch settlers (0/3) -> report to Wyrkrhit
+- Next: Relighting the Torch
+
+13. **Relighting the Torch** — giver: Fraeloef (Western La Noscea) `[COND: fetch]`
+- defeat daggerbeaks (0/3) -> inspect beacon torch -> report to Fraeloef
+- Next: On to the Drydocks
+
+14. **On to the Drydocks** — giver: H'naanza (Limsa Lominsa Upper Decks) `[COND: fetch]`
+- travel to Moraby Drydocks -> speak with Ahtbyrm
+- Next: Without a Doubt
+
+15. **Without a Doubt** — giver: Ahtbyrm (Lower La Noscea) `[COND: relay]`
+- inspect shipwright works -> deliver report to Haldbroda
+- Next: Righting the Shipwright
+
+16. **Righting the Shipwright** — giver: Haldbroda (Lower La Noscea) `[COND: fetch]`
+- comfort discouraged shipwrights (0/3) -> report to Haldbroda
+- Next: Do Angry Pirates Dream
+
+17. **Do Angry Pirates Dream** — giver: Ahtbyrm (Lower La Noscea)
+- investigate pirate disturbances near Oschon's Torch -> report to Ghimthota
+- Next: Victory in Peril
+
+18. **Victory in Peril** — giver: Ghimthota (Lower La Noscea)
+- [SOLO DUTY: defend the drydocks against Sahagin raiders and treacherous pirate thralls alongside Y'shtola] -> Ghimthota
+- Next: Men of the Blue Tattoos
+
+19. **Men of the Blue Tattoos** — giver: Ghimthota (Lower La Noscea) `[COND: fetch]`
+- search for clues on Serpent Reavers -> deliver blue-tattooed pirate insignia to Baderon (Limsa)
+- Next: Feint and Strike
+
+20. **Feint and Strike** — giver: Baderon (Limsa Lominsa Upper Decks)
+- Commodore Reyner (Coral Tower) -> [SOLO DUTY: ambush Serpent Reavers at North Tidegate and foil pirate plot] -> report to Reyner
+- Next: High Society
+
+21. **High Society** — giver: Reyner (Limsa Lominsa Upper Decks) `[COND: fetch]`
+- obtain formal attire (Dress Shoes) from Hawkers' Round -> present to Baderon
+- Next: A Mizzenmast Repast
+
+22. **A Mizzenmast Repast** — giver: Baderon (Limsa Lominsa Upper Decks)
+- attend banquet at the Crow's Lift -> [ECHO VISION: Battle of Carteneau & Louisoix's prayer] -> Admiral Merlwyb Bloefhiswyn (Command Room)
+- Next: The Lominsan Envoy
+
 23. **The Lominsan Envoy** (giver: Merlwyb, Command Room) -> Baderon -> airship to Gridania (Serpent honor guard, Nophica's Altar) -> airship to Ul'dah (Flame honor guard) -> Bartholomew (Hustings Strip) -> **Next: Call of the Sea**
 
 ## GRIDANIA opening (Forest) — giver of #1: Bertennant, New Gridania
 0. **[OPENING — The Echo awakens]** the CARRIAGE ROAD through the Black Shroud into New Gridania. Peddler **Bremondt**: the PCs wake sick with NO dream. **THE MOOGLES** then speak to them on the road and marvel at being seen ('Normal folks can't see or hear us, kupo!') — the first outward sign of the Echo, and it comes BEFORE the vision; it lands on the WHOLE party. A Wood Wailer halts the carriage: a skirmish with the **IXAL** ahead, and canon itself sets the fight up — *'We shall hold them here! Try to break clear!'* Pacchetto Incontro: the Wailers hold the line, the party cuts through. **THE VISION COMES AFTER THE FIGHT, NEVER BEFORE** (same vision and same staging as Limsa), then the Ixal break off among the trees. Arrival at New Gridania, met by the Wood Wailer Bertennant. Canon cutscene name: `Introduction (Gridania)`. Staging: 05 Ch.1.7.
-1. Coming to Gridania   (-> Mother Miounne, Carline Canopy; register as an adventurer) -> Next: Close to Home
-2. Close to Home (Gridania)
-3. To the Bannock `[COND: relay]`
-4. Passing Muster `[COND: fetch]`
-5. Chasing Shadows
-6. Eggs over Queasy `[COND: fetch]`
-7. Surveying the Damage `[COND: fetch]`
-8. A Soldier's Breakfast `[COND: fetch]`
-9. Spirithold Broken
-10. On to Bentbranch `[COND: relay]`
-11. You Shall Not Trespass `[COND: fetch]`
-12. Don't Look Down `[COND: fetch]`
-13. In the Grim Darkness of the Forest `[COND: relay]`
-14. Threat Level Elevated `[COND: parallel → Leia's Legacy]`
-15. Migrant Marauders `[COND: fetch]`
-16. A Hearer Is Often Late `[COND: relay]`
-17. Salvaging the Scene `[COND: fetch]`
-18. Leia's Legacy
-19. Dread Is in the Air `[COND: fetch]`
-20. To Guard a Guardian
-21. Festive Endeavors `[COND: fetch]`
-22. Renewing the Covenant
+1. **Coming to Gridania** — giver: Bertennant (New Gridania)
+- Mother Miounne (The Carline Canopy: register at Adventurers' Guild)
+- Next: Close to Home (Gridania)
+
+2. **Close to Home (Gridania)** — giver: Mother Miounne (New Gridania)
+- Aetheryte Plaza (tune to Aetheryte) -> visit Leatherworkers' Guild / Greatloam Growery / Ebony Stalls -> report to Miounne (unlocks Return)
+- Next: To the Bannock
+
+3. **To the Bannock** — giver: Mother Miounne (New Gridania) `[COND: relay]`
+- Galfrid (The Bannock, Central Shroud: deliver Miounne's letter)
+- Next: Passing Muster
+
+4. **Passing Muster** — giver: Galfrid (Central Shroud) `[COND: fetch]`
+- equip gear in head, body, hands, legs, and feet slots (item level 5+) -> inspect Galfrid
+- Next: Chasing Shadows
+
+5. **Chasing Shadows** — giver: Galfrid (Central Shroud)
+- check Suspicious Spot -> [SOLO DUTY: fight shadowy cultists and Ixali scout alongside Yda & Papalymo] -> Hydaelyn crystal vision -> report to Galfrid
+- Next: Eggs over Queasy
+
+6. **Eggs over Queasy** — giver: Galfrid (Central Shroud) `[COND: fetch]`
+- gather vulture eggs (0/3) while repelling forest beasts -> report to Galfrid
+- Next: Surveying the Damage
+
+7. **Surveying the Damage** — giver: Monranguin (Central Shroud) `[COND: fetch]`
+- survey blighted trees in Central Shroud (0/3) -> report to Monranguin
+- Next: A Soldier's Breakfast
+
+8. **A Soldier's Breakfast** — giver: Pauline (Central Shroud) `[COND: fetch]`
+- deliver hot meals to Wood Wailer sentries (0/3) -> report to Pauline
+- Next: Spirithold Broken
+
+9. **Spirithold Broken** — giver: Galfrid (Central Shroud)
+- investigate Spirithold -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Yda & Papalymo] -> Galfrid (unlocks Inn Rooms & Guildleves)
+- Next: On to Bentbranch
+
+10. **On to Bentbranch** — giver: Mother Miounne (New Gridania) `[COND: relay]`
+- Keitha (Bentbranch Meadows, Central Shroud: deliver missive)
+- Next: You Shall Not Trespass
+
+11. **You Shall Not Trespass** — giver: Keitha (Central Shroud) `[COND: fetch]`
+- inspect perimeter fences -> slay encroaching antelopes (0/3) -> Keitha
+- Next: Don't Look Down
+
+12. **Don't Look Down** — giver: Osha Jaab (Central Shroud) `[COND: fetch]`
+- ascend chocobo observation tower -> inspect aerial nest -> report to Osha Jaab
+- Next: In the Grim Darkness of the Forest
+
+13. **In the Grim Darkness of the Forest** — giver: Theodore (Central Shroud) `[COND: relay]`
+- travel to East Shroud border -> report to Roseline (Sweetbloom Pier)
+- Next: Threat Level Elevated
+
+14. **Threat Level Elevated** — giver: Roseline (East Shroud) `[COND: parallel → Leia's Legacy]`
+- scout Sweetbloom Pier perimeter for Ixali sightings -> report to Roseline
+- Next: Migrant Marauders
+
+15. **Migrant Marauders** — giver: Eylgar (Central Shroud) `[COND: fetch]`
+- drive off wild hogs and poachers disturbing the road -> report to Eylgar
+- Next: A Hearer Is Often Late
+
+16. **A Hearer Is Often Late** — giver: Lothaire (Central Shroud) `[COND: relay]`
+- find Hearer Armelle at the Sanctum of the Twelve -> speak with Armelle
+- Next: Salvaging the Scene
+
+17. **Salvaging the Scene** — giver: Armelle (Central Shroud) `[COND: fetch]`
+- collect scattered ceremonial relics/offerings -> return them to Armelle
+- Next: Leia's Legacy
+
+18. **Leia's Legacy** — giver: Luquelot (Central Shroud)
+- investigate poacher camp -> inspect tame chocobo -> report to Luquelot
+- Next: Dread Is in the Air
+
+19. **Dread Is in the Air** — giver: Luquelot (Central Shroud) `[COND: fetch]`
+- inspect tainted chocobo feed -> gather suspicious residue -> deliver to Mother Miounne
+- Next: To Guard a Guardian
+
+20. **To Guard a Guardian** — giver: Mother Miounne (New Gridania)
+- rush to the Guardian Tree -> [SOLO DUTY: defend the ancient Great Tree against Ixali infiltrators & voidsent treant alongside Yda & Papalymo] -> report to Miounne
+- Next: Festive Endeavors
+
+21. **Festive Endeavors** — giver: Lewin (The Seat of the First Bow) `[COND: fetch]`
+- obtain ceremonial Monoa Mask from Gridanian artisans -> present to Miounne
+- Next: Renewing the Covenant
+
+22. **Renewing the Covenant** — giver: Mother Miounne (New Gridania)
+- don the Monoa Mask -> attend banquet at Mih Khetto's Amphitheatre -> [ECHO VISION: Battle of Carteneau & Louisoix's sacrifice] -> address by Kan-E-Senna
+- Next: The Gridanian Envoy
+
 23. **The Gridanian Envoy** (giver: Kan-E-Senna, the Lotus Stand) -> Miounne -> airship to Ul'dah (present missive to Zanthael, Bulwark Hall) -> airship to ... -> present missive to Bartholomew (Hustings Strip) -> **Next: Call of the Sea**
 
 ## UL'DAH opening (Desert) — giver of #1: Wymond, Ul'dah - Steps of Nald
 0. **[OPENING — The Echo awakens]** the CARRIAGE CROSSING of Thanalan into Ul'dah - Steps of Nald. Peddler **Brendt**: the PCs wake sick with NO dream. **BRASS BLADES** stop the carriage for an 'inspection', find somnus on Brendt and squeeze him for a fine — then *'Amalj'aa! Amalj'aa! To arms!'* and the captain bolts. Pacchetto Incontro: the party is caught between corrupt guards in flight and raiding **AMALJ'AA**. Play the shakedown BEFORE the fight and never cut it — it is Ul'dah's character in one scene. **THE VISION COMES AFTER THE FIGHT, NEVER BEFORE** (same vision and same staging as Limsa), then the Amalj'aa withdraw and the Brass Blades resume running from the exact instant they froze. Arrival at the Steps of Nald, met by Wymond. Canon cutscene name: `Introduction (Ul'dah)`. Staging: 05 Ch.1.7.
-1. Coming to Ul'dah   (-> Momodi) -> Next: Close to Home
-2. Close to Home (Ul'dah)
-3. We Must Rebuild `[COND: relay]`
-4. Nothing to See Here `[COND: parallel → Underneath the Sultantree]`
-5. Underneath the Sultantree
-6. Step Nine `[COND: fetch]`
-7. Prudence at This Junction `[COND: fetch]`
-8. Out of House and Home `[COND: fetch]`
-9. Way Down in the Hole
-10. Takin' What They're Givin' `[COND: relay]`
-11. Supply and Demands `[COND: fetch]`
-12. Give It to Me Raw `[COND: fetch]`
-13. The Perfect Swarm `[COND: fetch]`
-14. Last Letter to Lost Hope `[COND: fetch]`
-15. Passing the Blade `[COND: fetch]`
-16. Following Footfalls `[COND: relay]`
-17. Storms on the Horizon `[COND: relay]`
-18. Oh Captain, My Captain
-19. Secrets and Lies `[COND: fetch]`
-20. Duty, Honor, Country
-21. A Matter of Tradition `[COND: fetch]`
-22. A Royal Reception
-23. **The Ul'dahn Envoy** (giver: Raubahn, Ul'dah - Steps of Nald) -> Momodi -> airship to Gridania (Zanthael/Bulwark Hall) -> airship (Serpent honor guard, Nophica's Altar) -> **Next: Call of the Sea**
+1. **Coming to Ul'dah** — giver: Wymond (Ul'dah - Steps of Nald)
+- Momodi (The Quicksand: register at Adventurers' Guild)
+- Next: Close to Home (Ul'dah)
+
+2. **Close to Home (Ul'dah)** — giver: Momodi (Ul'dah - Steps of Nald)
+- Aetheryte Plaza (tune to Aetheryte) -> visit Gladiators' Guild / Sapphire Avenue Exchange / Pugilists' Guild -> report to Momodi (unlocks Return)
+- Next: We Must Rebuild
+
+3. **We Must Rebuild** — giver: Momodi (Ul'dah - Steps of Nald) `[COND: relay]`
+- Papashan (Dispatch Yard, Central Thanalan: deliver Momodi's letter)
+- Next: Nothing to See Here
+
+4. **Nothing to See Here** — giver: Papashan (Central Thanalan) `[COND: parallel → Underneath the Sultantree]`
+- inspect suspicious crate locations (0/3) around the railway -> report to Papashan
+- Next: Underneath the Sultantree
+
+5. **Underneath the Sultantree** — giver: Papashan (Central Thanalan)
+- Sultantree -> [SOLO DUTY: protect Lady Lilira from voidsent ambush alongside Thancred] -> Hydaelyn crystal vision -> report to Papashan
+- Next: Step Nine
+
+6. **Step Nine** — giver: Cicidoa (Central Thanalan) `[COND: fetch]`
+- distribute bowls of marmot stew to impoverished refugees at Stonesthrow (0/3) -> report to Cicidoa
+- Next: Prudence at This Junction
+
+7. **Prudence at This Junction** — giver: Roger (Central Thanalan) `[COND: fetch]`
+- slay pest cactuars near the tracks (0/3) -> inspect railway switch -> report to Roger
+- Next: Out of House and Home
+
+8. **Out of House and Home** — giver: Warin (Central Thanalan) `[COND: fetch]`
+- drive off copper cobras (0/3) threatening the quarry -> report to Warin
+- Next: Way Down in the Hole
+
+9. **Way Down in the Hole** — giver: Zuzumeda (Central Thanalan)
+- Sil'dih Excavation Site -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Thancred] -> report to Momodi (unlocks Inn Rooms & Guildleves)
+- Next: Takin' What They're Givin'
+
+10. **Takin' What They're Givin'** — giver: Momodi (Ul'dah - Steps of Nald) `[COND: relay]`
+- travel to Horizon (Western Thanalan) -> speak with Dadanen
+- Next: Supply and Demands
+
+11. **Supply and Demands** — giver: Dadanen (Western Thanalan) `[COND: fetch]`
+- deliver supply crates to Brass Blade outposts (0/3) -> report to Dadanen
+- Next: Give It to Me Raw
+
+12. **Give It to Me Raw** — giver: Drunken Stag (Western Thanalan) `[COND: fetch]`
+- collect fresh vulture meat / beaks (0/3) -> deliver to Drunken Stag
+- Next: The Perfect Swarm
+
+13. **The Perfect Swarm** — giver: Drunken Stag (Western Thanalan) `[COND: fetch]`
+- destroy wild hornets' nests (0/3) -> defeat swarms -> report to Drunken Stag
+- Next: Last Letter to Lost Hope
+
+14. **Last Letter to Lost Hope** — giver: Fufulupa (Western Thanalan) `[COND: fetch]`
+- deliver Fufulupa's letter to Leofric (Lost Hope, Central Thanalan)
+- Next: Heir Today, Gone Tomorrow
+
+15. **Heir Today, Gone Tomorrow** — giver: Leofric (Central Thanalan) `[COND: fetch]`
+- search thieves' cache near Lost Hope -> recover stolen signet ring -> return to Leofric
+- Next: Passing the Blade
+
+16. **Passing the Blade** — giver: Leofric (Central Thanalan) `[COND: fetch]`
+- deliver ancient blade to Fufulupa (Horizon)
+- Next: Following Footfalls
+
+17. **Following Footfalls** — giver: Fufulupa (Western Thanalan) `[COND: relay]`
+- speak with Nunuzofu near Silver Bazaar
+- Next: Storms on the Horizon
+
+18. **Storms on the Horizon** — giver: Nunuzofu (Western Thanalan) `[COND: relay]`
+- investigate pirate landings at Crescent Cove -> report to Merilda (Horizon)
+- Next: Oh Captain, My Captain
+
+19. **Oh Captain, My Captain** — giver: Merilda (Western Thanalan)
+- [SOLO DUTY: defend Horizon from corrupt Brass Blades and treacherous smuggler ambush alongside Fufulupa] -> report to Fufulupa
+- Next: Secrets and Lies
+
+20. **Secrets and Lies** — giver: Fufulupa (Western Thanalan) `[COND: fetch]`
+- gather evidence on Captain Baldewyn's bribery -> deliver confession to Momodi (Ul'dah)
+- Next: Duty, Honor, Country
+
+21. **Duty, Honor, Country** — giver: Momodi (Ul'dah - Steps of Nald)
+- Owyne (Hustings Strip) -> [SOLO DUTY: thwart the kidnapping of Sultana Nanamo / Lady Lilira at Royal Promenade alongside Thancred] -> report to Momodi
+- Next: A Matter of Tradition
+
+22. **A Matter of Tradition** — giver: Owyne (Ul'dah - Steps of Thal) `[COND: fetch]`
+- recover ceremonial Voice of the Just earring -> return to Owyne
+- Next: A Royal Reception
+
+23. **A Royal Reception** — giver: Momodi (Ul'dah - Steps of Nald)
+- attend banquet at Fragrant Chamber -> [ECHO VISION: Battle of Carteneau & Louisoix's sacrifice] -> address by General Raubahn & Sultana Nanamo Ul Namo
+- Next: The Ul'dahn Envoy
+
+24. **The Ul'dahn Envoy** (giver: Raubahn, Ul'dah - Steps of Nald) -> Momodi -> airship to Gridania (Zanthael/Bulwark Hall) -> airship (Serpent honor guard, Nophica's Altar) -> **Next: Call of the Sea**
 
 ---
 ## HANDOFF TO INSTALLMENT 1
@@ -1185,11 +1441,9 @@ KEY SCENES:
 
 **Highbridge Times** — giver: Hihibaru (Eastern Thanalan)
 - 3 merchants at Highbridge (info on the masked man) -> Hihibaru
-- Next: Ratting It Out  (CGW 'Next' field shows Where There Is Smoke; Ratting It Out is the intervening step per chain order)
-
-**Ratting It Out** — giver: Hihibaru (Eastern Thanalan) `[COND: fetch]`
-- search the Qiqirn lair SE of Highbridge -> deliver the undecipherable letter
 - Next: Where There Is Smoke
+
+> [REMOVED in patch 5.3, excluded from current flow: **Ratting It Out** (Hihibaru / Qiqirn lair letter).]
 
 **Where There Is Smoke** — giver: Hihibaru (Eastern Thanalan)
 - use a smoldering coal on the ash-covered ground NE of Highbridge (arrange a rendezvous) -> defeat the summoned Bandit -> present the Ward of the Destroyer
@@ -1253,15 +1507,15 @@ KEY SCENES:
 
 **Ziz Is So Ridiculous** — giver: Aideen (North Shroud) `[COND: fetch]`
 - slay 3 ziz -> report to Aideen
+- Next: Seeing Eye to Winged Eye
+
+**Seeing Eye to Winged Eye** — giver: Ivaurault (North Shroud)
+- investigate the rocky area W (the winged eyeball) -> report to Ivaurault
 - Next: Rock of Rancor
 
 **Rock of Rancor** — giver: Aideen (North Shroud) `[COND: fetch]`
 - firesand stick on the rock SW -> gather 5 lightning-aspected crystals -> deliver to Aideen
 - Next: Power of Deduction
-
-**Seeing Eye to Winged Eye** — giver: Ivaurault (North Shroud)
-- investigate the rocky area W (the winged eyeball) -> report
-- Next: Power of Deduction   [parallel side-thread; converges with Rock of Rancor at Power of Deduction]
 
 **Power of Deduction** — giver: Medrod (North Shroud)
 - Ivaurault (info) -> search for a maiden's corpse W of Fallgourd -> present the ravaged corpse to Aethelmaer
@@ -1300,21 +1554,13 @@ KEY SCENES:
 - Landenel (Camp Tranquil, South Shroud: how to obtain a giant adamantoise egg)
 - Next: Trial by Turtle
 
-**The Penitent Man** — giver: Landenel (South Shroud) `[COND: fetch]`
-- stingbrew -> slay agaric flies + collect a brownie brush -> present to Landenel
-- Next: Changing of the Guard
-
-**Changing of the Guard** — giver: Landenel (South Shroud) `[COND: parallel → Trial by Turtle]`
-- inform Kikokutaia / Kikokutaib / Kikokutaic (proceed to the Lower Paths, agaric fly swarms)
-- Next: Trial by Turtle
+> [REMOVED in patch 5.3, excluded from current flow: **The Penitent Man** (Landenel) & **Changing of the Guard** (Landenel).]
 
 **Trial by Turtle** — giver: Landenel (South Shroud) `[COND: fetch]`
 - obtain a Giant Adamantoise Egg from the nest -> U'odh Nunh (Forgotten Springs: convince him to aid)
 - Next: The Perfect Prey
 
-**The Drake Exception** — giver: U'odh Nunh (Southern Thanalan) `[COND: fetch]`
-- slay sundrakes, collect blood (0/7) -> deliver to U'odh Nunh
-- Next: The Perfect Prey   [U'odh Nunh sub-thread; converges at The Perfect Prey]
+> [REMOVED in patch 5.3, excluded from current flow: **The Drake Exception** (U'odh Nunh).]
 
 **The Perfect Prey** — giver: U'odh Nunh (Southern Thanalan)
 - spear as bait -> lure & defeat the Amalj'aa veteran -> present the necklace to U'odh Nunh
@@ -1358,9 +1604,7 @@ KEY SCENES:
 - slay dung midge swarms -> report to Drest
 - Next: Battle Scars
 
-**Not My War** — giver: Drest (Eastern La Noscea) `[COND: fetch]`
-- defeat jungle coeurls, collect 4 skins -> Drest   [parallel Drest sub-thread; converges at Battle Scars]
-- Next: Battle Scars
+> [REMOVED in patch 5.3, excluded from current flow: **Not My War** (Drest / coeurl skins).]
 
 **Battle Scars** — giver: Drest (Eastern La Noscea) `[COND: fetch]`
 - collect 3 coconuts of palm wine (Red Mantis Falls) -> Shamani Lohmani (Wineport)
@@ -1370,9 +1614,7 @@ KEY SCENES:
 - Drest (show the Bacchus leaf) -> defeat the Goobbue near the juggernaut -> Shamani Lohmani (Bacchus cutting) -> Wheiskaet (Bacchus wine)
 - Next: In the Company of Heroes
 
-**A Final Ignominy** — giver: Wheiskaet (Eastern La Noscea) `[COND: parallel → In the Company of Heroes]`
-- Dyrstweitz (offer assistance) -> arrange the flowers -> arrange the wine bottles -> portion the feast (0/3) -> Wheiskaet   [parallel banquet-prep sub-thread; converges]
-- Next: In the Company of Heroes
+> [REMOVED in patch 5.3, excluded from current flow: **A Final Ignominy** (Wheiskaet / feast preparation).]
 
 **In the Company of Heroes** — giver: Y'shtola (Eastern La Noscea)
 - final tests by the veterans: Landenel (bravery) -> U'odh Nunh (skill) -> Shamani Lohmani (character) -> Brayflox Alltalks (planning) -> Wheiskaet (fortitude)
@@ -1396,21 +1638,13 @@ KEY SCENES:
 - Traveling Goldsmith (buy tools) -> Marques (repair the horologe) -> Sister Eluned (give her the repaired horologe)
 - Next: Bringing out the Dead
 
-**With a Little Elbow Grease** — giver: Eaduuard (Eastern Thanalan) `[COND: relay]`
-- Marques (show the broken alembic/oven) -> Marques (deliver a bronze ornamental hammer)   [Marques alchemy sub-thread]
-- Next: A Tall Drink of Aqua del Sol
-
-**A Tall Drink of Aqua del Sol** — giver: Ilcum (Eastern Thanalan) `[COND: fetch]`
-- slay a sabotender del sol (brazo del sol) -> deliver the Aqua del Sol to Marques -> Marques   [converges at Bringing out the Dead]
-- Next: Bringing out the Dead
+> [REMOVED in patch 5.3, excluded from current flow: **With a Little Elbow Grease** (Eaduuard / alembic) & **A Tall Drink of Aqua del Sol** (Ilcum / sabotender).]
 
 **Bringing out the Dead** — giver: Sister Eluned (Eastern Thanalan) `[COND: fetch]`
 - Merchant (outside the Waking Sands: bodies to transport) -> gather 8 corpses (4+4) to the chocobo carriage at the east gate -> Sister Eluned
 - Next: Bury Me Not on the Lone Prairie
 
-**The Warden Works in Mysterious Ways** — giver: Eluned (Eastern Thanalan) `[COND: fetch]`
-- pilgrimage (Mark of the Warden: offer a prayer) -> Eluned   [parallel; converges]
-- Next: Bury Me Not on the Lone Prairie
+> [REMOVED in patch 5.3, excluded from current flow: **The Warden Works in Mysterious Ways** (Eluned / Mark of the Warden prayer).]
 
 **Bury Me Not on the Lone Prairie** — giver: Eluned (Eastern Thanalan)
 - return Noraxia's corpse to Little Solace -> the sylphs receive her remains -> Eluned
@@ -1446,24 +1680,10 @@ KEY SCENES:
 - STORY: HAURCHEFANT is introduced here (Coerthas), buildup toward the Stone Vigil.
 
 ---
-> Carryover backfills: The Scions of the Seventh Dawn (quest-page); The Company You Keep (steps).
-
-## BACKFILLS resolved (EXTRA — belong to INSTALLMENT 1 positions)
-
-**The Scions of the Seventh Dawn** (the quest; page = ...(Quest)) — giver: Momodi (Ul'dah - Steps of Nald)
-- Momodi (tells of the Scions -> directs you to the Waking Sands, Vesper Bay) -> Tataru (announces you to Minfilia) -> Scion guard (escort) -> Minfilia (explains the Scions' mission + the Echo, asks you to join, entrusts the password "wild rose")
-- Next: A Wild Rose by Any Other Name
-- Placement: this is the FORMAL Scions joining, AFTER Into a Copper Hell (the three dungeons), BEFORE A Wild Rose by Any Other Name. Manifest L2.
-
-**The Company You Keep (Twin Adder)** (Maelstrom / Immortal Flames = mirror variants) — giver: Serpent Officer (the Waking Sands)
-- Personnel Officer (Adders' Nest: formal induction) -> (airship mission) -> report -> Biggs & Wedge encountered; defeat the imperial soldiers
-- Next: Wood's Will Be Done (Twin Adder) [Maelstrom -> Till Sea Swallows All; Immortal Flames -> For Coin and Country]
 
 ## ARR — INSTALLMENT 5: Coerthas (Haurchefant/Whitebrim) -> STONE VIGIL -> corrupted-crystal arc (VERIFIED, CGW)
 
-**Feats of Strength** — giver: Haurchefant (Coerthas Central Highlands)
-- Storied Knight/Veteran (train by fighting three young knights) -> Haurchefant
-- Next: The Talk of Coerthas
+> [REMOVED in patch 5.3, excluded from current flow: **Feats of Strength** (Haurchefant / knight duel).]
 
 **The Talk of Coerthas** — giver: Haurchefant (Coerthas Central Highlands) `[COND: parallel → Road to Redemption]`
 - Ninne -> Cravellin -> Forlemort -> Haurchefant (report)
@@ -1489,9 +1709,7 @@ KEY SCENES:
 - Ser Alboise -> Head Chirurgeon Astidien -> Ser Goudernoux -> Lord Drillemont (present the letters)
 - Next: Factual Folklore
 
-**Opportunity Knocks** — giver: Ser Benedict (Coerthas Central Highlands) `[COND: fetch]`
-- slay feral crocs (0/5) -> Ser Clotairion   [parallel Whitebrim side-thread; converges at The Best Inventions]
-- Next: The Best Inventions
+> [REMOVED in patch 5.3, excluded from current flow: **Opportunity Knocks** (Ser Benedict / feral crocs).]
 
 **Factual Folklore** — giver: Haustefort (Coerthas Central Highlands) `[COND: fetch]`
 - slay a spotted mudpuppy (tail meat) -> offer mudpuppy steaks to 3 Hungry Soldiers -> Haustefort -> Cenota (steak to the chirurgeon)
@@ -1573,13 +1791,7 @@ KEY SCENES:
 - Hedyn (Gridania: location of the corrupted crystal + the true-heart lure) -> Giggity the Spriggan (lure & slay, take the corrupted crystal) -> Hedyn
 - Next: Better Late than Never
 
-**Of Sylphs and Spriggans** — giver: Komuxio (East Shroud)
-- Komuxio (the wayward spriggan) -> Tiggy (save him from a tempered sylph) -> Komuxio -> Maerwynn (Sanctum of the Twelve: luring Giggity with rare ore)   [parallel Giggity sub-thread]
-- Next: Crazy Enough to Work
-
-**Crazy Enough to Work** — giver: Maerwynn (East Shroud) `[COND: relay]`
-- Maerwynn (use a chert golem's soulstone as bait) -> Tiggy (Giggity's location, the Spriggan Dig) -> Hedyn (ice-aspected corrupted crystal)
-- Next: Better Late than Never
+> [REMOVED in patch 5.3, excluded from current flow: **Of Sylphs and Spriggans** (Komuxio) & **Crazy Enough to Work** (Maerwynn).]
 
 **Better Late than Never** — giver: Hedyn (Old Gridania) `[COND: fetch]`
 - Hedyn (returns the corrupted crystal) -> Cid (New Gridania airship landing: deliver the corrupted crystal)
@@ -1624,17 +1836,18 @@ KEY SCENES:
 
 **Drowning Out the Voices** — giver: Cid (Mor Dhona) `[COND: fetch]`
 - use the electromagnetic reader at prime spots near the corrupted crystals W of Revenant's Toll
-- Next: Fool Me Twice
+- Next: Acting the Part
 
 **Acting the Part** — giver: Glaumunt (Mor Dhona) `[COND: parallel → Fool Me Twice]`
-- learn the imperial salute -> observe imperial soldiers at Castrum Centri -> Glaumunt (Revenant's Toll)   [parallel infiltration-prep; converges]
+- learn the imperial salute -> observe imperial soldiers at Castrum Centri -> Glaumunt (Revenant's Toll)
 - Next: Dressed for Conquest
 
 **Dressed for Conquest** — giver: Sark Malark (Mor Dhona) `[COND: fetch]`
 - obtain 3 damaged imperial uniforms + 3 damaged helms -> Eginolf (Rowena's House of Splendors: repair) -> Sark Malark (inspection)
 - Next: Fool Me Twice
 
-**Fool Me Twice** — giver: Glaumunt (Mor Dhona) [CGW-verified; full step spine in the BACKFILL RESOLVED block below]
+**Fool Me Twice** — giver: Glaumunt (Mor Dhona)
+- Imperial Centurion (/imperialsalute to alert them to enemy presence) -> Imperial Patrol (lure out with the imperial smoke signal) -> Cid (workshop, Revenant's Toll)
 - Next: Every Little Thing She Does Is Magitek
 
 **Every Little Thing She Does Is Magitek** — giver: Cid (Mor Dhona)
@@ -1656,19 +1869,12 @@ KEY SCENES:
 - Manifest tie: Cape Westwind (Rhitahtyn) = now a SOLO instance (05 REVAMPED-DUTY LOCK); Cid & the Enterprise established; 08.1 L7 (AFTER Garuda).
 
 **A Hero in Need** — giver: Allied Communications Officer (Western Thanalan) `[COND: relay]`
-- Cracked Fist (Camp Bluefog: raise the garrison's morale)   [Camp Bluefog morale cluster -> converges at Hearts on Fire]
+- Cracked Fist (Camp Bluefog: raise the garrison's morale)
 - Next: Hearts on Fire
 
-**The Ladle in the Darkness** — giver: Sergeant Cracked Fist (Northern Thanalan) `[COND: parallel → Hearts on Fire]`
-- basilisk stew to Zezeragi -> Adelena -> Betyn (morale boosted)   [parallel morale sub-thread]
-- Next: All upon the Watchtowers
-
-**All upon the Watchtowers** — giver: Sergeant Cracked Fist (Northern Thanalan) `[COND: relay]`
-- Wymund (west watchtower) -> Hopeful Dawn (east watchtower) -> Edelstein (Ceruleum Processing Plant: report)
-- Next: Hearts on Fire
+> [REMOVED in patch 5.3, excluded from current flow: **The Ladle in the Darkness** (Cracked Fist) & **All upon the Watchtowers** (Cracked Fist).]
 
 ---
-> Fool Me Twice: RESOLVED — full step spine in the BACKFILL RESOLVED block below.
 
 ## ARR — INSTALLMENT 7: Camp Bluefog morale -> Castrum Meridianum -> The Praetorium -> The Porta Decumana / ULTIMA WEAPON (VERIFIED, CGW)
 
@@ -1676,9 +1882,7 @@ KEY SCENES:
 - Raubahn (rally the garrison at the Ceruleum Processing Plant, /psych up the green recruits) -> /psych up: Flame Private Third Class -> Second Class -> First Class -> Edelstein
 - Next: Rock the Castrum
 
-**Setting the Stage** — giver: Lieutenant Edelstein (Northern Thanalan)   [parallel staging quest; converges]
-- defeat 3 imperial soldiers + 3 imperial vanguards at Raubahn's Push -> Raubahn (report before Castrum Meridianum)
-- Next: Rock the Castrum
+> [REMOVED in patch 5.3, excluded from current flow: **Setting the Stage** (Edelstein).]
 
 **Rock the Castrum** — giver: Edelstein (Northern Thanalan)
 - Raubahn (briefing) -> Cid (enter Castrum Meridianum, create a diversion while he deactivates the magitek field generator) -> [Castrum Meridianum: LIVIA sas Junius] -> Raubahn
@@ -1689,16 +1893,6 @@ KEY SCENES:
 - Cid (Ceruleum Processing Plant) -> [The Praetorium — dungeon duty] -> [The Porta Decumana — trial: ULTIMA WEAPON] -> GAIUS defeated during the Porta Decumana -> LAHABREA confronted & defeated on the Porta Decumana (solo duty) -> Minfilia
 - Next: The Price of Principles   (= first patch-2.1 MSQ quest; GAMER-ESCAPE-VERIFIED direct link — there is NO separate 'Warrior of Light' MSQ quest between them; CGW's 'Warrior of Light' next-link resolves to the character page)
 - Manifest tie: 2.0 FINALE. Praetorium + Porta Decumana = REVAMPED duties (05 LOCK). Lahabrea reveal-gate: this is the ARR unmask beat — respect 05 Ch.1 gate order. End of base A Realm Reborn.
-
----
-## BACKFILL RESOLVED (from INSTALLMENT 6)
-
-**Fool Me Twice** — giver: Glaumunt (Mor Dhona)   [use URL: Fool_Me_Twice_(Quest)]
-- Imperial Centurion (/imperialsalute to alert them to enemy presence) -> Imperial Patrol (lure out with the imperial smoke signal) -> Cid (workshop, Revenant's Toll)
-- Next: Every Little Thing She Does Is Magitek
-- Placement: Castrum Centri infiltration-prep cluster (after Drowning Out the Voices / Dressed for Conquest; before Every Little Thing She Does Is Magitek). INSTALLMENT 6 pending = CLOSED.
-
----
 
 ## SEVENTH ASTRAL ERA — PATCH 2.1 'A REALM AWOKEN' (VERIFIED, CGW)
 
@@ -1711,54 +1905,23 @@ KEY SCENES:
 - Alphinaud (investigate rumors about F'lhaminn) -> Gegeruju (Costa del Sol) -> Wineport residents (info 0/2) -> Shamani Lohmani (track F'lhaminn by scent) -> F'lhaminn (Raincatcher Gully) -> Alphinaud (Wineport)
 - Next: All Things in Time
 
-**Flowers for One** — giver: Father Iliud (Eastern Thanalan)   [parallel to Moving On; same F'lhaminn hunt; converges at All Things in Time]
-- Gegeruju (Costa del Sol) -> Wineport residents -> Shamani Lohmani -> The Perfumed Lady / F'lhaminn (Raincatcher Gully: defeat the goobbue, then speak) -> Alphinaud
-- Next: All Things in Time
+> [REMOVED in patch 5.3, excluded from current flow: **Flowers for One** (Father Iliud / F'lhaminn hunt).]
 
 **All Things in Time** — giver: F'lhaminn (Eastern La Noscea)
 - escort F'lhaminn to the Waking Sands (reunite with her daughter) -> Minfilia (witness the reunion)
 - Next: Laying the Foundation
 
-**The Resolute** — giver: Minfilia (the Waking Sands) `[COND: fetch]`   [parallel side-errand; converges at Laying the Foundation]
-- F'lhaminn -> Memedesu (Goldsmiths' Guild: repair F'lhaminn's Aria) -> Odinel (Byregot's Strike: collect ores) -> Memedesu (deliver ores) -> F'lhaminn (deliver the repaired Aria) -> Minfilia
-- Next: Laying the Foundation
+> [REMOVED in patch 5.3, excluded from current flow: **The Resolute** (Minfilia / F'lhaminn's Aria repair).]
 
 **Laying the Foundation** — giver: Minfilia (the Waking Sands)
 - Minfilia -> Slafborn (deliver the sealed documents, Revenant's Toll)
 - Next: It's Possibly a Primal
 - SEED: Crystal Tower ENTRY ANCHOR (see the CRYSTAL TOWER ARC block at end of Arc 1) - Slafborn / a Son of Saint Coinach notes the unearthed Tower + the NOAH expedition (Rammbroes, G'raha, Cid) at Saint Coinach's Find. INTEREST ONLY; Tower HARD-LOCKED; NO pull-forward.
 
-### Revenant's Toll establishment cluster (Mor Dhona odd-jobs; several parallel unlocks converging at Welcome to Morbol Country, then feeding It's Possibly a Primal)
-**Rock-solid Protection** — giver: Slafborn (Mor Dhona)
-- Bibimu (outside the Sunken Temple of Qarn) -> [The Sunken Temple of Qarn — dungeon duty: obtain the wardstone] -> Slafborn (deliver the wardstone)
-- Next: Welcome to Morbol Country
-
-**Crate Go Kaboom** — giver: Sark Malark (Mor Dhona) `[COND: fetch]`   [parallel]
-- destroy 3 Garlean crates in Castrum Centri with high-quality explosives -> Sark Malark (report)
-- Next: Welcome to Morbol Country
-
-**Better Late than Sever** — giver: Guolgeim (Mor Dhona) `[COND: fetch]`   [parallel]
-- Wood Wailer (Fallgourd Float) -> Wood Wailer (supply carriage) -> rescue captured coachmen (0/2) -> recover looted supplies (0/3) -> Elezen coachman -> Guolgeim (Revenant's Toll)
-- Next: Welcome to Morbol Country
-
-**Welcome to Morbol Country** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
-- slay morbols in the Tangle -> Slafborn (report)
-- Next: Answering the Call
-
-**Answering the Call** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
-- slay hapalits in the Singing Shards -> Slafborn (report)
-- Next: You're Gonna Carry That
-
-**You're Gonna Carry That** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
-- Alphinaud (Waking Sands) -> gather 4 labeled packages -> Tataru (outside Waking Sands)
-- Next: The Things We Do for Tea
-
-**The Things We Do for Tea** — giver: Tataru (Western Thanalan) `[COND: fetch]`
-- Medguistl (Camp Dragonhead: tea stores depleted) -> Emanuel (harvest highland tea leaves at Boulder Downs) -> harvest 4 tea leaves -> Tataru (Waking Sands)
-- Next: It's Possibly a Primal
+> [REMOVED in patch 5.3, excluded from current flow (Revenant's Toll establishment cluster): **Rock-solid Protection**, **Crate Go Kaboom**, **Better Late than Sever**, **Welcome to Morbol Country**, **Answering the Call**, **You're Gonna Carry That**, **The Things We Do for Tea**.]
 
 ### Primal arc + close (Good King Moggle Mog XII)
-**It's Possibly a Primal** — giver: Slafborn (Mor Dhona)   [convergence of the main spine + Revenant's Toll cluster]
+**It's Possibly a Primal** — giver: Slafborn (Mor Dhona)
 - Tataru (Waking Sands) -> Minfilia (Waking Sands) -> Vorsaile Heuloix (Adders' Nest, Gridania)
 - Next: Hail to the King, Kupo
 
@@ -1805,17 +1968,13 @@ KEY SCENES:
 - Raubahn (Hall of Flames) -> Alphinaud
 - Next: Yugiri's Game
 
-**A Small-scale Operation** — giver: Alphinaud (Ul'dah - Steps of Nald) `[COND: fetch]`   [parallel; converges at Yugiri's Game]
-- Hozan (Vesper Bay) -> retrieve a large wooden crate from the docks -> deliver -> collect 4 missing black scales -> deliver
-- Next: Yugiri's Game
+> [REMOVED in patch 5.3, excluded from current flow: **A Small-scale Operation** (Alphinaud / Doman scales).]
 
 **Yugiri's Game** — giver: Alphinaud (Ul'dah - Steps of Nald) `[COND: parallel → Why We Adventure]`
 - Hozan (Vesper Bay: rounding up children) -> Yozan -> find 3 hidden children Shiun/Koharu/Rokka (0/3) -> Hozan
 - Next: Why We Adventure
 
-**If Wishes Were Horsebirds** — giver: Hozan (Western Thanalan) `[COND: fetch]`   [parallel; converges at Why We Adventure]
-- Folclind (chocobo-smell solution) -> Hyuran Coachman (perfume the chocobo) -> Hozan (give the perfumed scarf)
-- Next: Why We Adventure
+> [REMOVED in patch 5.3, excluded from current flow: **If Wishes Were Horsebirds** (Hozan / chocobo perfume).]
 
 **Why We Adventure** — giver: Hozan (Western Thanalan)
 - Hyuran coachman (begin the journey) -> survey the road to Ul'dah for beasts -> coachman (outside Horizon, road safe) -> Alphinaud (the Quicksand: safe arrival)
@@ -1825,21 +1984,13 @@ KEY SCENES:
 - Slafborn (Revenant's Toll: formally introduce Yugiri) -> Yugiri -> Minfilia (Rising Stones: introduce Yugiri) -> Minfilia (crystal thefts & the Leviathan threat)
 - Next: The Sea Rises
 
-**Full Belly, Happy Heart** — giver: Minfilia (the Rising Stones) `[COND: fetch]`   [parallel; feeds The Sea Rises via Writhing in the Dark]
-- F'lhaminn -> Alys (Seventh Heaven: meal status) -> Adventurers' Guild Assistant (deliver meals & wine)
-- Next: Writhing in the Dark
-
-**Writhing in the Dark** — giver: Adventurers' Guild Assistant (Mor Dhona) `[COND: fetch]`
-- lure & slay 6 rampant cobras with rancid eft meat -> report -> Minfilia (Rising Stones)
-- Next: The Sea Rises
+> [REMOVED in patch 5.3, excluded from current flow: **Full Belly, Happy Heart** (Minfilia) & **Writhing in the Dark** (Adventurers' Guild Assistant).]
 
 **The Sea Rises** — giver: Minfilia (the Rising Stones)
 - Minfilia (final words) -> Admiral Merlwyb (Limsa command room: Maelstrom operation vs Leviathan & Sahagin) -> Commander Falkbryda (Camp Skull Valley: Sahagin intel)
 - Next: Scouts in Distress
 
-**Fireworks and Fish Don't Mix** — giver: Falkbryda (Western La Noscea) `[COND: fetch]`   [parallel; converges at Scouts in Distress]
-- U'jughal (diversionary maneuvers) -> Maelstrom explosives: destroy Sahagin pavises at Halfstone & defeat Sahagin (0/5) -> Falkbryda (Camp Skull Valley)
-- Next: Scouts in Distress
+> [REMOVED in patch 5.3, excluded from current flow: **Fireworks and Fish Don't Mix** (Falkbryda / Sahagin pavises).]
 
 **Scouts in Distress** — giver: Falkbryda (Western La Noscea) `[COND: fetch]`
 - Maelstrom restorative on the wounded Storm Private -> find the missing scouts in the Serpent's Tongue -> collect the soldiers' corpses (0/2) -> Falkbryda
@@ -1897,20 +2048,9 @@ KEY SCENES:
 
 **Lord of Levin** — giver: Minfilia (the Rising Stones)
 - Vorsaile Heuloix (Adders' Nest) -> Kan-E-Senna (Lotus Stand) -> Serpent lieutenant (Little Solace)   [sets up the Ramuh arc]
-- Next: Levin an Impression   (do the Sylphlands sub-chain first; all converge at Levin an Impression)
-
-### Sylphlands infiltration sub-chain (parallel; converges at Levin an Impression)
-**A Sylphlands Sting** — giver: Serpent Lieutenant (East Shroud)
-- Komuxio (cleansing water on the soldiers) -> Hostile Sylph -> Maxio -> Maxio -> (invisible) stinging scalebomb on the Hostile Sylph -> Maxio -> Teary-eyed Private
-- Next: Scattered Scions
-
-**Scattered Scions** — giver: Teary-eyed Private (East Shroud)
-- Papalymo (Goldleaf Dais) -> Maxio (trueform scalebombs) -> Yda & Papalymo impostors (scalebomb & defeat) -> Maxio -> Yda & Thancred impostors (reveal & defeat) -> Yda
-- Next: True to Form
-
-**True to Form** — giver: Yda (East Shroud)
-- Maxio -> trueform scalebomb on the suspect Scions -> approach the touched sylph & defeat resistance -> confront the touched sylph -> Papalymo
 - Next: Levin an Impression
+
+> [REMOVED in patch 5.3, excluded from current flow (Sylphlands infiltration sub-chain): **A Sylphlands Sting**, **Scattered Scions**, **True to Form**.]
 
 **Levin an Impression** — giver: Serpent Lieutenant (Little Solace, East Shroud)
 - Maxio -> Maxio -> search for the Scions -> investigate the beastman aetheryte in the Sylphlands -> [The Striking Tree (Hard): RAMUH] -> Serpent Lieutenant (Little Solace)
@@ -1921,14 +2061,7 @@ KEY SCENES:
 - Kan-E-Senna (Lotus Stand) -> Papalymo (Nophica's Altar) -> Minfilia (the Rising Stones)
 - Next: Guardian of Eorzea
 
-### Tataru side cluster (parallel; converges at Guardian of Eorzea)
-**A Hard Hapalit to Break** — giver: Minfilia Warde (the Rising Stones) `[COND: fetch]`
-- Slafborn (Revenant's Toll) -> slay the hapalit threatening the struggling adventurer (Singing Shards) -> aid her -> /huh -> Slafborn
-- Next: Picking Up the Sledge
-
-**Picking Up the Sledge** — giver: Slafborn (Mor Dhona) `[COND: fetch]`
-- Tataru (Rising Stones) -> Brithael (Blacksmiths' Guild) -> /doubt the Prickly Porter -> pick up the box for Tataru -> F'lhaminn (deliver) -> call out \"Tataru\" in Say -> defeat the morbol threatening Tataru -> Tataru -> Tataru (Rising Stones)
-- Next: Guardian of Eorzea
+> [REMOVED in patch 5.3, excluded from current flow (Tataru side cluster): **A Hard Hapalit to Break** & **Picking Up the Sledge**.]
 
 **Guardian of Eorzea** — giver: Minfilia (the Rising Stones)   [convergence of main line + Tataru cluster]
 - Yozan -> meet Hoary Boulder (E of Revenant's Toll) -> Alphinaud (the Rising Stones)
@@ -2109,9 +2242,9 @@ KEY SCENES:
 
 **Ancient Ways, Timeless Wants** — giver: Tataru (Limsa Lominsa Lower Decks) `[COND: relay]`
 - Tataru (Costa del Sol) -> Tataru -> stand guard as Tataru harvests pearls -> Tataru -> Minfilia (Rising Stones)
-- Next: A Time to Every Purpose
+- Next: Where We Are Needed
 
-**Where We Are Needed** — giver: Minfilia (the Rising Stones) `[COND: parallel → A Time to Every Purpose]`   [parallel Scion vignette; converges at A Time to Every Purpose]
+**Where We Are Needed** — giver: Minfilia (the Rising Stones) `[COND: parallel → A Time to Every Purpose]`
 - Hoary Boulder -> unsettled scholar (Camp Tranquil) -> escort to Issom-Har / Snakemolt / Rootslake (stand guard for measurements at each) -> unsettled scholar (Camp Tranquil)
 - Next: The Least among Us
 
@@ -2160,7 +2293,7 @@ KEY SCENES:
 - House Fortemps manservant -> manservant in the Hoplon -> Elaisse (the Jeweled Crozier) -> manservant in the aetheryte plaza
 - Next: The Better Half
 
-**The Better Half** — giver: Alphinaud (Ishgard - Foundation)
+**The Better Half** — giver: House Fortemps Manservant (Ishgard - Foundation)
 - Gibrillont (the Forgotten Knight tavern) -> observe the upper/lower-floor divide -> learn of the Dravanian attack's impact on the Brume -> Tataru stays behind to gather info -> return to Fortemps Manor -> Count Edmont de Fortemps -> accept the charge to aid House Fortemps and its two sons
 - Next: the TWO support chains unlock IN PARALLEL — **Over the Wall** (Artoirel chain) + **Onwards and Upwards** (Emmanellain chain); both reconverge at Divine Intervention.
 
@@ -2242,7 +2375,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the Raubahn gaol-break -> the search for Iceheart / the Convictors -> the Gnath "deity" arc -> RAVANA -> Sohm Al -> Beyond the Clouds (L51-53).
+**SCOPE:** the Raubahn gaol-break -> the search for Iceheart / the Convictors -> the Gnath "deity" arc -> RAVANA -> Sohm Al -> Beyond the Clouds.
 
 ---
 
@@ -2299,7 +2432,7 @@ KEY SCENES:
 - Ysayle -> defeat enemies on the path to Anyx Trine (x2) -> Ysayle
 - Next: Gifts for the Outcasts
 
-**Gifts for the Outcasts** — giver: Marcechamp (Tailfeather) `[COND: fetch]`
+**Gifts for the Outcasts** — giver: Ysayle (Tailfeather / Dravanian Forelands) `[COND: fetch]`
 - Marcechamp -> obtain hunks of nanka flesh from clearwater nanka -> deliver to Alphinaud
 - Next: The Nonmind
 
@@ -2331,19 +2464,13 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** Moghome + the moogle trials -> the Road to Zenith / Hraesvelgr -> the Ul'dah interlude -> THE AERY (Nidhogg's eyes) -> back to Ishgard (L54-56).
-
-**EXTRACTION-ANOMALY NOTE:** a few CGW quest pages exposed a `Next` that DISAGREES with the clean CGW ordered index (they surfaced an unlock/related link, not the MSQ next). Where they conflict, ORDER FOLLOWS THE INDEX and the page value is flagged for play-time check. One quest omitted by the index-page extraction — **Trials of Trustworthiness** — is confirmed as the `Next` of Mountaintop Diplomacy and is inserted here.
+**SCOPE:** Moghome + the moogle trials -> the Road to Zenith / Hraesvelgr -> the Ul'dah interlude -> THE AERY (Nidhogg's eyes) -> back to Ishgard.
 
 ---
 
 **Mountaintop Diplomacy** — giver: Alphinaud (Nophica's Altar, Old Gridania) `[COND: relay]`
-- Alphinaud (Nophica's Altar) -> enter the Lotus Stand -> Alphinaud -> Estinien (Moghome) -> Moglin
-- Next: Trials of Trustworthiness
-
-**Trials of Trustworthiness** — giver: Moglin (Moghome) `[COND: relay]` [CGW-verified — the three challenges Moglin devised to measure your worth]
-- Moghan (Moghome) -> Mogmug (Moghome) -> Mogwin (Moghome): meet the three wise moogles who will administer the trials
-- Next: the three moogle trials (Moghan's / Mogmug's / Mogwin's Trial), then Moglin's Judgment
+- Alphinaud (Nophica's Altar) -> enter the Lotus Stand -> Alphinaud -> Estinien (Moghome) -> Chieftain Moglin
+- Next: the three moogle trials (Moghan's Trial, Mogmug's Trial, Mogwin's Trial), which Chieftain Moglin devises in dialogue as the "Trials of Trustworthiness" to measure the party's character; all three converge at Moglin's Judgment.
 
 **Moghan's Trial** — giver: Moghan (moogle alchemist, Moghome) `[COND: fetch]`
 - obtain sprigs of cloudsbreath (0/3, near Eil Tohm) -> deliver to Moghan
@@ -2421,7 +2548,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the Brume/heretic thread -> THE VAULT (Haurchefant's death) -> the Dragonsong War truth -> the Vanu Vanu / BISMARCK arc -> Y'shtola retrieved from the Lifestream -> the approach to Sharlayan/Matoya (L56-57).
+**SCOPE:** the Brume/heretic thread -> THE VAULT (Haurchefant's death) -> the Dragonsong War truth -> the Vanu Vanu / BISMARCK arc -> Y'shtola retrieved from the Lifestream -> the approach to Sharlayan/Matoya.
 
 ---
 
@@ -2510,7 +2637,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** Idyllshire -> Matoya -> THE GREAT GUBAL LIBRARY -> the Excelsior to AZYS LLA -> Fetters of Lament -> **Heavensward** (the 3.0 climax: Ascian Prime + King Thordan). L58-60. This CLOSES base Heavensward 3.0.
+**SCOPE:** Idyllshire -> Matoya -> THE GREAT GUBAL LIBRARY -> the Excelsior to AZYS LLA -> Fetters of Lament -> **Heavensward** (the 3.0 climax: Ascian Prime + King Thordan). This CLOSES base Heavensward 3.0.
 
 ---
 
@@ -2555,7 +2682,7 @@ KEY SCENES:
 - search for a terminal (0/3) -> Cid -> search for Wedge -> Cid
 - Next: In Node We Trust
 
-**In Node We Trust** — giver: Alphinaud (Azys Lla) `[COND: relay]`
+**In Node We Trust** — giver: Guidance Node (Azys Lla) `[COND: relay]`
 - Alphinaud -> guidance node (Matter Conduit II-III) -> Allagan teleporter to the Beta Quadrant -> guidance node (Matter Conduit III-II)
 - Next: Chimerical Maintenance
 
@@ -2563,7 +2690,7 @@ KEY SCENES:
 - guidance node (IV-V) -> defeat 3 chimerical creatures (Recombination Labs) -> guidance node (IV-V) -> Allagan teleporter to the Gamma Quadrant
 - Next: Close Encounters of the VIth Kind
 
-**Close Encounters of the VIth Kind** — giver: Estinien (Azys Lla)
+**Close Encounters of the VIth Kind** — giver: Guidance Node (Azys Lla)
 - Estinien -> guidance node (VI-VII) -> guidance node (VII-VI) -> [Solo Duty] defeat Regula van Hydrus
 - Next: Fetters of Lament
 
@@ -2804,7 +2931,7 @@ KEY SCENES:
 
 (convenzioni: vedi 08.0)
 
-**SCOPE:** the HW->SB seam + the Ala Mhigan Resistance at Rhalgr's Reach -> the first ZENOS duel (Reach attacked) -> regroup + sail East -> Kugane -> THE SIRENSONG SEA (L60-61).
+**SCOPE:** the HW->SB seam + the Ala Mhigan Resistance at Rhalgr's Reach -> the first ZENOS duel (Reach attacked) -> regroup + sail East -> Kugane -> THE SIRENSONG SEA.
 **SEAM FROM HW:** 3.56 The Far Edge of Fate -> **Beyond the Great Wall** = first SB beat.
 
 **EXTRACTION-ANOMALY NOTE:** several CGW pages exposed a `Next` that DISAGREES with the clean CGW ordered index (surfacing a side/unlock link or a reversed pointer). Where they conflict, ORDER FOLLOWS THE INDEX; the page value is flagged for play-time check.
@@ -2823,14 +2950,15 @@ KEY SCENES:
 - Conrad
 - Next: A Haven for the Bold
 
-**A Haven for the Bold** — giver: Alphinaud (Rhalgr's Reach) `[COND: parallel → Best Served with Cold Steel]`
+**A Haven for the Bold** — giver: Alphinaud (Rhalgr's Reach) `[COND: relay]`
 - Lyse (x5 — tour of the Reach)
 - Next: A Bargain Struck
 
 **A Bargain Struck** — giver: Alisaie (Rhalgr's Reach) `[COND: relay]`
 - Conrad -> Alisaie
-- Next: A Friend of a Friend in Need
+- Next: the TWO parallel support chains unlock — M'naago's chain (**A Friend of a Friend in Need**) and Meffrid's chain (**A Familiar Face Forgotten**); both must be completed before **Where Men Go as One**.
 
+### M'naago Chain (Parallel branch A)
 **A Friend of a Friend in Need** — giver: M'naago (Rhalgr's Reach) `[COND: fetch]`
 - M'naago -> M'naago (the Fringes) -> lie in wait for imperial soldiers -> M'naago
 - Next: Signed, Sealed, to Be Delivered
@@ -2845,8 +2973,42 @@ KEY SCENES:
 
 **Let Fill Your Hearts with Pride** — giver: M'naago (Rhalgr's Reach) `[COND: relay]`
 - M'naago
-- Next: Where Men Go as One
+- Next: Where Men Go as One (requires Meffrid's chain complete)
 
+### Meffrid Chain (Parallel branch B)
+**A Familiar Face Forgotten** — giver: Meffrid (Rhalgr's Reach) `[COND: relay]`
+- speak with Meffrid -> travel to the Peering Stones -> speak with M'rahz Nunh -> Meffrid
+- Next: The Prodigal Daughter
+
+**The Prodigal Daughter** — giver: Meffrid (the Fringes) `[COND: fetch]`
+- search for Ananta scouts -> assist the wounded Ananta -> report to Meffrid
+- Next: Hard Country
+
+**Hard Country** — giver: Griseldis (the Fringes) `[COND: fetch]`
+- slay quarry creatures -> gather building stone -> return to Griseldis
+- Next: Death by a Thousand Rocks
+
+**Death by a Thousand Rocks** — giver: Angry Coeurl (the Fringes) `[COND: fetch]`
+- clear rolling boulders and quarry beasts -> report to Angry Coeurl
+- Next: A Life More Ordinary
+
+**A Life More Ordinary** — giver: Meffrid (the Fringes) `[COND: relay]`
+- speak with Ala Mhigan refugees -> deliver provisions -> report to Meffrid
+- Next: The Color of Angry Qiqirn
+
+**The Color of Angry Qiqirn** — giver: Meffrid (the Fringes) `[COND: fetch]`
+- investigate Qiqirn territory -> retrieve stolen goods from Qiqirn caches -> return to Meffrid
+- Next: The Black Wolf's Pups
+
+**The Black Wolf's Pups** — giver: Lyse (the Fringes)
+- track the youth of Ala Gannha -> [Solo Duty: protect Ala Mhigan youths from imperial patrol] -> Lyse
+- Next: Homeward Bound
+
+**Homeward Bound** — giver: Meffrid (the Fringes) `[COND: relay]`
+- accompany the youths back to Ala Gannha -> speak with the village elder -> Meffrid
+- Next: Where Men Go as One (reconverges with M'naago's chain)
+
+### Main Quest Chain (Reconverged)
 **Where Men Go as One** — giver: Conrad (Rhalgr's Reach) `[COND: relay]`
 - M'naago
 - Next: Future Rust, Future Dust
@@ -2926,7 +3088,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the RUBY SEA — alliance with the Confederates & the Blue Kojin -> recovering the Yasakani-no-Magatama -> the trial of SUSANO -> departure for Yanxia (L63-64 band).
+**SCOPE:** the RUBY SEA — alliance with the Confederates & the Blue Kojin -> recovering the Yasakani-no-Magatama -> the trial of SUSANO -> departure for Yanxia.
 
 **SIDEQUEST-POLLUTION NOTE (confirmed excluded):** the Sui-no-Sato "Little Mermaid" chain (*A Part of Your World, The Elixir of Life, The Two Princesses, The Seaweed Is Always Greener, Up Where They Trade*) and "The Kami" appear in Next fields but are NOT MSQ — excluded.
 
@@ -2954,6 +3116,14 @@ KEY SCENES:
 
 **The Solace of the Sea** — giver: Afumi (the Ruby Sea) · MSQ `[COND: fetch]`
 - Aokumo -> give the medicine to the seasick Doman recruit -> Afumi
+- Next: The Arrows of Misfortune
+
+**The Arrows of Misfortune** — giver: Kajika (the Ruby Sea) · MSQ `[COND: fetch]`
+- search for the sunken supply boat -> retrieve 3 crates of arrowheads -> deliver to Kajika
+- Next: The Last Voyage
+
+**The Last Voyage** — giver: Aranami (the Ruby Sea) · MSQ `[COND: fetch]`
+- speak with the elderly sailor -> offer prayers at the sea shrine -> report to Aranami
 - Next: Alisaie's Stones
 
 **Alisaie's Stones** — giver: Hirase (the Ruby Sea) · MSQ `[COND: fetch]`
@@ -2994,8 +3164,8 @@ KEY SCENES:
 - Next: Tide Goes in, Imperials Go Out
 - Manifest tie (08.1 SB): SUSANO, Lord of the Revel — first primal of Stormblood.
 
-**Tide Goes in, Imperials Go Out** — giver: Alisaie (the Ruby Sea) · MSQ `[COND: parallel → A Silence in Three Parts]`
-- search for villagers in need of aid (0/2) -> one of the Confederates -> report to Alisaie
+**Tide Goes in, Imperials Go Out** — giver: Lyse (the Ruby Sea) · MSQ `[COND: parallel → A Silence in Three Parts]`
+- search for villagers in need of aid (0/2) -> one of the Confederates -> report to Lyse
 - Next: A Silence in Three Parts
 
 **A Silence in Three Parts** — giver: Gosetsu (the Ruby Sea) · MSQ
@@ -3004,7 +3174,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** arrival in Yanxia (Namai under occupation) -> the Doman refugees / House of the Fierce -> a second ZENOS clash -> decision to seek Lord Hien on the Azim Steppe (L64-65 band).
+**SCOPE:** arrival in Yanxia (Namai under occupation) -> the Doman refugees / House of the Fierce -> a second ZENOS clash -> decision to seek Lord Hien on the Azim Steppe.
 
 **EXTRACTION-NOTE:** two pages returned a noisy prev/next (*The Will to Live*, *All the Little Angels*) — order fixed by neighbours; MSQ-progress counters increase monotonically (59->65/162).
 
@@ -3057,7 +3227,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** seeking Lord Hien on the AZIM STEPPE -> proving worth among the Mol/Xaela -> BARDAM'S METTLE -> the tribes (Oronir/Dotharl) toward the Naadam (L64-66).
+**SCOPE:** seeking Lord Hien on the AZIM STEPPE -> proving worth among the Mol/Xaela -> BARDAM'S METTLE -> the tribes (Oronir/Dotharl) toward the Naadam.
 
 **EXTRACTION-NOTE:** *Stars in the Dark*'s own page returned a noisy prev/next; its position is fixed by both neighbours (An Impossible Dream -> Stars in the Dark -> A Warrior's Welcome). THE NAADAM itself comes LATER (next installment).
 
@@ -3114,7 +3284,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the DOTHARL (Sadu, the undying) -> uniting the tribes -> THE NAADAM (full-party battle for the ovoo) -> the Mol crowned, alliance won for Doma (L66).
+**SCOPE:** the DOTHARL (Sadu, the undying) -> uniting the tribes -> THE NAADAM (full-party battle for the ovoo) -> the Mol crowned, alliance won for Doma.
 
 **EXTRACTION-NOTE:** CGW's *The Naadam* page renders ONLY lore (no infobox/steps) — giver/steps/duty taken from Gamer Escape (title "Naadam"); *As the Gods Will* zone corrected via GE (CGW mis-extracted "The Lochs"; true zone = Azim Steppe, Nhaama's Retreat). Order A Final Peace -> As the Gods Will -> Naadam -> Glory to the Khagan is GE-confirmed on both ends.
 
@@ -3145,7 +3315,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** with the Xaela alliance won, the party returns to occupied YANXIA, rallies the Doman resistance and the Confederates, and storms DOMA CASTLE (L67).
+**SCOPE:** with the Xaela alliance won, the party returns to occupied YANXIA, rallies the Doman resistance and the Confederates, and storms DOMA CASTLE.
 
 **SIDEQUEST-POLLUTION NOTE:** *In Crimson They Walked* lists two Next entries — MSQ = **The Hour of Reckoning**; *Something Fishy This Way Comes* is a sidequest (excluded).
 
@@ -3203,7 +3373,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the Qalyana beast-tribe summons LAKSHMI -> the trial of Emanation -> the Ala Mhigan front pushes through THE FRINGES & THE PEAKS toward Specula Imperatoris (L64-68 band).
+**SCOPE:** the Qalyana beast-tribe summons LAKSHMI -> the trial of Emanation -> the Ala Mhigan front pushes through THE FRINGES & THE PEAKS toward Specula Imperatoris.
 
 **SIDEQUEST-POLLUTION NOTE:** *Delicate as a Flower* (Garima flower-errand) appears in a Next field after The Lure of the Dream but is NOT in the MSQ list — sidequest, excluded. True MSQ = The Lady of Bliss.
 
@@ -3280,7 +3450,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the liberation of ALA MHIGO — infiltrate CASTRUM ABANIA -> rally the Alliance at the Lochs -> the Fordola & Hakuro solo duties -> storm ALA MHIGO -> the Royal Menagerie: SHINRYU merged with ZENOS (L68-70, 4.0 climax).
+**SCOPE:** the liberation of ALA MHIGO — infiltrate CASTRUM ABANIA -> rally the Alliance at the Lochs -> the Fordola & Hakuro solo duties -> storm ALA MHIGO -> the Royal Menagerie: SHINRYU merged with ZENOS (4.0 climax).
 
 ---
 
@@ -3632,7 +3802,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** Tesleen's fall -> the first Lightwarden slain at HOLMINSTER SWITCH (night returns to Lakeland) -> the Crystarium rallies -> IL MHEG, the faerie kingdom (Feo Ul, the pixies) and DOHN MHEG (L71-73).
+**SCOPE:** Tesleen's fall -> the first Lightwarden slain at HOLMINSTER SWITCH (night returns to Lakeland) -> the Crystarium rallies -> IL MHEG, the faerie kingdom (Feo Ul, the pixies) and DOHN MHEG.
 
 ---
 
@@ -3730,7 +3900,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the Lightwarden of Il Mheg — TITANIA — falls (The Dancing Plague); the party divides; the Warrior joins Y'shtola among the NIGHT'S BLESSED in the RAK'TIKA GREATWOOD, the Viis of Fanow, and the ruins of Ronka, ending in the pyramid escape from General RAN'JIT (L74-75).
+**SCOPE:** the Lightwarden of Il Mheg — TITANIA — falls (The Dancing Plague); the party divides; the Warrior joins Y'shtola among the NIGHT'S BLESSED in the RAK'TIKA GREATWOOD, the Viis of Fanow, and the ruins of Ronka, ending in the pyramid escape from General RAN'JIT.
 
 ---
 
@@ -3747,7 +3917,7 @@ KEY SCENES:
 - Alisaie in the Crystarium -> Alisaie -> the manager of suites in the Pendants
 - Next: A Party Soon Divided
 
-**A Party Soon Divided** — giver: the Crystal Exarch (the Crystarium) · MSQ `[COND: relay]`
+**A Party Soon Divided** — giver: the Manager of Suites (the Crystarium) · MSQ `[COND: relay]`
 - proceed to the Ocular -> the Crystal Exarch -> Urianger at Fort Jobb
 - Next: A Little Faith
 
@@ -3819,7 +3989,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** EMET-SELCH attaches himself to the party; the Rak'tika Lightwarden falls in THE QITANA RAVEL; then the long night of AMH ARAENG (Twine, the trolley line, the mines), Ran'jit again, Minfilia becomes RYNE, and MALIKAH'S WELL (L75-77).
+**SCOPE:** EMET-SELCH attaches himself to the party; the Rak'tika Lightwarden falls in THE QITANA RAVEL; then the long night of AMH ARAENG (Twine, the trolley line, the mines), Ran'jit again, Minfilia becomes RYNE, and MALIKAH'S WELL.
 
 ---
 
@@ -3893,7 +4063,7 @@ KEY SCENES:
 - Magnus -> deliver the chunk of leonine to Urianger -> Urianger
 - Next: Full Steam Ahead
 
-**Full Steam Ahead** — giver: Minfilia (Amh Araeng) · MSQ
+**Full Steam Ahead** — giver: Magnus (Amh Araeng) · MSQ
 - Minfilia -> Magnus -> [SOLO DUTY] defeat RAN'JIT (at Amh Malik) -> Minfilia
 - Next: Crossing Paths
 
@@ -3909,11 +4079,11 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** the liberation of EULMORE (Vauthry flees); the dwarves of Kholusia raise a Talos to reach MT. GULG, where the last Lightwarden — INNOCENCE — is slain in The Crown of the Immaculate (L79).
+**SCOPE:** the liberation of EULMORE (Vauthry flees); the dwarves of Kholusia raise a Talos to reach MT. GULG, where the last Lightwarden — INNOCENCE — is slain in The Crown of the Immaculate.
 
 ---
 
-**More than a Hunch** — giver: Y'shtola (the Crystarium) · MSQ `[COND: relay]`
+**More than a Hunch** — giver: Ryne (Amh Araeng) · MSQ `[COND: relay]`
 - Y'shtola -> the manager of suites in the Pendants
 - Next: Return to Eulmore
 
@@ -3921,7 +4091,7 @@ KEY SCENES:
 - head to the Ocular -> Alphinaud in Wright -> speak with people en route to Gatetown (0/3) -> Thancred
 - Next: A Feast of Lies
 
-**A Feast of Lies** — giver: Alphinaud (Eulmore) · MSQ
+**A Feast of Lies** — giver: Urianger (Eulmore) · MSQ
 - Alphinaud -> [SOLO DUTY] subdue the civilians -> subdue the soldiers -> defeat the jesters -> climb to the next level -> defeat RAN'JIT -> Thancred
 - Next: Paradise Fallen
 - Manifest tie (08.1 ShB): Eulmore is freed; Vauthry flees to Mt. Gulg; Ran'jit falls at last.
@@ -3930,7 +4100,7 @@ KEY SCENES:
 - search for enthralled civilians in the Derelicts -> administer dream powder to Thoarich -> search the Understory -> dream powder to the amiable maiden -> search the Canopy -> dream powder to the free citizen -> Ryne
 - Next: The Ladder
 
-**The Ladder** — giver: Urianger (Bottom Rung, Kholusia) · MSQ `[COND: fetch]`
+**The Ladder** — giver: Alphinaud (Bottom Rung, Kholusia) · MSQ `[COND: fetch]`
 - Urianger -> Irvithe -> take stock of lumber -> Irvithe -> Urianger
 - Next: The View from Above
 
@@ -3978,11 +4148,11 @@ KEY SCENES:
 
 ---
 
-> End SHADOWBRINGERS INSTALLMENT 24 (Eulmore -> Mt. Gulg -> Innocence, CGW-verified, full step spines, coordless). Next installment (25 — 5.0 FINALE) resumes at **Reassuring the Masses** -> the Light-sickness -> **[DUNGEON: The Twinning]** -> THE TEMPEST -> **[DUNGEON: Akadaemia Anyder]** -> AMAUROT -> **[DUNGEON: Amaurot]** -> **[TRIAL: The Dying Gasp]** HADES (Emet-Selch).
+> End SHADOWBRINGERS INSTALLMENT 24 (Eulmore -> Mt. Gulg -> Innocence, CGW-verified, full step spines, coordless). Next installment (25 — 5.0 FINALE) resumes at **Reassuring the Masses** -> the Light-sickness -> THE TEMPEST -> AMAUROT -> **[DUNGEON: Amaurot]** -> **[TRIAL: The Dying Gasp]** HADES (Emet-Selch).
 
-**SCOPE:** the Light-sickness after Innocence; the truth of the Crystal Exarch; the descent into THE TEMPEST and the recreated city of AMAUROT; the confrontation with HADES (Emet-Selch) in The Dying Gasp — the 5.0 climax (L80).
+**SCOPE:** the Light-sickness after Innocence; the truth of the Crystal Exarch; the descent into THE TEMPEST and the recreated city of AMAUROT; the confrontation with HADES (Emet-Selch) in The Dying Gasp — the 5.0 climax.
 
-**DUNGEON-SCOPE NOTE:** ShB's two remaining L79/L80 dungeons — **The Twinning** and **Akadaemia Anyder** — are OPTIONAL (unlocked by side quests), NOT MSQ, and are excluded from this index. The ShB MSQ dungeons are: Holminster Switch, Dohn Mheg, The Qitana Ravel, Malikah's Well, Mt. Gulg, Amaurot.
+**DUNGEON-SCOPE NOTE:** ShB's two remaining optional dungeons — **The Twinning** and **Akadaemia Anyder** — are OPTIONAL (unlocked by side quests), NOT MSQ, and are excluded from this index. The ShB MSQ dungeons are: Holminster Switch, Dohn Mheg, The Qitana Ravel, Malikah's Well, Mt. Gulg, Amaurot.
 **TITLE FIX:** list title "The Storm-tossed Seas" -> correct **To Storm-tossed Seas**; its Next is **Waiting in the Depths** (the CGW "The Tempest" reading was spurious).
 
 ---
@@ -4031,7 +4201,7 @@ KEY SCENES:
 - the administrative clerk -> wait at the designated location -> the administrative clerk -> submit the visitor's writ application to the secretariat clerk -> find an empty seat -> the secretariat clerk -> show the visitor's writ to Thancred
 - Next: Shadowbringers
 
-**Shadowbringers** (5.0 FINALE quest) — giver: the Crystal Exarch (the Crystarium) · MSQ
+**Shadowbringers** (5.0 FINALE quest) — giver: Alisaie (the Tempest, Amaurot) · MSQ
 - Alphinaud -> Urianger -> Y'shtola -> Thancred -> Ryne -> the Capitol attendant -> enter [DUNGEON: Amaurot] -> [TRIAL: The Dying Gasp] confront HADES -> the Crystal Exarch -> Tataru in the Rising Stones
 - FINAL BOSS: HADES — Emet-Selch's true unsundered Ascian form.
 - Manifest tie (08.1 ShB L19): the Warrior nearly becomes a Lightwarden but is anchored by the Scions' aether and Ardbert's soul (the Azem crystal); Emet-Selch falls, mourning his lost people. The Crystal Exarch is revealed as G'raha Tia. End of 5.0.
@@ -4039,7 +4209,7 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** 5.1 (Vows of Virtue, Deeds of Cruelty) — the aftermath on the First: healing sundered souls (Beq Lugg), rebuilding Eulmore (Chai-Nuzz); 5.2 (Echoes of a Fallen Star) — the new imperial threat stirs (Telophoroi), the Ronkan trial, and the deep sea (L80).
+**SCOPE:** 5.1 (Vows of Virtue, Deeds of Cruelty) — the aftermath on the First: healing sundered souls (Beq Lugg), rebuilding Eulmore (Chai-Nuzz); 5.2 (Echoes of a Fallen Star) — the new imperial threat stirs (Telophoroi), the Ronkan trial, and the deep sea.
 
 **DUTY PLACEMENTS (ShB 5.3, wiki-verified):** the dungeon The Heroes' Gauntlet is unlocked by **The Converging Light** (Y'shtola); the Elidibus solo duty (as Ardbert) is in **Faded Memories** (Thancred); the 'defeat the Warrior of Light' solo duty is in **Hope's Confluence** (Crystal Exarch); the trial The Seat of Sacrifice (Elidibus) is unlocked by **Hope's Confluence** and fought at the 5.3 climax (GE-verified — NOT inside 'Reflections in Crystal', which is the denouement). Title: **The Admiral's Resolve** (singular).
 
@@ -4193,7 +4363,7 @@ KEY SCENES:
 - Next: Reflections in Crystal
 - (farewells across the First before the confrontation)
 
-**Reflections in Crystal** (5.3 FINALE) — giver: Beq Lugg (the Ocular, the Crystarium) · MSQ
+**Reflections in Crystal** (5.3 FINALE) — giver: Ryne (the Ocular, the Crystarium) · MSQ
 - Beq Lugg -> G'raha Tia -> [TRIAL: The Seat of Sacrifice] (**Elidibus**, wielding the Warriors of Light) -> aftermath cutscenes
 - Reveal beats: **Elidibus defeated**; the WoL's soul returns to the Source body; the **Crystal Exarch = G'raha Tia** relinquishes the tower and comes to the Source to join the Scions.
 - Next: Alisaie's Quest
@@ -4578,7 +4748,7 @@ KEY SCENES:
 - survey the designated location -> rescue Mehvan -> search for Mehvan's baby -> have Alphinaud tend to the baby -> Alphinaud
 - Next: Simple Pleasures
 
-**Simple Pleasures** — giver: Vrtra (Palaka's Stand, Thavnair) · MSQ `[COND: fetch]`
+**Simple Pleasures** — giver: Estinien (Palaka's Stand, Thavnair) · MSQ `[COND: fetch]`
 - Vrtra -> Nidhana -> deliver the hot chai to the villagers (0/3) -> Nidhana
 - Next: Under His Wing
 
@@ -4717,7 +4887,7 @@ KEY SCENES:
 - Next: Agriculture Shock
 - (the Loporrits help build the ark that could evacuate the star)
 
-**Agriculture Shock** — giver: Cookingway (the Tempest) · MSQ `[COND: parallel → Her Children, One and All]`
+**Agriculture Shock** — giver: Cookingway (Labyrinthos) · MSQ `[COND: parallel → Her Children, One and All]`
 - with Cookingway: Jebke -> accompany him to the vineyard / orange grove / pumpkin field / lemon grove -> Jebke -> Cookingway
 - Next: Sage Council
 
@@ -4770,26 +4940,26 @@ KEY SCENES:
 - Alphinaud -> Al End -> Alphinaud -> touch the wind confluence and await the others
 - Next: Roads Paved with Sacrifice
 
-**Roads Paved with Sacrifice** (#100) — giver: (Ultima Thule) · MSQ [glyph-title page; steps backfill at merge]
-- narrative Ultima Thule beat ->
-- Prev: A Test of Will · Next: Flesh Abandoned
+**Roads Paved with Sacrifice** (#100, in-game *Roads Pαved││Sacri┣ice*) — giver: Alphinaud (Ultima Thule) · MSQ
+- Urianger -> Alisaie -> search for signs of life -> Coph-coodg -> commune with the crystalline domiciles (0/4) -> Coph-coodg
+- Next: Flesh Abandoned
 
-**Flesh Abandoned** (#101) — giver: Coph-coodg (Ultima Thule) · MSQ
+**Flesh Abandoned** (#101, in-game *F//εsh AbanΔon┨Δ*) — giver: Coph-coodg (Ultima Thule) · MSQ
 - Coph-coodg -> wait at the designated location (x2) -> Y'shtola
 - Next: Where Knowledge Leads
 - (the Ea, the extinct philosopher-race that willed itself to extinction)
 
-**Where Knowledge Leads** (#102) — giver: Urianger (Ultima Thule) · MSQ `[COND: relay]`
+**Where Knowledge Leads** (#102, in-game *Where Kn∞wledge Leads*) — giver: Urianger (Ultima Thule) · MSQ `[COND: relay]`
 - Urianger -> G'raha Tia -> Y'shtola
 - Next: Victory, All is Lost
 
-**Victory, All is Lost** (#103) — giver: (Ultima Thule) · MSQ [glyph-title page; steps backfill at merge]
-- narrative Ultima Thule beat ->
-- Prev: Where Knowledge Leads · Next: Truth Not Found
+**Victory, All is Lost** (#103, in-game *Vic┨οry ̈ ̈ ̈╳, │̆││ε Lost*) — giver: G'raha Tia (Ultima Thule) · MSQ
+- Alphinaud -> pass through the portal and wait for your comrades -> continue waiting -> G'raha Tia -> search the area for denizens (x2) -> G'raha Tia -> gather information at Base Omicron (0/3) -> G'raha Tia
+- Next: Peace Not Found
 
-**Truth Not Found** (#104) — giver: (Ultima Thule) · MSQ [glyph-title page; steps backfill at merge]
-- narrative Ultima Thule beat ->
-- Prev: Victory, All is Lost · Next: Hello, World
+**Peace Not Found** (#104, in-game *┣┨̈//̈ No┨ΦounΔ•••*) — giver: G'raha Tia (Base Omicron, Ultima Thule) · MSQ
+- G'raha Tia -> examine the console -> Alphinaud -> observe activity at Base Omicron (find suspiciously behaving Omicron M-107) -> G'raha Tia -> search for the errant Omicron (M-017)
+- Next: Hello, World
 
 **Hello, World** (#105) — giver: G'raha Tia (Base Omicron) · MSQ
 - observe M-017 with G'raha Tia -> identify an anomaly in M-017 when it manifests

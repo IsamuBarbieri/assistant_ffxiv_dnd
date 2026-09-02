@@ -1,6 +1,23 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
-## 2026-09-02d — Tracciamento Durata Meteo Attivo in Save e Footer della Campagna
+## 2026-09-02e — Verifica Legenda [REC]/[CUT], Ripristino Saga Hildibrand e Purga Livelli MMO
+
+Aggiornamento approfondito del Knowledge Layer (`08_MSQ_Flow.md` v3.56):
+- **VERIFICA & CHIARIMENTO LEGENDA DEI MARCATORI (`08.0` & `08.1`):**
+  - Rettificata la legenda a riga 30 e nelle convenzioni globali di `08.0`, separando nettamente i contenuti tagliati (`[CUT]`) dai contenuti opzionali supportati (`[REC]`).
+  - Formalizzate le categorie autoritative: `[GATE]` (checkpoint obbligatorio MSQ), `[REC]` (subquest raccomandata canonica giocabile tramite `/voci`), `[OPT]` (raid parallelo opzionale), `[CUT]` (quest/feature non implementate nel regolamento o fetch-errand fuori mano e saltate a piè pari), `[COND: …]` (marcatori di condensazione per `/riassumi`).
+- **RIPRISTINO INTEGRALE DELLA SAGA DI HILDIBRAND MANDERVILLE (ARR → EW):**
+  - Reintegrato l'arco di Heavensward (*Further Hildibrand Adventures* a Ishgard con Cyr, Gigi il mammet, i suplex di Godbert a Dravania e la minion Gigi), precedentemente omesso.
+  - Arricchito l'arco di ARR con i 3 Trial canonici (*Battle on the Big Bridge*, *The Dragon's Neck*, *Battle in the Big Keep*) contro Gilgamesh (Greg) ed Enkidu.
+  - Espanso l'arco di Stormblood a Kugane con Shigure, Akebono, il trial canonico *Kugane Ohashi* (Yojimbo / Greg & Daigoro) e il cliffhanger della Fenditura Interdimensionale.
+  - Formalizzato l'interludio dimensionale in Shadowbringers con il cameo spettrale nel dungeon MSQ *The Heroes' Gauntlet* (5.3).
+  - Integrato l'arco di Endwalker a Radz-at-Han con il salvataggio di Hildibrand da Norvrandt, l'alieno PuPu, Delion, Brandihild, le Armi Manderville forgiate da Godbert e il trial canonico *The Gilded Araya* (Asura).
+  - Inserite in `08.OST` e `08.OST-SCENE` tutte le tracce dedicate di Soken (`Agent of Inquiry`, `Battle on the Big Bridge`, `Decisive Battle`, `Battle on the Big Bridge (Stormblood Version)`, `Final Fantasy IV: Battle 2 (Endwalker)`).
+- **RIMOZIONE DEFINITIVA DEI LIVELLI VIDEOLUDICI MMO:**
+  - Tutti i dungeon e contenuti opzionali sono ora ancorati unicamente alle quest MSQ di sblocco (senza livelli numerici estranei al sistema di avanzamento a milestone 1-20 del gioco).
+
+08 v3.56.
+
 
 Evoluzione coordinata tra Knowledge Layer (`06` v6.78, `05` v2.24) e Control Layer (`cv143`):
 - **TRACCIAMENTO CONTINUO DELLA DURATA METEO (`da N ore`):**
