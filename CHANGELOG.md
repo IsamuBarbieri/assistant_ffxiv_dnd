@@ -1,5 +1,14 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-02 — Comando /help agnostico e dinamico nel Control Layer (cv140, ov76, lv57)
+
+Aggiunto il comando `/help` a tutti gli assistenti (`Campaign`, `One-Shot`, `Loremonger`):
+- **INTROSPEZIONE DINAMICA DEL ROSTER:** Il comando legge la sezione `<commands>` del proprio file di istruzioni ed elenca tutti i comandi disponibili con sintassi e una breve descrizione su una riga. Non richiede liste hardcodate ed è auto-aggiornante nel tempo.
+- **ZERO IMPATTO SUL KNOWLEDGE:** Implementato interamente nel Control Layer (`Instructions_*.txt`), rispettando il principio per cui il RAG non nomina mai i comandi slash.
+- **PARITÀ PERFETTA:** Regola identica al carattere su `cv140`, `ov76`, `lv57`.
+
+cv140 · ov76 · lv57 · mv15.
+
 ## 2026-09-01f — Riorganizzazione Pacchetto Incontro (1-click code block, Victory Fanfare, tab Tattica & Bottino nel Tracker)
 
 Riorganizzazione coordinata tra Control Layer (`cv139`, `ov75`, `lv56`), Knowledge Layer (`06` v6.75) e Table Tool (`combat_tracker.html`):
