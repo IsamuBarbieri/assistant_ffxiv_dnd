@@ -31,7 +31,7 @@
     }
 
     .container { max-width: 1800px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
-    header { border-bottom: 2px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
     h1 { margin: 0 0 5px 0; font-size: 1.6rem; color: #f3f4f6; }
     .subtitle { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
 
@@ -222,8 +222,18 @@
 <body>
   <div class="container">
     <header>
-      <h1>D&D 5e — Combat Tracker</h1>
-      <p class="subtitle">Gestione Iniziativa, Statblock & NLP Generazione Mappe</p>
+      <div>
+        <h1>D&D 5e — Combat Tracker</h1>
+        <p class="subtitle">Gestione Iniziativa, Statblock & NLP Generazione Mappe</p>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button class="btn-secondary" onclick="openApiKeyModal()" id="apiKeyTopBtn" title="Configura API Key di Google Gemini per le funzionalità AI" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; cursor: pointer;">
+          <span>🔑</span> <span id="apiKeyTopLabel">API Key</span>
+        </button>
+        <a href="https://www.youtube.com/watch?v=nMNRPmX5Eng" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="Ascolta Victory Fanfare (FFXIV) su YouTube" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #f59e0b; border-color: #f59e0b; cursor: pointer;">
+          <span>🎵</span> <span>Fanfara Vittoria</span>
+        </a>
+      </div>
     </header>
 
     <div class="tabs-wrapper" id="tabsWrapper">
@@ -295,14 +305,50 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="apiKeyModal">
+    <div class="modal-content" style="max-width: 550px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:1px solid #374151; padding-bottom:8px;">
+        <h2 style="margin:0; display:flex; align-items:center; gap:8px;">🔑 Gestione API Key Gemini</h2>
+        <button class="btn-secondary" onclick="closeApiKeyModal()" style="padding:4px 8px;">✕</button>
+      </div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:12px; line-height:1.4;">
+        Memorizza la tua API Key di Google Gemini per abilitare le funzionalità AI nel browser:
+        <br>• <strong>🪄 Generazione Incontri AI:</strong> bilanciamento e creazione completa di nuovi scontri.
+        <br>• <strong>🗺️ Posizionamento Tattico Mappe AI:</strong> ottimizzazione di ostacoli e ripari all'importazione.
+      </p>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:4px;">Gemini API Key</label>
+        <input type="password" id="geminiApiKeyInput" placeholder="Inserisci la tua chiave (AIzaSy...)" style="width:100%; box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:4px;">Modello Gemini Preferito</label>
+        <select id="geminiModelSelect" style="width:100%; box-sizing:border-box; padding:6px; background:#1f2937; color:#f3f4f6; border:1px solid #374151; border-radius:4px; font-size:0.85rem;">
+          <option value="gemini-2.0-flash">Gemini 2.0 Flash (Consigliato: Istantaneo 1-2s, quota free 1.500 rich./giorno)</option>
+          <option value="gemini-1.5-pro">Gemini 1.5 Pro (Ragionamento Spaziale Avanzato 3-6s, quota free 50 rich./giorno)</option>
+        </select>
+      </div>
+      <div id="apiKeyStatusBox" style="margin-bottom:15px; font-size:0.85rem; padding:8px 12px; border-radius:4px; display:none;"></div>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+        <button class="btn-secondary" onclick="testApiKeyQuota()" id="testApiKeyBtn">🔍 Verifica Connessione & Quota</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn-danger" onclick="removeApiKey()">Rimuovi</button>
+          <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveApiKey()">Salva Chiave</button>
+        </div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-top:15px; margin-bottom:0;">
+        💡 La chiave resta memorizzata unicamente nel tuo browser (localStorage). Ottienila gratuitamente su <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Google AI Studio</a>.
+      </p>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="generateModal">
     <div class="modal-content" style="max-width: 650px;">
       <h2 style="margin-top:0;">🪄 Genera Incontro con AI</h2>
       <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
         Riempi i campi e l'AI creerà lo scontro completo.
-        <em>Richiede una API Key di Google Gemini (gratuita su Google AI Studio).</em>
+        <em>Utilizza l'API Key di Google Gemini salvata nel tracker.</em>
       </p>
-      <input type="password" id="aiApiKey" placeholder="API Key di Gemini (verrà salvata in locale nel browser)" style="margin-bottom: 15px; width: 100%; box-sizing: border-box;" />
+      <div id="aiApiStatusBanner" style="padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;"></div>
       <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
         <div>
           <label style="font-size:0.8rem; color:var(--text-muted); display:block; margin-bottom:4px;">Numero PG</label>
@@ -336,7 +382,7 @@
       </div>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button class="btn-secondary" onclick="closeGenerateModal()">Annulla</button>
-        <button class="btn-import" style="background-color:#8b5cf6; color:white; border:none;" onclick="runAiGeneration()">Genera & Gioca</button>
+        <button class="btn-import" id="btnRunAiGen" style="background-color:#8b5cf6; color:white; border:none;" onclick="runAiGeneration()">Genera & Gioca</button>
       </div>
     </div>
   </div>
@@ -441,7 +487,7 @@
     let resizeMemory = { key: '', items: {} };
     let editingStatblockIndex = null;
 
-    window.onload = function() { initResizer(); initTracker(); };
+    window.onload = function() { initResizer(); initTracker(); updateApiKeyTopIndicator(); };
 
     function initResizer() {
         const resizer = document.getElementById('dragResizer');
@@ -810,16 +856,30 @@
       renderStatblocks(); renderVisualMap();
     }
 
+    function shouldShowBriefing(enc) {
+      if (!enc) return false;
+      if (enc.hasImportedContent) return true;
+      if (enc.tactics && enc.tactics.trim().length > 0) return true;
+      if (enc.loot && enc.loot.trim().length > 0) return true;
+      if (enc.statblocks && enc.statblocks.length > 0) return true;
+      return false;
+    }
+
     function renderStatblocks() {
       const enc = encountersData[currentEncounterIndex]; const tabsWrap = document.getElementById("sbTabsHeader"); const contentWrap = document.getElementById("sbContentArea");
       tabsWrap.innerHTML = ""; contentWrap.innerHTML = "";
 
-      const briefingBtn = document.createElement("div"); briefingBtn.className = "sb-tab-btn " + (activeStatblockIndex === 'briefing' ? "active" : "");
-      briefingBtn.style.borderTop = "2px solid #3b82f6";
-      if (activeStatblockIndex === 'briefing') { briefingBtn.style.color = "#60a5fa"; briefingBtn.style.backgroundColor = "rgba(59, 130, 246, 0.14)"; }
-      briefingBtn.innerHTML = `<span class="sb-tab-dot" style="background: #3b82f6;"></span><span>🎯 Tattica & Bottino</span>`;
-      briefingBtn.onclick = () => { activeStatblockIndex = 'briefing'; editingStatblockIndex = null; renderStatblocks(); };
-      tabsWrap.appendChild(briefingBtn);
+      const showBriefing = shouldShowBriefing(enc);
+      if (showBriefing) {
+        const briefingBtn = document.createElement("div"); briefingBtn.className = "sb-tab-btn " + (activeStatblockIndex === 'briefing' ? "active" : "");
+        briefingBtn.style.borderTop = "2px solid #3b82f6";
+        if (activeStatblockIndex === 'briefing') { briefingBtn.style.color = "#60a5fa"; briefingBtn.style.backgroundColor = "rgba(59, 130, 246, 0.14)"; }
+        briefingBtn.innerHTML = `<span class="sb-tab-dot" style="background: #3b82f6;"></span><span>🎯 Tattica & Bottino</span>`;
+        briefingBtn.onclick = () => { activeStatblockIndex = 'briefing'; editingStatblockIndex = null; renderStatblocks(); };
+        tabsWrap.appendChild(briefingBtn);
+      } else if (activeStatblockIndex === 'briefing') {
+        activeStatblockIndex = 0;
+      }
 
       if (enc.statblocks && enc.statblocks.length > 0) {
         enc.statblocks.forEach((sb, index) => {
@@ -831,7 +891,7 @@
         });
       }
 
-      if (activeStatblockIndex === 'briefing') {
+      if (showBriefing && activeStatblockIndex === 'briefing') {
         if (editingStatblockIndex === 'briefing') {
           const form = document.createElement("div"); form.className = "sb-edit-form";
           form.innerHTML = `
@@ -867,7 +927,11 @@
       }
 
       if (!enc.statblocks || enc.statblocks.length === 0) {
-        contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 20px 0;'>Nessuna statistica nemici attiva. Aggiungi un Nemico al tracker oppure consulta la scheda 🎯 Tattica & Bottino.</div>";
+        if (!showBriefing) {
+          contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 25px 0;'>Nessuno scontro caricato. Clicca <strong>📥 Importa</strong> per caricare un pacchetto incontro oppure <strong>🪄 Genera</strong> per crearne uno nuovo.</div>";
+        } else {
+          contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 20px 0;'>Nessuna statistica nemici attiva. Aggiungi un Nemico al tracker oppure consulta la scheda 🎯 Tattica & Bottino.</div>";
+        }
         return;
       }
 
@@ -1085,28 +1149,72 @@
       renderVisualMap();
     }
 
-    function triggerMapRegeneration() {
+    async function triggerMapRegeneration() {
       const enc = encountersData[currentEncounterIndex];
       if (!enc.arenaSpec) { showAlert("Questo scontro non ha una sezione Arena: reimporta il pacchetto, oppure usa 🗺️ Genera Mappa per una mappa vuota da modello."); return; }
-      enc.mapData = generateDynamicMap(enc.arenaSpec);
+
+      const apiKey = getStoredApiKey();
+      let newMapData = null;
+      if (apiKey) {
+        try {
+          const monstersToPlace = (enc.combatants || []).filter(c => c.isMonster).map(c => {
+            const sb = (enc.statblocks || []).find(s => s.name.toLowerCase() === getBaseName(c.name).toLowerCase());
+            const sz = sb && sb.size ? sb.size : 1;
+            return { id: c.id, name: c.name, size: sz };
+          });
+          newMapData = await generateAiMapLayout(enc.arenaSpec, enc.tactics, "", apiKey, monstersToPlace);
+        } catch (err) {
+          console.warn("AI map regeneration error, fallback to procedural:", err);
+          newMapData = null;
+        }
+      }
+
+      if (!newMapData) {
+        newMapData = generateDynamicMap(enc.arenaSpec);
+      }
+      enc.mapData = newMapData;
       renderVisualMap();
     }
 
     function findEmptySpot(size, prefX, prefY) {
-        const data = encountersData[currentEncounterIndex].mapData;
-        const halfY = Math.max(1, Math.floor(data.h / 2));
-        
+        const enc = encountersData[currentEncounterIndex];
+        if (!enc || !enc.mapData) return { x: 1, y: 1 };
+        const data = enc.mapData;
+
+        // Trova le porte d'ingresso (o ipotizza l'ingresso al fondo della stanza)
+        const doors = [];
+        for (let y = 0; y < data.h; y++) {
+            for (let x = 0; x < data.w; x++) {
+                if (data.grid[y][x] === 'door') doors.push({ x, y });
+            }
+        }
+        const entrance = doors.length > 0 ? doors[doors.length - 1] : { x: Math.floor(data.w / 2), y: data.h - 1 };
+
+        const isSafeZone = (x, y) => {
+            for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                    const ny = y + dy, nx = x + dx;
+                    if (data.grid[ny] && data.grid[ny][nx] === 'door') return true;
+                }
+            }
+            return false;
+        };
+
         const canPlace = (sx, sy) => {
             if (sy < 1 || sx < 1 || sy + size > data.h - 1 || sx + size > data.w - 1) return false;
-            if (prefX === undefined && sy + size - 1 > halfY) return false;
-            
-            for(let y=sy; y<sy+size; y++) {
-                for(let x=sx; x<sx+size; x++) {
-                    if(data.grid[y][x] !== 'floor') return false;
-                    
-                    if(data.placedFeatures.some(f => f.x===x && f.y===y && (f.item.cssType.includes('cover') || f.item.cssType === 'type-interactive'))) return false;
 
-                    if(Object.entries(data.entityPositions).some(([id, ep]) => {
+            for (let y = sy; y < sy + size; y++) {
+                for (let x = sx; x < sx + size; x++) {
+                    if (data.grid[y][x] !== 'floor') return false;
+                    if (isSafeZone(x, y)) return false;
+
+                    // Non su coperture solide o trappole/meccanismi
+                    if (data.placedFeatures.some(f => f.x === x && f.y === y && (f.item.cssType.includes('cover') || f.item.cssType === 'type-interactive'))) {
+                        return false;
+                    }
+
+                    // Non sopra altri mostri
+                    if (Object.entries(data.entityPositions).some(([id, ep]) => {
                         const s = getCombatantSizeById(Number(id));
                         return ep.x <= x && x < ep.x + s && ep.y <= y && y < ep.y + s;
                     })) return false;
@@ -1114,60 +1222,81 @@
             }
             return true;
         };
-        
+
+        // BFS: controlla se esiste un percorso libero tra la posizione del mostro e l'ingresso
+        const hasPathToEntrance = (sx, sy) => {
+            const isWalkable = (x, y) => {
+                if (x < 1 || y < 1 || x >= data.w - 1 || y >= data.h - 1) return false;
+                if (data.grid[y][x] !== 'floor' && data.grid[y][x] !== 'door') return false;
+                if (data.placedFeatures.some(f => f.x === x && f.y === y && (f.item.cssType.includes('cover') || f.item.cssType === 'type-interactive'))) return false;
+                return true;
+            };
+
+            const visited = new Set([sx + ',' + sy]);
+            const queue = [{ x: sx, y: sy }];
+
+            while (queue.length > 0) {
+                const cur = queue.shift();
+                if (Math.abs(cur.x - entrance.x) <= 2 && Math.abs(cur.y - entrance.y) <= 2) return true;
+
+                for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+                    const nx = cur.x + dx, ny = cur.y + dy;
+                    const key = nx + ',' + ny;
+                    if (!visited.has(key) && isWalkable(nx, ny)) {
+                        visited.add(key);
+                        queue.push({ x: nx, y: ny });
+                    }
+                }
+            }
+            return false;
+        };
+
         if (prefX !== undefined && prefY !== undefined) {
-           for(let r=1; r<10; r++) {
-               for(let dy=-r; dy<=r; dy++) {
-                   for(let dx=-r; dx<=r; dx++) {
-                       if(canPlace(prefX+dx, prefY+dy)) return {x: prefX+dx, y: prefY+dy};
-                   }
-               }
-           }
-        }
-        
-        const yMinBox = Math.max(1, Math.floor(data.h * 0.25));
-        const yMaxBox = Math.max(yMinBox, Math.floor(data.h * 0.50));
-        const xMinBox = Math.max(1, Math.floor(data.w * 0.25));
-        const xMaxBox = Math.max(xMinBox, Math.floor(data.w * 0.75));
-
-        const yMin = yMinBox;
-        const yMax = Math.max(yMinBox, yMaxBox - size + 1);
-        const xMin = xMinBox;
-        const xMax = Math.max(xMinBox, xMaxBox - size + 1);
-
-        let bestPos = null;
-        let bestScore = -1;
-        const existingEnemies = Object.keys(data.entityPositions).map(id => data.entityPositions[id]);
-
-        for(let attempts = 0; attempts < 150; attempts++) {
-            let x = rand(xMin, xMax);
-            let y = rand(yMin, yMax);
-
-            if (canPlace(x, y)) {
-                if (existingEnemies.length === 0) return {x, y};
-                
-                let minD = Infinity;
-                existingEnemies.forEach(ep => {
-                    let d = Math.pow(x - ep.x, 2) + Math.pow(y - ep.y, 2);
-                    if (d < minD) minD = d;
-                });
-                
-                if (minD > bestScore) {
-                    bestScore = minD;
-                    bestPos = {x, y};
+            for (let r = 1; r < 12; r++) {
+                for (let dy = -r; dy <= r; dy++) {
+                    for (let dx = -r; dx <= r; dx++) {
+                        if (canPlace(prefX + dx, prefY + dy)) return { x: prefX + dx, y: prefY + dy };
+                    }
                 }
             }
         }
-        if (bestPos) return bestPos;
 
-        const fallYMax = Math.max(1, halfY - size + 1);
-        for(let y=1; y<=fallYMax; y++) {
-            for(let x=1; x<data.w-size; x++) {
-                if (canPlace(x, y)) return {x, y};
+        // Cerca tra tutte le posizioni valide dell'intera mappa
+        const candidates = [];
+        for (let y = 1; y <= data.h - 1 - size; y++) {
+            for (let x = 1; x <= data.w - 1 - size; x++) {
+                if (canPlace(x, y)) {
+                    // Punteggio: distanza dall'ingresso + spazio libero attorno
+                    let dToEntrance = Math.hypot(x - entrance.x, y - entrance.y);
+                    let openSurround = 0;
+                    for (let dy = -1; dy <= size; dy++) {
+                        for (let dx = -1; dx <= size; dx++) {
+                            const cy = y + dy, cx = x + dx;
+                            if (data.grid[cy] && data.grid[cy][cx] === 'floor') openSurround++;
+                        }
+                    }
+                    const reachable = hasPathToEntrance(x, y);
+                    candidates.push({ x, y, score: dToEntrance * 2 + openSurround + (reachable ? 100 : 0), reachable });
+                }
             }
         }
 
-        return {x: Math.floor(data.w/2), y: 1};
+        if (candidates.length > 0) {
+            // Preferisci candidati raggiungibili
+            const reachableCandidates = candidates.filter(c => c.reachable);
+            const pool = reachableCandidates.length > 0 ? reachableCandidates : candidates;
+            pool.sort((a, b) => b.score - a.score);
+            return { x: pool[0].x, y: pool[0].y };
+        }
+
+        // Fallback di sicurezza: prima casella di pavimento libera trovata
+        for (let y = 1; y < data.h - 1; y++) {
+            for (let x = 1; x < data.w - 1; x++) {
+                if (data.grid[y][x] === 'floor' && !isSafeZone(x, y)) return { x, y };
+            }
+        }
+
+        return { x: Math.floor(data.w / 2), y: Math.floor(data.h / 2) };
     }
 
     const MapPresets = {
@@ -1227,29 +1356,33 @@
       let shape = null; const forma = field(/^[\s>*_-]*\**\s*Forma\s*:\**\s*(.+)$/im);
       if (forma) { const key = Object.keys(ShapeVocabulary).find(k => forma.toLowerCase().includes(k)); if (key) shape = ShapeVocabulary[key]; else warnings.push('Forma "' + forma + '" non riconosciuta.'); }
 
+      const disposizione = field(/^[^\p{L}\n]*(?:Disposizione|Scenografia|Descrizione)\s*:\**\s*(.+)$/imu);
+
       const em = /^[^\p{L}\n]*Elementi\s*\**\s*:\**[ \t]*(.*)$/imu.exec(body);
       const elemLines = em ? em[1].split(/\s+[·|;]\s+/).concat(body.slice(em.index + em[0].length).split('\n')) : body.split('\n').filter(l => /^[\s>]*[-•*+]\s+/.test(l));
 
       const elements = [];
       elemLines.forEach(raw => {
-        const line = raw.replace(/^[\s>]*[-•*+]\s*/, '').replace(/\*+/g, '').replace(/\([^)]*\)/g, '').trim(); if (!line || /^(Tipo|Dimensioni|Forma)\s*:/i.test(line)) return;
+        const line = raw.replace(/^[\s>]*[-•*+]\s*/, '').replace(/\*+/g, '').trim();
+        if (!line || /^(Tipo|Dimensioni|Forma|Disposizione|Scenografia|Descrizione)\s*:/i.test(line)) return;
         const parts = line.split(/\s*[—–]\s*|\s+-\s+|\s*:\s*/);
         // Il nome finisce alla prima parentesi: dietro ci sta quasi sempre una descrizione
         // ('Casse (lungo le pareti, mezza copertura)'), che manderebbe a vuoto la ricerca nel
         // catalogo facendo nascere la mappa senza elementi.
         const rawName = (parts[0].split('(')[0].trim() || parts[0]);
+        const detail = parts.length > 1 ? parts.slice(1).join(' — ').trim() : "";
         const feat = resolveFeatureName(rawName);
         const singular = feat ? resolveFeatureNumber(rawName, feat) : false;
         if (!feat) { warnings.push('Elemento "' + rawName + '" non è nel catalogo: ignorato.' + suggestFeatureName(rawName)); return; }
         if (feat.manualOnly) { warnings.push('"' + feat.name + '" non si dichiara nella sezione Arena: ' + feat.manualOnly); return; }
-        elements.push({ feat: feat, singular: singular });
+        elements.push({ feat: feat, singular: singular, detail: detail, raw: rawName });
       });
       if (!elements.length) warnings.push('Nessun elemento riconosciuto sotto "Elementi:".');
 
-      return { presetKey: presetKey, w: w, h: h, shape: shape, elements: elements, warnings: warnings };
+      return { presetKey: presetKey, w: w, h: h, shape: shape, elements: elements, disposizione: disposizione, warnings: warnings };
     }
 
-    function generateDynamicMap(spec, presetKey) {
+    function buildArenaGrid(spec, presetKey) {
       if (presetKey) spec = null;
       const preset = MapPresets[presetKey || (spec && spec.presetKey) || 'base'];
       let shape = (spec && spec.shape) || preset.shape, typeDesc = preset.label;
@@ -1306,6 +1439,206 @@
           addDoor(0, 1); addDoor(baseH-1, baseH-2);
       }
 
+      return { baseW, baseH, typeDesc, grid };
+    }
+
+    async function generateAiMapLayout(spec, tactics, narrativeText, apiKey, combatantsList) {
+      if (!spec || !spec.elements || spec.elements.length === 0 || !apiKey) return null;
+      const { baseW, baseH, typeDesc, grid } = buildArenaGrid(spec);
+
+      const doors = [];
+      for (let y = 0; y < baseH; y++) {
+        for (let x = 0; x < baseW; x++) {
+          if (grid[y][x] === 'door') doors.push({ x, y });
+        }
+      }
+
+      const isSafeZone = (x, y) => {
+        // 1. Raggio di sicurezza di almeno 2.5 caselle da qualunque porta
+        for (const d of doors) {
+          if (Math.hypot(x - d.x, y - d.y) <= 2.5) return true;
+        }
+        // 2. Corridoio stretto d'accesso: se entro 4 caselle dalla porta la riga è stretta (<= 3 caselle calpestabili)
+        for (const d of doors) {
+          if (Math.abs(y - d.y) <= 4) {
+            let rowFloors = 0;
+            for (let fx = 0; fx < baseW; fx++) {
+              if (grid[y] && (grid[y][fx] === 'floor' || grid[y][fx] === 'door')) rowFloors++;
+            }
+            if (rowFloors <= 3) return true;
+          }
+        }
+        return false;
+      };
+
+      const elementsDesc = spec.elements.map(e => {
+        let txt = `  * ${e.feat.name} (ingombro ${e.feat.defaultSize || 1}x${e.feat.defaultSize || 1})`;
+        if (e.detail) txt += ` — Posizione/Dettaglio: "${e.detail}"`;
+        if (e.singular) txt += ` [Elemento singolo specificato]`;
+        return txt;
+      });
+
+      const monstersDesc = (combatantsList || []).map(m => `  * ${m.name} (ID: ${m.id}, taglia caselle: ${m.size}x${m.size})`).join('\n');
+      const doorsDesc = doors.length ? JSON.stringify(doors) : `[{"x": ${Math.floor(baseW/2)}, "y": ${baseH-1}}]`;
+
+      const prompt = `Sei un battlemap designer e tactician per D&D 5e.
+Devi posizionare sia gli elementi d'arredo/ostacoli che i nemici sul reticolo della battlemap in modo tattico, intelligente, scenografico e coerente con la conformazione della stanza e la narrazione.
+
+DATI BATTLEMAP:
+- Dimensioni: larghezza ${baseW} x altezza ${baseH} caselle (coordinate x da 1 a ${baseW-2}, y da 1 a ${baseH-2}).
+- Tipo stanza: ${typeDesc}
+- Disposizione scenografica d'ambiente: "${spec.disposizione || 'Non specificata'}"
+- Note Tattiche dello scontro: "${tactics || 'Nessuna nota specifica'}"
+- Ingressi/Porte dei PG (da NON ostruire): ${doorsDesc}
+- Elementi d'arredo/ostacoli dichiarati da posizionare:
+${elementsDesc.join('\n')}
+${monstersDesc ? `- Mostri/Nemici da posizionare:\n${monstersDesc}` : ''}
+
+REGOLE DI POSIZIONAMENTO ELEMENTI:
+1. NESSUN LIMITE DI CONTEGGIO: posiziona quante istanze di ciascun elemento ritieni necessarie per rendere l'ambiente credibile, suggestivo e fedele alla descrizione (es. ampie zone o macchie multiple di terreno difficile per Fango/Radici/Muffa, linee di copertura per Rocce/Macerie). L'unico vincolo è preservare spazio calpestabile e corridoi di movimento.
+2. Posiziona gli elementi esclusivamente su caselle valide di pavimento (x: 1..${baseW-2}, y: 1..${baseH-2}).
+3. CORRIDOIO E INGRESSO DEI GIOCATORI COMPLETAMENTE SGOMBRI:
+   - Le porte e l'intero corridoio/strettoia d'accesso iniziale (almeno 3-4 caselle dall'ingresso) devono rimanere TOTALMENTE LIBERI da coperture solide, statue, altari, pilastri o barricate. I PG devono poter entrare e schierarsi liberamente.
+   - Se la narrazione menziona ripari o monumenti "a ridosso dell'ingresso", interpretalo posizionandoli all'interno della cavità/stanza principale aperti verso l'ingresso, MAI nel collo di bottiglia o sulla soglia della porta.
+4. Crea opportunità tattiche: coperture a mezza distanza tra i fronti, ostacoli che creano strettoie difendibili o pericoli ambientali coerenti.
+
+REGOLE RIGIDE PER IL POSIZIONAMENTO DEI NEMICI:
+1. Posiziona ciascun nemico in una posizione di partenza tattica coerente con la scena (es. se la descrizione o la tattica dice che si stacca dalle ombre del retro, posizionalo nella parte posteriore o all'estremo opposto dell'ingresso).
+2. L'intero ingombro del mostro (taglia x taglia) deve poggiare su celle libere di pavimento 'floor'.
+3. NON posizionare mostri sopra coperture solide (es. Rocce, Macerie, Pilastri).
+4. NON BLOCCARE I MOSTRI: ogni nemico DEVE avere una via di fuga/avanzata aperta (non essere circondato da muri o coperture).
+
+FORMATO DI RISPOSTA:
+Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà "features" e "monsters":
+{
+  "features": [
+    { "name": "${spec.elements[0] ? spec.elements[0].feat.name : 'Rocce'}", "x": 5, "y": 6 }
+  ],
+  "monsters": [
+    { "id": ${(combatantsList && combatantsList[0]) ? combatantsList[0].id : 1}, "name": "${(combatantsList && combatantsList[0]) ? combatantsList[0].name : 'Mostro'}", "x": 10, "y": 4 }
+  ]
+}`;
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+      try {
+        let modelName = getStoredModel();
+        let response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
+          body: JSON.stringify({
+            contents: [{ role: "user", parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.3,
+              responseMimeType: "application/json"
+            }
+          })
+        });
+
+        if (response.status === 404) {
+          modelName = (modelName === "gemini-2.0-flash") ? "gemini-1.5-flash" : "gemini-2.0-flash";
+          response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
+            body: JSON.stringify({
+              contents: [{ role: "user", parts: [{ text: prompt }] }],
+              generationConfig: {
+                temperature: 0.3,
+                responseMimeType: "application/json"
+              }
+            })
+          });
+        }
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) return null;
+        const data = await response.json();
+        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) return null;
+        const rawJson = data.candidates[0].content.parts[0].text;
+        const parsed = JSON.parse(rawJson);
+        
+        let featList = [];
+        let monstList = [];
+        if (Array.isArray(parsed)) {
+          featList = parsed;
+        } else if (parsed && typeof parsed === 'object') {
+          featList = Array.isArray(parsed.features) ? parsed.features : [];
+          monstList = Array.isArray(parsed.monsters) ? parsed.monsters : [];
+        }
+
+        let mapData = { w: baseW, h: baseH, typeDesc: typeDesc, grid: grid, placedFeatures: [], entityPositions: {} };
+        const occupied = new Set();
+        const key = (x, y) => x + "," + y;
+
+        for (const item of featList) {
+          if (!item || typeof item.x !== 'number' || typeof item.y !== 'number' || !item.name) continue;
+          const feat = resolveFeatureName(item.name);
+          if (!feat) continue;
+          const s = feat.defaultSize || 1;
+          const ix = Math.floor(item.x), iy = Math.floor(item.y);
+
+          // Verifica footprint elemento
+          let valid = true;
+          for (let dy = 0; dy < s; dy++) {
+            for (let dx = 0; dx < s; dx++) {
+              const cx = ix + dx, cy = iy + dy;
+              if (cx < 1 || cy < 1 || cx > baseW - 2 || cy > baseH - 2) { valid = false; break; }
+              if (!grid[cy] || grid[cy][cx] !== 'floor' || isSafeZone(cx, cy) || occupied.has(key(cx, cy))) { valid = false; break; }
+            }
+            if (!valid) break;
+          }
+
+          if (valid) {
+            for (let dy = 0; dy < s; dy++) {
+              for (let dx = 0; dx < s; dx++) occupied.add(key(ix + dx, iy + dy));
+            }
+            mapData.placedFeatures.push({ item: feat, x: ix, y: iy, uid: 'f_ai_' + Math.random(), size: s });
+          }
+        }
+
+        // Posizionamento mostri guidato da AI
+        if (combatantsList && combatantsList.length > 0) {
+          combatantsList.forEach(m => {
+            const aiPos = monstList.find(aiM => aiM.id == m.id || (aiM.name && aiM.name.toLowerCase() === m.name.toLowerCase()));
+            if (aiPos && typeof aiPos.x === 'number' && typeof aiPos.y === 'number') {
+              const mx = Math.floor(aiPos.x), my = Math.floor(aiPos.y);
+              const sz = m.size || 1;
+              let canFit = true;
+              for (let dy = 0; dy < sz; dy++) {
+                for (let dx = 0; dx < sz; dx++) {
+                  const cx = mx + dx, cy = my + dy;
+                  if (cx < 1 || cy < 1 || cx + sz > baseW - 1 || cy + sz > baseH - 1) { canFit = false; break; }
+                  if (!grid[cy] || grid[cy][cx] !== 'floor' || isSafeZone(cx, cy)) { canFit = false; break; }
+                  // Non sopra ostacoli di copertura solida o trappole
+                  if (mapData.placedFeatures.some(f => f.x === cx && f.y === cy && (f.item.cssType.includes('cover') || f.item.cssType === 'type-interactive'))) {
+                    canFit = false; break;
+                  }
+                }
+                if (!canFit) break;
+              }
+              if (canFit) {
+                mapData.entityPositions[m.id] = { x: mx, y: my };
+              }
+            }
+          });
+        }
+
+        if (mapData.placedFeatures.length > 0) {
+          return mapData;
+        }
+        return null;
+      } catch (err) {
+        clearTimeout(timeoutId);
+        return null;
+      }
+    }
+
+    function generateDynamicMap(spec, presetKey) {
+      const { baseW, baseH, typeDesc, grid } = buildArenaGrid(spec, presetKey);
       let mapData = { w: baseW, h: baseH, typeDesc: typeDesc, grid: grid, placedFeatures: [], entityPositions: {} };
       const declared = (spec && spec.elements) || [];
 
@@ -1958,7 +2291,7 @@
         return out;
     }
 
-    function processImport() {
+    async function processImport() {
       let text = document.getElementById("importTextarea").value.trim(); if (!text) return;
       text = joinSplitStatblockHeaders(text);
       const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster);
@@ -2065,7 +2398,29 @@
           for (let j = 0; j < count; j++) newEnc.combatants.push({ id: Date.now() + Math.random(), name: count > 1 ? `${mName} ${j+1}` : mName, isMonster: true, initBonus: dexMod, init: Math.floor(Math.random() * 20) + 1 + dexMod, ac: mAc, hp: mHp, maxHp: mHp, isDown: false, telegraph: null, notes: "" });
       }
 
-      newEnc.mapData = arenaSpec ? generateDynamicMap(arenaSpec) : null;
+      newEnc.hasImportedContent = true;
+      let mapData = null;
+      const apiKey = getStoredApiKey();
+      if (arenaSpec) {
+        if (apiKey) {
+          try {
+            const monstersToPlace = newEnc.combatants.filter(c => c.isMonster).map(c => {
+              const sb = newEnc.statblocks.find(s => s.name.toLowerCase() === getBaseName(c.name).toLowerCase());
+              const sz = sb && sb.size ? sb.size : 1;
+              return { id: c.id, name: c.name, size: sz };
+            });
+            mapData = await generateAiMapLayout(arenaSpec, tactics, narrativeText, apiKey, monstersToPlace);
+          } catch (e) {
+            console.warn("AI map layout failed, fallback to procedural:", e);
+            mapData = null;
+          }
+        }
+        if (!mapData) {
+          mapData = generateDynamicMap(arenaSpec);
+        }
+      }
+      newEnc.mapData = mapData;
+
       if (isCurrentEmpty) { encountersData[currentEncounterIndex] = newEnc; } else { encountersData.push(newEnc); currentEncounterIndex = encountersData.length - 1; }
       // L'import atterra sul PRIMO slot del nuovo scontro, come farebbe un cambio di scheda: senza
       // azzerare gli indici il pannello resta puntato sullo stat block scelto nell'incontro precedente.
@@ -2075,6 +2430,106 @@
       captureBaseRosters(); renderTabs(); renderEncounter();
       if (!arenaSpec) showAlert("Sezione Arena mancante nel pacchetto: nemici e statistiche sono stati caricati, la mappa no.<br><br>Aggiungi al pacchetto una sezione \"Arena\" con Tipo, Dimensioni ed Elementi, oppure usa 🗺️ Genera Mappa per una mappa vuota da modello.");
       else if (arenaSpec.warnings.length) showAlert("Sezione Arena caricata con riserve:<br><br>• " + arenaSpec.warnings.join("<br>• "));
+    }
+
+    // --- GESTIONE API KEY GOOGLE GEMINI ---
+    function getStoredApiKey() {
+      return (localStorage.getItem("dnd_gemini_api_key") || "").trim();
+    }
+
+    function updateApiKeyTopIndicator() {
+      const key = getStoredApiKey();
+      const label = document.getElementById("apiKeyTopLabel");
+      if (!label) return;
+      if (key) {
+        label.innerHTML = `API Key <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; margin-left:3px;" title="Configurata"></span>`;
+      } else {
+        label.innerHTML = `API Key <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#6b7280; margin-left:3px;" title="Non configurata"></span>`;
+      }
+    }
+
+    function getStoredModel() {
+      return localStorage.getItem("dnd_gemini_model") || "gemini-2.0-flash";
+    }
+
+    function openApiKeyModal() {
+      const input = document.getElementById("geminiApiKeyInput");
+      input.value = getStoredApiKey();
+      const modelSel = document.getElementById("geminiModelSelect");
+      if (modelSel) modelSel.value = getStoredModel();
+      const statusBox = document.getElementById("apiKeyStatusBox");
+      statusBox.style.display = "none";
+      document.getElementById("apiKeyModal").style.display = "flex";
+      if (input.value) testApiKeyQuota();
+    }
+
+    function closeApiKeyModal() {
+      document.getElementById("apiKeyModal").style.display = "none";
+      updateApiKeyTopIndicator();
+    }
+
+    function saveApiKey() {
+      const val = document.getElementById("geminiApiKeyInput").value.trim();
+      const modelSel = document.getElementById("geminiModelSelect");
+      if (modelSel) localStorage.setItem("dnd_gemini_model", modelSel.value);
+      if (!val) {
+        localStorage.removeItem("dnd_gemini_api_key");
+        showAlert("API Key rimossa.");
+      } else {
+        localStorage.setItem("dnd_gemini_api_key", val);
+        showAlert("Impostazioni API salvate con successo!");
+      }
+      closeApiKeyModal();
+    }
+
+    function removeApiKey() {
+      localStorage.removeItem("dnd_gemini_api_key");
+      document.getElementById("geminiApiKeyInput").value = "";
+      const statusBox = document.getElementById("apiKeyStatusBox");
+      statusBox.style.display = "none";
+      showAlert("API Key rimossa dal browser.");
+      updateApiKeyTopIndicator();
+    }
+
+    async function checkApiKeyStatus(apiKey) {
+      if (!apiKey) return { ok: false, reason: "missing", message: "Nessuna API Key configurata." };
+      try {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
+        if (res.ok) {
+          return { ok: true, message: "Connessione riuscita! Quota Gemini attiva." };
+        } else if (res.status === 429) {
+          return { ok: false, reason: "quota", message: "Quota API esaurita (errore 429). Riprova più tardi." };
+        } else if (res.status === 400 || res.status === 403) {
+          return { ok: false, reason: "invalid", message: "API Key non valida o non autorizzata (errore " + res.status + ")." };
+        } else {
+          return { ok: false, reason: "error", message: "Errore API Google: HTTP " + res.status };
+        }
+      } catch (err) {
+        return { ok: false, reason: "network", message: "Errore di rete o API irraggiungibile: " + err.message };
+      }
+    }
+
+    async function testApiKeyQuota() {
+      const key = document.getElementById("geminiApiKeyInput").value.trim();
+      const statusBox = document.getElementById("apiKeyStatusBox");
+      statusBox.style.display = "block";
+      statusBox.style.background = "rgba(59, 130, 246, 0.15)";
+      statusBox.style.border = "1px solid #3b82f6";
+      statusBox.style.color = "#93c5fd";
+      statusBox.innerHTML = "⏳ Verifica connessione e quota in corso...";
+
+      const check = await checkApiKeyStatus(key);
+      if (check.ok) {
+        statusBox.style.background = "rgba(16, 185, 129, 0.15)";
+        statusBox.style.border = "1px solid #10b981";
+        statusBox.style.color = "#34d399";
+        statusBox.innerHTML = "🟢 " + check.message;
+      } else {
+        statusBox.style.background = "rgba(239, 68, 68, 0.15)";
+        statusBox.style.border = "1px solid #ef4444";
+        statusBox.style.color = "#f87171";
+        statusBox.innerHTML = "🔴 " + check.message;
+      }
     }
 
     // --- GESTIONE GENERATORE AI ---
@@ -2113,13 +2568,44 @@
       el.textContent = `🎯 GdS ${xpToGds(totalXp)}, budget XP ~${totalXp} (${perPG} × ${numPG} PG, soglia "${difficolta}")`;
     }
 
-    function openGenerateModal() {
+    async function openGenerateModal() {
         document.getElementById("generateModal").style.display = "flex";
-        const savedKey = localStorage.getItem("dnd_gemini_api_key");
-        if (savedKey) document.getElementById("aiApiKey").value = savedKey;
         const mapSel = document.getElementById("aiMapPreset");
         if (mapSel.options.length <= 1) Object.entries(MapPresets).forEach(([k, p]) => mapSel.add(new Option(p.label, k)));
         updateAiXpEstimate();
+
+        const apiKey = getStoredApiKey();
+        const banner = document.getElementById("aiApiStatusBanner");
+        const btnGen = document.getElementById("btnRunAiGen");
+
+        if (!apiKey) {
+            banner.style.background = "rgba(245, 158, 11, 0.15)";
+            banner.style.border = "1px solid #f59e0b";
+            banner.style.color = "#fbbf24";
+            banner.innerHTML = `<span>⚠️ Nessuna API Key configurata.</span> <button class="btn-secondary" style="padding:2px 8px; font-size:0.75rem;" onclick="closeGenerateModal(); openApiKeyModal();">Configura 🔑</button>`;
+            if (btnGen) btnGen.disabled = true;
+        } else {
+            banner.style.background = "rgba(59, 130, 246, 0.15)";
+            banner.style.border = "1px solid #3b82f6";
+            banner.style.color = "#93c5fd";
+            banner.innerHTML = `<span>⏳ Verifica disponibilità API Gemini...</span>`;
+            if (btnGen) btnGen.disabled = true;
+
+            const check = await checkApiKeyStatus(apiKey);
+            if (check.ok) {
+                banner.style.background = "rgba(16, 185, 129, 0.15)";
+                banner.style.border = "1px solid #10b981";
+                banner.style.color = "#34d399";
+                banner.innerHTML = `<span>🟢 ${check.message}</span>`;
+                if (btnGen) btnGen.disabled = false;
+            } else {
+                banner.style.background = "rgba(239, 68, 68, 0.15)";
+                banner.style.border = "1px solid #ef4444";
+                banner.style.color = "#f87171";
+                banner.innerHTML = `<span>🔴 ${check.message}</span> <button class="btn-secondary" style="padding:2px 8px; font-size:0.75rem; margin-left:6px;" onclick="closeGenerateModal(); openApiKeyModal();">Gestisci 🔑</button>`;
+                if (btnGen) btnGen.disabled = true;
+            }
+        }
     }
 
     function closeGenerateModal() {
@@ -2127,44 +2613,51 @@
     }
 
     async function runAiGeneration() {
-        const apiKey = document.getElementById("aiApiKey").value.trim();
+        const apiKey = getStoredApiKey();
+        if (!apiKey) {
+            showAlert("Nessuna API Key configurata. Usa il tasto 🔑 in alto a destra per impostarla.");
+            return;
+        }
         const numPG = document.getElementById("aiNumPG").value.trim();
         const livello = document.getElementById("aiLivello").value.trim();
         const difficolta = document.getElementById("aiDifficolta").value;
         const mostri = document.getElementById("aiMostri").value.trim();
         const arena = document.getElementById("aiArena").value.trim();
 
-        if (!apiKey) { showAlert("Inserisci una API Key valida per Google Gemini."); return; }
         if (!numPG || !livello) { showAlert("Inserisci numero di PG e livello."); return; }
 
         let userPrompt = `Scontro per ${numPG} PG di livello ${livello}. Difficoltà: ${difficolta}.`;
         userPrompt += mostri ? ` Mostri: ${mostri}.` : ` Scegli tu i mostri più adatti alla difficoltà richiesta.`;
         userPrompt += arena ? ` Arena: ${arena}.` : ` Deduci l'arena più adatta dai mostri scelti.`;
 
-        localStorage.setItem("dnd_gemini_api_key", apiKey);
-
         document.getElementById("generateLoading").style.display = "block";
 
-        // Questo system prompt costringe l'AI a produrre output perfettamente compatibile col parser di processImport
         const systemPrompt = `Sei un Game Master esperto di D&D 5e. Crea uno scontro in base al prompt dell'utente (bilancia i GdS per la difficoltà richiesta).
 Devi restituire ESATTAMENTE E SOLO un testo formattato come segue, senza markdown esterni o chiacchiere:
 
-### Pacchetto Incontro: [Inventa un Titolo Epico]
-**Difficoltà:** [Facile / Media / Difficile / Mortale]
+### 🗡️ Pacchetto Incontro: [Inventa un Titolo Epico]
+**Difficoltà:** ${difficolta}
+**Innesco:** [Breve innesco della battaglia]
+
+**📖 Da leggere ai PG:**
+[Breve descrizione narrativa ed evocativa della scena da leggere a voce alta]
+
+\`\`\`
 **Nemici:** [Nome Mostro 1] ×[Num] · [Nome Mostro 2] ×[Num]
 
-[Opzionale: Un paragrafo "Da leggere ai PG:" con breve descrizione narrativa]
-
-#### Arena
+#### 🏟️ Arena
 **Tipo:** [Scegli esattamente uno tra: Spazio Aperto, Grande Arena, Sala Ampia, Rovine Complesse, Caverna Irregolare, Struttura Circolare, Galleria, Passaggio Stretto, Stanza Base]
-**Dimensioni:** [Es. 18] × [Es. 14] yalm
+**Dimensioni:** [Es. 18] × [Es. 14]
 **Forma:** [Scegli esattamente una tra: aperta, circolare, irregolare, articolata, regolare]
+**Disposizione:** [1-2 frasi che descrivono dove sono collocati gli ostacoli e da dove emergono i nemici]
 **Elementi:**
-- [SOLO il nome esatto dal catalogo, NIENTE descrizioni o parentesi: Rocce, Macerie, Albero, Acqua, Fango, Voragine, Rovi/Spine, Oscurità Magica, Statua/Altare]
+- [Nome dal catalogo con eventuale nota dopo em-dash, es: Rocce — lungo le pareti, Fango — al centro, Radici, Muffa, Macerie, Albero, Acqua, Rovi/Spine, Oscurità Magica, Statua/Altare]
 [Il numero grammaticale sceglie quanti elementi appaiono: SINGOLARE = uno solo sulla mappa, PLURALE = gruppo sparso. Usa il plurale quando la zona ne ha più di uno: Albero/Alberi, Pilastro/Pilastri, Statua/Statue, Barricata/Barricate, Cespuglio/Cespugli, Siepe/Siepi, Carro/Carri, Carovana/Carovane, Roccia/Rocce, Cassa/Casse, Anfora/Anfore, Mobile/Mobili]
 
+**Tattica:** [Strategia generale dei mostri e comportamento in combattimento]
+
 [Genera per ogni tipo di mostro il seguente statblock]
-[Nome Mostro] — [Taglia: Piccola/Media/Grande/Enorme/Mastodontica] · CA [Num] · PF [Num] · Vel [Num] yalm
+**[Nome Mostro]** — [Taglia: Piccola/Media/Grande/Enorme/Mastodontica] · CA [Num] · PF [Num] · Vel [Num] yalm
 FOR [Num] (+Mod) · DES [Num] (+Mod) · COS [Num] (+Mod) · INT [Num] (+Mod) · SAG [Num] (+Mod) · CAR [Num] (+Mod)
 TS: [Es: DES +4]
 Abilità: [Es: Furtività +5]
@@ -2172,11 +2665,15 @@ Sensi: [Es: Scurovisione 12 yalm]
 GdS [Num]
 
 Multiattacco — [Descrizione]
-[Nome Azione] — [Descrizione, es: +5 a colpire, 1d8 danni]`;
+[Nome Azione] — [Descrizione, es: +5 a colpire, 1d8 danni]
+
+#### 💰 Bottino
+[Quota] Gil a persona (totale: [Totale] Gil); [eventuali drop materiali o pozioni]
+\`\`\``;
 
         try {
-            // Chiamata all'API gratuita di Gemini (modello veloce flash)
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`, {
+            let modelName = getStoredModel();
+            let response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -2186,11 +2683,24 @@ Multiattacco — [Descrizione]
                 })
             });
 
+            if (response.status === 404) {
+                modelName = (modelName === "gemini-2.0-flash") ? "gemini-1.5-flash" : "gemini-2.0-flash";
+                response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+                        systemInstruction: { role: "system", parts: [{ text: systemPrompt }] },
+                        generationConfig: { temperature: 0.7 }
+                    })
+                });
+            }
+
             const data = await response.json();
             document.getElementById("generateLoading").style.display = "none";
 
             if (data.error) {
-                showAlert("Errore API: " + data.error.message);
+                showAlert("Errore API Google Gemini: " + data.error.message);
                 return;
             }
 
@@ -2199,7 +2709,7 @@ Multiattacco — [Descrizione]
             const mapPresetKey = document.getElementById("aiMapPreset").value;
             document.getElementById("importTextarea").value = generatedText.trim();
             closeGenerateModal();
-            processImport();
+            await processImport();
             if (mapPresetKey) generateEmptyMap(mapPresetKey);
 
         } catch (error) {

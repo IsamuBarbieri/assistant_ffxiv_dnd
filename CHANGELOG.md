@@ -1,5 +1,50 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-02c — Disposizione Scenografica Arena, Elementi Illimitati AI e Posizionamento Intelligente Mostri
+
+Evoluzione coordinata tra Table Tool (`combat_tracker.html`), Knowledge Layer (`06` v6.77) e Control Layer (`cv142`, `ov78`, `lv59`):
+- **DISPOSIZIONE SCENOGRAFICA IN `#### 🏟️ Arena` (§B8):**
+  - Aggiunto il campo opzionale `**Disposizione:**` (o `**Scenografia:**`) subito dopo `Forma:` in `#### 🏟️ Arena`, dedicato a una sintesi in 1-2 frasi della scenografia e della collocazione di nemici/ostacoli.
+  - Supportate note descrittive inline su ciascun elemento (`- Elemento — note di dettaglio`).
+  - L'AI nel Combat Tracker riceve `Disposizione` e le note di ciascun elemento per arredare la mappa con estrema fedeltà visiva e tattica. Il fallback procedurale ignora il campo e pulisce le note inline senza errori.
+- **RIMOZIONE LIMITI QUANTITATIVI ELEMENTI NELL'AI:**
+  - L'AI non ha più limiti artificiali (es. "2-4 elementi"): può posizionare quante istanze ritiene opportune per rendere la scena suggestiva, realistica e credibile in base alle dimensioni dell'arena (es. vaste zone o banchi multipli di fango, formazioni di rocce, barriere di radici), preservando lo spazio di manovra e combattimento.
+- **POSIZIONAMENTO TATTICO DEI MOSTRI CON AI:**
+  - Nel prompt dell'AI vengono passati tutti i mostri dello scontro con relativo ingombro (in caselle).
+  - L'AI posiziona i nemici in posizioni coerenti con la narrazione (es. sul retro della caverna, in copertura o in avanscoperta).
+  - Regole rigide: l'ingombro deve poggiare interamente su pavimento libero, mai sopra coperture solide o trappole, con rotta di movimento aperta e non intrappolata.
+- **FALLBACK PROCEDURALE DEI MOSTRI RISCRITTO (`findEmptySpot`):**
+  - Rimosso il limite che forzava i mostri nella sola metà superiore o in una porzione ridotta al 25% dell'arena.
+  - Ricerca estesa a tutta la mappa calcolando punteggio di distanza dall'ingresso dei PG, spazio libero circostante e controllo di raggiungibilità BFS verso la porta d'accesso per prevenire nemici bloccati o intrappolati da rocce/muri.
+- **PROTEZIONE CORRIDOI INGRESSO & SELEZIONE MODELLO AI:**
+  - `isSafeZone` e prompt aggiornati per proteggere porte e interi corridoi/strettoie d'ingresso ($\le 3$ caselle) da coperture solide, impedendo che altari o massi blocchino l'accesso dei PG.
+  - Aggiunto selettore modello (`Gemini 2.0 Flash` vs `Gemini 1.5 Pro`) nel modale `🔑 API Key`.
+  - `🔄 Rigenera Mappa` ora interroga l'AI per generare un nuovo layout tattico alternativo su richiesta quando l'API key è attiva.
+
+06 v6.77 · cv142 · ov78 · lv59 · mv17.
+
+## 2026-09-02b — Integrazione Fanfara, Gestione API Key, Mappa Tattica AI e Tab Dinamico nel Combat Tracker
+
+Aggiornamento del Table Tool (`combat_tracker.html`), Knowledge Layer (`06` v6.76) e Control Layer (`cv141`, `ov77`, `lv58`):
+- **FANFARA DI VITTORIA NEL TRACKER:**
+  - Aggiunto pulsante `🎵 Fanfara Vittoria` nell'header in alto a destra del tracker che apre il tema canonico FFXIV su YouTube in una nuova scheda.
+  - Rimosso l'obbligo di emissione del link YouTube dall'output dell'assistente in §A23, §B1, §B8 e negli `<output_contract>` dei tre assistenti (il pacchetto incontri si chiude direttamente dopo `#### 💰 Bottino`).
+- **GESTIONE DEDICATA API KEY GEMINI:**
+  - Aggiunto pulsante `🔑 API Key` nell'header in alto a destra con modal dedicato (`apiKeyModal`) per inserimento, salvataggio in `localStorage`, rimozione e test rapido di connessione e quota (endpoint gratuito Google Gemini `models?key=...`).
+  - L'indicatore nell'header segnala graficamente se la chiave è presente e attiva.
+- **MENU "GENERA INCONTRO AI" CON DIAGNOSTICA QUOTA:**
+  - Rimosso il campo password per l'API key dall'interno della modal Genera.
+  - Banner informativo che rileva istantaneamente se la chiave è configurata o se la quota è esaurita (errore 429), bloccando/abilitando coerentemente il pulsante di generazione.
+  - Aggiornato l'endpoint a `gemini-2.0-flash` (con fallback automatico a `gemini-1.5-flash`), eliminando il precedente `gemini-3.5-flash` inesistente.
+- **POSIZIONAMENTO TATTICO MAPPE AI ALL'IMPORTAZIONE:**
+  - Quando si importa un pacchetto incontro tramite `📥 Importa`: se l'API key è memorizzata e valida, il tracker interpella l'AI per posizionare gli elementi d'arredo/ostacoli sul pavimento in modo intelligente e tattico, rispettando ingressi/uscite e note tattiche.
+  - In assenza di chiave o in caso di errore di quota/rete, il tracker effettua un fallback fluido e immediato sull'algoritmo procedurale nativo.
+- **VISIBILITÀ DINAMICA TAB TATTICA & BOTTINO:**
+  - Il tab `🎯 Tattica & Bottino` resta nascosto al lancio iniziale del tracker con scontro vuoto.
+  - Compare dinamicamente non appena viene importato o generato uno scontro, o in presenza di nemici/tattiche/bottino caricati.
+
+06 v6.76 · cv141 · ov77 · lv58 · mv16.
+
 ## 2026-09-02 — Comando /help agnostico e dinamico nel Control Layer (cv140, ov76, lv57)
 
 Aggiunto il comando `/help` a tutti gli assistenti (`Campaign`, `One-Shot`, `Loremonger`):
