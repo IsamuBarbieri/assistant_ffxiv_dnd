@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.23 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.24 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -1039,11 +1039,9 @@ One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check o
   - *Heat Waves (Ondata di calore 🏜️):* Extreme Heat (DMG 5e): creatures wearing medium or heavy armor, or creatures lacking double daily water rations, must succeed on an hourly DC 10 Constitution saving throw or gain 1 level of exhaustion.
   - *Blizzards (Tormenta / Bufera 🌨️):* Extreme Cold (DMG 5e): hourly DC 10 Constitution saving throw without cold-weather gear or gain 1 level of exhaustion; area is heavily obscured beyond 6 yalm; snow drifts are difficult terrain; disadvantage on all ranged attacks.
   - *Gales (Burrasca 💨):* gale-force winds halve flight speeds and require DC 13 Strength checks to advance forward; ranged weapon attacks suffer disadvantage.
-- **Weather Evolution & Long Rest Refresh:**
-  - *Zone Transitions (/viaggio):* travel into a new zone adopts a canon weather condition of that destination.
-  - *Daytime Progression:* weather naturally shifts as Orario advances across time periods or after 2-3 beats without change.
-  - *Long Rest (/riposo):* Orario resets to 0 and weather ALWAYS rerolls/refreshes for the new dawn based on the current zone's canon list.
-  - *GM Override (/meteo):* the GM may inspect or override the weather at any moment via the weather command (`/meteo [condizione]`).
+- **Weather Evolution, Shift Lead-in & Long Rest Refresh:**
+  - *Daytime Progression & Shift Lead-in:* each beat tracks active weather duration in hours (`da N ore`); weather naturally shifts when it has persisted for 3-4 hours or as Orario crosses period boundaries. When weather shifts OR Orario crosses into a new time period (Alba/Mattino/Pomeriggio/Tardo Pomeriggio/Sera/Notte), the opening 1-2 sentences of the beat explicitly describe the transition in the sky, lighting, shadows, and atmosphere.
+  - *Long Rest (/riposo):* Orario resets to 0 and weather ALWAYS rerolls/refreshes for the new dawn based on the current zone's canon list (duration resets to `da 0 ore`).
 
 # CHAPTER 15 — TAVERNS & GOSSIP
 The tavern as a social hub between adventures: roleplay and flavor, a light rumor system, and the job board.

@@ -1,5 +1,22 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-02d — Tracciamento Durata Meteo Attivo in Save e Footer della Campagna
+
+Evoluzione coordinata tra Knowledge Layer (`06` v6.78, `05` v2.24) e Control Layer (`cv143`):
+- **TRACCIAMENTO CONTINUO DELLA DURATA METEO (`da N ore`):**
+  - Nel blocco `=== SAVE ===` sotto `[B] PARTY`, il campo `Meteo` traccia ora esplicitamente la durata in ore dall'inizio della condizione attiva: `- Meteo: {Condizione} (da N ore)` (es. `Meteo: Sereno (da 2 ore)` o singolare `da 1 ora`).
+  - Nel footer di ogni beat giocato (`⏱️ / 🌙 Orario & Meteo`), la durata attiva viene mostrata dinamicamente di fianco alla condizione atmosferica ed emoji (`Meteo: Sereno ☀️ (da 2 ore)`), avanzando di pari passo con l'Orario (`+delta`).
+- **DINAMICHE DI TRANSIZIONE & SOGLIE ATMOSFERICHE:**
+  - Il meteo evolve plausibilmente quando persiste continuativamente per 3-4 ore o al varcare delle soglie orarie principali della giornata (Alba 0, Mattino 1, Pomeriggio 5, Tardo Pomeriggio 9, Sera 13, Notte 16).
+  - Al variare del meteo (o su `/viaggio` verso una nuova zona), il contatore si riallinea alla durata del tragitto o riparte da `(da 1 ora)`.
+  - Sul riposo lungo (`/riposo`) e sul comando manuale `/meteo [condizione]`, il contatore si azzera a `(da 0 ore)`.
+- **PROSA DIEGETICA DEL CAMBIO AMBIENTALE A INIZIO BEAT:**
+  - Quando il meteo cambia O l'Orario varca una soglia di periodo (Alba 0, Mattino 1, Pomeriggio 5, Tardo Pomeriggio 9, Sera 13, Notte 16), le prime 1-2 frasi di prosa del beat descrivono esplicitamente il mutare del cielo, della luce, delle ombre o dell'atmosfera (es. sole calante, torce accese, nubi o pioggia), immergendo i giocatori nell'ambiente prima di dialoghi o azioni.
+- **RETROCOMPATIBILITÀ SAVE:**
+  - I salvataggi precedenti privi di parentesi (es. `Meteo: Sereno`) vengono letti e interpretati silenziosamente come `(da 1 ora)`, senza pause né errori di caricamento.
+
+05 v2.24 · 06 v6.78 · cv143 · ov78 · lv59 · mv18.
+
 ## 2026-09-02c — Disposizione Scenografica Arena, Elementi Illimitati AI e Posizionamento Intelligente Mostri
 
 Evoluzione coordinata tra Table Tool (`combat_tracker.html`), Knowledge Layer (`06` v6.77) e Control Layer (`cv142`, `ov78`, `lv59`):
