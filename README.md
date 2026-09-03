@@ -62,7 +62,7 @@ Stessa struttura nei tre: `role` · `knowledge` · `scope` · `commands` · `bea
 | `CHANGELOG.md` | cosa è cambiato, quando e **perché**. Ogni intervento con la sua misura |
 | `Project_Memory.md` | le lezioni: cosa abbiamo provato, cosa ha fallito, cosa non riproporre |
 | `README.md` | questo |
-| `combat_tracker.html` | l'app che il GM apre al tavolo; legge il pacchetto incontro incollato |
+| `combat_tracker.html` | l'app web standalone che il GM apre in un browser al tavolo; si alimenta incollando il blocco `### 🗡️ Pacchetto Incontro` generato dall'assistente per tracciare turni, PF, CA e condizioni |
 
 ---
 
@@ -113,8 +113,7 @@ Chat nuova, un messaggio per turno, e si guarda **quale** turno sbaglia:
 /pippo   →  una riga: non esiste
 /carica  +  blocco save   →  Save caricato: …
 /continua                 →  il beat
-/chiusura                 →  Ancora save: + [GIOCATO] + [DA CONFERMARE]
-/salva                    →  === SAVE === … + una riga di diff
+/salva                    →  Ancora save: … + blocco save + riga di diff
 ```
 
 `/pippo` non è uno scherzo: verifica che il roster sia chiuso, ed è il turno che storicamente innesca

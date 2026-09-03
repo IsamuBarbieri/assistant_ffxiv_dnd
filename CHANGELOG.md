@@ -1,5 +1,25 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-03g — Rifattorizzazione Narrative Pacing da DM: Taglio Chirurgico dei Filler MMO e Bonifica Discrepanze (08 v3.60, 05 v2.28, README)
+
+Rifattorizzazione globale della spina dorsale MSQ contro i colli di bottiglia e il padding da MMO (Ordeals of Valor e rimozione dei ping-pong fetch), preservando al 100% i titoli canonici inglesi, i giver, le coordinate e la compatibilità con salvataggi e wiki search:
+- **08_MSQ_FLOW.MD (v3.60):**
+  - **Company of Heroes (ARR L30-L34):** Tagliate le 12 quest di commissioni e viaggi a vuoto intercontinentali per il banchetto (`Tales from the Tidus Slayer` -> `There and Back Again`, e `What Do You Mean...` -> `It Was a Very Good Year`) con tag `[CUT: Company of Heroes MMO ping-pong filler — bypassed in D&D flow]`. Il flusso collega direttamente: *Wrath of the Titan* (Minfilia manda a Costa del Sol dal capitano Wheiskaet) -> *The Things We Do for Cheese* ([DUNGEON: Brayflox's Longstop], prova tattica e recupero del sintonizzatore per l'eterite) -> *In the Company of Heroes* (Wheiskaet onora il party e introduce lo scout Riol) -> *As You Wish* -> *Lord of Crags* ([TRIAL: Titan / The Navel]). Da 15 quest a 3 quest ad alta tensione.
+  - **I Cristalli Corrotti di Garuda (ARR L40-L44):** Tagliate le 8 quest del finto giro del mondo tra Camp Drybone (cristallo di fuoco) e Isles of Umbra / Sirena (cristallo d'acqua) con tag `[CUT: Corrupted Crystal MMO wild-goose-chase filler — bypassed in D&D flow]`. Cid identifica subito l'anomalia di vento nel Bosco Centrale: *Into the Eye of the Storm* -> *The Curious Case of Giggity* (recupero del cristallo dal nido dello spriggan Giggity) -> *Better Late than Never* (montaggio del rostro d'etere sull'Enterprise) -> *Lady of the Vortex* ([TRIAL: Garuda / The Howling Eye]). Da 12 quest a 3 quest dense.
+  - **I Rifugiati di Doma (Post-ARR Patch 2.2):** Tagliata la quest del nascondino con i bambini a Vesper Bay (*Yugiri's Game*) con tag `[CUT: Doman hide-and-seek MMO filler — bypassed in D&D flow]`. Il flusso collega il rifiuto d'asilo dei Monetaristi ad Ul'dah (*Promises to Keep*) direttamente alla scorta armata del convoglio fuori dal Thanalan (*Why We Adventure*) e all'accoglienza a Mor Dhona (*All Due Respect*).
+  - **Il Carrello di Amh Araeng (Shadowbringers L76-L77):** Tagliate le 4 quest di commissioni di pulizia cassette attrezzi, ricerca monete e piazzamento fumogeni (*On Track*, *Down for Maintenance*, *A Convenient Distraction*, *A Dirty Job*) con tag `[CUT: Amh Araeng trolley-chores MMO filler — bypassed in D&D flow]`. Il dolore e il lutto di Magnus a Twine (*The Truth Hurts*) conducono direttamente alla pericolosa spedizione nelle miniere di Biran per riesumare la Pietra Senza Tempo (*Have a Heart*), risvegliando il Talos e lanciando la corsa del carrello verso il duello con Ran'jit (*Full Steam Ahead*).
+  - **I Loporrit e l'Arca di Labyrinthos (Endwalker L88-L89):** Tagliate le 4 quest di commissioni agricole con Cookingway, interviste a 8 studiosi e trasporto casse/documenti durante i Giorni Finali (*Wise Guides*, *Agriculture Shock*, *Sage Council*, *Hither and Yarns*) con tag `[CUT: Endwalker Labyrinthos ark-logistics MMO filler — bypassed in D&D flow]`. *No Job Too Small* si collega direttamente alla difesa degli estrattori lunari con G'raha Tia (*Once Forged*), alla grande convergenza planetaria dell'adamantite (*Bonds of Adamantite*) e alla discesa verso la Madre Cristallo (*Her Children, One and All* -> [DUNGEON: The Aitiascope] + [TRIAL: Hydaelyn]).
+  - **Header Installment 1 (riga 1258):** Rimossa la dicitura obsoleta "Grand Company", sostituita con *Remembrance Speeches & Nine Ivies*.
+  - **Riallineamento Linguistico Completo (08.0, 08.1, Subquest):** Tradotte e riallineate al 100% in lingua inglese le convenzioni globali (`08.0`), la legenda dei marcatori, i sommari dei trial/subquest di Hildibrand e i requisiti di sblocco dei dungeon opzionali, garantendo uniformità stilistica e massima compatibilità cross-file con Gamer Escape e ConsoleGamesWiki.
+- **05_CAMPAIGN.MD (v2.28):**
+  - Allineata la Table of Contents: Capitolo 17 corretto in `The Grand Companies & Regional Allies`.
+  - Chiarito al capitolo 12 (§12.7) che i voli diplomatici e gli spostamenti su aeronave legati alla MSQ tra le capitali alleate sono coperti dal lasciapassare diplomatico dei Scion (*Airship Pass*, 0 Gil); le tariffe commerciali si applicano esclusivamente a rotte private, charter o viaggi personali fuori servizio.
+- **README.MD:**
+  - Aggiornato il flusso di test standard rimuovendo il comando ritirato `/chiusura` e allineando al protocollo unico di `/salva`.
+  - Integrata la descrizione operativa di `combat_tracker.html` come app web standalone da aprire nel browser e alimentare incollando i blocchi incontro generati dall'assistente.
+
+08 v3.60 · 05 v2.28 · README.md aggiornato.
+
 ## 2026-09-03f — Revisione ed Espansione Glossario e Adattamento Nomi (07_Glossary.md v1.41)
 
 Revisione completa di `07_Glossary.md`:

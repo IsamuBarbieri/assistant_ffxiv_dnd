@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.27 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.28 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -28,32 +28,26 @@ Version v2.27 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 - Before writing about lore, technology, factions, eras, places or creatures: verify sources (Knowledge / Gamer Escape) and stay consistent with the real context.
 - Verification is INTERNAL: write the correct content directly, with no preambles or disclaimers about what something 'is not'. Full operational rule in 06 (Part A8).
 
-### Design pillars
-- Difficulty from MECHANICS, not inflated stats (Ch. 9/10).
-- MILESTONE leveling, no XP (Ch. 5).
-- No permanent death by default: Downed/Wipe, the Echo rewinds (Ch. 4/18).
-- Fidelity to FFXIV sources + D&D 5e manuals; verify before proposing.
-
-### Chapter index
+## TABLE OF CONTENTS
 | Ch. | Title |
 |---|---|
 | 1 | Premise & Tone (+ Spoiler Policy) |
-| 2 | Session 0 Setup |
-| 3 | Character Creation |
-| 4 | The Echo |
-| 5 | Milestone Progression |
-| 6 | Limit Break |
-| 7 | The 6 Crystals of Light |
-| 8 | Aetheryte Travel |
-| 9 | Dynamic Combat |
-| 10 | Balance & Encounter Building |
+| 2 | Level Progression & Milestone System |
+| 3 | The Warrior of Light & Party Dynamic |
+| 4 | The Echo & The Blessing of Light |
+| 5 | MSQ Campaign Progression (ARR -> EW) |
+| 6 | Aetherytes & Attunement |
+| 7 | Primals, Summoning & Tempering |
+| 8 | Duties, Dungeons & Trials |
+| 9 | Solo Duties & Cinematic Duels |
+| 10 | Garlean Empire & Magitek |
 | 11 | [REMOVED] (Trust eliminated: allies in the background only) |
 | 12 | Rewards & Loot |
 | 13 | Subquests |
 | 14 | Downtime / Crafting / Gathering |
 | 15 | Taverns & Gossip |
 | 16 | Layered Lore & Read-aloud |
-| 17 | Grand Company |
+| 17 | The Grand Companies & Regional Allies |
 | 18 | Out of Combat / Raise / Wipe / Aether Sickness |
 | 19 | Memory Sheet / Continuity |
 | 20 | Term Index & Cross-references |
@@ -899,7 +893,7 @@ Normal healing does NOT revive a Downed character (Ch. 18). You need Raise or th
   - *Local riverboat / ferry:* 5–15 Gil (cargo barge: 10–20 Gil).
   - *Chocobo rental (Chocobokeep):* 1 zone = 10–15 Gil | 2+ zones / full day = 20–25 Gil/day flat per PC (50 Gil deposit refunded on return). Own mount = 0 Gil rental.
   - *Ocean-going ship:* 30–50 Gil regular; 200–500 Gil long/dangerous routes (e.g. Kugane, includes rations).
-  - *Scheduled airship (Highwind Skyways):* 75–100 Gil (requires MSQ Lv 15 Airship Pass; private charter: 500–1,500 Gil).
+  - *Scheduled airship (Highwind Skyways):* 75–100 Gil (requires MSQ Lv 15 Airship Pass; private charter: 500–1,500 Gil). Official MSQ diplomatic transit between allied capital landings is covered by the Scion Airship Pass (0 Gil); commercial fares apply to private or off-duty excursions.
 - **Personal Mount Purchase (Stables / CAVALCATURE vendor):**
   - *Draft Chocobo:* 50–75 Gil. Large, slow, carries double (pulls cart/cargo). Flees if attacked.
   - *Riding Chocobo:* 100–150 Gil. Fast, docile. Skittish in combat (dismounts and flees without DC 13 Animal Handling check).
