@@ -9,7 +9,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.56 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.57 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -2279,7 +2279,7 @@ KEY SCENES:
 
 **SEAM FROM ARR:** ARR 2.55 (The Parting Glass / flight to Coerthas) -> **Coming to Ishgard** = first HW beat.
 
-**SCOPE OF INSTALLMENT 1:** HW 3.0, arrival in Ishgard + the House Fortemps support chains (Artoirel + Emmanellain, run in parallel) -> Divine Intervention -> Disclosure. Levels ~50.
+**SCOPE OF INSTALLMENT 1:** HW 3.0, arrival in Ishgard + the House Fortemps support chains (Artoirel + Emmanellain, run in sequence) -> Divine Intervention -> Disclosure.
 
 ---
 
@@ -2295,7 +2295,7 @@ KEY SCENES:
 
 **The Better Half** — giver: House Fortemps Manservant (Ishgard - Foundation)
 - Gibrillont (the Forgotten Knight tavern) -> observe the upper/lower-floor divide -> learn of the Dravanian attack's impact on the Brume -> Tataru stays behind to gather info -> return to Fortemps Manor -> Count Edmont de Fortemps -> accept the charge to aid House Fortemps and its two sons
-- Next: the TWO support chains unlock IN PARALLEL — **Over the Wall** (Artoirel chain) + **Onwards and Upwards** (Emmanellain chain); both reconverge at Divine Intervention.
+- Next: Over the Wall (Support Chain A — Lord Artoirel a Falcon's Nest, a cui segue Support Chain B — Lord Emmanellain nel Sea of Clouds)
 
 ---
 
@@ -2327,7 +2327,7 @@ KEY SCENES:
 
 **Knights Be Not Proud** — giver: Artoirel (Coerthas Western Highlands) `[COND: relay]`
 - Redwald -> Artoirel (Fortemps Manor)
-- Next: Divine Intervention (converge)
+- Next: Onwards and Upwards (Support Chain B — Lord Emmanellain nel Sea of Clouds)
 
 ---
 
@@ -2464,22 +2464,20 @@ KEY SCENES:
 
 ---
 
-**SCOPE:** Moghome + the moogle trials -> the Road to Zenith / Hraesvelgr -> the Ul'dah interlude -> THE AERY (Nidhogg's eyes) -> back to Ishgard.
+**SCOPE:** Moghome + the moogle trial (Mogmug's Trial) -> the Road to Zenith / Hraesvelgr -> the Ul'dah interlude -> THE AERY (Nidhogg's eyes) -> back to Ishgard.
 
 ---
 
 **Mountaintop Diplomacy** — giver: Alphinaud (Nophica's Altar, Old Gridania) `[COND: relay]`
 - Alphinaud (Nophica's Altar) -> enter the Lotus Stand -> Alphinaud -> Estinien (Moghome) -> Chieftain Moglin
-- Next: the three moogle trials (Moghan's Trial, Mogmug's Trial, Mogwin's Trial), which Chieftain Moglin devises in dialogue as the "Trials of Trustworthiness" to measure the party's character; all three converge at Moglin's Judgment.
-
-**Moghan's Trial** — giver: Moghan (moogle alchemist, Moghome) `[COND: fetch]`
-- obtain sprigs of cloudsbreath (0/3, near Eil Tohm) -> deliver to Moghan
+- Next: Mogmug's Trial (la prova di coraggio e caccia di Chieftain Moglin per guadagnare la fiducia dei moguri)
 
 **Mogmug's Trial** — giver: Mogmug (Moghome) `[COND: fetch]`
 - defeat archaeosaurs at Eil Tohm -> report to Mogmug
-
-**Mogwin's Trial** — giver: Mogwin (Moghome) `[COND: fetch]`
-- question Moghome inhabitants -> Mogwin -> obtain the moogle masterpiece -> deliver to Mogwin
+- Next: Moglin's Judgment
+- *(Nota linearizzazione: nel MMO Moglin sbloccava 3 commissioni contemporanee; la campagna linearizza tenendo la sola prova di caccia contro i mostri che minacciano Moghome, eliminando le micro-fetch non necessarie)*
+- `[CUT: parallel fetch cut]` **Moghan's Trial** — raccolta erbe cloudsbreath (tagliata per ritmo narrativo).
+- `[CUT: parallel fetch cut]` **Mogwin's Trial** — ricerca pupazzo/manufatto perduto (tagliata per ritmo narrativo).
 
 **Moglin's Judgment** — giver: Chieftain Moglin (Moghome)
 - Alphinaud -> Estinien -> Ysayle -> Kan-E-Senna -> Kuplo Kopp -> Moglin -> Moghan
@@ -2956,9 +2954,9 @@ KEY SCENES:
 
 **A Bargain Struck** — giver: Alisaie (Rhalgr's Reach) `[COND: relay]`
 - Conrad -> Alisaie
-- Next: the TWO parallel support chains unlock — M'naago's chain (**A Friend of a Friend in Need**) and Meffrid's chain (**A Familiar Face Forgotten**); both must be completed before **Where Men Go as One**.
+- Next: A Friend of a Friend in Need (Support Chain 1 — M'naago nelle Fringes con Raubahn, a cui segue linearmente Meffrid ad Ala Gannha)
 
-### M'naago Chain (Parallel branch A)
+### M'naago Chain (Support Chain 1 — The Fringes & Raubahn)
 **A Friend of a Friend in Need** — giver: M'naago (Rhalgr's Reach) `[COND: fetch]`
 - M'naago -> M'naago (the Fringes) -> lie in wait for imperial soldiers -> M'naago
 - Next: Signed, Sealed, to Be Delivered
@@ -2973,32 +2971,21 @@ KEY SCENES:
 
 **Let Fill Your Hearts with Pride** — giver: M'naago (Rhalgr's Reach) `[COND: relay]`
 - M'naago
-- Next: Where Men Go as One (requires Meffrid's chain complete)
+- Next: A Familiar Face Forgotten (Support Chain 2 — Meffrid e la popolazione di Ala Gannha)
 
-### Meffrid Chain (Parallel branch B)
+### Meffrid Chain (Support Chain 2 — Ala Gannha & The Peering Stones, Streamlined)
 **A Familiar Face Forgotten** — giver: Meffrid (Rhalgr's Reach) `[COND: relay]`
 - speak with Meffrid -> travel to the Peering Stones -> speak with M'rahz Nunh -> Meffrid
 - Next: The Prodigal Daughter
 
 **The Prodigal Daughter** — giver: Meffrid (the Fringes) `[COND: fetch]`
 - search for Ananta scouts -> assist the wounded Ananta -> report to Meffrid
-- Next: Hard Country
-
-**Hard Country** — giver: Griseldis (the Fringes) `[COND: fetch]`
-- slay quarry creatures -> gather building stone -> return to Griseldis
-- Next: Death by a Thousand Rocks
-
-**Death by a Thousand Rocks** — giver: Angry Coeurl (the Fringes) `[COND: fetch]`
-- clear rolling boulders and quarry beasts -> report to Angry Coeurl
-- Next: A Life More Ordinary
-
-**A Life More Ordinary** — giver: Meffrid (the Fringes) `[COND: relay]`
-- speak with Ala Mhigan refugees -> deliver provisions -> report to Meffrid
-- Next: The Color of Angry Qiqirn
-
-**The Color of Angry Qiqirn** — giver: Meffrid (the Fringes) `[COND: fetch]`
-- investigate Qiqirn territory -> retrieve stolen goods from Qiqirn caches -> return to Meffrid
-- Next: The Black Wolf's Pups
+- Next: The Black Wolf's Pups (soccorso urgente ai giovani ribelli caduti nell'imboscata imperiale)
+- *(Nota linearizzazione Opzione 2B: tagliate le 4 micro-fetch di cava/Qiqirn superflue ad Ala Gannha per preservare il ritmo narrativo e puntare direttamente alla Solo Duty)*
+- `[CUT: parallel fetch cut]` **Hard Country** — raccolta pietre da cava.
+- `[CUT: parallel fetch cut]` **Death by a Thousand Rocks** — abbattimento massi e bestie da cava.
+- `[CUT: parallel fetch cut]` **A Life More Ordinary** — consegna provviste a rifugiati.
+- `[CUT: parallel fetch cut]` **The Color of Angry Qiqirn** — recupero merci rubate dai Qiqirn.
 
 **The Black Wolf's Pups** — giver: Lyse (the Fringes)
 - track the youth of Ala Gannha -> [Solo Duty: protect Ala Mhigan youths from imperial patrol] -> Lyse
@@ -3006,7 +2993,7 @@ KEY SCENES:
 
 **Homeward Bound** — giver: Meffrid (the Fringes) `[COND: relay]`
 - accompany the youths back to Ala Gannha -> speak with the village elder -> Meffrid
-- Next: Where Men Go as One (reconverges with M'naago's chain)
+- Next: Where Men Go as One (rientro a Rhalgr's Reach da Conrad)
 
 ### Main Quest Chain (Reconverged)
 **Where Men Go as One** — giver: Conrad (Rhalgr's Reach) `[COND: relay]`

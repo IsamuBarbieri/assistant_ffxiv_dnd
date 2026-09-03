@@ -1,6 +1,18 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
-## 2026-09-02e — Verifica Legenda [REC]/[CUT], Ripristino Saga Hildibrand e Purga Livelli MMO
+## 2026-09-03a — Linearizzazione Quest Multiple: Moguri (1A), Fringes (2B) e Fortemps
+
+Evoluzione della catena MSQ in `08_MSQ_Flow.md` (v3.57) per garantire un avanzamento sequenziale univoco:
+- **I MOGURI DI MOGHOME — OPZIONE 1A (HEAVENSWARD 3.0):**
+  - Risolto il nodo a 3 quest parallele di Chieftain Moglin a Moghome: scartati i micro-fetch superflui di raccolta erbe (*Moghan's Trial*) e ricerca del manufatto perduto (*Mogwin's Trial*).
+  - La sequenza lineare mantiene la sola prova marziale eroica di caccia e difesa contro gli archeosauri ad Eil Tohm (*Mogmug's Trial*), che conduce direttamente a *Moglin's Judgment* e all'incontro con Hraesvelgr.
+- **LE FRINGES / RESISTENZA DI ALA MHIGO — OPZIONE 2B (STORMBLOOD 4.0):**
+  - Sequenzializzate le due catene precedentemente parallele: completata l'intera catena di M'naago con Raubahn nelle Fringes (4 quest), il cui finale conduce naturalmente al fronte dei rifugiati di Meffrid ad Ala Gannha.
+  - Snellita la catena di Meffrid eliminando 4 micro-fetch di cava/Qiqirn superflue (*Hard Country*, *Death by a Thousand Rocks*, *A Life More Ordinary*, *The Color of Angry Qiqirn*), preservando il soccorso dell'Ananta (*The Prodigal Daughter*), la Solo Duty canonica di protezione dei giovani ribelli (*The Black Wolf's Pups*) e il rientro con Meffrid (*Homeward Bound* ➔ *Where Men Go as One*).
+- **LINEARIZZAZIONE DEI FRATELLI FORTEMPS (HEAVENSWARD 3.0):**
+  - Collegata in serie contigua la Support Chain A (Lord Artoirel a Falcon's Nest, 7 quest con Solo Duty eretici) con la Support Chain B (Lord Emmanellain al Sea of Clouds, 6 quest con Vanu Vanu), da cui si approda a *Divine Intervention* con entrambi i fronti completati senza salti logici.
+
+06 v6.79 · 08 v3.57.
 
 Aggiornamento approfondito del Knowledge Layer (`08_MSQ_Flow.md` v3.56):
 - **VERIFICA & CHIARIMENTO LEGENDA DEI MARCATORI (`08.0` & `08.1`):**
