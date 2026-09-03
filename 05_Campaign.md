@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.25 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.27 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -101,7 +101,7 @@ Version v2.25 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 *NOTE: the reveal timings below are INDICATIVE (by arc). The GM verifies the exact beat on the Roadmap (Ch. 5 and 08.1).*
 
 ### A) Soul / Divine / Cosmic
-- The NAME **Hydaelyn** and Her errand (claim the Crystals of Light) - **ARR, very early**: She names Herself in the second Echo vision, at quest #5 of the chosen city chain (08.1 ARR Manifest L1, pin #2). The NAME is NOT gated; WHAT She is stays gated per the entries below. Do not confuse the two - a save that has passed that beat may say 'Hydaelyn' freely.
+- The NAME **Hydaelyn** and Her errand (claim the Crystals of Light) - **ARR, very early**: She names Herself in the second Echo vision, at the solo duty climax of the opening district chain (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`; 08.1 ARR Manifest L1, pin #2). The NAME is NOT gated; WHAT She is stays gated per the entries below. Do not confuse the two - a save that has passed that beat may say 'Hydaelyn' freely.
 - AZEM and the group's 'soul-fragment' nature - **ShB/EW**
 - Truth about HYDAELYN & ZODIARK: the WORLD cosmology (Zodiark & Hydaelyn's existence, the world sundered into THIRTEEN reflections, the Ascians' Rejoining) is revealed in **HW (3.2 - the Antitower / Minfilia-Hydaelyn)**, NOT gated to EW; only the deepest truths (Venat IS Hydaelyn; the Ancients / Amaurot - **ShB**; the Final Days & Meteion - **EW**) remain later reveals
 - Soul split into 14 (the Sundering, the Sea of Stars, the soul/reincarnation cycle) - **ShB/EW**
@@ -178,9 +178,8 @@ Version v2.25 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc
 
 **CONVERGENCE (the 3 paths merge):**
 - The three openings run in PARALLEL (each city its own MSQ + hub).
-- The home city then sends the party as envoys — **The Lominsan Envoy / The Gridanian Envoy / The Ul'dahn Envoy** — to the other two city-states.
-- The paths FULLY MERGE at **The Scions of the Seventh Dawn** (+ the Grand Company quest **The Company You Keep**). From that beat the MSQ is UNIFIED; the save's MSQ line becomes shared.
-- Rule: keep [A] city-specific until the Scions beat, then switch to the unified MSQ track. Reference the transition by beat NAME, never by level.
+- The paths CONVERGE at **Call of the Sea** into the shared three-dungeon sequence (Sastasha -> The Tam-Tara Deepcroft -> Copperbell Mines), leading directly to **The Scions of the Seventh Dawn** (formally joining the Scions at the Waking Sands). From `Call of the Sea` onward the MSQ is UNIFIED; the save's MSQ line becomes shared. (Note: The three regional Grand Companies operate as Allied factions cooperating with the Scions; the party acts as neutral Scion champions rather than enlisting as individual soldiers; see Ch. 17).
+- Rule: keep [A] city-specific until the Envoy convergence, then switch to the unified MSQ track. Reference the transition by beat NAME, never by level.
 
 # CHAPTER 2 — SESSION 0 SETUP
 **PURPOSE:** Session 0 is NOT a play session: it is the table's "tutorial". It serves to create the characters, build their backgrounds coherently with the world, explain all homebrew rules, and give players the base lore. Final goal: sheets ready, first save created, a group that knows HOW to play and WHY they travel together.
@@ -414,47 +413,47 @@ Values and placements are TUNABLE; the narrative backbone follows the official M
 
 ## 5.3 Level spread 1 -> 20 (ARR -> EW)
 ### A Realm Reborn (lvl 1-8)
-- **L1** - Session 0; arrival in the starting city-state (Gridania / Limsa Lominsa / Ul'dah); first jobs; THE ECHO AWAKENS.
-- **L2** - End of the city questline (boss: Serpent Reavers + masked mage / Ascian) -> CRYSTAL #1 WATER. Joining the Scions; first dungeons (Sastasha / Tam-Tara / Copperbell).
-- **L3** - The three city-states; intermediate dungeons; tribal threats.
-- **L4** - IFRIT (Bowl of Embers, Amalj'aa) -> CRYSTAL #2 FIRE. Then rescue of the Sylph elder FRIXIO from the THOUSAND MAWS OF TOTO-RAK dungeon -> CRYSTAL #3 LIGHTNING.
-- **L5** - TITAN (The Navel, Kobold) -> CRYSTAL #4 EARTH.
-- **L6** - Stone Vigil, defeat of the dragon ISGEBIND -> CRYSTAL #5 ICE; Garlemald escalation (Castrum, Cape Westwind).
-- **L7** - GARUDA (Howling Eye, Ixal) -> CRYSTAL #6 WIND -> NOW YOU HAVE ALL 6 CRYSTALS. The ULTIMA WEAPON appears and ABSORBS the essences of Ifrit/Titan/Garuda. Assault on CASTRUM MERIDIANUM -> THE PRAETORIUM: the Blessing protects from Ultima; defeat of LAHABREA; Gaius.
-- **L8** - Patch 2.x: Crystal Braves; Ishgard refugees. THE KEEPER OF THE LAKE (2.55): MIDGARDSORMR SEALS THE BLESSING (snuffs out the 6 crystals). Flight from the Banquet of Ul'dah. [GATE Crystal Tower by here, see 08.1.]
+- **L1** - Session 0; arrival in the starting city-state (Gridania / Limsa Lominsa / Ul'dah); first jobs; THE ECHO AWAKENS (arrival vision, district solo duty naming Hydaelyn, Carteneau banquet memorial).
+- **L2** - End of city questline (masked mage / Ascian harbinger + gargoyle) -> CRYSTAL #1 WATER. Envoy journeys -> convergence at Call of the Sea -> first three dungeons (Sastasha / The Tam-Tara Deepcroft / Copperbell Mines) -> joining THE SCIONS OF THE SEVENTH DAWN at the Waking Sands.
+- **L3** - Eastern Thanalan investigations (Camp Drybone abductions); beast tribes and Primal threats established (optional subquest dungeon: Halatali `[REC]`).
+- **L4** - Amalj'aa crisis -> IFRIT (The Bowl of Embers) -> CRYSTAL #2 FIRE. Remembrance banquets of Carteneau (the three leaders appeal for Scion cooperation; Biggs & Wedge airship rescue in `The Company You Keep`). East Shroud / Sylph diplomacy -> rescue of elder FRIXIO from THE THOUSAND MAWS OF TOTO-RAK (Lahabrea first named appearance) -> CRYSTAL #3 LIGHTNING.
+- **L5** - Investigating the primal threat & Company of Heroes. MSQ Dungeons: HAUKKE MANOR (Lady Amandine) -> BRAYFLOX'S LONGSTOP (Aiatar). Defeat of TITAN (The Navel, Kobolds) -> CRYSTAL #4 EARTH.
+- **L6** - Coerthas Central Highlands / Inquisitors & Heretics. THE STONE VIGIL, defeat of the dragon ISGEBIND -> CRYSTAL #5 ICE; Cid Garlond and the Enterprise recovered.
+- **L7** - GARUDA (The Howling Eye, Ixal) -> CRYSTAL #6 WIND -> NOW YOU HAVE ALL 6 CRYSTALS (Blessing complete). Operation Archon: defeat of Rhitahtyn sas Arvina (Cape Westwind) -> CASTRUM MERIDIANUM (Livia sas Junius) -> THE PRAETORIUM (Nero tol Scaeva, Gaius van Baelsar) -> trial THE PORTA DECUMANA (the Blessing strips Ultima; Ultima Weapon felled; defeat of LAHABREA and expulsion from Thancred).
+- **L8** - Patch 2.x (Seventh Astral Era): Crystal Braves founded; Doman refugees; Leviathan (2.2), Ramuh (2.3), Shiva / Lady Iceheart (2.4), Nabriales & Moenbryda's sacrifice (2.5). Inlined Crystal Tower arc (Labyrinth of the Ancients -> Syrcus Tower -> World of Darkness). THE KEEPER OF THE LAKE (2.55): MIDGARDSORMR SEALS THE BLESSING (snuffs out the 6 crystals). The Steps of Faith (Vishap). The Bloody Banquet of Ul'dah (regicide framing, Raubahn's arm, Crystal Braves coup, flight to Ishgard).
 
 ### Heavensward (lvl 9-12)
-- **L9** - Ishgard; Dragonsong War; Azure Dragoon. WITHOUT THE BLESSING: defeated Ascians can't be permanently killed (they flee) and Hydaelyn's ward is gone; the ECHO still keeps the party Tempering-safe (see 5.6).
-- **L10** - Estinien & Nidhogg; Trial Ravana/Bismarck. The crystals begin to RELIGHT; after Bismarck the Blessing returns 'at reduced intensity'.
-- **L11** - Azys Lla: TIAMAT (penultimate crystal) -> defeat of the ASCIAN PRIME (Igeyorhm+Lahabrea) -> FULL BLESSING (Midgardsormr breaks the seal). Climax KING THORDAN.
-- **L12** - Patch 3.x: reckoning with NIDHOGG (end of Heavensward).
+- **L9** - Ishgard; House Fortemps; Dragonsong War; Falcon's Nest & Sea of Clouds. WITHOUT THE BLESSING: defeated Ascians can't be permanently killed (they flee) and Hydaelyn's ward is gone; the ECHO still keeps the party Tempering-safe (see 5.6).
+- **L10** - Journey to the Churning Mists (Sohm Al, Moghome); Trial RAVANA (Thok ast Thok); THE AERY (defeat of Nidhogg). Trial BISMARCK (The Limitless Blue); the crystals begin to RELIGHT; after Bismarck the Blessing returns 'at reduced intensity'.
+- **L11** - THE VAULT (Haurchefant's sacrifice) -> The Great Gubal Library -> Azys Lla: TIAMAT (penultimate crystal) -> defeat of the ASCIAN PRIME (Igeyorhm+Lahabrea) -> FULL BLESSING (Midgardsormr breaks the seal). Climax KING THORDAN (The Singularity Reactor).
+- **L12** - Patch 3.x: The Antitower (Minfilia / Hydaelyn world cosmology reveal); reckoning with NIDHOGG at The Final Steps of Faith (end of Dragonsong War). 3.4 Warriors of Darkness -> 3.5 Baelsar's Wall (Papalymo's sacrifice, Shinryu summoned).
 
 ### Stormblood (lvl 13-15)
-- **L13** - Liberation of Doma and Ala Mhigo; Trial Susano/Lakshmi.
-- **L14** - Zenos; SHINRYU; battle of Ala Mhigo.
-- **L15** - TSUKUYOMI (end of Stormblood 4.x).
+- **L13** - Resistance in Gyr Abania / Rhalgr's Reach (Zenos routs the Resistance). Journey to the Far East (Kugane, Ruby Sea, Yanxia, Azim Steppe). Trial SUSANO (The Pool of Tribute); LIBERATION OF DOMA (Doma Castle).
+- **L14** - Return to Gyr Abania (The Peaks, The Lochs); Trial LAKSHMI (Emanation); assault on Castrum Abania -> LIBERATION OF ALA MHIGO (The Royal Menagerie: defeat of SHINRYU and ZENOS).
+- **L15** - Patch 4.x: Post-liberation Doma -> Trial TSUKUYOMI (Castrum Fluminis, 4.3). 4.4-4.5: The Burn, The Ghimlyt Dark, Elidibus in Zenos's body, the Calling of the Scions pulling them toward the First.
 
 ### Shadowbringers (lvl 16-19)
-- **L16** - The First; Norvrandt; the Lightwardens; Trial TITANIA.
-- **L17** - INNOCENCE; the Warrior of Darkness.
-- **L18** - Emet-Selch; Amaurot.
-- **L19** - HADES (end of Shadowbringers 5.x).
+- **L16** - The First; Norvrandt; The Crystarium & Eulmore; Holminster Switch; Il Mheg -> Trial TITANIA (The Dancing Plague).
+- **L17** - The Rak'tika Greatwood (The Qitana Ravel); Amh Araeng & Kholusia (Malikah's Well, Mt. Gulg) -> Trial INNOCENCE (The Crown of the Immaculate); the Lightwardens felled, Light overflows; the Warrior of Darkness.
+- **L18** - The Tempest; AMAUROT (dungeon of the Ancients' Final Days); Azem's legacy & Emet-Selch; Trial THE DYING GASP (HADES) — climax of 5.0!
+- **L19** - Patch 5.1-5.3: The Grand Cosmos, Anamnesis Anyder, The Heroes' Gauntlet -> Climax of 5.3: Trial THE SEAT OF SACRIFICE (defeat of ELIDIBUS as Primal Warrior of Light). The Scions return to the Source (5.4-5.5 setup for Endwalker).
 
 ### Endwalker (lvl 20, cap)
-- **L20** - Garlemald -> Sharlayan -> Thavnair -> the Moon -> Elpis -> Ultima Thule -> final confrontation with the ENDSINGER (Meteion). (Dawntrail EXCLUDED.)
+- **L20** - Old Sharlayan & Thavnair (The Tower of Zot) -> Garlemald (The Tower of Babil) -> Mare Lamentorum / The Moon: Trial ZODIARK (The Dark Inside) -> Vanaspati (Final Days erupt) -> ELPIS (Ktisis Hyperboreia, Venat, Hermes, Meteion, the Ancients) -> The Aitiascope & The Mothercrystal: Trial HYDAELYN -> Ultima Thule (The Dead Ends) -> final confrontation with the ENDSINGER (The Final Day). (Dawntrail EXCLUDED.)
 
 ## 5.4 The 6 Crystals of Light
 The Warrior of Light receives 6 Crystals of Light - ONE PER ELEMENT - an exceptional thing. In the campaign they are SHARED by the whole party, bound by a SINGLE LIGHT.
 | # | Element | Moment |
 |---|---|---|
-| 1 | WATER | city questline, boss Serpent Reavers + Ascian |
+| 1 | WATER | city climax, masked mage / Ascian harbinger + gargoyle |
 | 2 | FIRE | Ifrit, Bowl of Embers |
 | 3 | LIGHTNING | rescue of Sylph Frixio, Thousand Maws of Toto-Rak |
 | 4 | EARTH | Titan, The Navel |
 | 5 | ICE | Isgebind, Stone Vigil |
 | 6 | WIND | Garuda, Howling Eye |
 *GM NOTE:* order VERIFIED. Fire (Ifrit) precedes Lightning. All 6 collected by the Ultima Weapon / The Praetorium.
-*WHERE THE ERRAND COMES FROM:* the party does not simply find crystal #1 — Hydaelyn ASKS for them, by name, in the second Echo vision at quest #5 of the city chain (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`): *'The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them.'* That beat is the origin of this whole table and is PINNED (08.1 ARR Manifest L1). Skip it and Water arrives unasked-for.
+*WHERE THE ERRAND COMES FROM:* the party does not simply find crystal #1 — Hydaelyn ASKS for them, by name, in the second Echo vision at the district solo duty of the city chain (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`): *'The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them.'* That beat is the origin of this whole table and is PINNED (08.1 ARR Manifest L1). Skip it and Water arrives unasked-for.
 
 > **SPOILER (GM ONLY - DO NOT REVEAL/NAME BEFORE ShB/EW)**
 > The true nature of the group's 'shared bond' - and the identity of the legendary leader associated with that soul crystal (name: AZEM) - are END-GAME REVEALS (Shadowbringers / Endwalker). DO NOT name 'Azem' earlier: use neutral terms (a single Light, a common destiny). That soul crystal, in-game, serves to summon other heroes (Trust): here it is useless anyway, the party is already complete. At most an optional end-Endwalker lore cameo.
@@ -612,7 +611,7 @@ Each crystal must be a MOMENT, not a checkbox:
 - Use a brief VISION/contact with Hydaelyn.
 - Make it FEEL like growth (WITHOUT anticipating which - see 7.2).
 **Summary of the six (chronology and levels: see Ch. 5):**
-- #1 WATER - after the starting-city trial and the first Ascian: Hydaelyn's first voice.
+- #1 WATER - after the starting-city climax and the first Ascian harbinger: the first physical Crystal claimed, answering Hydaelyn's errand.
 - #2 FIRE - after Ifrit (Bowl of Embers): the Primal's fury tamed.
 - #3 LIGHTNING - after rescuing the Sylph elder Frixio (Thousand Maws of Toto-Rak): a gift of gratitude.
 - #4 EARTH - after Titan (The Navel): solidity won beneath the rock.
@@ -1128,33 +1127,28 @@ FFXIV tells much of its overarching story through cutscenes, adapted into two di
 - **In-Scene Cutscenes (PCs present):** railed narrative moments where the PCs are physically present. The narrative spine and canon outcome are fixed, while players actively react through dialogue, roleplay, and localized impressions. Longer cutscenes are naturally delivered through present NPC exchanges rather than monologues.
 - **Off-Scene Cutscenes (PCs absent):** events occurring elsewhere (such as imperial war councils or Ascian scheming). These serve as GM-facing dramatic irony; the GM can choose to narrate them aloud to the table as a cinematic interlude, keep them private, or have the party discover their repercussions later through rumors, reports, or Echo visions.
 
-# CHAPTER 17 — GRAND COMPANY
-The Grand Companies as an element of PURE COLOR and plot. They are NOT a progression system.
+# CHAPTER 17 — THE GRAND COMPANIES & REGIONAL ALLIES
+The Grand Companies exist as canonical WORLD FACTIONS and geopolitical allies of the Scions. They are NOT a player-progression or military enlistment system.
 
 ## 17.1 What they are (lore)
-Military/civil organizations of the Eorzean nations, born to face the Garlean Empire, the Primals and other threats. The three canonical ones:
-- **THE MAELSTROM** - Limsa Lominsa (Admiral Merlwyb)
-- **THE ORDER OF THE TWIN ADDER** - Gridania (Elder Seedseer Kan-E-Senna)
-- **THE IMMORTAL FLAMES** - Ul'dah (General Raubahn)
+Military and civil defense organizations of the Eorzean city-states, formed to confront the Garlean Empire, Primal incursions, and internal threats. The three canonical Grand Companies:
+- **THE MAELSTROM** - Limsa Lominsa (Admiral Merlwyb Bloefhiswyn; naval defense, Yellowjackets)
+- **THE ORDER OF THE TWIN ADDER** - Gridania (Elder Seedseer Kan-E-Senna; woodland defense, Wood Wailers)
+- **THE IMMORTAL FLAMES** - Ul'dah (General Raubahn Aldynn; desert security, Brass Blades)
 
-## 17.2 Enlistment (optional and NON-blocking)
-- The party MAY enlist, but is NOT obligated.
-- You can choose NO Company: the plot proceeds. No content is precluded.
-- PCs may join DIFFERENT Companies (a roleplay choice, not a mechanical one).
-- Typical moment: during the ARR arc.
+## 17.2 The Party's Relationship: Scion Champions, Not Enlisted Soldiers
+- In this campaign, the adventuring party belongs to the **Scions of the Seventh Dawn** — an independent, neutral, and transnational coalition based at The Waking Sands (later The Rising Stones).
+- **NO MILITARY ENLISTMENT:** The PCs do NOT swear fealty to an individual city's armed forces. Forcing a tabletop party to pick a single military branch (or splintering party members across competing national armies) breaks group cohesion for zero narrative payoff.
+- **EORZEAN ALLIANCE LIAISONS:** Following the defeat of Ifrit and the Carteneau Remembrance Ceremonies, all three Grand Companies recognize the party as trusted champions of the realm. The party interacts with Admiral Merlwyb, Kan-E-Senna, and General Raubahn as high-standing heroic allies and Scion envoys, receiving equal honor and access across all three nations.
 
-## 17.3 What it entails (flavor only)
-- Identity and belonging: a banner, a uniform, fellow soldiers, a narrative anchor.
-- Plot hooks and themed missions (subquests Ch. 13, or the board Ch. 15).
-- Contacts and welcome at facilities (rest, rumors, recurring NPCs).
-- NO mechanical progression: no ranks with bonuses, dedicated seals/currency, level-gated unlocks. Any "promotions" are purely narrative.
+## 17.3 In-World Function & Setting Role
+- **Regional Authority & Setting Color:** Whenever the party interacts with authorities in a region, they meet the corresponding Grand Company officers and municipal guards (06 §A8).
+- **Subquest Hooks & Operations:** Subquests, bounties, and emergency dispatches (`[REC]` content) can originate from any of the three Grand Companies based on local needs (Ch. 13 & 15).
+- **No Mechanical Ranks or Currencies:** There are no military ranks, company seals, or gear-gated unlocks. The party's power and progression come entirely from MSQ milestone levels (Ch. 5).
 
-## 17.4 Allies in the background
-- Consistent with "Trust removed": fellow soldiers and officers fight ONLY IN THE BACKGROUND (Ch. 10.5).
-- They can open a path or hold a front, but do not "play" the combat.
-
-## 17.5 Handling in play (light enrollment beat)
-The Grand Company enlistment is a LIGHT narrative OFFER, handled CONSISTENTLY: present the choice in a short scene and let the players accept or defer. It is NEVER expanded into a full combat/exploration beat, and NEVER silently dropped from one run to another. Optional and non-blocking (17.2): if the players defer or decline, the MSQ proceeds unchanged and the option remains open (it stays an open, offerable option, not stored in the save). Operational note: 06 §B2 (light enrollment beat).
+## 17.4 Military Allies in the Background
+- Grand Company forces fight exclusively IN THE BACKGROUND during major battles (such as Operation Archon against Castrum Meridianum and The Praetorium; Ch. 10.5).
+- Soldiers and officers hold defensive perimeters, secure retreat paths, and breach fortifications, but do not participate directly in the PCs' combat encounters.
 
 # CHAPTER 18 — OUT OF COMBAT / RAISE / WIPE / AETHER SICKNESS
 A videogame-style (FFXIV) KO/revival system: you fight 'hard' but lethality comes from MECHANICS, not from permanent death.
@@ -1280,14 +1274,14 @@ NOT an extended glossary: it is a ROUTING INDEX (term -> 1 line -> Ch.).
 | OUT OF COMBAT (DOWNED) | 0 HP = down, not dead; needs Raise or Down/Tail. | Ch. 18 |
 | GIL | currency (1 Gil = 1 gp; smaller silver/bronze denominations). | Ch. 12 |
 | CHALLENGE RATING (CR) | a metric to size enemies. | Ch. 10 |
-| GRAND COMPANY | national factions; pure color, optional, non-blocking. | Ch. 17 |
+| GRAND COMPANY | national factions & regional allies; party acts as Scion envoys. | Ch. 17 |
 | HEALER | role: healing, support, performs the Raise. | Ch. 2 / 3 |
 | GM INFO | a secret context block, for the GM only. | Ch. 16 |
 | LIMIT BREAK (LB) | a party bar 0-3; caps at segment 2 outside boss fights (LB3 only on Bosses); empties on any rest and on any travel; area/radius scales with the level; never harms allies (LB-only exception). | Ch. 6 |
 | LAYERED LORE | info unlockable at CD 10/15/20, spoiler-safe. | Ch. 16 |
 | AETHER SICKNESS | after a revive: damage/healing dice halved, for 2 turns. | Ch. 18 |
 | MILESTONE | narrative progression, no XP. | Ch. 5 |
-| GOSSIP / RUMORS | tavern info on a check; True/Color/Misleading table. | Ch. 15 |
+| GOSSIP / RUMORS | tavern information gathering, local news and subquest leads. | Ch. 15 |
 | PHOENIX DOWN | consumable: revive to 1/4 HP + Aether Sickness; shop ONLY (~250 Gil). | Ch. 12 |
 | SPOILER POLICY | gated mysteries are not revealed before their canonical moment. | Ch. 1 |
 | PRIMAL | deities summoned by the beast tribes; enthrall the faithful. | Ch. 2 / 16 |

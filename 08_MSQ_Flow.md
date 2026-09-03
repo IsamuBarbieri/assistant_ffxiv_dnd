@@ -9,7 +9,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.58 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.59 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -1332,16 +1332,13 @@ KEY SCENES:
 - Manifest tie: CRYSTAL #2 FIRE at Ifrit (08.1, L4).
 
 **A Hero in the Making** — giver: Minfilia (The Waking Sands)
-- Tataru (locations of the remembrance services) -> Kan-E-Senna (Mih Khetto's Amphitheatre, Gridania) -> Raubahn (Royal Promenade, Ul'dah) -> Merlwyb (Stateroom, Limsa) -> Minfilia (report + CHOOSE a Grand Company)
-- Next: The Company You Keep (Twin Adder / Maelstrom / Immortal Flames — by the chosen GC)
+- Tataru (locations of the remembrance services) -> Kan-E-Senna (Mih Khetto's Amphitheatre, Gridania) -> Raubahn (Royal Promenade, Ul'dah) -> Merlwyb (Stateroom, Limsa) -> Minfilia (report on the remembrance speeches: the three leaders appeal for Scion cooperation and realm unity)
+- Next: The Company You Keep
 
-**The Company You Keep** — giver: Serpent Officer (Twin Adder) / Storm Officer (Maelstrom) / Flame Officer (Immortal Flames), by chosen GC
-- steps [GE-verified, Twin Adder variant; Maelstrom/Immortal Flames mirror with their own officer + home city]: speak with the personnel officer (Adders' Nest) -> SE of Nine Ivies, determine the fate of the airship + crew -> defeat the imperial soldiers -> report to the personnel officer. Giver location: The Waking Sands (the Solar).
-- Next (by GC): Wood's Will Be Done (Twin Adder) / Till Sea Swallows All (Maelstrom) / For Coin and Country (Immortal Flames) — the three variants converge to Sylph-management.
-
-**Wood's Will Be Done** (Twin Adder variant; Maelstrom = Till Sea Swallows All; Immortal Flames = For Coin and Country) — giver: Serpent Personnel Officer (New Gridania)
-- swear the oath of allegiance -> Scion (Waking Sands): news of Biggs & Wedge joining the Scions
+**The Company You Keep** — giver: Minfilia (The Waking Sands)
+- Urgent dispatch: an imperial patrol has downed an Ironworks airship in the East Shroud -> SE of Nine Ivies, investigate the crash site -> defeat the imperial squad [Solo Duty / Skirmish] -> rescue engineers Biggs and Wedge -> report back to Minfilia (The Waking Sands)
 - Next: Sylph-management
+- Note: The party acts as independent champions of the Scions of the Seventh Dawn; player military enlistment into an individual Grand Company is removed (05 Ch.17). Biggs and Wedge join the Scions here, and the ceremony variants (`Wood's Will Be Done` / `Till Sea Swallows All` / `For Coin and Country`) are `[CUT: MMO military swearing-in ceremony]`.
 
 **Sylph-management** — giver: Minfilia (The Waking Sands)
 - Vorsaile Heuloix (the Adders' Nest): sylph-investigation briefing

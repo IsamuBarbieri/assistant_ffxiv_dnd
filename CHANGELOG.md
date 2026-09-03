@@ -1,5 +1,42 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-03e — Eliminazione Arruolamento Grand Company e Status Sovranazionale dei Scion
+
+Rimozione della scelta e arruolamento militare dei giocatori in una singola Grand Company, preservando le tre compagnie come fazioni geopolitiche del mondo e alleate dei Scion (05 v2.27, 06 v6.80, 08 v3.59):
+- **RUOLO DEL PARTY (05 Ch. 17 & Ch. 1.7):**
+  - I PG appartengono ai *Scions of the Seventh Dawn*, una coalizione neutrale e sovranazionale. Eliminato l'arruolamento obbligatorio o facoltativo in una singola armata cittadina, evitando di dividere il party o forzare la scelta di una fazione militare.
+  - A seguito della vittoria su Ifrit e dei discorsi di Carteneau, tutte e tre le Grand Company riconoscono il gruppo come campioni dell'Alleanza e inviati speciali dei Scion, garantendo pari stima e accoglienza a Limsa Lominsa, Gridania e Ul'dah.
+- **RIFATTORIZZAZIONE QUEST MSQ (08_MSQ_Flow.md):**
+  - In *A Hero in the Making*, i discorsi commemorativi di Merlwyb, Kan-E-Senna e Raubahn cementano l'appello congiunto ai Scion per unire il reame contro i garleani.
+  - In *The Company You Keep*, eliminato il triplo bivio di reclutamento. La missione si focalizza sull'azione sul campo: la ricognizione urgente dell'aeronave abbattuta da pattuglie garleane a Nine Ivies, lo scontro e il salvataggio degli ingegneri Biggs e Wedge che si uniscono ai Scion.
+  - Tagliate le varianti delle cerimonie di giuramento militare (*Wood's Will Be Done* / *Till Sea Swallows All* / *For Coin and Country*) con `[CUT: MMO military swearing-in ceremony]`, connettendo direttamente l'arco a *Sylph-management*.
+- **REGOLE PROCEDURALI (06 §B2):**
+  - Riformulata la regola di §B2 da "Light Enrollment Beats" a "Transnational Scion Status", eliminando il beat di scelta dell'arruolamento militare dal flusso operativo.
+- **INDICE DEI TERMINI (05 Ch. 20):**
+  - Aggiornata la voce *GRAND COMPANY*: fazioni nazionali e alleati regionali dell'Alleanza; i PG operano come inviati e campioni dei Scion.
+
+05 v2.27 · 06 v6.80 · 08 v3.59.
+
+## 2026-09-03d — Allineamento Canonico MSQ e Bonifica Lore (05_Campaign.md v2.26)
+
+Audit completo di coerenza tra `05_Campaign.md` e `08_MSQ_Flow.md` / lore ufficiale FFXIV:
+- **CONVERGENZA AMBASCIATA E SCIONS (Ch. 1.7 & Ch. 5.3):**
+  - Chiarita la sequenza delle tre città: l'ambasciata converge in `Call of the Sea` ➔ primi 3 dungeon (Sastasha, Tam-Tara, Copperbell) ➔ invito a Vesper Bay per unirsi ai Scion (`The Scions of the Seventh Dawn`).
+  - Separata nettamente la scelta della Grand Company (`The Company You Keep`), che avviene dopo Ifrit (L4) e i discorsi commemorativi (`A Hero in the Making`), eliminando la conflazione precedente in Ch. 1.7.
+- **RIALLINEAMENTO MILESTONE PROGRESSION 1-20 (Ch. 5.3):**
+  - *ARR:* Inseriti i dungeon mancanti di L5 che preparano Titano (*Haukke Manor* e *Brayflox's Longstop*); corretto il posizionamento di Cape Westwind (*Rhitahtyn sas Arvina* solo duty) a L7 durante l'Operazione Archon (dopo Garuda e prima di Castrum Meridianum), rimuovendolo da L6; esplicitato il trial *The Porta Decumana* (revamp 6.1) per lo scontro con Ultima Weapon e Lahabrea.
+  - *Heavensward (L9-L12):* Inseriti i checkpoint narrativi di *The Aery* (Nidhogg), *The Vault* (sacrificio di Haurchefant), e la risoluzione della Dragonsong War a *The Final Steps of Faith*.
+  - *Stormblood (L13-L15):* Corretto il timing della liberazione (Doma a L13, Ala Mhigo a L14 con Shinryu/Zenos); precisato l'arco 4.x con Tsukuyomi (4.3) e The Ghimlyt Dark / il richiamo dei Scion (4.5).
+  - *Shadowbringers (L16-L19):* Risolto il grave disallineamento su Hades: *Amaurot* e *The Dying Gasp (HADES)* costituiscono il climax di 5.0 (L18); L19 governa l'arco 5.1-5.3 che culmina in *The Seat of Sacrifice (ELIDIBUS)* come Guerriero della Luce primordiale.
+  - *Endwalker (L20):* Strutturata la sequenza canonica a cap (Zot, Babil, Zodiark, Vanaspati, Elpis/Ktisis, Aitiascope/Hydaelyn, Ultima Thule/Endsinger).
+- **CONTRADDIZIONE PRIMA VOCE HYDAELYN (Ch. 7.4):**
+  - Corretta la descrizione del Cristallo dell'Acqua (#1): non è la "prima voce" di Hydaelyn (che parla già all'arrivo e nella visione della grotta/albero dove chiede i cristalli per nome), ma il primo cristallo fisico reclamato in risposta al Suo incarico.
+  - Aggiornati i riferimenti al dovere in solitaria distrettuale per la visione di Hydaelyn (`Lurkers in the Grotto` / `Chasing Shadows` / `Underneath the Sultantree`) a seguito del taglio dei gear check.
+- **TERM INDEX (Ch. 20):**
+  - Rimossa la menzione obsoleta della tabella d20 in `GOSSIP / RUMORS`, allineandola al testo attuale di Ch. 15.
+
+05 v2.26 · 06 v6.79 · 08 v3.58.
+
 ## 2026-09-03c — Bonifica Meccaniche MMO e Sfoltimento Flow (08_MSQ_Flow.md v3.58)
 
 Rimozione e rifattorizzazione di tutte le quest e i passaggi contenenti meccaniche prettamente da videogioco MMO, restituendo fluidità e coerenza al gioco di ruolo:
