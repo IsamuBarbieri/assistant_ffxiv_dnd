@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.24 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.25 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -664,16 +664,7 @@ Always with coherent lore justification:
 2. **Aetheric interference (unstable stream):** the network REFUSES the trip. Causes: Garlean technology/magitek and ceruleum; a Primal saturating the aether; Void corruption or aetheric anomalies.
 3. **Sealed / besieged zones:** the local Aetheryte may be disabled or protected.
 4. **World limits:** you cannot teleport between different worlds/planes with the ordinary network (e.g. between the Source and the First): a plot device is required.
-**Practical effect:** the party must reach the destination conventionally -> chances for exploration and encounters (Ch. 13 and 10).
-
-## 8.5 Conventional Transport Services & Fares (prices per person / per leg)
-When teleporting is unviable, un-attuned or avoided to conserve Hit Dice, conventional transport is available:
-- **Local riverboat / coastal ferry (barca comune / traghetto locale):** 1 Gil per person.
-- **Chocobo rental (Chocobokeep / nolo per singola tratta tra avamposti):** 2 Gil per person / per leg.
-- **Ocean-going ship / regular ferry (nave d'alto mare / traghetto oceanico, es. Limsa ↔ Vesper Bay):** 5 Gil per person.
-- **Scheduled airship flight (aeronave di linea Highwind Skyways tra città-stato):** 10 Gil per person (MSQ Lv 15 unlock).
-- **Personal riding Chocobo purchase (acquisto permanente):** 150 Gil (including tackle and harness; or Grand Company mount licence at MSQ Lv 20).
-- **Transport cost display at head of /viaggio:** when travel involves paid fares (> 0 Gil), the total cost per person and its breakdown are printed at the head of the beat (`💰 Spesa: N Gil a persona (dettaglio)`); if 0 Gil (purely on foot), no cost line is printed.
+**Practical effect:** the party must reach the destination conventionally via overland, sea, or air travel — opening opportunities for exploration and encounters.
 
 # CHAPTER 9 — DYNAMIC COMBAT
 The core of gameplay: telegraphed FFXIV-style combat, where the challenge arises from READABLE, ALWAYS-AVOIDABLE mechanics, not from inflated stats nor from timers that kill regardless.
@@ -1004,22 +995,14 @@ Income is deliberately LOW and consistent with Crafting: Gathering requires no s
 - Available activities = ONLY Gathering, Crafting, Research/Study.
 - **DOWNTIME IS UNBOUND FROM REST:** the Gathering/Crafting/Research activities above are GM-run table options at any stop; they are NOT tied to a rest command and the rest command does NOT invoke them. The rest command (06 §B28) produces a LONG REST only.
 
-## 14.6 Random Events: Travel & Camp (the shared roll)
-One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check of a LONG REST outdoors (06 §B28). The short rest stays base 5e rules run by the GM (regain slots, spend HD), acknowledged mechanically (+1 hour to the campaign clock) without generating a scene.
-- **TRAVEL TIME & ORARIO PROGRESSION (/viaggio):** overland on foot (+1h per zone); riding Chocobo (+1h per 2 zones); scheduled airship or ocean ship (+2h); local boat (+1h). Multi-leg journeys sum the durations of each leg into a single travel montage. Advances [B] Orario accordingly.
-- **DANGER RATING (a zone/route property; assistant sets, GM overrides):** derived from the settlement tier (06 §A22) + the zone threat (06 §B13), verified against the real zone GEOGRAPHY (06 §A6/§A8). GEOGRAPHY ANCHOR: a route/camp INSIDE or immediately ADJACENT to a major hub, or in settled/patrolled friendly territory, is **Tranquillo by default** (tamed, watched) — Rischioso/Ostile require the real geography of open wilderness, a contested border, or an infested/hostile zone; do NOT rate the safe approaches of a city as Rischioso (failure shape: a patrolled leg at a city's doorstep tagged Rischioso, which then forced a harder encounter than the place warrants). The SAME rating applies whether the party crosses the zone (/viaggio) or camps in it (/riposo):
-  - **Tranquillo** — a safe road near a hub, settled/friendly territory (an urban camp trends here).
-  - **Rischioso** — open wilderness, a contested border, unsettled land.
-  - **Ostile** — a monster-infested zone, enemy territory, a cursed/pressured area.
-- **ONE CHECK (single roll — light, per the campaign's table ethos):** 1d20 vs a threshold by rating (guideline, GM-tunable): Tranquillo event on ≤5 (25%) · Rischioso on ≤11 (55%) · Ostile on ≤16 (80%). On a hit → ONE event; on a miss → see the branch difference below.
-- **THE GM ROLLS — THE ASSISTANT PRE-GENERATES BOTH BRANCHES IN ONE TURN:** the assistant does NOT roll. It sets up the scene, states the danger rating + threshold ('tira 1d20, evento su ≤N'), and generates BOTH labelled outcomes in the SAME turn — '**Tiro ≤N (evento):** …' and '**Tiro >N (nessun evento):** …' — then the GM rolls a REAL d20 and plays/reads the matching branch. WHY: the GM gets a genuinely random die (an LLM is a poor RNG), AND it costs ONE turn/message, not two — if the assistant stopped and waited for the result, resolving the chosen branch would need a SECOND turn that re-processes the whole context (a message against a capped plan). Both branches are ALWAYS present because a miss STILL has content (see below), so nothing is saved by omitting one. If the '≤N (evento)' branch is a combat, generate its stat block there (it is ready if the GM rolls into it).
-- **EVENT MENU (on a hit — pick ONE, zone-consistent §B13/§A6, spanning good/neutral/bad, not only threats):** GOOD — a traveller who helps, a hidden cache, a merchant with a good deal; NEUTRAL — a vista, a minor NPC, a harmless meeting; BAD — an ambush, an NPC in peril, a fight, an environmental hazard. A combat event scales per §B11, loot per §A21. Never a mini-dungeon; one event only.
-- **VALENCE SKEWS WITH THE DANGER RATING (one die, no second roll):** the single roll decides only WHETHER an event fires (frequency, above); when one fires, its VALENCE is not free but LEANS with the route/zone rating — **Tranquillo** → mostly GOOD/NEUTRAL (a hostile ambush here is the rare exception); **Rischioso** → a genuine MIX of the three; **Ostile** → mostly BAD (a fight, an NPC in peril, an environmental hazard) with good/neutral rare. The assistant picks the event INSIDE the rating's valence band — a peaceful zone does not routinely throw ambushes, an infested one does not routinely offer helpful merchants. No extra roll and no extra branch: the two pre-generated branches stay 'evento' vs 'niente'.
-- **COMBAT DIFFICULTY = THE DANGER RATING, on the EXISTING engine (no new tables):** when the event is a FIGHT (a travel ambush, a camp agguato), its DIFFICULTY is fixed by the route/zone danger rating and BUILT on the standard encounter engine of Ch.10.2 — **Tranquillo → Facile (Easy)** · **Rischioso → Media (Medium)** · **Ostile → Difficile (Hard)**. Size it to the group's XP budget for that tier (Ch.10.2a thresholds × the Ch.10.2b count multiplier, adjusted for party size Ch.10.3) with BY-THE-BOOK stat blocks (06 §B6, no inflation) — NEVER an ad-hoc/over-tuned block. (Ch.10.4 already flags travel/rest ambushes as target Easy/Medium; this just pins the tier to the rating.) FAILURE SHAPE: a Tranquillo camp that threw 3 creatures of ~55 HP each — many multiples over the Facile budget.
-- **MISS DIFFERS BY BRANCH:** at a CAMP a miss still yields a COLOUR event (a shared meal, a fireside confession, a distant light) — always something. On TRAVEL a miss yields an UNEVENTFUL passage — nothing happens, the journey simply passes.
-- **WATCH ORDER (camp):** the party sets watches; whoever is on watch gains/suffers surprise on an ambush.
-- **THE LONG REST ALWAYS COMPLETES (camp):** a resolved ambush does NOT cancel it — the rest command never denies the long rest (06 §B28; if the GM wants to deny it, they simply do not use the command). No exhaustion tracking (player-managed, like HD).
-- Design references (structure, not verbatim): DMG "Random Encounters", OSR/Shadowdark watch-checks, the travel/camp procedures of published wilderness adventures.
+## 14.6 Random Events: Travel & Wilderness Camping
+Wilderness transit and camping outside safe settlements are subject to random events and encounters based on the route or zone's **Danger Rating**:
+- **Danger Rating & Frequency:**
+  - **Tranquillo:** safe patrolled roads near settlements, friendly territory (event on d20 ≤ 5). Leans toward helpful travellers, merchants, vistas, or harmless meetings; hostile ambushes are rare.
+  - **Rischioso:** open wilderness, contested borders, unsettled frontiers (event on d20 ≤ 11). A balanced mix of encounters, hazards, and ambushes.
+  - **Ostile:** monster-infested regions, enemy territory, aetherically pressured zones (event on d20 ≤ 16). Leans predominantly toward hostile threats, ambushes, and severe hazards.
+- **Encounter Difficulty:** when an event results in combat (a travel or night ambush), its target difficulty follows the zone's danger rating on the standard encounter engine (Ch. 10.2): **Tranquillo → Facile (Easy)**, **Rischioso → Media (Medium)**, **Ostile → Difficile (Hard)**, with by-the-book statistics (no stat inflation).
+- **Camping & Watches:** during wilderness camping, the party sets a watch order (determining surprise on an ambush). A resolved ambush does not cancel the long rest benefits once overcome.
 
 ## 14.7 Environmental Hazards & Eorzean Weather
 - **Eorzean Weather & Aetheric Balance:**
@@ -1039,9 +1022,8 @@ One shared mechanic drives both the TRAVEL check (06 §B26) and the CAMP check o
   - *Heat Waves (Ondata di calore 🏜️):* Extreme Heat (DMG 5e): creatures wearing medium or heavy armor, or creatures lacking double daily water rations, must succeed on an hourly DC 10 Constitution saving throw or gain 1 level of exhaustion.
   - *Blizzards (Tormenta / Bufera 🌨️):* Extreme Cold (DMG 5e): hourly DC 10 Constitution saving throw without cold-weather gear or gain 1 level of exhaustion; area is heavily obscured beyond 6 yalm; snow drifts are difficult terrain; disadvantage on all ranged attacks.
   - *Gales (Burrasca 💨):* gale-force winds halve flight speeds and require DC 13 Strength checks to advance forward; ranged weapon attacks suffer disadvantage.
-- **Weather Evolution, Shift Lead-in & Long Rest Refresh:**
-  - *Daytime Progression & Shift Lead-in:* each beat tracks active weather duration in hours (`da N ore`); weather naturally shifts when it has persisted for 3-4 hours or as Orario crosses period boundaries. When weather shifts OR Orario crosses into a new time period (Alba/Mattino/Pomeriggio/Tardo Pomeriggio/Sera/Notte), the opening 1-2 sentences of the beat explicitly describe the transition in the sky, lighting, shadows, and atmosphere.
-  - *Long Rest (/riposo):* Orario resets to 0 and weather ALWAYS rerolls/refreshes for the new dawn based on the current zone's canon list (duration resets to `da 0 ore`).
+- **Weather Shifts & Progression:**
+  Weather typically persists for 3–4 hours before shifting across regional patterns, and refreshes for the new dawn after a Long Rest. Atmospheric changes naturally alter lighting, sky conditions, and travel pacing.
 
 # CHAPTER 15 — TAVERNS & GOSSIP
 The tavern as a social hub between adventures: roleplay and flavor, a light rumor system, and the job board.
@@ -1054,18 +1036,10 @@ Adventurers' Guild venues:
 - **UL'DAH** - The Quicksand
 Table weight: light. No tavern marathon sessions.
 
-## 15.2 Gossip & rumors
-When the party spends time in a tavern, it can "LISTEN IN". (OPERATIONAL NOTE: the rumour/hook system is NOT tavern-bound — it fires ON-DEMAND when the PCs seek info or socialise ANYWHERE near their current location, and the hook is ALWAYS-available, not gated behind the roll; full engine in 06 §B20.)
-- 1 CHECK per visit: Persuasion/Performance (strike up a chat) or Investigation/Insight (eavesdrop).
-- Buying a round (a small expense) grants ADVANTAGE.
-**Rumor table (kept by the GM, by zone/arc):** TRUE (clue/hook), COLOR (atmosphere/minor lore), MISLEADING (a false lead, sparingly, never punishing).
-| Roll | Result |
-|---|---|
-| <= 9 | 1 Color rumor |
-| 10-14 | 1 Color + 1 True |
-| 15-19 | 2 True (or 1 more detailed True) |
-| 20+ | 2 True + an in-depth clue |
-*Tie every TRUE rumor to something real (Ch. 13/16).*
+## 15.2 Gossip, Rumors & Information Gathering
+Taverns and adventurer guilds are natural crossroads for hearing news, local lore, and whispers of nearby happenings:
+- **Gathering Information:** PCs can strike up conversations with patrons, buy rounds for goodwill (granting advantage on Charisma checks), or quietly listen to discussions among merchants and mercenaries.
+- **Nature of Rumors:** leads gathered range from local color and regional atmosphere to genuine clues and adventure hooks connected to the ongoing storyline or nearby discoveries.
 
 ## 15.3 Job board (Levequest style)
 OPTIONAL JOBS, faithful to Levequests.
@@ -1149,28 +1123,10 @@ The GM may grant 'free' info or ADVANTAGE based on who the character is:
 
 **[👁️ Info GM]** The Primal was just summoned and has already moved toward the village down the valley (hook: next Plot Battle, Ch. 10.5). An enthralled (Tempered) survivor is hidden at the back of the cavern and will attack if approached.
 
-## 16.6 Cutscene adaptation (in-scene rail vs off-scene auto-surface)
-FFXIV tells much of its story through cutscenes. Two kinds, handled differently; the OFF-SCENE ones are actually easier (closed, GM-facing content) — the IN-SCENE rail is where discipline matters most.
-
-**PLACEMENT (where the cutscene goes) [v1.23]:** reproduce a cutscene at its CANONICAL narrative position. Some dungeons INTERLEAVE long cutscenes BETWEEN encounters (tag each at the transition); others land the story at the END of the dungeon/trial. Follow canon: never force all-at-end nor all-mid, never invent one. A `[CUTSCENE IN SCENA]` may be a beat HEADER or an interleaved SUB-BLOCK. (General heuristic.)
-
-**IN-SCENE CUTSCENE (the PCs ARE present) — a RAILED story beat:**
-- Deliver the content and REACH the canonical outcome; the scene's spine is FIXED (Ch. 5.1 / the Roadmap: never move the destination nor alter the info delivered).
-- Player input during it = REACTIONS ONLY: roleplay, short Q&A, at most one telegraphed check SUL POSTO (for flavour/degree, Ch. 16) — NEVER a branch that changes where the scene lands or what it reveals.
-- If the players push to deviate: soft redirect (§B3), or PARK the impulse as a post-scene subquest hook (§B22); NEVER fork mid-cutscene.
-- DENSITY here = DEPTH (vivid narration + full dialogue + acknowledged reactions), NOT more choices (Ch. 10 / §A10 read as depth, not branching).
-- LONG cutscenes: split into sub-beats and deliver via the dialogue of a PRESENT NPC, live; never a monolithic monologue.
-- Format: player-facing via READ-ALOUD + dialogue (16.2); the GM keeps [Info GM]. TAG the beat '[CUTSCENE IN SCENA]' so the GM sees it is a rail (distinct from an elastic playable beat).
-
-**OFF-SCENE CUTSCENE (the PCs are NOT present — villains plotting, distant councils, etc.): SURFACES AUTOMATICALLY, GM-facing.**
-- WHEN: the assistant presents it ON ITS OWN at the canonical MSQ beat that has one (per the verified Roadmap / wiki) — there is NO 'show me' request trigger. Surface it ONLY where it canonically belongs: never invented, never forced onto a beat that has none.
-- HOW: append it as a SEPARATE block AFTER the played beat, wrapped '[CUTSCENE ALTROVE — i PG non sono presenti]' + the complete scene. It is GM-FACING by default: NEVER part of the 'Da leggere ai PG' nor auto-narrated to the players — the GM decides whether to read it aloud (a dramatic-irony interlude), keep it GM-only, or skip.
-- ANTI-SPOILER WARNING: if the scene contains a reveal still gated (Ch. 1), add a TERSE '⚠️ reveal protetto' (a short flag, NOT a cautionary sentence).
-- OPTIONAL in-world delivery: the same information may instead reach the PCs as a report, a rumor (Ch. 15), an intercepted letter, an Echo vision (Ch. 4.2) or the aftermath they witness.
-
-**TERSENESS & NO META [v1.26]:** the GM uses this tool and knows how it works. The cutscene TAGS are self-explanatory SIGNALS — do NOT re-explain, each time, what a railed / off-scene cutscene is, and NEVER narrate the tool's own internal choices to the GM ('compressione MSQ applicata', 'signature preservata', 'questa è una scena su binari, i PG possono reagire ma l'esito è fisso'). Tag + (if needed) a terse '⚠️ reveal protetto' is enough.
-
-CROSS-REF: Echo visions Ch. 4.2; Layered Lore / [Info GM] 16.2; Spoiler Policy Ch. 1; subquest bookmark §B22 (06). Operational tag note: 06 §B1.
+## 16.6 Cutscene Adaptation (In-scene Rail vs. Off-scene Dramatic Irony)
+FFXIV tells much of its overarching story through cutscenes, adapted into two distinct narrative categories at the table:
+- **In-Scene Cutscenes (PCs present):** railed narrative moments where the PCs are physically present. The narrative spine and canon outcome are fixed, while players actively react through dialogue, roleplay, and localized impressions. Longer cutscenes are naturally delivered through present NPC exchanges rather than monologues.
+- **Off-Scene Cutscenes (PCs absent):** events occurring elsewhere (such as imperial war councils or Ascian scheming). These serve as GM-facing dramatic irony; the GM can choose to narrate them aloud to the table as a cinematic interlude, keep them private, or have the party discover their repercussions later through rumors, reports, or Echo visions.
 
 # CHAPTER 17 — GRAND COMPANY
 The Grand Companies as an element of PURE COLOR and plot. They are NOT a progression system.

@@ -1,5 +1,16 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-03b — De-duplicazione Architetturale e Pulizia 05 (Campaign)
+
+De-duplicazione e bonifica di `05_Campaign.md` (v2.25) a seguito del Full Audit 05 vs 06, eliminando dati contrastanti, tabelle obsolete e testo di prompt engineering:
+- **TARIFFE DI TRASPORTO (Ch. 8):** Riscritto Ch. 8.4 ed eliminata integralmente la sezione ridondante 8.5 che conteneva tariffe obsolete e confliggenti (1–10 Gil). Tutti i prezzi canonici di traghetti, Chocobo, navi, aeronavi e cavalcature risiedono unicamente e autorevolmente nel capitolo economico (`05 Ch. 12.7`).
+- **EVENTI DI VIAGGIO & ACCAMPAMENTO (Ch. 14.6):** Rimossa la verbosità procedurale per LLM (pre-generazione di entrambi i rami, gestione dei token e chiamate interne), preservando la sola regola di gioco per il GM: le 3 classi di pericolo (*Tranquillo, Rischioso, Ostile*), le soglie d20 e il bilanciamento proporzionato degli incontri.
+- **METEO & PERICOLI AMBIENTALI (Ch. 14.7):** Mantenute le tabelle regionali e le meccaniche 5e dei pericoli estremi (caldo, freddo, nebbia, burrasca), espungendo le istruzioni di formattazione della stringa footer (che appartengono a `06 §B1`).
+- **VOCI & TAVERNE (Ch. 15.2):** Rimossa la vecchia tabella d20 con voci vere/false e disclaimers operativi; Ch. 15 si concentra sul roleplay nelle taverne storiche della Gilda, lasciando il motore operativo di `/voci` a `06 §B20`.
+- **CUTSCENE & DRAMATIC IRONY (Ch. 16.6):** Trasformata la sezione in guida pura di narrazione per il GM (cutscene su binari in-scena vs scene di ironia drammatica off-scene), eliminando le formule imperative di sintassi e metatesto.
+
+05 v2.25 · 06 v6.79 · 08 v3.57.
+
 ## 2026-09-03a — Linearizzazione Quest Multiple: Moguri (1A), Fringes (2B) e Fortemps
 
 Evoluzione della catena MSQ in `08_MSQ_Flow.md` (v3.57) per garantire un avanzamento sequenziale univoco:
