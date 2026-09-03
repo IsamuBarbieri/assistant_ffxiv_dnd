@@ -1,5 +1,30 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-03c — Bonifica Meccaniche MMO e Sfoltimento Flow (08_MSQ_Flow.md v3.58)
+
+Rimozione e rifattorizzazione di tutte le quest e i passaggi contenenti meccaniche prettamente da videogioco MMO, restituendo fluidità e coerenza al gioco di ruolo:
+- **TUTORIAL DI EQUIPAGGIAMENTO LIVELLO 5 (TAGLIATI):**
+  - Limsa Lominsa: Tagliata `Dressed to Call` (`[CUT: MMO gear-check tutorial]`). `On to Summerford` conduce direttamente alla Solo Duty di `Lurkers in the Grotto` a Seasong Grotto dopo il briefing di Staelwyrn.
+  - Gridania: Tagliata `Passing Muster` (`[CUT: MMO gear-check tutorial]`). `To the Bannock` conduce direttamente alla Solo Duty di `Chasing Shadows` nel bosco dopo il briefing di Galfrid.
+  - I PG possiedono già l'equipaggiamento iniziale appropriato da Sessione 0.
+- **SINTONIZZAZIONE ETERITI (IN-CHARACTER ADVICE):**
+  - Mantenuto l'invito a sintonizzarsi con l'Eterite principale nelle quest #2 delle tre città (`Close to Home`), riformulato come consiglio diegetico dato dalla Gilda dei rispettivi avventurieri (senza forzature da checklist o sblocchi fittizi di magie videoludiche come "Return").
+- **SBLOCCHI DI SISTEMA VIDEOLUDICI RIMOSSI:**
+  - Espunti i riferimenti a "unlocks Inn Rooms & Guildleves" al termine delle tre quest di scontro con l'Ascian harbinger (`Just Deserts`, `Spirithold Broken`, `Way Down in the Hole`).
+- **TUTORIAL DI RUOLO "HALL OF THE NOVICE" (BYPASSATO):**
+  - In `It's Probably Pirates` prima di Sastasha, bypassata la tappa d'addestramento ruoli MMO dell'avventuriero veterano; i PG passano direttamente dall'imbarco di V'mellpa al briefing delle Yellowjacket all'ingresso delle caverne di Sastasha.
+- **RIFATTORIZZAZIONE EMOTE E COMANDI SLASH IN CHAT (ROLEPLAY & PROVE):**
+  - Riformulati in pure interazioni narrative o prove di abilità (Insight, Intimidation, Persuasion, Performance) tutti i comandi slash videoludici del flow:
+    - Limsa #9 (`Plowshares to Swords`): incoraggiamento dei braccianti ai frutteti senza spam di `/cheer` o `/soothe`.
+    - East Shroud (`First Contact` & `Dance Dance Diplomacy`): Komuxio accoglie la squadra con la danza cerimoniale dei silfi in *First Contact*; tagliata `Dance Dance Diplomacy` (`[CUT: MMO emote fetch cut]`) che richiedeva di ballare per 3 silfi generici.
+    - Coerthas (`Blood for Blood`): interrogatorio e intuizione per smascherare l'eretica Prunilla anziché l'emote `/doubt`.
+    - Thanalan (`Desperate Times`): conforto al rifugiato terrorizzato con Persuasione/Medicina anziché `/soothe`.
+    - Heavensward (`Black and the White`): saluto di rispetto cerimoniale all'anziano Kunu Vali anziché `/bow`.
+    - Stormblood (`The Will to Live`): infiltrazione in divisa militare garleana con saluto marziale anziché `/imperialsalute`.
+    - Shadowbringers (`A Taste of Honey` & `A Day in the Neighborhood`): esibizione di corte a Eulmore anziché ballo sul marcatore arcade, e scambio del saluto rituale dei Blessed of the Night (*allin tuta*) a Slitherbough anziché digitazione in chat e inginocchiamento forzato.
+
+05 v2.25 · 06 v6.79 · 08 v3.58.
+
 ## 2026-09-03b — De-duplicazione Architetturale e Pulizia 05 (Campaign)
 
 De-duplicazione e bonifica di `05_Campaign.md` (v2.25) a seguito del Full Audit 05 vs 06, eliminando dati contrastanti, tabelle obsolete e testo di prompt engineering:

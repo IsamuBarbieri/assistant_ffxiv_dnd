@@ -9,7 +9,7 @@
 - Fonte ordine: ConsoleGamesWiki. Niente livelli-quest. Gap: 06 §A14, mai improvvisare.
 
 # 08_MSQ_FLOW — MSQ Roadmap, Cutscene/Reveal Manifests & Ordered Index
-Version v3.57 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v3.58 (full audit: manifests, roadmap, OST & 100% canon-verified index) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 > SCHEMA / USAGE: this is the MSQ FLOW file (split out of 05). References to 'Section A' and to 'Ch. X' point to 05_Campaign.md. AUTHORITATIVE for MSQ order/sequence: consult the ordered index (08.2-08.6) FIRST for order/next-step/giver/step spine (over model memory). The 5 manifests (in 08.1) are the LOCKED cutscene/reveal backbone. If in conflict with the Instructions (06/master), the Instructions win.
 
@@ -976,39 +976,36 @@ KEY SCENES:
 - Next: Close to Home (Limsa Lominsa)
 
 2. **Close to Home (Limsa Lominsa)** — giver: Baderon (Limsa Lominsa Upper Decks)
-- Ahtbyrm (The Octant / Aetheryte Plaza: tune to Aetheryte) -> Muriel (Hawkers' Round / Lower Decks: tour the markets) -> Baderon (The Drowning Wench: complete initiation; unlocks Return)
+- Ahtbyrm (The Octant / Aetheryte Plaza: tuning to the Aetheryte advised for future journeys) -> Muriel (Hawkers' Round / Lower Decks: tour the market district) -> Baderon (The Drowning Wench: official initiation into the Adventurers' Guild)
 - Next: On to Summerford
 
 3. **On to Summerford** — giver: Baderon (Limsa Lominsa Upper Decks) `[COND: relay]`
-- Staelwyrn (Summerford Farms, Middle La Noscea: deliver Baderon's letter)
-- Next: Dressed to Call
-
-4. **Dressed to Call** — giver: Staelwyrn (Middle La Noscea) `[COND: fetch]`
-- equip gear in head, body, hands, legs, and feet slots (item level 5+) -> inspect Staelwyrn
+- Staelwyrn (Summerford Farms, Middle La Noscea: deliver Baderon's letter, receive briefing on troubled settlers and rogue pirates at Seasong Grotto)
 - Next: Lurkers in the Grotto
+- `[CUT: MMO gear-check tutorial]` **Dressed to Call** — 5-slot numerical gear inspection (cut; party already possesses appropriate starting gear).
 
-5. **Lurkers in the Grotto** — giver: Staelwyrn (Middle La Noscea)
+4. **Lurkers in the Grotto** — giver: Staelwyrn (Middle La Noscea)
 - Seasong Grotto -> [SOLO DUTY: fight suspicious intruders and voidsent alongside Y'shtola] -> report to Staelwyrn
 - Next: Washed Up
 
-6. **Washed Up** — giver: Staelwyrn (Middle La Noscea) `[COND: parallel → Double Dealing]`
+5. **Washed Up** — giver: Staelwyrn (Middle La Noscea) `[COND: parallel → Double Dealing]`
 - search Cookpot shoreline for flotsam (0/3 salvaged crates) -> deliver to Staelwyrn
 - Next: Double Dealing
 
-7. **Double Dealing** — giver: Staelwyrn (Middle La Noscea)
+6. **Double Dealing** — giver: Staelwyrn (Middle La Noscea)
 - investigate pirate markings near Agelyss River -> confront Seeker pirates -> report to Staelwyrn
 - Next: Loam Maintenance
 
-8. **Loam Maintenance** — giver: Gurcant (Middle La Noscea) `[COND: fetch]`
+7. **Loam Maintenance** — giver: Gurcant (Middle La Noscea) `[COND: fetch]`
 - slay ground squirrels (0/3) -> collect damp loam (0/3) -> deliver to Gurcant
 - Next: Plowshares to Swords
 
-9. **Plowshares to Swords** — giver: Pfrewahl (Middle La Noscea)
-- motivate discouraged farmhands (/cheer or /soothe 0/3) -> report to Pfrewahl
+8. **Plowshares to Swords** — giver: Pfrewahl (Middle La Noscea)
+- motivate discouraged farmhands at the Summerford orchards through reassurance or encouragement -> report to Pfrewahl
 - Next: Just Deserts
 
-10. **Just Deserts** — giver: Staelwyrn (Middle La Noscea)
-- Wenyld -> [SOLO DUTY: defend Wenyld's field against the masked mage / Ascian harbinger and summoned gargoyle alongside Y'shtola] -> Staelwyrn (unlocks Inn Rooms & Guildleves)
+9. **Just Deserts** — giver: Staelwyrn (Middle La Noscea)
+- Wenyld -> [SOLO DUTY: defend Wenyld's field against the masked mage / Ascian harbinger and summoned gargoyle alongside Y'shtola] -> Staelwyrn
 - Next: Sky-high
 
 11. **Sky-high** — giver: Baderon (Limsa Lominsa Upper Decks) `[COND: relay]`
@@ -1051,8 +1048,8 @@ KEY SCENES:
 - Commodore Reyner (Coral Tower) -> [SOLO DUTY: ambush Serpent Reavers at North Tidegate and foil pirate plot] -> report to Reyner
 - Next: High Society
 
-21. **High Society** — giver: Reyner (Limsa Lominsa Upper Decks) `[COND: fetch]`
-- obtain formal attire (Dress Shoes) from Hawkers' Round -> present to Baderon
+21. **High Society** — giver: Reyner (Limsa Lominsa Upper Decks) `[COND: relay]`
+- formal preparations and attire for Admiral Merlwyb's banquet -> present to Baderon at the Crow's Lift
 - Next: A Mizzenmast Repast
 
 22. **A Mizzenmast Repast** — giver: Baderon (Limsa Lominsa Upper Decks)
@@ -1068,35 +1065,32 @@ KEY SCENES:
 - Next: Close to Home (Gridania)
 
 2. **Close to Home (Gridania)** — giver: Mother Miounne (New Gridania)
-- Aetheryte Plaza (tune to Aetheryte) -> visit Leatherworkers' Guild / Greatloam Growery / Ebony Stalls -> report to Miounne (unlocks Return)
+- Aetheryte Plaza (tuning to the Aetheryte advised for future journeys) -> tour city guilds (Leatherworkers' Guild / Greatloam Growery / Ebony Stalls) -> Mother Miounne (The Carline Canopy: official initiation into the Adventurers' Guild)
 - Next: To the Bannock
 
 3. **To the Bannock** — giver: Mother Miounne (New Gridania) `[COND: relay]`
-- Galfrid (The Bannock, Central Shroud: deliver Miounne's letter)
-- Next: Passing Muster
-
-4. **Passing Muster** — giver: Galfrid (Central Shroud) `[COND: fetch]`
-- equip gear in head, body, hands, legs, and feet slots (item level 5+) -> inspect Galfrid
+- Galfrid (The Bannock, Central Shroud: deliver Miounne's letter, receive briefing on suspicious intrusions in the forest)
 - Next: Chasing Shadows
+- `[CUT: MMO gear-check tutorial]` **Passing Muster** — 5-slot numerical gear inspection (cut; party already possesses appropriate starting gear).
 
-5. **Chasing Shadows** — giver: Galfrid (Central Shroud)
+4. **Chasing Shadows** — giver: Galfrid (Central Shroud)
 - check Suspicious Spot -> [SOLO DUTY: fight shadowy cultists and Ixali scout alongside Yda & Papalymo] -> Hydaelyn crystal vision -> report to Galfrid
 - Next: Eggs over Queasy
 
-6. **Eggs over Queasy** — giver: Galfrid (Central Shroud) `[COND: fetch]`
+5. **Eggs over Queasy** — giver: Galfrid (Central Shroud) `[COND: fetch]`
 - gather vulture eggs (0/3) while repelling forest beasts -> report to Galfrid
 - Next: Surveying the Damage
 
-7. **Surveying the Damage** — giver: Monranguin (Central Shroud) `[COND: fetch]`
+6. **Surveying the Damage** — giver: Monranguin (Central Shroud) `[COND: fetch]`
 - survey blighted trees in Central Shroud (0/3) -> report to Monranguin
 - Next: A Soldier's Breakfast
 
-8. **A Soldier's Breakfast** — giver: Pauline (Central Shroud) `[COND: fetch]`
+7. **A Soldier's Breakfast** — giver: Pauline (Central Shroud) `[COND: fetch]`
 - deliver hot meals to Wood Wailer sentries (0/3) -> report to Pauline
 - Next: Spirithold Broken
 
-9. **Spirithold Broken** — giver: Galfrid (Central Shroud)
-- investigate Spirithold -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Yda & Papalymo] -> Galfrid (unlocks Inn Rooms & Guildleves)
+8. **Spirithold Broken** — giver: Galfrid (Central Shroud)
+- investigate Spirithold -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Yda & Papalymo] -> Galfrid
 - Next: On to Bentbranch
 
 10. **On to Bentbranch** — giver: Mother Miounne (New Gridania) `[COND: relay]`
@@ -1160,7 +1154,7 @@ KEY SCENES:
 - Next: Close to Home (Ul'dah)
 
 2. **Close to Home (Ul'dah)** — giver: Momodi (Ul'dah - Steps of Nald)
-- Aetheryte Plaza (tune to Aetheryte) -> visit Gladiators' Guild / Sapphire Avenue Exchange / Pugilists' Guild -> report to Momodi (unlocks Return)
+- Aetheryte Plaza (tuning to the Aetheryte advised for future journeys) -> tour city quarters (Gladiators' Guild / Sapphire Avenue Exchange / Pugilists' Guild) -> Momodi (The Quicksand: official initiation into the Adventurers' Guild)
 - Next: We Must Rebuild
 
 3. **We Must Rebuild** — giver: Momodi (Ul'dah - Steps of Nald) `[COND: relay]`
@@ -1188,7 +1182,7 @@ KEY SCENES:
 - Next: Way Down in the Hole
 
 9. **Way Down in the Hole** — giver: Zuzumeda (Central Thanalan)
-- Sil'dih Excavation Site -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Thancred] -> report to Momodi (unlocks Inn Rooms & Guildleves)
+- Sil'dih Excavation Site -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Thancred] -> report to Momodi
 - Next: Takin' What They're Givin'
 
 10. **Takin' What They're Givin'** — giver: Momodi (Ul'dah - Steps of Nald) `[COND: relay]`
@@ -1275,9 +1269,9 @@ KEY SCENES:
 - Note: the starting-city variants all converge on Baderon.
 
 **It's Probably Pirates** — giver: Baderon (Limsa Lominsa Upper Decks)
-- V'mellpa (ferry docks): directions to Sastasha -> Seasoned Adventurer (Hall of the Novice): group-combat training -> Yellowjacket (Sastasha entrance): briefing -> [Sastasha] -> report to Baderon (Drowning Wench)
+- V'mellpa (ferry docks: ferry to Western La Noscea) -> Yellowjacket patrol (Sastasha entrance: briefing on Serpent Reavers and the grotto) -> [Sastasha] -> report to Baderon (Drowning Wench)
 - Next: Call of the Forest
-- Roster note: the Sastasha entrance NPC is a GENERIC Yellowjacket (NOT "V'mah Tia"); V'mellpa is at the ferry docks; Commodore Reyner appears ONLY in a cutscene at the Drowning Wench and sends the player nowhere — there is NO "Coral Tower" authorization step.
+- Roster note: the Sastasha entrance NPC is a GENERIC Yellowjacket (NOT "V'mah Tia"); V'mellpa is at the ferry docks; Commodore Reyner appears ONLY in a cutscene at the Drowning Wench and sends the player nowhere — there is NO "Coral Tower" authorization step; the Hall of the Novice MMO combat-tutorial is bypassed.
 
 **Call of the Forest** — giver: Baderon (Limsa)
 - -> Miounne (The Carline Canopy, Gridania): briefing
@@ -1366,12 +1360,9 @@ KEY SCENES:
 - Next: First Contact
 
 **First Contact** — giver: Rolfe Hawthorne (East Shroud)
-- Rolfe (wraps the offering) -> Amelain (letter from the Elder Seedseer for Komuxio) -> Komuxio (perform the dance emote; accepts the milkroot + letter as proof of peace)
-- Next: Dance Dance Diplomacy
-
-**Dance Dance Diplomacy** — giver: Yda (Little Solace) `[COND: parallel → Presence of the Enemy]`
-- dance for the sylphs of Little Solace (0/3) -> report to Yda
+- Rolfe (wraps the offering) -> Amelain (letter from the Elder Seedseer for Komuxio) -> Komuxio (ceremonial sylphic greeting dance seals the delivery of milkroot and the Seedseer's letter as a pledge of peace)
 - Next: Forest Friend
+- `[CUT: MMO emote fetch cut]` **Dance Dance Diplomacy** — dancing for 3 generic sylphs with /dance emote (cut for pacing; peaceful contact is fully established in First Contact).
 
 **Forest Friend** — giver: Papalymo (East Shroud) `[COND: fetch]`
 - Imedia (advice) -> slay a ziz gorlin, slay a gall gnat, obtain 3 brownie brushes -> Komuxio (Little Solace)
@@ -1730,7 +1721,7 @@ KEY SCENES:
 - Next: Blood for Blood
 
 **Blood for Blood** — giver: Alphinaud (Coerthas Central Highlands)
-- Joellaut (show encyclical) -> Prunilla (show encyclical) -> confront Prunilla (/doubt) -> search SE of Whitebrim Front, open the suspicious box -> Drillemont (present findings)
+- Joellaut (show encyclical) -> Prunilla (show encyclical) -> confront Prunilla (interrogation / Insight or Intimidation check to expose her contradictions) -> search SE of Whitebrim Front, open the suspicious box -> Drillemont (present findings)
 - Next: The Heretic among Us
 
 **The Heretic among Us** — giver: Drillemont (Coerthas Central Highlands) `[COND: relay]`
@@ -2027,7 +2018,7 @@ KEY SCENES:
 - Next: Desperate Times
 
 **Desperate Times** — giver: Alphinaud (Ul'dah - Steps of Nald) `[COND: relay]`
-- Raubahn (Hall of Flames) -> Swift -> Brass Blades (Lost Hope) -> Zazawaka -> Terrified Refugee -> /soothe the Terrified Refugee
+- Raubahn (Hall of Flames) -> Swift -> Brass Blades (Lost Hope) -> Zazawaka -> Terrified Refugee -> reassure the terrified refugee (roleplay / Persuasion or Medicine check)
 - Next: Shock and Awe
 
 **Shock and Awe** — giver: Terrified Refugee (Central Thanalan) `[COND: fetch]`
@@ -2470,14 +2461,14 @@ KEY SCENES:
 
 **Mountaintop Diplomacy** — giver: Alphinaud (Nophica's Altar, Old Gridania) `[COND: relay]`
 - Alphinaud (Nophica's Altar) -> enter the Lotus Stand -> Alphinaud -> Estinien (Moghome) -> Chieftain Moglin
-- Next: Mogmug's Trial (la prova di coraggio e caccia di Chieftain Moglin per guadagnare la fiducia dei moguri)
+- Next: Mogmug's Trial (Chieftain Moglin's trial of courage and hunt to earn moogle trust)
 
 **Mogmug's Trial** — giver: Mogmug (Moghome) `[COND: fetch]`
 - defeat archaeosaurs at Eil Tohm -> report to Mogmug
 - Next: Moglin's Judgment
-- *(Nota linearizzazione: nel MMO Moglin sbloccava 3 commissioni contemporanee; la campagna linearizza tenendo la sola prova di caccia contro i mostri che minacciano Moghome, eliminando le micro-fetch non necessarie)*
-- `[CUT: parallel fetch cut]` **Moghan's Trial** — raccolta erbe cloudsbreath (tagliata per ritmo narrativo).
-- `[CUT: parallel fetch cut]` **Mogwin's Trial** — ricerca pupazzo/manufatto perduto (tagliata per ritmo narrativo).
+- *(Linearization note: in the MMO Moglin unlocked 3 concurrent tasks; the campaign linearizes by keeping only the hunting trial against monsters threatening Moghome, cutting superfluous micro-fetches)*
+- `[CUT: parallel fetch cut]` **Moghan's Trial** — cloudsbreath herb gathering (cut for narrative pacing).
+- `[CUT: parallel fetch cut]` **Mogwin's Trial** — search for lost artifact/doll (cut for narrative pacing).
 
 **Moglin's Judgment** — giver: Chieftain Moglin (Moghome)
 - Alphinaud -> Estinien -> Ysayle -> Kan-E-Senna -> Kuplo Kopp -> Moglin -> Moghan
@@ -2597,7 +2588,7 @@ KEY SCENES:
 - Next: Black and the White
 
 **Black and the White** — giver: Alphinaud (the Sea of Clouds — Bismarck's Feeding Grounds) `[COND: relay]`
-- Lonu Vanu -> greet Kunu Vali with /bow -> Alphinaud
+- Lonu Vanu -> greet elder Kunu Vali with a respectful ceremonial bow -> Alphinaud
 - Next: Bolt, Chain, and Island
 
 **Bolt, Chain, and Island** — giver: Alphinaud (the Sea of Clouds)
@@ -3188,7 +3179,7 @@ KEY SCENES:
 - Next: The Will to Live
 
 **The Will to Live** — giver: Yugiri (Yanxia) · MSQ `[COND: fetch]` [page prev/next noisy — order fixed by neighbours]
-- stand watch for imperial patrols -> Yugiri -> steal a uniform from a sleeping soldier -> Yugiri -> (in uniform) /imperialsalute to the guards (0/2) -> Yugiri -> free the Doman villagers
+- stand watch for imperial patrols -> Yugiri -> steal imperial soldier uniform -> Yugiri -> (in uniform) bluff garlean sentries with military salute -> Yugiri -> free Doman captives
 - Next: Daughter of the Deep
 
 **Daughter of the Deep** — giver: Yugiri (Yanxia) · MSQ `[COND: fetch]`
@@ -3747,7 +3738,7 @@ KEY SCENES:
 - Next: A Taste of Honey
 
 **A Taste of Honey** — giver: the Amiable Maiden (Eulmore) · MSQ `[COND: fetch]`
-- Tista-Bie -> win a game against Tista-Bie (x2) -> Atharn -> /dance on the mark on stage -> Atharn -> Dulia-Chai
+- Tista-Bie -> win contest of wits against Tista-Bie -> Atharn -> entertain the Eulmore court with a performance -> Atharn -> Dulia-Chai
 - Next: A Blessed Instrument
 
 **A Blessed Instrument** — giver: Alphinaud (the Crystarium) · MSQ `[COND: fetch]`
@@ -3917,7 +3908,7 @@ KEY SCENES:
 - Next: A Day in the Neighborhood
 
 **A Day in the Neighborhood** — giver: Y'shtola (Slitherbough, the Rak'tika Greatwood) · MSQ
-- Runar (x2) -> /kneel before Runar -> (Say: "allin tuta" to greet the residents of Slitherbough, 0/3) -> Minfilia
+- Runar (x2) -> pay respects to Runar -> exchange ritual greeting of the Blessed of the Night ("allin tuta") with Slitherbough residents -> Minfilia
 - Next: A Helping Hand
 
 **A Helping Hand** — giver: Runar (the Rak'tika Greatwood) · MSQ `[COND: fetch]`
