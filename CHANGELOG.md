@@ -1,5 +1,28 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-03f — Revisione ed Espansione Glossario e Adattamento Nomi (07_Glossary.md v1.41)
+
+Revisione completa di `07_Glossary.md`:
+- **REGOLE DI ADATTAMENTO AUTOMATICO (G1 & G3):**
+  - Espansa la regola sui cognomi trasparenti dotati di lore in G1: tradotti per senso/composto fuso (*Pietragrigia* per bastardi di Coerthas, *Sanguedidrago*, *Diecidita*, *Cuordiferro*, *Spinanera*), preservando invariati i cognomi culturali/metrici francesi (*de Fortemps*, *de Borel*), roegadyn antichi (*Bloefhiswyn*, *Wilfsunwyn*) e lalafell (*Nanarito*, *Taru*).
+  - Aggiunte a G3 radici geografiche e infrastrutturali frequenti (`-grotto` -> Grotta; `-rest` -> Riposo; `-hollow` -> Antro/Cavità; `-crag` -> Dirupo/Falesia; `-scar` -> Sfregio; `-dell` -> Valletta; `Shrine/Sanctum` -> Santuario; `Barrow/Cairn` -> Tumulo; `Airship` -> Aeronave; `Skiff/Barge` -> Battello/Chiatta; `Caravan` -> Carovana; applicazione snella di `Station` e `Float`).
+- **TERMINI DI MONDO E LORE (G5, G6, G7):**
+  - Inseriti `Magitek` (invariato), `ceruleo (ceruleum)`, `sintonizzazione (attunement)`, `Aeronave (Airship)`, `Erba Gysahl / Erbe Gysahl (Gysahl Greens)`, `Tomopietra Allagana (Allagan Tomestone)`, `la Calamità (The Calamity)`, `Settima Era Ombrosa (Seventh Umbral Era)` e `Settima Era Astrale (Seventh Astral Era)`.
+- **HUB E FAZIONI ARR (G9 & G10):**
+  - Toponimi snelli e integrati: *Campo Orizzonte*, *Campo Tranquillo*, *Zuccacaduta*, *Boscomulino*, *Stazione Sterpenero*, *Postarapida*, *Piane di Carteneau*, *Lago Lacrimargento*, *Grotta del Canto Marino*, *Albero della Sultana*, *Presidio del Bannock*, *Rovine di Sil'dih*.
+  - Fazioni: *Le Spade della Sultana (The Sultansworn)*, *Studenti di Baldesion (Students of Baldesion)*, *i Monetaristi e i Realisti*, *Quattordicesima Legione (XIVth Legion)*, *Impero Garleano (The Garlean Empire)*.
+- **ROSTER NPC BLINDATO (G11):**
+  - Nomi e cognomi canonici locked (Scion, leader cittadini, nobili ishgardiani, generali imperiali, Ascian e Antichi).
+- **DUNGEON E TRIAL MANCANTI (G12, G13, G14):**
+  - Integrati *Valdorata (The Aurum Vale)*, *La Crisalide (The Chrysalis - Nabriales)*, *I Gradini della Fede (The Steps of Faith - Vishap)*, *Il Muro di Baelsar (Baelsar's Wall)* e *L'Oscuro Ghimlyt (The Ghimlyt Dark)*.
+- **IMPRECAZIONI ED ESCLAMAZIONI REGIONALI (G27.2):**
+  - Espansione massiccia delle invocazioni dei Dodici e del colorito parlato eorzeano (*Per i seni di Nophica!*, *Per il conio di Nald!*, *Per la lancia di Halone!*, *Per la tempesta di Llymlaen!*, *Per il martello di Byregot!*, *Per la Custode!*, *Per lo Studioso!*, *Per il Viandante!*, *Per l'Amante!*, *Per la Tessitrice!*, *Ratti di mare!*, *Che tu vada al Settimo Inferno!*, *Dèi del cielo!*, *Rovina e putredine!*).
+
+- **ALLINEAMENTO RIFERIMENTI 06 (06_Procedures_and_Format.md v6.81):**
+  - Corretto a §B6 riga 413 il riferimento incrociato alla regola anti-doppione del test delle parentesi, puntando al corretto `07 G2` anziché `07 G10`.
+
+07 v1.41 · 06 v6.81.
+
 ## 2026-09-03e — Eliminazione Arruolamento Grand Company e Status Sovranazionale dei Scion
 
 Rimozione della scelta e arruolamento militare dei giocatori in una singola Grand Company, preservando le tre compagnie come fazioni geopolitiche del mondo e alleate dei Scion (05 v2.27, 06 v6.80, 08 v3.59):

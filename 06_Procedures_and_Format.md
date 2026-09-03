@@ -1,5 +1,5 @@
 # 06_PROCEDURES_AND_FORMAT — Procedures, Formats & Shared Rules (for the assistant)
-Version v6.80 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
+Version v6.81 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew - assistant operating manual
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -410,7 +410,7 @@ NORMAL TEXT with bold labels, in the same typeface as the prose. **RULESET AND P
 AT LEAST ONE ACTION IS AN ATTACK WITH NO '**Telegrafo:**' LINE — §B10 states the rule and the count; a block whose every attack is telegraphed is unplayable, not merely unusual.
 The SECTION TITLES are h4 headings and the ENTRY NAMES stay bold: two distinct levels, so a title is never mistaken for an entry. A section header always opens its own line ('Tratti. Aspetto Illusorio. Finché…' run together is the failure shape) and every entry name is bolded — the bold IS what lets the GM find the ability while the players wait.
 - **KEEP DESIGN COMMENTARY OUT OF THE MECHANICS:** an action's paragraph contains ONLY what the ability does in play. GM-facing notes about why it exists ('meccanica firma, telegrafata', 'serve a costringere il party a muoversi') belong to the encounter's 'Contromossa'/'[Info GM]' lines.
-- **NO SELF-DOPPIONE (07 G10):** a name is never followed by the SAME name in parentheses — 'Coeurl o' Nine Tails (Coeurl o' Nine Tails)' is the failure shape. The '(English)' parenthesis appears ONLY when the visible name is an ITALIAN rendering of a DIFFERENT English original; a name kept in English is written ONCE, bare.
+- **NO SELF-DOPPIONE (07 G2):** a name is never followed by the SAME name in parentheses — 'Coeurl o' Nine Tails (Coeurl o' Nine Tails)' is the failure shape. The '(English)' parenthesis appears ONLY when the visible name is an ITALIAN rendering of a DIFFERENT English original; a name kept in English is written ONCE, bare.
 - **STAT BLOCK OUTPUT IN ITALIAN:** damage types render Italian — contundente/perforante/tagliente (never bludgeoning/piercing/slashing), da fuoco/freddo/veleno/acido/fulmine/tuono/psichico/necrotico/radiante/forza; conditions Italian — avvelenato/afferrato/trattenuto/prono/accecato/paralizzato/spaventato.
 - **SENSES IN ITALIAN — ONE OR THE OTHER:** scurovisione & vista cieca (never darkvision/blindsight), Percezione passiva. A creature has ONE sense OR the OTHER, on its own line: scurovisione sees in the dark, vista cieca perceives without sight, and the fused 'scurovisione cieca' is the failure shape.
 - **CONDITION DURATIONS (stat block):** use rounds or '1 minuto' (5e's real units) — 'accecato fino alla fine del suo turno successivo', 'per 1 minuto'. Hours or a dice-of-hours ('accecato per 1d3 ore') is the failure shape.
