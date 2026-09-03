@@ -1257,6 +1257,31 @@ fatto appendendo `/sessione 0` fra `/cambio Classe` e `/esito` invece che in tes
 l'unica collisione reale nei tre file — e lv era proprio quello a cui mancava la regola del match piu'
 lungo. Cercare un ordine non ha prodotto un ordine: ha prodotto una regola mancante.
 
+## 2.47 IL FOOTER COMMAND-NEUTRAL, IL CONTINUE-MOMENTUM E L'ARCHITETTURA DEL VIAGGIO (2026-09-03)
+**IL PROBLEMA STORICO (CONTINUE-MOMENTUM):** Nelle versioni cv49–cv87, chiudere il messaggio con suggerimenti di comandi
+(es. `👉 Digita /continua per arrivare... o /viaggio per...`) innescava un gravissimo *recency bias* nei modelli veloci (Flash):
+i token del comando posizionati alla fine del footer agivano da attrattore probabilistico. Se al turno successivo il GM
+digitava un comando ortogonale (es. `/salva`, `/riposo`, `/voci`, `/cambio Classe`), il modello subiva l'inerzia e
+sparava un `/continua` ignorando l'input del tavolo.
+**LA REGOLA INVIOLABILE:** Il footer dichiara lo **STATO, MAI I COMANDI**. La bussola `🧭 Viaggio:` descrive la geografia
+e le rotte canoniche, senza mai stampare token di slash-command. Zero comandi nel footer = zero continue-momentum su qualsiasi LLM.
+
+**LA SEPARAZIONE TRA `/continua` E `/viaggio`:**
+- `/continua` (Arrivo Compresso via Eterite): liquida il viaggio in una singola frase diegetica di rematerializzazione/approccio,
+  aprendo direttamente la scena MSQ. Zero marce a piedi prolisse, zero d20. Avanza l'Orario del beat (+1h/+2h; oppure ore
+  reali di marcia se prima esplorazione verso un'Eterite non ancora visitata, sintonizzandola all'arrivo) e aggiorna il Meteo
+  estraendolo casualmente dalla tabella canonica della nuova zona.
+- `/viaggio [chocobo | strada | strada chocobo]` (Viaggio Giocato): proprietario esclusivo del montaggio con tiro `1d20`.
+  Default: teletrasporto all'hub regionale + montaggio dell'Ultimo Miglio a piedi (+1h Orario, roll meteo). Con `chocobo`:
+  stessa rotta ma a cavallo (+1h, vantaggio fuga). Con `strada`: traversata overland intera a piedi (+1h per zona).
+
+**VISIBILITA' DEL METEO SEVERO AL TAVOLO (GM UX):**
+Se gli effetti meccanici del meteo estremo (es. Tormenta, Tempesta di sabbia con CD 10 Cos, terreno difficile e visibilità ridotta)
+sono confinati nel footer, il GM scopre le penalità solo DOPO aver giocato la scena.
+**Soluzione:** quando il meteo attivo è Severo, viene emesso un banner meccanico su riga singola in testa al beat, subito
+sotto l'header e l'estimate (`⚠️ Condizione Ambientale: <Meteo> — <Regole D&D 5e>`), garantendo al GM visibilità immediata
+prima di leggere la narrazione o gestire i tiri.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

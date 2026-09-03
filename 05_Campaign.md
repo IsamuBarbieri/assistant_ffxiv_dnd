@@ -1,5 +1,5 @@
 # 05_CAMPAIGN — Campaign Rules (Section A)
-Version v2.28 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
+Version v2.29 (host-agnostic) | Source: FFXIV x D&D 5e Homebrew — Campaign arc A Realm Reborn -> Endwalker (Dawntrail EXCLUDED)
 
 ## SCHEMA NOTES
 - PRINCIPLE: completeness over brevity. NO content cut; only reformatted into clean, parsable sections.
@@ -639,10 +639,11 @@ AETHERYTES are great crystals that channel the world's aether and enable fast te
 A safe but taxing process for body and soul: hence the cost (8.3).
 
 ## 8.2 Reaching an Aetheryte (no attunement bookkeeping)
-- You can teleport only to an Aetheryte the party has ALREADY VISITED at least once (adjudicated NARRATIVELY by the GM: "have they been here?"), with NO list to keep.
+- You can teleport only to an Aetheryte the party has ALREADY VISITED at least once (adjudicated NARRATIVELY by the GM / derived live from MSQ [A] position: "have they been here?"), with NO list to keep.
 - There is NO attunement record to keep: neither the GM nor the save tracks it.
-- In play the assistant FLAGS when an Aetheryte is present at a location (e.g. "Ul'dah (Eterite)") as a simple reminder of where one is (06 §B23).
-- You cannot teleport to an Aetheryte never visited.
+- **Macro-Transit vs Last Mile:** Aetherytes connect major city-states and regional settlement hubs (e.g. New Gridania, Horizon, Camp Drybone, Falcon's Nest). Outposts, caves, remote ruins, or dungeons without their own attuned crystal require traversing the wild Last Mile on foot or mount from the nearest known hub.
+- **First-Time Entry (unvisited region/Aetheryte):** You cannot teleport to an Aetheryte never visited. When the MSQ directs the party to an unvisited outpost or new region for the first time, direct teleport to that destination is canonically impossible: the party teleports to the nearest known hub and travels overland. Touching the newly reached Aetheryte attunes it for all future trips.
+- In play the assistant FLAGS when an Aetheryte is present at a location (e.g. "Ul'dah 💎") as a simple reminder of where one is (06 §B23).
 
 ## 8.3 Teleport cost: 1 Hit Die (HD)
 - Each Aetheryte teleport costs the traveler 1 HIT DIE (HD).

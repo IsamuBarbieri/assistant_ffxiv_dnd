@@ -1,6 +1,27 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
-## 2026-09-03g — Rifattorizzazione Narrative Pacing da DM: Taglio Chirurgico dei Filler MMO e Bonifica Discrepanze (08 v3.60, 05 v2.28, README)
+## 2026-09-03h — Rifattorizzazione Sistema di Viaggio, Meteo Dinamico e Banner Meccanico (06 v6.82, Instructions cv144, 05 v2.29)
+
+Risoluzione definitiva della sovrapposizione tra `/continua` e `/viaggio`, formalizzazione dell'architettura Eterite + Ultimo Miglio, estrazione casuale del meteo dai roster canonici e introduzione del banner di allerta meteo severo a vista del DM:
+- **06_PROCEDURES_AND_FORMAT.MD (v6.82):**
+  - **§A3 (Meteo Dinamico e Banner Meccanico):**
+    - Sancita la fine del "sempre sereno": all'ingresso in una nuova zona (tramite `/continua` compresso o `/viaggio`), il meteo viene **estratto casualmente dalla tabella canonica della regione di destinazione** (Gamer Escape / ConsoleGamesWiki; durata reimpostata a `da 0 ore`).
+    - Introdotto il **Banner di Allerta Meccanica in Testa al Beat**: quando il meteo è SEVERO (§A3: Pioggia battente, Temporale, Nebbia fitta, Tempesta di sabbia, Ondata di calore, Tormenta/Bufera, Burrasca), viene emessa su riga singola l'allerta `⚠️ Condizione Ambientale: <Meteo> <emoji> — <Effetti Meccanici 5e>` subito sotto l'header/estimate del beat prima della narrazione, garantendo al GM visibilità immediata su CD, terreno difficile e penalità prima di iniziare a leggere o giocare la scena.
+    - Convalidato il *Lead-in Narrativo Ambientale*: le prime 1-2 frasi della nuova scena descrivono diegeticamente l'impatto sensoriale del cielo, della luce e del clima.
+  - **§B1 (Struttura Beat e Footer Command-Neutral):**
+    - Codificata la posizione del banner `⚠️ Condizione Ambientale:` tra header/estimate e narrazione.
+    - Ribadita la natura rigorosamente **command-neutral** della bussola `🧭 Viaggio:` e dei marcatori (nessun nome di comando con slash `/`), prevenendo al 100% il rischio di *continue-momentum* e priming di comandi concorrenti su LLM veloci.
+  - **§B2 (Arrivo Compresso sotto `/continua`):**
+    - Chiarito che sotto `/continua`, in presenza di viaggio pendente, il party arriva compresso all'obiettivo: teletrasporto via Eterite all'hub con 1 sola clausola diegetica di rematerializzazione, zero montaggi di marcia a piedi, zero tiri d20, apertura diretta della scena MSQ. Se prima volta in una terra vergine (Eterite non ancora visitata), la marcia è narrata in modo compresso a tappe forzate, calcolando le ore effettive sull'Orario e sintonizzando il cristallo all'arrivo.
+  - **§B26 (Varianti di `/viaggio` e Meccaniche di Transito):**
+    - Codificate le 4 opzioni di viaggio giocato: `/viaggio` (default: Eterite all'hub + montaggio giocato dell'Ultimo Miglio a piedi, +1h Orario, tiro evento 1d20), `/viaggio chocobo` (Eterite all'hub + Ultimo Miglio a dorso di chocobo, +1h Orario, vantaggio fuga), `/viaggio strada` (overland completo a piedi senza Eterite, +1h per zona attraversata, 1d20) e `/viaggio strada chocobo` (overland completo su chocobo, +1h ogni 2 zone, 1d20). Chiusura sempre con marcatore neutro `— Arrivo a <destinazione> —`.
+- **INSTRUCTIONS_CAMPAIGN.TXT (cv144):**
+  - Aggiornato il blocco `<commands>`: `/continua` documentato con arrivo compresso, sincronizzazione meteo/orario e apertura diretta della quest; `/viaggio` espanso con la sintassi `[chocobo | strada | strada chocobo]`.
+  - Aggiornato il blocco `<beat>`: incorporata la regola del banner `⚠️ Condizione Ambientale:` in testa al beat per meteo severo e il roll casuale del meteo di zona con lead-in narrativo sensoriale.
+- **05_CAMPAIGN.MD (v2.29):**
+  - Capitolo 8 (§8.2): Esplicitata la distinzione tra Macro-tratta verso gli hub regionali (Eterite) e Ultimo Miglio selvaggio. Formalizzata la regola della prima esplorazione: un'Eterite non può essere raggiunta se mai visitata prima; il party viaggia overland dall'hub più vicino e sintonizza il cristallo all'arrivo.
+- **PROJECT_MEMORY.MD:**
+  - Registrata la documentazione tecnica sulla separazione `/continua` vs `/viaggio`, la gestione del meteo casuale, il banner in testa al beat e la protezione contro il continue-momentum.
 
 Rifattorizzazione globale della spina dorsale MSQ contro i colli di bottiglia e il padding da MMO (Ordeals of Valor e rimozione dei ping-pong fetch), preservando al 100% i titoli canonici inglesi, i giver, le coordinate e la compatibilità con salvataggi e wiki search:
 - **08_MSQ_FLOW.MD (v3.60):**
