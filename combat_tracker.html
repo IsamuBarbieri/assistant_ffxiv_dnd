@@ -391,7 +391,7 @@
     <div class="modal-content">
       <h2 style="margin-top:0;">Importa Incontro</h2>
       <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incolla qui il <strong>testo del pacchetto incontro</strong>. Da questo vengono ricavati nemici e statistiche; la mappa esce dalla <strong>sezione Arena</strong>. Per riaprire un tracker salvato usa invece <strong>📂 Apri</strong>.</p>
-      <textarea id="importTextarea" class="import-area" placeholder="### Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** ...&#10;**Nemici:** Sentinella del Bosco ×3&#10;&#10;**Da leggere ai PG:** ...&#10;&#10;#### Arena&#10;**Tipo:** Sala Ampia&#10;**Dimensioni:** 18 × 14&#10;**Elementi:**&#10;- Rocce — angolo nord-est&#10;- Acqua Profonda — fascia est"></textarea>
+      <textarea id="importTextarea" class="import-area" placeholder="### Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** ...&#10;**Nemici:** Sentinella del Bosco ×3&#10;&#10;**Da leggere ai PG:** ...&#10;&#10;#### Arena&#10;**Tipo:** Sala Ampia&#10;**Dimensioni:** 18 × 14&#10;**Elementi:**&#10;- Rocce&#10;- Acqua&#10;**Disposizione:** Sentinelle appostate dietro le rocce a nord; pozza d'acqua al centro."></textarea>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button class="btn-secondary" onclick="closeImportModal()">Annulla</button>
         <button class="btn-import" style="background-color:var(--success); color:white;" onclick="processImport()">Carica Incontro</button>
@@ -2649,10 +2649,10 @@ Devi restituire ESATTAMENTE E SOLO un testo formattato come segue, senza markdow
 **Tipo:** [Scegli esattamente uno tra: Spazio Aperto, Grande Arena, Sala Ampia, Rovine Complesse, Caverna Irregolare, Struttura Circolare, Galleria, Passaggio Stretto, Stanza Base]
 **Dimensioni:** [Es. 18] × [Es. 14]
 **Forma:** [Scegli esattamente una tra: aperta, circolare, irregolare, articolata, regolare]
-**Disposizione:** [1-2 frasi che descrivono dove sono collocati gli ostacoli e da dove emergono i nemici]
 **Elementi:**
-- [Nome dal catalogo con eventuale nota dopo em-dash, es: Rocce — lungo le pareti, Fango — al centro, Radici, Muffa, Macerie, Albero, Acqua, Rovi/Spine, Oscurità Magica, Statua/Altare]
-[Il numero grammaticale sceglie quanti elementi appaiono: SINGOLARE = uno solo sulla mappa, PLURALE = gruppo sparso. Usa il plurale quando la zona ne ha più di uno: Albero/Alberi, Pilastro/Pilastri, Statua/Statue, Barricata/Barricate, Cespuglio/Cespugli, Siepe/Siepi, Carro/Carri, Carovana/Carovane, Roccia/Rocce, Cassa/Casse, Anfora/Anfore, Mobile/Mobili]
+- [Nome nudo dal catalogo chiuso di 31 elementi, singolare o plurale, senza descrizioni né trattini lunghi: es. Rocce, Fango, Radici, Muffa, Macerie, Albero, Acqua, Rovi/Spine, Oscurità Magica, Statua/Altare]
+[Il numero grammaticale sceglie quanti elementi appaiono: SINGOLARE = uno solo sulla mappa, PLURALE = gruppo sparso: Albero/Alberi, Pilastro/Pilastri, Statua/Statue, Barricata/Barricate, Cespuglio/Cespugli, Siepe/Siepi, Carro/Carri, Carovana/Carovane, Roccia/Rocce, Cassa/Casse, Anfora/Anfore, Mobile/Mobili]
+**Disposizione:** [1-2 frasi che descrivono dove sono collocati gli ostacoli e da dove emergono i nemici; l'ingresso dei PG resta sgombro]
 
 **Tattica:** [Strategia generale dei mostri e comportamento in combattimento]
 

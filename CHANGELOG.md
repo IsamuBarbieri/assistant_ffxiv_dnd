@@ -1,9 +1,9 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
-## 2026-09-05 — Fenced Code Block Plaintext, Standardizzazione Arena Combat Tracker, Incremento Sessione e Sistema Completo di Viaggio (06 v6.83, Instructions cv145 / ov79 / lv60, 07 v1.42)
+## 2026-09-05 — Fenced Code Block Plaintext, Standardizzazione Arena Combat Tracker, Elementi Nudi, Incremento Sessione e Sistema di Viaggio (06 v6.84, Instructions cv146 / ov80 / lv61, 07 v1.42)
 
-Risoluzione definitiva della compatibilità con la Web UI di Gemini/Gems (comparsa garantita del pulsante 1-click "Copia codice" per combat tracker e salvataggio), formalizzazione esaustiva del sistema di viaggio (arrivo compresso sotto `/continua` vs viaggio giocato e 4 varianti di `/viaggio`), standardizzazione completa dei parametri dell'arena e correzione automatica dell'incremento sessione:
-- **06_PROCEDURES_AND_FORMAT.MD (v6.83):**
+Risoluzione definitiva della compatibilità con la Web UI di Gemini/Gems (comparsa garantita del pulsante 1-click "Copia codice" per combat tracker e salvataggio), formalizzazione esaustiva del sistema di viaggio (arrivo compresso sotto `/continua` vs viaggio giocato e 4 varianti di `/viaggio`), standardizzazione completa dei parametri dell'arena con nomi degli elementi nudi e correzione automatica dell'incremento sessione:
+- **06_PROCEDURES_AND_FORMAT.MD (v6.84):**
   - **§B2 (Arrivo Compresso sotto `/continua` con Viaggio Pendente):**
     - Quando è pendente una bussola `🧭 Viaggio:` e il GM invia `/continua`, il gruppo giunge a destinazione in modalità compressa senza diluire il ritmo narrativo:
       - *Se la destinazione possiede un'Eterite già sintonizzata:* teletrasporto immediato con 1 sola clausola diegetica di smaterializzazione/rimaterializzazione, zero montaggi di marcia a piedi, zero tiri d20 evento, aprendo direttamente la scena dell'obiettivo MSQ.
@@ -26,10 +26,10 @@ Risoluzione definitiva della compatibilità con la Web UI di Gemini/Gems (compar
     - Separato nettamente il pacchetto in:
       1. *Testata Narrativa/Visiva (esterna al blocco codice):* titolo h3 `### 🗡️ Pacchetto Incontro: {nome}`, link `[🖼️ Immagine: {Nome}]` in testata, `**Difficoltà:**`, `**Innesco:**` (se applicabile), e `**📖 Da leggere ai PG:**` in prosa markdown.
       2. *Comparto Meccanico (racchiuso tassativamente in fenced code block `plaintext`):* si apre su riga propria con ```` ```plaintext ````, inizia con `**Nemici:** {nome} ×N`, seguito da `#### 🏟️ Arena`, `**Tattica:**`, stat block puri (nessun link immagine all'interno) e `#### 💰 Bottino`, chiudendosi con ```` ``` ````. Il tag `plaintext` garantisce la renderizzazione del pulsante "Copia codice" nella Web UI di Gemini.
-  - **§B8 (Standardizzazione Rigida di `#### 🏟️ Arena` per `combat_tracker.html`):**
+  - **§B8 (Standardizzazione Rigida di `#### 🏟️ Arena` per `combat_tracker.html` ed Elementi Nudi):**
     - `Tipo:` vincolato tassativamente a 1 delle 9 etichette chiuse dei MapPresets (*Spazio Aperto · Grande Arena · Sala Ampia · Rovine Complesse · Caverna Irregolare · Struttura Circolare · Galleria · Passaggio Stretto · Stanza Base*); vietati aggettivi o testi liberi su questa riga.
     - `Dimensioni:` due interi `L × A` o `L × A yalm` (caselle griglia); vietate conversioni metriche tra parentesi ed altezze soffitto.
-    - `Elementi:` elenco puntato con trattino `-` e nomi rigorosamente appartenenti al catalogo chiuso di 31 elementi del tracker; ammesse note di colore/posizionamento dopo trattino lungo `—`; vietate regole D&D 5e (bonus CA, CD, danni) tra parentesi, già gestite nativamente dal tracker.
+    - `Elementi:` elenco puntato con trattino `-` e nomi rigorosamente BARE (singolari o plurali dal catalogo chiuso di 31 elementi, es. bare `- Rocce`, `- Acqua`, `- Barricata`); rimosse le descrizioni di colore/posizionamento e i trattini lunghi `—` su queste righe per risparmiare token e calcoli, lasciando tutta la composizione visiva alla riga `Disposizione:` sottostante; confermato il divieto assoluto di regole D&D 5e tra parentesi.
     - `Disposizione:` posizionata obbligatoriamente **sotto** ad `Elementi:`, con 1-2 frasi di prosa descrittiva per l'API di posizionamento pedine/ostacoli e prescrizione di lasciare sgombra la via d'accesso dei PG.
   - **§B17 & §B24 (Salvataggio `/salva` in `plaintext` e Incremento Sessione):**
     - Il blocco save emesso da `/salva` è racchiuso tassativamente in ```` ```plaintext ```` ... ```` ``` ```` con `/carica` sulla prima riga per un ripristino immediato in 1 click.
@@ -37,13 +37,13 @@ Risoluzione definitiva della compatibilità con la Web UI di Gemini/Gems (compar
     - Risolta la sequenza di chiusura quest in `[A]`: `Missione MSQ corrente (EN): <B>` e `Ultimo step completato: Conclusa <A> (<sintesi ultimo evento>)`, prevenendo qualsiasi replay o disorientamento al `/carica`.
   - **§B26 & §B28 (Incontri di Viaggio e Riposo):**
     - Allineati gli incontri casuali di `/viaggio` e imboscate di `/riposo` (accampamento) al nuovo pacchetto incontro standardizzato.
-- **INSTRUCTIONS (cv145, ov79, lv60):**
-  - **Instructions_Campaign.txt (cv145):**
+- **INSTRUCTIONS (cv146, ov80, lv61):**
+  - **Instructions_Campaign.txt (cv146):**
     - `<commands>`: codificato `/continua` con arrivo compresso (Aetheryte a hub o marcia forzata se vergine), espanso `/viaggio` con la sintassi `[chocobo | strada | strada chocobo]`, esplicitato `Sessione: {loaded N + 1}` e fenced code block `plaintext` con `/carica` in riga 1 su `/salva`.
     - `<beat>`: codificate le regole di avanzamento meteo/orario su beat e viaggi, transizione climatica e chiusura obbligatoria con marcatore neutro `— Arrivo a <destinazione> —`.
-    - `<output_contract>`: codificato il pacchetto incontro bipartito in `plaintext`, standardizzazione arena (9 tipi, dimensioni numeriche, 31 elementi, disposizione sotto), e immagini dei nemici raggruppate in testata.
-  - **Instructions_OneShot.txt (ov79) & Instructions_Loremonger.txt (lv60):**
-    - Sincronizzato `<output_contract>` con il pacchetto incontro bipartito in `plaintext` e layout arena standardizzato.
+    - `<output_contract>`: codificato il pacchetto incontro bipartito in `plaintext`, standardizzazione arena (9 tipi, dimensioni numeriche, 31 elementi nudi senza descrizioni/trattini, disposizione sotto), e immagini dei nemici raggruppate in testata.
+  - **Instructions_OneShot.txt (ov80) & Instructions_Loremonger.txt (lv61):**
+    - Sincronizzato `<output_contract>` con il pacchetto incontro bipartito in `plaintext` e layout arena standardizzato con elementi nudi.
 - **07_GLOSSARY.MD (v1.42):**
   - **§G12.0:** Formalizzata la mappatura deterministica delle zone regionali e suddivisioni cardinali ARR (*Noscea Centrale (Middle La Noscea)*, *Bosco Centrale (Central Shroud)*, *Thanalan Centrale (Central Thanalan)*, *Altopiani Centrali di Coerthas (Coerthas Central Highlands)*).
   - **§G12.4:** Aggiunto il catalogo canonico bilingue delle porte cittadine (*Porta Zefiro (Zephyr Gate)*, *Porta Tempesta (Tempest Gate)*, *Porta del Cinghiale Nero (Black Boar Gate)*, *Porta di Nald (Gate of Nald)*, ecc.).
