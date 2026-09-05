@@ -145,13 +145,20 @@
     .sb-secondary-box strong { color: #ffffff; font-weight: 600; }
     
     .sb-section-title { font-weight: bold; color: #fbbf24; margin-top: 15px; margin-bottom: 6px; border-bottom: 1px solid #4b5563; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; padding-bottom: 2px; }
-    .sb-move { font-size: 0.9rem; margin-bottom: 6px; line-height: 1.4; }
-    .sb-move strong { color: #fca5a5; }
+    .sb-move { font-size: 0.9rem; margin-bottom: 6px; line-height: 1.45; color: #e5e7eb; }
+    .sb-move strong { color: #ffffff; font-weight: 600; }
+    .sb-move strong.sb-move-title { color: #fca5a5; font-weight: 700; }
+    .sb-card.is-ally .sb-move strong.sb-move-title { color: #38bdf8; }
+    .sb-card.is-ally .sb-line1 { color: #bae6fd; }
+    .sb-move.sb-continuation { color: #d1d5db; font-size: 0.88rem; margin-top: -2px; margin-bottom: 6px; line-height: 1.45; }
     .sb-spawn { margin-left: 6px; padding: 0 6px; font-size: 0.75rem; line-height: 1.5; border-radius: 4px;
                 border: 1px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; }
     .sb-spawn:hover { background: var(--accent-blue); color: #fff; }
     
-    .sb-telegraph { font-size: 0.85rem; padding: 6px 10px 6px 12px; border-left: 3px solid var(--warning); margin-left: 15px; margin-top: 2px; margin-bottom: 10px; color: #d1d5db; background: rgba(245, 158, 11, 0.05); border-radius: 0 4px 4px 0; font-style: italic; }
+    .sb-telegraph { font-size: 0.88rem; padding: 8px 12px; border-left: 3px solid var(--warning); margin-left: 10px; margin-top: 4px; margin-bottom: 8px; color: #e5e7eb; background: rgba(245, 158, 11, 0.07); border-radius: 0 6px 6px 0; line-height: 1.45; }
+    .sb-teleg-badge { color: #fbbf24; font-weight: 700; margin-right: 5px; }
+    .sb-teleg-tell { color: #fef3c7; font-style: italic; }
+    .sb-teleg-effect { margin-top: 5px; color: #e5e7eb; font-style: normal; }
 
     .sb-edit-form { display: flex; flex-direction: column; gap: 10px; }
     .sb-edit-form label { font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-bottom: -6px; }
@@ -911,6 +918,64 @@
       return false;
     }
 
+    const TELEGRAPH_RE = /^\s*(?:[⚠⚡]\s*)?(?:\*{1,2}|_{1,2})?\s*(Telegrafo(?:\s*\([^)]+\))?)\s*(?:\*{1,2}|_{1,2})?\s*:\s*(?:\*{1,2}|_{1,2})?\s*(.*)$/i;
+    const MD_TITLE_RE = /^\s*(\*{1,2}|_{1,2})([^\n]+?)\1(?:\s*([.:—–-]))?\s*(.*)$/;
+    const PLAIN_TITLE_RE = /^\s*([A-ZÀ-Ú][^.:—–\n]{1,50}(?:\s*\([^)]+\))?[.:—–-])(?:\s+(.*))?$/;
+    const NON_TITLE_PREFIXES = /^(Se|Quando|In caso di|Ogni|I bersagli|Chiunque|Chi|Tutti|Tutte|Qualsiasi|Questo|Questa|Dopo|Durante|Mentre|Alla fine|All'inizio|Colpisce|Hit|Danni)\b/i;
+
+    function formatInlineMarkdown(str) {
+      if (!str) return "";
+      let s = escapeHtml(str);
+      s = s.replace(/\*\*(.+?)\*\*/g, '<strong class="sb-bold">$1</strong>');
+      s = s.replace(/(^|[^\*])\*([^\*\n]+?)\*([^\*]|$)/g, '$1<em>$2</em>$3');
+      return s;
+    }
+
+    function parseMoveLine(raw) {
+      if (!raw || !raw.trim()) return null;
+      const trimmed = raw.trim();
+      if (SB_SECTION_TITLE.test(trimmed)) {
+        const clean = trimmed.replace(/^[\s#*_-]+/, '').replace(/[\s*_-]+$/, '').trim();
+        return { type: 'section', title: clean.toUpperCase() };
+      }
+      const mTeleg = trimmed.match(TELEGRAPH_RE);
+      if (mTeleg) {
+        let label = mTeleg[1].trim();
+        if (!label.endsWith(':')) label += ':';
+        return { type: 'telegraph', label: label, body: mTeleg[2].trim() };
+      }
+      const mMd = trimmed.match(MD_TITLE_RE);
+      if (mMd) {
+        const cand = mMd[2].trim();
+        if (cand.length <= 65) {
+          let title = cand;
+          const extra = mMd[3];
+          if (extra && !title.endsWith(extra)) {
+            title += extra;
+          }
+          return { type: 'move', title: title, body: mMd[4].trim() };
+        }
+      }
+      const mPlain = trimmed.match(PLAIN_TITLE_RE);
+      if (mPlain) {
+        const candPlain = mPlain[1].trim();
+        if (!NON_TITLE_PREFIXES.test(candPlain)) {
+          return { type: 'move', title: candPlain, body: (mPlain[2] || '').trim() };
+        }
+      }
+      return { type: 'desc', body: trimmed };
+    }
+
+    function renderTelegraphBlock(label, tellText, effectText, spawnBtn) {
+      let h = '<div class="sb-telegraph">';
+      if (spawnBtn) h += spawnBtn;
+      h += `<strong class="sb-teleg-badge">⚠ ${escapeHtml(label)}</strong> `;
+      if (tellText) h += `<span class="sb-teleg-tell">${formatInlineMarkdown(tellText)}</span>`;
+      if (effectText) h += `<div class="sb-teleg-effect">${formatInlineMarkdown(effectText)}</div>`;
+      h += '</div>';
+      return h;
+    }
+
     function renderStatblocks() {
       const enc = encountersData[currentEncounterIndex]; const tabsWrap = document.getElementById("sbTabsHeader"); const contentWrap = document.getElementById("sbContentArea");
       tabsWrap.innerHTML = ""; contentWrap.innerHTML = "";
@@ -1030,7 +1095,7 @@
               </div>`;
           contentWrap.appendChild(form);
       } else {
-          const card = document.createElement("div"); card.className = "sb-card";
+          const card = document.createElement("div"); card.className = "sb-card" + (activeSb.isAlly ? " is-ally" : "");
           let html = `<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;"><div class="sb-line1">${escapeHtml(activeSb.line1 || "")}</div><button class="sb-edit-btn" onclick="editingStatblockIndex = ${activeStatblockIndex}; renderStatblocks();">✏️ Modifica</button></div>`;
           if (activeSb.attributes) html += `<div class="sb-attributes-raw">${escapeHtml(activeSb.attributes)}</div>`;
           
@@ -1038,7 +1103,7 @@
           const extraStats = [], bodyMoves = [];
           allMoves.forEach((m, i) => { const lead = i < firstSection ? /^\**\s*([^:]{2,32}?)\s*\**\s*:\s*(.+)$/.exec(m.trim()) : null; if (lead) extraStats.push([lead[1], lead[2]]); else bodyMoves.push(m); });
 
-          const statRow = (label, value) => `<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</div>`;
+          const statRow = (label, value) => `<div><strong>${escapeHtml(label)}:</strong> ${formatInlineMarkdown(value)}</div>`;
           if (activeSb.ts || activeSb.skills || activeSb.senses || extraStats.length) {
               html += `<div class="sb-secondary-box">`;
               if (activeSb.ts) html += statRow("TS", activeSb.ts); if (activeSb.skills) html += statRow("Abilità", activeSb.skills);
@@ -1047,19 +1112,50 @@
           }
 
           let movesHtml = "";
-          bodyMoves.forEach(m => {
-            if (m.trim() === "") return;
-            if (SB_SECTION_TITLE.test(m.trim())) movesHtml += `<div class="sb-section-title">${escapeHtml(m)}</div>`;
-            else {
-                let isTelegraph = m.toLowerCase().startsWith('telegrafo:');
-                // Una mossa che contiene CA e PF descrive uno adds evocato: le si affianca il pulsante che
-                // lo mette sul tabellone. L'indice punta alla mossa dentro la scheda, non al suo testo.
-                // Mai il pulsante su una scheda GENERATA da un altro sgherro: la sua descrizione
-                // contiene CA e PF, quindi si evocherebbe all'infinito.
-                const spawn = (!activeSb.spawned && moveHasMinion(m)) ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>` : "";
-                if (isTelegraph) { movesHtml += `<div class="sb-telegraph">${spawn}${escapeHtml(m)}</div>`; } else { const match = m.match(/^(.+?[\.\—\-])( .*)?$/); if (match) movesHtml += `<div class="sb-move">${spawn}<strong>${escapeHtml(match[1])}</strong>${escapeHtml(match[2] || "")}</div>`; else movesHtml += `<div class="sb-move">${spawn}${escapeHtml(m)}</div>`; }
+          let mi = 0;
+          while (mi < bodyMoves.length) {
+            const m = bodyMoves[mi];
+            if (!m || m.trim() === "") { mi++; continue; }
+            const parsed = parseMoveLine(m);
+            if (!parsed) { mi++; continue; }
+
+            if (parsed.type === 'section') {
+              movesHtml += `<div class="sb-section-title">${escapeHtml(parsed.title)}</div>`;
+              mi++;
+            } else if (parsed.type === 'telegraph') {
+              const spawn = (!activeSb.spawned && moveHasMinion(m))
+                ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>`
+                : "";
+              let effectLines = [];
+              while (mi + 1 < bodyMoves.length) {
+                const nextLine = bodyMoves[mi + 1];
+                if (!nextLine || nextLine.trim() === "") { mi++; continue; }
+                const nextParsed = parseMoveLine(nextLine);
+                if (nextParsed && nextParsed.type === 'desc') {
+                  effectLines.push(nextParsed.body);
+                  mi++;
+                } else {
+                  break;
+                }
+              }
+              const effectText = effectLines.join('\n');
+              movesHtml += renderTelegraphBlock(parsed.label, parsed.body, effectText, spawn);
+              mi++;
+            } else if (parsed.type === 'move') {
+              const spawn = (!activeSb.spawned && moveHasMinion(m))
+                ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>`
+                : "";
+              const moveBody = parsed.body ? (' ' + formatInlineMarkdown(parsed.body)) : '';
+              movesHtml += `<div class="sb-move">${spawn}<strong class="sb-move-title">${escapeHtml(parsed.title)}</strong>${moveBody}</div>`;
+              mi++;
+            } else {
+              const spawn = (!activeSb.spawned && moveHasMinion(m))
+                ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>`
+                : "";
+              movesHtml += `<div class="sb-move sb-continuation">${spawn}${formatInlineMarkdown(parsed.body)}</div>`;
+              mi++;
             }
-          });
+          }
           if (movesHtml) html += `<div>${movesHtml}</div>`; card.innerHTML = html; contentWrap.appendChild(card);
       }
     }
@@ -2443,7 +2539,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           const SB_NOT_A_MOVE = /^(🖼|🗺|🎵|⚔|🧭|⏭|https?:\/\/|```|HTTP$|####\s*💰|💰\s*Bottino)/;
           for (let i = 2; i < lines.length; i++) {
               let l = lines[i].trim();
-              if (l.startsWith("Descrizione visiva:") || SB_NOT_A_MOVE.test(l)) continue;
+              if (/^\**\s*Descrizione visiva:\**/i.test(l) || SB_NOT_A_MOVE.test(l)) continue;
               if (l.match(/^(TS:|Abilità:|Sensi:|GdS)/i)) {
                   let tsM = l.match(/TS:\s*(.*?)(?=Abilità:|Sensi:|GdS|$)/i); let abM = l.match(/Abilità:\s*(.*?)(?=Sensi:|GdS|$)/i); let seM = l.match(/Sensi:\s*(.*?)(?=GdS|$)/i);
                   if (tsM && tsM[1]) { let v = tsM[1].trim(); if (v.endsWith("GdS")) v = v.substring(0, v.length-3).trim(); sbObj.ts = v; }

@@ -1,5 +1,17 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-05c — Raffinamento Formattazione Statblock e Stile Mosse nel Combat Tracker
+
+Ottimizzazione visuale e correzione del parser dei blocchi statistiche nel Combat Tracker (`combat_tracker.html`):
+- **Evidenziazione Selettiva di Mosse e Telegrafi:**
+  - Solo il titolo dell'abilità/azione (`strong.sb-move-title`) e l'etichetta del telegrafo (`strong.sb-teleg-badge`) ricevono il colore tematico e il risalto in grassetto (salmone `#fca5a5` per i mostri, azzurrino `#38bdf8` per i PNG alleati tramite classe `.is-ally` sulla scheda, ambra `#fbbf24` per i telegrafi).
+  - Tutto il corpo descrittivo (TxC, portata, danni, tiri salvezza, note ed effetti di risoluzione AoE) è ora visualizzato in testo neutrale, pulito e leggibile (`#e5e7eb` / `#d1d5db` a peso normale).
+- **Risoluzione Asterischi e Tag Markdown Letterali:**
+  - Introdotto il parser `parseMoveLine()` con regex dedicate per estrarre titoli in markdown (`**Titolo.**`, `*Titolo.*`), titoli in chiaro (`Titolo.`, `Titolo —`) e blocchi telegrafo (`**Telegrafo:**`, `Telegrafo:`), ripulendo gli asterischi e gli hashtag letterali (`####`).
+  - Le intestazioni di sezione (`Tratti`, `Azioni`, `Reazioni`, ecc.) vengono renderizzate pulite in maiuscolo senza i cancelletti markdown grezzi.
+  - Le righe di effetto e risoluzione che seguono un telegrafo vengono aggregate elegantemente nel callout box dorato del telegrafo sotto la descrizione del wind-up.
+  - Raffinato il filtro `Descrizione visiva:` in `processImport()` per escludere correttamente dal computo delle mosse le righe marcate con `**Descrizione visiva:**`.
+
 ## 2026-09-05b — Supporto PNG Alleati nel Pacchetto Incontro e nel Combat Tracker (06 v6.85, Instructions cv147 / ov81 / lv62)
 
 Integrazione organica dei PNG Alleati che affiancano il gruppo nei combattimenti campali e nei solo duty dell'MSQ (Scion, cavalieri, miliziani), dotati di stat block minimi dedicati e gestione nativa nel Combat Tracker con palette azzurrino chiaro:
