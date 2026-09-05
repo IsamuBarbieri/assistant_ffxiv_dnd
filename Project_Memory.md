@@ -1411,6 +1411,24 @@ Nel corso degli aggiornamenti recenti (tra cui tracker, meteo, PNG alleati, aren
 - `Instructions_Loremonger.txt`: 9,084 B → 7,519 B (~1.56 KB rimossi per eliminazione totale del codice incontro non pertinente).
 - Suite di test deterministica (`verify.ps1`) superata al 100%: parità testuale assoluta, validità pseudo-XML, code fences `plaintext`, invarianti di salvataggio e contratti arena intatti.
 
+## 2.54 FREE ROAMING, MSQ DIEGETIC GATING & LEAN SAVE REUSE (2026-09-05)
+**ESIGENZA AL TAVOLO:**
+Esplorazione sandbox libera delle terre di Eorzea tra una missione MSQ e l'altra, attingendo al ricco patrimonio di lore, geografia canonica, curiosità, punti di interesse e subquest, senza rompere la coerenza narrativa della trama principale e senza inventare blocchi invisibili da videogioco.
+
+**ARCHITETTURA E BEST PRACTICE IMPLEMENTATE:**
+1. **Comando Dedicato & Flusso (`/esplora`, `/svolta`, `/continua`):**
+   - Il comando `/esplora [destinazione]` apre il beat `[ESPLORAZIONE — <Zona> · <Punto>] (~15-30 min)`.
+   - I turni proseguono con `/esplora` per spostarsi tra punti di interesse, `/continua` per approfondire l'indagine/interazione sul posto, e `/svolta` per reagire a imprevisti o cambi di piano dei PG.
+   - Tutti i comandi di utilità (`/voci`, `/negozio`, `/riposo`, `/riposo breve`, `/cercano`, `/prova`, `/meteo`) restano pienamente fruibili senza interrompere lo stato esplorativo.
+2. **Gating Diegetico MSQ & Incontri Mortali++ (Agency & Conseguenze):**
+   - L'MSQ corrente in `[A]` delimita l'area diegeticamente sicura e coerente con la trama. I passaggi verso territori di archi narrativi successivi non presentano "muri invisibili metafisici" o rifiuti out-of-character: il mondo reagisce con ostacoli credibili (posti di blocco dell'Ammiragliato/Grandi Compagnie, pattuglie e droni magitek Garlean, faglie eteriche instabili).
+   - Se i giocatori insistono deliberatamente a forzare o aggirare tali blocchi, il sistema li lascia procedere, ma se scoppia uno scontro armato in queste aree premature genera un **Incontro Mortale++ (Overwhelming Threat, GdS = Livello Party + 3 a +6)** con mostri o truppe corazzate colossali per imporre una ritirata disperata (disengage/fuga), resa o TPK se combattono alla cieca.
+3. **Footer Rigorosamente Neutro (Zero Comandi):**
+   - Conformemente a §B1 e §B26, il footer di esplorazione non contiene NESSUN comando slash (`— In esplorazione: {Zona} ({Luogo}) —`), evitando qualunque priming o inquinamento della generazione successiva dell'LLM.
+4. **The Only Persistence is the Save (§A12, §B17, §B24):**
+   - Riutilizzo virtuoso dello slot `[C]`: memorizza `Stato: ESPLORAZIONE LIBERA — <Zona> (ATTIVA)` con il dettaglio della posizione, preservando intatto il cursore MSQ in `[A]`.
+   - Il rientro alla storia principale avviene tramite il comando unificato `/riprendi MSQ`, che resetta `[C]` a `nessuna` e riaggancia il prossimo step atomico di `[A]`.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

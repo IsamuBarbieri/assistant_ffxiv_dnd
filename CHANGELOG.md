@@ -1,5 +1,24 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-05f — Sistema di Free Roaming (Esplorazione Libera) con Gating Diegetico MSQ (cv149)
+
+Implementato il sistema organico di Free Roaming / Esplorazione Libera per la Campagna (`Instructions_Campaign.txt` cv149 e `06_Procedures_and_Format.md` §B29):
+- **Comando `/esplora [destinazione]` (Attivazione e Conduzione):**
+  - Attiva la modalità sandbox nella macro-zona/regione attuale, aprendo con il tag `[ESPLORAZIONE — <Zona/Regione> · <Punto/Direzione>] (~15-30 min)`.
+  - Conduzione continua tramite `/esplora <azione/intento>`, `/continua` (per approfondire o investigare la scena/punto corrente) e `/svolta [azione/evento]` (per gestire imprevisti ed eventi improvvisi dei PG).
+  - Piena compatibilità con i comandi trasversali della Campagna (`/voci`, `/negozio`, `/riposo`, `/riposo breve`, `/cercano`, `/prova`, `/meteo`) senza rompere lo stato esplorativo.
+- **Gating Diegetico Basato sull'MSQ ed Escamotage di Trama:**
+  - La posizione attuale in `[A]` delimita la geografia accessibile; i confini verso territori di archi narrativi non ancora raggiunti vengono protetti con escamotage credibili nel mondo di gioco (posti di blocco delle Grandi Compagnie, guarnigioni o droni Magitek Garlean, barriere eteriche corrotte).
+  - *Agency dei Giocatori & Incontro Mortale++ (Overwhelming Threat):* Nessun muro invisibile o blocco metafisico. Se i PG forzano deliberatamente la mano aggirando o violando il blocco, il sistema permette l'avanzata ma punisce qualsiasi scontro armato prematuro con un incontro Mortale++ (GdS da +3 a +6 sopra il livello medio del party), con attacchi letali e difese impenetrabili che costringono a una disperata ritirata tattica, resa o rischio TPK.
+- **Struttura Positiva del Beat in 4 Parti:**
+  - (1) Ambiente & Atmosfera legati a Orario e Meteo (con banner `⚠️ Condizione Ambientale:` se severo); (2) 2-3 Punti di Interesse / biforcazioni concrete tratte dalla geografia canonica di FFXIV; (3) Gating Diegetico MSQ con escamotage; (4) Eventuale prova d'ambiente o incontro selvaggio commisurato al livello se si rimane nella zona permessa.
+- **Footer Rigorosamente Neutro (Zero Comandi):**
+  - Per evitare priming e inquinamento del turno successivo, il beat di esplorazione termina con marcatore diegetico neutro `— In esplorazione: {Zona} ({Luogo}) —` senza mai nominare slash comandi (§B1, §B26).
+- **Persistenza e Ritorno alla Trama Principale (The Only Persistence is the Save):**
+  - Riutilizzo dello slot `[C]` del salvataggio: `Stato: ESPLORAZIONE LIBERA — <Zona> (ATTIVA)` con `Luogo/Dettaglio: <punto>`, preservando intatto il bookmark MSQ in `[A]`.
+  - Al `/carica`, se `[C]` è in esplorazione libera, orienta sul free roaming e ricorda la MSQ parcheggiata.
+  - Con `/riprendi MSQ` si chiude l'esplorazione, si resetta `[C]` a `nessuna` e si ripristina la progressione della storia principale.
+
 ## 2026-09-05e — Piazzamento Tattico Pedine Alleati (AI & Fallback) nel Combat Tracker
 
 Raffinato il posizionamento spaziale delle pedine dei PNG Alleati sulla battlemap in `combat_tracker.html`:
