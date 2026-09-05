@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv18
+Version mv19
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -1387,6 +1387,29 @@ Nelle battaglie campali o nei solo duty dell'MSQ con la partecipazione di PNG al
   - **Visual Theme & Palette:** Classe CSS `tr.ally-row` con sfondo azzurrino traslucido (`rgba(56, 189, 248, 0.12)` al riposo, `0.22` all'hover), badge `.badge-ally` (`#0284c7`, testo `#f0f9ff`, bordo `#38bdf8`), tab delle schede bordati di `#38bdf8` con icona `🛡️`, e pedine mappa celesti (`rgb(56, 189, 248)`).
   - **Controlli UI & Gestione Danno:** Aggiunto pulsante rapido `+ Aggiungi Alleato` nella barra controlli. Gli alleati godono dei controlli completi dei PF (input PF attuali/massimi, barra salute dinamica, pulsanti `+`/`−` e danno rapido). Il pulsante di clonazione 👥 è abilitato anche per replicare rapidamente soldati alleati generici.
   - **Iniziativa & Flusso Turni:** L'ordinamento d'iniziativa posiziona regolarmente gli alleati con il proprio tiro + Des; quando il turno attivo passa a un alleato, il pannello delle schede seleziona automaticamente il suo tab; cliccando sulla riga o sul badge dell'alleato si apre direttamente la sua scheda. Alla morte/svenimento (`hp <= 0`), la riga passa allo stato `down`.
+  - **Piazzamento Pedine Alleati (AI & Fallback Procedurale):**
+    - *Generazione Mappa AI (`generateAiMapLayout`):* I PNG alleati vengono passati separatamente dai mostri e istruiti per essere posizionati di norma nella parte inferiore della mappa (in basso, vicino all'ingresso da cui entrano i PG), a meno che la narrazione della scena (`narrativeText`) o la disposizione non specifichino espressamente posizioni diverse (es. alleato prigioniero al fondo, ostaggio circondato, avanguardia al centro).
+    - *Fallback Procedurale (`findEmptySpot`):* Se l'AI non interviene, gli alleati non vanno mai in alto con i nemici: vengono piazzati sistematicamente in basso vicino all'ingresso dei PG (funzione di costo che premia coordinate `y` elevate e vicinanza all'ingresso, con scansione di sicurezza bottom-up).
+
+## 2.53 OTTIMIZZAZIONE ISTRUZIONI: FATTORIZZAZIONE CONTROLLO/DATI E ZERO-LEAKAGE TRA ASSISTENTI (2026-09-05)
+**PROBLEMA (PROMPT BLOAT & ATTENTION DEGRADATION):**
+Nel corso degli aggiornamenti recenti (tra cui tracker, meteo, PNG alleati, arena), i file di istruzioni si erano gradualmente appesantiti (Campaign a ~15.6 KB, One-Shot a ~10.1 KB, Loremonger a ~9.1 KB). Su modelli veloci (es. Gemini Flash) prompt sovradimensionati e ridondanti saturano l'attenzione e aumentano l'over-thinking o la probabilità di incoerenze al tavolo.
+
+**CRITERI DI FATTORIZZAZIONE (CONTROL LAYER vs DATA LAYER / RAG):**
+1. **Control Layer (Always-on nel prompt, 100% visibile al modello):**
+   - Riservato ESCLUSIVAMENTE agli invarianti procedurali invisibili di flusso: dispatch dei comandi, ciclo vitale del save (`=== SAVE ===` e commutazione chiusura/apertura quest), template rigido del footer orario/meteo, e vincoli strutturali del Pacchetto Incontro (testata narrativa esterna, blocco codice tassativo ```` ```plaintext ````, ordine campi `#### 🏟️ Arena`, roster alleati facoltativo, stat block senza immagini).
+2. **Data Layer (File 06 / RAG, caricato al bisogno):**
+   - Tutti i cataloghi lessicali esaustivi e le minuzie descrittive (es. l'elenco delle 31 etichette chiuse degli elementi dell'arena, i 9 nomi dei preset mappa, il prontuario degli effetti climatici) appartengono a `06 §B8` e `§B1`. Non devono essere duplicati nel prompt: basta un puntatore formale e il rispetto delle regole strutturali.
+3. **Scoping Rigoroso tra Assistenti (§1.1c):**
+   - «Shared rules word-for-word identical; each assistant carrying the ones it needs».
+   - Loremonger è un assistente di pura consultazione lore, regole D&D/FFXIV e utilità: non ha comandi di incontro, non genera mai pacchetti combattimento. L'intero blocco `ENCOUNTER PACKAGE` presente nel suo prompt costituiva ~1.5 KB di "zombie rules" passive, rimosso integralmente.
+   - Campaign e One-Shot condividono il medesimo blocco `ENCOUNTER PACKAGE` e `STAT BLOCK` identici parola per parola.
+
+**RISULTATI OTTENUTI (cv148, ov82, lv63):**
+- `Instructions_Campaign.txt`: 15,628 B → 14,510 B (~1.1 KB snelliti, orario/meteo e catalogo arena compattati preservando le formule matematiche e il parser del tracker).
+- `Instructions_OneShot.txt`: 10,147 B → 9,873 B (perfetta parità verbatim del pacchetto incontro con Campaign).
+- `Instructions_Loremonger.txt`: 9,084 B → 7,519 B (~1.56 KB rimossi per eliminazione totale del codice incontro non pertinente).
+- Suite di test deterministica (`verify.ps1`) superata al 100%: parità testuale assoluta, validità pseudo-XML, code fences `plaintext`, invarianti di salvataggio e contratti arena intatti.
 
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation

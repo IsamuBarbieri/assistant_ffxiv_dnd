@@ -687,7 +687,7 @@
             enc.combatants.push({ id: id, name: mi.name + ' ' + (start + i + 1), isMonster: true,
                 initBonus: 0, init: Math.floor(Math.random()*20)+1, ac: mi.ac, hp: mi.hp, maxHp: mi.hp,
                 isDown: false, telegraph: null, notes: '' });
-            if (enc.mapData) enc.mapData.entityPositions[id] = findEmptySpot(1);
+            if (enc.mapData) enc.mapData.entityPositions[id] = findEmptySpot(1, undefined, undefined, false);
         }
         syncStatblocks(); sortInitiative();
     }
@@ -802,7 +802,7 @@
         if (!source.name.match(/\d+$/)) source.name = baseName + " 1";
         const newId = Date.now();
         enc.combatants.push({ id: newId, name: baseName + " " + count, isMonster: !!source.isMonster, isAlly: !!source.isAlly, initBonus: source.initBonus, init: Math.floor(Math.random() * 20) + 1 + (source.initBonus || 0), ac: source.ac, hp: source.maxHp, maxHp: source.maxHp, isDown: false, telegraph: null, notes: "" });
-        if(enc.mapData) { let srcPos = enc.mapData.entityPositions[source.id]; let size = getCombatantSizeById(newId); if(srcPos) enc.mapData.entityPositions[newId] = findEmptySpot(size, srcPos.x, srcPos.y); }
+        if(enc.mapData) { let srcPos = enc.mapData.entityPositions[source.id]; let size = getCombatantSizeById(newId); if(srcPos) enc.mapData.entityPositions[newId] = findEmptySpot(size, srcPos.x, srcPos.y, !!source.isAlly); else enc.mapData.entityPositions[newId] = findEmptySpot(size, undefined, undefined, !!source.isAlly); }
         sortInitiative(); syncStatblocks();
     }
     
@@ -1324,7 +1324,7 @@
             const sz = sb && sb.size ? sb.size : 1;
             return { id: c.id, name: c.name, size: sz, isAlly: !!c.isAlly };
           });
-          newMapData = await generateAiMapLayout(enc.arenaSpec, enc.tactics, "", apiKey, npcsToPlace);
+          newMapData = await generateAiMapLayout(enc.arenaSpec, enc.tactics, enc.narrativeText || "", apiKey, npcsToPlace);
         } catch (err) {
           console.warn("AI map regeneration error, fallback to procedural:", err);
           newMapData = null;
@@ -1338,7 +1338,7 @@
       renderVisualMap();
     }
 
-    function findEmptySpot(size, prefX, prefY) {
+    function findEmptySpot(size, prefX, prefY, isAlly) {
         const enc = encountersData[currentEncounterIndex];
         if (!enc || !enc.mapData) return { x: 1, y: 1 };
         const data = enc.mapData;
@@ -1362,20 +1362,25 @@
             return false;
         };
 
+        const isDoorCell = (x, y) => {
+            return doors.some(d => d.x === x && d.y === y);
+        };
+
         const canPlace = (sx, sy) => {
             if (sy < 1 || sx < 1 || sy + size > data.h - 1 || sx + size > data.w - 1) return false;
 
             for (let y = sy; y < sy + size; y++) {
                 for (let x = sx; x < sx + size; x++) {
                     if (data.grid[y][x] !== 'floor') return false;
-                    if (isSafeZone(x, y)) return false;
+                    // I nemici non possono stare nella safe zone della porta; gli alleati possono stare vicino alla porta purché non sulla casella porta stessa
+                    if (isAlly ? isDoorCell(x, y) : isSafeZone(x, y)) return false;
 
                     // Non su coperture solide o trappole/meccanismi
                     if (data.placedFeatures.some(f => f.x === x && f.y === y && (f.item.cssType.includes('cover') || f.item.cssType === 'type-interactive'))) {
                         return false;
                     }
 
-                    // Non sopra altri mostri
+                    // Non sopra altri mostri o alleati
                     if (Object.entries(data.entityPositions).some(([id, ep]) => {
                         const s = getCombatantSizeById(Number(id));
                         return ep.x <= x && x < ep.x + s && ep.y <= y && y < ep.y + s;
@@ -1385,7 +1390,7 @@
             return true;
         };
 
-        // BFS: controlla se esiste un percorso libero tra la posizione del mostro e l'ingresso
+        // BFS: controlla se esiste un percorso libero tra la posizione dell'entità e l'ingresso
         const hasPathToEntrance = (sx, sy) => {
             const isWalkable = (x, y) => {
                 if (x < 1 || y < 1 || x >= data.w - 1 || y >= data.h - 1) return false;
@@ -1428,7 +1433,6 @@
         for (let y = 1; y <= data.h - 1 - size; y++) {
             for (let x = 1; x <= data.w - 1 - size; x++) {
                 if (canPlace(x, y)) {
-                    // Punteggio: distanza dall'ingresso + spazio libero attorno
                     let dToEntrance = Math.hypot(x - entrance.x, y - entrance.y);
                     let openSurround = 0;
                     for (let dy = -1; dy <= size; dy++) {
@@ -1438,13 +1442,21 @@
                         }
                     }
                     const reachable = hasPathToEntrance(x, y);
-                    candidates.push({ x, y, score: dToEntrance * 2 + openSurround + (reachable ? 100 : 0), reachable });
+                    let score;
+                    if (isAlly) {
+                        // Alleato: posizionalo sempre in basso nella mappa, da dove arrivano i PG (vicino all'ingresso)
+                        // Più y è alto (parte inferiore della mappa) e minore è la distanza dall'ingresso, più alto è il punteggio
+                        score = (y * 4) - (dToEntrance * 3) + openSurround + (reachable ? 50 : 0);
+                    } else {
+                        // Nemici: posizionali in fondo alla stanza, lontano dall'ingresso dei PG
+                        score = (dToEntrance * 2) - (y * 1) + openSurround + (reachable ? 100 : 0);
+                    }
+                    candidates.push({ x, y, score, reachable });
                 }
             }
         }
 
         if (candidates.length > 0) {
-            // Preferisci candidati raggiungibili
             const reachableCandidates = candidates.filter(c => c.reachable);
             const pool = reachableCandidates.length > 0 ? reachableCandidates : candidates;
             pool.sort((a, b) => b.score - a.score);
@@ -1452,13 +1464,22 @@
         }
 
         // Fallback di sicurezza: prima casella di pavimento libera trovata
-        for (let y = 1; y < data.h - 1; y++) {
-            for (let x = 1; x < data.w - 1; x++) {
-                if (data.grid[y][x] === 'floor' && !isSafeZone(x, y)) return { x, y };
+        if (isAlly) {
+            // Per gli alleati, scansiona dal fondo (in basso) verso l'alto
+            for (let y = data.h - 2; y >= 1; y--) {
+                for (let x = 1; x < data.w - 1; x++) {
+                    if (data.grid[y][x] === 'floor' && !isDoorCell(x, y)) return { x, y };
+                }
+            }
+        } else {
+            for (let y = 1; y < data.h - 1; y++) {
+                for (let x = 1; x < data.w - 1; x++) {
+                    if (data.grid[y][x] === 'floor' && !isSafeZone(x, y)) return { x, y };
+                }
             }
         }
 
-        return { x: Math.floor(data.w / 2), y: Math.floor(data.h / 2) };
+        return { x: Math.floor(data.w / 2), y: isAlly ? data.h - 2 : Math.floor(data.h / 2) };
     }
 
     const MapPresets = {
@@ -1640,21 +1661,27 @@
         return txt;
       });
 
-      const monstersDesc = (combatantsList || []).map(m => `  * ${m.name} (ID: ${m.id}, taglia caselle: ${m.size}x${m.size})`).join('\n');
+      const monsters = (combatantsList || []).filter(c => !c.isAlly);
+      const allies = (combatantsList || []).filter(c => !!c.isAlly);
+
+      const monstersDesc = monsters.map(m => `  * ${m.name} (ID: ${m.id}, taglia caselle: ${m.size}x${m.size})`).join('\n');
+      const alliesDesc = allies.map(a => `  * ${a.name} (ID: ${a.id}, taglia caselle: ${a.size}x${a.size})`).join('\n');
       const doorsDesc = doors.length ? JSON.stringify(doors) : `[{"x": ${Math.floor(baseW/2)}, "y": ${baseH-1}}]`;
 
       const prompt = `Sei un battlemap designer e tactician per D&D 5e.
-Devi posizionare sia gli elementi d'arredo/ostacoli che i nemici sul reticolo della battlemap in modo tattico, intelligente, scenografico e coerente con la conformazione della stanza e la narrazione.
+Devi posizionare sia gli elementi d'arredo/ostacoli che i nemici e gli alleati sul reticolo della battlemap in modo tattico, intelligente, scenografico e coerente con la conformazione della stanza e la narrazione.
 
 DATI BATTLEMAP:
 - Dimensioni: larghezza ${baseW} x altezza ${baseH} caselle (coordinate x da 1 a ${baseW-2}, y da 1 a ${baseH-2}).
 - Tipo stanza: ${typeDesc}
 - Disposizione scenografica d'ambiente: "${spec.disposizione || 'Non specificata'}"
 - Note Tattiche dello scontro: "${tactics || 'Nessuna nota specifica'}"
+- Narrazione/Prosa della scena: "${narrativeText ? narrativeText.replace(/\r?\n/g, ' ').trim().slice(0, 600) : 'Non specificata'}"
 - Ingressi/Porte dei PG (da NON ostruire): ${doorsDesc}
 - Elementi d'arredo/ostacoli dichiarati da posizionare:
 ${elementsDesc.join('\n')}
-${monstersDesc ? `- Mostri/Nemici da posizionare:\n${monstersDesc}` : ''}
+${monstersDesc ? `- Nemici/Mostri da posizionare:\n${monstersDesc}` : ''}
+${alliesDesc ? `- PNG Alleati dei giocatori da posizionare:\n${alliesDesc}` : ''}
 
 REGOLE DI POSIZIONAMENTO ELEMENTI:
 1. NESSUN LIMITE DI CONTEGGIO: posiziona quante istanze di ciascun elemento ritieni necessarie per rendere l'ambiente credibile, suggestivo e fedele alla descrizione (es. ampie zone o macchie multiple di terreno difficile per Fango/Radici/Muffa, linee di copertura per Rocce/Macerie). L'unico vincolo è preservare spazio calpestabile e corridoi di movimento.
@@ -1664,21 +1691,25 @@ REGOLE DI POSIZIONAMENTO ELEMENTI:
    - Se la narrazione menziona ripari o monumenti "a ridosso dell'ingresso", interpretalo posizionandoli all'interno della cavità/stanza principale aperti verso l'ingresso, MAI nel collo di bottiglia o sulla soglia della porta.
 4. Crea opportunità tattiche: coperture a mezza distanza tra i fronti, ostacoli che creano strettoie difendibili o pericoli ambientali coerenti.
 
-REGOLE RIGIDE PER IL POSIZIONAMENTO DEI NEMICI:
-1. Posiziona ciascun nemico in una posizione di partenza tattica coerente con la scena (es. se la descrizione o la tattica dice che si stacca dalle ombre del retro, posizionalo nella parte posteriore o all'estremo opposto dell'ingresso).
+REGOLE PER IL POSIZIONAMENTO DEI NEMICI:
+1. Posiziona ciascun nemico in una posizione di partenza tattica coerente con la scena (es. se la descrizione o la tattica dice che si stacca dalle ombre del retro, posizionalo nella parte posteriore/in alto o all'estremo opposto dell'ingresso dei PG).
 2. L'intero ingombro del mostro (taglia x taglia) deve poggiare su celle libere di pavimento 'floor'.
 3. NON posizionare mostri sopra coperture solide (es. Rocce, Macerie, Pilastri).
 4. NON BLOCCARE I MOSTRI: ogni nemico DEVE avere una via di fuga/avanzata aperta (non essere circondato da muri o coperture).
 
+REGOLE PER IL POSIZIONAMENTO DEI PNG ALLEATI:
+1. Posiziona i PNG alleati dei giocatori DI NORMA NELLA PARTE INFERIORE DELLA MAPPA (in basso, vicino all'ingresso o all'area di arrivo da cui entrano i PG), A MENO CHE la narrazione della scena, la descrizione o la disposizione non specifichino chiaramente una posizione differente (ad esempio: alleato prigioniero in una gabbia al fondo, ostaggio circondato dai nemici, esploratore avanzato al centro della stanza, ecc.).
+2. L'ingombro dell'alleato (taglia x taglia) deve poggiare su celle libere di pavimento 'floor', non sopra coperture solide o trappole.
+
 FORMATO DI RISPOSTA:
-Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà "features" e "monsters":
+Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà "features", "monsters" e (se presenti alleati) "allies":
 {
   "features": [
     { "name": "${spec.elements[0] ? spec.elements[0].feat.name : 'Rocce'}", "x": 5, "y": 6 }
   ],
   "monsters": [
-    { "id": ${(combatantsList && combatantsList[0]) ? combatantsList[0].id : 1}, "name": "${(combatantsList && combatantsList[0]) ? combatantsList[0].name : 'Mostro'}", "x": 10, "y": 4 }
-  ]
+    { "id": ${(monsters[0]) ? monsters[0].id : 1}, "name": "${(monsters[0]) ? monsters[0].name : 'Mostro'}", "x": 10, "y": 4 }
+  ]${allies.length ? `,\n  "allies": [\n    { "id": ${allies[0].id}, "name": "${allies[0].name}", "x": ${Math.floor(baseW/2)}, "y": ${baseH-3} }\n  ]` : ''}
 }`;
 
       const controller = new AbortController();
@@ -1729,7 +1760,9 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           featList = parsed;
         } else if (parsed && typeof parsed === 'object') {
           featList = Array.isArray(parsed.features) ? parsed.features : [];
-          monstList = Array.isArray(parsed.monsters) ? parsed.monsters : [];
+          const parsedMonsters = Array.isArray(parsed.monsters) ? parsed.monsters : [];
+          const parsedAllies = Array.isArray(parsed.allies) ? parsed.allies : [];
+          monstList = [...parsedMonsters, ...parsedAllies];
         }
 
         let mapData = { w: baseW, h: baseH, typeDesc: typeDesc, grid: grid, placedFeatures: [], entityPositions: {} };
@@ -1762,8 +1795,9 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           }
         }
 
-        // Posizionamento mostri guidato da AI
+        // Posizionamento entità (mostri e alleati) guidato da AI
         if (combatantsList && combatantsList.length > 0) {
+          const isDoorCell = (x, y) => doors.some(d => d.x === x && d.y === y);
           combatantsList.forEach(m => {
             const aiPos = monstList.find(aiM => aiM.id == m.id || (aiM.name && aiM.name.toLowerCase() === m.name.toLowerCase()));
             if (aiPos && typeof aiPos.x === 'number' && typeof aiPos.y === 'number') {
@@ -1774,9 +1808,19 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
                 for (let dx = 0; dx < sz; dx++) {
                   const cx = mx + dx, cy = my + dy;
                   if (cx < 1 || cy < 1 || cx + sz > baseW - 1 || cy + sz > baseH - 1) { canFit = false; break; }
-                  if (!grid[cy] || grid[cy][cx] !== 'floor' || isSafeZone(cx, cy)) { canFit = false; break; }
+                  // I nemici non possono stare nella safe zone della porta; gli alleati possono stare vicino alla porta purché non sulla casella porta stessa
+                  const inForbiddenArea = m.isAlly ? isDoorCell(cx, cy) : isSafeZone(cx, cy);
+                  if (!grid[cy] || grid[cy][cx] !== 'floor' || inForbiddenArea) { canFit = false; break; }
                   // Non sopra ostacoli di copertura solida o trappole
                   if (mapData.placedFeatures.some(f => f.x === cx && f.y === cy && (f.item.cssType.includes('cover') || f.item.cssType === 'type-interactive'))) {
+                    canFit = false; break;
+                  }
+                  // Non sopra altre entità già posizionate
+                  if (Object.entries(mapData.entityPositions).some(([otherId, ep]) => {
+                    const other = combatantsList.find(c => c.id == otherId);
+                    const otherSz = (other && other.size) || 1;
+                    return ep.x <= cx && cx < ep.x + otherSz && ep.y <= cy && cy < ep.y + otherSz;
+                  })) {
                     canFit = false; break;
                   }
                 }
@@ -2129,7 +2173,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
       const aliveNPCs = enc.combatants.filter(c => c.isMonster || c.isAlly);
       Object.keys(data.entityPositions).forEach(idStr => { if (!aliveNPCs.find(c => c.id == idStr)) delete data.entityPositions[idStr]; });
       
-      aliveNPCs.forEach(c => { if (!data.entityPositions[c.id]) { const size = getCombatantSizeById(c.id); data.entityPositions[c.id] = findEmptySpot(size); } });
+      aliveNPCs.forEach(c => { if (!data.entityPositions[c.id]) { const size = getCombatantSizeById(c.id); data.entityPositions[c.id] = findEmptySpot(size, undefined, undefined, !!c.isAlly); } });
 
       data.placedFeatures.forEach(obj => {
           const cell = document.getElementById(`cell_${obj.x}_${obj.y}`);

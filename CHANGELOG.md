@@ -1,5 +1,27 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-05e — Piazzamento Tattico Pedine Alleati (AI & Fallback) nel Combat Tracker
+
+Raffinato il posizionamento spaziale delle pedine dei PNG Alleati sulla battlemap in `combat_tracker.html`:
+- **Generazione Mappa AI (`generateAiMapLayout`):**
+  - Distinti nel prompt i nemici (`- Nemici/Mostri da posizionare:`) dai PNG alleati (`- PNG Alleati dei giocatori da posizionare:`).
+  - Aggiunta la regola esplicita di posizionamento: gli alleati dei PG vanno posizionati di norma nella parte inferiore della mappa (vicino all'ingresso da dove avanzano i PG), salvo diversa indicazione ricavata dalla prosa della scena (`narrativeText`) o dalla disposizione scenografica (es. prigioniero al fondo, ostaggio circondato, ingaggiato al centro).
+  - Supportata la proprietà JSON `"allies"` restituita dal modello oltre a `"monsters"`, con unione automatica.
+  - La safe zone della porta per gli alleati impedisce solo la sovrapposizione esatta alla casella porta, consentendo lo schieramento nell'area d'arrivo senza essere respinti verso il fondo.
+- **Algoritmo Procedurale e Fallback (`findEmptySpot`):**
+  - Aggiunto il parametro booleano `isAlly`. Se attivo, la funzione di valutazione candida posizioni con punteggio proporzionale alla coordinata `y` (fondo mappa) e alla vicinanza all'ingresso, collocando gli alleati in basso e mai in alto assieme ai mostri.
+  - La procedura di sicurezza estrema scansiona dal basso verso l'alto (`y = data.h - 2; y >= 1; y--`) per garantire il posizionamento inferiore in qualsiasi circostanza.
+
+## 2026-09-05d — Ottimizzazione Istruzioni e Snellimento Control Layer (Instructions cv148, ov82, lv63)
+
+Snellimento architetturale del Control Layer in conformità con le best practice di `Project_Memory.md` (§1.1d, §1.2, §2.33, §2.34):
+- **Instructions_Loremonger.txt (lv63):** Rimossa la specifica `ENCOUNTER PACKAGE` dal blocco `<output_contract>` (~1.565 byte risparmiati), in quanto Loremonger è un assistente read-only di lore e utility che non genera mai incontri di combattimento (§1.1c: ciascun file porta solo i formati di cui necessita).
+- **Instructions_Campaign.txt (cv148) & Instructions_OneShot.txt (ov82):**
+  - **`ENCOUNTER PACKAGE`:** Snellito il contratto (~950 caratteri risparmiati per file), preservando rigidamente i vincoli critici (testata h3, link immagini in testa fuori dal codice, `**Difficoltà:**`, `**Innesco:**`, `**📖 Da leggere ai PG:**` in prosa, fenced code block obbligatoriamente marcato ```` ```plaintext ````, `**Nemici:**`, facoltativo `**Alleati:**`, `#### 🏟️ Arena` con Tipo, Dimensioni, Elementi bare e Disposizione, statblock nemici puri, statblock alleati minimi e `#### 💰 Bottino` risolto) e delegando i cataloghi esaustivi e i divieti descrittivi a `06 §B8` e `§B1`.
+  - **`ORARIO & METEO FOOTER` (Campaign):** Condensata la riga procedurale da 1.228 caratteri a ~480 caratteri, eliminando la duplicazione delle spiegazioni aritmetiche, dei riassunti del meteo e del reset su `/riposo` (già coperto dalla riga del comando), mantenendo intatti il template stringa, i periodi con emoji e la soglia notturna.
+  - **Pulizia Ridondanze:** Rimossa la specificazione duplicata del footer nella riga `/viaggio` (già codificata nelle regole generali del footer).
+- **Parità e Integrità:** Verificata tramite script PowerShell la perfetta identità stringa per stringa delle sezioni condivise (`STAT BLOCK`, `ENCOUNTER PACKAGE` tra cv e ov, `MEDIA`).
+
 ## 2026-09-05c — Raffinamento Formattazione Statblock e Stile Mosse nel Combat Tracker
 
 Ottimizzazione visuale e correzione del parser dei blocchi statistiche nel Combat Tracker (`combat_tracker.html`):
