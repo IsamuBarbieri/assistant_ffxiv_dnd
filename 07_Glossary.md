@@ -1,5 +1,5 @@
 # 07_GLOSSARY - Naming System & Recurring Names (SINGLE SOURCE)
-Version v1.41
+Version v1.42
 
 ## G0 - PRINCIPLE & USAGE
 - NARRATIVE LEVEL: translate by SENSE into "Italian (English)" at the FIRST occurrence, then only Italian. Applies to EVERYTHING built from transparent English words: personal names, surnames, epithets/nicknames, places/settlements, ships/vessels, taverns/inns, organizations/groups/companies, signs, titles. (ABILITY / SPELL / MOVE / ACTION NAMES are a SPECIAL CASE -> see G24: FFXIV/FF-iconic names are KEPT, only the effect is in Italian.) If no standard rendering exists, CREATE one. The English in parentheses is a provenance label.
@@ -82,6 +82,7 @@ VALIDATED HEAD EXAMPLES (real FFXIV toponyms, lore-checked): Valle Teschio (Skul
 - The Calamity -> la Calamità (the Seventh Umbral Calamity)
 - Seventh Umbral Era -> Settima Era Ombrosa (the era of devastation and survival following Dalamud's fall)
 - Seventh Astral Era -> Settima Era Astrale (the era of rebirth and hope across ARR patch 2.x)
+- Weather conditions (fixed canonical Italian renderings): Clear Skies -> Sereno ☀️; Fair Skies -> Soleggiato 🌤️; Clouds -> Nuvoloso / Coperto ☁️; Fog -> Foschia 🌫️ / Nebbia fitta 🌫️; Rain / Showers -> Pioggia 🌧️ / Pioggia leggera 🌦️; Wind -> Vento 💨; Gales -> Burrasca 💨; Thunder / Thunderstorms -> Tuoni 🌩️ / Temporale ⛈️; Dust Storms -> Tempesta di sabbia 🌪️; Heat Waves -> Ondata di calore 🏜️; Snow / Blizzards -> Neve 🌨️ / Tormenta ❄️; Gloom -> Foschia eterea / Gloom 🌌; Tension -> Tensione ⚡.
 
 ## G8 - DEMONYMS (inflect o/a/i/e)
 - Eorzean -> Eorzeano/a
@@ -95,9 +96,8 @@ VALIDATED HEAD EXAMPLES (real FFXIV toponyms, lore-checked): Valle Teschio (Skul
 - Thavnairian -> Thavnairiano/a
 
 ## G9 - PLACES (hubs, districts, zones)
-Bosco Nero (Black Shroud); Thanalan Orientale (Eastern Thanalan); Sabbie del Risveglio (The Waking Sands); Orlo Bianco (Whitebrim); Avamposto di Orlo Bianco (Whitebrim Front); Officine Garlond (Garlond Ironworks); Portobirra (Aleport); Portovino (Wineport); Baia del Vespro (Vesper Bay); Lago di Bronzo (Bronze Lake); Campo Ossasecca (Camp Drybone); Miniere di Camparame (Copperbell Mines); Palazzo del Viandante (Wanderer's Palace); Campo Belvedere (Camp Overlook); Piccolo Rifugio (Little Solace); Ponte Alto (Highbridge); Cavamulino (Quarrymill); Prati di Ramostorto (Bentbranch Meadows); Capanna Biancospino (Hawthorne Hut); Bosco del Sud (South Shroud); Bosco dell'Est (East Shroud); Campo Orizzonte (Camp Horizon); Campo Tranquillo (Camp Tranquil); Zuccacaduta (Fallgourd Float -- lean, dropped generic 'Float'); Boscomulino (Hyrstmill); Stazione Sterpenero (Black Brush Station -- lean apposition, no 'di'); Postarapida (Swiftperch); Piane di Carteneau (Carteneau Flats); Lago Lacrimargento (Silvertear Lake -- where Midgardsormr and the Agrius fell; BINDING: Lacrimargento, not Lacrimagenta); Grotta del Canto Marino (Seasong Grotto); Albero della Sultana (The Sultantree); Presidio del Bannock (The Bannock); Rovine di Sil'dih (Sil'dih Ruins). KEEP UNCHANGED (write once, no parentheses): Mor Dhona; Castrum Centri; Castrum Novum.
-Hubs/districts (ARR): Ponti Inferiori (Lower Decks); Ponti Superiori (Upper Decks); Porta di Mealvaan (Mealvaan's Gate); Foro di Nald (Steps of Nald); Pozzo di Thal (Steps of Thal); Nuova Gridania (New Gridania); Vecchia Gridania (Old Gridania); Le Pietre Risorte (The Rising Stones); Pedaggio del Redivivo (Revenant's Toll).
-
+Bosco Nero (Black Shroud); Thanalan Orientale (Eastern Thanalan); Sabbie del Risveglio (The Waking Sands); Orlo Bianco (Whitebrim); Avamposto di Orlo Bianco (Whitebrim Front); Officine Garlond (Garlond Ironworks); Portobirra (Aleport); Portovino (Wineport); Baia del Vespro (Vesper Bay); Lago di Bronzo (Bronze Lake); Campo Ossasecca (Camp Drybone); Miniere di Camparame (Copperbell Mines); Palazzo del Viandante (Wanderer's Palace); Campo Belvedere (Camp Overlook); Piccolo Rifugio (Little Solace); Ponte Alto (Highbridge); Cavamulino (Quarrymill); Prati di Ramostorto (Bentbranch Meadows); Capanna Biancospino (Hawthorne Hut); Guado d'Estate (Summerford Farms); Bosco del Sud (South Shroud); Bosco dell'Est (East Shroud); Campo Orizzonte (Camp Horizon); Campo Tranquillo (Camp Tranquil); Zuccacaduta (Fallgourd Float -- lean, dropped generic 'Float'); Boscomulino (Hyrstmill); Stazione Sterpenero (Black Brush Station -- lean apposition, no 'di'); Postarapida (Swiftperch); Piane di Carteneau (Carteneau Flats); Lago Lacrimargento (Silvertear Lake -- where Midgardsormr and the Agrius fell; BINDING: Lacrimargento, not Lacrimagenta); Grotta del Canto Marino (Seasong Grotto); Albero della Sultana (The Sultantree); Presidio del Bannock (The Bannock); Rovine di Sil'dih (Sil'dih Ruins). KEEP UNCHANGED (write once, no parentheses): Mor Dhona; Castrum Centri; Castrum Novum.
+Hubs/districts (ARR): Ponti Inferiori (Lower Decks); Ponti Superiori (Upper Decks); Porta di Mealvaan (Mealvaan's Gate); Porta Zefiro (Zephyr Gate); Porta Tempesta (Tempest Gate); Foro di Nald (Steps of Nald); Pozzo di Thal (Steps of Thal); Nuova Gridania (New Gridania); Vecchia Gridania (Old Gridania); Le Pietre Risorte (The Rising Stones); Pedaggio del Redivivo (Revenant's Toll).
 ## G10 - FACTIONS, ORGS & TITLES
 La Tempesta (The Maelstrom) -- BINDING ANTI-DOPPIONE: render the Grand Company of Limsa Lominsa as "la Tempesta"; NEVER keep "Maelstrom" as the Italian head and NEVER write the doppione "Maelstrom (Maelstrom)" / "La Maelstrom (The Maelstrom)"; Ordine della Vipera Gemella (Order of the Twin Adder); Fiamme Immortali (Immortal Flames); Giubbe Gialle (Yellowjackets); Lame d'Ottone (Brass Blades); Sentinelle del Bosco (Wood Wailers); Faretra degli Dei (Gods' Quiver) -- the other Gridanian military order, paired with the Wood Wailers; Le Spade della Sultana (The Sultansworn -- the elite Paladin order of Ul'dah guarding Sultana Nanamo); Cavalieri del Tempio (Temple Knights); Figli della Settima Alba (Scions of the Seventh Dawn); Studenti di Baldesion (Students of Baldesion -- Krile and G'raha's research fellowship); Bravi di Cristallo (Crystal Braves); i Monetaristi e i Realisti (The Monetarists and The Royalists -- Ul'dah's political factions); Quattordicesima Legione (XIVth Legion -- Gaius van Baelsar's imperial legion); Impero Garleano (The Garlean Empire); Sekiseigumi (non-English -> kept once, no parentheses).
 Titles & concepts: Guerriero della Luce (Warrior of Light); Benedizione della Luce (Blessing of Light); Cristallo Madre (Mothercrystal); Grande Compagnia (Grand Company) -- always translated, NEVER leave "Grand Company" in English; Compagnia Libera (Free Company) -- the PLAYERS' guild, DISTINCT from the Grande Compagnia: NEVER confuse the two; i Dodici (The Twelve, the Eorzean pantheon; individual god names kept); l'Eco (the Echo).
@@ -112,10 +112,45 @@ NPCs - KEEP UNCHANGED (write once, no parentheses):
 - Antagonists & Ancients: Gaius van Baelsar, Livia sas Junius, Nero tol Scaeva, Rhitahtyn sas Arvina, Lahabrea, Elidibus, Igeyorhm, Nabriales, Emet-Selch, Hythlodaeus, Fandaniel, Zenos yae Galvus, Venat, Hermes, Meteion, Midgardsormr.
 
 ## G12 - ARR DUNGEONS, TRIALS & LOCATIONS (completion)
-G12.0 - CARDINAL-SUBDIVISION PATTERN (deterministic): for any zone written as [Cardinal] + [Zone], render the cardinal and keep the zone name per its own rule. Lower -> Inferiore; Upper -> Superiore; Outer -> Esterna; Inner -> Interna; Eastern -> Orientale; Western -> Occidentale; Central -> Centrale; Northern -> Settentrionale; Southern -> Meridionale. E.g. Western La Noscea -> La Noscea Occidentale; Eastern Thanalan -> Thanalan Orientale; Lower La Noscea -> La Noscea Inferiore.
+G12.0 - CANON REGIONAL ZONES & CARDINAL SUBDIVISIONS (deterministic): for any zone or landmark named with a directional or geographic modifier ([Modifier] + [Zone]), render the modifier into Italian and keep the base zone name per its own rule, using the standard Italian (English) format at first occurrence.
+- La Noscea:
+  - Middle La Noscea -> Noscea Centrale (Middle La Noscea)
+  - Lower La Noscea -> Noscea Inferiore (Lower La Noscea)
+  - Upper La Noscea -> Noscea Superiore (Upper La Noscea)
+  - Western La Noscea -> Noscea Occidentale (Western La Noscea)
+  - Eastern La Noscea -> Noscea Orientale (Eastern La Noscea)
+  - Outer La Noscea -> Noscea Esterna (Outer La Noscea)
+- Thanalan:
+  - Central Thanalan -> Thanalan Centrale (Central Thanalan)
+  - Western Thanalan -> Thanalan Occidentale (Western Thanalan)
+  - Eastern Thanalan -> Thanalan Orientale (Eastern Thanalan)
+  - Southern Thanalan -> Thanalan Meridionale (Southern Thanalan)
+  - Northern Thanalan -> Thanalan Settentrionale (Northern Thanalan)
+- The Black Shroud (Bosco Nero):
+  - Central Shroud -> Bosco Centrale (Central Shroud)
+  - East Shroud -> Bosco Orientale (East Shroud)
+  - South Shroud -> Bosco Meridionale (South Shroud) / Bosco del Sud (South Shroud)
+  - North Shroud -> Bosco Settentrionale (North Shroud) / Bosco del Nord (North Shroud)
+- Coerthas:
+  - Coerthas Central Highlands -> Altopiani Centrali di Coerthas (Coerthas Central Highlands)
+  - Coerthas Western Highlands -> Altopiani Occidentali di Coerthas (Coerthas Western Highlands)
+- Generic directional mappings: Middle / Central -> Centrale; Lower -> Inferiore; Upper -> Superiore; Eastern -> Orientale; Western -> Occidentale; Outer -> Esterna; Northern -> Settentrionale / Nord; Southern -> Meridionale / Sud.
 G12.1 - DUNGEONS: Cripta di Tam-Tara (The Tam-Tara Deepcroft); Le Mille Fauci di Toto-Rak (The Thousand Maws of Toto-Rak); Maniero Haukke (Haukke Manor); Lungasosta di Brayflox (Brayflox's Longstop); Tempio Sommerso di Qarn (The Sunken Temple of Qarn); Fosse Urlanti (Cutter's Cry); Bastione Sotterraneo di Dzemael (Dzemael Darkhold); Valdorata (The Aurum Vale); Roccaforte di Amdapor (Amdapor Keep); Roccagelo (The Stone Vigil); Mantonevoso (Snowcloak); Il Guardiano del Lago (The Keeper of the Lake); Labirinto degli Antichi (Labyrinth of the Ancients); Torre di Syrcus (Syrcus Tower); Mondo dell'Oscurità (World of Darkness); La Torre di Cristallo (The Crystal Tower -- the overarching Allagan structure, see G5). KEEP UNCHANGED (fantasy/Latin/coined): Sastasha; Halatali; Pharos Sirius; Castrum Meridianum; The Praetorium.
 G12.2 - TRIALS / PRIMAL ARENAS: Il Braciere Infernale (The Bowl of Embers - Ifrit); L'Ombelico (The Navel - Titano, see G22); Il Cuore del Ciclone (The Howling Eye - Garuda); Capo Ponente (Cape Westwind); Il Mangiavortici (The Whorleater - Leviatano, see G22); Il Cedro del Fulmine (The Striking Tree - Ramuh); Anfiteatro di Akh Afah (The Akh Afah Amphitheatre - Shiva); Covospina (Thornmarch - Buon Re Moggle Mog, see G22); La Crisalide (The Chrysalis - Nabriales); I Gradini della Fede (The Steps of Faith - Vishap). KEEP UNCHANGED: The Porta Decumana (Latin).
 G12.3 - ORGANIZATIONS / TERMS: Razziatori del Serpente (Serpent Reavers); Compagnia degli Eroi (Company of Heroes); Piccola Ala Mhigo (Little Ala Mhigo); il Sindacato (the Syndicate, Ul'dah).
+G12.4 - CITY GATES (first occurrence Italian (English)):
+- Limsa Lominsa:
+  - Zephyr Gate -> Porta Zefiro (Zephyr Gate) (lean apposition: Porta + name without article, connects Lower Decks to Middle La Noscea / Noscea Centrale)
+  - Tempest Gate -> Porta Tempesta (Tempest Gate) (lean apposition: Porta + name without article, connects Upper Decks to Lower La Noscea / Noscea Inferiore)
+- Gridania:
+  - Black Boar Gate -> Porta del Cinghiale Nero (Black Boar Gate) (Old Gridania to North Shroud)
+  - Yellow Serpent Gate -> Porta della Vipera Gialla (Yellow Serpent Gate) (Old Gridania to landing/ferry)
+  - White Wolf Gate -> Porta del Lupo Bianco (White Wolf Gate) (New Gridania to Central Shroud)
+- Ul'dah:
+  - Gate of Nald -> Porta di Nald (Gate of Nald) (Steps of Nald to Western Thanalan)
+  - Gate of Thal -> Porta di Thal (Gate of Thal) (Steps of Thal to Central Thanalan)
+  - Gate of the Colosseum -> Porta del Colosseo (Gate of the Colosseum)
+  - Gate of the Sultana -> Porta della Sultana (Gate of the Sultana)
 
 ## G13 - HEAVENSWARD (zones, dungeons, trials, orgs)
 G13.1 - ZONES & LANDMARKS: Il Mar di Nuvole (The Sea of Clouds); Le Nebbie Vorticose (The Churning Mists); Altocastello (The Pillars); Il Fondo (Foundation); Officine Ferrocielo (Skysteel Manufactory); Il Cavaliere Dimenticato (The Forgotten Knight) -- the Foundation tavern/inn, BINDING: never 'Il Cavaliere Scordato'; Campo Capodrago (Camp Dragonhead); Nido del Falco (Falcon's Nest); Codapiuma (Tailfeather); Borgopace (Idyllshire); Altopiani Occidentali di Coerthas (Coerthas Western Highlands); Altopiani Centrali di Coerthas (Coerthas Central Highlands). KEEP UNCHANGED: Azys Lla; Zenith; Moghome; Sohm Al; Thok ast Thok; Sohr Khai.

@@ -1,5 +1,57 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-05 — Fenced Code Block Plaintext, Standardizzazione Arena Combat Tracker, Incremento Sessione e Sistema Completo di Viaggio (06 v6.83, Instructions cv145 / ov79 / lv60, 07 v1.42)
+
+Risoluzione definitiva della compatibilità con la Web UI di Gemini/Gems (comparsa garantita del pulsante 1-click "Copia codice" per combat tracker e salvataggio), formalizzazione esaustiva del sistema di viaggio (arrivo compresso sotto `/continua` vs viaggio giocato e 4 varianti di `/viaggio`), standardizzazione completa dei parametri dell'arena e correzione automatica dell'incremento sessione:
+- **06_PROCEDURES_AND_FORMAT.MD (v6.83):**
+  - **§B2 (Arrivo Compresso sotto `/continua` con Viaggio Pendente):**
+    - Quando è pendente una bussola `🧭 Viaggio:` e il GM invia `/continua`, il gruppo giunge a destinazione in modalità compressa senza diluire il ritmo narrativo:
+      - *Se la destinazione possiede un'Eterite già sintonizzata:* teletrasporto immediato con 1 sola clausola diegetica di smaterializzazione/rimaterializzazione, zero montaggi di marcia a piedi, zero tiri d20 evento, aprendo direttamente la scena dell'obiettivo MSQ.
+      - *Se prima esplorazione di una terra vergine (Eterite non ancora visitata):* marcia a tappe forzate narrata in forma sintetica (calcolando le ore effettive sull'Orario e sintonizzando il cristallo all'arrivo prima dell'apertura della scena).
+  - **§B26 (Sistema di Viaggio Giocato e Varianti di `/viaggio`):**
+    - Formalizzate le 4 varianti operative:
+      1. `/viaggio` (default): teletrasporto via Eterite all'hub della macro-regione + montaggio giocato dell'Ultimo Miglio selvaggio a piedi (+1h Orario, tiro pericolo 1d20).
+      2. `/viaggio chocobo`: Eterite all'hub + Ultimo Miglio su chocobo da noleggio (+1h Orario, vantaggio nelle prove di fuga).
+      3. `/viaggio strada`: overland completo a piedi senza teletrasporto (+1h per ogni zona di mappa attraversata, tiro pericolo 1d20).
+      4. `/viaggio strada chocobo`: overland completo su chocobo (+1h ogni 2 zone attraversate, tiro pericolo 1d20).
+    - **Struttura Positiva del Montaggio di Viaggio (5 fasi unificate):**
+      1. *Header:* `[VIAGGIO — <da> → <a>]`, stima durata, `🎵 Musica`, `🗺️ Mappa` della nuova zona (con dicitura bilingue `Italiano (English)` al primo incontro per 07 §G12.0) ed eventuale riga `💰 Spesa:` (0 Gil per voli diplomatici Scion o cavalcature personali).
+      2. *Prosa del Cammino:* 1-2 paragrafi immersivi che fondono la partenza attraverso la porta cittadina canonica (es. `Porta Zefiro (Zephyr Gate)` per 07 §G12.4), le strade percorse, il meteo regionale e il trascorrere del tempo.
+      3. *Tiro Pericolo (`🎲 Tiro Viaggio`):* procedura a 2 step in cui l'assistente genera **entrambi i rami pre-risolti** in base alla pericolosità della rotta (*Tranquillo 1–5*, *Rischioso 1–11*, *Ostile 1–16*) e il GM tira fisicamente il dado al tavolo; se il ramo evento è uno scontro armato, include il Pacchetto Incontro standard §B1/§B8.
+      4. *Prosa d'Arrivo:* 1 paragrafo all'approdo alla destinazione con immagine `🖼️ Immagine` del luogo/insediamento posizionata in linea all'arrivo e sintonizzazione all'Eterite se vergine.
+      5. *Footer Obbligatorio:* ordine rigoroso `⚔️ Rif. gruppo`, `⏱️/🌙 Orario & Meteo` (+delta ore), `[Info GM]` slim sul prossimo step all'arrivo, e chiusura tassativa sul marcatore command-neutral `— Arrivo a <destinazione> —`.
+    - **Regola Ferrea Anti-Replay del Viaggio:** il successivo `/continua` riprende direttamente dall'arrivo consolidato dal viaggio (es. a Guado d'Estate), aprendo la scena MSQ senza mai ri-narrare l'uscita dalla città o il tragitto su strada.
+  - **§B1 & §B8 (Architettura Bipartita del Pacchetto Incontro):**
+    - Eliminata la direttiva obsoleta sui backtick nudi (`bare triple backticks`) e la formula fuorviante `same typeface as the prose`.
+    - Separato nettamente il pacchetto in:
+      1. *Testata Narrativa/Visiva (esterna al blocco codice):* titolo h3 `### 🗡️ Pacchetto Incontro: {nome}`, link `[🖼️ Immagine: {Nome}]` in testata, `**Difficoltà:**`, `**Innesco:**` (se applicabile), e `**📖 Da leggere ai PG:**` in prosa markdown.
+      2. *Comparto Meccanico (racchiuso tassativamente in fenced code block `plaintext`):* si apre su riga propria con ```` ```plaintext ````, inizia con `**Nemici:** {nome} ×N`, seguito da `#### 🏟️ Arena`, `**Tattica:**`, stat block puri (nessun link immagine all'interno) e `#### 💰 Bottino`, chiudendosi con ```` ``` ````. Il tag `plaintext` garantisce la renderizzazione del pulsante "Copia codice" nella Web UI di Gemini.
+  - **§B8 (Standardizzazione Rigida di `#### 🏟️ Arena` per `combat_tracker.html`):**
+    - `Tipo:` vincolato tassativamente a 1 delle 9 etichette chiuse dei MapPresets (*Spazio Aperto · Grande Arena · Sala Ampia · Rovine Complesse · Caverna Irregolare · Struttura Circolare · Galleria · Passaggio Stretto · Stanza Base*); vietati aggettivi o testi liberi su questa riga.
+    - `Dimensioni:` due interi `L × A` o `L × A yalm` (caselle griglia); vietate conversioni metriche tra parentesi ed altezze soffitto.
+    - `Elementi:` elenco puntato con trattino `-` e nomi rigorosamente appartenenti al catalogo chiuso di 31 elementi del tracker; ammesse note di colore/posizionamento dopo trattino lungo `—`; vietate regole D&D 5e (bonus CA, CD, danni) tra parentesi, già gestite nativamente dal tracker.
+    - `Disposizione:` posizionata obbligatoriamente **sotto** ad `Elementi:`, con 1-2 frasi di prosa descrittiva per l'API di posizionamento pedine/ostacoli e prescrizione di lasciare sgombra la via d'accesso dei PG.
+  - **§B17 & §B24 (Salvataggio `/salva` in `plaintext` e Incremento Sessione):**
+    - Il blocco save emesso da `/salva` è racchiuso tassativamente in ```` ```plaintext ```` ... ```` ``` ```` con `/carica` sulla prima riga per un ripristino immediato in 1 click.
+    - Codificato l'incremento obbligatorio del contatore: `Sessione: {loaded N + 1}` (il caricamento della sessione 1 produce sessione 2 al nuovo salvataggio).
+    - Risolta la sequenza di chiusura quest in `[A]`: `Missione MSQ corrente (EN): <B>` e `Ultimo step completato: Conclusa <A> (<sintesi ultimo evento>)`, prevenendo qualsiasi replay o disorientamento al `/carica`.
+  - **§B26 & §B28 (Incontri di Viaggio e Riposo):**
+    - Allineati gli incontri casuali di `/viaggio` e imboscate di `/riposo` (accampamento) al nuovo pacchetto incontro standardizzato.
+- **INSTRUCTIONS (cv145, ov79, lv60):**
+  - **Instructions_Campaign.txt (cv145):**
+    - `<commands>`: codificato `/continua` con arrivo compresso (Aetheryte a hub o marcia forzata se vergine), espanso `/viaggio` con la sintassi `[chocobo | strada | strada chocobo]`, esplicitato `Sessione: {loaded N + 1}` e fenced code block `plaintext` con `/carica` in riga 1 su `/salva`.
+    - `<beat>`: codificate le regole di avanzamento meteo/orario su beat e viaggi, transizione climatica e chiusura obbligatoria con marcatore neutro `— Arrivo a <destinazione> —`.
+    - `<output_contract>`: codificato il pacchetto incontro bipartito in `plaintext`, standardizzazione arena (9 tipi, dimensioni numeriche, 31 elementi, disposizione sotto), e immagini dei nemici raggruppate in testata.
+  - **Instructions_OneShot.txt (ov79) & Instructions_Loremonger.txt (lv60):**
+    - Sincronizzato `<output_contract>` con il pacchetto incontro bipartito in `plaintext` e layout arena standardizzato.
+- **07_GLOSSARY.MD (v1.42):**
+  - **§G12.0:** Formalizzata la mappatura deterministica delle zone regionali e suddivisioni cardinali ARR (*Noscea Centrale (Middle La Noscea)*, *Bosco Centrale (Central Shroud)*, *Thanalan Centrale (Central Thanalan)*, *Altopiani Centrali di Coerthas (Coerthas Central Highlands)*).
+  - **§G12.4:** Aggiunto il catalogo canonico bilingue delle porte cittadine (*Porta Zefiro (Zephyr Gate)*, *Porta Tempesta (Tempest Gate)*, *Porta del Cinghiale Nero (Black Boar Gate)*, *Porta di Nald (Gate of Nald)*, ecc.).
+- **08_MSQ_FLOW.MD:**
+  - Standardizzate le descrizioni dei Solo Duty ARR/HW/SB/ShB e rifiniti i tag `[CUT]` per massima aderenza narrativa.
+- **PROJECT_MEMORY.MD:**
+  - Aggiunti i capitoli 2.50 (risoluzione replay quest al save/carica e separazione canali MSQ/Subquest) e 2.51 (architettura plaintext, incremento sessione, standardizzazione arena per combat tracker).
+
 ## 2026-09-03h — Rifattorizzazione Sistema di Viaggio, Meteo Dinamico e Banner Meccanico (06 v6.82, Instructions cv144, 05 v2.29)
 
 Risoluzione definitiva della sovrapposizione tra `/continua` e `/viaggio`, formalizzazione dell'architettura Eterite + Ultimo Miglio, estrazione casuale del meteo dai roster canonici e introduzione del banner di allerta meteo severo a vista del DM:

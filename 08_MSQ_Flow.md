@@ -39,7 +39,7 @@ Reference: see Section A Ch. 5 (Milestone Progression); this file is its detail.
 
 **PRACTICAL MSQ FLOW RULE (POINTER — this file is PURE DATA):**
 - BEHAVIOUR lives in 06 + the Campaign instructions, NEVER here: how to walk the flow (one wiki step per 'continua'; sub-beat granularity and the DUNGEON/TRIAL fewest-complete-chunks carve-out — 06 §B2/§B12), connective story beats, the FETCH/CONNECTIVE AUTO-CONDENSE, compression & SIGNATURE PRESERVATION (06 §B12), STORY-FLOW FIDELITY & STAGING-IS-FLOW (06 §B2), the strict CONTINUITY HANDOFF, and the [Info GM]/orientation rules — ATOMIC STEP, SPINE-SOURCED, ORDER AUTHORITY & NO RESURRECTION (06 §B1/§B2). Flow-behaviour tweaks land in 06 + tplC ONLY; this file does not change for them.
-- DATA this file supplies: the Roadmap order + the per-level PILLARS = MANDATORY-CONDITION checkpoints (a fixed canonical NPC/place, a gated reveal, a crystal, a required outcome) — CONSTRAINTS/guardrails, NOT the beat list: the playable flow is ALWAYS the ordered quest chain cached in 08.2-08.6, walked IN ORDER (authoritative over model memory, no live fetch needed); the 5 FROZEN CUTSCENE & REVEAL MANIFESTS; the ordered index (giver + step spine + single Next) = the SPINE from which 'apre <quest>' and 'prossimo step wiki' are READ (06 §B1 SPINE-SOURCED) and the ORDER AUTHORITY over any drafted or remembered pointer; the ARR REVAMPED-DUTY LOCK; the 08.OST-* duty tables.
+- DATA this file supplies: the Roadmap order + the per-level PILLARS = MANDATORY-CONDITION checkpoints (a fixed canonical NPC/place, a gated reveal, a crystal, a required outcome) — CONSTRAINTS/guardrails, NOT the beat list: the playable flow is ALWAYS the ordered quest chain cached in 08.2-08.6, walked IN ORDER (authoritative over model memory, no live fetch needed); the 5 FROZEN CUTSCENE & REVEAL MANIFESTS; the ordered index (giver + step spine + single Next) = the SPINE from which 'apre <quest>' and 'prossimo step' are READ (06 §B1 SPINE-SOURCED) and the ORDER AUTHORITY over any drafted or remembered pointer; the ARR REVAMPED-DUTY LOCK; the 08.OST-* duty tables.
 - DATA KERNEL (applies here): a duty / manifest cutscene / reveal / crystal / named-boss / Scions scene is ALWAYS played in full, NEVER condensed; never create MSQ objectives, dungeons, enemies, places or items NOT present in the save, this roadmap or Gamer Escape (06 §A6).
 - FALLBACK: if a next step is not resolvable from this index, resolve per 06 §A14 (ConsoleGamesWiki = chain order primary; Gamer Escape = lore/NPC/dialogue) or STOP at the last certain step and flag a 1-line GM Note — never improvise.
 
@@ -980,11 +980,10 @@ KEY SCENES:
 
 3. **On to Summerford** — giver: Baderon (Limsa Lominsa Upper Decks) `[COND: relay]`
 - Staelwyrn (Summerford Farms, Middle La Noscea: deliver Baderon's letter, receive briefing on troubled settlers and rogue pirates at Seasong Grotto)
-- Next: Lurkers in the Grotto
-- `[CUT: MMO gear-check tutorial]` **Dressed to Call** — 5-slot numerical gear inspection (cut; party already possesses appropriate starting gear).
+- Next: Lurkers in the Grotto (Dressed to Call is CUT — party already has starting gear)
 
 4. **Lurkers in the Grotto** — giver: Staelwyrn (Middle La Noscea)
-- Seasong Grotto -> [SOLO DUTY: fight suspicious intruders and voidsent alongside Y'shtola] -> report to Staelwyrn
+- Seasong Grotto -> [SOLO DUTY: defeat Frenzied Mossback and bogys alongside Y'shtola] -> Hydaelyn crystal vision -> report to Staelwyrn
 - Next: Washed Up
 
 5. **Washed Up** — giver: Staelwyrn (Middle La Noscea) `[COND: parallel → Double Dealing]`
@@ -992,7 +991,7 @@ KEY SCENES:
 - Next: Double Dealing
 
 6. **Double Dealing** — giver: Staelwyrn (Middle La Noscea)
-- investigate pirate markings near Agelyss River -> confront Seeker pirates -> report to Staelwyrn
+- investigate pirate markings near Agelyss River -> confront Seeker pirates (2x Seeker Buccaneer) -> report to Staelwyrn
 - Next: Loam Maintenance
 
 7. **Loam Maintenance** — giver: Gurcant (Middle La Noscea) `[COND: fetch]`
@@ -1004,7 +1003,7 @@ KEY SCENES:
 - Next: Just Deserts
 
 9. **Just Deserts** — giver: Staelwyrn (Middle La Noscea)
-- Wenyld -> [SOLO DUTY: defend Wenyld's field against the masked mage / Ascian harbinger and summoned gargoyle alongside Y'shtola] -> Staelwyrn
+- Wenyld -> [SOLO DUTY: defend Wenyld's field against Masked Mage & summoned Lesser Gargoyle alongside Y'shtola] -> Staelwyrn
 - Next: Sky-high
 
 11. **Sky-high** — giver: Baderon (Limsa Lominsa Upper Decks) `[COND: relay]`
@@ -1036,7 +1035,7 @@ KEY SCENES:
 - Next: Victory in Peril
 
 18. **Victory in Peril** — giver: Ghimthota (Lower La Noscea)
-- [SOLO DUTY: defend the drydocks against Sahagin raiders and treacherous pirate thralls alongside Y'shtola] -> Ghimthota
+- [SOLO DUTY: defend the ship Victory against Ahtzapfyn the Absorbed and Silent Lackeys alongside Y'shtola] -> Ghimthota
 - Next: Men of the Blue Tattoos
 
 19. **Men of the Blue Tattoos** — giver: Ghimthota (Lower La Noscea) `[COND: fetch]`
@@ -1044,7 +1043,7 @@ KEY SCENES:
 - Next: Feint and Strike
 
 20. **Feint and Strike** — giver: Baderon (Limsa Lominsa Upper Decks)
-- Commodore Reyner (Coral Tower) -> [SOLO DUTY: ambush Serpent Reavers at North Tidegate and foil pirate plot] -> report to Reyner
+- Commodore Reyner (Coral Tower) -> [SOLO DUTY: defeat Baenryss of the Deep & Serpent Reavers, then Masked Mage & Lesser Gargoyle alongside Y'shtola] -> report to Reyner
 - Next: High Society
 
 21. **High Society** — giver: Reyner (Limsa Lominsa Upper Decks) `[COND: relay]`
@@ -1069,11 +1068,10 @@ KEY SCENES:
 
 3. **To the Bannock** — giver: Mother Miounne (New Gridania) `[COND: relay]`
 - Galfrid (The Bannock, Central Shroud: deliver Miounne's letter, receive briefing on suspicious intrusions in the forest)
-- Next: Chasing Shadows
-- `[CUT: MMO gear-check tutorial]` **Passing Muster** — 5-slot numerical gear inspection (cut; party already possesses appropriate starting gear).
+- Next: Chasing Shadows (Passing Muster is CUT — party already has starting gear)
 
 4. **Chasing Shadows** — giver: Galfrid (Central Shroud)
-- check Suspicious Spot -> [SOLO DUTY: fight shadowy cultists and Ixali scout alongside Yda & Papalymo] -> Hydaelyn crystal vision -> report to Galfrid
+- check Suspicious Spot -> [SOLO DUTY: defeat Frenzied Elm and bogys alongside Yda & Papalymo] -> Hydaelyn crystal vision -> report to Galfrid
 - Next: Eggs over Queasy
 
 5. **Eggs over Queasy** — giver: Galfrid (Central Shroud) `[COND: fetch]`
@@ -1089,7 +1087,7 @@ KEY SCENES:
 - Next: Spirithold Broken
 
 8. **Spirithold Broken** — giver: Galfrid (Central Shroud)
-- investigate Spirithold -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Yda & Papalymo] -> Galfrid
+- investigate Spirithold -> [SOLO DUTY: defeat Masked Mage & summoned Lesser Gargoyle alongside Yda & Papalymo] -> Galfrid
 - Next: On to Bentbranch
 
 10. **On to Bentbranch** — giver: Mother Miounne (New Gridania) `[COND: relay]`
@@ -1133,7 +1131,7 @@ KEY SCENES:
 - Next: To Guard a Guardian
 
 20. **To Guard a Guardian** — giver: Mother Miounne (New Gridania)
-- rush to the Guardian Tree -> [SOLO DUTY: defend the ancient Great Tree against Ixali infiltrators & voidsent treant alongside Yda & Papalymo] -> report to Miounne
+- rush to the Guardian Tree -> [SOLO DUTY: repel Ixali infiltrators, then defeat Masked Mage & summoned Lesser Gargoyle alongside Yda & Papalymo] -> report to Miounne
 - Next: Festive Endeavors
 
 21. **Festive Endeavors** — giver: Lewin (The Seat of the First Bow) `[COND: fetch]`
@@ -1165,7 +1163,7 @@ KEY SCENES:
 - Next: Underneath the Sultantree
 
 5. **Underneath the Sultantree** — giver: Papashan (Central Thanalan)
-- Sultantree -> [SOLO DUTY: protect Lady Lilira from voidsent ambush alongside Thancred] -> Hydaelyn crystal vision -> report to Papashan
+- Sultantree -> [SOLO DUTY: protect Lady Lilira, defeat Blanga and lesser blangas alongside Thancred] -> Hydaelyn crystal vision -> report to Papashan
 - Next: Step Nine
 
 6. **Step Nine** — giver: Cicidoa (Central Thanalan) `[COND: fetch]`
@@ -1181,7 +1179,7 @@ KEY SCENES:
 - Next: Way Down in the Hole
 
 9. **Way Down in the Hole** — giver: Zuzumeda (Central Thanalan)
-- Sil'dih Excavation Site -> [SOLO DUTY: defeat masked mage / Ascian harbinger and summoned gargoyle alongside Thancred] -> report to Momodi
+- Sil'dih Excavation Site -> [SOLO DUTY: defeat Masked Mage & summoned Lesser Gargoyle alongside Thancred] -> report to Momodi
 - Next: Takin' What They're Givin'
 
 10. **Takin' What They're Givin'** — giver: Momodi (Ul'dah - Steps of Nald) `[COND: relay]`
@@ -1221,7 +1219,7 @@ KEY SCENES:
 - Next: Oh Captain, My Captain
 
 19. **Oh Captain, My Captain** — giver: Merilda (Western Thanalan)
-- [SOLO DUTY: defend Horizon from corrupt Brass Blades and treacherous smuggler ambush alongside Fufulupa] -> report to Fufulupa
+- [SOLO DUTY: defeat Captain Baldewyn and Ser Baron Von Quiveron IV alongside Fufulupa] -> report to Fufulupa
 - Next: Secrets and Lies
 
 20. **Secrets and Lies** — giver: Fufulupa (Western Thanalan) `[COND: fetch]`
@@ -1229,7 +1227,7 @@ KEY SCENES:
 - Next: Duty, Honor, Country
 
 21. **Duty, Honor, Country** — giver: Momodi (Ul'dah - Steps of Nald)
-- Owyne (Hustings Strip) -> [SOLO DUTY: thwart the kidnapping of Sultana Nanamo / Lady Lilira at Royal Promenade alongside Thancred] -> report to Momodi
+- Owyne (Hustings Strip) -> [SOLO DUTY: protect Owyne against Lawless bandits & Garibald the Fargone, then defeat Masked Mage & Lesser Gargoyle alongside Thancred] -> report to Momodi
 - Next: A Matter of Tradition
 
 22. **A Matter of Tradition** — giver: Owyne (Ul'dah - Steps of Thal) `[COND: fetch]`
@@ -1317,12 +1315,7 @@ KEY SCENES:
 
 **Dressed to Deceive** — giver: Isembard (Eastern Thanalan)
 - Thancred (pose as impoverished souls) -> locals at Camp Drybone (in disguise) -> Thancred (pond north of Sandgate: confront the false priest) -> report to Minfilia (Waking Sands)
-- Next: Lord of the Inferno (bypasses cut quest 'Life, Materia and Everything' — see below)
-
-**Life, Materia and Everything** — giver: Minfilia (The Waking Sands) `[CUT: Materia does not exist in this homebrew]`
-- Mutamix Bubblypots (the Bonfire): materia-enhancement demo -> Minfilia
-- CUT: the quest's only content is the materia-system demo, which this homebrew does not implement (no other file references it). NEVER played, NEVER summarised, NEVER the target of an 'apre': 'Dressed to Deceive' closes straight into **Lord of the Inferno**. Entry kept only as a canonical trace.
-- Next (canonical, unused): Lord of the Inferno
+- Next: Lord of the Inferno (Life, Materia and Everything is CUT — materia not implemented)
 
 **Lord of the Inferno** — giver: Minfilia (The Waking Sands)
 - Flame Sergeant (Camp Drybone): briefing -> Flame Sergeant (the Invisible City) -> Solo Duty (defeat the Amalj'aa) -> Flame Sergeant (in the cave) -> [IFRIT — The Bowl of Embers, trial] -> Thancred (Camp Drybone) -> Scion (Waking Sands) -> Minfilia (final debrief)
@@ -1334,9 +1327,8 @@ KEY SCENES:
 - Next: The Company You Keep
 
 **The Company You Keep** — giver: Minfilia (The Waking Sands)
-- Urgent dispatch: an imperial patrol has downed an Ironworks airship in the East Shroud -> SE of Nine Ivies, investigate the crash site -> defeat the imperial squad [Solo Duty / Skirmish] -> rescue engineers Biggs and Wedge -> report back to Minfilia (The Waking Sands)
-- Next: Sylph-management
-- Note: The party acts as independent champions of the Scions of the Seventh Dawn; player military enlistment into an individual Grand Company is removed (05 Ch.17). Biggs and Wedge join the Scions here, and the ceremony variants (`Wood's Will Be Done` / `Till Sea Swallows All` / `For Coin and Country`) are `[CUT: MMO military swearing-in ceremony]`.
+- Urgent dispatch: an imperial patrol has downed an Ironworks airship in the East Shroud -> SE of Nine Ivies, investigate the crash site -> [SOLO DUTY: defeat Imperial Centurion, Signifer and Magitek Vanguard to rescue engineers Biggs and Wedge] -> report back to Minfilia (The Waking Sands)
+- Next: Sylph-management (Grand Company player swearing-in ceremonies Wood's Will Be Done / Till Sea Swallows All / For Coin and Country are CUT; party acts as independent champions of the Scions, 05 Ch.17)
 
 **Sylph-management** — giver: Minfilia (The Waking Sands)
 - Vorsaile Heuloix (the Adders' Nest): sylph-investigation briefing
@@ -1356,8 +1348,7 @@ KEY SCENES:
 
 **First Contact** — giver: Rolfe Hawthorne (East Shroud)
 - Rolfe (wraps the offering) -> Amelain (letter from the Elder Seedseer for Komuxio) -> Komuxio (ceremonial sylphic greeting dance seals the delivery of milkroot and the Seedseer's letter as a pledge of peace)
-- Next: Forest Friend
-- `[CUT: MMO emote fetch cut]` **Dance Dance Diplomacy** — dancing for 3 generic sylphs with /dance emote (cut for pacing; peaceful contact is fully established in First Contact).
+- Next: Forest Friend (Dance Dance Diplomacy is CUT — /dance emote fetch cut for pacing)
 
 **Forest Friend** — giver: Papalymo (East Shroud) `[COND: fetch]`
 - Imedia (advice) -> slay a ziz gorlin, slay a gall gnat, obtain 3 brownie brushes -> Komuxio (Little Solace)
@@ -1719,7 +1710,7 @@ KEY SCENES:
 - Next: Escape from Castrum Centri
 
 **Escape from Castrum Centri** — giver: Cid (Mor Dhona)
-- /imperialsalute to 3 Imperial Soldiers (find where comrades are held) -> Imperial Centurion (obtain the imperial identification key) -> Biggs (give the key) -> Steel Door (enter the storage tower) -> Minfilia (after the rescue)
+- /imperialsalute to 3 Imperial Soldiers (find where comrades are held) -> Imperial Centurion (obtain the imperial identification key) -> Biggs (give the key) -> Steel Door -> [SOLO DUTY: Part 1 infiltrate Castrum Centri cells and defeat Imperial guards; Part 2 courtyard battle with Magitek Armor against Imperial cohorts and Magitek Vanguards] -> Thancred/Lahabrea & Ultima Weapon cutscene -> Minfilia (after the rescue)
 - Next: The Black Wolf's Ultimatum
 - (NOT condensable: TWO [SOLO DUTY] sequences inside, and it carries the discovery that THANCRED IS POSSESSED BY LAHABREA plus the first sight of the ULTIMA WEAPON. [CGW-verified])
 
@@ -2182,7 +2173,7 @@ KEY SCENES:
 - Next: At the End of Our Hope
 
 **At the End of Our Hope** — giver: Artoirel (Coerthas Western Highlands)
-- search for the heretics' trail N of Camp Riversmeet -> examine the footprints -> [Solo Duty] defeat the basement enemies -> follow the fleeing heretic -> survey the hiding place -> Artoirel
+- search for the heretics' trail N of Camp Riversmeet -> examine the footprints -> [Solo Duty: defeat Heretic Scapulars and Vipers in the cellar alongside Artoirel] -> follow the fleeing heretic -> survey the hiding place -> Artoirel
 - Next: Knights Be Not Proud
 
 **Knights Be Not Proud** — giver: Artoirel (Coerthas Western Highlands) `[COND: relay]`
@@ -2269,7 +2260,7 @@ KEY SCENES:
 - Next: Sounding Out the Amphitheatre
 
 **Sounding Out the Amphitheatre** — giver: Alphinaud (Akh Afah Amphitheatre)
-- Tristechambel -> [Solo Duty] defeat the heretics -> Estinien -> Jantellot (the Convictors' camp)
+- Tristechambel -> [Solo Duty: defeat Heretic Skirmishers and Dragonsblood ambush alongside Estinien] -> Estinien -> Jantellot (the Convictors' camp)
 - Next: Camp of the Convictors
 
 **Camp of the Convictors** — giver: Alphinaud (Camp of the Convictors) `[COND: parallel → Where the Chocobos Roam]`
@@ -2334,10 +2325,7 @@ KEY SCENES:
 
 **Mogmug's Trial** — giver: Mogmug (Moghome) `[COND: fetch]`
 - defeat archaeosaurs at Eil Tohm -> report to Mogmug
-- Next: Moglin's Judgment
-- *(Linearization note: in the MMO Moglin unlocked 3 concurrent tasks; the campaign linearizes by keeping only the hunting trial against monsters threatening Moghome, cutting superfluous micro-fetches)*
-- `[CUT: parallel fetch cut]` **Moghan's Trial** — cloudsbreath herb gathering (cut for narrative pacing).
-- `[CUT: parallel fetch cut]` **Mogwin's Trial** — search for lost artifact/doll (cut for narrative pacing).
+- Next: Moglin's Judgment (Moghan's Trial & Mogwin's Trial are CUT — linearized to this single hunting trial)
 
 **Moglin's Judgment** — giver: Chieftain Moglin (Moghome)
 - Alphinaud -> Estinien -> Ysayle -> Kan-E-Senna -> Kuplo Kopp -> Moglin -> Moghan
@@ -2449,7 +2437,7 @@ KEY SCENES:
 - Next: Familiar Faces
 
 **Familiar Faces** — giver: Alphinaud (the Sea of Clouds)
-- /lookout at the isle's eastern edge -> /lookout farther north -> [Solo Duty] protect the unarmed Vanu Vanu from imperial troops -> the Lonu Vanu
+- /lookout at the isle's eastern edge -> /lookout farther north -> [Solo Duty: protect unarmed Vanu Vanu from Imperial Legionnaires and Magitek Colossus] -> the Lonu Vanu
 - Next: Devourer of Worlds
 
 **Devourer of Worlds** — giver: Lonu Vanu (the Sea of Clouds) `[COND: relay]`
@@ -2600,7 +2588,7 @@ KEY SCENES:
 - Next: As Goes Light, So Goes Darkness
 
 **As Goes Light, So Goes Darkness** — giver: Lucia (Foundation)
-- rendezvous with Aymeric (the Pillars) -> Aymeric -> [Solo Duty] rescue the hostages (0/6) -> Alphinaud -> Alphinaud (Fortemps Manor)
+- rendezvous with Aymeric (the Pillars) -> Aymeric -> [Solo Duty: rescue hostages (0/6) and defeat True Brothers of the Faith & Fanatical Priest alongside Aymeric] -> Alphinaud -> Alphinaud (Fortemps Manor)
 - Next: As It Once Was
 - Manifest tie (08.1 HW L12 3.1): the WARRIORS OF DARKNESS thread opens (strangers from another world) — gated origin (the First, ShB).
 
@@ -2840,15 +2828,10 @@ KEY SCENES:
 
 **The Prodigal Daughter** — giver: Meffrid (the Fringes) `[COND: fetch]`
 - search for Ananta scouts -> assist the wounded Ananta -> report to Meffrid
-- Next: The Black Wolf's Pups (urgent rescue of young rebels ambushed by an imperial patrol)
-- *(Option 2B streamlining note: the 4 superfluous quarry/Qiqirn micro-fetch quests in Ala Gannha are cut to preserve narrative momentum and head straight into the Solo Duty)*
-- `[CUT: parallel fetch cut]` **Hard Country** — quarry stone gathering (cut for narrative pacing).
-- `[CUT: parallel fetch cut]` **Death by a Thousand Rocks** — clearing boulders and quarry beasts (cut for narrative pacing).
-- `[CUT: parallel fetch cut]` **A Life More Ordinary** — delivering provisions to refugees (cut for narrative pacing).
-- `[CUT: parallel fetch cut]` **The Color of Angry Qiqirn** — recovering stolen goods from Qiqirn (cut for narrative pacing).
+- Next: The Black Wolf's Pups (urgent rescue of young rebels; 4 Ala Gannha quarry/Qiqirn micro-fetches are CUT)
 
 **The Black Wolf's Pups** — giver: Lyse (the Fringes)
-- track the youth of Ala Gannha -> [Solo Duty: protect Ala Mhigan youths from imperial patrol] -> Lyse
+- track the youth of Ala Gannha -> [Solo Duty: protect Ala Mhigan youths from Imperial Centurion and 12th Legion patrol] -> Lyse
 - Next: Homeward Bound
 
 **Homeward Bound** — giver: Meffrid (the Fringes) `[COND: relay]`
@@ -2926,7 +2909,7 @@ KEY SCENES:
 - Next: It's Probably a Trap
 
 **It's Probably a Trap** — giver: Lyse (Kugane)
-- Gyodo -> Alphinaud (the Ruby Bazaar) -> Alisaie -> [Solo Duty] wait on the Tasogare Bridge -> defeat the imperial soldiers -> follow the curious Kojin -> Lyse
+- Gyodo -> Alphinaud (the Ruby Bazaar) -> Alisaie -> [Solo Duty: wait on Tasogare Bridge, defeat Imperial 4th Cohort ambush squad] -> follow the curious Kojin -> Lyse
 - Next: Making the Catfish Sing
 
 **Making the Catfish Sing** — giver: Lyse (Kugane) `[COND: relay]`
@@ -3327,7 +3310,7 @@ KEY SCENES:
 - Next: The Key to Victory
 
 **The Key to Victory** — giver: Alphinaud (the Lochs) · MSQ
-- Lyse -> head for the Saltery -> search the Saltery for clues -> [SOLO DUTY] survive the imperial ambush -> head for Sali Monastery -> Lyse
+- Lyse -> head for the Saltery -> search the Saltery for clues -> [SOLO DUTY: survive Cranium Vanguard and 12th Legion imperial ambush] -> head for Sali Monastery -> Lyse
 - Next: The Resonant
 
 **The Resonant** — giver: Lyse (the Lochs) · MSQ
@@ -3859,7 +3842,7 @@ KEY SCENES:
 - Next: When It Rains
 
 **When It Rains** — giver: the Manager of Suites (the Crystarium) · MSQ
-- Alphinaud -> Alisaie -> activate the first anchor -> activate the second anchor -> Alphinaud -> [SOLO DUTY] defeat the sin eaters in the wood -> make for the Ostall Imperative -> drive out the sin eaters -> Alisaie
+- Alphinaud -> Alisaie -> activate the first anchor -> activate the second anchor -> Alphinaud -> [SOLO DUTY: defeat Forgiven Cowardice & winged sin eaters, defend the Ostall Imperative] -> Alisaie
 - Next: Word from On High
 
 **Word from On High** — giver: Alisaie (Lakeland) · MSQ `[COND: parallel → The Best Way Out]`

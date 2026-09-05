@@ -230,8 +230,7 @@ the only version and is authoritative over itself. What 06 §B8 owes it is the I
   duty, or a manifest-pinned cutscene.
 
 ## 1.8 Structural model #2 — the LEAN save
-- **[A] POSIZIONE MSQ** = current quest (EN) + last COMPLETED step (resume anchor; the NEXT step is DERIVED from
-  the wiki, never stored). Mission = the owning QUEST, never a duty name, never the just-'apre' quest.
+- **[A] POSIZIONE MSQ** = current active quest (EN) + last COMPLETED step (resume anchor; the NEXT step is DERIVED strictly from 08_MSQ_Flow.md, never stored). TWO STATES (06 §B17): if the last beat concluded a quest (`chiude <A>; apre <B>`), `Missione MSQ corrente (EN)` records `<B>` and `Ultimo step completato` records `Conclusa <A> (...)`; if mid-quest, `Missione MSQ corrente (EN)` records `<A>`. Mission is never a duty name and never an external sidequest.
 - **[B] PARTY** = N PG + livello (table-owned, copied VERBATIM, never derived or "corrected").
   - **[B] Orario** *(Campaign-only extension)* = integer 0-24, hours elapsed since last long rest. 0 = 7:00 (Alba 🌅, just rested), 16 = 23:00 (Notte 🌙, rest recommended). The active period colors the narrative prose (lighting, atmosphere, city bustle, quiet). Advances per command (beat +1/+2; short commands +1; `/viaggio` a piedi +1/zona, `/viaggio chocobo` +1 ogni 2 zone, volo aeronave / nave oceanica +2, barca locale +1, multitratta = somma durate; `/riposo breve` +1; `/attesa` advances to target hour/period; quest-forced time jumps set the clock directly to the start of the required period; reset to 0 by `/riposo`). Displayed in beat footers with period label + emoji (🌅/☀️/🌤️/🌇/🌆/🌙). Carried VERBATIM like Livello. Old saves without Orario → propose 0 at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
   - **[B] Meteo** *(Campaign-only extension)* = active weather condition in plain text with its active elapsed duration in hours (NO emoji in save block, e.g. 'Sereno (da 2 ore)', 'Nuvoloso (da 1 ora)', 'Pioggia battente (da 3 ore)'). Standard weather enriches narrative sensory prose; severe weather imposes D&D 5e mechanical penalties (Heavy Rain / Downpour = lightly obscured, extinguished flames, long range disadv, mud difficult terrain; Thunderstorms = deafening thunder hearing disadv, lightning risk; Dense Fog / Gloom = heavily obscured beyond 6 yalm, Survival disadv off-road; Dust Storms = heavily obscured, hourly DC 10 Con save or disadv on Perception/attacks; Heat Waves = hourly DC 10 Con save or exhaustion; Blizzards = hourly DC 10 Con save or exhaustion, heavily obscured beyond 6 yalm, difficult terrain; Gales = flight halved/halted, ranged attacks disadv). Weather evolves with daytime progression across period thresholds or after persisting for 3-4 hours, transitions to new zones on `/viaggio` (duration set to travel delta), and ALWAYS rerolls/refreshes for the new dawn on `/riposo` (long rest, Orario resets to 0, duration resets to `da 0 ore`). Whenever weather shifts or Orario crosses into a new time period, the opening 1-2 sentences of narrative prose diegetically describe the shift in the sky, lighting, shadows or atmosphere. Output footer displays: `⏱️ Orario: N → M (+delta) — {label} ({7+M}:00){emoji} · Meteo: {label} {emoji} (da {D} ore)` (append `[{tag}]` if severe weather applies penalties). The GM can query or set weather via `/meteo [condizione]` (resets duration to `da 0 ore`). Carried from the loaded save and updated at end of session. Old saves without duration → read condition and default duration to `(da 1 ora)` silently; old saves without Meteo → propose 'Meteo: Sereno (da 0 ore)' at load (hygiene, non-blocking). NOT present in One-Shot or Loremonger saves.
@@ -1282,6 +1281,92 @@ sono confinati nel footer, il GM scopre le penalità solo DOPO aver giocato la s
 sotto l'header e l'estimate (`⚠️ Condizione Ambientale: <Meteo> — <Regole D&D 5e>`), garantendo al GM visibilità immediata
 prima di leggere la narrazione o gestire i tiri.
 
+## 2.48 LE VECCHIE REGOLE E I RESIDUI STORICI SABOTANO I NUOVI SISTEMI (LEGACY HARMONIZATION & RULE PURGE) (2026-09-04)
+**IL PROBLEMA RISCONTRATO:**
+Anche dopo aver contrassegnato una quest come tagliata (`[CUT: MMO gear-check tutorial]`) e aver aggiunto guardrail sul bypass, il modello al termine di *On to Summerford* continuava a emettere:
+`[Info GM] chiude On to Summerford; apre Dressed to Call; prossimo step: parlare con Staelwyrn a Guado d'Estate per l'ispezione dell'equipaggiamento`
+
+**LA CAUSA RADICE (RESIDUI STORICI E ATTENZIONE DEI TOKEN):**
+1. **Regole storiche non bonificate in 06:** In `06 §B1` riga 306, una vecchia istruzione recitava letteralmente *"the 'apre' quest is the IMMEDIATE next wiki quest"*, e in `06 §B17` riga 617 *"the next objective is DERIVED from the wiki"*. Questa formulazione legacy impartiva all'LLM un ordine categorico di interrogare la wiki esterna anziché l'indice locale `08`, scavalcando i nuovi guardrail e resuscitando la quest dell'MMO e il suo obiettivo tutorial tradotto dall'inglese.
+2. **Attrattori di token nel flusso sequenziale di 08:** La presenza di un blocco separato `> [CUT: ...] Dressed to Call` interposto fisicamente tra la quest 3 e la quest 4 fungeva da attrattore probabilistico (*recency bias* e *token attention*): il modello, nel completare la quest 3, leggeva immediatamente il nome del blocco successivo come candidato naturale di apertura.
+
+**IL PRINCIPIO ARCHITETTURALE (BEST PRACTICE VINCOLANTE):**
+- **Audit e Bonifica delle Regole Ereditate (Legacy Rule Purge):** Quando si introduce una nuova regola, un bypass o un comportamento divergente dal canone vanilla (es. quest tagliate, flusso guidato dall'indice `08`, formati di footer), non basta aggiungere la nuova clausola: è **obbligatorio scansionare l'intero corpus procedurale (`06`) e le istruzioni (`Instructions`) per individuare e ripulire ogni vecchia regola o espressione obsoleta** (es. riferimenti generici a "wiki quest", "derived from wiki", vecchi template) che possa entrare in conflitto o sabotare silenziosamente il nuovo sistema. Le vecchie regole hanno la stessa forza cogente delle nuove agli occhi di un LLM: se contrastano, il modello ne seleziona una a caso o subisce un'allucinazione di compromesso.
+- **Flusso Pulito nei File Dati (Zero Attrattori Intermedi):** I contenuti tagliati o scavalcati non devono mai comparire come voci, blocchi o pseudo-quest autonome tra due step sequenziali attivi. Le note di esclusione devono essere assorbite come metadati parentetici direttamente nel puntatore di avanzamento della voce precedente (`Next: <NuovaQuest> (<VecchiaQuest> is CUT)`), preservando una sequenza token pulita e priva di distrazioni tra l'elemento N e l'elemento N+1.
+- **Singola Fonte di Verità:** L'indice locale `08_MSQ_Flow.md` è l'unica autorità per la sequenza MSQ; le wiki esterne sono sola lettura per dialoghi e lore di quest *attive*, mai per decidere quale quest viene dopo o se una quest esiste.
+
+## 2.49 PACCHETTO INCONTRO: IMMAGINI ALL'INIZIO DEL PACCHETTO, CODE BLOCK PURO PER IL TRACKER E ROSTER PINNATI IN 08 (2026-09-04)
+**IL PROBLEMA RISCONTRATO (IN TEST.TXT):**
+Nel generare un beat con pacchetto incontro per la MSQ *Lurkers in the Grotto*, si sono verificati due guasti evidenti:
+1. *Roster nemici errato / allucinato:* Sono stati generati *Folletto Mordace* (Biting Imp) e *Predoni Disertori* (Turncoat Marauders) al posto dei nemici canonici dell'istanza Solo Duty di FFXIV (*Frenzied Mossback* + *Bogys* con Y'shtola).
+2. *Inquinamento visivo dello stat block:* I link markdown alle immagini delle creature `[🖼️ Immagine: ...]` sono stati iniettati immediatamente sopra a ciascuno stat block, spezzando o inquinando il blocco di codice meccanico a tripli backtick (` ``` `) destinato al parser del combat tracker (`combat_tracker.html`).
+
+**LE CAUSE RADICE:**
+1. *Descrizione non pinnata / vaga in 08:* In `08_MSQ_Flow.md` riga 986, la voce riportava una generica annotazione: `[SOLO DUTY: fight suspicious intruders and voidsent alongside Y'shtola]`. Il modello ha interpretato alla lettera "suspicious intruders" (generando predoni/disertori) e "voidsent" (generando un imp), allontanandosi dal canone di gioco ufficiale.
+2. *Formulazione storica confliggente in 06 e Instructions:* In `06 §A4` persisteva la regola storica *"every stat block/creature/NPC/boss at first appearance MUST have the image BEFORE the block"*, e nelle istruzioni si leggeva *"always before a stat block"*. L'LLM, interpretando "before the stat block" come "immediatamente sopra al singolo stat block del mostro", inseriva i link `[🖼️ Immagine:]` dentro il fenced code block o eliminava i backtick, rompendo l'importazione automatica nel combat tracker.
+3. *Frammentazione e duplicazione tra comandi:* Procedure come `/viaggio` (§B26) e `/riposo` (§B28) contenevano istruzioni parziali o duplicate sulla formattazione degli scontri (es. `/riposo` diceva esplicitamente di posizionare l'immagine prima dello stat block), anziché rimandare a un'unica sorgente di verità.
+
+**L'ARCHITETTURA RISOLUTIVA E LE BEST PRACTICE (CANONE E STRUTTURA):**
+- **Pinning Totale dei Roster MSQ in 08:** Sono stati verificati e fissati con i nomi canonici (in inglese con rendering italiano per 07) tutti i combattimenti e Solo Duty della MSQ in `08_MSQ_Flow.md`, eliminando ogni dicitura vaga ("fight voidsent", "repel bandits") e dichiarando i boss e i mob esatti per prevenire allucinazioni a monte.
+- **Struttura del Pacchetto Incontro a Due Comparti Separati:**
+  1. *Comparto Visivo/Narrativo (Esterno al blocco di codice):* Sotto l'intestazione h3 `### 🗡️ Pacchetto Incontro: <Nome>`, vengono inseriti SUBITO i link alle immagini dei nemici `[🖼️ Immagine: <Nome>]` (uno per tipo di nemico presente, cliccabili via Google Immagini §A4), la `**Difficoltà:**`, l'`**Innesco:**` (se applicabile) e il blocco `**📖 Da leggere ai PG:**`.
+  2. *Comparto Meccanico Puro (Fenced Code Block ```):* Racchiuso in un unico blocco a tripli backtick nudi (` ``` `, senza identificatore di linguaggio e mai ```markdown): inizia con `**Nemici:**` (roster canonico `×N`), prosegue con `#### 🏟️ Arena` (Tipo, Dimensioni, Disposizione, Elementi), `**Tattica:**`, gli stat block puri (testo pulito senza link alle immagini dentro) e `#### 💰 Bottino` (§A21).
+- **Singola Fonte di Verità per tutti i Comandi:** `/viaggio`, `/riposo` e qualsiasi altra procedura non descrivono più regole locali per gli incontri, ma puntano in modo terso ed esclusivo al `pacchetto incontro standard §B1 / §B8`.
+- **Bottino Concreto e Meccaniche §A21:** La sezione `#### 💰 Bottino` riporta sempre valori risolti (mai formule di dadi), divide i Gil in quote eque per il numero di PG (`⚔️ Rif. gruppo`, default 4) con somma esatta, aggiunge il drop extra 1d6 (consumabile o parte con valore timbrato in Gil), ed elenca pezzi di equipaggiamento speciale per boss (1-3 pezzi) o Trial/Demanding Boss (1 pezzo per PG suddiviso nei 5 ruoli) completi di prezzo ed effetto meccanico utilizzabile.
+
+## 2.50 SALVATAGGIO PRECISO AI CONFINI DI QUEST, PREVENZIONE REPLAY E DISTINZIONE MSQ vs SUBQUEST (2026-09-04)
+**IL PROBLEMA RISCONTRATO (IN TEST.TXT):**
+Al termine del beat *On to Summerford*, l'output ha correttamente chiuso la quest (`[Info GM] chiude On to Summerford; apre Lurkers in the Grotto; prossimo step: Raggiungere la Grotta di Canto Marino...`).
+Tuttavia, eseguendo `/salva`, il save ha registrato:
+`- Missione MSQ corrente (EN): On to Summerford`
+`- Ultimo step completato: Consegnata la lettera di Baderon a Staelwyrn a Guado d'Estate e ascoltato il resoconto sul malcontento dei braccianti`
+Al successivo `/carica`, l'assistente (privo della memoria della sessione precedente) ha letto `Missione MSQ corrente: On to Summerford`, ha dedotto che la quest fosse ancora aperta e ha allucinato:
+`Prossimo step: Concludere il colloquio con Staelwyrn per chiudere On to Summerford e farsi assegnare il primo incarico per placare i braccianti.`
+Al successivo `/continua`, l'assistente ha rigiocato da capo *On to Summerford*, rimettendo in scena Staelwyrn e la lettera. Trovandosi a dover inventare un seguito per una quest il cui unico step canonico in 08 era già esaurito, l'LLM ha attinto alla memoria generale di FFXIV e ha deviato la MSQ su una sidequest locale dell'MMO (*Pest Control*), chiudendo con:
+`[Info GM] chiude On to Summerford; apre Pest Control; prossimo step: Raggiungere i filari dei frutteti...`
+
+**LE CAUSE RADICE:**
+1. *Regola storica limitante `[A] TITLE OWNERSHIP`:* In `06 §B17` riga 619 e nelle istruzioni si vietava al save di indicare la quest aperta da `apre` (*"NEVER the quest the last [Info GM] 'apre' points to"*). Questo vincolo costringeva il save a dichiarare come "corrente" una quest già conclusa.
+2. *Assenza di prefisso esplicito in `Ultimo step completato`:* Una descrizione in prosa libera non permette a un modello fresco in `/carica` di capire se la quest è finita o ancora in corso.
+3. *Contaminazione tra canale MSQ e canale Subquest:* L'LLM, disorientato dal replay forzato, ha iniettato una sidequest dell'MMO (*Pest Control*) nel flusso principale della MSQ anziché seguire la spina di `08_MSQ_Flow.md`.
+
+**L'ARCHITETTURA RISOLUTIVA E LE BEST PRACTICE:**
+- **Regola a Due Stati per il Salvataggio (06 §B17 / §B24 / Instructions):**
+  1. *Confine di Quest (`chiude <A>; apre <B>`):* La quest `<A>` è completata; il gruppo intraprende ufficialmente `<B>`. Il save scrive categoricamente:
+     - `Missione MSQ corrente (EN): <B>` (la quest aperta da `apre`, verificata su 08).
+     - `Ultimo step completato: Conclusa <A> (<sintesi dell'ultimo evento/consegna>)`.
+  2. *Mid-Quest (`prosegue <A>`):* Il gruppo è ancora impegnato in `<A>`. Il save scrive:
+     - `Missione MSQ corrente (EN): <A>`.
+     - `Ultimo step completato: <step appena completato di A>`.
+- **Risoluzione Immediata al Caricamento (`/carica`):** Quando `[A]` riporta `Missione MSQ corrente: <B>` e `Ultimo step: Conclusa <A>`, il loader sa con certezza assoluta che `<A>` è finita: posiziona il cursore al debutto di `<B>` ed emette come `Prossimo step:` il primo obiettivo atomico di `<B>` letto strettamente da `08_MSQ_Flow.md`. Nessun replay è più possibile.
+- **Rigorosa Separazione tra Canale MSQ e Canale Subquest (`/voci`):**
+  - **Canale MSQ (`/continua`, `[MSQ — ...]`, `[A]`):** È vincolato esclusivamente a `08_MSQ_Flow.md`. Nessuna sidequest (come *Pest Control*) può mai essere iniettata come missione MSQ.
+  - **Canale Subquest (`/voci`, `/accettiamo`, slot `[C]`, `[SUBQUEST — ...]`):** Può e DEVE continuare a ricercare sulle wiki (Gamer Escape / ConsoleGamesWiki) per offrire sidequest canoniche di zona (ad es. proporre *Pest Control* via `/voci` a Summerford Farms è assolutamente legittimo ed è il cuore del sistema di dicerie).
+
+## 2.51 SALVATAGGIO & PACCHETTO INCONTRO IN FENCED CODE BLOCK PLAINTEXT, INCREMENTO SESSIONE E STANDARDIZZAZIONE ARENA PER COMBAT TRACKER (2026-09-04)
+**I PROBLEMI RISCONTRATI (TEST IN TEST.TXT):**
+1. *Blocco di salvataggio e blocco meccanico incontro non copiabili via UI con 1 click:* 
+   - L'output di `/salva` non veniva racchiuso in un fenced code block esplicitamente taggato `plaintext` (con `/carica` sulla prima riga), privando l'interfaccia chat del pulsante rapido "Copia codice".
+   - Il comparto meccanico del Pacchetto Incontro (da `**Nemici:**` a `#### 💰 Bottino`) veniva generato come normale testo markdown nella chat invece che dentro un blocco codice, impedendo la comparsa del pulsante "Copia codice" nella Web UI di Gemini / Gems.
+   - *Causa radice del mancato blocco codice nell'incontro:* In `06 §B1` (riga 329) era presente la prescrizione contraddittoria `bare triple backticks (bare ``` without language identifier)`, e in `§A1/§B6` persisteva l'indicazione `a stat block is normal text with bold labels, same typeface as the prose`. I parser web markdown scartavano o de-prioritizzavano i backtick nudi in presenza di titoli markdown (`#### `), facendo regredire l'output a prosa comune.
+2. *Mancato incremento del contatore sessione al salvataggio:* In `Instructions_Campaign.txt` riga 25 la specifica di `/salva` non ordinava esplicitamente di scrivere `Sessione: {loaded N + 1}`, inducendo il modello a ricopiare `Sessione: 1` invece di avanzare a `Sessione: 2`.
+3. *Errori di parsing e ordine dei campi nella sezione `#### 🏟️ Arena`:* Nei pacchetti incontro di test, `Tipo` presentava aggettivi e descrizioni prosate (`Tipo: Caverna calcarea naturale parzialmente allagata.`) che fallivano il match con le etichette note dei preset e facevano scattare il fallback a 'Stanza Base'; `Dimensioni` conteneva conversioni metriche in parentesi e altezze del soffitto; `Elementi` conteneva nomi arbitrari non a catalogo (`Pozze d'acqua salmastra`) con regole D&D 5e inserite tra parentesi; e `Disposizione:` era collocata prima di `Elementi:`.
+
+**L'ARCHITETTURA RISOLUTIVA E LE BEST PRACTICE:**
+- **Save & Blocco Meccanico Incontro in Fenced Code Block Plaintext (` ```plaintext `):**
+  - Il blocco save emesso da `/salva` DEVE aprirsi categoricamente con ```` ```plaintext ```` e chiudersi con ```` ``` ````, con `/carica` sulla primissima riga.
+  - La riga della sessione DEVE scrivere esplicitamente `Sessione: {loaded N + 1}` (ad es. caricando la sessione 1, il nuovo save emette tassativamente `Sessione: 2`).
+  - Il **Pacchetto Incontro** è rigidamente bipartito:
+    1. *Testata Narrativa/Visiva (Esterna al codice):* Titolo h3 `### 🗡️ Pacchetto Incontro: <Nome>`, link immagini `[🖼️ Immagine: <Nome>]`, `**Difficoltà:**`, `**Innesco:**` (se applicabile), e `**📖 Da leggere ai PG:**` in prosa pulita.
+    2. *Comparto Meccanico (Racchiuso tassativamente dentro ```` ```plaintext ```` ... ```` ``` ````):* Si apre con ```` ```plaintext ```` su propria riga, inizia con `**Nemici:** <nome> ×N`, prosegue con `#### 🏟️ Arena`, `**Tattica:**`, stat block puri (senza immagini dentro) e `#### 💰 Bottino`, chiudendosi con ```` ``` ````. Il tag `plaintext` è OBBLIGATORIO per forzare la Web UI di Gemini a generare il pulsante interattivo "Copia codice" per l'importazione diretta in `combat_tracker.html`.
+- **Standardizzazione Rigida di `#### 🏟️ Arena` per `combat_tracker.html`:**
+  - La funzione `parseArenaSection` del tracker analizza 5 campi in un ordine logico strutturato (i primi parametri rigidi da catalogo, seguiti dalla prosa descrittiva):
+    1. `**Tipo:**` RIGOROSAMENTE UNA tra le 9 etichette chiuse dei MapPresets: *Spazio Aperto · Grande Arena · Sala Ampia · Rovine Complesse · Caverna Irregolare · Struttura Circolare · Galleria · Passaggio Stretto · Stanza Base*. Nessun aggettivo o prosa aggiunta su questa riga.
+    2. `**Dimensioni:**` Due interi `L × A` o `L × A yalm` (pensati direttamente in caselle). Tassativamente VIETATE conversioni metriche in parentesi (es. no `(circa 24 × 18 m)`) e altezze del soffitto su questa riga (l'altezza vive nella prosa o in Disposizione).
+    3. `**Forma:**` (facoltativa) Una parola tra *aperta · circolare · irregolare · articolata · regolare*.
+    4. `**Elementi:**` Elenco puntato con trattino `-` e nomi rigorosamente tratti dal catalogo chiuso di 31 voci (*Pilastro/Colonna, Statua/Altare, Albero, Nebbia/Fumo, Oscurità Magica, Rocce, Macerie, Casse, Anfore/Barili, Mobili/Tavoli, Barricata, Cespuglio, Siepe, Carro, Carovana, Acqua, Fango, Muffa, Radici, Sabbia, Neve, Erba Alta, Ragnatele, Ghiaccio, Fuoco/Lava, Acido/Tossina, Rovi/Spine, Trappola, Meccanismo, Portale/Teletrasporto, Cerchio Runico, Cristallo Instabile*). Ciascun elemento può essere seguito da trattino lungo `—` e breve nota di posizionamento/colore (es. `- Acqua — pozze salmastre di risacca`). TASSATIVAMENTE VIETATO inserire regole D&D 5e (bonus CA, CD, danni, terreno difficile) tra parentesi o dopo i due punti: il combat tracker applica già internamente le meccaniche di ogni elemento di catalogo.
+    5. `**Disposizione:**` Posizionata **SOTTO ad `Elementi:`**. Contiene 1-2 frasi di prosa descrittiva che il tracker invia all'API Gemini per posizionare intelligentemente elementi e pedine dei mostri sulla griglia. Prescrizione vincolante: mantenere sempre sgombra la porta e il corridoio iniziale di accesso per lo schieramento dei PG.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and
@@ -1328,6 +1413,7 @@ apply it as a surgical, anchored, RAG-aware edit; RECONCILE, do not accumulate; 
     setpieces. Tail-test the save cheaply: load → 1 beat → `/fine sessione` → `/salva`.
 13. **AUDIT ALL REFERENCES ON A STRUCTURAL CHANGE** — when a shared datum changes shape, grep EVERY consumer.
 14. **EVERY BEHAVIOUR CHANGE CHECKS cv/ov/lv, NOT ONLY THE `.md`** — see 1.2.
+15. **LEGACY PURGE ON EVOLUTION (no zombie rules)** — when adding a new rule, custom flow, bypass or marker, AUDIT and PRUNE all stale historical rules, obsolete phrasing (e.g. 'next wiki quest', 'derived from wiki') and conflicting fallbacks across `06` and Instructions. Old rules carry equal weight to an LLM; never leave a legacy instruction to contradict or sabotage a newly introduced capability (see LESSON 2.48).
 
 **RETIRED PRACTICES (do not reinstate):** the "context diet" budget rules (BP #15/#16 in the old numbering),
 which prescribed keeping the built instruction file under a byte ceiling. **Falsified by measurement** — see

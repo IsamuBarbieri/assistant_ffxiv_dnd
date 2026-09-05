@@ -1005,7 +1005,7 @@ Wilderness transit and camping outside safe settlements are subject to random ev
   - *La Noscea:* Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Foschia 🌫️), Rain (Pioggia 🌧️), Wind (Vento 💨), Gales (Burrasca 💨).
   - *The Black Shroud:* Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Nebbia fitta 🌫️), Rain (Pioggia 🌧️), Thunder (Tuoni 🌩️), Thunderstorms (Temporale ⛈️), Tension (Tensione / Odin ⚡).
   - *Thanalan:* Clear Skies (Sereno ☀️), Fair Skies (Soleggiato 🌤️), Clouds (Nuvoloso ☁️), Fog (Foschia 🌫️), Dust Storms (Tempesta di sabbia 🌪️), Heat Waves (Ondata di calore 🏜️).
-  - *Coerthas:* Snow (Neve ❄️), Blizzards (Tormenta / Bufera 🌨️), Fog (Nebbia gelata 🌫️), Clouds (Coperto ☁️), Clear Skies (Sereno gelido ☀️), Fair Skies (Soleggiato 🌤️).
+  - *Coerthas:* Snow (Neve 🌨️), Blizzards (Tormenta / Bufera ❄️), Fog (Nebbia gelata 🌫️), Clouds (Coperto ☁️), Clear Skies (Sereno gelido ☀️), Fair Skies (Soleggiato 🌤️).
   - *Mor Dhona:* Clouds (Nuvoloso ☁️), Fog (Nebbia 🌫️), Gloom (Foschia eterea / Gloom 🌌).
   - *Later Expansions (Heavensward to Endwalker):* zones feature distinct aetheric phenomena (e.g. Umbral Static, Everlasting Light, Apocalypse) sampled directly from canon wiki entries.
 - **Mechanical Hazards (D&D 5e Rules):**
@@ -1014,7 +1014,7 @@ Wilderness transit and camping outside safe settlements are subject to random ev
   - *Dense Fog / Gloom (Nebbia fitta / Foschia 🌫️):* area is heavily obscured beyond 6 yalm / 9 meters (creatures beyond that distance are effectively blinded toward the outside); disadvantage on Wisdom (Survival) navigation checks off-road.
   - *Dust Storms (Tempesta di sabbia 🌪️):* area is heavily obscured; creatures without eye protection and face covering must succeed on a DC 10 Constitution saving throw each hour or suffer disadvantage on Perception and weapon attack rolls; shifting dunes count as difficult terrain.
   - *Heat Waves (Ondata di calore 🏜️):* Extreme Heat (DMG 5e): creatures wearing medium or heavy armor, or creatures lacking double daily water rations, must succeed on an hourly DC 10 Constitution saving throw or gain 1 level of exhaustion.
-  - *Blizzards (Tormenta / Bufera 🌨️):* Extreme Cold (DMG 5e): hourly DC 10 Constitution saving throw without cold-weather gear or gain 1 level of exhaustion; area is heavily obscured beyond 6 yalm; snow drifts are difficult terrain; disadvantage on all ranged attacks.
+  - *Blizzards (Tormenta / Bufera ❄️):* Extreme Cold (DMG 5e): hourly DC 10 Constitution saving throw without cold-weather gear or gain 1 level of exhaustion; area is heavily obscured beyond 6 yalm; snow drifts are difficult terrain; disadvantage on all ranged attacks.
   - *Gales (Burrasca 💨):* gale-force winds halve flight speeds and require DC 13 Strength checks to advance forward; ranged weapon attacks suffer disadvantage.
 - **Weather Shifts & Progression:**
   Weather typically persists for 3–4 hours before shifting across regional patterns, and refreshes for the new dawn after a Long Rest. Atmospheric changes naturally alter lighting, sky conditions, and travel pacing.
