@@ -9,6 +9,7 @@ Ottimizzazione visuale e correzione del parser dei blocchi statistiche nel Comba
 - **Risoluzione Asterischi e Tag Markdown Letterali:**
   - Introdotto il parser `parseMoveLine()` con regex dedicate per estrarre titoli in markdown (`**Titolo.**`, `*Titolo.*`), titoli in chiaro (`Titolo.`, `Titolo —`) e blocchi telegrafo (`**Telegrafo:**`, `Telegrafo:`), ripulendo gli asterischi e gli hashtag letterali (`####`).
   - Le intestazioni di sezione (`Tratti`, `Azioni`, `Reazioni`, ecc.) vengono renderizzate pulite in maiuscolo senza i cancelletti markdown grezzi.
+  - Esteso il riconoscimento di `SB_SECTION_TITLE` a varianti singolari e marcate con asterischi (es. `**Azioni**`, `**Azione**`, `**Tratti**`), consentendo alle schede degli Alleati di dividere nettamente la sezione `AZIONI` dalle azioni effettive (`Aero`, `Cura`) con la riga di divisione orizzontale in palette azzurrina (`.sb-card.is-ally .sb-section-title`).
   - Le righe di effetto e risoluzione che seguono un telegrafo vengono aggregate elegantemente nel callout box dorato del telegrafo sotto la descrizione del wind-up.
   - Raffinato il filtro `Descrizione visiva:` in `processImport()` per escludere correttamente dal computo delle mosse le righe marcate con `**Descrizione visiva:**`.
 

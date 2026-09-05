@@ -145,6 +145,7 @@
     .sb-secondary-box strong { color: #ffffff; font-weight: 600; }
     
     .sb-section-title { font-weight: bold; color: #fbbf24; margin-top: 15px; margin-bottom: 6px; border-bottom: 1px solid #4b5563; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; padding-bottom: 2px; }
+    .sb-card.is-ally .sb-section-title { color: #38bdf8; border-bottom: 1px solid rgba(56, 189, 248, 0.4); }
     .sb-move { font-size: 0.9rem; margin-bottom: 6px; line-height: 1.45; color: #e5e7eb; }
     .sb-move strong { color: #ffffff; font-weight: 600; }
     .sb-move strong.sb-move-title { color: #fca5a5; font-weight: 700; }
@@ -439,7 +440,7 @@
         document.getElementById('customAlertModal').style.display = 'none';
     }
 
-    const SB_SECTION_TITLE = /^[^\p{L}\n]*(Tratti|Azioni|Azioni Bonus|Reazioni|Azioni Leggendarie|Azioni di Tana|Bottino)$/iu;
+    const SB_SECTION_TITLE = /^[^\p{L}\n]*(Tratt[io]|Azion[ei]|Azion[ei] Bonus|Reazion[ei]|Azion[ei] Leggendar[ie]|Azion[ei] di Tana|Bottino|Incantesimi|Magia)[^\p{L}\n]*$/iu;
 
     const FeatureCatalog = [
       { emoji: "⬛", name: "Muro di Pietra", cssType: "type-cover-total", effect: "Copertura Totale (Blocca Linea di Vista)", manualOnly: 'il perimetro lo disegna il "Tipo". Per una copertura totale in mezzo al campo usa "Pilastro/Colonna"' },
@@ -935,8 +936,15 @@
       if (!raw || !raw.trim()) return null;
       const trimmed = raw.trim();
       if (SB_SECTION_TITLE.test(trimmed)) {
-        const clean = trimmed.replace(/^[\s#*_-]+/, '').replace(/[\s*_-]+$/, '').trim();
-        return { type: 'section', title: clean.toUpperCase() };
+        let clean = trimmed.replace(/^[\s#*_\-–—:]+/, '').replace(/[\s*_\-–—:]+$/, '').trim();
+        if (/^azion[ei]$/i.test(clean)) clean = "AZIONI";
+        else if (/^tratt[io]$/i.test(clean)) clean = "TRATTI";
+        else if (/^reazion[ei]$/i.test(clean)) clean = "REAZIONI";
+        else if (/^azion[ei]\s*bonus$/i.test(clean)) clean = "AZIONI BONUS";
+        else if (/^azion[ei]\s*leggendar[ie]$/i.test(clean)) clean = "AZIONI LEGGENDARIE";
+        else if (/^azion[ei]\s*di\s*tana$/i.test(clean)) clean = "AZIONI DI TANA";
+        else clean = clean.toUpperCase();
+        return { type: 'section', title: clean };
       }
       const mTeleg = trimmed.match(TELEGRAPH_RE);
       if (mTeleg) {
