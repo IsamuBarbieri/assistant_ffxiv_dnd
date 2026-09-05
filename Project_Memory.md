@@ -1367,6 +1367,27 @@ Al successivo `/continua`, l'assistente ha rigiocato da capo *On to Summerford*,
     4. `**Elementi:**` Elenco puntato con trattino `-` e nomi BARE (singolari o plurali) rigorosamente tratti dal catalogo chiuso di 31 voci (*Pilastro/Colonna, Statua/Altare, Albero, Nebbia/Fumo, Oscurità Magica, Rocce, Macerie, Casse, Anfore/Barili, Mobili/Tavoli, Barricata, Cespuglio, Siepe, Carro, Carovana, Acqua, Fango, Muffa, Radici, Sabbia, Neve, Erba Alta, Ragnatele, Ghiaccio, Fuoco/Lava, Acido/Tossina, Rovi/Spine, Trappola, Meccanismo, Portale/Teletrasporto, Cerchio Runico, Cristallo Instabile*). Tassativamente BARE: senza descrizioni, dettagli di posizionamento o trattini lunghi `—` su queste righe (es. bare `- Rocce`, `- Acqua`, `- Barricata`); tutta la scenografia e la disposizione spaziale vivono in `Disposizione:` sottostante, risparmiando token e calcoli al modello. TASSATIVAMENTE VIETATO inserire regole D&D 5e (bonus CA, CD, danni, terreno difficile) tra parentesi o dopo i due punti: il combat tracker applica già internamente le meccaniche di ogni elemento di catalogo.
     5. `**Disposizione:**` Posizionata **SOTTO ad `Elementi:`**. Contiene 1-2 frasi di prosa descrittiva che il tracker invia all'API Gemini per posizionare intelligentemente elementi e pedine dei mostri sulla griglia. Prescrizione vincolante: mantenere sempre sgombra la porta e il corridoio iniziale di accesso per lo schieramento dei PG.
 
+## 2.52 SUPPORTO PNG ALLEATI NEL PACCHETTO INCONTRO E NEL COMBAT TRACKER (2026-09-05)
+**ESIGENZA OPERATIVA AL TAVOLO:**
+Nelle battaglie campali o nei solo duty dell'MSQ con la partecipazione di PNG alleati (Scion come Y'shtola, Thancred, cavalieri di Ishgard, miliziani locali o alleati di trama), il DM necessitava di:
+1. Poter consultare immediatamente le statistiche e le azioni dei PNG alleati direttamente nel Combat Tracker, con un proprio turno in iniziativa.
+2. Distinguere a colpo d'occhio gli alleati dai mostri e dai PG giocatori, sia nella tabella d'iniziativa che nelle schede e sulla mappa tattica (palette cromatica azzurrino chiaro).
+3. Avere un Pacchetto Incontro snello che non appesantisca il context window o il carico cognitivo con dettagli superflui dei PNG (TS, abilità, sensi, GdS), focalizzandosi solo sui valori vitali (CA, PF) e sulle azioni offensive/difensive/di supporto concrete da spendere al turno dell'alleato.
+
+**ARCHITETTURA IMPLEMENTATA:**
+- **Contratto Pacchetto Incontro (§B1, §B8, Instructions cv147/ov81/lv62):**
+  - **Testata Esterna:** Link `[🖼️ Immagine: <Nome>]` in testata raggruppati sia per i nemici che per i PNG alleati.
+  - **Riga Roster `**Alleati:**`:** Riga facoltativa posta subito sotto `**Nemici:**` nel blocco codice `plaintext`, nel formato `**Alleati:** {nome} ×N` (omessa quando il combattimento non include alleati, risparmiando token).
+  - **Stat Block Minimo dell'Alleato:**
+    - Linea 1: `**Nome** — Taglia · CA X · PF Y · Vel Z` (riconosciuta istantaneamente dal parser del tracker).
+    - Linea 2: Riga singola attributi base `FOR 10 (+0) · DES 14 (+2) · COS 14 (+2) · INT 16 (+3) · SAG 12 (+1) · CAR 10 (+0)` (fornisce il modificatore Des per l'iniziativa automatica e i riferimenti per tiri salvezza).
+    - Righe omesse: Rigorosamente omesse TS, abilità, resistenze, immunità, sensi e GdS per massimizzare la concisione.
+    - Sezione `**Azioni**`: 1–3 azioni/attacchi/incantesimi tipici pronti all'uso per il GM.
+- **Combat Tracker (`combat_tracker.html`):**
+  - **Visual Theme & Palette:** Classe CSS `tr.ally-row` con sfondo azzurrino traslucido (`rgba(56, 189, 248, 0.12)` al riposo, `0.22` all'hover), badge `.badge-ally` (`#0284c7`, testo `#f0f9ff`, bordo `#38bdf8`), tab delle schede bordati di `#38bdf8` con icona `🛡️`, e pedine mappa celesti (`rgb(56, 189, 248)`).
+  - **Controlli UI & Gestione Danno:** Aggiunto pulsante rapido `+ Aggiungi Alleato` nella barra controlli. Gli alleati godono dei controlli completi dei PF (input PF attuali/massimi, barra salute dinamica, pulsanti `+`/`−` e danno rapido). Il pulsante di clonazione 👥 è abilitato anche per replicare rapidamente soldati alleati generici.
+  - **Iniziativa & Flusso Turni:** L'ordinamento d'iniziativa posiziona regolarmente gli alleati con il proprio tiro + Des; quando il turno attivo passa a un alleato, il pannello delle schede seleziona automaticamente il suo tab; cliccando sulla riga o sul badge dell'alleato si apre direttamente la sua scheda. Alla morte/svenimento (`hp <= 0`), la riga passa allo stato `down`.
+
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation
   and needs pipeline control; on a hosted assistant of this kind the host does retrieval end-to-end and

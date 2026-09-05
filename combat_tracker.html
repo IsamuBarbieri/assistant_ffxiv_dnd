@@ -83,6 +83,8 @@
     
     tr.monster-row { background-color: rgba(var(--row-color-rgb, 35, 39, 46), 0.12); transition: background-color 0.2s, border-color 0.2s; }
     tr.monster-row:hover { background-color: rgba(var(--row-color-rgb, 35, 39, 46), 0.25); }
+    tr.ally-row { background-color: rgba(56, 189, 248, 0.12); transition: background-color 0.2s, border-color 0.2s; }
+    tr.ally-row:hover { background-color: rgba(56, 189, 248, 0.22); }
     tr.pc-row { background-color: #1a222d; }
     tr.pc-row:hover { background-color: #1f2a38; }
     tr.active-turn { outline: 2px solid var(--warning); outline-offset: -2px; }
@@ -95,7 +97,8 @@
     input.name-input:hover, input.name-input:focus { border: 1px solid #4b5563; background-color: #2a2d33; }
     
     .badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 6px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; width: 100%; box-sizing: border-box; transition: background-color 0.2s; }
-    .badge-monster { color: ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
+    .badge-monster { color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
+    .badge-ally { background-color: #0284c7; color: #f0f9ff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); border: 1px solid #38bdf8; }
     .badge-pc { background-color: #1e3a8a; color: #93c5fd; }
 
     .hp-cell-container { display: flex; flex-direction: column; gap: 4px; }
@@ -256,6 +259,7 @@
           </div>
           <div class="btn-group">
             <button onclick="addCombatant('pc')">+ Aggiungi PG</button>
+            <button onclick="addCombatant('ally')" style="background-color: #0284c7; border-color: #0369a1;">+ Aggiungi Alleato</button>
             <button onclick="addCombatant('monster')">+ Aggiungi Nemico</button>
           </div>
         </div>
@@ -683,7 +687,7 @@
     function emptyStatblock(name) { return { name: name, size: 1, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] }; }
     
     function getCombatantSizeById(id) {
-        const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => i.id === id); if(!c || !c.isMonster) return 1;
+        const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => i.id === id); if(!c || (!c.isMonster && !c.isAlly)) return 1;
         const sb = enc.statblocks.find(s => s.name.toLowerCase() === getBaseName(c.name).toLowerCase());
         if(sb) {
             if (sb.size !== undefined) return sb.size;
@@ -698,8 +702,8 @@
     }
 
     function syncStatblocks() {
-        const enc = encountersData[currentEncounterIndex]; const activeMonsters = enc.combatants.filter(c => c.isMonster);
-        const activeBases = [...new Set(activeMonsters.map(c => getBaseName(c.name)))];
+        const enc = encountersData[currentEncounterIndex]; const activeNPCs = enc.combatants.filter(c => c.isMonster || c.isAlly);
+        const activeBases = [...new Set(activeNPCs.map(c => getBaseName(c.name)))];
         enc.statblocks = enc.statblocks.filter(sb => activeBases.map(b => b.toLowerCase()).includes(sb.name.toLowerCase()));
         if (activeStatblockIndex >= enc.statblocks.length) activeStatblockIndex = Math.max(0, enc.statblocks.length - 1);
         renderStatblocks();
@@ -707,7 +711,7 @@
 
     function captureBaseRosters() { encountersData.forEach(enc => { enc.baseCombatants = enc.combatants.map(c => Object.assign({}, c)); enc.baseStatblocks = JSON.parse(JSON.stringify(enc.statblocks)); }); }
     function captureRoundTelegraphs() { encountersData[currentEncounterIndex].combatants.forEach(c => { if (c.isMonster) c.roundStartTelegraph = c.telegraph; }); }
-    function isCombatantDown(c) { return c.isMonster ? (c.hp <= 0) : !!c.isDown; }
+    function isCombatantDown(c) { return (c.isMonster || c.isAlly) ? (c.hp <= 0) : !!c.isDown; }
     function escapeHtml(str) { return String(str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;"); }
 
     function applyDmg(id, sign) {
@@ -717,7 +721,7 @@
       c.hp = sign < 0 ? Math.max(0, c.hp - amt) : c.hp + amt; renderEncounter();
     }
     
-    function togglePcDown(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => i.id === id); if (c && !c.isMonster) { c.isDown = !c.isDown; renderEncounter(); } }
+    function togglePcDown(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => i.id === id); if (c && !c.isMonster && !c.isAlly) { c.isDown = !c.isDown; renderEncounter(); } }
     function cycleTelegraph(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => i.id === id); if (!c || !c.isMonster) return; c.telegraph = (c.telegraph === null) ? 1 : (c.telegraph === 1 ? 2 : (c.telegraph === 2 ? 3 : null)); renderEncounter(); }
     
     function updateCombatant(id, field, value, triggerSort) {
@@ -739,6 +743,21 @@
                   if (!exists) { const oldSb = enc.statblocks.find(sb => sb.name.toLowerCase() === oldBase.toLowerCase()); enc.statblocks.push(oldSb ? { ...oldSb, name: newBase } : emptyStatblock(newBase)); }
                   syncStatblocks();
               }
+          } else if (c.isAlly) {
+              const newBase = getBaseName(value);
+              const tLabel = getCombatantTokenLabel(c.name);
+              const badge = document.getElementById("badge-" + c.id); if (badge) badge.textContent = tLabel;
+              if (enc.mapData && enc.mapData.entityPositions[c.id]) { const tk = document.querySelector(`.entity-token[data-entity-id="${c.id}"]`); if (tk) tk.textContent = tLabel; }
+              if (oldBase.toLowerCase() !== newBase.toLowerCase()) {
+                  let exists = enc.statblocks.find(sb => sb.name.toLowerCase() === newBase.toLowerCase());
+                  if (!exists) {
+                      const oldSb = enc.statblocks.find(sb => sb.name.toLowerCase() === oldBase.toLowerCase());
+                      const newSb = oldSb ? { ...oldSb, name: newBase } : emptyStatblock(newBase);
+                      newSb.isAlly = true;
+                      enc.statblocks.push(newSb);
+                  }
+                  syncStatblocks();
+              }
           }
       } else { c[field] = value; }
     }
@@ -754,18 +773,27 @@
     }
     
     function addCombatant(type) {
-      const isM = type === "monster"; const enc = encountersData[currentEncounterIndex]; const newId = Date.now();
-      enc.combatants.push({ id: newId, name: isM ? "Nuovo Nemico" : "Nuovo PG", isMonster: isM, initBonus: 0, init: isM ? Math.floor(Math.random()*20)+1 : null, ac: isM ? 10 : "", hp: isM ? 10 : 0, maxHp: isM ? 10 : 0, isDown: false, telegraph: null, notes: "" });
-      if (isM) { if (!enc.statblocks.find(sb => sb.name === "Nuovo Nemico")) enc.statblocks.push(emptyStatblock("Nuovo Nemico")); syncStatblocks(); }
+      const isM = type === "monster"; const isA = type === "ally"; const enc = encountersData[currentEncounterIndex]; const newId = Date.now();
+      const defaultName = isM ? "Nuovo Nemico" : (isA ? "Nuovo Alleato" : "Nuovo PG");
+      const hasStats = isM || isA;
+      enc.combatants.push({ id: newId, name: defaultName, isMonster: isM, isAlly: isA, initBonus: 0, init: hasStats ? Math.floor(Math.random()*20)+1 : null, ac: hasStats ? 10 : "", hp: hasStats ? 10 : 0, maxHp: hasStats ? 10 : 0, isDown: false, telegraph: null, notes: "" });
+      if (hasStats) {
+          if (!enc.statblocks.find(sb => sb.name === defaultName)) {
+              const sb = emptyStatblock(defaultName);
+              if (isA) sb.isAlly = true;
+              enc.statblocks.push(sb);
+          }
+          syncStatblocks();
+      }
       sortInitiative();   // prende subito il suo posto; il cursore di turno resta sulla sua entita'
     }
     
     function cloneCombatant(id) {
-        const enc = encountersData[currentEncounterIndex]; const source = enc.combatants.find(c => c.id === id); if (!source || !source.isMonster) return;
+        const enc = encountersData[currentEncounterIndex]; const source = enc.combatants.find(c => c.id === id); if (!source || (!source.isMonster && !source.isAlly)) return;
         let baseName = getBaseName(source.name); let count = 1; enc.combatants.forEach(c => { if (getBaseName(c.name) === baseName) count++; });
         if (!source.name.match(/\d+$/)) source.name = baseName + " 1";
         const newId = Date.now();
-        enc.combatants.push({ id: newId, name: baseName + " " + count, isMonster: true, initBonus: source.initBonus, init: Math.floor(Math.random() * 20) + 1 + (source.initBonus || 0), ac: source.ac, hp: source.maxHp, maxHp: source.maxHp, isDown: false, telegraph: null, notes: "" });
+        enc.combatants.push({ id: newId, name: baseName + " " + count, isMonster: !!source.isMonster, isAlly: !!source.isAlly, initBonus: source.initBonus, init: Math.floor(Math.random() * 20) + 1 + (source.initBonus || 0), ac: source.ac, hp: source.maxHp, maxHp: source.maxHp, isDown: false, telegraph: null, notes: "" });
         if(enc.mapData) { let srcPos = enc.mapData.entityPositions[source.id]; let size = getCombatantSizeById(newId); if(srcPos) enc.mapData.entityPositions[newId] = findEmptySpot(size, srcPos.x, srcPos.y); }
         sortInitiative(); syncStatblocks();
     }
@@ -774,14 +802,21 @@
       const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => i.id === id);
       enc.combatants = enc.combatants.filter(i => i.id !== id);
       if (enc.activeTurnIndex >= enc.combatants.length) enc.activeTurnIndex = Math.max(0, enc.combatants.length-1); 
-      if (c && c.isMonster) { if(enc.mapData && enc.mapData.entityPositions[id]) delete enc.mapData.entityPositions[id]; syncStatblocks(); }
+      if (c && (c.isMonster || c.isAlly)) { if(enc.mapData && enc.mapData.entityPositions[id]) delete enc.mapData.entityPositions[id]; syncStatblocks(); }
       renderEncounter();
     }
 
     function autoSelectStatblock() {
         const enc = encountersData[currentEncounterIndex]; if (enc.statblocks.length === 0 || enc.combatants.length === 0) return;
         const activeComb = enc.combatants[enc.activeTurnIndex];
-        if (activeComb && activeComb.isMonster) { const baseName = getBaseName(activeComb.name).toLowerCase(); let matchIdx = enc.statblocks.findIndex(sb => sb.name.toLowerCase() === baseName); if (matchIdx !== -1) { activeStatblockIndex = matchIdx; editingStatblockIndex = null; } }
+        if (activeComb && (activeComb.isMonster || activeComb.isAlly)) { const baseName = getBaseName(activeComb.name).toLowerCase(); let matchIdx = enc.statblocks.findIndex(sb => sb.name.toLowerCase() === baseName); if (matchIdx !== -1) { activeStatblockIndex = matchIdx; editingStatblockIndex = null; } }
+    }
+
+    function selectStatblockByName(name) {
+        const enc = encountersData[currentEncounterIndex]; if (!enc || !enc.statblocks || enc.statblocks.length === 0) return;
+        const baseName = getBaseName(name).toLowerCase();
+        let matchIdx = enc.statblocks.findIndex(sb => sb.name.toLowerCase() === baseName);
+        if (matchIdx !== -1) { activeStatblockIndex = matchIdx; editingStatblockIndex = null; renderStatblocks(); }
     }
 
     function nextTurn() {
@@ -808,7 +843,7 @@
         const live = current.find(c => c.id === b.id); const r = Object.assign({}, b);
         if (live) { r.name = live.name; r.ac = live.ac; r.maxHp = live.maxHp; }
         r.isDown = false; r.telegraph = null; r.roundStartTelegraph = null; r.notes = "";
-        if (r.isMonster) { r.hp = r.maxHp; r.init = Math.floor(Math.random() * 20) + 1 + (r.initBonus || 0); } else { r.hp = 0; r.maxHp = 0; r.init = ""; }
+        if (r.isMonster || r.isAlly) { r.hp = r.maxHp; r.init = Math.floor(Math.random() * 20) + 1 + (r.initBonus || 0); } else { r.hp = 0; r.maxHp = 0; r.init = ""; }
         return r;
       });
       sortInitiative(); enc.activeTurnIndex = 0; captureRoundTelegraphs(); syncStatblocks(); autoSelectStatblock(); renderEncounter();
@@ -823,16 +858,27 @@
         enc.combatants.forEach((c, index) => {
           const tr = document.createElement("tr"); const isDown = isCombatantDown(c); tr.id = "row-" + c.id;
           let colorStyle = "", badgeHtml = "";
+          const cBase = getBaseName(c.name).replace(/'/g, "\\'");
           if (c.isMonster) { 
               const colRGB = getEnemyColorRGB(getBaseName(c.name)); colorStyle = `--row-color-rgb: ${colRGB};`; 
-              const tLabel = getCombatantTokenLabel(c.name); const cBase = getBaseName(c.name).replace(/'/g, "\'"); badgeHtml = `<span id="badge-${c.id}" class="badge badge-monster" style="background-color: rgb(${colRGB}); cursor:pointer;" title="Clic per cambiare colore a tutti i ${getBaseName(c.name)}" onclick="event.stopPropagation(); cycleEnemyColor('${cBase}')">${tLabel}</span>`;
+              const tLabel = getCombatantTokenLabel(c.name); badgeHtml = `<span id="badge-${c.id}" class="badge badge-monster" style="background-color: rgb(${colRGB}); cursor:pointer;" title="Clic per cambiare colore a tutti i ${getBaseName(c.name)}" onclick="event.stopPropagation(); cycleEnemyColor('${cBase}')">${tLabel}</span>`;
+          } else if (c.isAlly) {
+              const tLabel = getCombatantTokenLabel(c.name); badgeHtml = `<span id="badge-${c.id}" class="badge badge-ally" style="cursor:pointer;" title="Clic per aprire la scheda di ${escapeHtml(c.name)}" onclick="event.stopPropagation(); selectStatblockByName('${cBase}')">${tLabel}</span>`;
           } else { badgeHtml = `<span id="badge-${c.id}" class="badge badge-pc">PG</span>`; }
 
-          tr.className = (c.isMonster ? "monster-row" : "pc-row") + (index === enc.activeTurnIndex ? " active-turn" : "") + (isDown ? " down" : "");
+          const rowClass = c.isMonster ? "monster-row" : (c.isAlly ? "ally-row" : "pc-row");
+          tr.className = rowClass + (index === enc.activeTurnIndex ? " active-turn" : "") + (isDown ? " down" : "");
           tr.style = colorStyle;
+          if (c.isMonster || c.isAlly) {
+              tr.style.cursor = "pointer";
+              tr.onclick = (e) => {
+                  if (['INPUT', 'BUTTON', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;
+                  selectStatblockByName(c.name);
+              };
+          }
 
           let hpCellHtml = "";
-          if (c.isMonster) {
+          if (c.isMonster || c.isAlly) {
             const hpPercent = c.maxHp > 0 ? Math.max(0, Math.min(100, (c.hp / c.maxHp) * 100)) : 0;
             let hpBarClass = hpPercent < 25 ? "danger" : (hpPercent < 50 ? "warning" : "");
             hpCellHtml = `<div class="hp-cell-container"><div class="hp-controls"><input type="text" inputmode="numeric" class="hp-input" value="${c.hp}" onchange="updateCombatant(${c.id}, 'hp', this.value, false)" /><span style="color: var(--text-muted);">/</span><input type="text" inputmode="numeric" class="hp-input" value="${c.maxHp}" onchange="updateCombatant(${c.id}, 'maxHp', this.value, false)" /><div class="dmg-group"><button class="btn-step" onclick="applyDmg(${c.id}, -1)">&#8722;</button><input type="text" inputmode="numeric" id="dmg-input-${c.id}" class="dmg-input" placeholder="dmg" onkeydown="if(event.key==='Enter') applyDmg(${c.id}, -1)" /><button class="btn-step" onclick="applyDmg(${c.id}, 1)">+</button></div></div><div class="hp-bar-bg"><div class="hp-bar-fill ${hpBarClass}" style="width: ${hpPercent}%;"></div></div></div>`;
@@ -846,7 +892,7 @@
           }
 
           let actionButtons = "";
-          if (c.isMonster) actionButtons += `<button class="btn-secondary" style="padding:4px 8px;" onclick="cloneCombatant(${c.id})" title="Clona">👥</button>`;
+          if (c.isMonster || c.isAlly) actionButtons += `<button class="btn-secondary" style="padding:4px 8px;" onclick="cloneCombatant(${c.id})" title="Clona">👥</button>`;
           actionButtons += `<button class="btn-danger" style="padding:4px 8px;" onclick="removeCombatant(${c.id})" title="Rimuovi">&times;</button>`;
 
           tr.innerHTML = `<td style="text-align: center;">${badgeHtml}</td><td><input type="text" inputmode="numeric" class="num-input" value="${c.init !== null ? c.init : ''}" placeholder="-" onchange="updateCombatant(${c.id}, 'init', this.value, true)" /></td><td><input type="text" class="name-input" value="${escapeHtml(c.name)}" oninput="updateCombatant(${c.id}, 'name', this.value, false)" /></td><td><input type="text" inputmode="numeric" class="num-input" value="${c.ac}" onchange="updateCombatant(${c.id}, 'ac', this.value, false)" /></td><td>${hpCellHtml}</td><td class="notes-cell"><div class="teleg-wrapper">${telegBtnHtml}<input type="text" value="${escapeHtml(c.notes)}" placeholder="Note..." oninput="updateCombatant(${c.id}, 'notes', this.value, false)" /></div></td><td><div class="actions-cell">${actionButtons}</div></td>`;
@@ -884,9 +930,21 @@
       if (enc.statblocks && enc.statblocks.length > 0) {
         enc.statblocks.forEach((sb, index) => {
           const btn = document.createElement("div"); btn.className = "sb-tab-btn " + (index === activeStatblockIndex ? "active" : "");
-          const rgb = getEnemyColorRGB(sb.name); btn.style.borderTop = `2px solid rgb(${rgb})`;
-          if (index === activeStatblockIndex) { btn.style.color = `rgb(${rgb})`; btn.style.backgroundColor = `rgba(${rgb}, 0.14)`; }
-          btn.innerHTML = `<span class="sb-tab-dot" style="background: rgb(${rgb});"></span><span>${escapeHtml(sb.name || "Senza Nome")}</span>`;
+          let borderCol = "", bgActive = "", dotCol = "", iconPrefix = "";
+          if (sb.isAlly) {
+            borderCol = "#38bdf8";
+            dotCol = "#38bdf8";
+            bgActive = "rgba(56, 189, 248, 0.14)";
+            iconPrefix = "🛡️ ";
+          } else {
+            const rgb = getEnemyColorRGB(sb.name);
+            borderCol = `rgb(${rgb})`;
+            dotCol = `rgb(${rgb})`;
+            bgActive = `rgba(${rgb}, 0.14)`;
+          }
+          btn.style.borderTop = `2px solid ${borderCol}`;
+          if (index === activeStatblockIndex) { btn.style.color = borderCol; btn.style.backgroundColor = bgActive; }
+          btn.innerHTML = `<span class="sb-tab-dot" style="background: ${dotCol};"></span><span>${iconPrefix}${escapeHtml(sb.name || "Senza Nome")}</span>`;
           btn.onclick = () => { activeStatblockIndex = index; editingStatblockIndex = null; renderStatblocks(); }; tabsWrap.appendChild(btn);
         });
       }
@@ -1157,12 +1215,12 @@
       let newMapData = null;
       if (apiKey) {
         try {
-          const monstersToPlace = (enc.combatants || []).filter(c => c.isMonster).map(c => {
+          const npcsToPlace = (enc.combatants || []).filter(c => c.isMonster || c.isAlly).map(c => {
             const sb = (enc.statblocks || []).find(s => s.name.toLowerCase() === getBaseName(c.name).toLowerCase());
             const sz = sb && sb.size ? sb.size : 1;
-            return { id: c.id, name: c.name, size: sz };
+            return { id: c.id, name: c.name, size: sz, isAlly: !!c.isAlly };
           });
-          newMapData = await generateAiMapLayout(enc.arenaSpec, enc.tactics, "", apiKey, monstersToPlace);
+          newMapData = await generateAiMapLayout(enc.arenaSpec, enc.tactics, "", apiKey, npcsToPlace);
         } catch (err) {
           console.warn("AI map regeneration error, fallback to procedural:", err);
           newMapData = null;
@@ -1964,10 +2022,10 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           }
       }
 
-      const aliveMonsters = enc.combatants.filter(c => c.isMonster);
-      Object.keys(data.entityPositions).forEach(idStr => { if (!aliveMonsters.find(c => c.id == idStr)) delete data.entityPositions[idStr]; });
+      const aliveNPCs = enc.combatants.filter(c => c.isMonster || c.isAlly);
+      Object.keys(data.entityPositions).forEach(idStr => { if (!aliveNPCs.find(c => c.id == idStr)) delete data.entityPositions[idStr]; });
       
-      aliveMonsters.forEach(c => { if (!data.entityPositions[c.id]) { const size = getCombatantSizeById(c.id); data.entityPositions[c.id] = findEmptySpot(size); } });
+      aliveNPCs.forEach(c => { if (!data.entityPositions[c.id]) { const size = getCombatantSizeById(c.id); data.entityPositions[c.id] = findEmptySpot(size); } });
 
       data.placedFeatures.forEach(obj => {
           const cell = document.getElementById(`cell_${obj.x}_${obj.y}`);
@@ -1994,14 +2052,15 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           }
       });
 
-      aliveMonsters.forEach(c => {
+      aliveNPCs.forEach(c => {
           const pos = data.entityPositions[c.id];
           if(pos) {
               const cell = document.getElementById(`cell_${pos.x}_${pos.y}`);
               if(cell) {
                   const tk = document.createElement('div'); const size = getCombatantSizeById(c.id);
-                  tk.className = `entity-token draggable-item size-${size}`; tk.textContent = getCombatantTokenLabel(c.name); tk.style.background = `rgb(${getEnemyColorRGB(getBaseName(c.name))})`;
-                  tk.draggable = true; tk.dataset.entityId = c.id; tk.title = c.name;
+                  const tokenBg = c.isAlly ? 'rgb(56, 189, 248)' : `rgb(${getEnemyColorRGB(getBaseName(c.name))})`;
+                  tk.className = `entity-token draggable-item size-${size}`; tk.textContent = getCombatantTokenLabel(c.name); tk.style.background = tokenBg;
+                  tk.draggable = true; tk.dataset.entityId = c.id; tk.title = c.name + (c.isAlly ? " (Alleato)" : "");
                   tk.ondragstart = (e) => { 
                       e.dataTransfer.setData('entity_id', c.id); 
                       const rect = tk.getBoundingClientRect();
@@ -2294,11 +2353,14 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
     async function processImport() {
       let text = document.getElementById("importTextarea").value.trim(); if (!text) return;
       text = joinSplitStatblockHeaders(text);
-      const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster);
+      const isCurrentEmpty = (encountersData[currentEncounterIndex].title === "Scontro Vuoto" || encountersData[currentEncounterIndex].title === "Nuovo Scontro") && !encountersData[currentEncounterIndex].combatants.some(c => c.isMonster || c.isAlly);
       
       let titleMatch = text.match(/Pacchetto Incontro:\s*\**\s*([^\n]+)/i);
       const rosterCounts = {}; const rosterLine = text.match(/^[\s>*_-]*\**\s*Nemici\s*:\**\s*([^\n]+)$/im);
       if (rosterLine) { rosterLine[1].split(/[·|;]/).forEach(part => { const m = part.match(/^\s*\**\s*(.+?)\s*\**\s*(?:[x×X]\s*(\d+))?\s*$/); if (!m || !m[1]) return; const nm = m[1].replace(/\*+/g, '').trim(); if (nm) rosterCounts[nm.toLowerCase()] = m[2] ? parseInt(m[2], 10) : 1; }); }
+
+      const allyCounts = {}; const allyLine = text.match(/^[\s>*_-]*\**\s*Alleati\s*:\**\s*([^\n]+)$/im);
+      if (allyLine) { allyLine[1].split(/[·|;]/).forEach(part => { const m = part.match(/^\s*\**\s*(.+?)\s*\**\s*(?:[x×X]\s*(\d+))?\s*$/); if (!m || !m[1]) return; const nm = m[1].replace(/\*+/g, '').trim(); if (nm) allyCounts[nm.toLowerCase()] = m[2] ? parseInt(m[2], 10) : 1; }); }
 
       let title = "";
       if (titleMatch) {
@@ -2311,7 +2373,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
 
       // Estrazione Tattica GM
       const tacticsRe = /^[^\p{L}\n]*\**\s*Tattica\s*:\**\s*(.*)$/imu;
-      const tacticsStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bBottino\b|\bNemici\b)/iu;
+      const tacticsStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bBottino\b|\bNemici\b|\bAlleati\b)/iu;
       const textLines = text.split('\n');
       let inTactics = false;
       let tacticsLines = [];
@@ -2331,7 +2393,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
 
       // Estrazione Bottino
       const lootRe = /^[^\p{L}\n]*(?:####\s*)?(?:💰\s*)?Bottino\b\s*:?\s*(.*)$/imu;
-      const lootStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bTattica\b|\bNemici\b|\[🎵|```)/iu;
+      const lootStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bTattica\b|\bNemici\b|\bAlleati\b|\[🎵|```)/iu;
       let inLoot = false;
       let lootLines = [];
       for (let line of textLines) {
@@ -2389,13 +2451,25 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
               }
               if (l.length > 0) sbObj.moves.push(l);
           }
+
+          const lcName = mName.toLowerCase();
+          let allyKey = Object.keys(allyCounts).find(k => k === lcName) || Object.keys(allyCounts).find(k => lcName.endsWith(k) || k.endsWith(lcName));
+          const isAlly = allyKey !== undefined;
+          if (isAlly) sbObj.isAlly = true;
           newEnc.statblocks.push(sbObj);
-          let count = 1; const lcName = mName.toLowerCase(); let rosterKey = Object.keys(rosterCounts).find(k => k === lcName) || Object.keys(rosterCounts).find(k => lcName.endsWith(k) || k.endsWith(lcName));
-          if (rosterKey !== undefined) { count = rosterCounts[rosterKey]; } else {
-              const stem = mName.split(' ')[0].toLowerCase().substring(0, Math.max(3, mName.split(' ')[0].length - 2)); const numMap = { "un":1, "uno":1, "una":1, "due":2, "tre":3, "quattro":4, "cinque":5, "sei":6, "sette":7, "otto":8, "nove":9, "dieci":10, "1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10 };
-              for (const [word, num] of Object.entries(numMap)) if (new RegExp(`\\b${word}\\b\\s+(?:\\w+\\s+){0,3}${stem}\\w*`, 'i').test(narrativeText.toLowerCase())) if (num > count) count = num;
+
+          let count = 1;
+          if (isAlly) {
+              count = allyCounts[allyKey];
+              for (let j = 0; j < count; j++) newEnc.combatants.push({ id: Date.now() + Math.random(), name: count > 1 ? `${mName} ${j+1}` : mName, isMonster: false, isAlly: true, initBonus: dexMod, init: Math.floor(Math.random() * 20) + 1 + dexMod, ac: mAc, hp: mHp, maxHp: mHp, isDown: false, telegraph: null, notes: "" });
+          } else {
+              let rosterKey = Object.keys(rosterCounts).find(k => k === lcName) || Object.keys(rosterCounts).find(k => lcName.endsWith(k) || k.endsWith(lcName));
+              if (rosterKey !== undefined) { count = rosterCounts[rosterKey]; } else {
+                  const stem = mName.split(' ')[0].toLowerCase().substring(0, Math.max(3, mName.split(' ')[0].length - 2)); const numMap = { "un":1, "uno":1, "una":1, "due":2, "tre":3, "quattro":4, "cinque":5, "sei":6, "sette":7, "otto":8, "nove":9, "dieci":10, "1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10 };
+                  for (const [word, num] of Object.entries(numMap)) if (new RegExp(`\\b${word}\\b\\s+(?:\\w+\\s+){0,3}${stem}\\w*`, 'i').test(narrativeText.toLowerCase())) if (num > count) count = num;
+              }
+              for (let j = 0; j < count; j++) newEnc.combatants.push({ id: Date.now() + Math.random(), name: count > 1 ? `${mName} ${j+1}` : mName, isMonster: true, initBonus: dexMod, init: Math.floor(Math.random() * 20) + 1 + dexMod, ac: mAc, hp: mHp, maxHp: mHp, isDown: false, telegraph: null, notes: "" });
           }
-          for (let j = 0; j < count; j++) newEnc.combatants.push({ id: Date.now() + Math.random(), name: count > 1 ? `${mName} ${j+1}` : mName, isMonster: true, initBonus: dexMod, init: Math.floor(Math.random() * 20) + 1 + dexMod, ac: mAc, hp: mHp, maxHp: mHp, isDown: false, telegraph: null, notes: "" });
       }
 
       newEnc.hasImportedContent = true;
@@ -2404,12 +2478,12 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
       if (arenaSpec) {
         if (apiKey) {
           try {
-            const monstersToPlace = newEnc.combatants.filter(c => c.isMonster).map(c => {
+            const npcsToPlace = newEnc.combatants.filter(c => c.isMonster || c.isAlly).map(c => {
               const sb = newEnc.statblocks.find(s => s.name.toLowerCase() === getBaseName(c.name).toLowerCase());
               const sz = sb && sb.size ? sb.size : 1;
-              return { id: c.id, name: c.name, size: sz };
+              return { id: c.id, name: c.name, size: sz, isAlly: !!c.isAlly };
             });
-            mapData = await generateAiMapLayout(arenaSpec, tactics, narrativeText, apiKey, monstersToPlace);
+            mapData = await generateAiMapLayout(arenaSpec, tactics, narrativeText, apiKey, npcsToPlace);
           } catch (e) {
             console.warn("AI map layout failed, fallback to procedural:", e);
             mapData = null;

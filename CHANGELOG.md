@@ -1,5 +1,28 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-05b — Supporto PNG Alleati nel Pacchetto Incontro e nel Combat Tracker (06 v6.85, Instructions cv147 / ov81 / lv62)
+
+Integrazione organica dei PNG Alleati che affiancano il gruppo nei combattimenti campali e nei solo duty dell'MSQ (Scion, cavalieri, miliziani), dotati di stat block minimi dedicati e gestione nativa nel Combat Tracker con palette azzurrino chiaro:
+- **COMBAT_TRACKER.HTML:**
+  - **Visual Theme & Palette:** introdotta la classe CSS `tr.ally-row` con sfondo azzurrino traslucido (`rgba(56, 189, 248, 0.12)` al riposo, `0.22` all'hover), badge `.badge-ally` (`#0284c7`, testo `#f0f9ff`, bordo `#38bdf8`), bordatura superiore e dot dei tab schede in `#38bdf8` con prefisso `🛡️`, e pedine sulla mappa tattica in azzurrino (`rgb(56, 189, 248)`).
+  - **Controlli UI & Gestione Danno:** aggiunto pulsante rapido `+ Aggiungi Alleato` nella barra comandi; abilitati controlli completi dei punti ferita (input PF attuali/massimi, barra dinamica, pulsanti `+`/`−`, input danno rapido) e clonazione 👥 per gestire agevolmente battaglioni di truppe alleate.
+  - **Iniziativa, Flusso Turni & Schede:** gli alleati tirano l'iniziativa automatica con il loro bonus Des; cliccando sulla riga o sul badge dell'alleato si apre direttamente il suo tab statblock; al passaggio del turno attivo su un alleato, il pannello delle schede seleziona automaticamente il suo statblock mostrando le sue azioni; alla caduta a 0 PF la riga assume la classe `down`.
+  - **Importazione Pacchetto:** `processImport` riconosce la riga opzionale `**Alleati:**` popolando `allyCounts`, marca i relativi statblock con `isAlly: true`, genera i combattenti con flag dedicato e ne sincronizza posizioni mappa e tab.
+- **06_PROCEDURES_AND_FORMAT.MD (v6.85):**
+  - **§B1 & §B8 (Architettura Pacchetto Incontro & Stat Block Minimo Alleato):**
+    - Codificata la riga facoltativa `**Alleati:** {nome} ×N` posta subito sotto `**Nemici:**` all'inizio del blocco codice `plaintext` (omessa se lo scontro non prevede alleati).
+    - Raggruppati in testata all'incontro i link `[🖼️ Immagine: <Nome>]` sia per i nemici che per i PNG alleati.
+    - Formalizzato lo standard dello **Stat Block Minimo dell'Alleato** (posizionato dopo i nemici e prima di `#### 💰 Bottino`):
+      - Linea 1: `**Nome** — Taglia · CA X · PF Y · Vel Z`.
+      - Linea 2: Riga singola attributi base `FOR 10 (+0) · DES 14 (+2) · COS 14 (+2) · INT 16 (+3) · SAG 12 (+1) · CAR 10 (+0)` (modificatore Des per iniziativa automatica del tracker).
+      - Righe omesse: Rigorosamente omesse TS, abilità, resistenze, immunità, sensi e GdS per massima concisione e risparmio token.
+      - Sezione `**Azioni**`: 1–3 azioni/attacchi/incantesimi tipici pronti all'uso per il GM.
+- **INSTRUCTIONS (cv147, ov81, lv62):**
+  - **Instructions_Campaign.txt (cv147), Instructions_OneShot.txt (ov81), Instructions_Loremonger.txt (lv62):**
+    - Sincronizzato `<output_contract>` con la riga opzionale `**Alleati:** {nome} ×N`, la specifica dello stat block minimo per gli alleati e l'inclusione delle immagini per nemici e alleati in testata.
+- **PROJECT_MEMORY.MD:**
+  - Registrata la sezione 2.52 che documenta le esigenze al tavolo, i contratti formali e l'architettura tecnica del supporto PNG alleati.
+
 ## 2026-09-05 — Fenced Code Block Plaintext, Standardizzazione Arena Combat Tracker, Elementi Nudi, Incremento Sessione e Sistema di Viaggio (06 v6.84, Instructions cv146 / ov80 / lv61, 07 v1.42)
 
 Risoluzione definitiva della compatibilità con la Web UI di Gemini/Gems (comparsa garantita del pulsante 1-click "Copia codice" per combat tracker e salvataggio), formalizzazione esaustiva del sistema di viaggio (arrivo compresso sotto `/continua` vs viaggio giocato e 4 varianti di `/viaggio`), standardizzazione completa dei parametri dell'arena con nomi degli elementi nudi e correzione automatica dell'incremento sessione:
