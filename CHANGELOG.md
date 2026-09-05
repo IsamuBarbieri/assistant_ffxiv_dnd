@@ -1,5 +1,24 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-05g — Potenziamenti Combat Tracker: Auto-Save, Preset Party e Limit Break FFXIV
+
+Implementate tre importanti migliorie di usabilità e fedeltà all'esperienza di gioco in `combat_tracker.html`:
+- **Auto-Save & Persistenza Automatica della Sessione (`localStorage`):**
+  - Salvataggio automatico debounced (300ms) di tutti gli stati di combattimento su chiave `dnd_tracker_autosave` (incontri, turni, round, iniziativa, PF, note, telegrafi, schede modificate, mappe dinamiche e pedine trascinate).
+  - Al ricaricamento o alla riapertura accidentale della pagina, la sessione viene ripristinata istantaneamente senza perdita di dati.
+  - Aggiunto pulsante `🗑️ Reset` nel selettore dei tab per cancellare la sessione attiva e avviare una nuova partita con conferma esplicita per prevenire click accidentali.
+- **Preset del Party con Inserimento Automatico:**
+  - Finestra modale dedicata `👥 Party` nell'header per configurare una sola volta i membri del gruppo di gioco.
+  - Architettura snella al tavolo: memorizza unicamente **Nome** e **CA** (l'iniziativa viene tirata dai giocatori al tavolo e i PF sono gestiti autonomamente sulle loro schede).
+  - Qualsiasi nuovo scontro creato (`+ Nuovo Scontro`) o importato da markdown (`processImport`) inserisce automaticamente i PG del party configurati, azzerando le operazioni manuali per ogni combattimento.
+- **Widget Limit Break in Stile FFXIV:**
+  - Calibratore visuale d'energia Limit Break di gruppo integrato direttamente nella barra comandi con indicatore a segmenti dorati pulsanti (`.lb-bar-segment`, `.lb-bar-fill`).
+  - **2 Barre Standard / 3 Barre Boss:**
+    - Per scontri standard la gauge presenta 2 barre di Limit Break.
+    - Contro i Boss viene configurata a 3 barre. Rilevamento automatico all'importazione (`processImport`) in base alla presenza di equipaggiamento nel bottino (`06 §A21`: armi/armature con rarità riservate ai boss) e a keyword di meccaniche boss (*Azioni Leggendarie*, *Fase*, *Trial*), senza richiedere alcuna modifica alle istruzioni dell'assistente.
+    - Pulsante 1-click toggle `[2 Barre] ⇄ [👑 Boss (3 Barre)]` per cambiare modalità istantaneamente in qualsiasi momento.
+  - Controlli interattivi `+1` / `−1`, click diretto sui segmenti per caricarli/svuotarli e pulsante luminoso `✨ USA LB` che consuma le barre pronte con avviso a schermo.
+
 ## 2026-09-05f — Sistema di Free Roaming (Esplorazione Libera) con Gating Diegetico MSQ (cv149)
 
 Implementato il sistema organico di Free Roaming / Esplorazione Libera per la Campagna (`Instructions_Campaign.txt` cv149 e `06_Procedures_and_Format.md` §B29):

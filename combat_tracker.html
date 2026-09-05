@@ -228,6 +228,140 @@
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(4px); }
     .modal-content { background: var(--bg-panel); padding: 25px; border-radius: 10px; width: 90%; max-width: 750px; border: 1px solid var(--border-color); max-height: 90vh; overflow-y: auto; }
     textarea.import-area { height: 350px; background: #121316; border: 1px solid #4b5563; margin-bottom: 15px; }
+
+    /* Limit Break Widget (FFXIV Style) */
+    .lb-widget {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #14171d;
+      border: 1px solid #374151;
+      padding: 6px 12px;
+      border-radius: 8px;
+      user-select: none;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    }
+    .lb-header-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-start;
+    }
+    .lb-title-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #fbbf24;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .lb-mode-btn {
+      font-size: 0.65rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #23272e;
+      border: 1px solid #4b5563;
+      color: #9ca3af;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .lb-mode-btn:hover {
+      color: #fff;
+      border-color: #f59e0b;
+    }
+    .lb-mode-btn.is-boss {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: #f59e0b;
+      color: #fbbf24;
+    }
+    .lb-bars-track {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .lb-bar-segment {
+      width: 62px;
+      height: 20px;
+      background: #1a1e24;
+      border: 1.5px solid #4b5563;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .lb-bar-segment:hover {
+      border-color: #fbbf24;
+    }
+    .lb-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(180deg, #fef08a 0%, #f59e0b 55%, #b45309 100%);
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .lb-bar-segment.is-full {
+      border-color: #f59e0b;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.75), inset 0 1px 2px rgba(255,255,255,0.4);
+      animation: lbPulse 1.8s infinite ease-in-out;
+    }
+    @keyframes lbPulse {
+      0%, 100% { box-shadow: 0 0 6px rgba(245, 158, 11, 0.6); }
+      50% { box-shadow: 0 0 14px rgba(251, 191, 36, 0.95); }
+    }
+    .lb-bar-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px #000, 0 0 4px #000;
+      pointer-events: none;
+    }
+    .btn-lb-step {
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      line-height: 1;
+      border-radius: 4px;
+      background: #2a2d33;
+      color: #e5e7eb;
+      border: 1px solid #4b5563;
+      cursor: pointer;
+    }
+    .btn-lb-step:hover {
+      background: #374151;
+      color: #fff;
+    }
+    .btn-lb-trigger {
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      border-radius: 5px;
+      background: #374151;
+      color: #9ca3af;
+      border: 1px solid #4b5563;
+      cursor: not-allowed;
+      transition: all 0.2s;
+    }
+    .btn-lb-trigger.is-ready {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+      border-color: #fbbf24;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      animation: lbButtonGlow 1.5s infinite alternate;
+    }
+    @keyframes lbButtonGlow {
+      from { filter: brightness(1); }
+      to { filter: brightness(1.2); }
+    }
   </style>
 </head>
 <body>
@@ -238,6 +372,9 @@
         <p class="subtitle">Gestione Iniziativa, Statblock & NLP Generazione Mappe</p>
       </div>
       <div style="display: flex; gap: 10px; align-items: center;">
+        <button class="btn-secondary" onclick="openPartyModal()" id="partyTopBtn" title="Configura i PG del party (Nome e CA) salvati nel browser" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; cursor: pointer;">
+          <span>👥</span> <span>Party</span>
+        </button>
         <button class="btn-secondary" onclick="openApiKeyModal()" id="apiKeyTopBtn" title="Configura API Key di Google Gemini per le funzionalità AI" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; cursor: pointer;">
           <span>🔑</span> <span id="apiKeyTopLabel">API Key</span>
         </button>
@@ -253,6 +390,7 @@
       <div class="tabs" id="tabsHeader"></div>
       <button class="btn-import" style="margin-left: auto;" onclick="document.getElementById('openFileInput').click()" title="Carica un tracker salvato in precedenza">📂 Apri</button>
       <button class="btn-import" onclick="openExportModal()" title="Salva tutti gli scontri, nemici e mappe">💾 Salva</button>
+      <button class="btn-import" onclick="confirmResetSession()" title="Azzera la sessione del tracker e crea un nuovo scontro pulito col tuo party" style="background-color: #374151; border-color: #4b5563;">🗑️ Reset</button>
       <input type="file" id="openFileInput" accept=".json,application/json" style="display:none" onchange="handleOpenFile(event)">
     </div>
 
@@ -265,6 +403,20 @@
             <button class="btn-secondary" onclick="resetRound()">Resetta Round</button>
             <button class="btn-danger" onclick="resetEncounter()">Resetta Scontro</button>
           </div>
+
+          <div class="lb-widget" id="limitBreakWidget">
+            <div class="lb-header-col">
+              <span class="lb-title-badge">⚡ Limit Break</span>
+              <button class="lb-mode-btn" id="lbBarsModeBtn" onclick="toggleLbMode()" title="Alterna tra scontro normale (2 barre) e Boss (3 barre)">2 Barre</button>
+            </div>
+            <div class="lb-bars-track" id="lbBarsContainer"></div>
+            <div style="display: flex; gap: 4px; align-items: center;">
+              <button class="btn-lb-step" onclick="adjustLb(-1)" title="Riduci di 1 barra">-1</button>
+              <button class="btn-lb-step" onclick="adjustLb(1)" title="Aumenta di 1 barra">+1</button>
+              <button class="btn-lb-trigger" id="btnUseLb" onclick="triggerUseLb()" disabled title="Consuma le barre Limit Break caricate">✨ USA LB</button>
+            </div>
+          </div>
+
           <div class="btn-group">
             <button onclick="addCombatant('pc')">+ Aggiungi PG</button>
             <button onclick="addCombatant('ally')" style="background-color: #0284c7; border-color: #0369a1;">+ Aggiungi Alleato</button>
@@ -423,6 +575,35 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="partyModal">
+    <div class="modal-content" style="max-width: 650px;">
+      <h2 style="margin-top:0;">👥 Configurazione Party (Personaggi Giocanti)</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+        Configura i personaggi del tuo gruppo. Verranno <strong>inseriti automaticamente</strong> in ogni nuovo scontro o incontro importato con il rispettivo <strong>Nome</strong> e <strong>CA</strong> (l'iniziativa la tirano i giocatori al tavolo e i PF li gestiscono sulle loro schede).
+      </p>
+      <div style="max-height: 320px; overflow-y: auto; margin-bottom: 15px;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="width: 45%;">Nome PG</th>
+              <th style="width: 28%;">Ruolo / Classe (Opzionale)</th>
+              <th style="width: 15%;">CA</th>
+              <th style="width: 12%; text-align: center;">Rimuovi</th>
+            </tr>
+          </thead>
+          <tbody id="partyModalTableBody"></tbody>
+        </table>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+        <button class="btn-secondary" onclick="addPartyRow()">+ Aggiungi PG</button>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn-secondary" onclick="closePartyModal()">Annulla</button>
+          <button class="btn-import" style="background-color: var(--success); color: white;" onclick="savePartyModal()">💾 Salva Party</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="customAlertModal">
     <div class="modal-content" style="max-width: 400px; text-align: center; border-color: var(--warning);">
       <h3 id="customAlertTitle" style="margin-top:0; color: var(--warning);">Avviso</h3>
@@ -482,14 +663,246 @@
 
     const warmPaletteRGB = ["220, 38, 38", "22, 163, 74", "249, 115, 22", "147, 51, 234", "202, 138, 4"];
 
-    const defaultPCs = [
-      { id: 1, name: "PG 1", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
-      { id: 2, name: "PG 2", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
-      { id: 3, name: "PG 3", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" },
-      { id: 4, name: "PG 4", isMonster: false, initBonus: 0, init: "", ac: "", hp: 0, maxHp: 0, isDown: false, telegraph: null, notes: "" }
+    const DEFAULT_PARTY_PRESET = [
+      { name: "PG 1", ac: 14, role: "" },
+      { name: "PG 2", ac: 14, role: "" },
+      { name: "PG 3", ac: 14, role: "" },
+      { name: "PG 4", ac: 14, role: "" }
     ];
 
-    let encountersData = [{ id: "enc_default", title: "Scontro Vuoto", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] }];
+    function getStoredPartyPreset() {
+      try {
+        const raw = localStorage.getItem("dnd_party_preset");
+        if (raw) {
+          const list = JSON.parse(raw);
+          if (Array.isArray(list) && list.length > 0) return list;
+        }
+      } catch (e) {
+        console.warn("Failed to read dnd_party_preset:", e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_PARTY_PRESET));
+    }
+
+    function saveStoredPartyPreset(list) {
+      try {
+        localStorage.setItem("dnd_party_preset", JSON.stringify(list));
+      } catch (e) {
+        console.warn("Failed to save dnd_party_preset:", e);
+      }
+    }
+
+    function createPartyCombatants() {
+      const preset = getStoredPartyPreset();
+      return preset.map((p, idx) => ({
+        id: "pc_" + Date.now() + "_" + idx + "_" + Math.random().toString(36).slice(2, 6),
+        name: p.name && p.name.trim() ? p.name.trim() : `PG ${idx + 1}`,
+        isMonster: false,
+        isAlly: false,
+        initBonus: 0,
+        init: "",
+        ac: p.ac !== undefined && p.ac !== "" ? (parseInt(p.ac, 10) || 10) : 14,
+        hp: "",
+        maxHp: "",
+        isDown: false,
+        telegraph: null,
+        notes: p.role ? p.role.trim() : ""
+      }));
+    }
+
+    let currentPartyModalList = [];
+    function openPartyModal() {
+      currentPartyModalList = JSON.parse(JSON.stringify(getStoredPartyPreset()));
+      renderPartyModalTable();
+      document.getElementById("partyModal").style.display = "flex";
+    }
+    function closePartyModal() {
+      document.getElementById("partyModal").style.display = "none";
+    }
+    function renderPartyModalTable() {
+      const tbody = document.getElementById("partyModalTableBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+      currentPartyModalList.forEach((p, idx) => {
+        const tr = document.createElement("tr");
+        tr.style.borderBottom = "1px solid #374151";
+        tr.innerHTML = `
+          <td style="padding: 6px;">
+            <input type="text" value="${escapeHtml(p.name || '')}" placeholder="Nome del PG..." onchange="updatePartyPresetField(${idx}, 'name', this.value)" style="font-weight: 600;" />
+          </td>
+          <td style="padding: 6px;">
+            <input type="text" value="${escapeHtml(p.role || '')}" placeholder="es: Paladin, Black Mage..." onchange="updatePartyPresetField(${idx}, 'role', this.value)" />
+          </td>
+          <td style="padding: 6px;">
+            <input type="number" value="${p.ac !== undefined && p.ac !== '' ? p.ac : 14}" placeholder="CA..." onchange="updatePartyPresetField(${idx}, 'ac', this.value)" style="text-align: center;" />
+          </td>
+          <td style="padding: 6px; text-align: center;">
+            <button class="tab-close" onclick="removePartyRow(${idx})" title="Rimuovi questo PG" style="font-size: 1.3rem; color: var(--danger);">&times;</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+    function updatePartyPresetField(idx, field, val) {
+      if (!currentPartyModalList[idx]) return;
+      if (field === "ac") {
+        currentPartyModalList[idx][field] = val === "" ? "" : (parseInt(val, 10) || 10);
+      } else {
+        currentPartyModalList[idx][field] = val;
+      }
+    }
+    function addPartyRow() {
+      const n = currentPartyModalList.length + 1;
+      currentPartyModalList.push({ name: `PG ${n}`, ac: 14, role: "" });
+      renderPartyModalTable();
+    }
+    function removePartyRow(idx) {
+      currentPartyModalList.splice(idx, 1);
+      if (currentPartyModalList.length === 0) {
+        currentPartyModalList.push({ name: "PG 1", ac: 14, role: "" });
+      }
+      renderPartyModalTable();
+    }
+    function savePartyModal() {
+      saveStoredPartyPreset(currentPartyModalList);
+      closePartyModal();
+      showAlert("👥 Preset del Party salvato con successo!\nI nuovi scontri e gli incontri importati useranno automaticamente questi personaggi.");
+    }
+
+    let autoSaveTimeout = null;
+    function scheduleAutoSave() {
+      if (autoSaveTimeout) clearTimeout(autoSaveTimeout);
+      autoSaveTimeout = setTimeout(() => {
+        try {
+          const payload = getExportPayload();
+          localStorage.setItem("dnd_tracker_autosave", payload);
+        } catch (e) {
+          console.warn("AutoSave failed:", e);
+        }
+      }, 300);
+    }
+
+    function confirmResetSession() {
+      if (confirm("Vuoi azzerare la sessione corrente del tracker?\nTutti gli scontri aperti verranno chiusi e verrà avviato un nuovo scontro vuoto con il tuo party.")) {
+        localStorage.removeItem("dnd_tracker_autosave");
+        encountersData = [{
+          id: "enc_default_" + Date.now(),
+          title: "Scontro Vuoto",
+          round: 1,
+          activeTurnIndex: 0,
+          mapData: null,
+          narrativeText: "",
+          tactics: "",
+          loot: "",
+          combatants: createPartyCombatants(),
+          statblocks: [],
+          limitBreak: { current: 0, maxBars: 2 }
+        }];
+        currentEncounterIndex = 0;
+        activeStatblockIndex = 0;
+        editingStatblockIndex = null;
+        renderTabs();
+        captureBaseRosters();
+        renderEncounter();
+        scheduleAutoSave();
+      }
+    }
+
+    function renderLimitBreakWidget() {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc) return;
+      if (!enc.limitBreak) enc.limitBreak = { current: 0, maxBars: 2 };
+
+      const modeBtn = document.getElementById("lbBarsModeBtn");
+      if (modeBtn) {
+        modeBtn.textContent = enc.limitBreak.maxBars === 3 ? "👑 Boss (3 Barre)" : "2 Barre";
+        modeBtn.className = "lb-mode-btn" + (enc.limitBreak.maxBars === 3 ? " is-boss" : "");
+      }
+
+      const container = document.getElementById("lbBarsContainer");
+      if (container) {
+        container.innerHTML = "";
+        for (let b = 1; b <= enc.limitBreak.maxBars; b++) {
+          const seg = document.createElement("div");
+          seg.className = "lb-bar-segment";
+          seg.title = `Barra ${b} (clicca per impostare/svuotare)`;
+
+          const fill = document.createElement("div");
+          fill.className = "lb-bar-fill";
+
+          let pct = 0;
+          if (enc.limitBreak.current >= b) {
+            pct = 100;
+            seg.classList.add("is-full");
+          } else if (enc.limitBreak.current > b - 1) {
+            pct = Math.round((enc.limitBreak.current - (b - 1)) * 100);
+          }
+          fill.style.width = pct + "%";
+          seg.appendChild(fill);
+
+          const label = document.createElement("div");
+          label.className = "lb-bar-label";
+          label.textContent = "LB " + b;
+          seg.appendChild(label);
+
+          seg.onclick = () => {
+            if (enc.limitBreak.current >= b) {
+              enc.limitBreak.current = b - 1;
+            } else {
+              enc.limitBreak.current = b;
+            }
+            renderLimitBreakWidget();
+            scheduleAutoSave();
+          };
+
+          container.appendChild(seg);
+        }
+      }
+
+      const useBtn = document.getElementById("btnUseLb");
+      if (useBtn) {
+        const isReady = enc.limitBreak.current >= 1;
+        useBtn.disabled = !isReady;
+        if (isReady) {
+          useBtn.classList.add("is-ready");
+          const readyBars = Math.min(enc.limitBreak.maxBars, Math.floor(enc.limitBreak.current));
+          useBtn.textContent = `✨ USA LB ${readyBars}`;
+        } else {
+          useBtn.classList.remove("is-ready");
+          useBtn.textContent = "✨ USA LB";
+        }
+      }
+    }
+
+    function toggleLbMode() {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc) return;
+      if (!enc.limitBreak) enc.limitBreak = { current: 0, maxBars: 2 };
+      enc.limitBreak.maxBars = enc.limitBreak.maxBars === 3 ? 2 : 3;
+      if (enc.limitBreak.current > enc.limitBreak.maxBars) enc.limitBreak.current = enc.limitBreak.maxBars;
+      renderLimitBreakWidget();
+      scheduleAutoSave();
+    }
+
+    function adjustLb(delta) {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc) return;
+      if (!enc.limitBreak) enc.limitBreak = { current: 0, maxBars: 2 };
+      enc.limitBreak.current = Math.max(0, Math.min(enc.limitBreak.maxBars, Math.round((enc.limitBreak.current + delta) * 2) / 2));
+      renderLimitBreakWidget();
+      scheduleAutoSave();
+    }
+
+    function triggerUseLb() {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc || !enc.limitBreak || enc.limitBreak.current < 1) return;
+      const usedBars = Math.min(enc.limitBreak.maxBars, Math.floor(enc.limitBreak.current));
+      enc.limitBreak.current = Math.max(0, enc.limitBreak.current - usedBars);
+      renderLimitBreakWidget();
+      scheduleAutoSave();
+      showAlert(`⚡ LIMIT BREAK ${usedBars} ATTIVATA!\n\nLe ${usedBars} barre di Limit Break di gruppo sono state consumate.`);
+    }
+
+    let encountersData = [{ id: "enc_default", title: "Scontro Vuoto", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: createPartyCombatants(), statblocks: [], limitBreak: { current: 0, maxBars: 2 } }];
     let currentEncounterIndex = 0;
     let activeStatblockIndex = 0;
     let catalogOpen = false;
@@ -556,7 +969,39 @@
     function initTracker() {
       const sel = document.getElementById("mapPresetSelect");
       Object.entries(MapPresets).forEach(([k, p]) => sel.add(new Option(p.label, k)));
-      renderTabs(); captureBaseRosters(); renderEncounter();
+
+      let restored = false;
+      try {
+        const autoSaved = localStorage.getItem("dnd_tracker_autosave");
+        if (autoSaved) {
+          const parsed = JSON.parse(autoSaved);
+          if (parsed && Array.isArray(parsed.encounters) && parsed.encounters.length) {
+            loadTrackerPayload(parsed);
+            restored = true;
+          }
+        }
+      } catch (e) {
+        console.warn("Could not load auto-saved session:", e);
+      }
+
+      if (!restored) {
+        encountersData = [{
+          id: "enc_default",
+          title: "Scontro Vuoto",
+          round: 1,
+          activeTurnIndex: 0,
+          mapData: null,
+          narrativeText: "",
+          tactics: "",
+          loot: "",
+          combatants: createPartyCombatants(),
+          statblocks: [],
+          limitBreak: { current: 0, maxBars: 2 }
+        }];
+        renderTabs();
+        captureBaseRosters();
+        renderEncounter();
+      }
     }
 
     function renderTabs() {
@@ -574,9 +1019,26 @@
       const addBtn = document.createElement("button"); addBtn.className = "btn-new-tab"; addBtn.textContent = "+ Nuovo Scontro"; addBtn.onclick = addNewEmptyTab; tabsContainer.appendChild(addBtn);
     }
 
-    function switchTab(index) { currentEncounterIndex = index; activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); captureRoundTelegraphs(); renderEncounter(); }
-    function addNewEmptyTab() { encountersData.push({ id: "enc_" + Date.now(), title: "Nuovo Scontro", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] }); captureBaseRosters(); switchTab(encountersData.length - 1); }
-    function closeTab(index) { encountersData.splice(index, 1); if (currentEncounterIndex >= index) currentEncounterIndex = Math.max(0, currentEncounterIndex - 1); activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); renderEncounter(); }
+    function switchTab(index) { currentEncounterIndex = index; activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); captureRoundTelegraphs(); renderEncounter(); scheduleAutoSave(); }
+    function addNewEmptyTab() {
+      encountersData.push({
+        id: "enc_" + Date.now(),
+        title: "Nuovo Scontro",
+        round: 1,
+        activeTurnIndex: 0,
+        mapData: null,
+        narrativeText: "",
+        tactics: "",
+        loot: "",
+        combatants: createPartyCombatants(),
+        statblocks: [],
+        limitBreak: { current: 0, maxBars: 2 }
+      });
+      captureBaseRosters();
+      switchTab(encountersData.length - 1);
+      scheduleAutoSave();
+    }
+    function closeTab(index) { encountersData.splice(index, 1); if (currentEncounterIndex >= index) currentEncounterIndex = Math.max(0, currentEncounterIndex - 1); activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); renderEncounter(); scheduleAutoSave(); }
 
     function getBaseName(name) { return name.replace(/\s+\d+$/, '').trim(); }
     // Ordine di assegnazione dei colori: PRIMA i gruppi DUPLICATI, poi i mostri unici.
@@ -768,6 +1230,7 @@
               }
           }
       } else { c[field] = value; }
+      scheduleAutoSave();
     }
     
     function sortInitiative() {
@@ -907,7 +1370,7 @@
           tbody.appendChild(tr);
         });
       }
-      renderStatblocks(); renderVisualMap();
+      renderStatblocks(); renderVisualMap(); renderLimitBreakWidget(); scheduleAutoSave();
     }
 
     function shouldShowBriefing(enc) {
@@ -2234,6 +2697,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
 
       const headerW = document.getElementById("mapTitle").scrollWidth + document.getElementById("mapHeaderControls").offsetWidth + 12;
       document.getElementById("mapPanel").style.minWidth = Math.max(mapContainer.offsetWidth + 46, headerW + 42) + "px"; updateMapLayout();
+      scheduleAutoSave();
     }
 
     function updateMapLayout() {
@@ -2449,6 +2913,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
         encountersData.forEach(enc => {
             if (!enc.id) enc.id = "enc_" + Math.random().toString(36).slice(2);
             if (!enc.statblocks) enc.statblocks = []; if (!enc.combatants) enc.combatants = [];
+            if (!enc.limitBreak) enc.limitBreak = { current: 0, maxBars: 2 };
             
             enc.statblocks.forEach(sb => {
                 if (sb.size === 1 && sb.line1) {
@@ -2560,7 +3025,27 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
 
       const headers = findStatblockHeaders(text); let narrativeText = headers.length ? text.substring(0, headers[0].index).trim() : text;
       const arenaSpec = parseArenaSection(text);
-      let newEnc = { id: "enc_" + Date.now(), title: title, round: 1, activeTurnIndex: 0, mapData: null, narrativeText: narrativeText, tactics: tactics, loot: loot, arenaSpec: arenaSpec, combatants: JSON.parse(JSON.stringify(defaultPCs)), statblocks: [] };
+
+      // Rilevamento Boss per barre Limit Break (3 barre se Boss, altrimenti 2 barre standard)
+      const hasEquipInLoot = loot && /(?:Non-comune|Raro|Molto raro|Leggendario|Spada|Scudo|Armatura|Bacchetta|Bastone|Arco|Anello|Amuleto|Mantello)\b/i.test(loot);
+      const hasBossMechanics = /(?:Azioni Leggendarie|Fase [23]|Trial|Boss)\b/i.test(text);
+      const isBoss = hasEquipInLoot || hasBossMechanics;
+      const lbMaxBars = isBoss ? 3 : 2;
+
+      let newEnc = {
+        id: "enc_" + Date.now(),
+        title: title,
+        round: 1,
+        activeTurnIndex: 0,
+        mapData: null,
+        narrativeText: narrativeText,
+        tactics: tactics,
+        loot: loot,
+        arenaSpec: arenaSpec,
+        combatants: createPartyCombatants(),
+        statblocks: [],
+        limitBreak: { current: 0, maxBars: lbMaxBars }
+      };
 
       // Se c'è una sezione Bottino dopo i nemici, l'ultimo stat block deve fermarsi prima del bottino
       const lootHead = /^[^\p{L}\n]*(?:####\s*)?(?:💰\s*)?Bottino\b/imu.exec(text);
