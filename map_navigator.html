@@ -3966,6 +3966,8 @@ const State = {
   showAetherytes: true,
   autoTransition: true,
   transitionCooldownUntil: 0, // Previene rimbalzi continui tra confini
+  pendingExit: null, // Ultimo varco su cui si trova il Party
+  suppressedExitDest: null, // Varco di arrivo da cui non rimbalzare all'ingresso
   visitedZones: new Set(),
   selectedExpansion: "ALL",
   zonePOIsCache: {} // Cache POI recuperati dinamicamente via Wiki API
@@ -4059,6 +4061,13 @@ function calcDistance(x1, y1, x2, y2) {
   const dx = x1 - x2;
   const dy = y1 - y2;
   return Math.sqrt(dx * dx + dy * dy);
+}
+function calcDistancePx(x1, y1, x2, y2) {
+  const px1 = coordToPx(x1);
+  const py1 = coordToPx(y1);
+  const px2 = coordToPx(x2);
+  const py2 = coordToPx(y2);
+  return Math.hypot(px1 - px2, py1 - py2);
 }
 
 // Applica Pan & Zoom alla mappa
@@ -4328,7 +4337,7 @@ function centerOnParty() {
   updateTransform();
 }
 
-// Prossimità uscite con cooldown
+// Prossimità uscite con rilevamento preciso sull'icona (collisione diretta con il varco)
 function checkExitProximity() {
   const zone = ZONE_DATABASE[State.currentZone];
   if (!zone || !zone.exits) return;
@@ -4340,17 +4349,30 @@ function checkExitProximity() {
   }
 
   let nearestExit = null;
-  let minDist = 999;
+  let minDistPx = 9999;
 
   for (const exit of zone.exits) {
-    const d = calcDistance(State.partyCoords.x, State.partyCoords.y, exit.x, exit.y);
-    if (d < minDist) {
-      minDist = d;
+    const dPx = calcDistancePx(State.partyCoords.x, State.partyCoords.y, exit.x, exit.y);
+    if (dPx < minDistPx) {
+      minDistPx = dPx;
       nearestExit = exit;
     }
   }
 
-  if (minDist <= 1.8 && nearestExit) {
+  // Se siamo appena arrivati da questo varco, non riattivare la transizione finché il Party non si allontana (> 45px)
+  if (nearestExit && State.suppressedExitDest === nearestExit.destZone) {
+    if (minDistPx > 45) {
+      State.suppressedExitDest = null;
+    } else {
+      transBannerEl.classList.remove("show");
+      return;
+    }
+  }
+
+  // Il banner di transizione e l'auto-cambio si attivano ESCLUSIVAMENTE quando il Party
+  // è fisicamente sopra all'icona del varco (distanza pixel <= 26px, sovrapposizione effettiva dei marker)
+  if (minDistPx <= 26 && nearestExit) {
+    State.pendingExit = nearestExit;
     const destZone = ZONE_DATABASE[nearestExit.destZone];
     const destName = destZone ? destZone.itName : nearestExit.name;
 
@@ -4361,19 +4383,22 @@ function checkExitProximity() {
       triggerZoneTransition(nearestExit);
     }
   } else {
+    State.pendingExit = null;
     transBannerEl.classList.remove("show");
   }
 }
 
-// Transizione zona con 4 secondi di cooldown per evitare loop
+// Transizione zona con 4 secondi di cooldown e soppressione di rimbalzo all'ingresso
 function triggerZoneTransition(exit) {
   transBannerEl.classList.remove("show");
+  State.pendingExit = null;
   if (!exit || !ZONE_DATABASE[exit.destZone]) {
     showToast(`Zona di destinazione non ancora configurata: ${exit.destZone}`);
     return;
   }
 
   State.transitionCooldownUntil = Date.now() + 4000;
+  State.suppressedExitDest = State.currentZone; // Salva la zona di provenienza per evitare rimbalzi
   const dest = ZONE_DATABASE[exit.destZone];
   showToast(`Ingresso in: ${dest.itName}...`);
   loadZone(exit.destZone, { x: exit.arrX, y: exit.arrY });
@@ -4687,15 +4712,19 @@ document.getElementById("btn-toggle-autoxfer").addEventListener("click", functio
 });
 
 document.getElementById("btn-exec-trans").addEventListener("click", () => {
-  const zone = ZONE_DATABASE[State.currentZone];
-  if (!zone || !zone.exits) return;
-  let nearestExit = null;
-  let minDist = 999;
-  for (const exit of zone.exits) {
-    const d = calcDistance(State.partyCoords.x, State.partyCoords.y, exit.x, exit.y);
-    if (d < minDist) { minDist = d; nearestExit = exit; }
+  if (State.pendingExit) {
+    triggerZoneTransition(State.pendingExit);
+  } else {
+    const zone = ZONE_DATABASE[State.currentZone];
+    if (!zone || !zone.exits) return;
+    let nearestExit = null;
+    let minDist = 9999;
+    for (const exit of zone.exits) {
+      const d = calcDistancePx(State.partyCoords.x, State.partyCoords.y, exit.x, exit.y);
+      if (d < minDist) { minDist = d; nearestExit = exit; }
+    }
+    if (nearestExit) triggerZoneTransition(nearestExit);
   }
-  if (nearestExit) triggerZoneTransition(nearestExit);
 });
 
 document.getElementById("btn-audio-toggle").addEventListener("click", function() {
