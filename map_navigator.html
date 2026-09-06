@@ -466,25 +466,29 @@
       transform: scale(1.05);
     }
 
-    /* ZONE TRANSITION BANNER (FIXED VISIBILITY & ANIMATION) */
+    /* ZONE TRANSITION BANNER (SLIM WIDE BAR) */
     .transition-banner {
       position: absolute;
-      top: 14px;
+      top: 12px;
       left: 50%;
       transform: translateX(-50%) translateY(-180%);
+      width: 90%;
+      max-width: 820px;
+      min-height: 40px;
       opacity: 0;
       pointer-events: none;
-      background: linear-gradient(135deg, rgba(30, 27, 75, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+      background: linear-gradient(90deg, rgba(24, 20, 50, 0.96) 0%, rgba(35, 25, 60, 0.96) 50%, rgba(20, 18, 40, 0.96) 100%);
       border: 1px solid #ec4899;
-      border-bottom: 2px solid #f472b6;
-      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
-      padding: 10px 20px;
-      border-radius: 8px;
+      box-shadow: 0 4px 22px rgba(236, 72, 153, 0.35);
+      padding: 6px 18px;
+      border-radius: 30px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 14px;
       z-index: 100;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      backdrop-filter: blur(8px);
     }
     .transition-banner.show {
       transform: translateX(-50%) translateY(0);
@@ -492,7 +496,8 @@
       pointer-events: auto;
     }
     .transition-banner-icon {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
+      flex-shrink: 0;
       animation: bounceX 1s infinite alternate;
     }
     @keyframes bounceX {
@@ -501,35 +506,45 @@
     }
     .transition-banner-text {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
     }
     .transition-banner-title {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      color: #fbcfe8;
+      color: #f472b6;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
+      flex-shrink: 0;
     }
     .transition-banner-dest {
-      font-size: 1rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: #ffffff;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .transition-btn {
-      background: #db2777;
+      background: linear-gradient(135deg, #ec4899, #db2777);
       color: #ffffff;
-      border: none;
-      padding: 7px 16px;
-      border-radius: 6px;
+      border: 1px solid #f472b6;
+      padding: 5px 14px;
+      border-radius: 20px;
       font-weight: 700;
-      font-size: 0.84rem;
+      font-size: 0.8rem;
       cursor: pointer;
-      transition: background 0.15s, transform 0.15s;
+      flex-shrink: 0;
+      white-space: nowrap;
+      transition: all 0.15s ease;
     }
     .transition-btn:hover {
-      background: #be185d;
-      transform: scale(1.04);
+      background: linear-gradient(135deg, #f472b6, #ec4899);
+      box-shadow: 0 0 12px rgba(244, 114, 182, 0.6);
+      transform: scale(1.03);
     }
 
     /* ZONE SPLASH */
@@ -1018,7 +1033,7 @@
         <span class="sub-dot">•</span>
         <span class="sub-chip" id="hdr-weather-chip">Sereno ☀️</span>
         <span class="sub-dot">•</span>
-        <span class="sub-chip" id="hdr-coords-chip">X: 25.4, Y: 16.5</span>
+        <span class="sub-chip" id="hdr-coords-chip">📍 In Viaggio</span>
         <span class="sub-dot">•</span>
         <span class="sub-chip" style="color:#d4af37;" id="hdr-glossary-status">Glossario 07 Attivo</span>
       </div>
@@ -1052,9 +1067,10 @@
           <div class="zone-badge">
             <span>📍</span> <span id="tb-zone-name">Noscea Centrale (Middle La Noscea)</span>
           </div>
-          <div class="coord-badge" id="tb-coord-badge">Party X: 25.4 · Y: 16.5</div>
+          <div class="coord-badge" id="tb-coord-badge">📍 In Viaggio</div>
         </div>
         <div class="map-toolbar-group">
+          <button class="tool-btn active" id="btn-toggle-camlock" title="Blocca/Sblocca visuale centrata sul Party">🔒 Segui Party: ON</button>
           <button class="tool-btn active" id="btn-toggle-exits" title="Mostra/Nascondi varchi di confine">🚪 Varchi</button>
           <button class="tool-btn active" id="btn-toggle-pois" title="Mostra/Nascondi punti di interesse">🏰 Luoghi</button>
           <button class="tool-btn active" id="btn-toggle-aeth" title="Mostra/Nascondi Eteriti">💎 Eteriti</button>
@@ -1112,7 +1128,7 @@
         </div>
         <div class="map-footer-right">
           <span id="ftr-source-api">📡 Cartografia Ufficiale: <strong>ConsoleGamesWiki CDN (Direct HD)</strong></span>
-          <span id="cursor-coords">Cursore: X: --, Y: --</span>
+          <span id="cursor-coords" style="display:none;"></span>
         </div>
       </div>
     </div>
@@ -1159,7 +1175,7 @@
         <div class="radar-sector-box">
           <div class="radar-title">
             <span>Settore Rilevato</span>
-            <span id="radar-coords-tag">X: 25.4, Y: 16.5</span>
+            <span id="radar-coords-tag" style="display:none;"></span>
           </div>
           <div class="radar-place-name" id="radar-poi-name">Guado d'Estate</div>
           <div class="radar-place-desc" id="radar-poi-desc">
@@ -1190,7 +1206,7 @@
 
         <!-- 1-CLICK SLASH ACTIONS FOR GEM -->
         <div class="gem-actions-grid">
-          <button class="gem-act-btn" id="btn-copy-gem-move" title="Copia comando /esplora con coordinate attuali">
+          <button class="gem-act-btn" id="btn-copy-gem-move" title="Copia comando /esplora per il luogo attuale">
             <span>📋</span> /esplora
           </button>
           <button class="gem-act-btn" id="btn-roll-weather" title="Tira meteo da tabella e copia /meteo">
@@ -2280,7 +2296,7 @@ function translateToponym(rawName) {
 // --- 4. CANONICAL DATABASE DELLE ZONE FFXIV (56 ZONE UFFICIALI ARR -> EW 6.0) ---
 const ZONE_DATABASE = {
   // === A REALM REBORN (23 ZONE) ===
-  "Middle_La_Noscea": {
+    "Middle_La_Noscea": {
     id: "Middle_La_Noscea",
     enName: "Middle La Noscea",
     itName: "Noscea Centrale",
@@ -2289,8 +2305,10 @@ const ZONE_DATABASE = {
     levels: "1 – 17",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 1.0,
     wikiTitle: "Middle_La_Noscea",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/f0/Middle_La_Noscea_Map1.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Middle%20La%20Noscea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2315,7 +2333,7 @@ const ZONE_DATABASE = {
     mobs: ["Marmotta delle Piane", "Coccinella della Noscea", "Calabrone Gigante", "Puk delle Tempeste", "Dodo"]
   },
 
-  "Lower_La_Noscea": {
+    "Lower_La_Noscea": {
     id: "Lower_La_Noscea",
     enName: "Lower La Noscea",
     itName: "Noscea Inferiore",
@@ -2324,8 +2342,10 @@ const ZONE_DATABASE = {
     levels: "3 – 20",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 1.0,
     wikiTitle: "Lower_La_Noscea",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/36/Lower_La_Noscea_Map_Full.jpg",
+    mapImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Lower%20La%20Noscea.png",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Lower%20La%20Noscea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2346,7 +2366,7 @@ const ZONE_DATABASE = {
     mobs: ["Ape della Scogliera", "Marmotta Selvatica", "Aurelia Costiera", "Granchio di Scoglio"]
   },
 
-  "Eastern_La_Noscea": {
+    "Eastern_La_Noscea": {
     id: "Eastern_La_Noscea",
     enName: "Eastern La Noscea",
     itName: "Noscea Orientale",
@@ -2355,8 +2375,10 @@ const ZONE_DATABASE = {
     levels: "30 – 34",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Eastern_La_Noscea",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b2/Eastern_La_Noscea_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Eastern%20La%20Noscea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2375,7 +2397,7 @@ const ZONE_DATABASE = {
     mobs: ["Piros delle Sabbie", "Dodo Selvatico", "Girasole Carnivoro", "Pipistrello dei Boschi"]
   },
 
-  "Western_La_Noscea": {
+    "Western_La_Noscea": {
     id: "Western_La_Noscea",
     enName: "Western La Noscea",
     itName: "Noscea Occidentale",
@@ -2384,8 +2406,10 @@ const ZONE_DATABASE = {
     levels: "10 – 49",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Western_La_Noscea",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/ab/Western_La_Noscea_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Western%20La%20Noscea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 30 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2404,7 +2428,7 @@ const ZONE_DATABASE = {
     mobs: ["Coboldo Minatore", "Ape Assassina", "Molboro delle Paludi", "Pipistrello Gigante"]
   },
 
-  "Upper_La_Noscea": {
+    "Upper_La_Noscea": {
     id: "Upper_La_Noscea",
     enName: "Upper La Noscea",
     itName: "Noscea Superiore",
@@ -2413,8 +2437,10 @@ const ZONE_DATABASE = {
     levels: "20 – 34",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Upper_La_Noscea",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/d/dc/Upper_La_Noscea_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Upper%20La%20Noscea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2432,7 +2458,7 @@ const ZONE_DATABASE = {
     mobs: ["Salamandra Vulcanica", "Guglia di Cristallo", "Coboldo Sentinella", "Lupo dei Boschi"]
   },
 
-  "Outer_La_Noscea": {
+    "Outer_La_Noscea": {
     id: "Outer_La_Noscea",
     enName: "Outer La Noscea",
     itName: "Noscea Esterna",
@@ -2441,8 +2467,10 @@ const ZONE_DATABASE = {
     levels: "30 – 49",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Outer_La_Noscea",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/1/1e/Outer_La_Noscea_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Outer%20La%20Noscea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2459,7 +2487,7 @@ const ZONE_DATABASE = {
     mobs: ["Coboldo Alchimista", "Guerriero Coboldo", "Golem di Pietra", "Viverna della Rupi"]
   },
 
-  "Limsa_Lominsa_Upper_Decks": {
+    "Limsa_Lominsa_Upper_Decks": {
     id: "Limsa_Lominsa_Upper_Decks",
     enName: "Limsa Lominsa Upper Decks",
     itName: "Ponti Superiori di Limsa Lominsa",
@@ -2468,8 +2496,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Limsa_Lominsa_Upper_Decks",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/52/Limsa_Lominsa_Upper_Decks_Map.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/ce/Limsa_Lominsa_Upper_Decks1.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Limsa%20Lominsa%20Upper%20Decks.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2488,7 +2518,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Limsa_Lominsa_Lower_Decks": {
+    "Limsa_Lominsa_Lower_Decks": {
     id: "Limsa_Lominsa_Lower_Decks",
     enName: "Limsa Lominsa Lower Decks",
     itName: "Ponti Inferiori di Limsa Lominsa",
@@ -2497,8 +2527,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Limsa_Lominsa_Lower_Decks",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b2/Limsa_Lominsa_Lower_Decks_Map.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/55/Limsa_Lominsa_Lower_Decks1.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/La%20Noscea/Limsa%20Lominsa%20Lower%20Decks.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2517,7 +2549,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "New_Gridania": {
+    "New_Gridania": {
     id: "New_Gridania",
     enName: "New Gridania",
     itName: "Nuova Gridania",
@@ -2526,8 +2558,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "New_Gridania",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/33/New_Gridania_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Black%20Shroud/New%20Gridania.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2545,7 +2579,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Old_Gridania": {
+    "Old_Gridania": {
     id: "Old_Gridania",
     enName: "Old Gridania",
     itName: "Vecchia Gridania",
@@ -2554,8 +2588,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Old_Gridania",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/3b/Old_Gridania_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Black%20Shroud/Old%20Gridania.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2574,7 +2610,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Central_Shroud": {
+    "Central_Shroud": {
     id: "Central_Shroud",
     enName: "Central Shroud",
     itName: "Bosco Centrale",
@@ -2583,8 +2619,10 @@ const ZONE_DATABASE = {
     levels: "1 – 15",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 1.0,
     wikiTitle: "Central_Shroud",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/f6/Central_Shroud_Map_Full.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/68/Central_Shroud1.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Black%20Shroud/Central%20Shroud.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2604,7 +2642,7 @@ const ZONE_DATABASE = {
     mobs: ["Scoiattolo del Bosco", "Fungonauta", "Coleottero Silvano", "Chigoe"]
   },
 
-  "East_Shroud": {
+    "East_Shroud": {
     id: "East_Shroud",
     enName: "East Shroud",
     itName: "Bosco Orientale",
@@ -2613,8 +2651,10 @@ const ZONE_DATABASE = {
     levels: "11 – 43",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "East_Shroud",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/55/East_Shroud_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Black%20Shroud/East%20Shroud.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2633,7 +2673,7 @@ const ZONE_DATABASE = {
     mobs: ["Silfide Temprata", "Gipponauta", "Vipera dei Fiori", "Ochu del Bosco"]
   },
 
-  "South_Shroud": {
+    "South_Shroud": {
     id: "South_Shroud",
     enName: "South Shroud",
     itName: "Bosco Meridionale",
@@ -2642,8 +2682,10 @@ const ZONE_DATABASE = {
     levels: "21 – 47",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "South_Shroud",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/a6/South_Shroud_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Black%20Shroud/South%20Shroud.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 30 },
       { name: "Soleggiato", icon: "🌤️", weight: 25 },
@@ -2663,7 +2705,7 @@ const ZONE_DATABASE = {
     mobs: ["Zanzara Palustre", "Bandito Redbelly", "Anubi delle Tenebre", "Molboro Tossico"]
   },
 
-  "North_Shroud": {
+    "North_Shroud": {
     id: "North_Shroud",
     enName: "North Shroud",
     itName: "Bosco Settentrionale",
@@ -2672,8 +2714,10 @@ const ZONE_DATABASE = {
     levels: "3 – 50",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "North_Shroud",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/ff/North_Shroud_Map1.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Black%20Shroud/North%20Shroud.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2692,7 +2736,7 @@ const ZONE_DATABASE = {
     mobs: ["Ixal Guardiano", "Lupo della Selva", "Gargoyle di Pietra", "Treant Antico"]
   },
 
-  "Uldah_Steps_of_Nald": {
+    "Uldah_Steps_of_Nald": {
     id: "Uldah_Steps_of_Nald",
     enName: "Ul'dah - Steps of Nald",
     itName: "Foro di Nald",
@@ -2701,8 +2745,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Ul'dah_-_Steps_of_Nald",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/67/Ul%27dah_-_Steps_of_Nald_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Ul'dah%20-%20Steps%20of%20Nald.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2719,7 +2765,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Uldah_Steps_of_Thal": {
+    "Uldah_Steps_of_Thal": {
     id: "Uldah_Steps_of_Thal",
     enName: "Ul'dah - Steps of Thal",
     itName: "Pozzo di Thal",
@@ -2728,8 +2774,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Ul'dah_-_Steps_of_Thal",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/59/Ul%27dah_-_Steps_of_Thal_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Ul'dah%20-%20Steps%20of%20Thal.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2746,7 +2794,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Western_Thanalan": {
+    "Western_Thanalan": {
     id: "Western_Thanalan",
     enName: "Western Thanalan",
     itName: "Thanalan Occidentale",
@@ -2755,8 +2803,10 @@ const ZONE_DATABASE = {
     levels: "1 – 15",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 1.0,
     wikiTitle: "Western_Thanalan",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/ac/Western_Thanalan_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Western%20Thanalan.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2774,7 +2824,7 @@ const ZONE_DATABASE = {
     mobs: ["Cactuar del Deserto", "Iena delle Sabbie", "Scorpione di Rame", "Amalj'aa Predatore"]
   },
 
-  "Central_Thanalan": {
+    "Central_Thanalan": {
     id: "Central_Thanalan",
     enName: "Central Thanalan",
     itName: "Thanalan Centrale",
@@ -2783,8 +2833,10 @@ const ZONE_DATABASE = {
     levels: "1 – 15",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 1.0,
     wikiTitle: "Central_Thanalan",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c8/Central_Thanalan_Map_Full.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/fa/Central_Thanalan_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Central%20Thanalan.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2801,7 +2853,7 @@ const ZONE_DATABASE = {
     mobs: ["Formicaio Guerriero", "Pipistrello delle Miniere", "Tartaruga del Deserto"]
   },
 
-  "Eastern_Thanalan": {
+    "Eastern_Thanalan": {
     id: "Eastern_Thanalan",
     enName: "Eastern Thanalan",
     itName: "Thanalan Orientale",
@@ -2810,8 +2862,10 @@ const ZONE_DATABASE = {
     levels: "15 – 30",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Eastern_Thanalan",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/e/ec/Eastern_Thanalan.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Eastern%20Thanalan.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2829,7 +2883,7 @@ const ZONE_DATABASE = {
     mobs: ["Qiqirn Brigante", "Amalj'aa Sciamano", "Avvoltoio Solitario", "Basilisco"]
   },
 
-  "Southern_Thanalan": {
+    "Southern_Thanalan": {
     id: "Southern_Thanalan",
     enName: "Southern Thanalan",
     itName: "Thanalan Meridionale",
@@ -2838,8 +2892,10 @@ const ZONE_DATABASE = {
     levels: "25 – 49",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Southern_Thanalan",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/7/75/Southern_Thanalan.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Southern%20Thanalan.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -2857,7 +2913,7 @@ const ZONE_DATABASE = {
     mobs: ["Amalj'aa Guerriero", "Verme delle Sabbie", "Chimera del Deserto", "Formica Soldato"]
   },
 
-  "Northern_Thanalan": {
+    "Northern_Thanalan": {
     id: "Northern_Thanalan",
     enName: "Northern Thanalan",
     itName: "Thanalan Settentrionale",
@@ -2866,8 +2922,10 @@ const ZONE_DATABASE = {
     levels: "49 – 50",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Northern_Thanalan",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/e/e8/Northern_Thanalan_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thanalan/Northern%20Thanalan.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -2884,7 +2942,7 @@ const ZONE_DATABASE = {
     mobs: ["Magitek Vanguard", "Soldato Garleano", "Colosso di Ferro", "Bomba di Ceruleo"]
   },
 
-  "Coerthas_Central_Highlands": {
+    "Coerthas_Central_Highlands": {
     id: "Coerthas_Central_Highlands",
     enName: "Coerthas Central Highlands",
     itName: "Altopiani Centrali di Coerthas",
@@ -2893,8 +2951,10 @@ const ZONE_DATABASE = {
     levels: "35 – 50",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Coerthas_Central_Highlands",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/7/70/Coerthas_Central_Highlands_Map_Full.jpg",
+    mapImage: "https://www.garlandtools.org/files/maps/Coerthas/Coerthas%20Central%20Highlands.png",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Coerthas/Coerthas%20Central%20Highlands.png",
     weatherRoster: [
       { name: "Tormenta", icon: "❄️", weight: 45 },
       { name: "Neve", icon: "🌨️", weight: 35 },
@@ -2913,7 +2973,7 @@ const ZONE_DATABASE = {
     mobs: ["Drago dei Ghiacci", "Lupo della Tormenta", "Behemoth", "Eretico Ishgardiano"]
   },
 
-  "Mor_Dhona": {
+    "Mor_Dhona": {
     id: "Mor_Dhona",
     enName: "Mor Dhona",
     itName: "Mor Dhona",
@@ -2922,8 +2982,10 @@ const ZONE_DATABASE = {
     levels: "44 – 50",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Mor_Dhona",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/f6/Mor_Dhona_Map_Full.jpg",
+    mapImage: "https://www.garlandtools.org/files/maps/Mor%20Dhona/Mor%20Dhona.png",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Mor%20Dhona/Mor%20Dhona.png",
     weatherRoster: [
       { name: "Foschia eterea", icon: "🌌", weight: 35 },
       { name: "Nuvoloso", icon: "☁️", weight: 30 },
@@ -2943,7 +3005,7 @@ const ZONE_DATABASE = {
   },
 
   // === HEAVENSWARD (9 ZONE) ===
-  "Foundation": {
+    "Foundation": {
     id: "Foundation",
     enName: "Foundation",
     itName: "Il Fondo",
@@ -2952,8 +3014,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Foundation",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/3d/Foundation_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Ishgard/Foundation.png",
     weatherRoster: [
       { name: "Neve", icon: "🌨️", weight: 45 },
       { name: "Tormenta", icon: "❄️", weight: 35 },
@@ -2971,7 +3035,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "The_Pillars": {
+    "The_Pillars": {
     id: "The_Pillars",
     enName: "The Pillars",
     itName: "Altocastello",
@@ -2980,8 +3044,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "The_Pillars",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/d/d0/The_Pillars_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Ishgard/The%20Pillars.png",
     weatherRoster: [
       { name: "Neve", icon: "🌨️", weight: 45 },
       { name: "Tormenta", icon: "❄️", weight: 35 },
@@ -2998,7 +3064,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Coerthas_Western_Highlands": {
+    "Coerthas_Western_Highlands": {
     id: "Coerthas_Western_Highlands",
     enName: "Coerthas Western Highlands",
     itName: "Altopiani Occidentali di Coerthas",
@@ -3007,8 +3073,10 @@ const ZONE_DATABASE = {
     levels: "50 – 52",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Coerthas_Western_Highlands",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c3/Coerthas_Western_Highlands_Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Coerthas/Coerthas%20Western%20Highlands.png",
     weatherRoster: [
       { name: "Tormenta", icon: "❄️", weight: 50 },
       { name: "Neve", icon: "🌨️", weight: 35 },
@@ -3024,7 +3092,7 @@ const ZONE_DATABASE = {
     mobs: ["Orso della Tormenta", "Yeti dei Ghiacci", "Drago Ishgardiano", "Pipistrello di Ghiaccio"]
   },
 
-  "The_Sea_of_Clouds": {
+    "The_Sea_of_Clouds": {
     id: "The_Sea_of_Clouds",
     enName: "The Sea of Clouds",
     itName: "Il Mar di Nuvole",
@@ -3033,8 +3101,10 @@ const ZONE_DATABASE = {
     levels: "50 – 60",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "The_Sea_of_Clouds",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/6c/The_Sea_of_Clouds_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Abalathia's%20Spine/The%20Sea%20of%20Clouds.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -3050,7 +3120,7 @@ const ZONE_DATABASE = {
     mobs: ["Vanu Vanu Guerriero", "Paissa delle Nuvole", "Wivre Volante", "Dzo"]
   },
 
-  "Azys_Lla": {
+    "Azys_Lla": {
     id: "Azys_Lla",
     enName: "Azys Lla",
     itName: "Azys Lla",
@@ -3059,8 +3129,10 @@ const ZONE_DATABASE = {
     levels: "59 – 60",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Azys_Lla",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/fd/Azys_Lla_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Abalathia's%20Spine/Azys%20Lla.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Tempesta di fulmini", icon: "⚡", weight: 50 }
@@ -3073,7 +3145,7 @@ const ZONE_DATABASE = {
     mobs: ["Costrutto Allagano", "Chimera Eterea", "Clone Guerriero", "Drome di Sorveglianza"]
   },
 
-  "The_Dravanian_Forelands": {
+    "The_Dravanian_Forelands": {
     id: "The_Dravanian_Forelands",
     enName: "The Dravanian Forelands",
     itName: "Terre Anteriori di Dravania",
@@ -3082,8 +3154,10 @@ const ZONE_DATABASE = {
     levels: "52 – 54",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "The_Dravanian_Forelands",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/e/e8/The_Dravanian_Forelands_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Dravania/The%20Dravanian%20Forelands.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Foschia", icon: "🌫️", weight: 25 },
@@ -3100,7 +3174,7 @@ const ZONE_DATABASE = {
     mobs: ["Gnath Guerriero", "Chocobo Selvatico", "Viverna Dravaniana", "Orso di Caverna"]
   },
 
-  "The_Churning_Mists": {
+    "The_Churning_Mists": {
     id: "The_Churning_Mists",
     enName: "The Churning Mists",
     itName: "Le Nebbie Vorticose",
@@ -3109,8 +3183,10 @@ const ZONE_DATABASE = {
     levels: "54 – 56",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "The_Churning_Mists",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/58/The_Churning_Mists_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Dravania/The%20Churning%20Mists.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Vento", icon: "💨", weight: 30 },
@@ -3127,7 +3203,7 @@ const ZONE_DATABASE = {
     mobs: ["Drago Eredivario", "Gargoyle delle Vette", "Archeodrago", "Moguri Sorvegliante"]
   },
 
-  "The_Dravanian_Hinterlands": {
+    "The_Dravanian_Hinterlands": {
     id: "The_Dravanian_Hinterlands",
     enName: "The Dravanian Hinterlands",
     itName: "Entroterra di Dravania",
@@ -3136,8 +3212,10 @@ const ZONE_DATABASE = {
     levels: "58 – 60",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "The_Dravanian_Hinterlands",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/9/94/The_Dravanian_Hinterlands_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Dravania/The%20Dravanian%20Hinterlands.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 35 },
       { name: "Nuvoloso", icon: "☁️", weight: 30 },
@@ -3154,7 +3232,7 @@ const ZONE_DATABASE = {
     mobs: ["Goblin Illuminato", "Poroggo Mago", "Costrutto Sharlayano", "Grizzly delle Valli"]
   },
 
-  "Idyllshire": {
+    "Idyllshire": {
     id: "Idyllshire",
     enName: "Idyllshire",
     itName: "Borgopace",
@@ -3163,8 +3241,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 1.0,
     wikiTitle: "Idyllshire",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/d/d2/Idyllshire_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Dravania/Idyllshire.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Nuvoloso", icon: "☁️", weight: 30 },
@@ -3182,7 +3262,7 @@ const ZONE_DATABASE = {
   },
 
   // === STORMBLOOD (8 ZONE) ===
-  "Rhalgrs_Reach": {
+    "Rhalgrs_Reach": {
     id: "Rhalgrs_Reach",
     enName: "Rhalgr's Reach",
     itName: "La Presa di Rhalgr",
@@ -3191,8 +3271,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Rhalgr's_Reach",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/cc/Rhalgr%27s_Reach-Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Gyr%20Abania/Rhalgr's%20Reach.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -3208,7 +3290,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "The_Fringes": {
+    "The_Fringes": {
     id: "The_Fringes",
     enName: "The Fringes",
     itName: "I Margini",
@@ -3217,8 +3299,10 @@ const ZONE_DATABASE = {
     levels: "60 – 69",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "The_Fringes",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/2/25/The_Fringes-Map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Gyr%20Abania/The%20Fringes.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -3236,7 +3320,7 @@ const ZONE_DATABASE = {
     mobs: ["Ananta Guerriera", "Colosso di Pietra", "Iena delle Rocce", "Grifone di Gyr Abania"]
   },
 
-  "The_Peaks": {
+    "The_Peaks": {
     id: "The_Peaks",
     enName: "The Peaks",
     itName: "Le Vette",
@@ -3245,8 +3329,10 @@ const ZONE_DATABASE = {
     levels: "60 – 69",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "The_Peaks",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/37/The_peaks_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Gyr%20Abania/The%20Peaks.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -3265,7 +3351,7 @@ const ZONE_DATABASE = {
     mobs: ["Guerriero della XII Legione", "Basilisco delle Vette", "Scorpione Corazzato"]
   },
 
-  "The_Lochs": {
+    "The_Lochs": {
     id: "The_Lochs",
     enName: "The Lochs",
     itName: "I Laghi",
@@ -3274,8 +3360,10 @@ const ZONE_DATABASE = {
     levels: "69 – 70",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "The_Lochs",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/84/The_lochs.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Gyr%20Abania/The%20Lochs.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Nuvoloso", icon: "☁️", weight: 30 },
@@ -3292,7 +3380,7 @@ const ZONE_DATABASE = {
     mobs: ["Magitek Colossus", "Guardia Imperiale Zenos", "Idra del Lago Seld"]
   },
 
-  "Kugane": {
+    "Kugane": {
     id: "Kugane",
     enName: "Kugane",
     itName: "Kugane",
@@ -3301,8 +3389,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Kugane",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/5a/Map_of_kugane.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Hingashi/Kugane.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Pioggia", icon: "🌧️", weight: 30 },
@@ -3319,7 +3409,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "The_Ruby_Sea": {
+    "The_Ruby_Sea": {
     id: "The_Ruby_Sea",
     enName: "The Ruby Sea",
     itName: "Il Mar Rubino",
@@ -3328,8 +3418,10 @@ const ZONE_DATABASE = {
     levels: "62 – 64",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "The_Ruby_Sea",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/82/The_Ruby_Sea_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Othard/The%20Ruby%20Sea.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -3348,7 +3440,7 @@ const ZONE_DATABASE = {
     mobs: ["Kojin Rosso", "Pesce Sciabola", "Kraken Minore", "Spirito del Mare"]
   },
 
-  "Yanxia": {
+    "Yanxia": {
     id: "Yanxia",
     enName: "Yanxia",
     itName: "Yanxia",
@@ -3357,8 +3449,10 @@ const ZONE_DATABASE = {
     levels: "64 – 67",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Yanxia",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/04/Yanxia_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Othard/Yanxia.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Pioggia", icon: "🌧️", weight: 30 },
@@ -3376,7 +3470,7 @@ const ZONE_DATABASE = {
     mobs: ["Lupo Domano", "Lupo Garleano", "Tigre dei Bambù", "Lama della Notte"]
   },
 
-  "The_Azim_Steppe": {
+    "The_Azim_Steppe": {
     id: "The_Azim_Steppe",
     enName: "The Azim Steppe",
     itName: "La Steppa di Azim",
@@ -3385,8 +3479,10 @@ const ZONE_DATABASE = {
     levels: "65 – 67",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "The_Azim_Steppe",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/03/The_azim_steppe_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Othard/The%20Azim%20Steppe.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Vento", icon: "💨", weight: 25 },
@@ -3405,7 +3501,7 @@ const ZONE_DATABASE = {
   },
 
   // === SHADOWBRINGERS (8 ZONE) ===
-  "The_Crystarium": {
+    "The_Crystarium": {
     id: "The_Crystarium",
     enName: "The Crystarium",
     itName: "Il Cristarium",
@@ -3414,8 +3510,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "The_Crystarium",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/04/Crystarium_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/The%20Crystarium.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Nuvoloso", icon: "☁️", weight: 30 },
@@ -3432,7 +3530,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Eulmore": {
+    "Eulmore": {
     id: "Eulmore",
     enName: "Eulmore",
     itName: "Eulmore",
@@ -3441,8 +3539,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Eulmore",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/3f/Eulmore_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/Eulmore.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 60 },
       { name: "Soleggiato", icon: "🌤️", weight: 40 }
@@ -3457,7 +3557,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Lakeland": {
+    "Lakeland": {
     id: "Lakeland",
     enName: "Lakeland",
     itName: "Terralago",
@@ -3466,8 +3566,10 @@ const ZONE_DATABASE = {
     levels: "70 – 80",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Lakeland",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/8d/Lakeland_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/Lakeland.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Nuvoloso", icon: "☁️", weight: 30 },
@@ -3487,7 +3589,7 @@ const ZONE_DATABASE = {
     mobs: ["Mangialuce Minore", "Lupo della Notte", "Orso di Terralago", "Pixie Dispettosa"]
   },
 
-  "Kholusia": {
+    "Kholusia": {
     id: "Kholusia",
     enName: "Kholusia",
     itName: "Kholusia",
@@ -3496,8 +3598,10 @@ const ZONE_DATABASE = {
     levels: "70 – 79",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Kholusia",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b6/Khoulsia_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/Kholusia.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -3515,7 +3619,7 @@ const ZONE_DATABASE = {
     mobs: ["Nano Rivale Gogg", "Gabbiano Selvatico", "Hobgoblin della Scogliera"]
   },
 
-  "Amh_Araeng": {
+    "Amh_Araeng": {
     id: "Amh_Araeng",
     enName: "Amh Araeng",
     itName: "Amh Araeng",
@@ -3524,8 +3628,10 @@ const ZONE_DATABASE = {
     levels: "70 – 80",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Amh_Araeng",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/4/4f/Amh_araeng_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/Amh%20Araeng.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Ondata di calore", icon: "🏜️", weight: 30 },
@@ -3542,7 +3648,7 @@ const ZONE_DATABASE = {
     mobs: ["Scorpione Cristallino", "Mangialuce del Diluvio", "Talos Danneggiato"]
   },
 
-  "Il_Mheg": {
+    "Il_Mheg": {
     id: "Il_Mheg",
     enName: "Il Mheg",
     itName: "Il Mheg",
@@ -3551,8 +3657,10 @@ const ZONE_DATABASE = {
     levels: "72 – 74",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Il_Mheg",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/4/41/Il_mheg_map.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/Il%20Mheg.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -3569,8 +3677,8 @@ const ZONE_DATABASE = {
     mobs: ["Pixie Illusionista", "Fuath Acquatico", "Pianta Carnivora Fatata"]
   },
 
-  "The_Raktika_Greatwood": {
-    id: "The_Rak'tika_Greatwood",
+    "The_Raktika_Greatwood": {
+    id: "The_Raktika_Greatwood",
     enName: "The Rak'tika Greatwood",
     itName: "La Grande Foresta di Rak'tika",
     region: "Norvrandt",
@@ -3578,8 +3686,10 @@ const ZONE_DATABASE = {
     levels: "74 – 76",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "The_Rak'tika_Greatwood",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/aa/Rak%27tika_greatwood.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/The%20Rak'tika%20Greatwood.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Foschia", icon: "🌫️", weight: 35 },
@@ -3594,7 +3704,7 @@ const ZONE_DATABASE = {
     mobs: ["Guardiano di Ronka", "Pantera della Foresta", "Vipera Gigante di Rak'tika"]
   },
 
-  "The_Tempest": {
+    "The_Tempest": {
     id: "The_Tempest",
     enName: "The Tempest",
     itName: "Fossantica",
@@ -3603,8 +3713,10 @@ const ZONE_DATABASE = {
     levels: "79 – 80",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "The_Tempest",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c3/The_Tempest_Map_Full.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Norvrandt/The%20Tempest.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
@@ -3620,7 +3732,7 @@ const ZONE_DATABASE = {
   },
 
   // === ENDWALKER 6.0 (8 ZONE) ===
-  "Old_Sharlayan": {
+    "Old_Sharlayan": {
     id: "Old_Sharlayan",
     enName: "Old Sharlayan",
     itName: "Vecchia Sharlayan",
@@ -3629,8 +3741,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Old_Sharlayan",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/65/Old_Sharlayan_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Northern%20Empty/Old%20Sharlayan.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -3647,7 +3761,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Radz_at_Han": {
+    "Radz_at_Han": {
     id: "Radz_at_Han",
     enName: "Radz-at-Han",
     itName: "Radz-at-Han",
@@ -3656,8 +3770,10 @@ const ZONE_DATABASE = {
     levels: "Città Hub",
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
+    size: 2.0,
     wikiTitle: "Radz-at-Han",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/07/Radz-at-Han_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thavnair/Radz-at-Han.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -3673,7 +3789,7 @@ const ZONE_DATABASE = {
     mobs: []
   },
 
-  "Labyrinthos": {
+    "Labyrinthos": {
     id: "Labyrinthos",
     enName: "Labyrinthos",
     itName: "Labyrinthos",
@@ -3682,8 +3798,10 @@ const ZONE_DATABASE = {
     levels: "80 – 90",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Labyrinthos",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b7/Labyrinthos_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Northern%20Empty/Labyrinthos.png",
     weatherRoster: [
       { name: "Sereno Artificiale", icon: "☀️", weight: 50 },
       { name: "Pioggia Artificiale", icon: "🌧️", weight: 30 },
@@ -3699,7 +3817,7 @@ const ZONE_DATABASE = {
     mobs: ["Campione di Fauna Selvatica", "Costrutto Alchemico", "Automa di Sorveglianza"]
   },
 
-  "Thavnair": {
+    "Thavnair": {
     id: "Thavnair",
     enName: "Thavnair",
     itName: "Thavnair",
@@ -3708,8 +3826,10 @@ const ZONE_DATABASE = {
     levels: "80 – 85",
     danger: "Rischioso",
     dangerBadge: "badge-risky",
+    size: 1.0,
     wikiTitle: "Thavnair",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b2/Thavnair_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Thavnair/Thavnair.png",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
@@ -3726,7 +3846,7 @@ const ZONE_DATABASE = {
     mobs: ["Matanga Ostile", "Elefante delle Giungle", "Guerriero Telophoroi", "Tigre delle Rupi"]
   },
 
-  "Garlemald": {
+    "Garlemald": {
     id: "Garlemald",
     enName: "Garlemald",
     itName: "Garlemald",
@@ -3735,8 +3855,10 @@ const ZONE_DATABASE = {
     levels: "82 – 84",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Garlemald",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b6/Garlemald_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Ilsabard/Garlemald.png",
     weatherRoster: [
       { name: "Neve", icon: "🌨️", weight: 45 },
       { name: "Tormenta", icon: "❄️", weight: 35 },
@@ -3750,7 +3872,7 @@ const ZONE_DATABASE = {
     mobs: ["Magitek Reeper", "Soldato Garleano Temprato", "Automa da Guerra", "Spirito di Ceruleo"]
   },
 
-  "Mare_Lamentorum": {
+    "Mare_Lamentorum": {
     id: "Mare_Lamentorum",
     enName: "Mare Lamentorum",
     itName: "Mare Lamentorum",
@@ -3759,8 +3881,10 @@ const ZONE_DATABASE = {
     levels: "83 – 85",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Mare_Lamentorum",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/9/92/Mare_Lamentorum_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Moon/Mare%20Lamentorum.png",
     weatherRoster: [
       { name: "Vuoto Spaziale", icon: "🌌", weight: 60 },
       { name: "Luce Lunare", icon: "🌕", weight: 40 }
@@ -3773,7 +3897,7 @@ const ZONE_DATABASE = {
     mobs: ["Creatura Lunare", "Automa di Bestways", "Spettro del Vuoto", "Gargoyle della Luna"]
   },
 
-  "Elpis": {
+    "Elpis": {
     id: "Elpis",
     enName: "Elpis",
     itName: "Elpis",
@@ -3782,8 +3906,10 @@ const ZONE_DATABASE = {
     levels: "86 – 87",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Elpis",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/1/1c/Elpis_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/The%20Past/Elpis.png",
     weatherRoster: [
       { name: "Sereno Perfetto", icon: "☀️", weight: 60 },
       { name: "Brezza d'Etere", icon: "✨", weight: 40 }
@@ -3796,7 +3922,7 @@ const ZONE_DATABASE = {
     mobs: ["Concept Antico", "Bestia Mitica Sperimentale", "Fulgore di Dynamis"]
   },
 
-  "Ultima_Thule": {
+    "Ultima_Thule": {
     id: "Ultima_Thule",
     enName: "Ultima Thule",
     itName: "Ultima Thule",
@@ -3805,8 +3931,10 @@ const ZONE_DATABASE = {
     levels: "88 – 90",
     danger: "Ostile",
     dangerBadge: "badge-hostile",
+    size: 1.0,
     wikiTitle: "Ultima_Thule",
     mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/8f/Ultima_Thule_Map_No_Text.jpg",
+    fallbackImage: "https://www.garlandtools.org/files/maps/Deep%20Space/Ultima%20Thule.png",
     weatherRoster: [
       { name: "Vuoto Astrale", icon: "🌌", weight: 50 },
       { name: "Risonanza di Dynamis", icon: "💫", weight: 50 }
@@ -3828,16 +3956,19 @@ const State = {
   currentWeather: "Sereno ☀️",
   zoom: 1.0,
   pan: { x: 0, y: 0 },
+  cameraLocked: true, // DEFAULT: Visuale loccata sul Party
   isDraggingMap: false,
   isDraggingParty: false,
   dragStart: { x: 0, y: 0 },
+  lastClientPos: { x: 0, y: 0 },
   showExits: true,
   showPois: true,
   showAetherytes: true,
   autoTransition: true,
   transitionCooldownUntil: 0, // Previene rimbalzi continui tra confini
   visitedZones: new Set(),
-  selectedExpansion: "ALL"
+  selectedExpansion: "ALL",
+  zonePOIsCache: {} // Cache POI recuperati dinamicamente via Wiki API
 };
 
 // Web Audio API Synth per feedback sonori immersivi FFXIV
@@ -3902,13 +4033,27 @@ const markersContainerEl = document.getElementById("markers-container");
 const transBannerEl = document.getElementById("transition-banner");
 const zoneSplashEl = document.getElementById("zone-splash");
 
-// Coordinate FFXIV: Griglia standard 1.0 – 42.0 yalm mappata su 2048x2048 px
+// Triangolazione posizioni e scala cartografica FFXIV
+// size: 1.0 -> Open World (span 41.0 yalm, da 1.0 a 42.0)
+// size: 2.0 -> Città / Hub interni (span 20.5 yalm, da 1.0 a 21.5)
+function getZoneScale() {
+  const zone = ZONE_DATABASE[State.currentZone];
+  return (zone && zone.size) ? zone.size : 1.0;
+}
+function getZoneSpan() {
+  return 41.0 / getZoneScale();
+}
+function getMaxCoord() {
+  return 1.0 + getZoneSpan();
+}
 function coordToPx(coord) {
-  return ((coord - 1.0) / 41.0) * 2048;
+  const span = getZoneSpan();
+  return ((coord - 1.0) / span) * 2048;
 }
 function pxToCoord(px) {
-  const c = 1.0 + (px / 2048) * 41.0;
-  return Math.min(42.0, Math.max(1.0, c));
+  const span = getZoneSpan();
+  const c = 1.0 + (px / 2048) * span;
+  return Math.min(1.0 + span, Math.max(1.0, c));
 }
 function calcDistance(x1, y1, x2, y2) {
   const dx = x1 - x2;
@@ -3927,13 +4072,9 @@ function updatePartyPinPosition() {
   const py = coordToPx(State.partyCoords.y);
   partyPinEl.style.left = `${px}px`;
   partyPinEl.style.top = `${py}px`;
-
-  const coordStr = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
-  document.getElementById("tb-coord-badge").innerText = `Party ${coordStr}`;
-  document.getElementById("hdr-coords-chip").innerText = coordStr;
 }
 
-// Render dei Marker (Uscite, POI, Eteriti)
+// Render dei Marker (Uscite, POI, Eteriti, POI Dinamici)
 function renderMarkers() {
   markersContainerEl.innerHTML = "";
   const zone = ZONE_DATABASE[State.currentZone];
@@ -3961,9 +4102,10 @@ function renderMarkers() {
     });
   }
 
-  // 2. POIs & Landmarks
-  if (zone.pois) {
-    zone.pois.forEach(poi => {
+  // 2. POIs & Landmarks (Base + Dinamici da API)
+  const allPois = [...(zone.pois || []), ...(zone.dynamicPois || [])];
+  if (allPois.length > 0) {
+    allPois.forEach(poi => {
       if (poi.aetheryte && !State.showAetherytes) return;
       if (!poi.aetheryte && !State.showPois) return;
 
@@ -3971,11 +4113,13 @@ function renderMarkers() {
       el.className = `map-marker ${poi.aetheryte ? "aetheryte-marker" : "landmark-marker"}`;
       el.style.left = `${coordToPx(poi.x)}px`;
       el.style.top = `${coordToPx(poi.y)}px`;
+      const displayName = poi.itName || poi.name;
       el.innerHTML = `
         <span>${poi.aetheryte ? "💎" : (poi.icon || "📍")}</span>
         <div class="marker-tooltip">
-          <strong>${poi.name}</strong>
+          <strong>${displayName}</strong>
           ${poi.aetheryte ? '<br><span style="color:#38bdf8;">💎 Eterite Regionale (1 DV)</span>' : ''}
+          ${poi.isDynamic ? '<br><span style="color:#a78bfa; font-size:0.75rem;">📡 Wiki Live POI</span>' : ''}
         </div>
       `;
       el.addEventListener("click", (e) => {
@@ -4016,6 +4160,97 @@ function renderFallbackParchment(zone) {
   ctx.fillText(zone.enName, 1024, 1075);
 }
 
+// Caricamento dinamico POI e Luoghi tramite MediaWiki API (ConsoleGamesWiki)
+async function fetchDynamicPOIs(zoneId) {
+  const zone = ZONE_DATABASE[zoneId];
+  if (!zone) return;
+  if (State.zonePOIsCache[zoneId]) {
+    zone.dynamicPois = State.zonePOIsCache[zoneId];
+    renderMarkers();
+    return;
+  }
+
+  const wikiTitle = zone.wikiTitle || zone.enName.replace(/ /g, "_");
+  const catUrl = `https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=query&list=categorymembers&cmtitle=Category:Locations_in_${encodeURIComponent(wikiTitle)}&cmlimit=50&format=json&origin=*`;
+
+  try {
+    const r1 = await fetch(catUrl);
+    if (!r1.ok) return;
+    const d1 = await r1.json();
+    if (!d1.query || !d1.query.categorymembers || d1.query.categorymembers.length === 0) return;
+
+    const titles = d1.query.categorymembers.map(m => m.title).slice(0, 35);
+    const contentUrl = `https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=query&titles=${encodeURIComponent(titles.join("|"))}&prop=revisions&rvprop=content&format=json&origin=*`;
+    const r2 = await fetch(contentUrl);
+    if (!r2.ok) return;
+    const d2 = await r2.json();
+    if (!d2.query || !d2.query.pages) return;
+
+    const fetchedPois = [];
+    const maxC = getMaxCoord();
+
+    for (const pid in d2.query.pages) {
+      const page = d2.query.pages[pid];
+      if (!page.revisions || !page.revisions[0] || !page.revisions[0]["*"]) continue;
+      const text = page.revisions[0]["*"];
+
+      let x = null, y = null;
+      const m1 = text.match(/coordinates\s*=\s*([0-9.]+)\s*,\s*([0-9.]+)/i);
+      if (m1) {
+        x = parseFloat(m1[1]);
+        y = parseFloat(m1[2]);
+      } else {
+        const m2 = text.match(/\{\{coords\|([0-9.]+)\|([0-9.]+)\}\}/i);
+        if (m2) {
+          x = parseFloat(m2[1]);
+          y = parseFloat(m2[2]);
+        }
+      }
+
+      if (x !== null && y !== null && !isNaN(x) && !isNaN(y)) {
+        if (x < 1.0 || x > maxC || y < 1.0 || y > maxC) continue;
+        const cleanTitle = page.title.replace(/\s*\([^)]*\)$/, "");
+
+        let desc = "";
+        const mDesc = text.match(/description\s*=\s*([^\n|]+)/i);
+        if (mDesc) {
+          desc = mDesc[1].replace(/\[\[(?:[^|\]]*\|)?([^\]]+)\]\]/g, "$1").replace(/<[^>]+>/g, "").replace(/["']/g, "").trim();
+        }
+
+        const exists = (zone.pois && zone.pois.some(p => 
+          p.name.toLowerCase() === cleanTitle.toLowerCase() || 
+          (Math.abs(p.x - x) < 0.6 && Math.abs(p.y - y) < 0.6)
+        )) || fetchedPois.some(p => 
+          p.name.toLowerCase() === cleanTitle.toLowerCase() || 
+          (Math.abs(p.x - x) < 0.6 && Math.abs(p.y - y) < 0.6)
+        );
+
+        if (!exists) {
+          const trans = translateToponym(cleanTitle);
+          fetchedPois.push({
+            name: cleanTitle,
+            itName: trans.it,
+            x: x,
+            y: y,
+            icon: "📍",
+            desc: desc || `Punto d'interesse esplorabile: ${trans.format}.`,
+            isDynamic: true
+          });
+        }
+      }
+    }
+
+    State.zonePOIsCache[zoneId] = fetchedPois;
+    zone.dynamicPois = fetchedPois;
+    if (State.currentZone === zoneId) {
+      renderMarkers();
+      updateRadar();
+    }
+  } catch (err) {
+    console.warn("fetchDynamicPOIs error:", err);
+  }
+}
+
 // Caricamento Zona
 function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   const zone = ZONE_DATABASE[zoneId];
@@ -4046,10 +4281,15 @@ function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   // Meteo
   rollWeather(false);
 
-  // Mappa
+  // Mappa Ufficiale con Fallback su Garland Tools HD e Pergamenato locale
   mapImgEl.onerror = () => {
-    console.warn("Impossibile caricare immagine wiki. Uso rendering procedurale.");
-    renderFallbackParchment(zone);
+    if (zone.fallbackImage && mapImgEl.src !== zone.fallbackImage) {
+      console.warn(`Impossibile caricare immagine wiki per ${zone.itName}. Fallback su Garland Tools HD: ${zone.fallbackImage}`);
+      mapImgEl.src = zone.fallbackImage;
+    } else {
+      console.warn("Impossibile caricare immagini online. Uso rendering procedurale.");
+      renderFallbackParchment(zone);
+    }
   };
   mapImgEl.src = zone.mapImage;
 
@@ -4060,6 +4300,9 @@ function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   updatePartyPinPosition();
   centerOnParty();
   updateRadar();
+
+  // Recupera POI addizionali in background via MediaWiki API
+  fetchDynamicPOIs(zoneId);
 
   // Zone splash screen
   if (!skipSplash) {
@@ -4138,10 +4381,15 @@ function triggerZoneTransition(exit) {
 
 function focusOnPoi(poi) {
   const transObj = translateToponym(poi.name);
-  document.getElementById("radar-poi-name").innerText = transObj.format;
+  const displayName = transObj.format;
+  document.getElementById("radar-poi-name").innerText = displayName;
   document.getElementById("radar-poi-desc").innerText = poi.desc || "Punto d'interesse esplorabile nella regione.";
-  document.getElementById("radar-coords-tag").innerText = `X: ${poi.x.toFixed(1)}, Y: ${poi.y.toFixed(1)}`;
   document.getElementById("radar-dist-badge").innerText = "Selezionato";
+
+  const tbBadge = document.getElementById("tb-coord-badge");
+  if (tbBadge) tbBadge.innerText = `📍 ${displayName}`;
+  const hdrChip = document.getElementById("hdr-coords-chip");
+  if (hdrChip) hdrChip.innerText = `📍 ${displayName}`;
 
   const chipsEl = document.getElementById("radar-chips");
   chipsEl.innerHTML = "";
@@ -4166,8 +4414,9 @@ function updateRadar() {
   let nearest = null;
   let minDist = 999;
 
-  if (zone.pois) {
-    zone.pois.forEach(poi => {
+  const allPois = [...(zone.pois || []), ...(zone.dynamicPois || [])];
+  if (allPois.length > 0) {
+    allPois.forEach(poi => {
       const d = calcDistance(State.partyCoords.x, State.partyCoords.y, poi.x, poi.y);
       if (d < minDist) {
         minDist = d;
@@ -4181,10 +4430,15 @@ function updateRadar() {
     document.getElementById("radar-dist-badge").innerText = `${minDist.toFixed(1)} yalm`;
   } else {
     const transZone = translateToponym(zone.enName);
-    document.getElementById("radar-poi-name").innerText = `Terre di ${transZone.it}`;
+    const wildernessName = `Terre di ${transZone.it}`;
+    document.getElementById("radar-poi-name").innerText = wildernessName;
     document.getElementById("radar-poi-desc").innerText = `Aperta natura selvaggia e percorsi tra le colline. Grado di pericolo: ${zone.danger}.`;
-    document.getElementById("radar-coords-tag").innerText = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
     document.getElementById("radar-dist-badge").innerText = "In Viaggio";
+
+    const tbBadge = document.getElementById("tb-coord-badge");
+    if (tbBadge) tbBadge.innerText = `📍 In Viaggio`;
+    const hdrChip = document.getElementById("hdr-coords-chip");
+    if (hdrChip) hdrChip.innerText = `📍 In Viaggio`;
 
     const chipsEl = document.getElementById("radar-chips");
     chipsEl.innerHTML = `
@@ -4258,6 +4512,7 @@ viewportEl.addEventListener("mousedown", (e) => {
   if (!e.target.closest(".map-marker") && !e.target.closest(".map-control-btn")) {
     State.isDraggingMap = true;
     State.dragStart = { x: e.clientX - State.pan.x, y: e.clientY - State.pan.y };
+    State.lastClientPos = { x: e.clientX, y: e.clientY };
     viewportEl.classList.add("dragging");
   }
 });
@@ -4272,6 +4527,7 @@ viewportEl.addEventListener("touchstart", (e) => {
   if (!e.target.closest(".map-marker") && !e.target.closest(".map-control-btn") && e.touches.length === 1) {
     State.isDraggingMap = true;
     State.dragStart = { x: e.touches[0].clientX - State.pan.x, y: e.touches[0].clientY - State.pan.y };
+    State.lastClientPos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     viewportEl.classList.add("dragging");
   }
 }, { passive: false });
@@ -4280,24 +4536,39 @@ function handlePointerMove(clientX, clientY) {
   const vpRect = viewportEl.getBoundingClientRect();
   const mouseX = (clientX - vpRect.left - State.pan.x) / State.zoom;
   const mouseY = (clientY - vpRect.top - State.pan.y) / State.zoom;
-
-  if (mouseX >= 0 && mouseX <= 2048 && mouseY >= 0 && mouseY <= 2048) {
-    const cx = pxToCoord(mouseX);
-    const cy = pxToCoord(mouseY);
-    const coordsEl = document.getElementById("cursor-coords");
-    if (coordsEl) coordsEl.innerText = `Cursore: X: ${cx.toFixed(1)}, Y: ${cy.toFixed(1)}`;
-  }
+  const span = getZoneSpan();
+  const maxC = 1.0 + span;
 
   if (State.isDraggingParty) {
-    State.partyCoords.x = Math.max(1.0, Math.min(42.0, pxToCoord(mouseX)));
-    State.partyCoords.y = Math.max(1.0, Math.min(42.0, pxToCoord(mouseY)));
+    State.partyCoords.x = Math.max(1.0, Math.min(maxC, pxToCoord(mouseX)));
+    State.partyCoords.y = Math.max(1.0, Math.min(maxC, pxToCoord(mouseY)));
     updatePartyPinPosition();
+    if (State.cameraLocked) centerOnParty();
     checkExitProximity();
     updateRadar();
   } else if (State.isDraggingMap) {
-    State.pan.x = clientX - State.dragStart.x;
-    State.pan.y = clientY - State.dragStart.y;
-    updateTransform();
+    if (State.cameraLocked) {
+      // In modalità Camera Segui Party: trascinare la mappa muove il mondo sotto il Party
+      const dx = clientX - State.lastClientPos.x;
+      const dy = clientY - State.lastClientPos.y;
+      State.lastClientPos = { x: clientX, y: clientY };
+
+      const deltaCoordX = (-dx / State.zoom) * (span / 2048);
+      const deltaCoordY = (-dy / State.zoom) * (span / 2048);
+
+      State.partyCoords.x = Math.max(1.0, Math.min(maxC, State.partyCoords.x + deltaCoordX));
+      State.partyCoords.y = Math.max(1.0, Math.min(maxC, State.partyCoords.y + deltaCoordY));
+
+      updatePartyPinPosition();
+      centerOnParty();
+      checkExitProximity();
+      updateRadar();
+    } else {
+      // Modalità libera: pan classico
+      State.pan.x = clientX - State.dragStart.x;
+      State.pan.y = clientY - State.dragStart.y;
+      updateTransform();
+    }
   }
 }
 
@@ -4349,16 +4620,18 @@ window.addEventListener("keydown", (e) => {
   if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
 
   let moved = false;
-  const step = 0.4;
+  const maxC = getMaxCoord();
+  const step = 0.4 / getZoneScale();
 
   if (e.key === "w" || e.key === "ArrowUp") { State.partyCoords.y = Math.max(1.0, State.partyCoords.y - step); moved = true; }
-  else if (e.key === "s" || e.key === "ArrowDown") { State.partyCoords.y = Math.min(42.0, State.partyCoords.y + step); moved = true; }
+  else if (e.key === "s" || e.key === "ArrowDown") { State.partyCoords.y = Math.min(maxC, State.partyCoords.y + step); moved = true; }
   else if (e.key === "a" || e.key === "ArrowLeft") { State.partyCoords.x = Math.max(1.0, State.partyCoords.x - step); moved = true; }
-  else if (e.key === "d" || e.key === "ArrowRight") { State.partyCoords.x = Math.min(42.0, State.partyCoords.x + step); moved = true; }
+  else if (e.key === "d" || e.key === "ArrowRight") { State.partyCoords.x = Math.min(maxC, State.partyCoords.x + step); moved = true; }
 
   if (moved) {
     e.preventDefault();
     updatePartyPinPosition();
+    if (State.cameraLocked) centerOnParty();
     checkExitProximity();
     updateRadar();
   }
@@ -4378,6 +4651,18 @@ document.getElementById("btn-zoom-reset").addEventListener("click", () => {
   centerOnParty();
 });
 document.getElementById("btn-center-party").addEventListener("click", centerOnParty);
+
+// Toggle Camera Lock (Segui Party / Libera)
+const camLockBtn = document.getElementById("btn-toggle-camlock");
+if (camLockBtn) {
+  camLockBtn.addEventListener("click", function() {
+    State.cameraLocked = !State.cameraLocked;
+    this.classList.toggle("active", State.cameraLocked);
+    this.innerText = State.cameraLocked ? "🔒 Segui Party: ON" : "🔓 Segui Party: OFF";
+    showToast(`Modalità Camera: ${State.cameraLocked ? "SEGUI PARTY (Bloccata)" : "LIBERA"}`);
+    if (State.cameraLocked) centerOnParty();
+  });
+}
 
 document.getElementById("btn-toggle-exits").addEventListener("click", function() {
   State.showExits = !State.showExits;
@@ -4421,9 +4706,8 @@ document.getElementById("btn-audio-toggle").addEventListener("click", function()
 
 // --- 7. BOTTONI COMANDI SLASH PER IL GEM ---
 document.getElementById("btn-copy-gem-move").addEventListener("click", () => {
-  const zone = ZONE_DATABASE[State.currentZone];
   const placeName = document.getElementById("radar-poi-name").innerText;
-  const cmd = `/esplora ${placeName} [${zone.itName}, X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}]`;
+  const cmd = `/esplora ${placeName}`;
   navigator.clipboard.writeText(cmd).then(() => {
     showToast(`Comando copiato: "${cmd}"`);
   });
@@ -4441,7 +4725,7 @@ document.getElementById("btn-gen-shop").addEventListener("click", () => {
   const placeName = document.getElementById("radar-poi-name").innerText;
   const shopTypes = ["armi", "armature", "accessori", "consumabili", "generale"];
   const pick = shopTypes[Math.floor(Math.random() * shopTypes.length)];
-  const cmd = `/negozio ${pick} a ${placeName}, livello 3`;
+  const cmd = `/negozio ${pick} a ${placeName}`;
   navigator.clipboard.writeText(cmd).then(() => {
     showToast(`Comando bottega copiato: "${cmd}"`);
   });
