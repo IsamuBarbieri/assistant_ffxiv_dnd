@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D&D 5e — Combat Tracker</title>
+  <title>FFXIV X D&D 5e — Combat Tracker</title>
   <style>
     :root {
-      --bg-main: #121418;
-      --bg-panel: #1b1d22;
-      --bg-alt: #23272e;
-      --text-main: #e8e6e3;
-      --text-muted: #9ca3af;
-      --border-color: #374151;
+      --bg-main: #0c0e14;
+      --bg-panel: #131620;
+      --bg-alt: #1a1e2b;
+      --text-main: #f1f3f7;
+      --text-muted: #94a3b8;
+      --border-color: #2a3245;
       --accent-blue: #3b82f6;
       --accent-hover: #2563eb;
+      --accent-gold: #d4af37;
+      --accent-gold-dark: #b48c26;
       --danger: #ef4444;
       --danger-dark: #b91c1c;
       --warning: #f59e0b;
@@ -31,9 +33,133 @@
     }
 
     .container { max-width: 1800px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
-    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-    h1 { margin: 0 0 5px 0; font-size: 1.6rem; color: #f3f4f6; }
-    .subtitle { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(19, 22, 32, 0.95) 0%, rgba(26, 30, 43, 0.85) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4));
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .title-ffxiv {
+      background: linear-gradient(135deg, #fffbeb 0%, #facc15 35%, #f59e0b 70%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.35));
+      font-family: 'Cinzel', 'Georgia', serif, -apple-system, sans-serif;
+      letter-spacing: 0.8px;
+    }
+    .title-sep {
+      color: #94a3b8;
+      font-weight: 400;
+      font-size: 1.25rem;
+      opacity: 0.8;
+    }
+    .title-dnd {
+      color: #f8fafc;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .title-dash {
+      color: #475569;
+      font-weight: 300;
+      margin: 0 2px;
+    }
+    .title-sub {
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 1.35rem;
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 0.84rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .sub-chip {
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+    .sub-dot {
+      color: #475569;
+      font-weight: 700;
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header-btn {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      padding: 6px 13px;
+      border-radius: 6px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .header-btn:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(96, 165, 250, 0.6);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+    .header-btn:active {
+      transform: translateY(0);
+    }
+    .header-btn-fanfare {
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.4);
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .header-btn-fanfare:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(245, 158, 11, 0.3);
+    }
 
     .app-layout { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; }
     .main-panel { flex: 1 1 auto; width: 55%; min-width: 450px; display: flex; flex-direction: column; gap: 15px; transition: flex-basis 0.1s; }
@@ -51,27 +177,239 @@
     .map-body { display: flex; flex-direction: column; gap: 15px; align-items: center; flex-grow: 1; }
     .map-body.legend-side { flex-direction: row-reverse; align-items: flex-start; justify-content: center; }
 
+    .top-actions-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
+    .top-actions-left { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .top-actions-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .encounter-tabs-bar { display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; width: 100%; overflow-x: auto; scrollbar-width: thin; }
     .tabs-wrapper { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; flex-wrap: wrap; }
-    .tabs { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; flex-grow: 1; }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; width: 100%; }
     
     .btn-import { background-color: var(--bg-alt); color: var(--text-main); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
     .btn-import:hover { background-color: #374151; color: white; }
 
-    .tab-btn { background-color: #272a30; color: var(--text-muted); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: all 0.15s ease; }
-    .tab-btn:hover { background-color: #32363e; color: #f3f4f6; }
-    .tab-btn.active { background-color: var(--accent-hover); color: #ffffff; border-color: var(--accent-blue); }
+    .tab-btn { background-color: #1a1e2b; color: var(--text-muted); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: all 0.15s ease; }
+    .tab-btn:hover { background-color: #242a3a; color: #f3f4f6; }
+    .tab-btn.active { background-color: #242c3d; color: #ffffff; border-color: var(--accent-gold); box-shadow: 0 0 8px rgba(212, 175, 55, 0.2); }
     .tab-close { background: none; border: none; color: inherit; font-size: 1.1rem; cursor: pointer; padding: 0 2px; opacity: 0.6; line-height: 1; }
     .tab-close:hover { opacity: 1; color: #fca5a5; }
-    .btn-new-tab { background-color: #0284c7; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .btn-new-tab { background: linear-gradient(180deg, #182030 0%, #111520 100%); color: #93c5fd; border: 1px dashed #3b82f6; padding: 7px 13px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.15s ease; }
+    .btn-new-tab:hover { background: #1e3a8a; border-color: var(--accent-gold); color: #ffffff; }
     
-    button { background-color: var(--accent-blue); color: #ffffff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 500; transition: 0.15s; }
+    button { background-color: var(--accent-blue); color: #ffffff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 500; transition: 0.15s; }
     button:hover { background-color: var(--accent-hover); }
-    button.btn-secondary { background-color: #4b5563; }
-    button.btn-secondary:hover { background-color: #374151; }
-    select.btn-secondary { background-color: #4b5563; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: inherit; }
-    select.btn-secondary:hover { background-color: #374151; }
-    button.btn-danger { background-color: var(--danger); }
+    button.btn-secondary { background-color: #1a1e2b; border: 1px solid #333d52; color: #e2e8f0; border-radius: 6px; }
+    button.btn-secondary:hover { background-color: #242a3a; border-color: var(--accent-gold); color: #ffffff; }
+    select.btn-secondary { background-color: #1a1e2b; color: #fff; border: 1px solid #333d52; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: inherit; }
+    select.btn-secondary:hover { background-color: #242a3a; border-color: var(--accent-gold); }
+    button.btn-danger { background-color: var(--danger); border-radius: 6px; }
     button.btn-danger:hover { background-color: var(--danger-dark); }
+
+    /* --- FFXIV HARMONIZED BUTTON THEMES --- */
+    .btn-top-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+      line-height: 1.2;
+    }
+    .btn-top-generate {
+      background: linear-gradient(180deg, #3b1d6e 0%, #260f4c 100%);
+      border-color: #6d28d9;
+      color: #ede9fe;
+    }
+    .btn-top-generate:hover {
+      background: linear-gradient(180deg, #4c1d95 0%, #3b1d6e 100%);
+      border-color: #a78bfa;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.35);
+    }
+    .btn-top-import {
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-color: #3b82f6;
+      color: #93c5fd;
+    }
+    .btn-top-import:hover {
+      background: linear-gradient(180deg, #1e3a8a 0%, #1e293b 100%);
+      border-color: #60a5fa;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+    .btn-top-open {
+      background: #161a24;
+      border-color: #334155;
+      color: #cbd5e1;
+    }
+    .btn-top-open:hover {
+      background: #1e2433;
+      border-color: #64748b;
+      color: #ffffff;
+    }
+    .btn-top-save {
+      background: linear-gradient(180deg, #064e3b 0%, #022c22 100%);
+      border-color: #059669;
+      color: #a7f3d0;
+    }
+    .btn-top-save:hover {
+      background: linear-gradient(180deg, #047857 0%, #064e3b 100%);
+      border-color: #10b981;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+    }
+    .btn-top-reset {
+      background: #1a161b;
+      border-color: #4a2830;
+      color: #fca5a5;
+    }
+    .btn-top-reset:hover {
+      background: #2d161d;
+      border-color: #dc2626;
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(220, 38, 38, 0.35);
+    }
+
+    /* Combat Navigation & Round Management */
+    .btn-turn-prev {
+      background: #161a24;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-turn-prev:not(:disabled):hover {
+      background: #242a3a;
+      border-color: #64748b;
+      color: #ffffff;
+    }
+    .btn-turn-prev:disabled {
+      opacity: 0.35;
+      cursor: not-allowed !important;
+      border-color: #242a3a;
+      color: #64748b;
+    }
+
+    .btn-turn-next {
+      background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+      border: 1px solid #f59e0b;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-turn-next:hover {
+      background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+      border-color: #fde047;
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-turn-next:active {
+      transform: translateY(0);
+    }
+
+    .btn-round-reset {
+      background: #141720;
+      border: 1px solid #2a3245;
+      color: #94a3b8;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-round-reset:hover {
+      background: #1e2433;
+      border-color: #4b5563;
+      color: #e2e8f0;
+    }
+
+    .btn-encounter-reset {
+      background: #261215;
+      border: 1px solid #5a1e24;
+      color: #fca5a5;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-encounter-reset:hover {
+      background: #451a1a;
+      border-color: #b91c1c;
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(185, 28, 28, 0.35);
+    }
+
+    /* Add Combatant Buttons */
+    .btn-add-pc {
+      background: #101c33;
+      border: 1px solid #1d4ed8;
+      color: #93c5fd;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-add-pc:hover {
+      background: #1e3a8a;
+      border-color: #3b82f6;
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-add-ally {
+      background: #082436;
+      border: 1px solid #0369a1;
+      color: #7dd3fc;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-add-ally:hover {
+      background: #0c4a6e;
+      border-color: #0ea5e9;
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(2, 132, 199, 0.3);
+    }
+
+    .btn-add-monster {
+      background: #2a1014;
+      border: 1px solid #991b1b;
+      color: #fca5a5;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-add-monster:hover {
+      background: #4c1d24;
+      border-color: #dc2626;
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(220, 38, 38, 0.35);
+    }
     
     .controls-bar { display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-alt); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color); flex-wrap: wrap; gap: 10px; }
     .round-display { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; }
@@ -85,16 +423,31 @@
     tr.monster-row:hover { background-color: rgba(var(--row-color-rgb, 35, 39, 46), 0.25); }
     tr.ally-row { background-color: rgba(56, 189, 248, 0.12); transition: background-color 0.2s, border-color 0.2s; }
     tr.ally-row:hover { background-color: rgba(56, 189, 248, 0.22); }
-    tr.pc-row { background-color: #1a222d; }
-    tr.pc-row:hover { background-color: #1f2a38; }
-    tr.active-turn { outline: 2px solid var(--warning); outline-offset: -2px; }
-    tr.down { opacity: 0.45; background-color: #17181c !important; }
+    tr.pc-row { background-color: #161a24; }
+    tr.pc-row:hover { background-color: #1e2433; }
+    tr.active-turn {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.06) 100%) !important;
+      border-left: 4px solid var(--warning);
+      box-shadow: inset 0 0 12px rgba(245, 158, 11, 0.18);
+    }
+    .active-turn-indicator {
+      display: inline-block;
+      color: #fbbf24;
+      font-weight: 900;
+      margin-right: 4px;
+      animation: turnIndicatorPulse 1.2s infinite ease-in-out;
+    }
+    @keyframes turnIndicatorPulse {
+      0%, 100% { transform: translateX(0); opacity: 1; }
+      50% { transform: translateX(3px); opacity: 0.65; }
+    }
+    tr.down { opacity: 0.45; background-color: #121418 !important; border-left: 4px solid transparent; }
     tr.down .name-input { text-decoration: line-through; color: var(--text-muted); }
 
-    input[type="text"], input[type="number"], input[type="password"], textarea { background-color: #2a2d33; color: var(--text-main); border: 1px solid #4b5563; border-radius: 4px; padding: 6px 8px; font-size: 0.9rem; box-sizing: border-box; font-family: inherit; width: 100%; }
-    input.num-input { text-align: center; }
-    input.name-input { font-weight: 600; background: #2a2d33; border: 1px solid #4b5563; transition: border 0.2s; }
-    input.name-input:hover, input.name-input:focus { border: 1px solid #4b5563; background-color: #2a2d33; }
+    input[type="text"], input[type="number"], input[type="password"], textarea { background-color: #1f2430; color: var(--text-main); border: 1px solid #3b4256; border-radius: 4px; padding: 6px 8px; font-size: 0.9rem; box-sizing: border-box; font-family: inherit; width: 100%; }
+    input.num-input { text-align: center; font-variant-numeric: tabular-nums; }
+    input.name-input { font-weight: 600; background: #1f2430; border: 1px solid #3b4256; transition: border 0.2s; }
+    input.name-input:hover, input.name-input:focus { border: 1px solid #60a5fa; background-color: #242a38; }
     
     .badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 6px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; width: 100%; box-sizing: border-box; transition: background-color 0.2s; }
     .badge-monster { color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
@@ -103,20 +456,52 @@
 
     .hp-cell-container { display: flex; flex-direction: column; gap: 4px; }
     .hp-controls { display: flex; align-items: center; gap: 4px; }
-    .hp-input { width: 35px; text-align: center; font-weight: 600; padding: 4px; }
-    .dmg-group { display: flex; align-items: center; gap: 2px; margin-left: auto; background-color: #1a1c22; padding: 2px; border-radius: 4px; border: 1px solid var(--border-color); flex-shrink:0; }
-    .btn-step { background-color: var(--border-color); color: var(--text-main); padding: 3px 6px; font-weight: 700; border-radius: 3px; }
-    .dmg-input { width: 36px !important; text-align: center; padding: 3px !important; }
+    .hp-input { width: 35px; text-align: center; font-weight: 600; padding: 4px; font-variant-numeric: tabular-nums; }
+    .dmg-group { display: flex; align-items: center; gap: 2px; margin-left: auto; background-color: #151821; padding: 2px; border-radius: 4px; border: 1px solid var(--border-color); flex-shrink:0; }
+    .btn-step { background-color: var(--border-color); color: var(--text-main); padding: 3px 6px; font-weight: 700; border-radius: 3px; cursor: pointer; transition: all 0.15s; }
+    .btn-step.btn-dmg-step { background-color: rgba(239, 68, 68, 0.22); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .btn-step.btn-dmg-step:hover { background-color: #dc2626; color: #fff; }
+    .btn-step.btn-heal-step { background-color: rgba(16, 185, 129, 0.22); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .btn-step.btn-heal-step:hover { background-color: #059669; color: #fff; }
+    .dmg-input { width: 36px !important; text-align: center; padding: 3px !important; font-variant-numeric: tabular-nums; }
     
     .hp-bar-bg { width: 100%; height: 6px; background-color: var(--border-color); border-radius: 3px; overflow: hidden; }
     .hp-bar-fill { height: 100%; background-color: var(--success); transition: width 0.2s ease; }
     .hp-bar-fill.warning { background-color: var(--warning); }
     .hp-bar-fill.danger { background-color: var(--danger); }
     
-    .btn-down-toggle { background-color: #272a30; color: var(--text-muted); border: 1px solid #4b5563; padding: 6px 12px; border-radius: 4px; font-weight: 600; width: 100%; }
+    .btn-down-toggle { background-color: #232734; color: var(--text-muted); border: 1px solid #3b4256; padding: 6px 12px; border-radius: 4px; font-weight: 600; width: 100%; cursor: pointer; transition: all 0.15s; }
+    .btn-down-toggle:hover { border-color: #60a5fa; color: #f1f5f9; }
     .btn-down-toggle.is-down { background-color: #7f1d1d; color: #fca5a5; border-color: var(--danger); }
 
-    .teleg-wrapper { display: flex; align-items: center; gap: 6px; }
+    /* Condizioni & Chip */
+    .cond-cell-wrapper { display: flex; flex-direction: column; gap: 4px; }
+    .cond-row-top { display: flex; align-items: center; gap: 6px; }
+    .btn-add-cond { background: #232734; border: 1px solid #3b4256; color: #94a3b8; padding: 3px 6px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; line-height: 1; flex-shrink: 0; font-weight: 700; transition: all 0.15s; }
+    .btn-add-cond:hover { background: #333a4c; color: #fbbf24; border-color: #fbbf24; }
+    .cond-chips-container { display: flex; flex-wrap: wrap; gap: 3px; }
+    .cond-chip { display: inline-flex; align-items: center; gap: 3px; padding: 1px 5px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; line-height: 1.3; cursor: pointer; transition: transform 0.1s, opacity 0.1s; border: 1px solid rgba(255,255,255,0.15); user-select: none; }
+    .cond-chip:hover { transform: scale(0.95); opacity: 0.85; }
+    .cond-chip .cond-chip-close { font-size: 0.8rem; font-weight: 800; margin-left: 2px; opacity: 0.7; }
+    .cond-popover { position: absolute; z-index: 100; background: #161922; border: 1px solid #3b4256; box-shadow: 0 8px 24px rgba(0,0,0,0.8); border-radius: 8px; padding: 8px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; width: 260px; }
+    .cond-popover-item { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 5px; cursor: pointer; font-size: 0.78rem; font-weight: 600; color: #e2e8f0; background: #202533; border: 1px solid transparent; transition: all 0.15s; }
+    .cond-popover-item:hover { border-color: var(--accent-gold); background: #283042; color: #fff; }
+    .cond-popover-item.is-active { background: rgba(245, 158, 11, 0.18); border-color: #f59e0b; color: #fbbf24; }
+
+    /* Dadi cliccabili & Toast FFXIV */
+    .dice-clickable { display: inline-flex; align-items: center; gap: 3px; background: rgba(212, 175, 55, 0.14); border: 1px solid rgba(212, 175, 55, 0.4); color: #fde047; padding: 1px 6px; border-radius: 4px; font-weight: 700; cursor: pointer; font-family: inherit; font-size: inherit; transition: all 0.15s; vertical-align: baseline; }
+    .dice-clickable:hover { background: rgba(212, 175, 55, 0.32); border-color: #facc15; color: #ffffff; transform: translateY(-1px); box-shadow: 0 2px 6px rgba(234, 179, 8, 0.35); }
+    .dice-clickable.is-dmg { background: rgba(239, 68, 68, 0.14); border-color: rgba(239, 68, 68, 0.4); color: #fca5a5; }
+    .dice-clickable.is-dmg:hover { background: rgba(239, 68, 68, 0.32); border-color: #f87171; color: #ffffff; box-shadow: 0 2px 6px rgba(239, 68, 68, 0.35); }
+    #diceToastContainer { position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+    .dice-toast { background: linear-gradient(135deg, #181b24 0%, #101218 100%); border: 1px solid #c5a059; border-left: 4px solid #f59e0b; box-shadow: 0 8px 25px rgba(0,0,0,0.85), 0 0 15px rgba(212, 175, 55, 0.2); color: #f3f4f6; padding: 10px 16px; border-radius: 6px; font-size: 0.9rem; min-width: 260px; max-width: 380px; pointer-events: auto; display: flex; flex-direction: column; gap: 3px; animation: toastSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+    .dice-toast.is-crit { border-color: #10b981; border-left: 4px solid #10b981; box-shadow: 0 0 20px rgba(16, 185, 129, 0.45); }
+    .dice-toast.is-fail { border-color: #ef4444; border-left: 4px solid #dc2626; box-shadow: 0 0 20px rgba(239, 68, 68, 0.45); }
+    @keyframes toastSlideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .tab-btn .boss-crown { color: #f59e0b; font-size: 0.85rem; margin-right: 3px; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6)); }
+
+    .teleg-wrapper { display: flex; align-items: center; gap: 6px; width: 100%; }
     .btn-teleg { background-color: #272a30; color: var(--text-muted); border: 1px solid #4b5563; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
     .btn-teleg.active { background-color: #b45309; color: #fef3c7; border-color: var(--warning); }
     .btn-teleg.scatta { background-color: #d97706; color: #ffffff; border-color: #fbbf24; animation: pulse 1.2s infinite alternate; }
@@ -152,9 +537,35 @@
     .sb-card.is-ally .sb-move strong.sb-move-title { color: #38bdf8; }
     .sb-card.is-ally .sb-line1 { color: #bae6fd; }
     .sb-move.sb-continuation { color: #d1d5db; font-size: 0.88rem; margin-top: -2px; margin-bottom: 6px; line-height: 1.45; }
-    .sb-spawn { margin-left: 6px; padding: 0 6px; font-size: 0.75rem; line-height: 1.5; border-radius: 4px;
-                border: 1px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; }
-    .sb-spawn:hover { background: var(--accent-blue); color: #fff; }
+    .sb-spawn {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-right: 6px;
+      padding: 1px 7px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.45;
+      border-radius: 4px;
+      border: 1px solid rgba(96, 165, 250, 0.45);
+      background: rgba(59, 130, 246, 0.16);
+      color: #93c5fd;
+      cursor: pointer;
+      font-family: inherit;
+      vertical-align: baseline;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .sb-spawn:hover {
+      background: rgba(59, 130, 246, 0.35);
+      border-color: #60a5fa;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
+    }
+    .sb-spawn:active {
+      transform: translateY(0);
+    }
     
     .sb-telegraph { font-size: 0.88rem; padding: 8px 12px; border-left: 3px solid var(--warning); margin-left: 10px; margin-top: 4px; margin-bottom: 8px; color: #e5e7eb; background: rgba(245, 158, 11, 0.07); border-radius: 0 6px 6px 0; line-height: 1.45; }
     .sb-teleg-badge { color: #fbbf24; font-weight: 700; margin-right: 5px; }
@@ -164,6 +575,134 @@
     .sb-edit-form { display: flex; flex-direction: column; gap: 10px; }
     .sb-edit-form label { font-size: 0.8rem; color: var(--text-muted); font-weight: bold; margin-bottom: -6px; }
     .sb-edit-form textarea { resize: vertical; min-height: 150px; font-family: monospace; font-size: 0.85rem;}
+
+    .sb-loot-list { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+    .sb-loot-item { display: flex; align-items: baseline; gap: 8px; padding: 6px 10px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 4px; font-size: 0.92rem; color: #e5e7eb; line-height: 1.45; }
+    .sb-loot-icon { font-size: 1rem; flex-shrink: 0; line-height: 1; }
+    .sb-loot-text { flex-grow: 1; }
+
+    /* Action toggles for inline statblock & edit */
+    .btn-sb-toggle {
+      background: #181d28;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      padding: 4px 7px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.15s ease;
+    }
+    .btn-sb-toggle:hover {
+      background: #242c3d;
+      color: #ffffff;
+      border-color: #60a5fa;
+    }
+    .btn-sb-toggle.active {
+      background: #1e3a8a;
+      border-color: #3b82f6;
+      color: #93c5fd;
+      box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Statblock Inline sotto la riga del combattente */
+    .sb-inline-tr {
+      background-color: rgba(14, 18, 27, 0.98);
+    }
+    .sb-inline-tr.active-turn {
+      background-color: rgba(22, 19, 13, 0.98);
+    }
+    .sb-inline-td {
+      padding: 0 !important;
+      border-bottom: 2px solid #2a3447;
+    }
+    .sb-inline-card {
+      padding: 14px 18px;
+      border-left: 4px solid var(--sb-accent-color, #3b82f6);
+      background: linear-gradient(90deg, rgba(var(--sb-accent-rgb, 59, 130, 246), 0.09) 0%, rgba(17, 21, 30, 0.85) 100%);
+      box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.45);
+      border-radius: 0 0 6px 6px;
+    }
+    .sb-inline-card.is-ally {
+      border-left-color: #38bdf8;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.09) 0%, rgba(17, 21, 30, 0.85) 100%);
+    }
+    .sb-inline-empty {
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: rgba(26, 32, 44, 0.55);
+      border-left: 4px solid #64748b;
+      border-radius: 0 0 6px 6px;
+    }
+
+    /* Pannello Briefing Tattica & Bottino */
+    .briefing-panel {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .briefing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background-color: #141721;
+      border-bottom: 1px solid var(--border-color);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .briefing-header:hover {
+      background-color: #1a1f2e;
+    }
+    .briefing-title {
+      font-weight: 700;
+      color: #93c5fd;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .briefing-title-icon {
+      font-size: 1.05rem;
+    }
+    .briefing-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .briefing-toggle-btn {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 6px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    .briefing-panel.collapsed .briefing-toggle-btn {
+      transform: rotate(-90deg);
+    }
+    .briefing-panel.collapsed .briefing-body {
+      display: none;
+    }
+    .briefing-panel.collapsed .briefing-header {
+      border-bottom: none;
+    }
+    .briefing-body {
+      padding: 14px 16px;
+      background-color: var(--bg-alt);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     .map-header { display: flex; flex-wrap: nowrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
     .map-header h2 { white-space: nowrap; }
@@ -365,33 +904,59 @@
   </style>
 </head>
 <body>
+  <div id="diceToastContainer"></div>
   <div class="container">
     <header>
-      <div>
-        <h1>D&D 5e — Combat Tracker</h1>
-        <p class="subtitle">Gestione Iniziativa, Statblock & NLP Generazione Mappe</p>
+      <div class="header-brand">
+        <div class="header-title-row">
+          <span class="header-icon">⚔️</span>
+          <h1>
+            <span class="title-ffxiv">FFXIV</span>
+            <span class="title-sep">×</span>
+            <span class="title-dnd">D&D 5e</span>
+            <span class="title-dash">—</span>
+            <span class="title-sub">Combat Tracker</span>
+          </h1>
+        </div>
+        <p class="subtitle">
+          <span class="sub-chip">⚡ Gestione Iniziativa</span>
+          <span class="sub-dot">·</span>
+          <span class="sub-chip">📜 Statblock &amp; Telegrafi</span>
+          <span class="sub-dot">·</span>
+          <span class="sub-chip">🗺️ NLP Generazione Mappe</span>
+        </p>
       </div>
-      <div style="display: flex; gap: 10px; align-items: center;">
-        <button class="btn-secondary" onclick="openPartyModal()" id="partyTopBtn" title="Configura i PG del party (Nome e CA) salvati nel browser" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; cursor: pointer;">
+      <div class="header-actions">
+        <button class="header-btn" onclick="openKeyShortcutsModal()" title="Visualizza le scorciatoie da tastiera per velocizzare il combattimento">
+          <span>⌨️</span> <span>Tasti</span>
+        </button>
+        <button class="header-btn" onclick="openPartyModal()" id="partyTopBtn" title="Configura i PG del party (Nome e CA) salvati nel browser">
           <span>👥</span> <span>Party</span>
         </button>
-        <button class="btn-secondary" onclick="openApiKeyModal()" id="apiKeyTopBtn" title="Configura API Key di Google Gemini per le funzionalità AI" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; cursor: pointer;">
+        <button class="header-btn" onclick="openApiKeyModal()" id="apiKeyTopBtn" title="Configura API Key di Google Gemini per le funzionalità AI">
           <span>🔑</span> <span id="apiKeyTopLabel">API Key</span>
         </button>
-        <a href="https://www.youtube.com/watch?v=nMNRPmX5Eng" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="Ascolta Victory Fanfare (FFXIV) su YouTube" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #f59e0b; border-color: #f59e0b; cursor: pointer;">
+        <a href="https://www.youtube.com/watch?v=nMNRPmX5Eng" target="_blank" rel="noopener noreferrer" class="header-btn header-btn-fanfare" title="Ascolta Victory Fanfare (FFXIV) su YouTube">
           <span>🎵</span> <span>Fanfara Vittoria</span>
         </a>
       </div>
     </header>
 
-    <div class="tabs-wrapper" id="tabsWrapper">
-      <button class="btn-import" style="background-color: #8b5cf6; border-color: #7c3aed; color: white;" onclick="openGenerateModal()">🪄 Genera</button>
-      <button class="btn-import" onclick="openImportModal()">📥 Importa</button>
+    <div class="top-actions-toolbar" id="topActionsToolbar">
+      <div class="top-actions-left">
+        <button class="btn-top-action btn-top-generate" onclick="openGenerateModal()">🪄 Genera</button>
+        <button class="btn-top-action btn-top-import" onclick="openImportModal()">📥 Importa</button>
+      </div>
+      <div class="top-actions-right">
+        <button class="btn-top-action btn-top-open" onclick="document.getElementById('openFileInput').click()" title="Carica un tracker salvato in precedenza">📂 Apri</button>
+        <button class="btn-top-action btn-top-save" onclick="openExportModal()" title="Salva tutti gli scontri, nemici e mappe">💾 Salva</button>
+        <button class="btn-top-action btn-top-reset" onclick="confirmResetSession()" title="Azzera la sessione del tracker e crea un nuovo scontro pulito col tuo party">🗑️ Reset</button>
+        <input type="file" id="openFileInput" accept=".json,application/json" style="display:none" onchange="handleOpenFile(event)">
+      </div>
+    </div>
+
+    <div class="encounter-tabs-bar" id="tabsWrapper">
       <div class="tabs" id="tabsHeader"></div>
-      <button class="btn-import" style="margin-left: auto;" onclick="document.getElementById('openFileInput').click()" title="Carica un tracker salvato in precedenza">📂 Apri</button>
-      <button class="btn-import" onclick="openExportModal()" title="Salva tutti gli scontri, nemici e mappe">💾 Salva</button>
-      <button class="btn-import" onclick="confirmResetSession()" title="Azzera la sessione del tracker e crea un nuovo scontro pulito col tuo party" style="background-color: #374151; border-color: #4b5563;">🗑️ Reset</button>
-      <input type="file" id="openFileInput" accept=".json,application/json" style="display:none" onchange="handleOpenFile(event)">
     </div>
 
     <div class="app-layout" id="appLayout">
@@ -399,9 +964,10 @@
         <div class="controls-bar">
           <div class="round-display">
             <span>Round: <span id="roundCounter" style="color: #f59e0b;">1</span></span>
-            <button class="btn-secondary" onclick="nextTurn()">Avanza Turno &raquo;</button>
-            <button class="btn-secondary" onclick="resetRound()">Resetta Round</button>
-            <button class="btn-danger" onclick="resetEncounter()">Resetta Scontro</button>
+            <button class="btn-turn-prev" id="btnPrevTurn" onclick="prevTurn()" title="Turno precedente (Tasto Freccia Sinistra)">« Prec.</button>
+            <button class="btn-turn-next" id="btnNextTurn" onclick="nextTurn()" title="Avanza turno (Tasto Spazio o Freccia Destra)">Avanza Turno »</button>
+            <button class="btn-round-reset" onclick="resetRound()">Resetta Round</button>
+            <button class="btn-encounter-reset" onclick="resetEncounter()">Resetta Scontro</button>
           </div>
 
           <div class="lb-widget" id="limitBreakWidget">
@@ -418,9 +984,9 @@
           </div>
 
           <div class="btn-group">
-            <button onclick="addCombatant('pc')">+ Aggiungi PG</button>
-            <button onclick="addCombatant('ally')" style="background-color: #0284c7; border-color: #0369a1;">+ Aggiungi Alleato</button>
-            <button onclick="addCombatant('monster')">+ Aggiungi Nemico</button>
+            <button class="btn-add-pc" onclick="addCombatant('pc')"><span>🛡️</span> + PG</button>
+            <button class="btn-add-ally" onclick="addCombatant('ally')"><span>🤝</span> + Alleato</button>
+            <button class="btn-add-monster" onclick="addCombatant('monster')"><span>⚔️</span> + Nemico</button>
           </div>
         </div>
 
@@ -428,20 +994,28 @@
           <thead>
             <tr>
               <th style="width: 45px; text-align: center;"></th>
-              <th style="width: 50px;">Iniz.</th>
+              <th style="width: 55px; cursor: pointer; user-select: none;" onclick="sortInitiative()" title="Clicca per riordinare per Iniziativa (oppure premi 'r')">Iniz. ⬍</th>
               <th>Combattente</th>
               <th style="width: 45px;">CA</th>
               <th style="width: 185px;">Stato Vita (PF)</th>
               <th>Condizioni</th>
-              <th style="width: 75px; text-align: right;">Azioni</th>
+              <th style="width: 105px; text-align: right;">Azioni</th>
             </tr>
           </thead>
           <tbody id="trackerBody"></tbody>
         </table>
 
-        <div class="statblocks" id="statblocksPanel">
-            <div class="sb-tabs-header" id="sbTabsHeader"></div>
-            <div class="sb-content-area" id="sbContentArea"></div>
+        <div class="briefing-panel" id="briefingPanel">
+          <div class="briefing-header" onclick="toggleBriefingCollapse()">
+            <div class="briefing-title">
+              <span>Info Scontro</span>
+            </div>
+            <div class="briefing-actions">
+              <button class="sb-edit-btn" id="btnEditBriefing" onclick="event.stopPropagation(); toggleEditBriefing()">✏️ Modifica</button>
+              <button class="briefing-toggle-btn" id="btnToggleBriefing" title="Espandi/Comprimi">&#9662;</button>
+            </div>
+          </div>
+          <div class="briefing-body" id="briefingBody"></div>
         </div>
       </div>
 
@@ -604,6 +1178,43 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="keyShortcutsModal" onclick="if(event.target===this) closeKeyShortcutsModal()">
+    <div class="modal-content" style="max-width: 520px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:1px solid #374151; padding-bottom:8px;">
+        <h2 style="margin:0; display:flex; align-items:center; gap:8px;">⌨️ Scorciatoie da Tastiera</h2>
+        <button class="btn-secondary" onclick="closeKeyShortcutsModal()" style="padding:4px 8px;">✕</button>
+      </div>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:14px;">
+        Queste scorciatoie sono attive quando il cursore non si trova all'interno di un campo di testo.
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #1a1e2b; border-radius: 6px; border: 1px solid #2a3245;">
+          <span>Avanza Turno</span>
+          <span style="font-weight: 700; color: #fbbf24; background: #242a3a; padding: 2px 8px; border-radius: 4px; border: 1px solid #3b4256;">Spazio o →</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #1a1e2b; border-radius: 6px; border: 1px solid #2a3245;">
+          <span>Turno Precedente</span>
+          <span style="font-weight: 700; color: #fbbf24; background: #242a3a; padding: 2px 8px; border-radius: 4px; border: 1px solid #3b4256;">←</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #1a1e2b; border-radius: 6px; border: 1px solid #2a3245;">
+          <span>Riordina per Iniziativa</span>
+          <span style="font-weight: 700; color: #fbbf24; background: #242a3a; padding: 2px 8px; border-radius: 4px; border: 1px solid #3b4256;">R</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #1a1e2b; border-radius: 6px; border: 1px solid #2a3245;">
+          <span>Ridimensiona Elemento Mappa (selezionato)</span>
+          <span style="font-weight: 700; color: #38bdf8; background: #242a3a; padding: 2px 8px; border-radius: 4px; border: 1px solid #3b4256;">↑ o ↓</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #1a1e2b; border-radius: 6px; border: 1px solid #2a3245;">
+          <span>Elimina Elemento Mappa (selezionato)</span>
+          <span style="font-weight: 700; color: #f87171; background: #242a3a; padding: 2px 8px; border-radius: 4px; border: 1px solid #3b4256;">Canc o Backspace</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+        <button class="btn-secondary" onclick="closeKeyShortcutsModal()">Chiudi</button>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="customAlertModal">
     <div class="modal-content" style="max-width: 400px; text-align: center; border-color: var(--warning);">
       <h3 id="customAlertTitle" style="margin-top:0; color: var(--warning);">Avviso</h3>
@@ -619,6 +1230,144 @@
     }
     function closeCustomAlert() {
         document.getElementById('customAlertModal').style.display = 'none';
+    }
+    function openKeyShortcutsModal() { document.getElementById('keyShortcutsModal').style.display = 'flex'; }
+    function closeKeyShortcutsModal() { document.getElementById('keyShortcutsModal').style.display = 'none'; }
+
+    const PRESET_CONDITIONS = [
+      { id: "poisoned", name: "Avvelenato", emoji: "🟢", bg: "rgba(34, 197, 94, 0.22)", border: "#22c55e", color: "#86efac" },
+      { id: "stunned", name: "Stordito", emoji: "⚡", bg: "rgba(234, 179, 8, 0.22)", border: "#eab308", color: "#fef08a" },
+      { id: "prone", name: "Prono", emoji: "🧎", bg: "rgba(148, 163, 184, 0.22)", border: "#94a3b8", color: "#cbd5e1" },
+      { id: "restrained", name: "Trattenuto", emoji: "🕸️", bg: "rgba(168, 85, 247, 0.22)", border: "#a855f7", color: "#d8b4fe" },
+      { id: "invisible", name: "Invisibile", emoji: "👁️", bg: "rgba(56, 189, 248, 0.22)", border: "#38bdf8", color: "#bae6fd" },
+      { id: "frightened", name: "Spaventato", emoji: "😱", bg: "rgba(244, 63, 94, 0.22)", border: "#f43f5e", color: "#fecdd3" },
+      { id: "blinded", name: "Accecato", emoji: "🌑", bg: "rgba(100, 116, 139, 0.28)", border: "#64748b", color: "#e2e8f0" },
+      { id: "burning", name: "Infuocato", emoji: "🔥", bg: "rgba(239, 68, 68, 0.22)", border: "#ef4444", color: "#fca5a5" },
+      { id: "concentration", name: "Concentrazione", emoji: "🔮", bg: "rgba(99, 102, 241, 0.22)", border: "#6366f1", color: "#c7d2fe" }
+    ];
+
+    let activeCondPopoverId = null;
+    function toggleConditionPopover(e, combatantId) {
+      e.stopPropagation();
+      const existing = document.getElementById("condPopover");
+      if (existing) {
+        existing.remove();
+        if (activeCondPopoverId === combatantId) {
+          activeCondPopoverId = null;
+          return;
+        }
+      }
+      activeCondPopoverId = combatantId;
+      const popover = document.createElement("div");
+      popover.id = "condPopover";
+      popover.className = "cond-popover";
+
+      const enc = encountersData[currentEncounterIndex];
+      const comb = enc ? enc.combatants.find(c => String(c.id) === String(combatantId)) : null;
+      const activeConds = (comb && comb.conditions) || [];
+
+      PRESET_CONDITIONS.forEach(cond => {
+        const item = document.createElement("div");
+        item.className = "cond-popover-item" + (activeConds.includes(cond.id) ? " is-active" : "");
+        item.innerHTML = `<span>${cond.emoji}</span> <span>${cond.name}</span>`;
+        item.onclick = (ev) => {
+          ev.stopPropagation();
+          toggleCondition(combatantId, cond.id);
+          popover.remove();
+          activeCondPopoverId = null;
+        };
+        popover.appendChild(item);
+      });
+
+      document.body.appendChild(popover);
+      const rect = e.target.getBoundingClientRect();
+      popover.style.top = (rect.bottom + window.scrollY + 4) + "px";
+      popover.style.left = Math.max(10, Math.min(window.innerWidth - 275, rect.left + window.scrollX - 130)) + "px";
+    }
+
+    document.addEventListener("click", () => {
+      const pop = document.getElementById("condPopover");
+      if (pop) { pop.remove(); activeCondPopoverId = null; }
+    });
+
+    function toggleCondition(combatantId, condId) {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc) return;
+      const comb = enc.combatants.find(c => String(c.id) === String(combatantId));
+      if (!comb) return;
+      if (!comb.conditions) comb.conditions = [];
+      const idx = comb.conditions.indexOf(condId);
+      if (idx !== -1) {
+        comb.conditions.splice(idx, 1);
+      } else {
+        comb.conditions.push(condId);
+      }
+      renderEncounter();
+      scheduleAutoSave();
+    }
+
+    function removeCondition(combatantId, condId) {
+      toggleCondition(combatantId, condId);
+    }
+
+    // --- FFXIV DICE ROLLER & TOAST NOTIFICATION ---
+    function showDiceToast(title, detailHtml, toastClass) {
+      const container = document.getElementById("diceToastContainer");
+      if (!container) return;
+      const toast = document.createElement("div");
+      toast.className = "dice-toast" + (toastClass ? " " + toastClass : "");
+      toast.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.12); padding-bottom:3px; margin-bottom:4px;">
+          <span style="font-weight:700; color:var(--accent-gold); font-size:0.82rem; text-transform:uppercase; letter-spacing:0.04em;">${escapeHtml(title)}</span>
+          <span style="cursor:pointer; font-size:1.1rem; line-height:1; opacity:0.6; padding:0 4px;" onclick="this.closest('.dice-toast').remove()">&times;</span>
+        </div>
+        <div style="font-size:0.95rem; line-height:1.4;">${detailHtml}</div>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.transition = "opacity 0.4s, transform 0.4s";
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-10px)";
+        setTimeout(() => toast.remove(), 400);
+      }, 3500);
+    }
+
+    function rollAttack(actorName, bonus, e) {
+      if (e) e.stopPropagation();
+      const d20 = Math.floor(Math.random() * 20) + 1;
+      const total = d20 + bonus;
+      let toastClass = "";
+      let detail = `Tiro d20 (<strong>${d20}</strong>) ${bonus >= 0 ? '+' : ''}${bonus} = <strong style="font-size:1.15rem; color:#fde047;">${total}</strong>`;
+      if (d20 === 20) {
+        toastClass = "is-crit";
+        detail = `✨ <strong>COLPO CRITICO (20 Naturale)!</strong><br>Totale TxC: <strong style="font-size:1.2rem; color:#34d399;">${total}</strong>`;
+      } else if (d20 === 1) {
+        toastClass = "is-fail";
+        detail = `💀 <strong>FALLIMENTO CRITICO (1 Naturale)!</strong><br>Totale TxC: <strong style="font-size:1.15rem; color:#f87171;">${total}</strong>`;
+      }
+      showDiceToast(`Tiro per Colpire · ${actorName}`, detail, toastClass);
+    }
+
+    function rollDamageDice(actorName, formulaStr, e) {
+      if (e) e.stopPropagation();
+      const m = formulaStr.match(/^(\d+)d(\d+)(?:\s*([+\-−])\s*(\d+))?$/i);
+      if (!m) return;
+      const count = parseInt(m[1], 10) || 1;
+      const sides = parseInt(m[2], 10) || 6;
+      const sign = m[3] === '-' || m[3] === '−' ? -1 : 1;
+      const mod = m[4] ? (parseInt(m[4], 10) * sign) : 0;
+
+      const rolls = [];
+      let sum = 0;
+      for (let i = 0; i < count; i++) {
+        const r = Math.floor(Math.random() * sides) + 1;
+        rolls.push(r);
+        sum += r;
+      }
+      const total = Math.max(0, sum + mod);
+      const modStr = mod !== 0 ? ` ${mod > 0 ? '+' : ''}${mod}` : '';
+      const detail = `Dadi [${rolls.join(', ')}]${modStr} = <strong style="font-size:1.2rem; color:#f87171;">${total} Danni</strong> <span style="color:#94a3b8; font-size:0.8rem;">(${formulaStr})</span>`;
+      showDiceToast(`Tiro Danno · ${actorName}`, detail);
     }
 
     const SB_SECTION_TITLE = /^[^\p{L}\n]*(Tratt[io]|Azion[ei]|Azion[ei] Bonus|Reazion[ei]|Azion[ei] Leggendar[ie]|Azion[ei] di Tana|Bottino|Incantesimi|Magia)[^\p{L}\n]*$/iu;
@@ -800,6 +1549,8 @@
         currentEncounterIndex = 0;
         activeStatblockIndex = 0;
         editingStatblockIndex = null;
+        manuallyExpandedCombatantIds.clear();
+        collapsedActiveCombatantIds.clear();
         renderTabs();
         captureBaseRosters();
         renderEncounter();
@@ -908,9 +1659,11 @@
     let catalogOpen = false;
     let selectedFeatureUids = new Set();
     // Dove stava un elemento prima di iniziare a scalarlo, per rimetterlo li' quando torna alla
-    // taglia di partenza. La memoria vale per UNA selezione: cambiarla la azzera.
     let resizeMemory = { key: '', items: {} };
     let editingStatblockIndex = null;
+    let manuallyExpandedCombatantIds = new Set();
+    let collapsedActiveCombatantIds = new Set();
+    let isBriefingCollapsed = false;
 
     window.onload = function() { initResizer(); initTracker(); updateApiKeyTopIndicator(); };
 
@@ -934,6 +1687,21 @@
 
         document.addEventListener('keydown', (e) => {
             if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.code === 'Space') {
+                e.preventDefault();
+                nextTurn();
+                return;
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevTurn();
+                return;
+            }
+            if (e.key === 'r' || e.key === 'R') {
+                e.preventDefault();
+                sortInitiative();
+                return;
+            }
             if (!selectedFeatureUids.size) return;
             if (e.key === 'Delete' || e.key === 'Backspace') { e.preventDefault(); deleteSelectedFeatures(); return; }
             // Freccia su/giu': scala fra Media (1) e Mastodontica (4). Funziona anche in multi-selezione:
@@ -1008,10 +1776,17 @@
       const tabsContainer = document.getElementById("tabsHeader"); tabsContainer.innerHTML = "";
       encountersData.forEach((enc, index) => {
         const btn = document.createElement("div"); btn.className = "tab-btn " + (index === currentEncounterIndex ? "active" : "");
-        const titleSpan = document.createElement("span"); titleSpan.textContent = enc.title; titleSpan.onclick = () => switchTab(index);
-        btn.appendChild(titleSpan);
+        const isBoss = enc.limitBreak && enc.limitBreak.maxBars === 3;
+        const crown = isBoss ? '<span class="boss-crown" title="Boss (3 Barre Limit Break)">👑</span>' : '';
+        btn.innerHTML = `${crown}<span>${escapeHtml(enc.title)}</span>`;
+        btn.title = `Round ${enc.round || 1} · ${(enc.combatants || []).length} combattenti`;
+        btn.onclick = (e) => {
+          if (e.target.classList.contains("tab-close")) return;
+          switchTab(index);
+        };
         if (encountersData.length > 1) {
           const closeBtn = document.createElement("button"); closeBtn.className = "tab-close"; closeBtn.innerHTML = "&times;";
+          closeBtn.title = "Chiudi questo scontro";
           closeBtn.onclick = (e) => { e.stopPropagation(); closeTab(index); }; btn.appendChild(closeBtn);
         }
         tabsContainer.appendChild(btn);
@@ -1019,7 +1794,17 @@
       const addBtn = document.createElement("button"); addBtn.className = "btn-new-tab"; addBtn.textContent = "+ Nuovo Scontro"; addBtn.onclick = addNewEmptyTab; tabsContainer.appendChild(addBtn);
     }
 
-    function switchTab(index) { currentEncounterIndex = index; activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); captureRoundTelegraphs(); renderEncounter(); scheduleAutoSave(); }
+    function switchTab(index) {
+      currentEncounterIndex = index;
+      activeStatblockIndex = 0;
+      editingStatblockIndex = null;
+      manuallyExpandedCombatantIds.clear();
+      collapsedActiveCombatantIds.clear();
+      renderTabs();
+      captureRoundTelegraphs();
+      renderEncounter();
+      scheduleAutoSave();
+    }
     function addNewEmptyTab() {
       encountersData.push({
         id: "enc_" + Date.now(),
@@ -1038,7 +1823,17 @@
       switchTab(encountersData.length - 1);
       scheduleAutoSave();
     }
-    function closeTab(index) { encountersData.splice(index, 1); if (currentEncounterIndex >= index) currentEncounterIndex = Math.max(0, currentEncounterIndex - 1); activeStatblockIndex = 0; editingStatblockIndex = null; renderTabs(); renderEncounter(); scheduleAutoSave(); }
+    function closeTab(index) {
+      encountersData.splice(index, 1);
+      if (currentEncounterIndex >= index) currentEncounterIndex = Math.max(0, currentEncounterIndex - 1);
+      activeStatblockIndex = 0;
+      editingStatblockIndex = null;
+      manuallyExpandedCombatantIds.clear();
+      collapsedActiveCombatantIds.clear();
+      renderTabs();
+      renderEncounter();
+      scheduleAutoSave();
+    }
 
     function getBaseName(name) { return name.replace(/\s+\d+$/, '').trim(); }
     // Ordine di assegnazione dei colori: PRIMA i gruppi DUPLICATI, poi i mostri unici.
@@ -1079,49 +1874,207 @@
     // e' la firma di uno adds che il boss fa comparire a meta' scontro.
     function moveHasMinion(text) { return /\bCA\s*\d+/i.test(text) && /\bPF\s*\d+/i.test(text); }
 
-    // Si estrae SOLO cio' che serve al tabellone: nome, CA, PF, quanti. Il resto della capsula resta
-    // testo opaco e finisce tale e quale nella scheda: la forma cambia a ogni generazione, strutturarla
-    // sarebbe una scommessa persa.
-    const NUMWORDS = { uno:1, un:1, due:2, tre:3, quattro:4, cinque:5, sei:6, sette:7, otto:8 };
-    function parseMinion(text, fallbackName) {
-        const ac = (text.match(/\bCA\s*(\d+)/i) || [])[1];
-        const hp = (text.match(/\bPF\s*(\d+)/i) || [])[1];
-        let name = (text.match(/\(\s*([^:;()]{2,40}?)\s*:/) || [])[1];
-        if (!name) name = (fallbackName || 'Adds').replace(/[.—-]\s*$/, '').trim();
-        let count = 1;
-        const first = name.split(/\s+/)[0];
-        if (first) {
-            // Quanti: si cerca la parola subito PRIMA del nome. Niente RegExp costruita da stringa,
-            // che obbliga a scappare il nome e si rompe al primo carattere speciale.
-            const at = text.toLowerCase().indexOf(first.toLowerCase());
-            const before = at > 0 ? (text.slice(0, at).trim().split(/\s+/).pop() || '') : '';
-            const w = before.toLowerCase().replace(/[^a-z0-9]/g, '');
-            if (w) count = /^[0-9]+$/.test(w) ? parseInt(w, 10) : (NUMWORDS[w] || 1);
+    // Si estrae in modo pulito la capsula dello sgherro evocato: nome, quanti, CA, PF, Vel, Taglia e mosse.
+    const NUMWORDS = { uno:1, un:1, una:1, due:2, tre:3, quattro:4, cinque:5, sei:6, sette:7, otto:8, nove:9, dieci:10 };
+
+    function splitOutsideBrackets(str, delimiters) {
+        const parts = [];
+        let cur = "";
+        let pDepth = 0;
+        let bDepth = 0;
+        for (let i = 0; i < str.length; i++) {
+            const ch = str[i];
+            if (ch === '(') pDepth++;
+            else if (ch === ')') { if (pDepth > 0) pDepth--; }
+            else if (ch === '[') bDepth++;
+            else if (ch === ']') { if (bDepth > 0) bDepth--; }
+
+            if (pDepth === 0 && bDepth === 0 && delimiters.includes(ch)) {
+                if (cur.trim()) parts.push(cur.trim());
+                cur = "";
+            } else {
+                cur += ch;
+            }
         }
-        return { name: name, ac: ac ? parseInt(ac,10) : 10, hp: hp ? parseInt(hp,10) : 1,
-                 count: Math.max(1, Math.min(12, count)) };
+        if (cur.trim()) parts.push(cur.trim());
+        return parts;
     }
 
-    // La capsula arriva come '(Nome: descrizione)'. Si toglie l'involucro e si lascia la sola
-    // descrizione. Se la forma non e' quella, il testo resta intatto: nessuna dipendenza nuova.
-    function minionBody(text) {
-        let d = String(text || '').trim();
-        const cut = d.indexOf(':');
-        if (d.charAt(0) === '(' && cut > 0) d = d.slice(cut + 1);
-        d = d.replace(/^[\s(]+/, '').replace(/[)\s]+$/, '').trim();
-        // Una riga per segmento: si taglia su , ; . solo quando NON segue una cifra, cosi' 1,5m
-        // e 4 (1d4+2) restano interi. Ogni segmento diventa una voce, e il pannello la manda a capo.
-        // Poi si toglie la punteggiatura di giunzione: a fine riga non serve, e un punto finale
-        // farebbe leggere il segmento come 'titolo di mossa', che il pannello stampa in rosa.
-        const trimSeg = (s) => {
-            let x = s.replace(/^[\s,;.]+/, '').replace(/[\s,;.]+$/, '');
-            // una chiusa in piu' e' l'involucro della capsula, non parte del testo: (2d6) resta intatto
-            while (/\)$/.test(x) && (x.split(')').length > x.split('(').length)) {
-                x = x.slice(0, -1).replace(/[\s,;.]+$/, '');
+    function extractEnclosingCapsule(text) {
+        let depth = 0;
+        let openIdx = -1;
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] === '(') {
+                if (depth === 0) openIdx = i;
+                depth++;
+            } else if (text[i] === ')') {
+                if (depth > 0) {
+                    depth--;
+                    if (depth === 0 && openIdx >= 0) {
+                        const candidate = text.substring(openIdx + 1, i);
+                        if (/\bCA\s*\d+/i.test(candidate) && /\bPF\s*\d+/i.test(candidate)) {
+                            return {
+                                lead: text.substring(0, openIdx),
+                                content: candidate.trim(),
+                                tail: text.substring(i + 1)
+                            };
+                        }
+                        openIdx = -1;
+                    }
+                }
             }
-            return x.trim();
+        }
+        const caIdx = text.search(/\bCA\s*\d+/i);
+        const pfIdx = text.search(/\bPF\s*\d+/i);
+        if (caIdx >= 0 && pfIdx >= 0) {
+            const start = Math.min(caIdx, pfIdx);
+            const colonBefore = text.lastIndexOf(':', start);
+            const lead = colonBefore >= 0 ? text.substring(0, colonBefore) : text.substring(0, start);
+            const rest = colonBefore >= 0 ? text.substring(colonBefore + 1) : text.substring(start);
+            return { lead: lead, content: rest.trim(), tail: "" };
+        }
+        return { lead: "", content: text.trim(), tail: "" };
+    }
+
+    function formatCleanMinionMove(m) {
+        let s = m.trim().replace(/[,\s.]+$/, '');
+        // Formato: piccone da scavo [+4 a colpire, 5 (1d6+2) danni perforanti]
+        const bracketM = s.match(/^([A-Za-zÀ-ú\s0-9'’]+?)\s*\[([^\]]+)\]$/);
+        if (bracketM) {
+            const title = bracketM[1].trim();
+            const cap = title.charAt(0).toUpperCase() + title.slice(1);
+            return cap + ". " + bracketM[2].trim() + ".";
+        }
+        // Formato: Artigli +4 al tiro per colpire... (senza punto o due punti dopo il nome)
+        const plainHitM = s.match(/^([A-Za-zÀ-ú\s'’]{2,30}?)\s+([+\-−]\d+\s+al tiro per colpire.*)$/i);
+        if (plainHitM) {
+            const title = plainHitM[1].trim();
+            const cap = title.charAt(0).toUpperCase() + title.slice(1);
+            return cap + ". " + plainHitM[2].trim();
+        }
+        if (s.length > 0) {
+            s = s.charAt(0).toUpperCase() + s.slice(1);
+        }
+        return s;
+    }
+
+    function parseMinion(text, fallbackName) {
+        const cap = extractEnclosingCapsule(text);
+        let rawContent = cap.content;
+        let name = "";
+        let rest = rawContent;
+
+        // Se la capsula inizia con "Nome:"
+        const nameMatch = rawContent.match(/^\s*([^:;()]{2,45}?)\s*:\s*(.*)$/s);
+        if (nameMatch) {
+            name = nameMatch[1].replace(/[*_#]+/g, '').trim();
+            rest = nameMatch[2].trim();
+        } else {
+            // Altrimenti il nome è subito prima della parentesi nel testo antecedente
+            const leadTrim = cap.lead.replace(/[*_#]+/g, '').trim();
+            const nm = leadTrim.match(/(?:evoca|richiama|chiama|spawna)?\s*(?:(?:x|×)\s*\d+|\d+|uno|un|una|due|tre|quattro|cinque|sei|sette|otto|nove|dieci)?\s*([A-Za-zÀ-ú\s]{2,40}?)\s*$/i);
+            if (nm && nm[1] && nm[1].trim().length > 1) {
+                name = nm[1].trim();
+            } else {
+                name = (fallbackName || 'Adds').replace(/[.—-]\s*$/, '').trim();
+            }
+        }
+
+        // Quanti nemici evocare
+        let count = 1;
+        const countSearch = (cap.lead + " " + (nameMatch ? "" : name)).trim();
+        const numMatch = countSearch.match(/(?:(?:x|×)\s*(\d+)|\b(\d+)\b|\b(uno|un|una|due|tre|quattro|cinque|sei|sette|otto|nove|dieci)\b)\s*(?:[A-Za-zÀ-ú\s]{0,25})$/i);
+        if (numMatch) {
+            const val = (numMatch[1] || numMatch[2] || numMatch[3] || '').toLowerCase();
+            if (/^\d+$/.test(val)) count = parseInt(val, 10);
+            else if (NUMWORDS[val]) count = NUMWORDS[val];
+        }
+
+        // Parametri di combattimento: CA, PF, Vel, Taglia
+        const acM = rest.match(/\bCA\s*(\d+)/i);
+        const ac = acM ? parseInt(acM[1], 10) : 10;
+
+        const hpM = rest.match(/\bPF\s*(\d+)(?:\s*(\([^)]+\)))?/i);
+        const hp = hpM ? parseInt(hpM[1], 10) : 1;
+        const hpFormula = hpM && hpM[2] ? hpM[2].trim() : "";
+        const hpDisplay = hpFormula ? (hp + " " + hpFormula) : String(hp);
+
+        const velM = rest.match(/\bVel(?:ocit[àa])?\s*([0-9]+(?:\s*[a-zA-Z]+(?:\s*,\s*[a-zA-Z]+\s*[0-9]+\s*[a-zA-Z]+)*)?)/i);
+        const vel = velM ? velM[1].trim() : "";
+
+        let size = 1, sizeLabel = "";
+        if (/\bmastodontic[aoe]?\b/i.test(rawContent)) { size = 4; sizeLabel = "Mastodontica"; }
+        else if (/\benorme\b/i.test(rawContent)) { size = 3; sizeLabel = "Enorme"; }
+        else if (/\bgrand[ei]\b/i.test(rawContent)) { size = 2; sizeLabel = "Grande"; }
+        else if (/\bpiccol[aoe]?\b/i.test(rawContent)) { size = 1; sizeLabel = "Piccola"; }
+        else if (/\bminuscol[aoe]?\b/i.test(rawContent)) { size = 1; sizeLabel = "Minuscola"; }
+        else if (/\bmedi[aoe]?\b/i.test(rawContent)) { size = 1; sizeLabel = "Media"; }
+
+        // Eventuale descrittore di tipo/flavour (es: Piccola creatura del Vuoto)
+        const descM = rest.match(/(?:^|[;,]\s*)(?:(?:Piccol[aoe]?|Medi[aoe]?|Grand[ei]|Minuscol[aoe]?|Enorme)\s+)?creatura(?:\s+del\s+Vuoto|\s+umanoide|\s+bestia|\s+non\s+morta)?[^;,]*/i);
+        let creatureType = descM ? descM[0].replace(/^[;,]\s*/, '').trim() : "";
+
+        // Composizione riga 1 della scheda: es. "CA 12 · PF 14 · Vel 9 yalm"
+        const l1Parts = [];
+        if (creatureType) l1Parts.push(creatureType);
+        else if (sizeLabel) l1Parts.push(sizeLabel);
+        l1Parts.push("CA " + ac);
+        l1Parts.push("PF " + hpDisplay);
+        if (vel) l1Parts.push("Vel " + vel);
+        const line1 = l1Parts.join(" · ");
+
+        // Estrazione delle mosse / azioni reali (escludendo i token di statistica già estratti in linea 1)
+        const delims = [';', ','];
+        const rawSegments = splitOutsideBrackets(rest, delims);
+
+        const isStatToken = s => {
+            const st = s.trim();
+            if (/^CA\s*\d+$/i.test(st)) return true;
+            if (/^PF\s*\d+(\s*\([^)]*\))?$/i.test(st)) return true;
+            if (/^Vel(?:ocit[àa])?\s*\d+/i.test(st)) return true;
+            if (creatureType && st.toLowerCase() === creatureType.toLowerCase()) return true;
+            if (/^(?:Piccol[aoe]?|Medi[aoe]?|Grand[ei]|Minuscol[aoe]?|Enorme)$/i.test(st)) return true;
+            return false;
         };
-        return d.split(/(?<=[,;.])(?=\s*[^\s\d])/).map(trimSeg).filter(Boolean);
+
+        const isContinuation = s => {
+            const st = s.trim();
+            return /^(?:\d+|\+?\d+d\d+|danni\b|portata\b|gittata\b|un bersaglio\b|bersaglio\b|TS\b|CD\b|al tiro\b|a colpire\b|più\b|e\b|oppure\b)/i.test(st);
+        };
+
+        const moves = [];
+        let currentMove = "";
+
+        for (let seg of rawSegments) {
+            seg = seg.trim();
+            if (!seg || isStatToken(seg)) continue;
+
+            if (!currentMove) {
+                currentMove = seg;
+            } else if (isContinuation(seg)) {
+                currentMove += ", " + seg;
+            } else {
+                moves.push(formatCleanMinionMove(currentMove));
+                currentMove = seg;
+            }
+        }
+        if (currentMove) {
+            moves.push(formatCleanMinionMove(currentMove));
+        }
+
+        return {
+            name: name,
+            ac: ac,
+            hp: hp,
+            size: size,
+            line1: line1,
+            moves: moves,
+            count: Math.max(1, Math.min(12, count))
+        };
+    }
+
+    function minionBody(text) {
+        return (parseMinion(text) || {}).moves || [];
     }
 
     function spawnMinionFromMove(sbIdx, moveIdx) {
@@ -1132,8 +2085,9 @@
         const mi = parseMinion(text, title);
         if (!enc.statblocks.find(s => s.name.toLowerCase() === mi.name.toLowerCase())) {
             const sb = emptyStatblock(mi.name); sb.spawned = true;
-            sb.line1 = mi.name;
-            sb.moves = minionBody(text);   // la sola descrizione, una riga per segmento
+            sb.size = mi.size;
+            sb.line1 = mi.line1;
+            sb.moves = mi.moves;
             enc.statblocks.push(sb);
         }
         // Numerati SEMPRE, e si riprende dal piu' alto gia' presente: cosi' una seconda evocazione
@@ -1157,7 +2111,7 @@
     function emptyStatblock(name) { return { name: name, size: 1, line1: "", attributes: "", ts: "", skills: "", senses: "", moves: [] }; }
     
     function getCombatantSizeById(id) {
-        const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => i.id === id); if(!c || (!c.isMonster && !c.isAlly)) return 1;
+        const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => String(i.id) === String(id)); if(!c || (!c.isMonster && !c.isAlly)) return 1;
         const sb = enc.statblocks.find(s => s.name.toLowerCase() === getBaseName(c.name).toLowerCase());
         if(sb) {
             if (sb.size !== undefined) return sb.size;
@@ -1185,17 +2139,17 @@
     function escapeHtml(str) { return String(str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;"); }
 
     function applyDmg(id, sign) {
-      const c = encountersData[currentEncounterIndex].combatants.find(i => i.id === id); if (!c) return;
+      const c = encountersData[currentEncounterIndex].combatants.find(i => String(i.id) === String(id)); if (!c) return;
       const inp = document.getElementById("dmg-input-" + id); let amt = 1; 
       if (inp && inp.value.trim() !== "") { amt = parseInt(inp.value, 10) || 1; inp.value = ""; }
       c.hp = sign < 0 ? Math.max(0, c.hp - amt) : c.hp + amt; renderEncounter();
     }
     
-    function togglePcDown(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => i.id === id); if (c && !c.isMonster && !c.isAlly) { c.isDown = !c.isDown; renderEncounter(); } }
-    function cycleTelegraph(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => i.id === id); if (!c || !c.isMonster) return; c.telegraph = (c.telegraph === null) ? 1 : (c.telegraph === 1 ? 2 : (c.telegraph === 2 ? 3 : null)); renderEncounter(); }
+    function togglePcDown(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => String(i.id) === String(id)); if (c && !c.isMonster && !c.isAlly) { c.isDown = !c.isDown; renderEncounter(); } }
+    function cycleTelegraph(id) { const c = encountersData[currentEncounterIndex].combatants.find(i => String(i.id) === String(id)); if (!c || !c.isMonster) return; c.telegraph = (c.telegraph === null) ? 1 : (c.telegraph === 1 ? 2 : (c.telegraph === 2 ? 3 : null)); renderEncounter(); }
     
     function updateCombatant(id, field, value, triggerSort) {
-      const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => i.id === id); if (!c) return;
+      const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => String(i.id) === String(id)); if (!c) return;
       if (field === "init") { c.init = value === "" ? null : parseInt(value, 10) || 0; if (triggerSort) sortInitiative(); }
       else if (["hp", "maxHp", "ac"].includes(field)) { c[field] = value === "" ? "" : parseInt(value, 10) || 0; renderEncounter(); }
       else if (field === "name") {
@@ -1239,7 +2193,8 @@
       const enc = encountersData[currentEncounterIndex];
       const activeId = (enc.combatants[enc.activeTurnIndex] || {}).id;
       enc.combatants.sort((a, b) => { const vA = a.init !== null && a.init !== "" ? parseInt(a.init,10) : -999; const vB = b.init !== null && b.init !== "" ? parseInt(b.init,10) : -999; return vB - vA; });
-      if (activeId !== undefined) enc.activeTurnIndex = Math.max(0, enc.combatants.findIndex(c => c.id === activeId));
+      if (activeId !== undefined) enc.activeTurnIndex = Math.max(0, enc.combatants.findIndex(c => String(c.id) === String(activeId)));
+      if (enc) enc.turnHistory = [];
       autoSelectStatblock(); renderEncounter();
     }
     
@@ -1254,13 +2209,14 @@
               if (isA) sb.isAlly = true;
               enc.statblocks.push(sb);
           }
+          manuallyExpandedCombatantIds.add(String(newId));
           syncStatblocks();
       }
       sortInitiative();   // prende subito il suo posto; il cursore di turno resta sulla sua entita'
     }
     
     function cloneCombatant(id) {
-        const enc = encountersData[currentEncounterIndex]; const source = enc.combatants.find(c => c.id === id); if (!source || (!source.isMonster && !source.isAlly)) return;
+        const enc = encountersData[currentEncounterIndex]; const source = enc.combatants.find(c => String(c.id) === String(id)); if (!source || (!source.isMonster && !source.isAlly)) return;
         let baseName = getBaseName(source.name); let count = 1; enc.combatants.forEach(c => { if (getBaseName(c.name) === baseName) count++; });
         if (!source.name.match(/\d+$/)) source.name = baseName + " 1";
         const newId = Date.now();
@@ -1270,8 +2226,10 @@
     }
     
     function removeCombatant(id) {
-      const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => i.id === id);
-      enc.combatants = enc.combatants.filter(i => i.id !== id);
+      const enc = encountersData[currentEncounterIndex]; const c = enc.combatants.find(i => String(i.id) === String(id));
+      enc.combatants = enc.combatants.filter(i => String(i.id) !== String(id));
+      manuallyExpandedCombatantIds.delete(String(id));
+      collapsedActiveCombatantIds.delete(String(id));
       if (enc.activeTurnIndex >= enc.combatants.length) enc.activeTurnIndex = Math.max(0, enc.combatants.length-1); 
       if (c && (c.isMonster || c.isAlly)) { if(enc.mapData && enc.mapData.entityPositions[id]) delete enc.mapData.entityPositions[id]; syncStatblocks(); }
       renderEncounter();
@@ -1280,48 +2238,222 @@
     function autoSelectStatblock() {
         const enc = encountersData[currentEncounterIndex]; if (enc.statblocks.length === 0 || enc.combatants.length === 0) return;
         const activeComb = enc.combatants[enc.activeTurnIndex];
-        if (activeComb && (activeComb.isMonster || activeComb.isAlly)) { const baseName = getBaseName(activeComb.name).toLowerCase(); let matchIdx = enc.statblocks.findIndex(sb => sb.name.toLowerCase() === baseName); if (matchIdx !== -1) { activeStatblockIndex = matchIdx; editingStatblockIndex = null; } }
+        if (activeComb && (activeComb.isMonster || activeComb.isAlly)) { const baseName = getBaseName(activeComb.name).toLowerCase(); let matchIdx = enc.statblocks.findIndex(sb => sb.name.toLowerCase() === baseName); if (matchIdx !== -1) { activeStatblockIndex = matchIdx; if (editingStatblockIndex !== 'briefing') editingStatblockIndex = null; } }
     }
 
     function selectStatblockByName(name) {
-        const enc = encountersData[currentEncounterIndex]; if (!enc || !enc.statblocks || enc.statblocks.length === 0) return;
-        const baseName = getBaseName(name).toLowerCase();
-        let matchIdx = enc.statblocks.findIndex(sb => sb.name.toLowerCase() === baseName);
-        if (matchIdx !== -1) { activeStatblockIndex = matchIdx; editingStatblockIndex = null; renderStatblocks(); }
+        const enc = encountersData[currentEncounterIndex]; if (!enc || !enc.combatants) return;
+        const c = enc.combatants.find(x => x.name.toLowerCase() === name.toLowerCase() || getBaseName(x.name).toLowerCase() === name.toLowerCase());
+        if (c) toggleInlineStatblock(c.id);
+    }
+
+    function isAtStartOfEncounter(enc) {
+      if (!enc || !enc.combatants || enc.combatants.length === 0) return true;
+      if (enc.round > 1) return false;
+      let firstActive = enc.combatants.findIndex(c => !isCombatantDown(c));
+      if (firstActive === -1) firstActive = 0;
+      return enc.activeTurnIndex <= firstActive;
+    }
+
+    function getTurnSnapshot(enc) {
+      return {
+        round: enc.round,
+        activeTurnIndex: enc.activeTurnIndex,
+        telegraphs: (enc.combatants || []).map(c => ({
+          id: c.id,
+          telegraph: c.telegraph,
+          roundStartTelegraph: c.roundStartTelegraph
+        }))
+      };
+    }
+
+    function scrollActiveCombatantIntoView() {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const enc = encountersData[currentEncounterIndex];
+          if (!enc || !enc.combatants || enc.combatants.length === 0) return;
+          const activeComb = enc.combatants[enc.activeTurnIndex];
+          if (!activeComb) return;
+
+          const rowEl = document.getElementById("row-" + activeComb.id);
+          if (!rowEl) return;
+          const sbRowEl = document.getElementById("sb-row-" + activeComb.id);
+
+          const rowRect = rowEl.getBoundingClientRect();
+          const sbRect = sbRowEl ? sbRowEl.getBoundingClientRect() : null;
+
+          const top = rowRect.top;
+          const bottom = sbRect ? sbRect.bottom : rowRect.bottom;
+          const vh = window.innerHeight || document.documentElement.clientHeight;
+          const topPadding = 24;
+          const bottomPadding = 24;
+
+          // Se la riga e l'eventuale statblock sono già comodamente visibili nella viewport, non scrollare
+          if (top >= topPadding && bottom <= vh - bottomPadding) {
+            return;
+          }
+
+          const totalHeight = bottom - top;
+          // Se l'altezza complessiva supera la dimensione utile dello schermo,
+          // allinea la riga principale del combattente in cima con margine protettivo
+          if (totalHeight > vh - (topPadding + bottomPadding)) {
+            const targetScrollY = window.scrollY + top - topPadding;
+            window.scrollTo({ top: Math.max(0, targetScrollY), behavior: 'smooth' });
+          } else if (top < topPadding) {
+            // Fuori dal bordo superiore: scrolla in alto
+            const targetScrollY = window.scrollY + top - topPadding;
+            window.scrollTo({ top: Math.max(0, targetScrollY), behavior: 'smooth' });
+          } else if (bottom > vh - bottomPadding) {
+            // Fuori dal bordo inferiore: scrolla in basso per rivelare il blocco completo
+            const targetScrollY = window.scrollY + (bottom - vh + bottomPadding);
+            window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+          }
+        }, 40);
+      });
+    }
+
+    function prevTurn() {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc || enc.combatants.length === 0) return;
+      
+      // Il cursore non deve tornare indietro oltre il 1° turno del 1° round
+      if (isAtStartOfEncounter(enc)) {
+        renderEncounter();
+        scrollActiveCombatantIntoView();
+        return;
+      }
+
+      // Ripristino dello stato storico esatto (round, indice turno e stati dei telegrafi)
+      if (enc.turnHistory && enc.turnHistory.length > 0) {
+        const snap = enc.turnHistory.pop();
+        enc.round = snap.round;
+        enc.activeTurnIndex = snap.activeTurnIndex;
+        if (snap.telegraphs) {
+          snap.telegraphs.forEach(st => {
+            const c = enc.combatants.find(i => String(i.id) === String(st.id));
+            if (c) {
+              c.telegraph = st.telegraph;
+              c.roundStartTelegraph = st.roundStartTelegraph;
+            }
+          });
+        }
+      } else {
+        let attempts = 0;
+        do {
+          enc.activeTurnIndex--;
+          if (enc.activeTurnIndex < 0) {
+            if (enc.round <= 1) {
+              let firstActive = enc.combatants.findIndex(c => !isCombatantDown(c));
+              enc.activeTurnIndex = firstActive >= 0 ? firstActive : 0;
+              enc.round = 1;
+              break;
+            }
+            enc.activeTurnIndex = enc.combatants.length - 1;
+            enc.round--;
+          }
+          attempts++;
+        } while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && attempts <= enc.combatants.length + 2);
+      }
+      collapsedActiveCombatantIds.clear();
+      if (editingStatblockIndex !== 'briefing') editingStatblockIndex = null;
+      autoSelectStatblock();
+      renderEncounter();
+      scrollActiveCombatantIntoView();
+      scheduleAutoSave();
     }
 
     function nextTurn() {
-      const enc = encountersData[currentEncounterIndex]; if (enc.combatants.length === 0) return;
-      const out = enc.combatants[enc.activeTurnIndex]; if (out && out.isMonster && out.telegraph === 0) out.telegraph = null;
-      if (!enc.combatants.some(c => !isCombatantDown(c))) { enc.activeTurnIndex = 0; renderEncounter(); return; }
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc || enc.combatants.length === 0) return;
+      if (!enc.combatants.some(c => !isCombatantDown(c))) {
+        enc.activeTurnIndex = 0;
+        collapsedActiveCombatantIds.clear();
+        if (editingStatblockIndex !== 'briefing') editingStatblockIndex = null;
+        renderEncounter();
+        scrollActiveCombatantIntoView();
+        return;
+      }
+
+      // Memorizza lo snapshot prima dell'avanzamento per permettere il riavvolgimento fedele del telegrafo
+      if (!enc.turnHistory) enc.turnHistory = [];
+      enc.turnHistory.push(getTurnSnapshot(enc));
+      if (enc.turnHistory.length > 50) enc.turnHistory.shift();
+
+      const out = enc.combatants[enc.activeTurnIndex];
+      if (out && out.isMonster && out.telegraph === 0) out.telegraph = null;
+
       let attempts = 0, roundChanged = false;
-      do { enc.activeTurnIndex++; if (enc.activeTurnIndex >= enc.combatants.length) { enc.activeTurnIndex = 0; enc.round++; roundChanged = true; } attempts++; } while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && attempts <= enc.combatants.length + 2);
-      const curr = enc.combatants[enc.activeTurnIndex]; if (curr && curr.isMonster && curr.telegraph > 0) curr.telegraph--;
-      if (roundChanged) captureRoundTelegraphs(); autoSelectStatblock(); renderEncounter();
+      do {
+        enc.activeTurnIndex++;
+        if (enc.activeTurnIndex >= enc.combatants.length) {
+          enc.activeTurnIndex = 0;
+          enc.round++;
+          roundChanged = true;
+        }
+        attempts++;
+      } while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && attempts <= enc.combatants.length + 2);
+
+      const curr = enc.combatants[enc.activeTurnIndex];
+      if (curr && curr.isMonster && curr.telegraph > 0) curr.telegraph--;
+      if (roundChanged) captureRoundTelegraphs();
+      collapsedActiveCombatantIds.clear();
+      if (editingStatblockIndex !== 'briefing') editingStatblockIndex = null;
+      autoSelectStatblock();
+      renderEncounter();
+      scrollActiveCombatantIntoView();
+      scheduleAutoSave();
     }
     
     function resetRound() {
-      const enc = encountersData[currentEncounterIndex]; enc.combatants.forEach(c => { if(c.isMonster && c.roundStartTelegraph !== undefined) c.telegraph = c.roundStartTelegraph; });
-      enc.activeTurnIndex = 0; let att = 0; while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && att < enc.combatants.length) { enc.activeTurnIndex++; att++; }
-      if (enc.activeTurnIndex >= enc.combatants.length) enc.activeTurnIndex = 0; autoSelectStatblock(); renderEncounter();
+      const enc = encountersData[currentEncounterIndex];
+      enc.turnHistory = [];
+      enc.combatants.forEach(c => { if(c.isMonster && c.roundStartTelegraph !== undefined) c.telegraph = c.roundStartTelegraph; });
+      enc.activeTurnIndex = 0;
+      let att = 0;
+      while (isCombatantDown(enc.combatants[enc.activeTurnIndex]) && att < enc.combatants.length) { enc.activeTurnIndex++; att++; }
+      if (enc.activeTurnIndex >= enc.combatants.length) enc.activeTurnIndex = 0;
+      collapsedActiveCombatantIds.clear();
+      if (editingStatblockIndex !== 'briefing') editingStatblockIndex = null;
+      autoSelectStatblock();
+      renderEncounter();
+      scrollActiveCombatantIntoView();
+      scheduleAutoSave();
     }
     
     function resetEncounter() {
-      const enc = encountersData[currentEncounterIndex]; enc.round = 1;
-      const base = enc.baseCombatants || enc.combatants.map(c => Object.assign({}, c)); enc.statblocks = JSON.parse(JSON.stringify(enc.baseStatblocks || []));
+      const enc = encountersData[currentEncounterIndex];
+      enc.turnHistory = [];
+      enc.round = 1;
+      const base = enc.baseCombatants || enc.combatants.map(c => Object.assign({}, c));
+      enc.statblocks = JSON.parse(JSON.stringify(enc.baseStatblocks || []));
       const current = enc.combatants;
       enc.combatants = base.map(b => {
-        const live = current.find(c => c.id === b.id); const r = Object.assign({}, b);
+        const live = current.find(c => String(c.id) === String(b.id));
+        const r = Object.assign({}, b);
         if (live) { r.name = live.name; r.ac = live.ac; r.maxHp = live.maxHp; }
         r.isDown = false; r.telegraph = null; r.roundStartTelegraph = null; r.notes = "";
         if (r.isMonster || r.isAlly) { r.hp = r.maxHp; r.init = Math.floor(Math.random() * 20) + 1 + (r.initBonus || 0); } else { r.hp = 0; r.maxHp = 0; r.init = ""; }
         return r;
       });
-      sortInitiative(); enc.activeTurnIndex = 0; captureRoundTelegraphs(); syncStatblocks(); autoSelectStatblock(); renderEncounter();
+      sortInitiative();
+      enc.activeTurnIndex = 0;
+      captureRoundTelegraphs();
+      syncStatblocks();
+      collapsedActiveCombatantIds.clear();
+      if (editingStatblockIndex !== 'briefing') editingStatblockIndex = null;
+      autoSelectStatblock();
+      renderEncounter();
+      scrollActiveCombatantIntoView();
+      scheduleAutoSave();
     }
 
     function renderEncounter() {
-      const enc = encountersData[currentEncounterIndex]; document.getElementById("roundCounter").textContent = enc.round;
+      const enc = encountersData[currentEncounterIndex];
+      document.getElementById("roundCounter").textContent = enc.round;
+      const btnPrev = document.getElementById("btnPrevTurn");
+      if (btnPrev) {
+        btnPrev.disabled = isAtStartOfEncounter(enc);
+      }
       const tbody = document.getElementById("trackerBody"); tbody.innerHTML = "";
       if (enc.combatants.length === 0) {
         tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:var(--text-muted);">Nessun combattente.</td></tr>';
@@ -1334,7 +2466,7 @@
               const colRGB = getEnemyColorRGB(getBaseName(c.name)); colorStyle = `--row-color-rgb: ${colRGB};`; 
               const tLabel = getCombatantTokenLabel(c.name); badgeHtml = `<span id="badge-${c.id}" class="badge badge-monster" style="background-color: rgb(${colRGB}); cursor:pointer;" title="Clic per cambiare colore a tutti i ${getBaseName(c.name)}" onclick="event.stopPropagation(); cycleEnemyColor('${cBase}')">${tLabel}</span>`;
           } else if (c.isAlly) {
-              const tLabel = getCombatantTokenLabel(c.name); badgeHtml = `<span id="badge-${c.id}" class="badge badge-ally" style="cursor:pointer;" title="Clic per aprire la scheda di ${escapeHtml(c.name)}" onclick="event.stopPropagation(); selectStatblockByName('${cBase}')">${tLabel}</span>`;
+              const tLabel = getCombatantTokenLabel(c.name); badgeHtml = `<span id="badge-${c.id}" class="badge badge-ally" style="cursor:pointer;" title="Clic per aprire la scheda di ${escapeHtml(c.name)}" onclick="event.stopPropagation(); toggleInlineStatblock('${c.id}')">${tLabel}</span>`;
           } else { badgeHtml = `<span id="badge-${c.id}" class="badge badge-pc">PG</span>`; }
 
           const rowClass = c.isMonster ? "monster-row" : (c.isAlly ? "ally-row" : "pc-row");
@@ -1344,33 +2476,71 @@
               tr.style.cursor = "pointer";
               tr.onclick = (e) => {
                   if (['INPUT', 'BUTTON', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;
-                  selectStatblockByName(c.name);
+                  toggleInlineStatblock(c.id);
               };
           }
+
+          const isActive = (index === enc.activeTurnIndex);
+          const activeIndicator = isActive ? '<span class="active-turn-indicator" title="Turno Attivo">▶</span>' : '';
 
           let hpCellHtml = "";
           if (c.isMonster || c.isAlly) {
             const hpPercent = c.maxHp > 0 ? Math.max(0, Math.min(100, (c.hp / c.maxHp) * 100)) : 0;
             let hpBarClass = hpPercent < 25 ? "danger" : (hpPercent < 50 ? "warning" : "");
-            hpCellHtml = `<div class="hp-cell-container"><div class="hp-controls"><input type="text" inputmode="numeric" class="hp-input" value="${c.hp}" onchange="updateCombatant(${c.id}, 'hp', this.value, false)" /><span style="color: var(--text-muted);">/</span><input type="text" inputmode="numeric" class="hp-input" value="${c.maxHp}" onchange="updateCombatant(${c.id}, 'maxHp', this.value, false)" /><div class="dmg-group"><button class="btn-step" onclick="applyDmg(${c.id}, -1)">&#8722;</button><input type="text" inputmode="numeric" id="dmg-input-${c.id}" class="dmg-input" placeholder="dmg" onkeydown="if(event.key==='Enter') applyDmg(${c.id}, -1)" /><button class="btn-step" onclick="applyDmg(${c.id}, 1)">+</button></div></div><div class="hp-bar-bg"><div class="hp-bar-fill ${hpBarClass}" style="width: ${hpPercent}%;"></div></div></div>`;
-          } else { hpCellHtml = `<button class="btn-down-toggle ${c.isDown ? 'is-down' : ''}" onclick="togglePcDown(${c.id})">${c.isDown ? '💀 A terra' : 'In piedi'}</button>`; }
+            hpCellHtml = `<div class="hp-cell-container"><div class="hp-controls"><input type="text" inputmode="numeric" class="hp-input" value="${c.hp}" onchange="updateCombatant('${c.id}', 'hp', this.value, false)" onkeydown="if(event.key==='Enter') this.blur();" /><span style="color: var(--text-muted);">/</span><input type="text" inputmode="numeric" class="hp-input" value="${c.maxHp}" onchange="updateCombatant('${c.id}', 'maxHp', this.value, false)" onkeydown="if(event.key==='Enter') this.blur();" /><div class="dmg-group"><button class="btn-step btn-dmg-step" onclick="applyDmg('${c.id}', -1)" title="Applica Danno">&#8722;</button><input type="text" inputmode="numeric" id="dmg-input-${c.id}" class="dmg-input" placeholder="dmg" onkeydown="if(event.key==='Enter') applyDmg('${c.id}', -1)" /><button class="btn-step btn-heal-step" onclick="applyDmg('${c.id}', 1)" title="Applica Cura">+</button></div></div><div class="hp-bar-bg"><div class="hp-bar-fill ${hpBarClass}" style="width: ${hpPercent}%;"></div></div></div>`;
+          } else { hpCellHtml = `<button class="btn-down-toggle ${c.isDown ? 'is-down' : ''}" onclick="togglePcDown('${c.id}')">${c.isDown ? '💀 A terra' : 'In piedi'}</button>`; }
 
           let telegBtnHtml = "";
           if (c.isMonster) {
             let tText = "⚠", tClass = "";
             if (c.telegraph === 0) { tText = "⚠ SCATTA"; tClass = "scatta"; } else if (c.telegraph > 0) { tText = "⚠ " + c.telegraph; tClass = "active"; }
-            telegBtnHtml = `<button class="btn-teleg ${tClass}" onclick="cycleTelegraph(${c.id})" title="Telegrafo (1-3 rds)">${tText}</button>`;
+            telegBtnHtml = `<button class="btn-teleg ${tClass}" onclick="cycleTelegraph('${c.id}')" title="Telegrafo (1-3 rds)">${tText}</button>`;
           }
 
-          let actionButtons = "";
-          if (c.isMonster || c.isAlly) actionButtons += `<button class="btn-secondary" style="padding:4px 8px;" onclick="cloneCombatant(${c.id})" title="Clona">👥</button>`;
-          actionButtons += `<button class="btn-danger" style="padding:4px 8px;" onclick="removeCombatant(${c.id})" title="Rimuovi">&times;</button>`;
+          let condChipsHtml = "";
+          if (c.conditions && c.conditions.length) {
+            condChipsHtml = '<div class="cond-chips-container">' + c.conditions.map(cId => {
+              const p = PRESET_CONDITIONS.find(x => x.id === cId) || { name: cId, emoji: "🏷️", bg: "rgba(100,116,139,0.22)", border: "#64748b", color: "#e2e8f0" };
+              return `<span class="cond-chip" style="background:${p.bg}; border-color:${p.border}; color:${p.color};" onclick="event.stopPropagation(); removeCondition('${c.id}', '${cId}')" title="Rimuovi ${p.name}">${p.emoji} ${p.name} <span class="cond-chip-close">&times;</span></span>`;
+            }).join("") + '</div>';
+          }
+          const notesCellHtml = `
+            <div class="cond-cell-wrapper">
+              <div class="cond-row-top">
+                ${telegBtnHtml}
+                <input type="text" value="${escapeHtml(c.notes || '')}" placeholder="Note..." oninput="updateCombatant('${c.id}', 'notes', this.value, false)" />
+                <button class="btn-add-cond" onclick="event.stopPropagation(); toggleConditionPopover(event, '${c.id}')" title="Aggiungi Condizione / Stato">+🏷️</button>
+              </div>
+              ${condChipsHtml}
+            </div>
+          `;
 
-          tr.innerHTML = `<td style="text-align: center;">${badgeHtml}</td><td><input type="text" inputmode="numeric" class="num-input" value="${c.init !== null ? c.init : ''}" placeholder="-" onchange="updateCombatant(${c.id}, 'init', this.value, true)" /></td><td><input type="text" class="name-input" value="${escapeHtml(c.name)}" oninput="updateCombatant(${c.id}, 'name', this.value, false)" /></td><td><input type="text" inputmode="numeric" class="num-input" value="${c.ac}" onchange="updateCombatant(${c.id}, 'ac', this.value, false)" /></td><td>${hpCellHtml}</td><td class="notes-cell"><div class="teleg-wrapper">${telegBtnHtml}<input type="text" value="${escapeHtml(c.notes)}" placeholder="Note..." oninput="updateCombatant(${c.id}, 'notes', this.value, false)" /></div></td><td><div class="actions-cell">${actionButtons}</div></td>`;
+          let actionButtons = "";
+          if (c.isMonster || c.isAlly) {
+            const isEditingThis = editingStatblockIndex !== null && editingStatblockIndex !== 'briefing' && enc.statblocks && enc.statblocks[editingStatblockIndex] && enc.statblocks[editingStatblockIndex].name.toLowerCase() === getBaseName(c.name).toLowerCase();
+            actionButtons += `<button class="btn-sb-toggle ${isEditingThis ? 'active' : ''}" onclick="event.stopPropagation(); editCombatantStatblock('${c.id}')" title="Modifica scheda statistiche">✏️</button>`;
+            actionButtons += `<button class="btn-secondary" style="padding:4px 7px;" onclick="event.stopPropagation(); cloneCombatant('${c.id}')" title="Clona">👥</button>`;
+          }
+          actionButtons += `<button class="btn-danger" style="padding:4px 7px;" onclick="event.stopPropagation(); removeCombatant('${c.id}')" title="Rimuovi">&times;</button>`;
+
+          tr.innerHTML = `<td style="text-align: center;">${badgeHtml}</td><td><input type="text" inputmode="numeric" class="num-input" value="${c.init !== null ? c.init : ''}" placeholder="-" onchange="updateCombatant('${c.id}', 'init', this.value, true)" onkeydown="if(event.key==='Enter') this.blur();" /></td><td><div style="display:flex; align-items:center; gap:4px;">${activeIndicator}<input type="text" class="name-input" value="${escapeHtml(c.name)}" oninput="updateCombatant('${c.id}', 'name', this.value, false)" /></div></td><td><input type="text" inputmode="numeric" class="num-input" value="${c.ac}" onchange="updateCombatant('${c.id}', 'ac', this.value, false)" onkeydown="if(event.key==='Enter') this.blur();" /></td><td>${hpCellHtml}</td><td class="notes-cell">${notesCellHtml}</td><td><div class="actions-cell">${actionButtons}</div></td>`;
           tbody.appendChild(tr);
+
+          const showInlineSb = (c.isMonster || c.isAlly) && ((isActive && !collapsedActiveCombatantIds.has(String(c.id))) || manuallyExpandedCombatantIds.has(String(c.id)));
+          if (showInlineSb) {
+            const inlineTr = document.createElement("tr");
+            inlineTr.className = "sb-inline-tr" + (isActive ? " active-turn" : "");
+            inlineTr.id = "sb-row-" + c.id;
+            const inlineTd = document.createElement("td");
+            inlineTd.colSpan = 7;
+            inlineTd.className = "sb-inline-td";
+            inlineTd.innerHTML = renderInlineStatblock(c, isActive);
+            inlineTr.appendChild(inlineTd);
+            tbody.appendChild(inlineTr);
+          }
         });
       }
-      renderStatblocks(); renderVisualMap(); renderLimitBreakWidget(); scheduleAutoSave();
+      renderBriefingPanel(); renderVisualMap(); renderLimitBreakWidget(); scheduleAutoSave();
     }
 
     function shouldShowBriefing(enc) {
@@ -1437,215 +2607,431 @@
       return { type: 'desc', body: trimmed };
     }
 
-    function renderTelegraphBlock(label, tellText, effectText, spawnBtn) {
+    function enhanceWithDice(htmlStr, actorName) {
+      if (!htmlStr) return "";
+      const safeActor = (actorName || "Creatura").replace(/\\/g, "\\\\").replace(/'/g, "\\'").replace(/"/g, '&quot;');
+      
+      // Tokenize by HTML tags so we only touch raw text content
+      return htmlStr.replace(/(<[^>]+>)|([^<]+)/g, (match, tag, text) => {
+        if (tag) return tag;
+        
+        // 1. Attack rolls: +X al tiro per colpire / a colpire / al txc / to hit
+        let res = text.replace(/([+\-−]\d+)\s*(al tiro per colpire|a colpire|al txc|to hit)\b/gi, (m, bonus, suffix) => {
+          const bInt = parseInt(bonus.replace('−', '-'), 10);
+          return `<button class="dice-clickable" onclick="rollAttack('${safeActor}', ${bInt}, event)" title="Tira 1d20 ${bonus}">🎲 ${bonus} ${suffix}</button>`;
+        });
+
+        // 2. Damage formulas: average + formula e.g. "7 (1d8 + 3)" OR standalone "4d8"
+        return res.replace(/(<[^>]+>)|([^<]+)/g, (m2, tag2, text2) => {
+          if (tag2) return tag2;
+          return text2.replace(/(\d+)\s*\(\s*(\d+d\d+(?:\s*[+\-−]\s*\d+)?)\s*\)|(\b\d+d\d+(?:\s*[+\-−]\s*\d+)?\b)/gi, (m3, avg, formula1, formula2) => {
+            if (avg && formula1) {
+              const cleanFormula = formula1.replace(/\s+/g, ' ');
+              return `${avg} (<button class="dice-clickable is-dmg" onclick="rollDamageDice('${safeActor}', '${cleanFormula}', event)" title="Tira ${cleanFormula}">🎲 ${cleanFormula}</button>)`;
+            } else if (formula2) {
+              const cleanFormula = formula2.replace(/\s+/g, ' ');
+              return `<button class="dice-clickable is-dmg" onclick="rollDamageDice('${safeActor}', '${cleanFormula}', event)" title="Tira ${cleanFormula}">🎲 ${cleanFormula}</button>`;
+            }
+            return m3;
+          });
+        });
+      });
+    }
+
+    function renderTelegraphBlock(label, tellText, effectText, spawnBtn, actorName) {
       let h = '<div class="sb-telegraph">';
       if (spawnBtn) h += spawnBtn;
       h += `<strong class="sb-teleg-badge">⚠ ${escapeHtml(label)}</strong> `;
-      if (tellText) h += `<span class="sb-teleg-tell">${formatInlineMarkdown(tellText)}</span>`;
-      if (effectText) h += `<div class="sb-teleg-effect">${formatInlineMarkdown(effectText)}</div>`;
+      if (tellText) h += `<span class="sb-teleg-tell">${enhanceWithDice(formatInlineMarkdown(tellText), actorName)}</span>`;
+      if (effectText) h += `<div class="sb-teleg-effect">${enhanceWithDice(formatInlineMarkdown(effectText), actorName)}</div>`;
       h += '</div>';
       return h;
     }
 
-    function renderStatblocks() {
-      const enc = encountersData[currentEncounterIndex]; const tabsWrap = document.getElementById("sbTabsHeader"); const contentWrap = document.getElementById("sbContentArea");
-      tabsWrap.innerHTML = ""; contentWrap.innerHTML = "";
+    function splitLootItems(lootStr) {
+      if (!lootStr || !lootStr.trim()) return [];
+      const rawLines = lootStr.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const items = [];
 
-      const showBriefing = shouldShowBriefing(enc);
-      if (showBriefing) {
-        const briefingBtn = document.createElement("div"); briefingBtn.className = "sb-tab-btn " + (activeStatblockIndex === 'briefing' ? "active" : "");
-        briefingBtn.style.borderTop = "2px solid #3b82f6";
-        if (activeStatblockIndex === 'briefing') { briefingBtn.style.color = "#60a5fa"; briefingBtn.style.backgroundColor = "rgba(59, 130, 246, 0.14)"; }
-        briefingBtn.innerHTML = `<span class="sb-tab-dot" style="background: #3b82f6;"></span><span>🎯 Tattica & Bottino</span>`;
-        briefingBtn.onclick = () => { activeStatblockIndex = 'briefing'; editingStatblockIndex = null; renderStatblocks(); };
-        tabsWrap.appendChild(briefingBtn);
-      } else if (activeStatblockIndex === 'briefing') {
-        activeStatblockIndex = 0;
-      }
+      rawLines.forEach(line => {
+        line = line.replace(/^[-*•\s]+/, '').trim();
+        if (!line) return;
 
-      if (enc.statblocks && enc.statblocks.length > 0) {
-        enc.statblocks.forEach((sb, index) => {
-          const btn = document.createElement("div"); btn.className = "sb-tab-btn " + (index === activeStatblockIndex ? "active" : "");
-          let borderCol = "", bgActive = "", dotCol = "", iconPrefix = "";
-          if (sb.isAlly) {
-            borderCol = "#38bdf8";
-            dotCol = "#38bdf8";
-            bgActive = "rgba(56, 189, 248, 0.14)";
-            iconPrefix = "🛡️ ";
+        let current = "";
+        let depth = 0;
+        for (let i = 0; i < line.length; i++) {
+          const ch = line[i];
+          if (ch === '(' || ch === '[' || ch === '{') {
+            depth++;
+            current += ch;
+          } else if (ch === ')' || ch === ']' || ch === '}') {
+            if (depth > 0) depth--;
+            current += ch;
+          } else if (depth === 0 && (ch === '·' || ch === '•' || ch === ';' || (ch === ',' && line.slice(i + 1).match(/^\s*(?:\d+x|\d+\s*Gil|[A-ZÀ-Ú]|\d+\s+Pozion)/i)))) {
+            const trimmed = current.trim().replace(/^[-*•\s]+/, '').replace(/[,.;·•]+$/, '').trim();
+            if (trimmed) items.push(trimmed);
+            current = "";
           } else {
-            const rgb = getEnemyColorRGB(sb.name);
-            borderCol = `rgb(${rgb})`;
-            dotCol = `rgb(${rgb})`;
-            bgActive = `rgba(${rgb}, 0.14)`;
+            current += ch;
           }
-          btn.style.borderTop = `2px solid ${borderCol}`;
-          if (index === activeStatblockIndex) { btn.style.color = borderCol; btn.style.backgroundColor = bgActive; }
-          btn.innerHTML = `<span class="sb-tab-dot" style="background: ${dotCol};"></span><span>${iconPrefix}${escapeHtml(sb.name || "Senza Nome")}</span>`;
-          btn.onclick = () => { activeStatblockIndex = index; editingStatblockIndex = null; renderStatblocks(); }; tabsWrap.appendChild(btn);
-        });
+        }
+        const lastTrimmed = current.trim().replace(/^[-*•\s]+/, '').replace(/[,.;·•]+$/, '').trim();
+        if (lastTrimmed) items.push(lastTrimmed);
+      });
+
+      return items;
+    }
+
+    function renderLootSectionHtml(lootText) {
+      if (!lootText || !lootText.trim()) {
+        return `<div style="background:rgba(0,0,0,0.25); border-left:3px solid #10b981; padding:8px 12px; border-radius:4px; line-height:1.5; font-size:0.92rem; color:#94a3b8; font-style:italic;">Nessun bottino registrato per questo scontro.</div>`;
+      }
+      const items = splitLootItems(lootText);
+      if (items.length <= 1) {
+        return `<div style="background:rgba(0,0,0,0.25); border-left:3px solid #10b981; padding:8px 12px; border-radius:4px; line-height:1.5; font-size:0.92rem; color:#e5e7eb;">${formatInlineMarkdown(lootText)}</div>`;
       }
 
-      if (showBriefing && activeStatblockIndex === 'briefing') {
-        if (editingStatblockIndex === 'briefing') {
-          const form = document.createElement("div"); form.className = "sb-edit-form";
-          form.innerHTML = `
-            <label style="color: #60a5fa; font-weight: bold;">🎯 Tattica dello Scontro (Note GM)</label>
-            <textarea id="editEncTactics" style="height: 100px;" placeholder="Strategia di combattimento, priorità bersagli, fasi...">${escapeHtml(enc.tactics || '')}</textarea>
-            <label style="color: #10b981; font-weight: bold; margin-top: 8px;">💰 Bottino & Ricompense</label>
-            <textarea id="editEncLoot" style="height: 80px;" placeholder="Quota Gil per persona, totale, drop materiali/oggetti...">${escapeHtml(enc.loot || '')}</textarea>
-            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
-              <button class="btn-secondary" onclick="editingStatblockIndex = null; renderStatblocks();">Annulla</button>
-              <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveTacticsLoot()">Salva Modifiche</button>
-            </div>`;
-          contentWrap.appendChild(form);
+      const rows = items.map(item => {
+        let icon = "📦";
+        if (/Gil\b/i.test(item) && !/(?:valore|prezzo|vendibile|spada|arco|armatura|pozion)/i.test(item)) icon = "🪙";
+        else if (/(?:Pozion|Elisir|Unguento|Antidoto|Curativ)/i.test(item)) icon = "🧪";
+        else if (/(?:Non-comune|Raro|Molto raro|Leggendario|Spada|Scudo|Armatura|Bacchetta|Bastone|Arco|Anello|Amuleto|Mantello|Lama|Pugnale|Elmo|Stivali|Tomo|Grimorio)/i.test(item)) icon = "✨";
+        else if (/(?:parte vendibile|pelle|zanna|corno|artiglio|carapace|licheni|polvere|zolfo|materiale|lingotto)/i.test(item)) icon = "📦";
+
+        return `<div class="sb-loot-item">
+          <span class="sb-loot-icon">${icon}</span>
+          <span class="sb-loot-text">${formatInlineMarkdown(item)}</span>
+        </div>`;
+      }).join("");
+
+      return `<div class="sb-loot-list">${rows}</div>`;
+    }
+
+    function toggleInlineStatblock(id) {
+      const enc = encountersData[currentEncounterIndex];
+      const activeComb = enc && enc.combatants ? enc.combatants[enc.activeTurnIndex] : null;
+      const isActiveTurn = activeComb && String(activeComb.id) === String(id);
+
+      if (isActiveTurn) {
+        if (collapsedActiveCombatantIds.has(String(id))) {
+          collapsedActiveCombatantIds.delete(String(id));
         } else {
-          const card = document.createElement("div"); card.className = "sb-card";
-          let html = `
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #374151; padding-bottom:6px;">
-              <div style="font-weight:bold; color:#60a5fa; font-size:1.05rem; display:flex; align-items:center; gap:6px;">
-                <span>🎯</span> Scheda Tattica & Bottino
+          collapsedActiveCombatantIds.add(String(id));
+        }
+      } else {
+        if (manuallyExpandedCombatantIds.has(String(id))) {
+          manuallyExpandedCombatantIds.delete(String(id));
+        } else {
+          manuallyExpandedCombatantIds.add(String(id));
+        }
+      }
+      renderEncounter();
+    }
+
+    function editCombatantStatblock(id) {
+      const enc = encountersData[currentEncounterIndex];
+      const c = enc.combatants.find(i => String(i.id) === String(id));
+      if (!c) return;
+
+      const baseName = getBaseName(c.name).toLowerCase();
+      let sbIdx = enc.statblocks.findIndex(s => s.name.toLowerCase() === baseName);
+      if (sbIdx === -1) {
+        const newSb = emptyStatblock(getBaseName(c.name));
+        if (c.isAlly) newSb.isAlly = true;
+        enc.statblocks.push(newSb);
+        sbIdx = enc.statblocks.length - 1;
+      }
+
+      // Ensure combatant card is expanded
+      const activeComb = enc.combatants[enc.activeTurnIndex];
+      if (activeComb && String(activeComb.id) === String(id)) {
+        collapsedActiveCombatantIds.delete(String(id));
+      } else {
+        manuallyExpandedCombatantIds.add(String(id));
+      }
+
+      editingStatblockIndex = (editingStatblockIndex === sbIdx) ? null : sbIdx;
+      renderEncounter();
+    }
+
+    function cancelEditStatblock() {
+      editingStatblockIndex = null;
+      renderEncounter();
+    }
+
+    function renderInlineStatblock(c, isActive) {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc) return "";
+
+      const baseName = getBaseName(c.name).toLowerCase();
+      const sbIdx = (enc.statblocks || []).findIndex(s => s.name.toLowerCase() === baseName);
+      const sb = sbIdx !== -1 ? enc.statblocks[sbIdx] : null;
+
+      // Determinazione colore accentuato
+      const isAlly = !!c.isAlly;
+      const bgCardClass = isAlly ? "sb-inline-card is-ally" : "sb-inline-card";
+      const rgb = isAlly ? "56, 189, 248" : getEnemyColorRGB(getBaseName(c.name));
+      const accentColor = isAlly ? "#38bdf8" : `rgb(${rgb})`;
+
+      // Se siamo in modalità di editing per questo statblock
+      if (editingStatblockIndex !== null && editingStatblockIndex === sbIdx && editingStatblockIndex !== 'briefing') {
+        return `
+          <div class="sb-inline-card" style="--sb-accent-rgb: ${rgb}; --sb-accent-color: ${accentColor};">
+            <div class="sb-edit-form">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+                <strong style="color: ${accentColor}; font-size: 0.95rem;">✏️ Modifica Statistiche: ${escapeHtml(sb.name)}</strong>
               </div>
-              <button class="sb-edit-btn" onclick="editingStatblockIndex = 'briefing'; renderStatblocks();">✏️ Modifica</button>
-            </div>
-            <div style="margin-bottom:14px;">
-              <div style="font-weight:600; color:#93c5fd; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">🎯 Tattica dello Scontro</div>
-              <div style="background:rgba(0,0,0,0.25); border-left:3px solid #3b82f6; padding:8px 12px; border-radius:4px; line-height:1.5; white-space:pre-wrap; font-size:0.92rem; color:#e5e7eb;">${escapeHtml(enc.tactics || "Nessuna informazione tattica registrata per questo scontro.")}</div>
-            </div>
-            <div>
-              <div style="font-weight:600; color:#34d399; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">💰 Bottino & Drop</div>
-              <div style="background:rgba(0,0,0,0.25); border-left:3px solid #10b981; padding:8px 12px; border-radius:4px; line-height:1.5; white-space:pre-wrap; font-size:0.92rem; color:#e5e7eb;">${escapeHtml(enc.loot || "Nessun bottino registrato per questo scontro.")}</div>
-            </div>`;
-          card.innerHTML = html; contentWrap.appendChild(card);
-        }
-        return;
-      }
-
-      if (!enc.statblocks || enc.statblocks.length === 0) {
-        if (!showBriefing) {
-          contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 25px 0;'>Nessuno scontro caricato. Clicca <strong>📥 Importa</strong> per caricare un pacchetto incontro oppure <strong>🪄 Genera</strong> per crearne uno nuovo.</div>";
-        } else {
-          contentWrap.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding: 20px 0;'>Nessuna statistica nemici attiva. Aggiungi un Nemico al tracker oppure consulta la scheda 🎯 Tattica & Bottino.</div>";
-        }
-        return;
-      }
-
-      if (typeof activeStatblockIndex !== 'number' || activeStatblockIndex >= enc.statblocks.length) activeStatblockIndex = 0;
-      const activeSb = enc.statblocks[activeStatblockIndex];
-
-      if (editingStatblockIndex === activeStatblockIndex) {
-          const form = document.createElement("div"); form.className = "sb-edit-form";
-          form.innerHTML = `
-              <div style="display:flex; gap: 10px; margin-bottom: -6px;">
-                  <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
-                      <label>Taglia in Mappa</label>
-                      <select id="editSbSize" class="btn-secondary" style="background:#2a2d33; border:1px solid #4b5563;">
-                          <option value="1" ${activeSb.size === 1 || !activeSb.size ? 'selected' : ''}>Media / Piccola (1x1)</option>
-                          <option value="2" ${activeSb.size === 2 ? 'selected' : ''}>Grande (2x2)</option>
-                          <option value="3" ${activeSb.size === 3 ? 'selected' : ''}>Enorme (3x3)</option>
-                          <option value="4" ${activeSb.size === 4 ? 'selected' : ''}>Mastodontica (4x4)</option>
-                      </select>
-                  </div>
-                  <div style="flex: 2; display: flex; flex-direction: column; gap: 4px;">
-                      <label>Allineamento e Tipo</label>
-                      <input type="text" id="editSbLine1" value="${escapeHtml(activeSb.line1 || '')}" placeholder="Es: CA 12 · PF 9 · Vel 6 yalm">
-                  </div>
+              <div style="display:flex; gap: 10px;">
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                  <label>Taglia in Mappa</label>
+                  <select id="editSbSize" class="btn-secondary" style="background:#2a2d33; border:1px solid #4b5563;">
+                    <option value="1" ${sb.size === 1 || !sb.size ? 'selected' : ''}>Media / Piccola (1x1)</option>
+                    <option value="2" ${sb.size === 2 ? 'selected' : ''}>Grande (2x2)</option>
+                    <option value="3" ${sb.size === 3 ? 'selected' : ''}>Enorme (3x3)</option>
+                    <option value="4" ${sb.size === 4 ? 'selected' : ''}>Mastodontica (4x4)</option>
+                  </select>
+                </div>
+                <div style="flex: 2; display: flex; flex-direction: column; gap: 4px;">
+                  <label>Allineamento e Tipo</label>
+                  <input type="text" id="editSbLine1" value="${escapeHtml(sb.line1 || '')}" placeholder="Es: CA 12 · PF 9 · Vel 6 yalm">
+                </div>
               </div>
               <label style="margin-top: 6px;">Attributi (FOR, DES...)</label>
-              <input type="text" id="editSbAttr" value="${escapeHtml(activeSb.attributes || '')}" placeholder="Es: FOR 12 (+1) · DES 14 (+2)...">
-              <label>Tiri Salvezza</label>
-              <input type="text" id="editSbTS" value="${escapeHtml(activeSb.ts || '')}" placeholder="Es: DES +4">
-              <label style="color: #93c5fd;">Abilità</label>
-              <input type="text" id="editSbSkills" value="${escapeHtml(activeSb.skills || '')}" placeholder="Es: Furtività +4, Percezione +2">
+              <input type="text" id="editSbAttr" value="${escapeHtml(sb.attributes || '')}" placeholder="Es: FOR 12 (+1) · DES 14 (+2)...">
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <div>
+                  <label>Tiri Salvezza</label>
+                  <input type="text" id="editSbTS" value="${escapeHtml(sb.ts || '')}" placeholder="Es: DES +4">
+                </div>
+                <div>
+                  <label style="color: #93c5fd;">Abilità</label>
+                  <input type="text" id="editSbSkills" value="${escapeHtml(sb.skills || '')}" placeholder="Es: Furtività +4, Percezione +2">
+                </div>
+              </div>
               <label>Sensi</label>
-              <input type="text" id="editSbSenses" value="${escapeHtml(activeSb.senses || '')}" placeholder="Es: Scurovisione 12 yalm">
+              <input type="text" id="editSbSenses" value="${escapeHtml(sb.senses || '')}" placeholder="Es: Scurovisione 12 yalm">
               <label>Azioni e Tratti (una mossa per riga)</label>
-              <textarea id="editSbMoves" placeholder="Multiattacco — Fa due attacchi.\nMorso — +4, 1d6 danni.">${escapeHtml((activeSb.moves || []).join('\n'))}</textarea>
+              <textarea id="editSbMoves" placeholder="Multiattacco — Fa due attacchi.\nMorso — +4, 1d6 danni.">${escapeHtml((sb.moves || []).join('\n'))}</textarea>
               <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:5px;">
-                  <button class="btn-secondary" onclick="editingStatblockIndex = null; renderStatblocks();">Annulla</button>
-                  <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveStatblock(${activeStatblockIndex})">Salva Modifiche</button>
-              </div>`;
-          contentWrap.appendChild(form);
-      } else {
-          const card = document.createElement("div"); card.className = "sb-card" + (activeSb.isAlly ? " is-ally" : "");
-          let html = `<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;"><div class="sb-line1">${escapeHtml(activeSb.line1 || "")}</div><button class="sb-edit-btn" onclick="editingStatblockIndex = ${activeStatblockIndex}; renderStatblocks();">✏️ Modifica</button></div>`;
-          if (activeSb.attributes) html += `<div class="sb-attributes-raw">${escapeHtml(activeSb.attributes)}</div>`;
-          
-          const allMoves = (activeSb.moves || []); let firstSection = allMoves.findIndex(m => SB_SECTION_TITLE.test(m.trim())); if (firstSection < 0) firstSection = allMoves.length;
-          const extraStats = [], bodyMoves = [];
-          allMoves.forEach((m, i) => { const lead = i < firstSection ? /^\**\s*([^:]{2,32}?)\s*\**\s*:\s*(.+)$/.exec(m.trim()) : null; if (lead) extraStats.push([lead[1], lead[2]]); else bodyMoves.push(m); });
+                <button class="btn-secondary" onclick="cancelEditStatblock()">Annulla</button>
+                <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveStatblock(${sbIdx})">Salva Modifiche</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
 
-          const statRow = (label, value) => `<div><strong>${escapeHtml(label)}:</strong> ${formatInlineMarkdown(value)}</div>`;
-          if (activeSb.ts || activeSb.skills || activeSb.senses || extraStats.length) {
-              html += `<div class="sb-secondary-box">`;
-              if (activeSb.ts) html += statRow("TS", activeSb.ts); if (activeSb.skills) html += statRow("Abilità", activeSb.skills);
-              extraStats.forEach(p => { html += statRow(p[0], p[1]); }); if (activeSb.senses) html += statRow("Sensi", activeSb.senses);
-              html += `</div>`;
-          }
+      // Se vuoto o non ancora configurato
+      if (!sb || (!sb.line1 && (!sb.moves || sb.moves.length === 0) && !sb.attributes)) {
+        return `
+          <div class="sb-inline-empty" style="border-left-color: ${accentColor};">
+            <div>
+              <strong style="color: #f59e0b;">⚠️ Statistiche non ancora configurate per ${escapeHtml(c.name)}.</strong>
+              <span style="display:block; font-size: 0.82rem; color: #94a3b8; margin-top: 2px;">Configura taglia, CA, PF, caratteristiche e mosse per visualizzarle e tirare i dadi durante il turno.</span>
+            </div>
+            <button class="btn-secondary" style="border-color:${accentColor}; color:${accentColor}; font-weight:600;" onclick="editCombatantStatblock('${c.id}')">✏️ Configura Statistiche</button>
+          </div>
+        `;
+      }
 
-          let movesHtml = "";
-          let mi = 0;
-          while (mi < bodyMoves.length) {
-            const m = bodyMoves[mi];
-            if (!m || m.trim() === "") { mi++; continue; }
-            const parsed = parseMoveLine(m);
-            if (!parsed) { mi++; continue; }
+      // Render standard della scheda statblock
+      let html = `<div class="${bgCardClass}" style="--sb-accent-rgb: ${rgb}; --sb-accent-color: ${accentColor};">`;
+      html += `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">
+          <div class="sb-line1" style="margin:0; font-size:0.95rem;">${escapeHtml(sb.line1 || "")}</div>
+          <button class="sb-edit-btn" style="margin:0;" onclick="editCombatantStatblock('${c.id}')">✏️ Modifica</button>
+        </div>
+      `;
+      if (sb.attributes) {
+        html += `<div class="sb-attributes-raw">${escapeHtml(sb.attributes)}</div>`;
+      }
 
-            if (parsed.type === 'section') {
-              movesHtml += `<div class="sb-section-title">${escapeHtml(parsed.title)}</div>`;
-              mi++;
-            } else if (parsed.type === 'telegraph') {
-              const spawn = (!activeSb.spawned && moveHasMinion(m))
-                ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>`
-                : "";
-              let effectLines = [];
-              while (mi + 1 < bodyMoves.length) {
-                const nextLine = bodyMoves[mi + 1];
-                if (!nextLine || nextLine.trim() === "") { mi++; continue; }
-                const nextParsed = parseMoveLine(nextLine);
-                if (nextParsed && nextParsed.type === 'desc') {
-                  effectLines.push(nextParsed.body);
-                  mi++;
-                } else {
-                  break;
-                }
-              }
-              const effectText = effectLines.join('\n');
-              movesHtml += renderTelegraphBlock(parsed.label, parsed.body, effectText, spawn);
-              mi++;
-            } else if (parsed.type === 'move') {
-              const spawn = (!activeSb.spawned && moveHasMinion(m))
-                ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>`
-                : "";
-              const moveBody = parsed.body ? (' ' + formatInlineMarkdown(parsed.body)) : '';
-              movesHtml += `<div class="sb-move">${spawn}<strong class="sb-move-title">${escapeHtml(parsed.title)}</strong>${moveBody}</div>`;
+      const allMoves = (sb.moves || []);
+      let firstSection = allMoves.findIndex(m => SB_SECTION_TITLE.test(m.trim()));
+      if (firstSection < 0) firstSection = allMoves.length;
+      const extraStats = [], bodyMoves = [];
+      allMoves.forEach((m, i) => {
+        const lead = i < firstSection ? /^\**\s*([^:]{2,32}?)\s*\**\s*:\s*(.+)$/.exec(m.trim()) : null;
+        if (lead) extraStats.push([lead[1], lead[2]]);
+        else bodyMoves.push(m);
+      });
+
+      const statRow = (label, value) => `<div><strong>${escapeHtml(label)}:</strong> ${formatInlineMarkdown(value)}</div>`;
+      if (sb.ts || sb.skills || sb.senses || extraStats.length) {
+        html += `<div class="sb-secondary-box">`;
+        if (sb.ts) html += statRow("TS", sb.ts);
+        if (sb.skills) html += statRow("Abilità", sb.skills);
+        extraStats.forEach(p => { html += statRow(p[0], p[1]); });
+        if (sb.senses) html += statRow("Sensi", sb.senses);
+        html += `</div>`;
+      }
+
+      let movesHtml = "";
+      let mi = 0;
+      while (mi < bodyMoves.length) {
+        const m = bodyMoves[mi];
+        if (!m || m.trim() === "") { mi++; continue; }
+        const parsed = parseMoveLine(m);
+        if (!parsed) { mi++; continue; }
+
+        if (parsed.type === 'section') {
+          movesHtml += `<div class="sb-section-title">${escapeHtml(parsed.title)}</div>`;
+          mi++;
+        } else if (parsed.type === 'telegraph') {
+          const spawn = (!sb.spawned && moveHasMinion(m))
+            ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${sbIdx}, ${(sb.moves || []).indexOf(m)})">👥 + Add</button>`
+            : "";
+          let effectLines = [];
+          while (mi + 1 < bodyMoves.length) {
+            const nextLine = bodyMoves[mi + 1];
+            if (!nextLine || nextLine.trim() === "") { mi++; continue; }
+            const nextParsed = parseMoveLine(nextLine);
+            if (nextParsed && nextParsed.type === 'desc') {
+              effectLines.push(nextParsed.body);
               mi++;
             } else {
-              const spawn = (!activeSb.spawned && moveHasMinion(m))
-                ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${activeStatblockIndex}, ${(activeSb.moves || []).indexOf(m)})">+ Adds</button>`
-                : "";
-              movesHtml += `<div class="sb-move sb-continuation">${spawn}${formatInlineMarkdown(parsed.body)}</div>`;
-              mi++;
+              break;
             }
           }
-          if (movesHtml) html += `<div>${movesHtml}</div>`; card.innerHTML = html; contentWrap.appendChild(card);
+          const effectText = effectLines.join('\n');
+          movesHtml += renderTelegraphBlock(parsed.label, parsed.body, effectText, spawn, sb.name);
+          mi++;
+        } else if (parsed.type === 'move') {
+          const spawn = (!sb.spawned && moveHasMinion(m))
+            ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${sbIdx}, ${(sb.moves || []).indexOf(m)})">👥 + Add</button>`
+            : "";
+          const moveBody = parsed.body ? (' ' + enhanceWithDice(formatInlineMarkdown(parsed.body), sb.name)) : '';
+          movesHtml += `<div class="sb-move">${spawn}<strong class="sb-move-title">${escapeHtml(parsed.title)}</strong>${moveBody}</div>`;
+          mi++;
+        } else {
+          const spawn = (!sb.spawned && moveHasMinion(m))
+            ? `<button class="sb-spawn" title="Aggiungi allo scontro" onclick="spawnMinionFromMove(${sbIdx}, ${(sb.moves || []).indexOf(m)})">👥 + Add</button>`
+            : "";
+          movesHtml += `<div class="sb-move sb-continuation">${spawn}${enhanceWithDice(formatInlineMarkdown(parsed.body), sb.name)}</div>`;
+          mi++;
+        }
       }
+
+      if (movesHtml) html += `<div>${movesHtml}</div>`;
+      html += `</div>`;
+      return html;
+    }
+
+    function renderBriefingPanel() {
+      const enc = encountersData[currentEncounterIndex];
+      const panel = document.getElementById("briefingPanel");
+      const body = document.getElementById("briefingBody");
+      const btnEdit = document.getElementById("btnEditBriefing");
+      const toggleBtn = document.getElementById("btnToggleBriefing");
+      if (!panel || !body || !enc) return;
+
+      if (isBriefingCollapsed) {
+        panel.classList.add("collapsed");
+        if (toggleBtn) toggleBtn.innerHTML = "&#9656;";
+      } else {
+        panel.classList.remove("collapsed");
+        if (toggleBtn) toggleBtn.innerHTML = "&#9662;";
+      }
+
+      if (editingStatblockIndex === 'briefing') {
+        if (btnEdit) btnEdit.style.display = "none";
+        body.innerHTML = `
+          <div class="sb-edit-form">
+            <label style="color: #60a5fa; font-weight: bold;">🎯 Tattica dello Scontro (Note GM)</label>
+            <textarea id="editEncTactics" style="height: 100px;" placeholder="Strategia di combattimento, priorità bersagli, fasi...">${escapeHtml(enc.tactics || '')}</textarea>
+            <label style="color: #10b981; font-weight: bold; margin-top: 8px;">💰 Bottino</label>
+            <textarea id="editEncLoot" style="height: 80px;" placeholder="Quota Gil per persona, totale, drop materiali/oggetti...">${escapeHtml(enc.loot || '')}</textarea>
+            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
+              <button class="btn-secondary" onclick="cancelEditBriefing()">Annulla</button>
+              <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveTacticsLoot()">Salva Modifiche</button>
+            </div>
+          </div>`;
+      } else {
+        if (btnEdit) btnEdit.style.display = "inline-block";
+        const hasTactics = enc.tactics && enc.tactics.trim().length > 0;
+        let html = `
+          <div>
+            <div style="font-weight:600; color:#93c5fd; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">🎯 Tattica</div>
+            <div style="background:rgba(0,0,0,0.25); border-left:3px solid #3b82f6; padding:8px 12px; border-radius:4px; line-height:1.5; white-space:pre-wrap; font-size:0.92rem; color:${hasTactics ? '#e5e7eb' : '#94a3b8; font-style:italic;'}">${escapeHtml(hasTactics ? enc.tactics : "Nessuna informazione tattica registrata per questo scontro. Clicca ✏️ Modifica per annotare strategie o fasi.")}</div>
+          </div>
+          <div>
+            <div style="font-weight:600; color:#34d399; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">💰 Bottino</div>
+            ${renderLootSectionHtml(enc.loot)}
+          </div>`;
+        body.innerHTML = html;
+      }
+    }
+
+    function toggleEditBriefing() {
+      if (isBriefingCollapsed) isBriefingCollapsed = false;
+      editingStatblockIndex = (editingStatblockIndex === 'briefing') ? null : 'briefing';
+      renderBriefingPanel();
+    }
+
+    function cancelEditBriefing() {
+      editingStatblockIndex = null;
+      renderBriefingPanel();
+    }
+
+    function toggleBriefingCollapse() {
+      isBriefingCollapsed = !isBriefingCollapsed;
+      renderBriefingPanel();
+    }
+
+    function renderStatblocks() {
+      renderBriefingPanel();
     }
 
     function saveTacticsLoot() {
         const enc = encountersData[currentEncounterIndex];
-        enc.tactics = document.getElementById("editEncTactics").value.trim();
-        enc.loot = document.getElementById("editEncLoot").value.trim();
+        const tEl = document.getElementById("editEncTactics");
+        const lEl = document.getElementById("editEncLoot");
+        if (tEl) enc.tactics = tEl.value.trim();
+        if (lEl) enc.loot = lEl.value.trim();
         editingStatblockIndex = null;
-        renderStatblocks();
+        renderBriefingPanel();
+        scheduleAutoSave();
     }
 
     function saveStatblock(index) {
         const enc = encountersData[currentEncounterIndex];
-        enc.statblocks[index].size = parseInt(document.getElementById("editSbSize").value, 10) || 1;
-        enc.statblocks[index].line1 = document.getElementById("editSbLine1").value.trim(); enc.statblocks[index].attributes = document.getElementById("editSbAttr").value.trim();
-        enc.statblocks[index].ts = document.getElementById("editSbTS").value.trim(); enc.statblocks[index].skills = document.getElementById("editSbSkills").value.trim();
-        enc.statblocks[index].senses = document.getElementById("editSbSenses").value.trim(); enc.statblocks[index].moves = document.getElementById("editSbMoves").value.split('\n').map(l => l.trim()).filter(l => l !== "");
-        editingStatblockIndex = null; renderStatblocks(); renderVisualMap();
+        if (!enc || !enc.statblocks || !enc.statblocks[index]) return;
+        const sizeEl = document.getElementById("editSbSize");
+        const line1El = document.getElementById("editSbLine1");
+        const attrEl = document.getElementById("editSbAttr");
+        const tsEl = document.getElementById("editSbTS");
+        const skillsEl = document.getElementById("editSbSkills");
+        const sensesEl = document.getElementById("editSbSenses");
+        const movesEl = document.getElementById("editSbMoves");
+
+        if (sizeEl) enc.statblocks[index].size = parseInt(sizeEl.value, 10) || 1;
+        if (line1El) enc.statblocks[index].line1 = line1El.value.trim();
+        if (attrEl) enc.statblocks[index].attributes = attrEl.value.trim();
+        if (tsEl) enc.statblocks[index].ts = tsEl.value.trim();
+        if (skillsEl) enc.statblocks[index].skills = skillsEl.value.trim();
+        if (sensesEl) enc.statblocks[index].senses = sensesEl.value.trim();
+        if (movesEl) enc.statblocks[index].moves = movesEl.value.split('\n').map(l => l.trim()).filter(l => l !== "");
+
+        // Se è stato inserito line1 (es. CA 12 · PF 30), sincronizza i valori di default dei combattenti corrispondenti
+        const sbName = enc.statblocks[index].name.toLowerCase();
+        enc.combatants.forEach(c => {
+          if ((c.isMonster || c.isAlly) && getBaseName(c.name).toLowerCase() === sbName) {
+            if (line1El) {
+              const acMatch = line1El.value.match(/CA\s*(\d+)/i);
+              if (acMatch && (!c.ac || c.ac === 10)) c.ac = parseInt(acMatch[1], 10);
+              const hpMatch = line1El.value.match(/PF\s*(\d+)/i);
+              if (hpMatch && (!c.maxHp || c.maxHp === 10)) {
+                c.maxHp = parseInt(hpMatch[1], 10);
+                if (!c.hp || c.hp === 10) c.hp = c.maxHp;
+              }
+            }
+          }
+        });
+
+        editingStatblockIndex = null;
+        renderEncounter();
+        renderVisualMap();
+        scheduleAutoSave();
     }
 
     function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
@@ -2926,7 +4312,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
 
             if (enc.mapData && Array.isArray(enc.mapData.placedFeatures)) { enc.mapData.placedFeatures.forEach(f => { const known = FeatureCatalog.find(c => c.name === (f.item && f.item.name)); if (known) f.item = known; }); }
         });
-        currentEncounterIndex = Math.min(Math.max(0, idx), encountersData.length - 1); activeStatblockIndex = 0; editingStatblockIndex = null; captureBaseRosters(); renderTabs(); renderEncounter();
+        currentEncounterIndex = Math.min(Math.max(0, idx), encountersData.length - 1); activeStatblockIndex = 0; editingStatblockIndex = null; manuallyExpandedCombatantIds.clear(); collapsedActiveCombatantIds.clear(); captureBaseRosters(); renderTabs(); renderEncounter();
     }
 
     function downloadExportData() {
@@ -3131,7 +4517,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
       if (isCurrentEmpty) { encountersData[currentEncounterIndex] = newEnc; } else { encountersData.push(newEnc); currentEncounterIndex = encountersData.length - 1; }
       // L'import atterra sul PRIMO slot del nuovo scontro, come farebbe un cambio di scheda: senza
       // azzerare gli indici il pannello resta puntato sullo stat block scelto nell'incontro precedente.
-      activeStatblockIndex = 0; editingStatblockIndex = null;
+      activeStatblockIndex = 0; editingStatblockIndex = null; manuallyExpandedCombatantIds.clear(); collapsedActiveCombatantIds.clear();
       closeImportModal(); sortInitiative();
       newEnc.activeTurnIndex = 0;   // scontro nuovo: si parte da chi ha l'iniziativa piu' alta
       captureBaseRosters(); renderTabs(); renderEncounter();

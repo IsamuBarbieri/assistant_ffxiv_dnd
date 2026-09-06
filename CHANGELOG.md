@@ -1,5 +1,124 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-06g — Risoluzione Bug Interazione e Riordinamento Iniziativa Linee PG
+
+Correzione critica dell'interazione con le righe dei Personaggi Giocanti (PG) in `combat_tracker.html`:
+- **Isolamento e Quotatura degli ID Combattente negli Handler HTML:**
+  - **Causa del problema:** L'ID generato per i PG dal preset party era una stringa non numerica con prefisso (`pc_...`). Nei template HTML della tabella, `${c.id}` veniva interpolato senza apici (`onchange="updateCombatant(${c.id}, 'init', ...)"`), inducendo il motore JavaScript a interpretare la stringa come un identificatore di variabile non definita e lanciando un'eccezione silente (`ReferenceError: pc_... is not defined`).
+  - Ciò bloccava l'esecuzione di `sortInitiative()` alla digitazione dell'iniziativa e disabilitava tutti i pulsanti della riga (`💀 A terra / In piedi`, rimozione `×`, aggiunta condizioni `+🏷️`, modifica note).
+  - **Soluzione:** Tutti gli attributi HTML contenenti ID combattente (`updateCombatant`, `togglePcDown`, `applyDmg`, `removeCombatant`, `cycleTelegraph`, `toggleConditionPopover`, `removeCondition`, `toggleInlineStatblock`, `editCombatantStatblock`, `cloneCombatant`) sono stati rigorosamente racchiusi tra apici (`'${c.id}'`).
+- **Normalizzazione e Tolleranza sui Tipi di ID:**
+  - Tutte le funzioni JavaScript di ricerca (`find`, `findIndex`, `filter`) e i `Set` di tracciamento espansioni schede (`collapsedActiveCombatantIds`, `manuallyExpandedCombatantIds`) confrontano e memorizzano gli ID convertendoli esplicitamente in stringa (`String(c.id) === String(id)`), garantendo compatibilità totale e indistruttibile sia con ID numerici che con stringhe generate o caricate da salvataggi pregressi.
+- **Commit Immediato con Tasto Invio:**
+  - Aggiunto `onkeydown="if(event.key==='Enter') this.blur();"` sui campi numerici (iniziativa, CA, PF) per garantire il trigger immediato dell'evento `change` e il conseguente riordinamento istantaneo dell'iniziativa alla pressione di Invio.
+
+## 2026-09-06f — Auto-Scroll Intelligente Turni, Stile Pulsante +Add e Restyling Header FFXIV
+
+Miglioramento dell'esperienza utente e dell'armonia estetica in `combat_tracker.html`:
+- **Auto-Scroll Intelligente al Cambio Turno / Round:**
+  - Implementata la funzione `scrollActiveCombatantIntoView()`, richiamata alla navigazione del turno sia da tastiera (Frecce Sinistra/Destra, Spazio) sia dai pulsanti dell'interfaccia (`« Prec.`, `Avanza Turno »`, `Azzera Round`, `Ripristina Scontro`).
+  - Calcola dinamicamente le coordinate e l'altezza della riga attiva (`#row-${id}`) combinata con la sua scheda statblock inline (`#sb-row-${id}`):
+    - Se il combattente e la sua scheda sono già visibili comodamente a schermo, nessun salto o scroll viene eseguito.
+    - Se l'altezza complessiva supera il viewport, allinea comodamente la riga del combattente alla cima dello schermo con padding protettivo (24px) per consentire al GM di leggere nome, statistiche e mosse di apertura.
+    - Se il combattente si trova parzialmente fuori schermo in alto o in basso, scrolla in modo fluido (`behavior: smooth`) fino a renderlo pienamente visibile.
+    - Non interferisce in alcun modo durante la digitazione nei campi di testo (HP, danni o note).
+- **Allineamento Grafico e Tipografico di `+ Add` (`.sb-spawn`):**
+  - Ridefinito lo stile di `.sb-spawn` per armonizzarsi completamente con i pulsanti interattivi dei dadi (`.dice-clickable`): sfondo a sfumatura eterica blu, bordo sottile coordinato, hover con micro-sollevamento e bagliore diffuso.
+  - Aggiornato il testo del pulsante in `👥 + Add` con icona semantica sia nei blocchi di telegrafo che nelle mosse standard e di continuazione.
+- **Restyling Visivo del Titolo e Header del Tracker:**
+  - Nuovo design per il contenitore `<header>`: gradiente scuro satinato (`rgba(19, 22, 32, 0.95)` → `rgba(26, 30, 43, 0.85)`), bordo inferiore dorato eterico (`#d4af37`), raggio arrotondato e ombra d'atmosfera.
+  - Tipografia d'ispirazione dark fantasy per `FFXIV`: gradiente oro caldo con bagliore ambrato e font serif (`Cinzel`/`Georgia`), affiancato da `D&D 5e` e sottotitolo strutturato in chip tematici (`⚡ Gestione Iniziativa · 📜 Statblock & Telegrafi · 🗺️ NLP Generazione Mappe`).
+  - Pulsanti di servizio (`⌨️ Tasti`, `👥 Party`, `🔑 API Key`, `🎵 Fanfara Vittoria`) uniformati con `.header-btn` ed effetti hover dedicati.
+
+## 2026-09-06e — Snellimento Azioni Riga ed Estrazione Robusta Sgherri Evocati (+ Adds)
+
+Perfezionamento dell'interfaccia e del parsing in `combat_tracker.html`:
+- **Rimozione Tasto `📖` dalla Colonna Azioni:**
+  - Rimosso il pulsante esplicito con icona libro (`📖`): l'apertura automatica sul combattente attivo di turno e la possibilità di cliccare su qualsiasi riga (o sul tasto `✏️` per modificare) rendevano ridondante il pulsante, snellendo la colonna Azioni.
+- **Risoluzione Definitiva Parsing Sgherri Evocati (`+ Adds`):**
+  - Risolto il difetto che faceva trapelare il nome dell'abilità del boss (`**Chiamata di Rinforzi`), la narrazione iniziale e il testo post-evocazione nella scheda dello sgherro.
+  - Implementato l'isolamento a parentesi bilanciate (`extractEnclosingCapsule`) per estrarre chirurgicamente la sola capsula interna `(Nome: CA... PF...)`.
+  - La prima riga della scheda (`sb.line1`) viene valorizzata con la sintassi canonica di 06 (`Taglia/Tipo · CA X · PF Y · Vel Z yalm`) anziché duplicare il nome della creatura.
+  - Le statistiche (CA, PF, Vel, Taglia) vengono rimosse dal corpo delle mosse per non creare righe orfane.
+  - Gli attacchi dello sgherro vengono puliti e formattati con titolo capitalizzato e corpo dell'azione, abilitando i tiri per colpire e i danni interattivi con il dice roller (`🎲`).
+
+## 2026-09-06d — Riorganizzazione UX: Statblock Inline sotto la Riga, Header a Due Righe e Pannello Tattica/Bottino Dedicato
+
+Riorganizzazione profonda dell'architettura e usabilità al tavolo in `combat_tracker.html`:
+- **Statblock Inline sotto la Riga del Combattente:**
+  - Eliminato il carosello dei tab dei mostri in basso: la scheda completa del nemico o alleato si apre direttamente sotto la sua riga nell'iniziativa (`<tr class="sb-inline-tr">`) quando tocca a lui giocare il turno, rendendo visibili immediatamente mosse, tratti, telegrafi, dice roller `🎲` ed evocazioni `+ Adds` senza alcuno scrolling verticale.
+  - **Consultazione ed Espansione Fuori Turno:** Cliccando sulla riga o sul pulsante dedicato `📖` nella colonna Azioni, il GM può aprire/chiudere a fisarmonica la scheda di qualsiasi nemico o alleato in ogni momento (es. per verificare CA, TS o reazioni quando viene attaccato da un PG).
+  - **Modifica Rapida sul Posto (`✏️`):** Aggiunto il pulsante `✏️` nella colonna Azioni per entrare istantaneamente in modalità di modifica della scheda. Include form completo con taglia mappa, tipo, caratteristiche, TS, abilità, sensi e mosse.
+  - **Supporto Nemici/Alleati Aggiunti al Volo:** I combattenti aggiunti durante la sessione (`+ Nemico` / `+ Alleato`) mostrano una scheda con avviso e invito immediato `✏️ Configura Statistiche`. Al salvataggio, i valori base di CA e PF vengono sincronizzati automaticamente al combattente.
+- **Pannello Inferiore Esclusivo `🎯 Tattica & 💰 Bottino`:**
+  - Al di sotto della tabella rimane unicamente la scheda riepilogativa dello scontro (`#briefingPanel`).
+  - Header compatto con icona, titolo e freccia per collassare/espandere a piacimento.
+  - Visualizzazione formattata di Tattica e Bottino a righe separate con icone (`🪙`, `🧪`, `✨`, `📦`) e pulsante `✏️ Modifica`.
+- **Header Superiore su Due Righe Dedicate:**
+  - **Riga 1 (Toolbar Azioni Globali):** A sinistra i pulsanti di creazione (`🪄 Genera`, `📥 Importa`), a destra i comandi di gestione sessione (`📂 Apri`, `💾 Salva`, `🗑️ Reset`).
+  - **Riga 2 (Barra Schede Scontri):** 100% della larghezza orizzontale a disposizione per i tab degli incontri (`👑 Boss`, `Scontro 1`...) e il pulsante `+ Nuovo Scontro`, eliminando ogni sovraffollamento.
+
+## 2026-09-06c — Rifinitura Icone Alleati e Layout Strutturato del Bottino nel Tracker
+
+Perfezionamenti visivi e tipografici in `combat_tracker.html`:
+- **Icona Scheda Statblock Alleati (`🤝`):**
+  - Allineata l'icona dei tab statblock per i PNG alleati: sostituito lo scudo (`🛡️`) con la stretta di mano (`🤝`), creando perfetta corrispondenza visiva con il pulsante `+ Alleato` e la lista combattenti.
+- **Formattazione Strutturata e Intelligente del Bottino (`💰 Bottino`):**
+  - Ridenominata l'intestazione della sezione in modo essenziale e pulito: `💰 Bottino` (rimossa la dicitura superflua `& DROP` / `& Ricompense`).
+  - Parsing a righe separate (`1 riga per oggetto/ricompensa`): gli elementi del bottino separati da pallini, punti e virgola o virgole esterne vengono automaticamente disposti su card singole dedicate (`.sb-loot-item`).
+  - Protezione della sintassi interna: le parentesi tonde, quadre o graffe (es. dettagli di equipaggiamento come `(Non-comune, spada lunga +1, attacco furtivo 1d6; valore 400 Gil)`) non vengono spezzate dalle virgole/punti e virgola interni, preservando l'integrità del testo.
+  - Iconografia semantica automatica per tipologia di drop:
+    - `🪙` per valuta e quote monetarie (Gil).
+    - `🧪` per pozioni, elisir, unguenti, antidoti e consumabili.
+    - `✨` per equipaggiamento speciale, armi, armature, gioielli magici e oggetti rari/leggendari.
+    - `📦` per materiali di recupero, pelli, carapaci, zanne, parti mostro e altri drop generici.
+  - Salvataggio automatico (`scheduleAutoSave()`) integrato anche alla modifica e salvataggio manuale di Tattica e Bottino.
+
+## 2026-09-06b — Rifinitura Combat Tracker: Memoria Telegrafi, Bound Check Turno, Fix Modale Tasti e Armonizzazione Colori
+
+Rifinitura dell'usabilità e correzione dei dettagli operativi in `combat_tracker.html`:
+- **Ripristino Bidirezionale dello Stato dei Telegrafi (`turnHistory`):**
+  - Implementato lo stack di snapshot della sessione ad ogni avanzamento di turno (`nextTurn`).
+  - Cliccando su `« Prec.` (`prevTurn`), lo stato esatto del conto alla rovescia dei telegrafi viene riavvolto fedelmente:
+    - Se un telegrafo era stato attivato sul mostro e si torna indietro prima del suo turno, viene rimosso come se non fosse mai stato impostato.
+    - Se un telegrafo era avanzato su "SCATTA" e si riavvolge al turno precedente, ritorna a "1 turno".
+    - Se un telegrafo era scattato e consumato al turno successivo, tornando indietro ricompare su "SCATTA".
+- **Bound Check Riavvolgimento Turno:**
+  - Impedito il salto all'ultimo round quando ci si trova al 1° turno del 1° round (`isAtStartOfEncounter`).
+  - Disattivazione visiva automatica (`opacity: 0.35`, `cursor: not-allowed`) del pulsante `« Prec.` a inizio scontro.
+- **Fix Modale Scorciatoie da Tastiera (`⌨️ Tasti`):**
+  - Corretto l'annidamento del DOM: `#keyShortcutsModal` si trovava erroneamente all'interno di `#partyModal` (a causa di un tag `</div>` mancante), impedendone la comparsa.
+  - Modale ripristinato a livello root con chiusura al click sull'overlay esterno.
+- **Armonizzazione Cromatica dei Pulsanti (Stile Dark Fantasy FFXIV):**
+  - **Pulsanti di Navigazione Combattimento:** `Avanza Turno »` risalta ora con il gradiente radiante oro/ambra FFXIV (`#d97706` → `#b45309`), bordo dorato e bagliore eterico; `« Prec.` adotta un'elegante tonalità ossidiana metallica; pulsanti di reset round e scontro accordati al tema scuro.
+  - **Pulsanti Aggiungi Combattente:** Differenziazione semantica tematica: `+ PG` in blu zaffiro party (`#101c33`, bordo `#1d4ed8`), `+ Alleato` in ciano cielo (`#082436`, bordo `#0369a1`), `+ Nemico` in rosso rubino ostile (`#2a1014`, bordo `#991b1b`).
+  - **Pulsanti Azione Top:** `🪄 Genera` in viola aether sfumato con bordo viola imperiale, `📥 Importa` in cobalto scuro con highlight blu, `📂 Apri` in ardesia metallica, `💾 Salva` in smeraldo profondo, `🗑️ Reset` in grafite/cremisi cupo, `+ Nuovo Scontro` bordato tratteggiato.
+  - **Intestazione Iniziativa:** La colonna `Iniz. ⬍` è interattiva e permette di ordinare l'iniziativa con feedback visivo al passaggio del mouse.
+
+## 2026-09-06a — Restyling UX/UI Combat Tracker: FFXIV Dark Fantasy, Scorciatoie Rapide, Condizioni e Dice Roller
+
+Revisione completa dell'interfaccia utente ed esperienza d'uso (UX/UI) al tavolo da gioco per `combat_tracker.html`:
+- **Estetica Dark Fantasy FFXIV & Gerarchia Visiva:**
+  - Nuova palette tematica basata su toni ossidiana profonda (`#0c0e14`, `#131620`), accenti oro antico (`#d4af37`), bordi metallici a basso contrasto e midnight blue.
+  - Evidenziazione netta del turno attivo: bordo sinistro oro radiante con bagliore ambrato e indicatore a freccia pulsante `▶` sul nome del combattente di turno.
+  - Icona corona `👑` nei tab degli scontri che contengono un Boss o meccaniche avanzate per un rapido riconoscimento visivo durante le sessioni multi-scontro.
+  - Allineamento numerico tabulare (`font-variant-numeric: tabular-nums`) su iniziativa, PF e CA per prevenire il disallineamento visivo delle cifre durante i cambi di valore.
+  - Pulsanti rapidi dei punti ferita con differenziazione semantica cromatica: sfumature cremisi per i danni (`-1`, `-5`, `-10`) e smeraldo per le cure (`+1`, +`5`, `+10`).
+- **Navigazione Turni & Scorciatoie da Tastiera (Hands-Free GMing):**
+  - Aggiunto il pulsante `« Prec.` nel contatore del round per retrocedere di turno in caso di salti involontari o riavvolgimenti d'azione.
+  - Introdotto il gestore di scorciatoie da tastiera globale per la conduzione senza mouse al tavolo: `Spazio` o `Freccia Destra` per avanzare il turno, `Freccia Sinistra` per tornare indietro, `r` per ordinare l'iniziativa. I tasti si disattivano automaticamente quando il cursore si trova all'interno di campi di input o aree di testo.
+  - Modale di riepilogo `⌨️ Tasti` nell'header per una rapida consultazione al tavolo.
+- **Sistema di Chip Condizioni Tattiche Rapide:**
+  - Selettore compatto a comparsa `+🏷️` su ciascuna scheda combattente per assegnare e rimuovere istantaneamente le condizioni 5e / FFXIV (`💀 A terra`, `🧎 Prono`, `💫 Stordito`, `🛡️ Difesa`, `🩸 Avvelenato`, `👁️ Cieco`, `🕸️ Trattenuto`, `⚡ Paralizzato`, `🔥 Fuoco`, `❄️ Gelo`, `🏃 Vantaggio`, `⚠️ Svantaggio`).
+  - Distinzione esplicita e chiarificata tra l'incoscienza a 0 PF (`💀 A terra`) e l'atterramento tattico (`🧎 Prono`).
+  - Chip grafici con rimozione immediata a 1-click (`×`) e sincronizzazione nello stato della sessione.
+- **Inline Dice Roller Interattivo nei Mostri & Telegrafi:**
+  - Riconoscimento automatico delle formule di tiro per colpire (es. `+7 al tiro per colpire`) e delle formule di danno con o senza media (es. `11 (2d6 + 4)` o `4d6`) all'interno del corpo delle mosse e dei blocchi di telegrafo.
+  - Trasformazione automatica in pillole interattive `🎲`. Al click, eseguono il tiro simulato con notifica toast fluttuante elegante in stile FFXIV nell'angolo superiore dello schermo.
+  - Dettaglio completo dei tiri: dado d20 naturale con evidenziazione dorata/verde per i critici (20 naturale) e rossa per i fallimenti critici (1 naturale); scomposizione analitica dei singoli dadi di danno tirati e del totale calcolato.
+- **Invarianza Mappa Tattica (Guida di Riferimento Tavolo):**
+  - Confermato il ruolo della battlemap come riferimento visivo puro per la riproduzione sulla griglia fisica cartacea/tavolo reale: nessun anello bersaglio invadente e nessuna pedina PC a schermo, preservando la pulizia scenica con soli mostri, ostacoli ed eventuali PNG alleati.
+
 ## 2026-09-05g — Potenziamenti Combat Tracker: Auto-Save, Preset Party e Limit Break FFXIV
 
 Implementate tre importanti migliorie di usabilità e fedeltà all'esperienza di gioco in `combat_tracker.html`:
