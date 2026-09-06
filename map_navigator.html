@@ -316,13 +316,17 @@
     .party-pin {
       position: absolute;
       transform: translate(-50%, -50%);
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       z-index: 50;
-      cursor: move;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
       pointer-events: auto;
       filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.8));
-      transition: transform 0.1s ease;
+    }
+    .party-pin:active, .party-pin.dragging {
+      cursor: grabbing !important;
     }
     .party-pin-inner {
       width: 100%;
@@ -1082,8 +1086,8 @@
           <img class="map-img" id="map-img" src="" alt="Mappa Ufficiale FFXIV" />
           <canvas class="map-canvas-overlay" id="map-canvas" width="2048" height="2048"></canvas>
           
-          <!-- PARTY PIN (INTERACTIVE) -->
-          <div class="party-pin" id="party-pin" style="left: 50%; top: 50%;">
+          <!-- PARTY PIN (INTERACTIVE - DRAG ONLY) -->
+          <div class="party-pin" id="party-pin" style="left: 50%; top: 50%;" title="Trascina con il mouse per muovere il Party (Drag & Drop)">
             <div class="party-pin-inner">⚔️</div>
             <div class="party-pin-label">PARTY</div>
           </div>
@@ -1422,7 +1426,6 @@ let GLOSSARY_DB = [
   { en: "Paladin", it: "Paladino", ref: "G07" },
   { en: "Red Mage", it: "Mago Rosso", ref: "G07" },
   { en: "Free Company", it: "Compagnia Libera", ref: "G07" },
-  { en: "fantasy/Latin/other", it: "So a name whose distinctive words you did NOT translate", ref: "G07" },
   { en: "South Shroud", it: "Bosco del Sud", ref: "G07" },
   { en: "Camp Tranquil", it: "Campo Tranquillo", ref: "G07" },
   { en: "Alder Springs", it: "Sorgenti dell'Ontano", ref: "G07" },
@@ -1441,7 +1444,6 @@ let GLOSSARY_DB = [
   { en: "Aleport", it: "Portobirra", ref: "G07" },
   { en: "Kugane Castle", it: "Castello di Kugane", ref: "G07" },
   { en: "mechanics", it: "English/verbatim", ref: "G07" },
-  { en: "Primal/eikon names", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "Thaumaturge", it: "Taumaturgo", ref: "G07" },
   { en: "Marauder", it: "Incursore", ref: "G07" },
   { en: "no parenthetical English", it: "Output the ITALIAN ONLY", ref: "G07" },
@@ -1464,7 +1466,6 @@ let GLOSSARY_DB = [
   { en: "Tender Valley", it: "La Valle dei Sabotender", ref: "G07" },
   { en: "completion", it: "LOCATIONS", ref: "G07" },
   { en: "Hells' Lid", it: "Tappinferno", ref: "G07" },
-  { en: "NPCs", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "White Mage", it: "Mago Bianco", ref: "G07" },
   { en: "Tailfeather", it: "Codapiuma", ref: "G07" },
   { en: "Seeker of the Sun", it: "Cercasole", ref: "G07" },
@@ -1492,7 +1493,6 @@ let GLOSSARY_DB = [
   { en: "Latin", it: "The Porta Decumana", ref: "G07" },
   { en: "Yellowjackets", it: "Giubbe Gialle", ref: "G07" },
   { en: "Malikah's Well", it: "Il Pozzo di Malikah", ref: "G07" },
-  { en: "Eikon/raid", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "Whispering Gorge", it: "Gola Sussurrante", ref: "G07" },
   { en: "Blue Mage", it: "Mago Blu", ref: "G07" },
   { en: "apply L1", it: "Then pick the LEANEST euphonic option", ref: "G07" },
@@ -1520,7 +1520,6 @@ let GLOSSARY_DB = [
   { en: "Mothercrystal", it: "Cristallo Madre", ref: "G07" },
   { en: "East Shroud", it: "Bosco dell'Est", ref: "G07" },
   { en: "Eastern La Noscea", it: "Noscea Orientale", ref: "G07" },
-  { en: "arena/eikon coined or FF", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "Warrior", it: "Guerriero", ref: "G07" },
   { en: "try the other shapes in the flowchart first", it: "NOT because a first attempt came out clumsy", ref: "G07" },
   { en: "Neverreap", it: "Potanò", ref: "G07" },
@@ -1533,21 +1532,16 @@ let GLOSSARY_DB = [
   { en: "Riversmeet", it: "Confluenza", ref: "G07" },
   { en: "Lightwardens", it: "Guardialuce", ref: "G07" },
   { en: "Maelstrom", it: "Maelstrom", ref: "G07" },
-  { en: "personal names", it: "Zephirin and the Heavens' Ward knights", ref: "G07" },
   { en: "Midlander", it: "Piancolle", ref: "G07" },
   { en: "Temple Knights", it: "Cavalieri del Tempio", ref: "G07" },
   { en: "di-", it: "Isola", ref: "G07" },
   { en: "Hullbreaker Isle", it: "Isola Squarciascafo", ref: "G07" },
   { en: "Au Ra", it: "Xaela", ref: "G07" },
   { en: "Western Thanalan", it: "Thanalan Occidentale", ref: "G07" },
-  { en: "often droppable", it: "Podere", ref: "G07" },
   { en: "La Noscea", it: "La Noscea", ref: "G07" },
-  { en: "coined / Japanese / Hindu / FF", it: "SUMMONS
-MOST Primal/eikon names STAY UNCHANGED", ref: "G07" },
   { en: "Southern Thanalan", it: "Thanalan Meridionale", ref: "G07" },
   { en: "Foundation", it: "Il Fondo", ref: "G07" },
   { en: "Gate of Thal", it: "Porta di Thal", ref: "G07" },
-  { en: "ARR", it: "Hubs/districts", ref: "G07" },
   { en: "Northern Thanalan", it: "Thanalan Settentrionale", ref: "G07" },
   { en: "Viper", it: "Vipera", ref: "G07" },
   { en: "Alzadaal's Legacy", it: "L'Eredità di Alzadaal", ref: "G07" },
@@ -1569,25 +1563,21 @@ MOST Primal/eikon names STAY UNCHANGED", ref: "G07" },
   { en: "East Aldenard Trading Company", it: "Compagnia Commerciale dell'Aldenard Orientale", ref: "G07" },
   { en: "Lower La Noscea", it: "Noscea Inferiore", ref: "G07" },
   { en: "Blessing of Light", it: "Benedizione della Luce", ref: "G07" },
-  { en: "give singular/plural", it: "The ones with an established Italian form are TRANSLATED", ref: "G07" },
   { en: "Dark Knight", it: "Cavaliere Oscuro", ref: "G07" },
   { en: "Fogfens", it: "Acquitrini di Nebbia", ref: "G07" },
   { en: "Sin Eaters", it: "Mangialuce", ref: "G07" },
   { en: "Zephyr Gate", it: "Porta Zefiro", ref: "G07" },
   { en: "Brass Blades", it: "Lame d'Ottone", ref: "G07" },
-  { en: "Italian vs kept", it: "Primals/summons", ref: "G07" },
   { en: "G2", it: "PARENTHESIS TEST", ref: "G07" },
   { en: "Central Shroud", it: "Bosco Centrale", ref: "G07" },
   { en: "Halfstone", it: "Mezzapietra", ref: "G07" },
   { en: "Kraken's Arms", it: "Tentacoli del Kraken", ref: "G07" },
   { en: "Immortal Flames", it: "Fiamme Immortali", ref: "G07" },
-  { en: "coined", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "Aether Sickness", it: "Mal d'Etere", ref: "G07" },
   { en: "Doma Castle", it: "Castello di Doma", ref: "G07" },
   { en: "Crescent Cove", it: "Cala Crescente", ref: "G07" },
   { en: "Hawthorne Hut", it: "Capanna Biancospino", ref: "G07" },
   { en: "Mount Ordeals", it: "Il Monte delle Ordalie", ref: "G07" },
-  { en: "fantasy/Latin/coined", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "Dancer", it: "Danzatore/Danzatrice", ref: "G07" },
   { en: "Warrior of Light", it: "Guerriero della Luce", ref: "G07" },
   { en: "Tempest Gate", it: "Porta Tempesta", ref: "G07" },
@@ -1627,7 +1617,6 @@ MOST Primal/eikon names STAY UNCHANGED", ref: "G07" },
   { en: "Candlekeep Quay", it: "Banchina di Roccacandela", ref: "G07" },
   { en: "Holminster Switch", it: "Bivio di Holminster", ref: "G07" },
   { en: "Astrologian", it: "Astrologo/a", ref: "G07" },
-  { en: "coined/indigenous", it: "KEEP UNCHANGED", ref: "G07" },
   { en: "Emperor Varis", it: "Imperatore Varis", ref: "G07" },
   { en: "Yojimbo", it: "Kugane Ohashi", ref: "G07" },
   { en: "Memeroon's Trading Post", it: "La Locanda di Memeroon", ref: "G07" },
@@ -1665,8 +1654,6 @@ MOST Primal/eikon names STAY UNCHANGED", ref: "G07" },
   { en: "Dunesfolk", it: "Dunagialla", ref: "G07" },
   { en: "consistent across the WHOLE series", it: "Tomberry", ref: "G07" },
   { en: "Hopeseed Pond", it: "Stagno Semesperanza", ref: "G07" },
-  { en: "consistent FFVII/FFX", it: "Molboro", ref: "G07" },
-  { en: "G0 binds transparent surnames/epithets", it: "SENSE", ref: "G07" },
   { en: "Cape Westwind", it: "Capo Ponente", ref: "G07" },
   { en: "fused", it: "Borgosmarrito", ref: "G07" },
   { en: "Little Ala Mhigo", it: "Piccola Ala Mhigo", ref: "G07" },
@@ -1680,9 +1667,6 @@ let KEPT_NAMES_G5 = new Set([
   "colour",
   "element",
   "deed",
-  "akin to Snow in GoT) -> Pietragrigia",
-  "Wyrmblood  -> Sanguedidrago",
-  "Tenfingers -> Diecidita",
   "Klynthota Cuordiferro)",
   "classify by its SENSE . Conversely",
   "de Borel",
@@ -4246,71 +4230,104 @@ function rollWeather(notify = true) {
 }
 
 // --- 6. EVENTI MOUSE & TOUCH MAPPA ---
+// Il cursore Party si sposta ESCLUSIVAMENTE tramite trascinamento diretto (drag) dell'icona Party.
+// Cliccare sulla mappa o rilasciare il pan NON sposta il cursore.
+if (partyPinEl) {
+  partyPinEl.addEventListener("mousedown", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    State.isDraggingParty = true;
+    partyPinEl.classList.add("dragging");
+  });
+
+  partyPinEl.addEventListener("touchstart", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    State.isDraggingParty = true;
+    partyPinEl.classList.add("dragging");
+  }, { passive: false });
+}
+
 viewportEl.addEventListener("mousedown", (e) => {
   if (e.target.closest("#party-pin")) {
+    e.stopPropagation();
     State.isDraggingParty = true;
-  } else if (!e.target.closest(".map-marker") && !e.target.closest(".map-control-btn")) {
+    if (partyPinEl) partyPinEl.classList.add("dragging");
+    return;
+  }
+  if (!e.target.closest(".map-marker") && !e.target.closest(".map-control-btn")) {
     State.isDraggingMap = true;
     State.dragStart = { x: e.clientX - State.pan.x, y: e.clientY - State.pan.y };
     viewportEl.classList.add("dragging");
   }
 });
 
-window.addEventListener("mousemove", (e) => {
+viewportEl.addEventListener("touchstart", (e) => {
+  if (e.target.closest("#party-pin")) {
+    e.stopPropagation();
+    State.isDraggingParty = true;
+    if (partyPinEl) partyPinEl.classList.add("dragging");
+    return;
+  }
+  if (!e.target.closest(".map-marker") && !e.target.closest(".map-control-btn") && e.touches.length === 1) {
+    State.isDraggingMap = true;
+    State.dragStart = { x: e.touches[0].clientX - State.pan.x, y: e.touches[0].clientY - State.pan.y };
+    viewportEl.classList.add("dragging");
+  }
+}, { passive: false });
+
+function handlePointerMove(clientX, clientY) {
   const vpRect = viewportEl.getBoundingClientRect();
-  const mouseX = (e.clientX - vpRect.left - State.pan.x) / State.zoom;
-  const mouseY = (e.clientY - vpRect.top - State.pan.y) / State.zoom;
+  const mouseX = (clientX - vpRect.left - State.pan.x) / State.zoom;
+  const mouseY = (clientY - vpRect.top - State.pan.y) / State.zoom;
 
   if (mouseX >= 0 && mouseX <= 2048 && mouseY >= 0 && mouseY <= 2048) {
     const cx = pxToCoord(mouseX);
     const cy = pxToCoord(mouseY);
-    document.getElementById("cursor-coords").innerText = `Cursore: X: ${cx.toFixed(1)}, Y: ${cy.toFixed(1)}`;
+    const coordsEl = document.getElementById("cursor-coords");
+    if (coordsEl) coordsEl.innerText = `Cursore: X: ${cx.toFixed(1)}, Y: ${cy.toFixed(1)}`;
   }
 
-  if (State.isDraggingMap) {
-    State.pan.x = e.clientX - State.dragStart.x;
-    State.pan.y = e.clientY - State.dragStart.y;
-    updateTransform();
-  } else if (State.isDraggingParty) {
-    State.partyCoords.x = pxToCoord(mouseX);
-    State.partyCoords.y = pxToCoord(mouseY);
+  if (State.isDraggingParty) {
+    State.partyCoords.x = Math.max(1.0, Math.min(42.0, pxToCoord(mouseX)));
+    State.partyCoords.y = Math.max(1.0, Math.min(42.0, pxToCoord(mouseY)));
     updatePartyPinPosition();
     checkExitProximity();
     updateRadar();
+  } else if (State.isDraggingMap) {
+    State.pan.x = clientX - State.dragStart.x;
+    State.pan.y = clientY - State.dragStart.y;
+    updateTransform();
   }
+}
+
+window.addEventListener("mousemove", (e) => {
+  handlePointerMove(e.clientX, e.clientY);
 });
 
-window.addEventListener("mouseup", () => {
+window.addEventListener("touchmove", (e) => {
+  if (e.touches.length === 1) {
+    handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+  }
+}, { passive: true });
+
+function handlePointerEnd() {
   if (State.isDraggingMap) {
     State.isDraggingMap = false;
     viewportEl.classList.remove("dragging");
   }
   if (State.isDraggingParty) {
     State.isDraggingParty = false;
-    checkExitProximity();
-    updateRadar();
-    saveLocalState();
-  }
-});
-
-viewportEl.addEventListener("click", (e) => {
-  if (State.isDraggingMap || State.isDraggingParty) return;
-  if (e.target.closest(".map-marker") || e.target.closest(".map-control-btn") || e.target.closest("#party-pin")) return;
-
-  const vpRect = viewportEl.getBoundingClientRect();
-  const mouseX = (e.clientX - vpRect.left - State.pan.x) / State.zoom;
-  const mouseY = (e.clientY - vpRect.top - State.pan.y) / State.zoom;
-
-  if (mouseX >= 0 && mouseX <= 2048 && mouseY >= 0 && mouseY <= 2048) {
-    State.partyCoords.x = pxToCoord(mouseX);
-    State.partyCoords.y = pxToCoord(mouseY);
-    updatePartyPinPosition();
+    if (partyPinEl) partyPinEl.classList.remove("dragging");
     checkExitProximity();
     updateRadar();
     sfx.playChime("ping");
     saveLocalState();
   }
-});
+}
+
+window.addEventListener("mouseup", handlePointerEnd);
+window.addEventListener("touchend", handlePointerEnd);
 
 viewportEl.addEventListener("wheel", (e) => {
   e.preventDefault();
