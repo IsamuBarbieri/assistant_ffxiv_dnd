@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -42,7 +42,7 @@
       padding: 16px 20px;
     }
 
-    /* HEADER - Stesso stile di combat_tracker.html */
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -267,7 +267,7 @@
       cursor: grabbing;
     }
 
-    /* MAP CONTAINER (PAN & ZOOM TRANSFORM) */
+    /* MAP STAGE (PAN & ZOOM TRANSFORM) */
     .map-stage {
       position: absolute;
       top: 0;
@@ -290,7 +290,6 @@
       filter: contrast(1.03) brightness(0.98);
     }
 
-    /* CANVAS FOR PROCEDURAL FALLBACK / OVERLAYS */
     .map-canvas-overlay {
       position: absolute;
       top: 0;
@@ -300,7 +299,7 @@
       pointer-events: none;
     }
 
-    /* MAP MARKERS */
+    /* MARKERS */
     .map-marker {
       position: absolute;
       transform: translate(-50%, -50%);
@@ -313,7 +312,7 @@
       z-index: 30;
     }
 
-    /* PARTY CURSOR PIN */
+    /* PARTY PIN */
     .party-pin {
       position: absolute;
       transform: translate(-50%, -50%);
@@ -394,7 +393,7 @@
       box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
     }
 
-    /* SETTLEMENT & LANDMARK MARKERS */
+    /* LANDMARK MARKERS */
     .landmark-marker {
       width: 24px;
       height: 24px;
@@ -430,7 +429,7 @@
       opacity: 1;
     }
 
-    /* COMPASS ROSE & MAP CONTROLS OVERLAY */
+    /* MAP CONTROLS OVERLAY */
     .map-overlay-controls {
       position: absolute;
       bottom: 16px;
@@ -463,12 +462,14 @@
       transform: scale(1.05);
     }
 
-    /* ZONE TRANSITION NOTIFICATION BANNER */
+    /* ZONE TRANSITION BANNER (FIXED VISIBILITY & ANIMATION) */
     .transition-banner {
       position: absolute;
       top: 14px;
       left: 50%;
-      transform: translateX(-50%) translateY(-70px);
+      transform: translateX(-50%) translateY(-180%);
+      opacity: 0;
+      pointer-events: none;
       background: linear-gradient(135deg, rgba(30, 27, 75, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
       border: 1px solid #ec4899;
       border-bottom: 2px solid #f472b6;
@@ -479,11 +480,12 @@
       align-items: center;
       gap: 14px;
       z-index: 100;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      pointer-events: auto;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
     }
     .transition-banner.show {
       transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
     .transition-banner-icon {
       font-size: 1.4rem;
@@ -514,18 +516,19 @@
       background: #db2777;
       color: #ffffff;
       border: none;
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 6px;
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       cursor: pointer;
-      transition: background 0.15s;
+      transition: background 0.15s, transform 0.15s;
     }
     .transition-btn:hover {
       background: #be185d;
+      transform: scale(1.04);
     }
 
-    /* ZONE SPLASH / FADE EFFECT */
+    /* ZONE SPLASH */
     .zone-splash {
       position: absolute;
       top: 0;
@@ -561,7 +564,7 @@
       letter-spacing: 1px;
     }
 
-    /* MAP FOOTER (COORDINATES & METEO) */
+    /* MAP FOOTER */
     .map-footer {
       display: flex;
       justify-content: space-between;
@@ -577,7 +580,7 @@
     .map-footer-left { display: flex; align-items: center; gap: 14px; }
     .map-footer-right { display: flex; align-items: center; gap: 14px; }
 
-    /* RIGHT PANEL: EXPLORATION & GEM RADAR */
+    /* RIGHT PANEL */
     .info-panel {
       flex: 1 1 35%;
       min-width: 360px;
@@ -589,7 +592,6 @@
       padding-right: 4px;
     }
 
-    /* CARD COMPONENTS */
     .card {
       background-color: var(--bg-panel);
       border: 1px solid var(--border-color);
@@ -623,21 +625,9 @@
     .badge-risky { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
     .badge-hostile { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
 
-    /* ZONE SUMMARY CARD */
-    .zone-title-box {
-      margin-bottom: 10px;
-    }
-    .zone-main-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #f1f5f9;
-      line-height: 1.2;
-    }
-    .zone-en-name {
-      font-size: 0.88rem;
-      color: #94a3b8;
-      font-style: italic;
-    }
+    .zone-title-box { margin-bottom: 10px; }
+    .zone-main-name { font-size: 1.35rem; font-weight: 800; color: #f1f5f9; line-height: 1.2; }
+    .zone-en-name { font-size: 0.88rem; color: #94a3b8; font-style: italic; }
     .zone-meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -668,7 +658,7 @@
       gap: 6px;
     }
 
-    /* FREE ROAMING / RADAR */
+    /* RADAR */
     .radar-sector-box {
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(96, 165, 250, 0.3);
@@ -700,7 +690,6 @@
       line-height: 1.4;
     }
 
-    /* ACTIVITIES / GEM CAPABILITIES */
     .activity-section {
       margin-top: 12px;
       display: flex;
@@ -738,7 +727,7 @@
     .chip-shop { border-color: rgba(168, 85, 247, 0.5); color: #d8b4fe; }
     .chip-danger { border-color: rgba(239, 68, 68, 0.5); color: #fca5a5; }
 
-    /* ACTION BUTTONS FOR GEM */
+    /* ACTION BUTTONS */
     .gem-actions-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -802,7 +791,7 @@
       border-color: var(--accent-gold);
     }
 
-    /* MODAL WINDOWS */
+    /* MODAL */
     .modal-backdrop {
       position: fixed;
       top: 0;
@@ -829,7 +818,7 @@
       border-top: 3px solid var(--accent-gold);
       border-radius: 10px;
       width: 90%;
-      max-width: 680px;
+      max-width: 780px;
       max-height: 85vh;
       display: flex;
       flex-direction: column;
@@ -883,12 +872,42 @@
       gap: 10px;
     }
 
-    /* ZONE OVERRIDE LIST IN MODAL */
+    /* EXPANSION FILTER BUTTONS */
+    .filter-btn-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .filter-exp-btn {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-color);
+      color: #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-exp-btn:hover {
+      background: #273043;
+      color: #fff;
+    }
+    .filter-exp-btn.active {
+      background: #2563eb;
+      border-color: #60a5fa;
+      color: #fff;
+    }
+
     .zone-select-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 10px;
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 4px;
     }
     .zone-select-card {
       background: var(--bg-alt);
@@ -899,23 +918,38 @@
       transition: all 0.15s ease;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
     .zone-select-card:hover {
       background: #22293a;
       border-color: var(--accent-gold);
       transform: translateY(-1px);
     }
+    .zone-select-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
     .zone-select-name {
       font-weight: 700;
       color: #ffffff;
+      font-size: 0.88rem;
+    }
+    .zone-select-exp-badge {
+      font-size: 0.65rem;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+      background: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.4);
     }
     .zone-select-sub {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
     }
 
-    /* TOAST ALERT */
+    /* TOAST */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -940,7 +974,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* KEYBOARD HINT */
     .kbd-badge {
       display: inline-block;
       padding: 2px 6px;
@@ -983,7 +1016,7 @@
         <span class="sub-dot">•</span>
         <span class="sub-chip" id="hdr-coords-chip">X: 25.4, Y: 16.5</span>
         <span class="sub-dot">•</span>
-        <span class="sub-chip" style="color:#d4af37;">Glossario 07</span>
+        <span class="sub-chip" style="color:#d4af37;" id="hdr-glossary-status">Glossario 07 Attivo</span>
       </div>
     </div>
     <div class="header-actions">
@@ -991,7 +1024,7 @@
         <span>🔄</span> Sincronizza GEM
       </button>
       <button class="header-btn" id="btn-override-modal">
-        <span>🗺️</span> Seleziona Mappa
+        <span>🗺️</span> Seleziona Mappa (56 Zone)
       </button>
       <button class="header-btn" id="btn-glossary-modal">
         <span>📖</span> Glossario Toponimi
@@ -1022,7 +1055,7 @@
           <button class="tool-btn active" id="btn-toggle-pois" title="Mostra/Nascondi punti di interesse">🏰 Luoghi</button>
           <button class="tool-btn active" id="btn-toggle-aeth" title="Mostra/Nascondi Eteriti">💎 Eteriti</button>
           <button class="tool-btn active" id="btn-toggle-autoxfer" title="Transizione automatica quando il Party tocca un confine">⚡ Auto-Cambio: ON</button>
-          <button class="tool-btn" id="btn-fetch-wiki" title="Ricarica o interroga le API di ConsoleGamesWiki">🌐 Wiki Sync</button>
+          <button class="tool-btn" id="btn-fetch-wiki" title="Ricarica immagine o interroga le API di ConsoleGamesWiki">🌐 Ricarica Mappa</button>
         </div>
       </div>
 
@@ -1074,7 +1107,7 @@
           <span>🎮 Navigazione: <strong>Trascina il Party</strong>, clicca per camminare o usa <span class="kbd-badge">W</span><span class="kbd-badge">A</span><span class="kbd-badge">S</span><span class="kbd-badge">D</span></span>
         </div>
         <div class="map-footer-right">
-          <span id="ftr-source-api">📡 Sorgente Mappa: <strong>ConsoleGamesWiki API</strong></span>
+          <span id="ftr-source-api">📡 Cartografia Ufficiale: <strong>ConsoleGamesWiki CDN (Direct HD)</strong></span>
           <span id="cursor-coords">Cursore: X: --, Y: --</span>
         </div>
       </div>
@@ -1151,24 +1184,24 @@
           </div>
         </div>
 
-        <!-- 1-CLICK ACTIONS FOR GEM -->
+        <!-- 1-CLICK SLASH ACTIONS FOR GEM -->
         <div class="gem-actions-grid">
-          <button class="gem-act-btn" id="btn-copy-gem-move">
-            <span>📋</span> Copia Spostamento
+          <button class="gem-act-btn" id="btn-copy-gem-move" title="Copia comando /esplora con coordinate attuali">
+            <span>📋</span> /esplora
           </button>
-          <button class="gem-act-btn" id="btn-roll-weather">
-            <span>🎲</span> Tira Meteo
+          <button class="gem-act-btn" id="btn-roll-weather" title="Tira meteo da tabella e copia /meteo">
+            <span>🎲</span> /meteo
           </button>
-          <button class="gem-act-btn" id="btn-gen-shop">
-            <span>🛒</span> Negozio GEM
+          <button class="gem-act-btn" id="btn-gen-shop" title="Copia comando /negozio per il luogo">
+            <span>🛒</span> /negozio
           </button>
-          <button class="gem-act-btn" id="btn-gen-travel">
-            <span>🧭</span> /viaggio Line
+          <button class="gem-act-btn" id="btn-gen-travel" title="Copia comando /viaggio verso il luogo">
+            <span>🧭</span> /viaggio
           </button>
         </div>
       </div>
 
-      <!-- TOPONOMASTICA & GLOSSARIO 07/08 CARD -->
+      <!-- TOPONOMASTICA & GLOSSARIO 07 CARD -->
       <div class="card">
         <div class="card-header">
           <div class="card-title"><span>📖</span> Glossario & Traduzioni</div>
@@ -1185,7 +1218,7 @@
         <div style="margin-top:10px;">
           <label style="font-size:0.76rem; color:#cbd5e1; font-weight:700;">Traduci toponimo al volo (G1-G4):</label>
           <div class="glossary-input-row">
-            <input type="text" class="glossary-input" id="inp-gloss-test" placeholder="Es. Raincatcher Gully, Camp Overlook..." />
+            <input type="text" class="glossary-input" id="inp-gloss-test" placeholder="Es. Camp Thorn, Red River, White Wolf Gate..." />
             <button class="tool-btn" id="btn-test-trans">Traduci</button>
           </div>
           <div id="gloss-test-result" style="font-size:0.82rem; color:#fde047; margin-top:6px; font-weight:600; min-height:18px;"></div>
@@ -1233,35 +1266,50 @@
   </div>
 </div>
 
-<!-- MODAL: SELEZIONA MAPPA / OVERRIDE -->
+<!-- MODAL: SELEZIONA MAPPA / OVERRIDE (56 ZONE ARR -> EW 6.0) -->
 <div class="modal-backdrop" id="modal-override">
-  <div class="modal-dialog" style="max-width:850px;">
+  <div class="modal-dialog">
     <div class="modal-header">
-      <h3 class="modal-title"><span>🗺️</span> Selettore Mappe & Override Territoriale</h3>
+      <h3 class="modal-title"><span>🗺️</span> Selettore Mappe & Territori (56 Zone Ufficiali)</h3>
       <button class="modal-close" data-close="modal-override">×</button>
     </div>
     <div class="modal-body">
+      <!-- EXPANSION FILTER BUTTONS -->
+      <div class="filter-btn-group" id="filter-exp-group">
+        <button class="filter-exp-btn active" data-exp="ALL">Tutte (56)</button>
+        <button class="filter-exp-btn" data-exp="ARR">ARR (23)</button>
+        <button class="filter-exp-btn" data-exp="HW">Heavensward (9)</button>
+        <button class="filter-exp-btn" data-exp="SB">Stormblood (8)</button>
+        <button class="filter-exp-btn" data-exp="ShB">Shadowbringers (8)</button>
+        <button class="filter-exp-btn" data-exp="EW">Endwalker (8)</button>
+      </div>
+
       <div style="display:flex; gap:8px; margin-bottom:12px;">
-        <input type="text" class="glossary-input" id="inp-search-zone" placeholder="Filtra zona o città (es. Gridania, Thanalan, Coerthas...)" />
+        <input type="text" class="glossary-input" id="inp-search-zone" placeholder="Filtra zona o città (es. Gridania, Thanalan, Kugane, Sharlayan...)" />
         <select class="glossary-input" id="sel-region-filter" style="max-width:200px;">
           <option value="ALL">Tutte le Regioni</option>
           <option value="La Noscea">La Noscea</option>
-          <option value="The Black Shroud">Bosco Nero (Black Shroud)</option>
+          <option value="The Black Shroud">Bosco Nero</option>
           <option value="Thanalan">Thanalan</option>
           <option value="Coerthas">Coerthas</option>
           <option value="Mor Dhona">Mor Dhona</option>
+          <option value="Ishgard">Ishgard</option>
+          <option value="Dravania">Dravania</option>
+          <option value="Abalathia's Spine">Spina di Abalathia</option>
+          <option value="Gyr Abania">Gyr Abania</option>
+          <option value="Hingashi">Hingashi</option>
+          <option value="Othard">Othard</option>
+          <option value="Norvrandt">Norvrandt</option>
+          <option value="Northern Empty">Vuoto Settentrionale</option>
+          <option value="Thavnair">Thavnair</option>
+          <option value="Ilsabard">Ilsabard</option>
+          <option value="The Moon">La Luna</option>
+          <option value="The Past">Il Passato (Elpis)</option>
+          <option value="Deep Space">Spazio Profondo</option>
         </select>
       </div>
 
       <div class="zone-select-grid" id="zone-selector-grid"></div>
-
-      <div style="margin-top:16px; border-top:1px solid var(--border-color); padding-top:12px;">
-        <label style="font-weight:700; color:#f59e0b; display:block; margin-bottom:4px;">🌐 Carica Mappa Personalizzata da ConsoleGamesWiki API:</label>
-        <div style="display:flex; gap:8px;">
-          <input type="text" class="glossary-input" id="inp-custom-wiki-page" placeholder="Titolo Pagina Wiki (es. Western_La_Noscea, Kugane...)" />
-          <button class="tool-btn" id="btn-fetch-custom-wiki">Interroga API</button>
-        </div>
-      </div>
     </div>
     <div class="modal-footer">
       <button class="tool-btn" data-close="modal-override">Chiudi</button>
@@ -1271,7 +1319,7 @@
 
 <!-- MODAL: GLOSSARIO DEI TOPONIMI COMPLETO (07) -->
 <div class="modal-backdrop" id="modal-glossary">
-  <div class="modal-dialog" style="max-width:780px;">
+  <div class="modal-dialog" style="max-width:820px;">
     <div class="modal-header">
       <h3 class="modal-title"><span>📖</span> Glossario di Toponomastica Ufficiale (07_Glossary)</h3>
       <button class="modal-close" data-close="modal-glossary">×</button>
@@ -1281,9 +1329,12 @@
         Tutti i nomi geografici seguono la regola vincolante: <em>"tradurre per senso in 'Italiano (Inglese)' alla prima occorrenza, poi solo italiano"</em>. I nomi opachi/fantastici restano immutati senza parentesi (G5).
       </p>
 
-      <input type="text" class="glossary-input" id="inp-search-dict" placeholder="Cerca nel dizionario canonico..." style="margin-bottom:12px;" />
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <input type="text" class="glossary-input" id="inp-search-dict" placeholder="Cerca nel dizionario canonico..." style="flex:1; margin-right:10px;" />
+        <span id="gloss-count-badge" style="font-size:0.78rem; color:#facc15; font-weight:700;">285+ Termini</span>
+      </div>
 
-      <div style="max-height:350px; overflow-y:auto; border:1px solid var(--border-color); border-radius:6px;">
+      <div style="max-height:380px; overflow-y:auto; border:1px solid var(--border-color); border-radius:6px;">
         <table style="width:100%; border-collapse:collapse; font-size:0.83rem; text-align:left;">
           <thead style="background:var(--bg-alt); position:sticky; top:0; color:#facc15;">
             <tr>
@@ -1313,9 +1364,9 @@
       <h4 style="color:#facc15; margin-top:0;">Come funziona la navigazione:</h4>
       <ul>
         <li><strong>Movimento del Party:</strong> Trascina l'icona ⚔️ con il mouse, clicca su un punto della mappa per muovere il gruppo fluidamente, oppure usa i tasti <span class="kbd-badge">W</span> <span class="kbd-badge">A</span> <span class="kbd-badge">S</span> <span class="kbd-badge">D</span>.</li>
-        <li><strong>Transizione alle Uscite:</strong> Quando ti avvicini ad una porta o varco di confine (es. Porta Zefiro verso Limsa Lominsa o confine verso la Noscea Orientale), la mappa passa automaticamente alla zona confinante riposizionando il party al gate corrispondente!</li>
-        <li><strong>Radar & Dati GEM:</strong> Il pannello destro si aggiorna in tempo reale mostrando il nome del luogo tradotto secondo il Glossario 07, il meteo regionale ufficiale e le cose che il GEM può fare (botteghe, incontri da tabella GdS, eteriti).</li>
-        <li><strong>Sincronizzazione GEM:</strong> Usa il tasto <em>"Sincronizza GEM"</em> per copiare il codice di posizione da incollare nella chat del master, oppure incolla il testo di un beat del GEM per aggiornare la mappa.</li>
+        <li><strong>Transizione alle Uscite:</strong> Quando ti avvicini ad una porta o varco di confine (es. Porta Zefiro verso Limsa Lominsa o confine verso la Noscea Occidentale), la mappa passa automaticamente alla zona confinante riposizionando il party al punto di arrivo!</li>
+        <li><strong>Radar & Comandi GEM:</strong> Il pannello destro si aggiorna in tempo reale mostrando il nome del luogo tradotto secondo il Glossario 07, il meteo regionale ufficiale e i comandi slash con slash (<code>/esplora</code>, <code>/meteo</code>, <code>/negozio</code>, <code>/viaggio</code>).</li>
+        <li><strong>Sincronizzazione GEM:</strong> Usa il tasto <em>"Sincronizza GEM"</em> per esportare il token di coordinate o per importare un beat del GEM.</li>
       </ul>
     </div>
     <div class="modal-footer">
@@ -1335,121 +1386,635 @@
    FFXIV × D&D 5e — WORLD & MAP NAVIGATOR CORE SCRIPT
    ========================================================================= */
 
-// --- 1. GLOSSARIO 07/08: DATABASE DIZIONARIO & REGOLE TOPONOMASTICA ---
-const GLOSSARY_DB = [
-  // G9: Hubs & Zones ARR
-  { en: "Black Shroud", it: "Bosco Nero", ref: "G9" },
-  { en: "The Black Shroud", it: "Bosco Nero", ref: "G9" },
-  { en: "Central Shroud", it: "Bosco Centrale", ref: "G12.0" },
-  { en: "East Shroud", it: "Bosco Orientale", ref: "G12.0" },
-  { en: "South Shroud", it: "Bosco Meridionale", ref: "G12.0" },
-  { en: "North Shroud", it: "Bosco Settentrionale", ref: "G12.0" },
-  { en: "La Noscea", it: "La Noscea", ref: "G5" },
-  { en: "Middle La Noscea", it: "Noscea Centrale", ref: "G12.0" },
-  { en: "Lower La Noscea", it: "Noscea Inferiore", ref: "G12.0" },
-  { en: "Upper La Noscea", it: "Noscea Superiore", ref: "G12.0" },
-  { en: "Western La Noscea", it: "Noscea Occidentale", ref: "G12.0" },
-  { en: "Eastern La Noscea", it: "Noscea Orientale", ref: "G12.0" },
-  { en: "Outer La Noscea", it: "Noscea Esterna", ref: "G12.0" },
-  { en: "Thanalan", it: "Thanalan", ref: "G5" },
-  { en: "Central Thanalan", it: "Thanalan Centrale", ref: "G12.0" },
-  { en: "Western Thanalan", it: "Thanalan Occidentale", ref: "G12.0" },
-  { en: "Eastern Thanalan", it: "Thanalan Orientale", ref: "G9" },
-  { en: "Southern Thanalan", it: "Thanalan Meridionale", ref: "G12.0" },
-  { en: "Northern Thanalan", it: "Thanalan Settentrionale", ref: "G12.0" },
-  { en: "Coerthas", it: "Coerthas", ref: "G5" },
-  { en: "Coerthas Central Highlands", it: "Altopiani Centrali di Coerthas", ref: "G12.0" },
-  { en: "Coerthas Western Highlands", it: "Altopiani Occidentali di Coerthas", ref: "G12.0" },
-  { en: "Mor Dhona", it: "Mor Dhona", ref: "G5" },
-  
-  // G9/G11/G12: Hubs, Districts, Settlements & Landmarks
-  { en: "Limsa Lominsa", it: "Limsa Lominsa", ref: "G5" },
-  { en: "Limsa Lominsa Lower Decks", it: "Ponti Inferiori di Limsa Lominsa", ref: "G9" },
-  { en: "Limsa Lominsa Upper Decks", it: "Ponti Superiori di Limsa Lominsa", ref: "G9" },
-  { en: "Lower Decks", it: "Ponti Inferiori", ref: "G9" },
-  { en: "Upper Decks", it: "Ponti Superiori", ref: "G9" },
-  { en: "Gridania", it: "Gridania", ref: "G5" },
-  { en: "New Gridania", it: "Nuova Gridania", ref: "G9" },
-  { en: "Old Gridania", it: "Vecchia Gridania", ref: "G9" },
-  { en: "Ul'dah", it: "Ul'dah", ref: "G5" },
-  { en: "Steps of Nald", it: "Foro di Nald", ref: "G9" },
-  { en: "Steps of Thal", it: "Pozzo di Thal", ref: "G9" },
-  { en: "Summerford Farms", it: "Guado d'Estate", ref: "G9" },
-  { en: "Summerford", it: "Guado d'Estate", ref: "G9" },
-  { en: "Aleport", it: "Portobirra", ref: "G9" },
-  { en: "Wineport", it: "Portovino", ref: "G9" },
-  { en: "Swiftperch", it: "Postarapida", ref: "G9" },
-  { en: "Moraby Drydocks", it: "Carenaggio di Moraby", ref: "G4" },
-  { en: "Costa del Sol", it: "Costa del Sol", ref: "G5" },
-  { en: "Bronze Lake", it: "Lago di Bronzo", ref: "G4" },
-  { en: "Camp Bronze Lake", it: "Campo Lago di Bronzo", ref: "G4" },
-  { en: "Camp Overlook", it: "Campo Belvedere", ref: "G4" },
-  { en: "Camp Drybone", it: "Campo Ossasecca", ref: "G4" },
-  { en: "Camp Horizon", it: "Campo Orizzonte", ref: "G9" },
-  { en: "Camp Tranquil", it: "Campo Tranquillo", ref: "G9" },
-  { en: "Camp Dragonhead", it: "Campo Capodrago", ref: "G13.1" },
-  { en: "Vesper Bay", it: "Baia del Vespro", ref: "G4" },
-  { en: "The Waking Sands", it: "Sabbie del Risveglio", ref: "G9" },
-  { en: "The Rising Stones", it: "Le Pietre Risorte", ref: "G9" },
-  { en: "Revenant's Toll", it: "Pedaggio del Redivivo", ref: "G9" },
-  { en: "Highbridge", it: "Ponte Alto", ref: "G1" },
-  { en: "Little Ala Mhigo", it: "Piccola Ala Mhigo", ref: "G12.3" },
-  { en: "Black Brush Station", it: "Stazione Sterpenero", ref: "G9" },
-  { en: "Quarrymill", it: "Cavamulino", ref: "G4" },
-  { en: "Bentbranch Meadows", it: "Prati di Ramostorto", ref: "G4" },
-  { en: "Hawthorne Hut", it: "Capanna Biancospino", ref: "G4" },
-  { en: "Little Solace", it: "Piccolo Rifugio", ref: "G9" },
-  { en: "Fallgourd Float", it: "Zuccacaduta", ref: "G9" },
-  { en: "Hyrstmill", it: "Boscomulino", ref: "G9" },
-  { en: "The Bannock", it: "Presidio del Bannock", ref: "G9" },
-  { en: "Whitebrim", it: "Orlo Bianco", ref: "G9" },
-  { en: "Whitebrim Front", it: "Avamposto di Orlo Bianco", ref: "G9" },
-  { en: "Falcon's Nest", it: "Nido del Falco", ref: "G13.1" },
-  
-  // G12.4: City Gates
-  { en: "Zephyr Gate", it: "Porta Zefiro", ref: "G12.4" },
-  { en: "Tempest Gate", it: "Porta Tempesta", ref: "G12.4" },
-  { en: "Black Boar Gate", it: "Porta del Cinghiale Nero", ref: "G12.4" },
-  { en: "Yellow Serpent Gate", it: "Porta della Vipera Gialla", ref: "G12.4" },
-  { en: "White Wolf Gate", it: "Porta del Lupo Bianco", ref: "G12.4" },
-  { en: "Gate of Nald", it: "Porta di Nald", ref: "G12.4" },
-  { en: "Gate of Thal", it: "Porta di Thal", ref: "G12.4" },
-  { en: "Gate of the Colosseum", it: "Porta del Colosseo", ref: "G12.4" },
-  { en: "Gate of the Sultana", it: "Porta della Sultana", ref: "G12.4" },
-  
-  // G11: Guild Taverns
-  { en: "The Drowning Wench", it: "La Fanciulla Annegata", ref: "G11" },
-  { en: "The Carline Canopy", it: "Il Baldacchino di Carline", ref: "G11" },
-  { en: "The Quicksand", it: "Le Sabbie Mobili", ref: "G11" },
-  { en: "Buscarron's Druthers", it: "Il Capriccio di Buscarron", ref: "G11" },
-  { en: "Memeroon's Trading Post", it: "La Locanda di Memeroon", ref: "G11" },
-  { en: "The Forgotten Knight", it: "Il Cavaliere Dimenticato", ref: "G13.1" },
+// --- 1. GLOSSARIO 07: DATABASE INTEGRATO (FALLBACK OFFLINE) ---
+let GLOSSARY_DB = [
 
-  // G12.1: Dungeons
-  { en: "Sastasha", it: "Sastasha", ref: "G5" },
-  { en: "The Tam-Tara Deepcroft", it: "Cripta di Tam-Tara", ref: "G12.1" },
-  { en: "Copperbell Mines", it: "Miniere di Camparame", ref: "G4" },
-  { en: "The Thousand Maws of Toto-Rak", it: "Le Mille Fauci di Toto-Rak", ref: "G12.1" },
-  { en: "Haukke Manor", it: "Maniero Haukke", ref: "G12.1" },
-  { en: "Brayflox's Longstop", it: "Lungasosta di Brayflox", ref: "G12.1" },
-  { en: "The Sunken Temple of Qarn", it: "Tempio Sommerso di Qarn", ref: "G12.1" },
-  { en: "Cutter's Cry", it: "Fosse Urlanti", ref: "G12.1" },
-  { en: "Stone Vigil", it: "Roccagelo", ref: "G12.1" },
-  { en: "Dzemael Darkhold", it: "Bastione Sotterraneo di Dzemael", ref: "G12.1" },
-  { en: "The Aurum Vale", it: "Valdorata", ref: "G12.1" },
-  { en: "Castrum Meridianum", it: "Castrum Meridianum", ref: "G5" },
-  { en: "The Praetorium", it: "The Praetorium", ref: "G5" }
+  { en: "Archer", it: "Arciere", ref: "G07" },
+  { en: "Sea Wolf", it: "Lupo di Mare", ref: "G07" },
+  { en: "Falcon's Nest", it: "Nido del Falco", ref: "G07" },
+  { en: "Revenant's Toll", it: "Pedaggio del Redivivo", ref: "G07" },
+  { en: "Yellow Serpent Gate", it: "Porta della Vipera Gialla", ref: "G07" },
+  { en: "Skysteel Manufactory", it: "Officine Ferrocielo", ref: "G07" },
+  { en: "Loch Seld", it: "Lago Seld", ref: "G07" },
+  { en: "Vesper Bay", it: "Baia del Vespro", ref: "G07" },
+  { en: "Bosco Nero", it: "The Black Shroud", ref: "G07" },
+  { en: "Vanguard", it: "'Avanguardia", ref: "G07" },
+  { en: "Viceroy of Doma", it: "Viceregina di Doma", ref: "G07" },
+  { en: "Wanderer's Palace", it: "Palazzo del Viandante", ref: "G07" },
+  { en: "Company of Heroes", it: "Compagnia degli Eroi", ref: "G07" },
+  { en: "Matoya's Cave", it: "Grotta di Matoya", ref: "G07" },
+  { en: "Saint Mocianne's Arboretum", it: "L'Arboreto di Santa Mocianne", ref: "G07" },
+  { en: "Recollection", it: "Rievocazione", ref: "G07" },
+  { en: "Heritage Found", it: "Retaggio Ritrovato", ref: "G07" },
+  { en: "Crystal Braves", it: "Bravi di Cristallo", ref: "G07" },
+  { en: "Summoner", it: "Evocatore", ref: "G07" },
+  { en: "XIVth Legion", it: "Quattordicesima Legione", ref: "G07" },
+  { en: "Bardam's Mettle", it: "Le Prove di Bardam", ref: "G07" },
+  { en: "Eastern Thanalan", it: "Thanalan Orientale", ref: "G07" },
+  { en: "Mealvaan's Gate", it: "Porta di Mealvaan", ref: "G07" },
+  { en: "Coerthas Central Highlands", it: "Altopiani Centrali di Coerthas", ref: "G07" },
+  { en: "Camp Bronze Lake", it: "Campo Lago di Bronzo", ref: "G07" },
+  { en: "Idyllshire", it: "Borgopace", ref: "G07" },
+  { en: "fixed canonical Italian renderings", it: "Weather conditions", ref: "G07" },
+  { en: "Containment Bay", it: "Camera di Contenimento", ref: "G07" },
+  { en: "Rhalgr's Reach", it: "La Presa di Rhalgr", ref: "G07" },
+  { en: "Hells' Kier", it: "Cratere Infernale", ref: "G07" },
+  { en: "Paladin", it: "Paladino", ref: "G07" },
+  { en: "Red Mage", it: "Mago Rosso", ref: "G07" },
+  { en: "Free Company", it: "Compagnia Libera", ref: "G07" },
+  { en: "fantasy/Latin/other", it: "So a name whose distinctive words you did NOT translate", ref: "G07" },
+  { en: "South Shroud", it: "Bosco del Sud", ref: "G07" },
+  { en: "Camp Tranquil", it: "Campo Tranquillo", ref: "G07" },
+  { en: "Alder Springs", it: "Sorgenti dell'Ontano", ref: "G07" },
+  { en: "Baderon Diecidita", it: "Diecidita", ref: "G07" },
+  { en: "Order of the Twin Adder", it: "Ordine della Vipera Gemella", ref: "G07" },
+  { en: "Wood Wailers", it: "Sentinelle del Bosco", ref: "G07" },
+  { en: "Black Shroud", it: "Bosco Nero", ref: "G07" },
+  { en: "Pugilist", it: "Pugile", ref: "G07" },
+  { en: "Camp Drybone", it: "Campo Ossasecca", ref: "G07" },
+  { en: "Voidsent", it: "Abissale / Abissali", ref: "G07" },
+  { en: "G5", it: "FIXED LISTS", ref: "G07" },
+  { en: "Living Memory", it: "Memoria Vivente", ref: "G07" },
+  { en: "deterministic", it: "CARDINAL SUBDIVISIONS", ref: "G07" },
+  { en: "Rogue", it: "Furfante", ref: "G07" },
+  { en: "Boulder Downs", it: "Brughiera dei Massi", ref: "G07" },
+  { en: "Aleport", it: "Portobirra", ref: "G07" },
+  { en: "Kugane Castle", it: "Castello di Kugane", ref: "G07" },
+  { en: "mechanics", it: "English/verbatim", ref: "G07" },
+  { en: "Primal/eikon names", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "Thaumaturge", it: "Taumaturgo", ref: "G07" },
+  { en: "Marauder", it: "Incursore", ref: "G07" },
+  { en: "no parenthetical English", it: "Output the ITALIAN ONLY", ref: "G07" },
+  { en: "Haurchefant Pietragrigia", it: "Pietragrigia", ref: "G07" },
+  { en: "Gladiator", it: "Gladiatore", ref: "G07" },
+  { en: "Lady Iceheart", it: "Lady Cuordighiaccio", ref: "G07" },
+  { en: "Wildwood", it: "Silvano", ref: "G07" },
+  { en: "Quarrymill", it: "Cavamulino", ref: "G07" },
+  { en: "Grand Company", it: "Grande Compagnia", ref: "G07" },
+  { en: "Knights of the Round", it: "Cavalieri della Tavola Rotonda", ref: "G07" },
+  { en: "Gate of Nald", it: "Porta di Nald", ref: "G07" },
+  { en: "White Wolf Gate", it: "Porta del Lupo Bianco", ref: "G07" },
+  { en: "Solution Nine", it: "Soluzione Nove", ref: "G07" },
+  { en: "Snowcloak", it: "Mantonevoso", ref: "G07" },
+  { en: "Japanese", it: "Shirogane", ref: "G07" },
+  { en: "Scholar", it: "Studioso", ref: "G07" },
+  { en: "Dragoon/Ninja/Samurai", it: "Class names", ref: "G07" },
+  { en: "for any name NOT in the fixed lists", it: "DECISION FLOWCHART", ref: "G07" },
+  { en: "Estinien Sanguedidrago", it: "Sanguedidrago", ref: "G07" },
+  { en: "Tender Valley", it: "La Valle dei Sabotender", ref: "G07" },
+  { en: "completion", it: "LOCATIONS", ref: "G07" },
+  { en: "Hells' Lid", it: "Tappinferno", ref: "G07" },
+  { en: "NPCs", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "White Mage", it: "Mago Bianco", ref: "G07" },
+  { en: "Tailfeather", it: "Codapiuma", ref: "G07" },
+  { en: "Seeker of the Sun", it: "Cercasole", ref: "G07" },
+  { en: "English", it: "Italian", ref: "G07" },
+  { en: "Brayflox's Longstop", it: "Lungasosta di Brayflox", ref: "G07" },
+  { en: "Sweetbloom Pier", it: "Molo Dolcefiore", ref: "G07" },
+  { en: "Cutter's Cry", it: "Fosse Urlanti", ref: "G07" },
+  { en: "Hellsguard", it: "Guardinferno", ref: "G07" },
+  { en: "Plainsfolk", it: "Pratoverde", ref: "G07" },
+  { en: "KEEP", it: "Ninja", ref: "G07" },
+  { en: "Whitebrim Front", it: "Avamposto di Orlo Bianco", ref: "G07" },
+  { en: "Stilltide", it: "Rivaspenta", ref: "G07" },
+  { en: "Skull Valley", it: "Valle Teschio", ref: "G07" },
+  { en: "G10", it: "Figli della Settima Alba", ref: "G07" },
+  { en: "Palaka's Stand", it: "La Piazzola di Palaka", ref: "G07" },
+  { en: "Estinien Wyrmblood", it: "Estinien Sanguedidrago", ref: "G07" },
+  { en: "Hell on Rails", it: "L'Inferno su Rotaie", ref: "G07" },
+  { en: "Reaper", it: "Mietitore", ref: "G07" },
+  { en: "World of Darkness", it: "Mondo dell'Oscurità", ref: "G07" },
+  { en: "already G0", it: "Asservito", ref: "G07" },
+  { en: "Hyrstmill", it: "Boscomulino", ref: "G07" },
+  { en: "Spineless Basin", it: "Bacino Smidollato", ref: "G07" },
+  { en: "Night's Blessed", it: "Benedetti della Notte", ref: "G07" },
+  { en: "Proud Creek", it: "Ruscello Fiero", ref: "G07" },
+  { en: "Latin", it: "The Porta Decumana", ref: "G07" },
+  { en: "Yellowjackets", it: "Giubbe Gialle", ref: "G07" },
+  { en: "Malikah's Well", it: "Il Pozzo di Malikah", ref: "G07" },
+  { en: "Eikon/raid", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "Whispering Gorge", it: "Gola Sussurrante", ref: "G07" },
+  { en: "Blue Mage", it: "Mago Blu", ref: "G07" },
+  { en: "apply L1", it: "Then pick the LEANEST euphonic option", ref: "G07" },
+  { en: "Camp Dragonhead", it: "Campo Capodrago", ref: "G07" },
+  { en: "Outer La Noscea", it: "Noscea Esterna", ref: "G07" },
+  { en: "Serpent Reavers", it: "Razziatori del Serpente", ref: "G07" },
+  { en: "Coerthas Western Highlands", it: "Altopiani Occidentali di Coerthas", ref: "G07" },
+  { en: "Helions", it: "Eliano", ref: "G07" },
+  { en: "Marsh Ligaka", it: "Palude Ligaka", ref: "G07" },
+  { en: "Monster Hunter", it: "Guardian Arkveld", ref: "G07" },
+  { en: "Western La Noscea", it: "Noscea Occidentale", ref: "G07" },
+  { en: "Old Sharlayan", it: "Vecchia Sharlayan", ref: "G07" },
+  { en: "Gerolt Blackthorn", it: "Gerolt Spinanera", ref: "G07" },
+  { en: "Haurchefant Greystone", it: "Haurchefant Pietragrigia", ref: "G07" },
+  { en: "Yuweyawata Field Station", it: "La Stazione di Yuweyawata", ref: "G07" },
+  { en: "Camp Horizon", it: "Campo Orizzonte", ref: "G07" },
+  { en: "Black Mage", it: "Mago Nero", ref: "G07" },
+  { en: "Mother Miounne", it: "Madre Miounne", ref: "G07" },
+  { en: "Copperbell Mines", it: "Miniere di Camparame", ref: "G07" },
+  { en: "Swiftperch", it: "Postarapida", ref: "G07" },
+  { en: "learned", it: "TEMPERED", ref: "G07" },
+  { en: "Steps of Thal", it: "Pozzo di Thal", ref: "G07" },
+  { en: "Matoya's Relict", it: "L'Eremo di Matoya", ref: "G07" },
+  { en: "Conjurer", it: "Incantatore", ref: "G07" },
+  { en: "Mothercrystal", it: "Cristallo Madre", ref: "G07" },
+  { en: "East Shroud", it: "Bosco dell'Est", ref: "G07" },
+  { en: "Eastern La Noscea", it: "Noscea Orientale", ref: "G07" },
+  { en: "arena/eikon coined or FF", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "Warrior", it: "Guerriero", ref: "G07" },
+  { en: "try the other shapes in the flowchart first", it: "NOT because a first attempt came out clumsy", ref: "G07" },
+  { en: "Neverreap", it: "Potanò", ref: "G07" },
+  { en: "Reunion", it: "Piazzamercato", ref: "G07" },
+  { en: "Haukke Manor", it: "Maniero Haukke", ref: "G07" },
+  { en: "Upper Decks", it: "Ponti Superiori", ref: "G07" },
+  { en: "Sil'dih Ruins", it: "Rovine di Sil'dih", ref: "G07" },
+  { en: "returning", it: "Krile", ref: "G07" },
+  { en: "Red Rooster Stead", it: "Il Gallo Rosso", ref: "G07" },
+  { en: "Riversmeet", it: "Confluenza", ref: "G07" },
+  { en: "Lightwardens", it: "Guardialuce", ref: "G07" },
+  { en: "Maelstrom", it: "Maelstrom", ref: "G07" },
+  { en: "personal names", it: "Zephirin and the Heavens' Ward knights", ref: "G07" },
+  { en: "Midlander", it: "Piancolle", ref: "G07" },
+  { en: "Temple Knights", it: "Cavalieri del Tempio", ref: "G07" },
+  { en: "di-", it: "Isola", ref: "G07" },
+  { en: "Hullbreaker Isle", it: "Isola Squarciascafo", ref: "G07" },
+  { en: "Au Ra", it: "Xaela", ref: "G07" },
+  { en: "Western Thanalan", it: "Thanalan Occidentale", ref: "G07" },
+  { en: "often droppable", it: "Podere", ref: "G07" },
+  { en: "La Noscea", it: "La Noscea", ref: "G07" },
+  { en: "coined / Japanese / Hindu / FF", it: "SUMMONS
+MOST Primal/eikon names STAY UNCHANGED", ref: "G07" },
+  { en: "Southern Thanalan", it: "Thanalan Meridionale", ref: "G07" },
+  { en: "Foundation", it: "Il Fondo", ref: "G07" },
+  { en: "Gate of Thal", it: "Porta di Thal", ref: "G07" },
+  { en: "ARR", it: "Hubs/districts", ref: "G07" },
+  { en: "Northern Thanalan", it: "Thanalan Settentrionale", ref: "G07" },
+  { en: "Viper", it: "Vipera", ref: "G07" },
+  { en: "Alzadaal's Legacy", it: "L'Eredità di Alzadaal", ref: "G07" },
+  { en: "Gerolt Spinanera", it: "Spinanera", ref: "G07" },
+  { en: "Bronze Lake", it: "Lago di Bronzo", ref: "G07" },
+  { en: "Wright", it: "Orzocolle", ref: "G07" },
+  { en: "Black Boar Gate", it: "Porta del Cinghiale Nero", ref: "G07" },
+  { en: "Syrcus Tower", it: "Torre di Syrcus", ref: "G07" },
+  { en: "Gatetown", it: "Borgocancello", ref: "G07" },
+  { en: "Summerford", it: "Guado d'Estate", ref: "G07" },
+  { en: "Bloodshore", it: "Riva Sangue", ref: "G07" },
+  { en: "Middle La Noscea", it: "Noscea Centrale", ref: "G07" },
+  { en: "Garlond Ironworks", it: "Officine Garlond", ref: "G07" },
+  { en: "Pictomancer", it: "Pittomante", ref: "G07" },
+  { en: "Gate of the Colosseum", it: "Porta del Colosseo", ref: "G07" },
+  { en: "Moraby Drydocks", it: "Carenaggio di Moraby", ref: "G07" },
+  { en: "common", it: "Temprato / ENTHRALLED", ref: "G07" },
+  { en: "New Gridania", it: "Nuova Gridania", ref: "G07" },
+  { en: "East Aldenard Trading Company", it: "Compagnia Commerciale dell'Aldenard Orientale", ref: "G07" },
+  { en: "Lower La Noscea", it: "Noscea Inferiore", ref: "G07" },
+  { en: "Blessing of Light", it: "Benedizione della Luce", ref: "G07" },
+  { en: "give singular/plural", it: "The ones with an established Italian form are TRANSLATED", ref: "G07" },
+  { en: "Dark Knight", it: "Cavaliere Oscuro", ref: "G07" },
+  { en: "Fogfens", it: "Acquitrini di Nebbia", ref: "G07" },
+  { en: "Sin Eaters", it: "Mangialuce", ref: "G07" },
+  { en: "Zephyr Gate", it: "Porta Zefiro", ref: "G07" },
+  { en: "Brass Blades", it: "Lame d'Ottone", ref: "G07" },
+  { en: "Italian vs kept", it: "Primals/summons", ref: "G07" },
+  { en: "G2", it: "PARENTHESIS TEST", ref: "G07" },
+  { en: "Central Shroud", it: "Bosco Centrale", ref: "G07" },
+  { en: "Halfstone", it: "Mezzapietra", ref: "G07" },
+  { en: "Kraken's Arms", it: "Tentacoli del Kraken", ref: "G07" },
+  { en: "Immortal Flames", it: "Fiamme Immortali", ref: "G07" },
+  { en: "coined", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "Aether Sickness", it: "Mal d'Etere", ref: "G07" },
+  { en: "Doma Castle", it: "Castello di Doma", ref: "G07" },
+  { en: "Crescent Cove", it: "Cala Crescente", ref: "G07" },
+  { en: "Hawthorne Hut", it: "Capanna Biancospino", ref: "G07" },
+  { en: "Mount Ordeals", it: "Il Monte delle Ordalie", ref: "G07" },
+  { en: "fantasy/Latin/coined", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "Dancer", it: "Danzatore/Danzatrice", ref: "G07" },
+  { en: "Warrior of Light", it: "Guerriero della Luce", ref: "G07" },
+  { en: "Tempest Gate", it: "Porta Tempesta", ref: "G07" },
+  { en: "G1", it: "NOT listed apply the METHOD", ref: "G07" },
+  { en: "Carteneau Flats", it: "Piane di Carteneau", ref: "G07" },
+  { en: "Smileton", it: "Sorrisopoli", ref: "G07" },
+  { en: "Monk", it: "Monaco", ref: "G07" },
+  { en: "step 4 fused compound", it: "Acquafuoco Qiqirn", ref: "G07" },
+  { en: "Oakwood", it: "Querceto", ref: "G07" },
+  { en: "Viera", it: "Veena", ref: "G07" },
+  { en: "Garlean word for Primal", it: "Eikon", ref: "G07" },
+  { en: "Raincatcher Gully", it: "L'Acchiappapioggia", ref: "G07" },
+  { en: "Upper La Noscea", it: "Noscea Superiore", ref: "G07" },
+  { en: "Warriors of Darkness", it: "Guerrieri dell'Oscurità", ref: "G07" },
+  { en: "Steps of Nald", it: "Foro di Nald", ref: "G07" },
+  { en: "Bard", it: "Bardo", ref: "G07" },
+  { en: "Bentbranch Meadows", it: "Prati di Ramostorto", ref: "G07" },
+  { en: "Greek/Latin", it: "Empyreum", ref: "G07" },
+  { en: "Whitebrim", it: "Orlo Bianco", ref: "G07" },
+  { en: "Central Thanalan", it: "Thanalan Centrale", ref: "G07" },
+  { en: "Daniffen Pass", it: "Passo di Daniffen", ref: "G07" },
+  { en: "Arcanist", it: "Arcanista", ref: "G07" },
+  { en: "Wineport", it: "Portovino", ref: "G07" },
+  { en: "G3", it: "Element Map", ref: "G07" },
+  { en: "Camp Overlook", it: "Campo Belvedere", ref: "G07" },
+  { en: "Elder Frixio", it: "Frixio il Vecchio", ref: "G07" },
+  { en: "per method G1", it: "ONLY transparent-English names", ref: "G07" },
+  { en: "Heretics", it: "Eretici", ref: "G07" },
+  { en: "Lancer", it: "Lanciere", ref: "G07" },
+  { en: "Sharlayan Hamlet", it: "Borgo di Sharlayan", ref: "G07" },
+  { en: "Tsukuyomi", it: "Castrum Fluminis", ref: "G07" },
+  { en: "Duskwight", it: "Crepuscolare", ref: "G07" },
+  { en: "Amdapor Keep", it: "Roccaforte di Amdapor", ref: "G07" },
+  { en: "la Meticcia", it: "Hilda Ware", ref: "G07" },
+  { en: "King Thordan", it: "Re Thordan", ref: "G07" },
+  { en: "Ruby Bazaar", it: "Bazar di Rubino", ref: "G07" },
+  { en: "Candlekeep Quay", it: "Banchina di Roccacandela", ref: "G07" },
+  { en: "Holminster Switch", it: "Bivio di Holminster", ref: "G07" },
+  { en: "Astrologian", it: "Astrologo/a", ref: "G07" },
+  { en: "coined/indigenous", it: "KEEP UNCHANGED", ref: "G07" },
+  { en: "Emperor Varis", it: "Imperatore Varis", ref: "G07" },
+  { en: "Yojimbo", it: "Kugane Ohashi", ref: "G07" },
+  { en: "Memeroon's Trading Post", it: "La Locanda di Memeroon", ref: "G07" },
+  { en: "North Shroud", it: "Bosco Settentrionale", ref: "G07" },
+  { en: "Keeper of the Moon", it: "Guardialuna", ref: "G07" },
+  { en: "Warrior of Darkness", it: "Guerriero dell'Oscurità", ref: "G07" },
+  { en: "Cliffperch", it: "Rupeposta", ref: "G07" },
+  { en: "what the exit is actually for", it: "GENUINE GATE CASES", ref: "G07" },
+  { en: "Lower Decks", it: "Ponti Inferiori", ref: "G07" },
+  { en: "Everkeep", it: "Roccaeterna", ref: "G07" },
+  { en: "Sorrel Haven", it: "Rifugio Acetoso", ref: "G07" },
+  { en: "Gods' Quiver", it: "Faretra degli Dei", ref: "G07" },
+  { en: "Emanation", it: "Emanazione", ref: "G07" },
+  { en: "Gate of the Sultana", it: "Porta della Sultana", ref: "G07" },
+  { en: "Sage", it: "Saggio", ref: "G07" },
+  { en: "Summerford Farms", it: "Guado d'Estate", ref: "G07" },
+  { en: "Lakeland", it: "Terralago", ref: "G07" },
+  { en: "Buscarron's Druthers", it: "Il Capriccio di Buscarron", ref: "G07" },
+  { en: "Seasong Grotto", it: "Grotta del Canto Marino", ref: "G07" },
+  { en: "Greek", it: "Elpis", ref: "G07" },
+  { en: "Dzemael Darkhold", it: "Bastione Sotterraneo di Dzemael", ref: "G07" },
+  { en: "Machinist", it: "Artificiere", ref: "G07" },
+  { en: "currency", it: "Gil", ref: "G07" },
+  { en: "Rolfe/Rosa/Amelain Biancospino", it: "Biancospino", ref: "G07" },
+  { en: "Shisui of the Violet Tides", it: "Shisui Acquaviola / l'Acquaviola / Acquaviola", ref: "G07" },
+  { en: "Old Gridania", it: "Vecchia Gridania", ref: "G07" },
+  { en: "Scions of the Seventh Dawn", it: "Figli della Settima Alba", ref: "G07" },
+  { en: "Highbridge", it: "Ponte Alto", ref: "G07" },
+  { en: "Sanskrit", it: "Vanaspati", ref: "G07" },
+  { en: "Slitherbough", it: "Borgoserpe", ref: "G07" },
+  { en: "Little Solace", it: "Piccolo Rifugio", ref: "G07" },
+  { en: "do NOT introduce a competing rendering", it: "ALREADY BOUND ELSEWHERE", ref: "G07" },
+  { en: "Baderon Tenfingers", it: "Baderon Diecidita", ref: "G07" },
+  { en: "Highlander", it: "Montanaro", ref: "G07" },
+  { en: "Dunesfolk", it: "Dunagialla", ref: "G07" },
+  { en: "consistent across the WHOLE series", it: "Tomberry", ref: "G07" },
+  { en: "Hopeseed Pond", it: "Stagno Semesperanza", ref: "G07" },
+  { en: "consistent FFVII/FFX", it: "Molboro", ref: "G07" },
+  { en: "G0 binds transparent surnames/epithets", it: "SENSE", ref: "G07" },
+  { en: "Cape Westwind", it: "Capo Ponente", ref: "G07" },
+  { en: "fused", it: "Borgosmarrito", ref: "G07" },
+  { en: "Little Ala Mhigo", it: "Piccola Ala Mhigo", ref: "G07" },
+  { en: "Labyrinth of the Ancients", it: "Labirinto degli Antichi", ref: "G07" }
 ];
 
-// Opaque names that stay unchanged without parentheses (G5)
-const KEPT_NAMES_G5 = new Set([
-  "Limsa Lominsa", "Ul'dah", "Gridania", "Thanalan", "La Noscea", "Ishgard", 
-  "Eorzea", "Halatali", "Sastasha", "Costa del Sol", "Castrum Meridianum", 
-  "The Praetorium", "Pharos Sirius", "Mor Dhona", "Castrum Centri", "Castrum Novum",
-  "Kugane", "Ala Mhigo", "Gyr Abania", "Norvrandt", "Eulmore", "Amaurot"
+// Nomi invariati G5
+let KEPT_NAMES_G5 = new Set([
+  "a common English word (a plant",
+  "animal",
+  "colour",
+  "element",
+  "deed",
+  "akin to Snow in GoT) -> Pietragrigia",
+  "Wyrmblood  -> Sanguedidrago",
+  "Tenfingers -> Diecidita",
+  "Klynthota Cuordiferro)",
+  "classify by its SENSE . Conversely",
+  "de Borel",
+  "Dangoulain",
+  "de Haillenarte)",
+  "ancient-tongue Roegadyn (Bloefhiswyn",
+  "Wilfsunwyn)",
+  "and metric Lalafell names (Nanarito",
+  "Adeledji",
+  "Modi",
+  "Limsa Lominsa",
+  "Ul'dah",
+  "Gridania",
+  "Thanalan",
+  "La Noscea",
+  "Ishgard",
+  "Eorzea",
+  "Garlond",
+  "Halatali",
+  "Sastasha",
+  "Allagan tomestones",
+  "Crystal Tower)",
+  "Mor Dhona",
+  "Castrum Centri",
+  "Castrum Novum",
+  "- Scions & Allies: Minfilia Warde",
+  "Thancred Waters",
+  "Y'shtola Rhul",
+  "Yda Hext",
+  "Papalymo Totolymo",
+  "Urianger Augurelt",
+  "Alphinaud Leveilleur",
+  "Alisaie Leveilleur",
+  "Louisoix Leveilleur",
+  "Tataru Taru",
+  "Krile Mayer Baldesion",
+  "Moenbryda Wilfsunwyn",
+  "F'lhaminn Qesh",
+  "Cid nan Garlond",
+  "Biggs",
+  "Wedge",
+  "Arenvald Lentinus",
+  "Pharos Sirius",
+  "Castrum Meridianum",
+  "The Praetorium",
+  "The Porta Decumana",
+  "Azys Lla",
+  "Zenith",
+  "Moghome",
+  "Sohm Al",
+  "Thok ast Thok",
+  "Sohr Khai",
+  "Ravana",
+  "Bismarck",
+  "Sephirot",
+  "Sophia",
+  "Zurvan",
+  "Thordan",
+  "Nidhogg",
+  "Estinien",
+  "Aymeric",
+  "Lucia",
+  "Haurchefant",
+  "Ysayle",
+  "Hilda",
+  "Edmont",
+  "Artoirel",
+  "Emmanellain",
+  "Hraesvelgr",
+  "Vidofnir",
+  "Tioman",
+  "Zephirin and the Heavens' Ward knights",
+  "Igeyorhm",
+  "Midgardsormr",
+  "Gyr Abania",
+  "Ala Mhigo",
+  "Othard",
+  "Yanxia",
+  "Kugane",
+  "Namai",
+  "Mol",
+  "Sui-no-Sato",
+  "Tamamizu",
+  "Specula Imperatoris",
+  "'il mare aperto'",
+  "'Oceano di Cristallo')",
+  "Castrum Abania",
+  "Castrum Fluminis",
+  "Kugane Ohashi",
+  "Populares",
+  "Kojin",
+  "Ananta",
+  "NPCs (Lyse",
+  "Hien",
+  "Gosetsu",
+  "Yugiri",
+  "Conrad",
+  "Fordola",
+  "Yotsuyu",
+  "Asahi",
+  "Zenos",
+  "Magnai",
+  "Sadu",
+  "Cirina",
+  "Krile",
+  "Arenvald",
+  "M'naago",
+  "Hancock",
+  "Carvallain)",
+  "Primals (Susano",
+  "Lakshmi",
+  "Shinryu",
+  "Byakko",
+  "Tsukuyomi",
+  "Suzaku)",
+  "Norvrandt",
+  "Il Cristarium (article only",
+  "no parentheses)",
+  "Eulmore",
+  "Kholusia",
+  "Amh Araeng",
+  "Mt. Gulg",
+  "Tomra",
+  "Fanow",
+  "Lydha Lran",
+  "Mord Souq",
+  "Bozja",
+  "Amaurot",
+  "Dohn Mheg",
+  "Akadaemia Anyder",
+  "Titania",
+  "Innocence",
+  "Eden.",
+  "Ascians",
+  "Y'shtola",
+  "Urianger",
+  "Thancred",
+  "Ryne",
+  "Alphinaud",
+  "Alisaie",
+  "G'raha Tia",
+  "Emet-Selch",
+  "Vauthry",
+  "Ardbert",
+  "Lyna",
+  "Beq Lugg",
+  "Runar",
+  "Sharlayan",
+  "Labyrinthos",
+  "Thavnair",
+  "Radz-at-Han",
+  "Garlemald",
+  "Mare Lamentorum",
+  "Elpis",
+  "Ultima Thule",
+  "Etheirys",
+  "Yedlihmad",
+  "Sinus Lacrimarum",
+  "Vanaspati",
+  "Ktisis Hyperboreia",
+  "The Aitiascope",
+  "Zodiark",
+  "Hydaelyn",
+  "Barbariccia",
+  "Rubicante",
+  "Telophoroi",
+  "Dynamis",
+  "Meteia",
+  "Loporrits",
+  "Fourchenault",
+  "Fandaniel",
+  "Hermes",
+  "Venat",
+  "Meteion",
+  "Themis",
+  "Hythlodaeus",
+  "Argos",
+  "Erichthonios",
+  "Raen",
+  "Xaela",
+  "Rava",
+  "Veena",
+  "Eikon",
+  "Carbuncle",
+  "Egi",
+  "Shirogane",
+  "Empyreum",
+  "Ifrit",
+  "Garuda",
+  "Shiva",
+  "Ramuh",
+  "Bahamut",
+  "Alexander",
+  "Susano",
+  "Suzaku",
+  "Seiryu",
+  "Anima",
+  "Asura",
+  "Enkidu",
+  "Pixie",
+  "Amalj'aa",
+  "Ixal",
+  "Sahagin",
+  "Qiqirn",
+  "Vanu Vanu",
+  "Vath / Gnath",
+  "Namazu",
+  "Nu Mou",
+  "Qitari",
+  "Loporrit",
+  "Arkasodara",
+  "Matanga",
+  "Behemoth",
+  "Chimera",
+  "Goblin",
+  "Ochu",
+  "Chocobo",
+  "Mandragora",
+  "Gigas",
+  "Zu",
+  "Adamantoise",
+  "Tural",
+  "Yok Tural",
+  "Xak Tural",
+  "Tuliyollal",
+  "Urqopacha",
+  "Kozama'uka",
+  "Yak T'el",
+  "Shaaloani",
+  "Wachunpelo",
+  "Mamook",
+  "Ok'hanu",
+  "Iq Br'aax",
+  "Hhusatahwi",
+  "Alexandria (proper name",
+  "FF-iconic)",
+  "Ihuykatumu",
+  "Worqor Zormor",
+  "Origenics",
+  "Alexandria",
+  "The Meso Terminal",
+  "The Clyteum",
+  "Mistwake",
+  "Worqor Lar Dor",
+  "The Interphos",
+  "Valigarmanda",
+  "Zoraal Ja",
+  "Sphene",
+  "Zelenia",
+  "Necron",
+  "Doomtrain",
+  "Enuo",
+  "Guardian Arkveld",
+  "Wuk Lamat",
+  "Koana",
+  "Gulool Ja Ja",
+  "Bakool Ja Ja",
+  "Erenville",
+  "Wuk Evu",
+  "Cahciua",
+  "Otis",
+  "Namikka",
+  "Allag",
+  "Costa del Sol",
+  "Studium",
+  "Rostra",
+  "Archeion",
+  "Old Sharlayan"
 ]);
 
-// Cardinal prefix mappings (G12.0)
+// --- 2. CARICAMENTO DINAMICO GLOSSARIO DA 07_Glossary.md (IBRIDO) ---
+async function loadLiveGlossary() {
+  const statusEl = document.getElementById("hdr-glossary-status");
+  try {
+    const res = await fetch("./07_Glossary.md");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+
+    const lines = text.split(/\r?\n/);
+    const dynamicDb = [];
+    const dynamicKept = new Set(KEPT_NAMES_G5);
+
+    let inGlossary = false;
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line.match(/^###?\s*G([0-9]+)/i)) {
+        inGlossary = true;
+      }
+
+      // Check bullet pairs: - English -> Italian or Italian (English)
+      if (line.includes("->")) {
+        const arrowMatch = line.match(/^[-*]?\s*([^->]+?)\s*->\s*([^(\r\n]+?)(?:\s*\(([^)\r\n]+?)\))?$/);
+        if (arrowMatch) {
+          const left = arrowMatch[1].replace(/\*\*/g, '').trim();
+          const right = arrowMatch[2].replace(/\*\*/g, '').trim();
+          const paren = arrowMatch[3] ? arrowMatch[3].replace(/\*\*/g, '').trim() : "";
+          if (left.length > 1 && right.length > 1 && !left.includes("see G")) {
+            dynamicDb.push({ en: left, it: right, ref: "07_Live" });
+          }
+        }
+      }
+
+      // Inline Italian (English)
+      const parenMatches = line.matchAll(/([A-Z\u00C0-\u017F][A-Za-z0-9'\s\-_/\u00C0-\u017F]+?)\s*\(([A-Za-z0-9'\s\-_/]+?)\)/g);
+      for (const m of parenMatches) {
+        const it = m[1].replace(/\*\*/g, '').trim();
+        const en = m[2].replace(/\*\*/g, '').trim();
+        if (en.length > 1 && it.length > 1 && en.length < 50 && it.length < 50 &&
+            !en.match(/^(see G|note|apposition|first|official|kept|MSQ|FF|singular|plural)/i) &&
+            !it.match(/^(G[0-9]|NOTE|LEAN|BINDING|ANTI|WORKED|VALIDATED)/i)) {
+          dynamicDb.push({ en: en, it: it, ref: "07_Live" });
+        }
+      }
+    }
+
+    if (dynamicDb.length > 50) {
+      // Merge with embedded
+      const enMap = new Map();
+      GLOSSARY_DB.forEach(item => enMap.set(item.en.toLowerCase(), item));
+      dynamicDb.forEach(item => enMap.set(item.en.toLowerCase(), item));
+      GLOSSARY_DB = Array.from(enMap.values());
+      if (statusEl) statusEl.innerText = `Glossario 07 Live (${GLOSSARY_DB.length} termini)`;
+      showToast(`Glossario 07 sincronizzato con successo (${GLOSSARY_DB.length} termini caricate).`);
+      return;
+    }
+  } catch (err) {
+    console.info("Caricamento live di 07_Glossary.md non disponibile (ambiente offline/file:///), uso database integrato.", err);
+  }
+  if (statusEl) statusEl.innerText = `Glossario 07 Attivo (${GLOSSARY_DB.length} termini)`;
+}
+
+// --- 3. MOTORE DI TRADUZIONE MORFOLOGICA PROCEDURALE (G1-G4) ---
 const CARDINAL_MAP = {
   "Middle": "Centrale",
   "Central": "Centrale",
@@ -1466,52 +2031,176 @@ const CARDINAL_MAP = {
   "South": "Meridionale"
 };
 
-// Recurring Element Map (G3)
-const ELEMENT_MAP = {
-  "port": "Porto",
-  "camp": "Campo",
-  "station": "Stazione",
-  "mines": "Miniere",
-  "lake": "Lago",
-  "palace": "Palazzo",
-  "overlook": "Belvedere",
-  "bridge": "Ponte",
-  "ford": "Guado",
-  "gate": "Porta",
-  "bay": "Baia",
-  "watch": "Vedetta",
-  "meadows": "Prati",
-  "town": "Borgo",
-  "grotto": "Grotta",
-  "river": "Fiume",
-  "wood": "Bosco",
-  "mill": "Mulino",
-  "falls": "Cascate",
-  "quarry": "Cava",
-  "cove": "Cala",
-  "hollow": "Cavità",
-  "shroud": "Bosco",
-  "farms": "",
-  "stead": "Podere"
+const NOUN_MAP = {
+  "thorn": { it: "Spina", gender: "f" },
+  "thorns": { it: "Spine", gender: "fp" },
+  "river": { it: "Fiume", gender: "m" },
+  "wolf": { it: "Lupo", gender: "m" },
+  "boar": { it: "Cinghiale", gender: "m" },
+  "serpent": { it: "Vipera", gender: "f" },
+  "falcon": { it: "Falco", gender: "m" },
+  "hawk": { it: "Falco", gender: "m" },
+  "dragon": { it: "Drago", gender: "m" },
+  "bone": { it: "Ossa", gender: "f" },
+  "stone": { it: "Pietra", gender: "f" },
+  "rock": { it: "Roccia", gender: "f" },
+  "water": { it: "Acqua", gender: "f" },
+  "fire": { it: "Fuoco", gender: "m" },
+  "ice": { it: "Ghiaccio", gender: "m" },
+  "wind": { it: "Vento", gender: "m" },
+  "storm": { it: "Tempesta", gender: "f" },
+  "sun": { it: "Sole", gender: "m" },
+  "moon": { it: "Luna", gender: "f" },
+  "star": { it: "Stella", gender: "f" },
+  "iron": { it: "Ferro", gender: "m" },
+  "copper": { it: "Rame", gender: "m" },
+  "gold": { it: "Oro", gender: "m" },
+  "silver": { it: "Argento", gender: "m" },
+  "oak": { it: "Quercia", gender: "f" },
+  "rose": { it: "Rosa", gender: "f" },
+  "crown": { it: "Corona", gender: "f" },
+  "bell": { it: "Campana", gender: "f" },
+  "brush": { it: "Sterpaglia", gender: "f" },
+  "fog": { it: "Nebbia", gender: "f" },
+  "blood": { it: "Sangue", gender: "m" },
+  "tear": { it: "Lacrima", gender: "f" },
+  "blade": { it: "Lama", gender: "f" },
+  "spear": { it: "Lancia", gender: "f" },
+  "shield": { it: "Scudo", gender: "m" },
+  "tree": { it: "Albero", gender: "m" },
+  "wood": { it: "Bosco", gender: "m" },
+  "feather": { it: "Piuma", gender: "f" },
+  "tail": { it: "Coda", gender: "f" },
+  "head": { it: "Capo", gender: "m" },
+  "light": { it: "Luce", gender: "f" },
+  "dark": { it: "Oscurità", gender: "f" },
+  "shadow": { it: "Ombra", gender: "f" },
+  "spring": { it: "Sorgente", gender: "f" },
+  "summer": { it: "Estate", gender: "f" },
+  "winter": { it: "Inverno", gender: "m" },
+  "dawn": { it: "Alba", gender: "f" },
+  "dusk": { it: "Crepuscolo", gender: "m" },
+  "night": { it: "Notte", gender: "f" },
+  "day": { it: "Giorno", gender: "m" },
+  "cloud": { it: "Nuvola", gender: "f" },
+  "mist": { it: "Bruma", gender: "f" },
+  "sea": { it: "Mare", gender: "m" },
+  "shore": { it: "Riva", gender: "f" },
+  "sand": { it: "Sabbia", gender: "f" },
+  "earth": { it: "Terra", gender: "f" },
+  "sky": { it: "Cielo", gender: "m" },
+  "peak": { it: "Vetta", gender: "f" },
+  "ridge": { it: "Cresta", gender: "f" },
+  "cliff": { it: "Rupe", gender: "f" },
+  "hill": { it: "Colle", gender: "m" },
+  "plain": { it: "Piana", gender: "f" },
+  "vale": { it: "Conca", gender: "f" },
+  "valley": { it: "Valle", gender: "f" },
+  "cave": { it: "Grotta", gender: "f" },
+  "grotto": { it: "Grotta", gender: "f" },
+  "deep": { it: "Abisso", gender: "m" },
+  "sanctum": { it: "Santuario", gender: "m" },
+  "shrine": { it: "Santuario", gender: "m" },
+  "temple": { it: "Tempio", gender: "m" },
+  "wall": { it: "Muro", gender: "m" },
+  "gate": { it: "Porta", gender: "f" },
+  "bridge": { it: "Ponte", gender: "m" },
+  "tower": { it: "Torre", gender: "f" },
+  "castle": { it: "Castello", gender: "m" },
+  "keep": { it: "Roccaforte", gender: "f" },
+  "mill": { it: "Mulino", gender: "m" },
+  "quarry": { it: "Cava", gender: "f" },
+  "mine": { it: "Miniera", gender: "f" },
+  "mines": { it: "Miniere", gender: "f" }
 };
 
-// Procedural Translation Engine (G1-G4, G12.0)
-function translateToponym(name) {
-  if (!name) return { it: "", format: "" };
-  const clean = name.trim();
+const ADJ_MAP = {
+  "red": { m: "Rosso", f: "Rossa", mp: "Rossi", fp: "Rosse" },
+  "white": { m: "Bianco", f: "Bianca", mp: "Bianchi", fp: "Bianche" },
+  "black": { m: "Nero", f: "Nera", mp: "Neri", fp: "Nere" },
+  "blue": { m: "Azzurro", f: "Azzurra", mp: "Azzurri", fp: "Azzurre" },
+  "green": { m: "Verde", f: "Verde", mp: "Verdi", fp: "Verdi" },
+  "yellow": { m: "Giallo", f: "Gialla", mp: "Gialli", fp: "Gialle" },
+  "gold": { m: "Dorato", f: "Dorata", mp: "Dorati", fp: "Dorate" },
+  "golden": { m: "Dorato", f: "Dorata", mp: "Dorati", fp: "Dorate" },
+  "silver": { m: "Argenteo", f: "Argentea", mp: "Argentei", fp: "Argentee" },
+  "grey": { m: "Grigio", f: "Grigia", mp: "Grigi", fp: "Grigie" },
+  "gray": { m: "Grigio", f: "Grigia", mp: "Grigi", fp: "Grigie" },
+  "dark": { m: "Scuro", f: "Scura", mp: "Scuri", fp: "Scure" },
+  "deep": { m: "Profondo", f: "Profonda", mp: "Profondi", fp: "Profonde" },
+  "high": { m: "Alto", f: "Alta", mp: "Alti", fp: "Alte" },
+  "low": { m: "Basso", f: "Bassa", mp: "Bassi", fp: "Basse" },
+  "great": { m: "Grande", f: "Grande", mp: "Grandi", fp: "Grandi" },
+  "grand": { m: "Grande", f: "Grande", mp: "Grandi", fp: "Grandi" },
+  "little": { m: "Piccolo", f: "Piccola", mp: "Piccoli", fp: "Piccole" },
+  "old": { m: "Vecchio", f: "Vecchia", mp: "Vecchi", fp: "Vecchie" },
+  "new": { m: "Nuovo", f: "Nuova", mp: "Nuovi", fp: "Nuove" },
+  "ancient": { m: "Antico", f: "Antica", mp: "Antichi", fp: "Antiche" },
+  "lost": { m: "Perduto", f: "Perduta", mp: "Perduti", fp: "Perdute" },
+  "forgotten": { m: "Dimenticato", f: "Dimenticata", mp: "Dimenticati", fp: "Dimenticate" },
+  "dry": { m: "Secco", f: "Secca", mp: "Secchi", fp: "Secche" },
+  "silent": { m: "Silenzioso", f: "Silenziosa", mp: "Silenziosi", fp: "Silenziose" },
+  "cold": { m: "Freddo", f: "Fredda", mp: "Freddi", fp: "Fredde" },
+  "warm": { m: "Caldo", f: "Calda", mp: "Caldi", fp: "Calde" },
+  "sweet": { m: "Dolce", f: "Dolce", mp: "Dolci", fp: "Dolci" },
+  "proud": { m: "Fiero", f: "Fiera", mp: "Fieri", fp: "Fiere" },
+  "broken": { m: "Spezzato", f: "Spezzata", mp: "Spezzati", fp: "Spezzate" },
+  "dead": { m: "Morto", f: "Morta", mp: "Morti", fp: "Morte" },
+  "living": { m: "Vivente", f: "Vivente", mp: "Viventi", fp: "Viventi" },
+  "holy": { m: "Sacro", f: "Sacra", mp: "Sacri", fp: "Sacre" }
+};
 
-  // 1. Direct Fixed Dictionary match (G0 Priority)
-  const exact = GLOSSARY_DB.find(item => item.en.toLowerCase() === clean.toLowerCase());
+const HEAD_MAP = {
+  "camp": { it: "Campo", gender: "m", apposition: true },
+  "mount": { it: "Monte", gender: "m", apposition: true },
+  "mt.": { it: "Monte", gender: "m", apposition: true },
+  "station": { it: "Stazione", gender: "f", apposition: true },
+  "valley": { it: "Valle", gender: "f", apposition: true },
+  "pier": { it: "Molo", gender: "m", apposition: true },
+  "gate": { it: "Porta", gender: "f", apposition: false },
+  "bridge": { it: "Ponte", gender: "m", apposition: false },
+  "tower": { it: "Torre", gender: "f", apposition: false },
+  "castle": { it: "Castello", gender: "m", apposition: false },
+  "keep": { it: "Roccaforte", gender: "f", apposition: false },
+  "grotto": { it: "Grotta", gender: "f", apposition: false },
+  "cave": { it: "Grotta", gender: "f", apposition: false },
+  "mines": { it: "Miniere", gender: "fp", apposition: false },
+  "river": { it: "Fiume", gender: "m", apposition: false },
+  "lake": { it: "Lago", gender: "m", apposition: false },
+  "bay": { it: "Baia", gender: "f", apposition: false },
+  "falls": { it: "Cascate", gender: "fp", apposition: false },
+  "wood": { it: "Bosco", gender: "m", apposition: false },
+  "forest": { it: "Foresta", gender: "f", apposition: false },
+  "springs": { it: "Sorgenti", gender: "fp", apposition: false }
+};
+
+function getItalianPrep(gender, startsWithVowel = false) {
+  if (startsWithVowel) return "dell'";
+  switch (gender) {
+    case "m": return "del ";
+    case "f": return "della ";
+    case "mp": return "dei ";
+    case "fp": return "delle ";
+    default: return "di ";
+  }
+}
+
+function translateToponym(rawName) {
+  if (!rawName) return { it: "", format: "", rule: "" };
+  const clean = rawName.trim().replace(/^The\s+/i, '');
+
+  // 1. Direct match in canonical dictionary (G0 / G5-G27)
+  const exact = GLOSSARY_DB.find(item => item.en.toLowerCase() === clean.toLowerCase() || item.en.toLowerCase() === rawName.trim().toLowerCase());
   if (exact) {
-    if (KEPT_NAMES_G5.has(clean)) {
+    if (KEPT_NAMES_G5.has(clean) || KEPT_NAMES_G5.has(rawName.trim())) {
       return { it: exact.it, format: exact.it, rule: `${exact.ref} Invariato (G5)` };
     }
     return { it: exact.it, format: `${exact.it} (${clean})`, rule: `${exact.ref} Lista Fissa` };
   }
 
   // 2. Kept opaque check (G5)
-  if (KEPT_NAMES_G5.has(clean)) {
-    return { it: clean, format: clean, rule: "G5 Termine Opaco/Fantastico" };
+  if (KEPT_NAMES_G5.has(clean) || KEPT_NAMES_G5.has(rawName.trim())) {
+    return { it: clean, format: clean, rule: "G5 Nome Fantastico Invariato" };
   }
 
   // 3. Directional Compound (G12.0: [Modifier] + [Zone])
@@ -1524,39 +2213,89 @@ function translateToponym(name) {
     return { it: itName, format: `${itName} (${clean})`, rule: "G12.0 Prefisso Cardinale" };
   }
 
-  // 4. On-The-Fly Procedural Breakdown (G1-G4)
-  let itName = clean;
-  let ruleApplied = "G1 Metodo di Adattamento";
-
-  // Check for common compound patterns (e.g. "X's Y" -> "Y di X")
+  // 4. "X's Y" -> "Y di X" (Flowchart 3(a))
   if (clean.includes("'s ")) {
     const parts = clean.split("'s ");
-    const head = parts[1];
-    const owner = parts[0];
-    itName = `${head} di ${owner}`;
-    ruleApplied = "G1 Flowchart 3(a) 'X's Y'";
-  } else {
-    // Word by word element mapping
-    for (const [enEl, itEl] of Object.entries(ELEMENT_MAP)) {
-      const regex = new RegExp(`\\b${enEl}\\b`, 'i');
-      if (regex.test(clean)) {
-        itName = clean.replace(regex, itEl).trim();
-        ruleApplied = "G3 Mappa Elementi";
-        break;
+    const headTrans = translateToponym(parts[1]);
+    const itName = `${headTrans.it} di ${parts[0]}`;
+    return { it: itName, format: `${itName} (${clean})`, rule: "G1 Flowchart 3(a) 'X's Y'" };
+  }
+
+  // 5. Morphological Compound Decomposition (G1-G4)
+  // Check pattern: [Head] [Modifier] (e.g. "Camp Thorn", "Mount Silver")
+  const firstWord = words[0].toLowerCase();
+  const lastWord = words[words.length - 1].toLowerCase();
+
+  if (HEAD_MAP[firstWord] && words.length >= 2) {
+    const headInfo = HEAD_MAP[firstWord];
+    const modTokens = words.slice(1);
+    const modClean = modTokens.join(" ").toLowerCase();
+
+    // Check if modifier is in NOUN_MAP or ADJ_MAP
+    if (NOUN_MAP[modClean]) {
+      const nounInfo = NOUN_MAP[modClean];
+      let itName = "";
+      if (headInfo.apposition) {
+        itName = `${headInfo.it} ${nounInfo.it}`;
+      } else {
+        const prep = getItalianPrep(nounInfo.gender, /^[aeiou]/i.test(nounInfo.it));
+        itName = `${headInfo.it} ${prep}${nounInfo.it}`;
+      }
+      return { it: itName, format: `${itName} (${clean})`, rule: "G1/G3 Morfologia Composta" };
+    }
+    if (ADJ_MAP[modClean]) {
+      const adjInfo = ADJ_MAP[modClean];
+      const agreedAdj = adjInfo[headInfo.gender] || adjInfo.m;
+      const itName = `${headInfo.it} ${agreedAdj}`;
+      return { it: itName, format: `${itName} (${clean})`, rule: "G1/G3 Morfologia [Testa + Aggettivo]" };
+    }
+  }
+
+  // Check pattern: [Modifier] [Head] (e.g. "Red River", "White Wolf Gate")
+  if (HEAD_MAP[lastWord] && words.length >= 2) {
+    const headInfo = HEAD_MAP[lastWord];
+    const modTokens = words.slice(0, words.length - 1);
+
+    // Case 1: Modifier is 1 adjective (e.g. "Red River" -> "Fiume Rosso")
+    if (modTokens.length === 1 && ADJ_MAP[modTokens[0].toLowerCase()]) {
+      const adjInfo = ADJ_MAP[modTokens[0].toLowerCase()];
+      const agreedAdj = adjInfo[headInfo.gender] || adjInfo.m;
+      const itName = `${headInfo.it} ${agreedAdj}`;
+      return { it: itName, format: `${itName} (${clean})`, rule: "G1/G3 Morfologia [Aggettivo + Sostantivo]" };
+    }
+
+    // Case 2: Modifier is Adjective + Noun (e.g. "White Wolf Gate" -> "Porta del Lupo Bianco")
+    if (modTokens.length === 2 && ADJ_MAP[modTokens[0].toLowerCase()] && NOUN_MAP[modTokens[1].toLowerCase()]) {
+      const adjInfo = ADJ_MAP[modTokens[0].toLowerCase()];
+      const nounInfo = NOUN_MAP[modTokens[1].toLowerCase()];
+      const agreedAdj = adjInfo[nounInfo.gender] || adjInfo.m;
+      const prep = getItalianPrep(nounInfo.gender, /^[aeiou]/i.test(nounInfo.it));
+      const itName = `${headInfo.it} ${prep}${nounInfo.it} ${agreedAdj}`;
+      return { it: itName, format: `${itName} (${clean})`, rule: "G1/G3 Morfologia Complessa [Head + Prep + Noun + Adj]" };
+    }
+
+    // Case 3: Modifier is single Noun (e.g. "Wolf Gate" -> "Porta del Lupo")
+    if (modTokens.length === 1 && NOUN_MAP[modTokens[0].toLowerCase()]) {
+      const nounInfo = NOUN_MAP[modTokens[0].toLowerCase()];
+      if (headInfo.apposition) {
+        const itName = `${headInfo.it} ${nounInfo.it}`;
+        return { it: itName, format: `${itName} (${clean})`, rule: "G1/G3 Morfologia Apposizione" };
+      } else {
+        const prep = getItalianPrep(nounInfo.gender, /^[aeiou]/i.test(nounInfo.it));
+        const itName = `${headInfo.it} ${prep}${nounInfo.it}`;
+        return { it: itName, format: `${itName} (${clean})`, rule: "G1/G3 Morfologia [Head + Prep + Noun]" };
       }
     }
   }
 
-  // If no translation occurred, keep original once (Parenthesis test G2)
-  if (itName === clean) {
-    return { it: clean, format: clean, rule: "G2 Nome Invariato (Nessuna Traduzione)" };
-  }
-
-  return { it: itName, format: `${itName} (${clean})`, rule: ruleApplied };
+  // If no morphological rule succeeded, return original (G2 Parenthesis test)
+  return { it: clean, format: clean, rule: "G2 Invariato (Non Riconosciuto)" };
 }
 
-// --- 2. CANONICAL DATABASE DELLE ZONE FFXIV & MAPPE ---
+
+// --- 4. CANONICAL DATABASE DELLE ZONE FFXIV (56 ZONE UFFICIALI ARR -> EW 6.0) ---
 const ZONE_DATABASE = {
+  // === A REALM REBORN (23 ZONE) ===
   "Middle_La_Noscea": {
     id: "Middle_La_Noscea",
     enName: "Middle La Noscea",
@@ -1578,15 +2317,15 @@ const ZONE_DATABASE = {
     ],
     defaultParty: { x: 25.4, y: 16.5 },
     exits: [
-      { id: "to_limsa", name: "Zephyr Gate", destZone: "Limsa_Lominsa_Lower_Decks", x: 19.5, y: 35.8, arrX: 7.2, arrY: 15.0, icon: "🚪" },
-      { id: "to_lower", name: "Verso Noscea Inferiore", destZone: "Lower_La_Noscea", x: 21.0, y: 38.5, arrX: 24.5, arrY: 13.0, icon: "🚪" },
-      { id: "to_western", name: "Verso Noscea Occidentale", destZone: "Western_La_Noscea", x: 14.5, y: 14.2, arrX: 35.0, arrY: 26.5, icon: "🚪" },
-      { id: "to_eastern", name: "Verso Noscea Orientale", destZone: "Eastern_La_Noscea", x: 38.5, y: 12.5, arrX: 13.0, arrY: 25.5, icon: "🚪" }
+      { id: "to_limsa", name: "Porta Zefiro", destZone: "Limsa_Lominsa_Lower_Decks", x: 19.5, y: 25.5, arrX: 7.2, arrY: 15.0, icon: "🚪" },
+      { id: "to_western", name: "Verso Noscea Occidentale", destZone: "Western_La_Noscea", x: 13.1, y: 8.8, arrX: 35.0, arrY: 26.5, icon: "🚪" },
+      { id: "to_eastern", name: "Verso Noscea Orientale", destZone: "Eastern_La_Noscea", x: 25.8, y: 27.4, arrX: 13.0, arrY: 25.5, icon: "🚪" },
+      { id: "to_lower", name: "Verso Noscea Inferiore", destZone: "Lower_La_Noscea", x: 21.0, y: 38.5, arrX: 24.5, arrY: 13.0, icon: "🚪" }
     ],
     pois: [
       { id: "summerford", name: "Summerford Farms", x: 25.4, y: 16.5, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Generale", "Consumabili", "Armi"], desc: "Insediamento agricolo sorto dai campi bonificati dei corsari. Punto nodale per i viaggiatori." },
-      { id: "seasong", name: "Seasong Grotto", x: 23.5, y: 20.0, type: "landmark", icon: "💧", desc: "Caverna costiera dove risuona la brezza marina. Antico rifugio di pescatori." },
-      { id: "de_nevelle", name: "De Nevelle Checkpoint", x: 24.2, y: 27.5, type: "outpost", icon: "🛡️", desc: "Avamposto di controllo delle Giubbe Gialle a guardia della vallata di Galadion." },
+      { id: "seasong", name: "Seasong Grotto", x: 24.0, y: 20.2, type: "landmark", icon: "💧", desc: "Caverna costiera dove risuona il canto della marea. Antico rifugio di pescatori." },
+      { id: "de_nevelle", name: "De Nevelle Checkpoint", x: 25.8, y: 27.4, type: "outpost", icon: "🛡️", desc: "Avamposto di controllo delle Giubbe Gialle a guardia del valico orientale." },
       { id: "skylift", name: "Skylift", x: 17.5, y: 16.0, type: "landmark", icon: "⚙️", desc: "Argano montacarichi per il trasporto rapido di merci e bestiame verso le falesie occidentali." }
     ],
     mobs: ["Marmotta delle Piane", "Coccinella della Noscea", "Calabrone Gigante", "Puk delle Tempeste", "Dodo"]
@@ -1602,54 +2341,138 @@ const ZONE_DATABASE = {
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
     wikiTitle: "Lower_La_Noscea",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c3/Lower_La_Noscea_Map1.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/36/Lower_La_Noscea_Map_Full.jpg",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
       { name: "Foschia", icon: "🌫️", weight: 15 },
-      { name: "Pioggia", icon: "🌧️", weight: 15 }
+      { name: "Pioggia", icon: "🌧️", weight: 10 },
+      { name: "Vento", icon: "💨", weight: 5 }
     ],
     defaultParty: { x: 24.5, y: 13.0 },
     exits: [
-      { id: "to_middle", name: "Verso Noscea Centrale", destZone: "Middle_La_Noscea", x: 24.5, y: 13.0, arrX: 21.0, arrY: 38.5, icon: "🚪" },
-      { id: "to_limsa_upper", name: "Tempest Gate", destZone: "Limsa_Lominsa_Upper_Decks", x: 19.8, y: 34.2, arrX: 11.5, arrY: 14.0, icon: "🚪" },
-      { id: "to_eastern", name: "Verso Noscea Orientale", destZone: "Eastern_La_Noscea", x: 37.0, y: 18.0, arrX: 14.0, arrY: 30.0, icon: "🚪" }
+      { id: "to_middle", name: "Verso Noscea Centrale", destZone: "Middle_La_Noscea", x: 24.5, y: 12.0, arrX: 21.0, arrY: 37.5, icon: "🚪" },
+      { id: "to_limsa_upper", name: "Porta Tempesta", destZone: "Limsa_Lominsa_Upper_Decks", x: 20.0, y: 35.0, arrX: 11.5, arrY: 14.0, icon: "🚪" },
+      { id: "to_eastern", name: "Riva Sangue", destZone: "Eastern_La_Noscea", x: 36.0, y: 15.0, arrX: 18.0, arrY: 32.0, icon: "🚪" }
     ],
     pois: [
-      { id: "moraby", name: "Moraby Drydocks", x: 23.8, y: 34.5, type: "settlement", icon: "⚓", aetheryte: true, chocobo: true, shops: ["Generale", "Armature"], desc: "I celebri cantieri navali di Naldiq & Vymelli, dove vengono fabbricati i vascelli della Tempesta." },
-      { id: "the_grey_fleet", name: "The Grey Fleet", x: 31.0, y: 14.0, type: "landmark", icon: "🌾", desc: "Mulini a vento colossali che dominano le scogliere della Noscea." },
-      { id: "blind_iron", name: "Blind Iron Mines", x: 26.5, y: 16.0, type: "dungeon_ent", icon: "⛏️", desc: "Miniere di ferro dismesse ora infestate da coboldi e pipistrelli." }
+      { id: "moraby", name: "Moraby Drydocks", x: 24.0, y: 34.0, type: "settlement", icon: "⚓", aetheryte: true, chocobo: true, shops: ["Carpentiere Navale", "Materiali"], desc: "Cantieri navali dedicati alla costruzione e al restauro della flotta lominsana." },
+      { id: "red_rooster", name: "Red Rooster Stead", x: 31.0, y: 19.5, type: "settlement", icon: "🌾", shops: ["Fattoria", "Sementi"], desc: "Fattoria rinomata per l'allevamento e la coltivazione delle eccellenze di Vylbrand." }
     ],
-    mobs: ["Aurelia", "Pipistrello Cavernico", "Coboldo Minatore", "Granchio di Scoglio"]
+    mobs: ["Ape della Scogliera", "Marmotta Selvatica", "Aurelia Costiera", "Granchio di Scoglio"]
   },
 
-  "Limsa_Lominsa_Lower_Decks": {
-    id: "Limsa_Lominsa_Lower_Decks",
-    enName: "Limsa Lominsa Lower Decks",
-    itName: "Ponti Inferiori di Limsa Lominsa",
+  "Eastern_La_Noscea": {
+    id: "Eastern_La_Noscea",
+    enName: "Eastern La Noscea",
+    itName: "Noscea Orientale",
     region: "La Noscea",
     expansion: "ARR",
-    levels: "Città Hub",
-    danger: "Tranquillo",
-    dangerBadge: "badge-safe",
-    wikiTitle: "Limsa_Lominsa_Lower_Decks",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/4/4b/Limsa_Lominsa_Lower_Decks_Map1.jpg",
+    levels: "30 – 34",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Eastern_La_Noscea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b2/Eastern_La_Noscea_Map_Full.jpg",
     weatherRoster: [
       { name: "Sereno", icon: "☀️", weight: 45 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
-      { name: "Foschia", icon: "🌫️", weight: 10 },
-      { name: "Pioggia", icon: "🌧️", weight: 10 }
+      { name: "Pioggia", icon: "🌧️", weight: 10 },
+      { name: "Foschia", icon: "🌫️", weight: 10 }
     ],
-    defaultParty: { x: 7.2, y: 15.0 },
+    defaultParty: { x: 30.5, y: 30.5 },
     exits: [
-      { id: "to_middle_zephyr", name: "Porta Zefiro (Zephyr Gate)", destZone: "Middle_La_Noscea", x: 7.2, y: 15.0, arrX: 19.5, arrY: 35.8, icon: "🚪" },
-      { id: "to_upper_decks", name: "Verso Ponti Superiori", destZone: "Limsa_Lominsa_Upper_Decks", x: 11.5, y: 11.0, arrX: 11.5, arrY: 11.0, icon: "🪜" }
+      { id: "to_middle", name: "Verso Noscea Centrale", destZone: "Middle_La_Noscea", x: 12.0, y: 25.0, arrX: 25.0, arrY: 27.0, icon: "🚪" },
+      { id: "to_upper", name: "Verso Noscea Superiore", destZone: "Upper_La_Noscea", x: 16.0, y: 16.0, arrX: 30.0, arrY: 22.0, icon: "🚪" }
     ],
     pois: [
-      { id: "octant", name: "The Octant", x: 10.0, y: 11.5, type: "settlement", icon: "💎", aetheryte: true, shops: ["Armi", "Armature", "Accessori", "Consumabili", "Generale"], desc: "Piazza principale di Limsa Lominsa e cuore della rete Eterite della capitale marittima." },
-      { id: "drowning_wench", name: "The Drowning Wench", x: 11.5, y: 11.0, type: "tavern", icon: "🍺", desc: "La rinomata taverna gestita da Baderon Diecidita, centro d'ingaggio per ogni avventuriero." }
+      { id: "costa_del_sol", name: "Costa del Sol", x: 30.5, y: 30.5, type: "settlement", icon: "🏖️", aetheryte: true, chocobo: true, shops: ["Resort", "Pescatore", "Taverna"], desc: "Lussuosa tenuta balneare di Gegeruju, meta di mercanti e vacanzieri." },
+      { id: "wineport", name: "Wineport", x: 21.0, y: 21.0, type: "settlement", icon: "🍷", aetheryte: true, chocobo: true, shops: ["Vinaio", "Bottega"], desc: "Capitale della vinificazione di Vylbrand, sede della cantina Bacchus." }
     ],
-    mobs: ["Guardie della Tempesta", "Cittadini Lominsani", "Mercanti di Banchina"]
+    mobs: ["Piros delle Sabbie", "Dodo Selvatico", "Girasole Carnivoro", "Pipistrello dei Boschi"]
+  },
+
+  "Western_La_Noscea": {
+    id: "Western_La_Noscea",
+    enName: "Western La Noscea",
+    itName: "Noscea Occidentale",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "10 – 49",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Western_La_Noscea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/ab/Western_La_Noscea_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 30 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Burrasca", icon: "💨", weight: 20 },
+      { name: "Foschia", icon: "🌫️", weight: 20 }
+    ],
+    defaultParty: { x: 26.0, y: 26.0 },
+    exits: [
+      { id: "to_middle", name: "Verso Noscea Centrale", destZone: "Middle_La_Noscea", x: 35.0, y: 26.5, arrX: 13.5, arrY: 9.0, icon: "🚪" },
+      { id: "to_upper", name: "Verso Noscea Superiore", destZone: "Upper_La_Noscea", x: 30.0, y: 12.0, arrX: 14.0, arrY: 24.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "swiftperch", name: "Swiftperch", x: 34.0, y: 32.0, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Generale", "Locanda"], desc: "Insediamento costiero ricostruito dopo l'attacco dei pirati dei Serpent Reavers." },
+      { id: "aleport", name: "Aleport", x: 26.0, y: 26.0, type: "settlement", icon: "🍺", aetheryte: true, chocobo: true, shops: ["Bottega della Birra", "Mercato"], desc: "Porto d'attracco commerciale rinomato per le sue birre e il commercio con l'entroterra." }
+    ],
+    mobs: ["Coboldo Minatore", "Ape Assassina", "Molboro delle Paludi", "Pipistrello Gigante"]
+  },
+
+  "Upper_La_Noscea": {
+    id: "Upper_La_Noscea",
+    enName: "Upper La Noscea",
+    itName: "Noscea Superiore",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "20 – 34",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Upper_La_Noscea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/d/dc/Upper_La_Noscea_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Tuoni", icon: "🌩️", weight: 15 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 }
+    ],
+    defaultParty: { x: 30.0, y: 22.0 },
+    exits: [
+      { id: "to_eastern", name: "Verso Noscea Orientale", destZone: "Eastern_La_Noscea", x: 31.0, y: 23.0, arrX: 16.5, arrY: 16.5, icon: "🚪" },
+      { id: "to_outer", name: "Verso Noscea Esterna", destZone: "Outer_La_Noscea", x: 12.0, y: 15.0, arrX: 24.0, arrY: 28.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "bronze_lake", name: "Camp Bronze Lake", x: 30.0, y: 22.0, type: "settlement", icon: "♨️", aetheryte: true, shops: ["Terme", "Alchimia"], desc: "Stazione termale militare nota per le sue acque curative ricche di etere minerale." }
+    ],
+    mobs: ["Salamandra Vulcanica", "Guglia di Cristallo", "Coboldo Sentinella", "Lupo dei Boschi"]
+  },
+
+  "Outer_La_Noscea": {
+    id: "Outer_La_Noscea",
+    enName: "Outer La Noscea",
+    itName: "Noscea Esterna",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "30 – 49",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Outer_La_Noscea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/1/1e/Outer_La_Noscea_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 },
+      { name: "Temporale", icon: "⛈️", weight: 10 }
+    ],
+    defaultParty: { x: 24.0, y: 28.0 },
+    exits: [
+      { id: "to_upper", name: "Verso Noscea Superiore", destZone: "Upper_La_Noscea", x: 24.0, y: 29.0, arrX: 12.5, arrY: 15.5, icon: "🚪" }
+    ],
+    pois: [
+      { id: "camp_overlook", name: "Camp Overlook", x: 25.0, y: 17.0, type: "settlement", icon: "🛡️", aetheryte: true, shops: ["Armeria Maelstrom", "Provviste"], desc: "Avamposto avanzato della Tempesta affacciato sulla roccaforte dei Coboldi di U'Ghamaro." }
+    ],
+    mobs: ["Coboldo Alchimista", "Guerriero Coboldo", "Golem di Pietra", "Viverna della Rupi"]
   },
 
   "Limsa_Lominsa_Upper_Decks": {
@@ -1662,21 +2485,109 @@ const ZONE_DATABASE = {
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
     wikiTitle: "Limsa_Lominsa_Upper_Decks",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b5/Limsa_Lominsa_Upper_Decks_Map1.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/52/Limsa_Lominsa_Upper_Decks_Map.jpg",
     weatherRoster: [
-      { name: "Sereno", icon: "☀️", weight: 50 },
-      { name: "Soleggiato", icon: "🌤️", weight: 30 },
-      { name: "Vento", icon: "💨", weight: 20 }
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 15 },
+      { name: "Pioggia", icon: "🌧️", weight: 10 }
     ],
-    defaultParty: { x: 11.5, y: 14.0 },
+    defaultParty: { x: 11.5, y: 11.0 },
     exits: [
-      { id: "to_lower_tempest", name: "Porta Tempesta (Tempest Gate)", destZone: "Lower_La_Noscea", x: 11.5, y: 14.0, arrX: 19.8, arrY: 34.2, icon: "🚪" },
-      { id: "to_lower_decks_2", name: "Verso Ponti Inferiori", destZone: "Limsa_Lominsa_Lower_Decks", x: 11.5, y: 11.0, arrX: 11.5, arrY: 11.0, icon: "🪜" }
+      { id: "to_lower_decks", name: "Ascensore Ponti Inferiori", destZone: "Limsa_Lominsa_Lower_Decks", x: 11.5, y: 11.0, arrX: 10.0, arrY: 11.5, icon: "🚪" },
+      { id: "to_lower_noscea", name: "Porta Tempesta", destZone: "Lower_La_Noscea", x: 11.5, y: 14.0, arrX: 20.0, arrY: 34.0, icon: "🚪" }
     ],
     pois: [
-      { id: "aftcastle", name: "The Aftcastle", x: 11.2, y: 13.5, type: "settlement", icon: "🏰", desc: "Piazza d'armi e sede del Maelstrom (La Tempesta) sotto il comando dell'Ammiraglio Merlwyb." }
+      { id: "drowning_wench", name: "The Drowning Wench", x: 11.5, y: 11.0, type: "settlement", icon: "🍺", shops: ["Taverna", "Locanda"], desc: "La celebre taverna di Baderon Diecidita, punto d'incontro degli avventurieri." },
+      { id: "anchor_yard", name: "The Anchor Yard", x: 7.5, y: 15.0, type: "landmark", icon: "⚓", desc: "Piazzale panoramico sulle falesie con vista sull'oceano e sulle banchine." }
     ],
-    mobs: ["Ufficiali della Tempesta", "Gabbiani delle Scogliere"]
+    mobs: []
+  },
+
+  "Limsa_Lominsa_Lower_Decks": {
+    id: "Limsa_Lominsa_Lower_Decks",
+    enName: "Limsa Lominsa Lower Decks",
+    itName: "Ponti Inferiori di Limsa Lominsa",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Limsa_Lominsa_Lower_Decks",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b2/Limsa_Lominsa_Lower_Decks_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 15 },
+      { name: "Pioggia", icon: "🌧️", weight: 10 }
+    ],
+    defaultParty: { x: 9.5, y: 11.0 },
+    exits: [
+      { id: "to_upper_decks", name: "Ascensore Ponti Superiori", destZone: "Limsa_Lominsa_Upper_Decks", x: 10.0, y: 11.5, arrX: 11.5, arrY: 11.0, icon: "🚪" },
+      { id: "to_middle_noscea", name: "Porta Zefiro", destZone: "Middle_La_Noscea", x: 7.2, y: 15.0, arrX: 19.5, arrY: 25.5, icon: "🚪" }
+    ],
+    pois: [
+      { id: "limsa_aeth", name: "Piazza dell'Eterite di Limsa", x: 9.5, y: 11.0, type: "settlement", icon: "💎", aetheryte: true, desc: "La monumentale Eterite centrale della città marittima." },
+      { id: "hawkers_alley", name: "Hawkers' Alley", x: 7.0, y: 12.0, type: "market", icon: "🛒", shops: ["Mercato dei Bottegai", "Armaiolo", "Orefice"], desc: "Il cuore pulsante del commercio marittimo di Limsa Lominsa." }
+    ],
+    mobs: []
+  },
+
+  "New_Gridania": {
+    id: "New_Gridania",
+    enName: "New Gridania",
+    itName: "Nuova Gridania",
+    region: "The Black Shroud",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "New_Gridania",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/33/New_Gridania_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 },
+      { name: "Foschia", icon: "🌫️", weight: 15 }
+    ],
+    defaultParty: { x: 11.5, y: 11.5 },
+    exits: [
+      { id: "to_old_gridania", name: "Verso Vecchia Gridania", destZone: "Old_Gridania", x: 14.5, y: 4.0, arrX: 14.5, arrY: 14.0, icon: "🚪" },
+      { id: "to_central_shroud", name: "Porta del Lupo Bianco", destZone: "Central_Shroud", x: 12.0, y: 14.0, arrX: 25.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "carline_canopy", name: "The Carline Canopy", x: 11.5, y: 11.5, type: "settlement", icon: "🍵", aetheryte: true, shops: ["Locanda di Miounne", "Tè del Bosco"], desc: "La celebre locanda gestita da Madre Miounne all'arrivo dell'aeronave." }
+    ],
+    mobs: []
+  },
+
+  "Old_Gridania": {
+    id: "Old_Gridania",
+    enName: "Old Gridania",
+    itName: "Vecchia Gridania",
+    region: "The Black Shroud",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Old_Gridania",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/3b/Old_Gridania_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 },
+      { name: "Foschia", icon: "🌫️", weight: 15 }
+    ],
+    defaultParty: { x: 14.5, y: 14.0 },
+    exits: [
+      { id: "to_new_gridania", name: "Verso Nuova Gridania", destZone: "New_Gridania", x: 14.5, y: 14.0, arrX: 14.5, arrY: 4.0, icon: "🚪" },
+      { id: "to_north_shroud", name: "Porta del Cinghiale Nero", destZone: "North_Shroud", x: 9.0, y: 2.0, arrX: 28.0, arrY: 34.0, icon: "🚪" },
+      { id: "to_central_shroud", name: "Porta della Vipera Gialla", destZone: "Central_Shroud", x: 4.0, y: 12.0, arrX: 21.0, arrY: 18.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "leatherworkers", name: "Leatherworkers' Guild", x: 12.5, y: 7.5, type: "landmark", icon: "🧵", shops: ["Conciatore", "Pelli"], desc: "La prestigiosa corporazione dei conciatori e artigiani del cuoio." }
+    ],
+    mobs: []
   },
 
   "Central_Shroud": {
@@ -1689,26 +2600,194 @@ const ZONE_DATABASE = {
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
     wikiTitle: "Central_Shroud",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/2/23/Central_Shroud_Map1.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/f6/Central_Shroud_Map_Full.jpg",
     weatherRoster: [
-      { name: "Sereno", icon: "☀️", weight: 30 },
+      { name: "Sereno", icon: "☀️", weight: 40 },
       { name: "Soleggiato", icon: "🌤️", weight: 30 },
-      { name: "Nuvoloso", icon: "☁️", weight: 15 },
       { name: "Pioggia", icon: "🌧️", weight: 15 },
-      { name: "Foschia", icon: "🌫️", weight: 10 }
+      { name: "Foschia", icon: "🌫️", weight: 15 }
     ],
-    defaultParty: { x: 21.0, y: 21.0 },
+    defaultParty: { x: 23.0, y: 19.0 },
     exits: [
-      { id: "to_gridania_new", name: "White Wolf Gate", destZone: "New_Gridania", x: 21.5, y: 17.5, arrX: 12.0, arrY: 13.0, icon: "🚪" },
-      { id: "to_south_shroud", name: "Verso Bosco Meridionale", destZone: "South_Shroud", x: 17.0, y: 32.0, arrX: 20.0, arrY: 12.0, icon: "🚪" },
-      { id: "to_east_shroud", name: "Verso Bosco Orientale", destZone: "East_Shroud", x: 29.5, y: 19.5, arrX: 12.0, arrY: 20.0, icon: "🚪" },
-      { id: "to_north_shroud", name: "Verso Bosco Settentrionale", destZone: "North_Shroud", x: 23.0, y: 14.0, arrX: 25.0, arrY: 34.0, icon: "🚪" }
+      { id: "to_gridania", name: "Porta del Lupo Bianco", destZone: "New_Gridania", x: 25.0, y: 15.0, arrX: 12.0, arrY: 14.0, icon: "🚪" },
+      { id: "to_south_shroud", name: "Verso Bosco Meridionale", destZone: "South_Shroud", x: 18.0, y: 34.0, arrX: 25.0, arrY: 10.0, icon: "🚪" },
+      { id: "to_north_shroud", name: "Verso Bosco Settentrionale", destZone: "North_Shroud", x: 22.0, y: 10.0, arrX: 27.0, arrY: 30.0, icon: "🚪" }
     ],
     pois: [
-      { id: "bentbranch", name: "Bentbranch Meadows", x: 21.0, y: 21.0, type: "settlement", icon: "🌾", aetheryte: true, chocobo: true, shops: ["Generale", "Cavalcature"], desc: "Famoso allevamento di Chocobo guidato da Moogle e istruttori Gridaniani." },
-      { id: "tam_tara", name: "The Tam-Tara Deepcroft", x: 19.5, y: 28.0, type: "dungeon_ent", icon: "💀", desc: "Antica necropoli sotterranea di Gelmorra infestata da cultisti dell'Agnello." }
+      { id: "bentbranch", name: "Bentbranch Meadows", x: 23.0, y: 19.0, type: "settlement", icon: "🐣", aetheryte: true, chocobo: true, shops: ["Allevatore Chocobo", "Erborista"], desc: "Principale centro di allevamento e cura dei Chocobo del Bosco Nero." },
+      { id: "the_bannock", name: "The Bannock", x: 23.5, y: 19.5, type: "outpost", icon: "🛡️", desc: "Campo d'addestramento militare delle Sentinelle del Bosco." }
     ],
-    mobs: ["Fungo Silvano", "Scoiattolo del Bosco", "Mantis Silvana", "Rospo Gigante"]
+    mobs: ["Scoiattolo del Bosco", "Fungonauta", "Coleottero Silvano", "Chigoe"]
+  },
+
+  "East_Shroud": {
+    id: "East_Shroud",
+    enName: "East Shroud",
+    itName: "Bosco Orientale",
+    region: "The Black Shroud",
+    expansion: "ARR",
+    levels: "11 – 43",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "East_Shroud",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/55/East_Shroud_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 20 },
+      { name: "Temporale", icon: "⛈️", weight: 15 }
+    ],
+    defaultParty: { x: 17.0, y: 26.0 },
+    exits: [
+      { id: "to_central_shroud", name: "Verso Bosco Centrale", destZone: "Central_Shroud", x: 9.0, y: 23.0, arrX: 28.0, arrY: 20.0, icon: "🚪" },
+      { id: "to_south_shroud", name: "Verso Bosco Meridionale", destZone: "South_Shroud", x: 15.0, y: 33.0, arrX: 30.0, arrY: 12.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "hawthorne", name: "Hawthorne Hut", x: 17.0, y: 26.0, type: "settlement", icon: "🏡", aetheryte: true, shops: ["Provviste", "Erbe"], desc: "Capanna della famiglia Biancospino a guardia delle terre selvagge delle Silfidi." },
+      { id: "little_solace", name: "Little Solace", x: 22.0, y: 26.0, type: "settlement", icon: "🌸", desc: "Il pacifico rifugio delle Silfidi amichevoli scampate all'influenza di Ramuh." }
+    ],
+    mobs: ["Silfide Temprata", "Gipponauta", "Vipera dei Fiori", "Ochu del Bosco"]
+  },
+
+  "South_Shroud": {
+    id: "South_Shroud",
+    enName: "South Shroud",
+    itName: "Bosco Meridionale",
+    region: "The Black Shroud",
+    expansion: "ARR",
+    levels: "21 – 47",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "South_Shroud",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/a6/South_Shroud_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 30 },
+      { name: "Soleggiato", icon: "🌤️", weight: 25 },
+      { name: "Foschia", icon: "🌫️", weight: 25 },
+      { name: "Temporale", icon: "⛈️", weight: 20 }
+    ],
+    defaultParty: { x: 25.0, y: 20.0 },
+    exits: [
+      { id: "to_central_shroud", name: "Verso Bosco Centrale", destZone: "Central_Shroud", x: 25.0, y: 10.0, arrX: 18.0, arrY: 34.0, icon: "🚪" },
+      { id: "to_eastern_thanalan", name: "Verso Thanalan Orientale", destZone: "Eastern_Thanalan", x: 11.0, y: 34.0, arrX: 30.0, arrY: 10.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "quarrymill", name: "Quarrymill", x: 25.0, y: 20.0, type: "settlement", icon: "🪵", aetheryte: true, chocobo: true, shops: ["Falegname", "Provviste"], desc: "Villaggio mulino di boscaioli e tagliapietre sulle rive del fiume." },
+      { id: "buscarrons", name: "Buscarron's Druthers", x: 18.0, y: 19.5, type: "settlement", icon: "🍺", shops: ["Taverna di Buscarron"], desc: "Celebre taverna neutrale nel cuore delle paludi, rifugio per tutti i viaggiatori." },
+      { id: "camp_tranquil", name: "Camp Tranquil", x: 25.0, y: 28.0, type: "settlement", icon: "🛡️", aetheryte: true, shops: ["Presidio Serpentino"], desc: "Avamposto avanzato dell'Ordine della Vipera Gemella a guardia del Redbelly Hive." }
+    ],
+    mobs: ["Zanzara Palustre", "Bandito Redbelly", "Anubi delle Tenebre", "Molboro Tossico"]
+  },
+
+  "North_Shroud": {
+    id: "North_Shroud",
+    enName: "North Shroud",
+    itName: "Bosco Settentrionale",
+    region: "The Black Shroud",
+    expansion: "ARR",
+    levels: "3 – 50",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "North_Shroud",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/ff/North_Shroud_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 20 },
+      { name: "Neve", icon: "🌨️", weight: 15 }
+    ],
+    defaultParty: { x: 20.0, y: 26.0 },
+    exits: [
+      { id: "to_old_gridania", name: "Porta del Cinghiale Nero", destZone: "Old_Gridania", x: 28.0, y: 34.0, arrX: 9.0, arrY: 2.0, icon: "🚪" },
+      { id: "to_coerthas", name: "Verso Altopiani di Coerthas", destZone: "Coerthas_Central_Highlands", x: 15.0, y: 15.0, arrX: 30.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "fallgourd", name: "Fallgourd Float", x: 20.0, y: 26.0, type: "settlement", icon: "🪵", aetheryte: true, chocobo: true, shops: ["Zatterieri", "Locanda"], desc: "Villaggio galleggiante costruito sopra gli specchi d'acqua delle cascate." },
+      { id: "hyrstmill", name: "Hyrstmill", x: 26.0, y: 19.0, type: "settlement", icon: "⚒️", shops: ["Fucina di Gerolt"], desc: "Borgo boschivo sede della fucina del leggendario fabbro Gerolt Spinanera." }
+    ],
+    mobs: ["Ixal Guardiano", "Lupo della Selva", "Gargoyle di Pietra", "Treant Antico"]
+  },
+
+  "Uldah_Steps_of_Nald": {
+    id: "Uldah_Steps_of_Nald",
+    enName: "Ul'dah - Steps of Nald",
+    itName: "Foro di Nald",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Ul'dah_-_Steps_of_Nald",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/67/Ul%27dah_-_Steps_of_Nald_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Ondata di calore", icon: "🏜️", weight: 15 }
+    ],
+    defaultParty: { x: 10.0, y: 9.0 },
+    exits: [
+      { id: "to_thal", name: "Pozzo di Thal", destZone: "Uldah_Steps_of_Thal", x: 11.5, y: 11.5, arrX: 11.0, arrY: 11.0, icon: "🚪" },
+      { id: "to_western_thanalan", name: "Porta di Nald", destZone: "Western_Thanalan", x: 4.5, y: 11.5, arrX: 27.0, arrY: 26.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "quicksand", name: "The Quicksand", x: 11.5, y: 9.0, type: "settlement", icon: "🍷", shops: ["Locanda di Momodi", "Banchetto"], desc: "Celeberrima taverna gestita da Momodi Modi, centro nevralgico della vita uldiana." }
+    ],
+    mobs: []
+  },
+
+  "Uldah_Steps_of_Thal": {
+    id: "Uldah_Steps_of_Thal",
+    enName: "Ul'dah - Steps of Thal",
+    itName: "Pozzo di Thal",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Ul'dah_-_Steps_of_Thal",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/59/Ul%27dah_-_Steps_of_Thal_Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Ondata di calore", icon: "🏜️", weight: 15 }
+    ],
+    defaultParty: { x: 12.0, y: 12.0 },
+    exits: [
+      { id: "to_nald", name: "Foro di Nald", destZone: "Uldah_Steps_of_Nald", x: 11.0, y: 11.0, arrX: 11.5, arrY: 11.5, icon: "🚪" },
+      { id: "to_central_thanalan", name: "Porta di Thal", destZone: "Central_Thanalan", x: 14.0, y: 13.0, arrX: 18.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "sapphire_avenue", name: "Sapphire Avenue Exchange", x: 13.5, y: 11.0, type: "market", icon: "💎", shops: ["Gran Bazar di Zaffiro", "Orefice", "Armature"], desc: "Il mercato più opulento di tutta Eorzea, gestito dalla corporazione dei mercanti." }
+    ],
+    mobs: []
+  },
+
+  "Western_Thanalan": {
+    id: "Western_Thanalan",
+    enName: "Western Thanalan",
+    itName: "Thanalan Occidentale",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "1 – 15",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Western_Thanalan",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/ac/Western_Thanalan_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Tempesta di sabbia", icon: "🌪️", weight: 20 }
+    ],
+    defaultParty: { x: 23.0, y: 17.0 },
+    exits: [
+      { id: "to_uldah", name: "Porta di Nald", destZone: "Uldah_Steps_of_Nald", x: 27.0, y: 26.0, arrX: 4.5, arrY: 11.5, icon: "🚪" },
+      { id: "to_central_thanalan", name: "Verso Thanalan Centrale", destZone: "Central_Thanalan", x: 28.0, y: 18.0, arrX: 15.0, arrY: 18.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "horizon", name: "Camp Horizon", x: 23.0, y: 17.0, type: "settlement", icon: "🛡️", aetheryte: true, chocobo: true, shops: ["Mercanti delle Lame d'Ottone"], desc: "Grande avamposto fortificato delle Lame d'Ottone a guardia della rotta per Baia del Vespro." },
+      { id: "vesper_bay", name: "Vesper Bay", x: 12.0, y: 14.0, type: "settlement", icon: "⛵", chocobo: true, shops: ["Porto", "Sabbie del Risveglio"], desc: "Porto marittimo con il colosso di Lolorito e quartier generale iniziale dei Figli della Settima Alba." }
+    ],
+    mobs: ["Cactuar del Deserto", "Iena delle Sabbie", "Scorpione di Rame", "Amalj'aa Predatore"]
   },
 
   "Central_Thanalan": {
@@ -1721,24 +2800,104 @@ const ZONE_DATABASE = {
     danger: "Tranquillo",
     dangerBadge: "badge-safe",
     wikiTitle: "Central_Thanalan",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b5/Central_Thanalan_Map1.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c8/Central_Thanalan_Map_Full.jpg",
     weatherRoster: [
-      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Sereno", icon: "☀️", weight: 50 },
       { name: "Soleggiato", icon: "🌤️", weight: 35 },
-      { name: "Foschia", icon: "🌫️", weight: 10 },
       { name: "Tempesta di sabbia", icon: "🌪️", weight: 15 }
     ],
-    defaultParty: { x: 21.5, y: 25.0 },
+    defaultParty: { x: 21.0, y: 18.0 },
     exits: [
-      { id: "to_uldah_thal", name: "Gate of Thal", destZone: "Uldah_Steps_of_Thal", x: 18.0, y: 15.0, arrX: 13.5, arrY: 10.5, icon: "🚪" },
-      { id: "to_west_than", name: "Verso Thanalan Occidentale", destZone: "Western_Thanalan", x: 15.0, y: 21.0, arrX: 28.0, arrY: 20.0, icon: "🚪" },
-      { id: "to_east_than", name: "Verso Thanalan Orientale", destZone: "Eastern_Thanalan", x: 29.0, y: 20.0, arrX: 12.0, arrY: 18.0, icon: "🚪" }
+      { id: "to_uldah", name: "Porta di Thal", destZone: "Uldah_Steps_of_Thal", x: 18.0, y: 15.0, arrX: 14.0, arrY: 13.0, icon: "🚪" },
+      { id: "to_eastern_thanalan", name: "Verso Thanalan Orientale", destZone: "Eastern_Thanalan", x: 28.0, y: 18.0, arrX: 10.0, arrY: 18.0, icon: "🚪" }
     ],
     pois: [
-      { id: "black_brush", name: "Black Brush Station", x: 21.5, y: 18.5, type: "settlement", icon: "🚂", aetheryte: true, chocobo: true, shops: ["Generale", "Consumabili"], desc: "Stazione ferroviaria mineraria per convogli carichi di zolfo e gemme." },
-      { id: "spineless_basin", name: "Spineless Basin", x: 20.0, y: 24.5, type: "landmark", icon: "🌵", desc: "Conca rocciosa arida punteggiata da cactus e tane di formiche leone." }
+      { id: "black_brush", name: "Black Brush Station", x: 21.0, y: 18.0, type: "settlement", icon: "🚂", aetheryte: true, shops: ["Stazione Merci", "Rifornimenti"], desc: "Nodo ferroviario e stazione mineraria per il trasporto dei metalli a Ul'dah." }
     ],
-    mobs: ["Marmotta del Deserto", "Cactuar", "Formica Leone", "Iena del Thanalan"]
+    mobs: ["Formicaio Guerriero", "Pipistrello delle Miniere", "Tartaruga del Deserto"]
+  },
+
+  "Eastern_Thanalan": {
+    id: "Eastern_Thanalan",
+    enName: "Eastern Thanalan",
+    itName: "Thanalan Orientale",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "15 – 30",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Eastern_Thanalan",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/e/ec/Eastern_Thanalan.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 }
+    ],
+    defaultParty: { x: 14.0, y: 24.0 },
+    exits: [
+      { id: "to_central_thanalan", name: "Verso Thanalan Centrale", destZone: "Central_Thanalan", x: 10.0, y: 18.0, arrX: 28.0, arrY: 18.0, icon: "🚪" },
+      { id: "to_southern_thanalan", name: "Verso Thanalan Meridionale", destZone: "Southern_Thanalan", x: 18.0, y: 30.0, arrX: 18.0, arrY: 10.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "camp_drybone", name: "Camp Drybone", x: 14.0, y: 24.0, type: "settlement", icon: "💀", aetheryte: true, chocobo: true, shops: ["Locanda del Cimitero", "Mercante"], desc: "Antico avamposto sorto attorno ai cimiteri dei caduti durante le guerre con i Primal." },
+      { id: "highbridge", name: "Highbridge", x: 23.0, y: 22.0, type: "landmark", icon: "🌉", shops: ["Bazaar del Ponte"], desc: "Il vertiginoso ponte che valica la gola, costantemente sotto assedio dai Qiqirn." }
+    ],
+    mobs: ["Qiqirn Brigante", "Amalj'aa Sciamano", "Avvoltoio Solitario", "Basilisco"]
+  },
+
+  "Southern_Thanalan": {
+    id: "Southern_Thanalan",
+    enName: "Southern Thanalan",
+    itName: "Thanalan Meridionale",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "25 – 49",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Southern_Thanalan",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/7/75/Southern_Thanalan.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Ondata di calore", icon: "🏜️", weight: 20 },
+      { name: "Tempesta di sabbia", icon: "🌪️", weight: 10 }
+    ],
+    defaultParty: { x: 18.0, y: 14.0 },
+    exits: [
+      { id: "to_eastern_thanalan", name: "Verso Thanalan Orientale", destZone: "Eastern_Thanalan", x: 18.0, y: 10.0, arrX: 18.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "little_ala_mhigo", name: "Little Ala Mhigo", x: 18.0, y: 14.0, type: "settlement", icon: "⛺", aetheryte: true, shops: ["Provviste dei Rifugiati"], desc: "L'insediamento rupestre dei profughi ala mhigani fuggiti dall'Impero Garleano." },
+      { id: "forgotten_springs", name: "Forgotten Springs", x: 15.0, y: 30.0, type: "settlement", icon: "🌴", aetheryte: true, chocobo: true, shops: ["Oasi Miqo'te"], desc: "L'oasi sacra della tribù U dei Miqo'te Cercasole, governata dall'U'rhun Tia." }
+    ],
+    mobs: ["Amalj'aa Guerriero", "Verme delle Sabbie", "Chimera del Deserto", "Formica Soldato"]
+  },
+
+  "Northern_Thanalan": {
+    id: "Northern_Thanalan",
+    enName: "Northern Thanalan",
+    itName: "Thanalan Settentrionale",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "49 – 50",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Northern_Thanalan",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/e/e8/Northern_Thanalan_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 15 }
+    ],
+    defaultParty: { x: 21.0, y: 29.0 },
+    exits: [
+      { id: "to_mor_dhona", name: "Verso Mor Dhona", destZone: "Mor_Dhona", x: 22.0, y: 8.0, arrX: 30.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "camp_bluefog", name: "Camp Bluefog", x: 21.0, y: 29.0, type: "settlement", icon: "🛡️", aetheryte: true, chocobo: true, shops: ["Fiamme Immortali", "Ceruleo"], desc: "Avamposto militare delle Fiamme Immortali affacciato sugli impianti di ceruleo contesi con i Garleani." },
+      { id: "ceruleum_plant", name: "Ceruleum Extraction Plant", x: 21.0, y: 20.0, type: "landmark", icon: "⛽", desc: "La gigantesca raffineria di carburante ceruleo di Eorzea." }
+    ],
+    mobs: ["Magitek Vanguard", "Soldato Garleano", "Colosso di Ferro", "Bomba di Ceruleo"]
   },
 
   "Coerthas_Central_Highlands": {
@@ -1748,26 +2907,26 @@ const ZONE_DATABASE = {
     region: "Coerthas",
     expansion: "ARR",
     levels: "35 – 50",
-    danger: "Rischioso",
-    dangerBadge: "badge-risky",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
     wikiTitle: "Coerthas_Central_Highlands",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b3/Coerthas_Central_Highlands_Map1.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/7/70/Coerthas_Central_Highlands_Map_Full.jpg",
     weatherRoster: [
-      { name: "Neve", icon: "🌨️", weight: 45 },
-      { name: "Tormenta", icon: "❄️", weight: 35 },
-      { name: "Nebbia", icon: "🌫️", weight: 10 },
+      { name: "Tormenta", icon: "❄️", weight: 45 },
+      { name: "Neve", icon: "🌨️", weight: 35 },
+      { name: "Nuvoloso", icon: "☁️", weight: 10 },
       { name: "Sereno", icon: "☀️", weight: 10 }
     ],
-    defaultParty: { x: 26.5, y: 17.0 },
+    defaultParty: { x: 26.0, y: 17.0 },
     exits: [
-      { id: "to_north_shroud", name: "Verso Bosco Settentrionale", destZone: "North_Shroud", x: 33.0, y: 23.0, arrX: 18.0, arrY: 10.0, icon: "🚪" },
-      { id: "to_mor_dhona", name: "Verso Mor Dhona", destZone: "Mor_Dhona", x: 13.0, y: 35.0, arrX: 30.0, arrY: 12.0, icon: "🚪" }
+      { id: "to_ishgard", name: "Porte di Ishgard", destZone: "Foundation", x: 18.0, y: 15.0, arrX: 13.0, arrY: 12.0, icon: "🚪" },
+      { id: "to_coerthas_west", name: "Verso Altopiani Occidentali", destZone: "Coerthas_Western_Highlands", x: 7.0, y: 20.0, arrX: 32.0, arrY: 20.0, icon: "🚪" }
     ],
     pois: [
-      { id: "dragonhead", name: "Camp Dragonhead", x: 26.5, y: 17.0, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Armature", "Armi", "Consumabili"], desc: "Roccaforte di Casata Fortemps sotto il comando di Ser Haurchefant Pietragrigia." },
-      { id: "whitebrim_front", name: "Whitebrim Front", x: 13.0, y: 15.5, type: "outpost", icon: "🛡️", aetheryte: true, desc: "Avamposto avanzato di Casata Durendaire a ridosso delle postazioni eretiche." }
+      { id: "camp_dragonhead", name: "Camp Dragonhead", x: 26.0, y: 17.0, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Casata Fortemps", "Armeria"], desc: "Roccaforte di Lord Haurchefant Pietragrigia della Casata Fortemps." },
+      { id: "whitebrim_front", name: "Whitebrim Front", x: 12.0, y: 17.0, type: "settlement", icon: "🛡️", aetheryte: true, shops: ["Casata Durendaire"], desc: "Avamposto d'élite della Casata Durendaire a guardia della Stone Vigil." }
     ],
-    mobs: ["Avis della Neve", "Lupo dei Ghiacci", "Colosso Draconico", "Eretici di Coerthas"]
+    mobs: ["Drago dei Ghiacci", "Lupo della Tormenta", "Behemoth", "Eretico Ishgardiano"]
   },
 
   "Mor_Dhona": {
@@ -1780,75 +2939,905 @@ const ZONE_DATABASE = {
     danger: "Ostile",
     dangerBadge: "badge-hostile",
     wikiTitle: "Mor_Dhona",
-    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/1/1d/Mor_Dhona_Map1.jpg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/f6/Mor_Dhona_Map_Full.jpg",
     weatherRoster: [
-      { name: "Gloom", icon: "🌌", weight: 40 },
-      { name: "Nebbia", icon: "🌫️", weight: 30 },
-      { name: "Sereno", icon: "☀️", weight: 30 }
+      { name: "Foschia eterea", icon: "🌌", weight: 35 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 25 },
+      { name: "Sereno", icon: "☀️", weight: 10 }
     ],
     defaultParty: { x: 22.0, y: 8.0 },
     exits: [
-      { id: "to_coerthas", name: "Verso Coerthas", destZone: "Coerthas_Central_Highlands", x: 30.0, y: 12.0, arrX: 13.0, arrY: 35.0, icon: "🚪" },
-      { id: "to_north_than", name: "Verso Thanalan Settentrionale", destZone: "Northern_Thanalan", x: 16.0, y: 35.0, arrX: 20.0, arrY: 10.0, icon: "🚪" }
+      { id: "to_north_thanalan", name: "Verso Thanalan Settentrionale", destZone: "Northern_Thanalan", x: 30.0, y: 15.0, arrX: 22.0, arrY: 8.0, icon: "🚪" },
+      { id: "to_coerthas", name: "Verso Coerthas", destZone: "Coerthas_Central_Highlands", x: 22.0, y: 5.0, arrX: 26.0, arrY: 30.0, icon: "🚪" }
     ],
     pois: [
-      { id: "revenants_toll", name: "Revenant's Toll", x: 22.0, y: 8.0, type: "settlement", icon: "💎", aetheryte: true, chocobo: true, shops: ["Armi", "Armature", "Accessori", "Generale"], desc: "L'avamposto degli avventurieri e sede delle Pietre Risorte dei Figli della Settima Alba." },
-      { id: "silvertear", name: "Silvertear Lake", x: 25.0, y: 15.0, type: "landmark", icon: "🐉", desc: "Il Lago Lacrimargento dove giace l'involucro mortale di Midgardsormr avvinghiato alla corazzata Agrius." }
+      { id: "revenants_toll", name: "Revenant's Toll", x: 22.0, y: 8.0, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Tomopietre di Rowena", "Mercato degli Avventurieri"], desc: "La fiorente cittadella degli avventurieri e sede delle Pietre Risorte dei Figli della Settima Alba." },
+      { id: "crystal_tower", name: "The Crystal Tower", x: 30.0, y: 12.0, type: "landmark", icon: "🗼", desc: "La colossale torre allagana che canalizza l'energia del sole verso la terra." }
     ],
-    mobs: ["Eolipile", "Gigante di Mor Dhona", "Morfite", "Chimera delle Rovine"]
+    mobs: ["Gigante Etereo", "Salamandra di Mor Dhona", "Soldato Garleano VII", "Drago Minore"]
+  },
+
+  // === HEAVENSWARD (9 ZONE) ===
+  "Foundation": {
+    id: "Foundation",
+    enName: "Foundation",
+    itName: "Il Fondo",
+    region: "Ishgard",
+    expansion: "HW",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Foundation",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/3d/Foundation_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Neve", icon: "🌨️", weight: 45 },
+      { name: "Tormenta", icon: "❄️", weight: 35 },
+      { name: "Nuvoloso", icon: "☁️", weight: 20 }
+    ],
+    defaultParty: { x: 13.0, y: 12.0 },
+    exits: [
+      { id: "to_pillars", name: "Altocastello", destZone: "The_Pillars", x: 14.0, y: 12.0, arrX: 14.0, arrY: 12.0, icon: "🚪" },
+      { id: "to_coerthas_central", name: "Porte del Giudizio", destZone: "Coerthas_Central_Highlands", x: 13.0, y: 15.0, arrX: 18.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "forgotten_knight", name: "The Forgotten Knight", x: 13.0, y: 12.0, type: "settlement", icon: "🍺", aetheryte: true, shops: ["Taverna di Gibrillont", "Incarichi"], desc: "La celebre taverna e locanda del Fondo gestita da Gibrillont." },
+      { id: "skysteel", name: "Skysteel Manufactory", x: 8.0, y: 10.0, type: "landmark", icon: "⚙️", shops: ["Officine Ferrocielo", "Artificieri"], desc: "Fonderia e centro di sviluppo delle armi anti-drago e della classe Artificiere." }
+    ],
+    mobs: []
+  },
+
+  "The_Pillars": {
+    id: "The_Pillars",
+    enName: "The Pillars",
+    itName: "Altocastello",
+    region: "Ishgard",
+    expansion: "HW",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "The_Pillars",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/d/d0/The_Pillars_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Neve", icon: "🌨️", weight: 45 },
+      { name: "Tormenta", icon: "❄️", weight: 35 },
+      { name: "Sereno", icon: "☀️", weight: 20 }
+    ],
+    defaultParty: { x: 14.0, y: 12.0 },
+    exits: [
+      { id: "to_foundation", name: "Il Fondo", destZone: "Foundation", x: 14.0, y: 12.0, arrX: 14.0, arrY: 12.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "fortemps_manor", name: "House Fortemps Manor", x: 11.0, y: 11.0, type: "settlement", icon: "🏰", desc: "La residenza del Conte Edmont de Fortemps, che offre ospitalità ai Guerrieri della Luce." },
+      { id: "the_vault", name: "The Vault", x: 12.5, y: 7.0, type: "landmark", icon: "⛪", desc: "La cattedrale e sede sacra della Santa Sede e dell'Arcivescovo Thordan VII." }
+    ],
+    mobs: []
+  },
+
+  "Coerthas_Western_Highlands": {
+    id: "Coerthas_Western_Highlands",
+    enName: "Coerthas Western Highlands",
+    itName: "Altopiani Occidentali di Coerthas",
+    region: "Coerthas",
+    expansion: "HW",
+    levels: "50 – 52",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Coerthas_Western_Highlands",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c3/Coerthas_Western_Highlands_Map.jpg",
+    weatherRoster: [
+      { name: "Tormenta", icon: "❄️", weight: 50 },
+      { name: "Neve", icon: "🌨️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 15 }
+    ],
+    defaultParty: { x: 32.0, y: 36.0 },
+    exits: [
+      { id: "to_coerthas_central", name: "Verso Altopiani Centrali", destZone: "Coerthas_Central_Highlands", x: 32.0, y: 20.0, arrX: 7.0, arrY: 20.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "falcons_nest", name: "Falcon's Nest", x: 32.0, y: 36.0, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Avamposto Fortificato", "Locanda"], desc: "Baluardo ishgardiano fortificato per la riconquista delle terre occidentali sepolte dai ghiacci." }
+    ],
+    mobs: ["Orso della Tormenta", "Yeti dei Ghiacci", "Drago Ishgardiano", "Pipistrello di Ghiaccio"]
+  },
+
+  "The_Sea_of_Clouds": {
+    id: "The_Sea_of_Clouds",
+    enName: "The Sea of Clouds",
+    itName: "Il Mar di Nuvole",
+    region: "Abalathia's Spine",
+    expansion: "HW",
+    levels: "50 – 60",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "The_Sea_of_Clouds",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/6c/The_Sea_of_Clouds_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Vento", icon: "💨", weight: 20 },
+      { name: "Foschia", icon: "🌫️", weight: 10 }
+    ],
+    defaultParty: { x: 10.0, y: 33.0 },
+    exits: [],
+    pois: [
+      { id: "camp_cloudtop", name: "Camp Cloudtop", x: 10.0, y: 33.0, type: "settlement", icon: "☁️", aetheryte: true, chocobo: true, shops: ["Cavalieri Celesti"], desc: "Stazione aerea avanzata della Casata Haillenarte e dei Cavalieri Celesti." },
+      { id: "ok_zundu", name: "Ok' Zundu", x: 10.0, y: 14.0, type: "settlement", icon: "🪶", aetheryte: true, desc: "Il grande villaggio della tribù Vanu Vanu pacifica guidata da Sonu Vanu." }
+    ],
+    mobs: ["Vanu Vanu Guerriero", "Paissa delle Nuvole", "Wivre Volante", "Dzo"]
+  },
+
+  "Azys_Lla": {
+    id: "Azys_Lla",
+    enName: "Azys Lla",
+    itName: "Azys Lla",
+    region: "Abalathia's Spine",
+    expansion: "HW",
+    levels: "59 – 60",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Azys_Lla",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/fd/Azys_Lla_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Tempesta di fulmini", icon: "⚡", weight: 50 }
+    ],
+    defaultParty: { x: 7.0, y: 31.0 },
+    exits: [],
+    pois: [
+      { id: "helix", name: "Helix", x: 7.0, y: 31.0, type: "settlement", icon: "🛸", aetheryte: true, desc: "Piattaforma d'attracco fluttuante allagana e portale d'accesso alla colonia volante." }
+    ],
+    mobs: ["Costrutto Allagano", "Chimera Eterea", "Clone Guerriero", "Drome di Sorveglianza"]
+  },
+
+  "The_Dravanian_Forelands": {
+    id: "The_Dravanian_Forelands",
+    enName: "The Dravanian Forelands",
+    itName: "Terre Anteriori di Dravania",
+    region: "Dravania",
+    expansion: "HW",
+    levels: "52 – 54",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "The_Dravanian_Forelands",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/e/e8/The_Dravanian_Forelands_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 25 },
+      { name: "Polvere", icon: "🌪️", weight: 20 },
+      { name: "Temporale", icon: "⛈️", weight: 20 }
+    ],
+    defaultParty: { x: 32.0, y: 23.0 },
+    exits: [
+      { id: "to_churning_mists", name: "Verso Nebbie Vorticose", destZone: "The_Churning_Mists", x: 10.0, y: 15.0, arrX: 30.0, arrY: 35.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "tailfeather", name: "Tailfeather", x: 32.0, y: 23.0, type: "settlement", icon: "🪶", aetheryte: true, chocobo: true, shops: ["Cacciatori di Chocobo"], desc: "Campo di cacciatori indipendenti dediti alla cattura dei Chocobo selvatici." }
+    ],
+    mobs: ["Gnath Guerriero", "Chocobo Selvatico", "Viverna Dravaniana", "Orso di Caverna"]
+  },
+
+  "The_Churning_Mists": {
+    id: "The_Churning_Mists",
+    enName: "The Churning Mists",
+    itName: "Le Nebbie Vorticose",
+    region: "Dravania",
+    expansion: "HW",
+    levels: "54 – 56",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "The_Churning_Mists",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/58/The_Churning_Mists_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Vento", icon: "💨", weight: 30 },
+      { name: "Burrasca", icon: "🌪️", weight: 30 }
+    ],
+    defaultParty: { x: 29.0, y: 35.0 },
+    exits: [
+      { id: "to_forelands", name: "Verso Terre Anteriori", destZone: "The_Dravanian_Forelands", x: 30.0, y: 35.0, arrX: 10.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "moghome", name: "Moghome", x: 29.0, y: 35.0, type: "settlement", icon: "✨", aetheryte: true, chocobo: true, shops: ["Moguri delle Nuvole"], desc: "Il sacro e celato villaggio dei Moguri dei cieli di Dravania." },
+      { id: "zenith", name: "Zenith", x: 8.0, y: 27.0, type: "landmark", icon: "👑", desc: "Il maestoso palazzo di Hraesvelgr e dell'antica alleanza tra uomini e draghi." }
+    ],
+    mobs: ["Drago Eredivario", "Gargoyle delle Vette", "Archeodrago", "Moguri Sorvegliante"]
+  },
+
+  "The_Dravanian_Hinterlands": {
+    id: "The_Dravanian_Hinterlands",
+    enName: "The Dravanian Hinterlands",
+    itName: "Entroterra di Dravania",
+    region: "Dravania",
+    expansion: "HW",
+    levels: "58 – 60",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "The_Dravanian_Hinterlands",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/9/94/The_Dravanian_Hinterlands_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 },
+      { name: "Foschia", icon: "🌫️", weight: 15 }
+    ],
+    defaultParty: { x: 20.0, y: 25.0 },
+    exits: [
+      { id: "to_idyllshire", name: "Verso Borgopace", destZone: "Idyllshire", x: 20.0, y: 22.0, arrX: 7.0, arrY: 6.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "matoyas_cave", name: "Matoya's Cave", x: 12.0, y: 38.0, type: "landmark", icon: "🐸", desc: "L'eremo segreto della saggia e anziana maestra Matoya e delle sue rane animate." }
+    ],
+    mobs: ["Goblin Illuminato", "Poroggo Mago", "Costrutto Sharlayano", "Grizzly delle Valli"]
+  },
+
+  "Idyllshire": {
+    id: "Idyllshire",
+    enName: "Idyllshire",
+    itName: "Borgopace",
+    region: "Dravania",
+    expansion: "HW",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Idyllshire",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/d/d2/Idyllshire_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 },
+      { name: "Foschia", icon: "🌫️", weight: 15 }
+    ],
+    defaultParty: { x: 7.0, y: 6.0 },
+    exits: [
+      { id: "to_hinterlands", name: "Verso Entroterra", destZone: "The_Dravanian_Hinterlands", x: 7.0, y: 6.0, arrX: 20.0, arrY: 22.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "idyll_aeth", name: "Eterite di Borgopace", x: 5.5, y: 6.5, type: "settlement", icon: "💎", aetheryte: true, shops: ["Tomopietre di Rowena", "Botteghe Goblin"], desc: "La città libera fondata dai Goblin e dagli avventurieri tra le rovine di Sharlayan." }
+    ],
+    mobs: []
+  },
+
+  // === STORMBLOOD (8 ZONE) ===
+  "Rhalgrs_Reach": {
+    id: "Rhalgrs_Reach",
+    enName: "Rhalgr's Reach",
+    itName: "La Presa di Rhalgr",
+    region: "Gyr Abania",
+    expansion: "SB",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Rhalgr's_Reach",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/cc/Rhalgr%27s_Reach-Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Temporale", icon: "⛈️", weight: 20 }
+    ],
+    defaultParty: { x: 12.0, y: 12.0 },
+    exits: [
+      { id: "to_fringes", name: "Verso I Margini", destZone: "The_Fringes", x: 14.0, y: 14.0, arrX: 30.0, arrY: 20.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "rhalgr_statue", name: "Statua di Rhalgr il Distruttore", x: 12.0, y: 12.0, type: "settlement", icon: "⚡", aetheryte: true, shops: ["Quartier Generale Resistenza", "Tomopietre"], desc: "Quartier generale della Resistenza Ala Mhigana all'ombra del colosso di Rhalgr." }
+    ],
+    mobs: []
+  },
+
+  "The_Fringes": {
+    id: "The_Fringes",
+    enName: "The Fringes",
+    itName: "I Margini",
+    region: "Gyr Abania",
+    expansion: "SB",
+    levels: "60 – 69",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "The_Fringes",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/2/25/The_Fringes-Map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 15 },
+      { name: "Temporale", icon: "⛈️", weight: 15 }
+    ],
+    defaultParty: { x: 30.0, y: 20.0 },
+    exits: [
+      { id: "to_rhalgr", name: "Verso Presa di Rhalgr", destZone: "Rhalgrs_Reach", x: 30.0, y: 20.0, arrX: 14.0, arrY: 14.0, icon: "🚪" },
+      { id: "to_peaks", name: "Verso Le Vette", destZone: "The_Peaks", x: 12.0, y: 10.0, arrX: 30.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "castrum_oriens", name: "Castrum Oriens", x: 9.0, y: 17.0, type: "settlement", icon: "🛡️", aetheryte: true, chocobo: true, desc: "L'ex fortezza di confine imperiale riconvertita dall'Alleanza Eorzeana." }
+    ],
+    mobs: ["Ananta Guerriera", "Colosso di Pietra", "Iena delle Rocce", "Grifone di Gyr Abania"]
+  },
+
+  "The_Peaks": {
+    id: "The_Peaks",
+    enName: "The Peaks",
+    itName: "Le Vette",
+    region: "Gyr Abania",
+    expansion: "SB",
+    levels: "60 – 69",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "The_Peaks",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/37/The_peaks_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Vento", icon: "💨", weight: 10 },
+      { name: "Foschia", icon: "🌫️", weight: 10 }
+    ],
+    defaultParty: { x: 24.0, y: 6.0 },
+    exits: [
+      { id: "to_fringes", name: "Verso I Margini", destZone: "The_Fringes", x: 30.0, y: 30.0, arrX: 12.0, arrY: 10.0, icon: "🚪" },
+      { id: "to_lochs", name: "Verso I Laghi", destZone: "The_Lochs", x: 10.0, y: 35.0, arrX: 35.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "ala_gannha", name: "Ala Gannha", x: 24.0, y: 6.0, type: "settlement", icon: "⛏️", aetheryte: true, chocobo: true, desc: "Villaggio di cavapietre celebre per la pietra da costruzione di Ala Mhigo." },
+      { id: "ala_ghiri", name: "Ala Ghiri", x: 16.0, y: 36.0, type: "settlement", icon: "🏺", aetheryte: true, desc: "Antica città carovaniera lungo la via commerciale tra le montagne." }
+    ],
+    mobs: ["Guerriero della XII Legione", "Basilisco delle Vette", "Scorpione Corazzato"]
+  },
+
+  "The_Lochs": {
+    id: "The_Lochs",
+    enName: "The Lochs",
+    itName: "I Laghi",
+    region: "Gyr Abania",
+    expansion: "SB",
+    levels: "69 – 70",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "The_Lochs",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/84/The_lochs.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 },
+      { name: "Temporale", icon: "⛈️", weight: 30 }
+    ],
+    defaultParty: { x: 35.0, y: 30.0 },
+    exits: [
+      { id: "to_peaks", name: "Verso Le Vette", destZone: "The_Peaks", x: 35.0, y: 30.0, arrX: 10.0, arrY: 35.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "porta_praetoria", name: "Porta Praetoria", x: 35.0, y: 30.0, type: "settlement", icon: "🛡️", aetheryte: true, desc: "Il grande varco fortificato imperiale prima delle rive del Lago Seld." },
+      { id: "ala_mhigo_city", name: "Ala Mhigo", x: 32.0, y: 15.0, type: "landmark", icon: "👑", desc: "La capitale liberata del Regno di Ala Mhigo e la rocca reale." }
+    ],
+    mobs: ["Magitek Colossus", "Guardia Imperiale Zenos", "Idra del Lago Seld"]
+  },
+
+  "Kugane": {
+    id: "Kugane",
+    enName: "Kugane",
+    itName: "Kugane",
+    region: "Hingashi",
+    expansion: "SB",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Kugane",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/5/5a/Map_of_kugane.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Pioggia", icon: "🌧️", weight: 30 },
+      { name: "Nuvoloso", icon: "☁️", weight: 25 }
+    ],
+    defaultParty: { x: 11.5, y: 10.0 },
+    exits: [
+      { id: "to_ruby_sea", name: "Porto di Kugane", destZone: "The_Ruby_Sea", x: 10.0, y: 14.0, arrX: 38.0, arrY: 38.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "kugane_aeth", name: "Piazza dell'Eterite di Kugane", x: 11.5, y: 10.0, type: "settlement", icon: "💎", aetheryte: true, chocobo: true, desc: "L'Eterite monumentale all'imbocco dell'incantevole città portuale di Hingashi." },
+      { id: "shiokaze_hostel", name: "Shiokaze Hostel", x: 10.0, y: 10.5, type: "settlement", icon: "🏮", shops: ["Locanda della Brezza Marina", "Bazar di Rubino"], desc: "La locanda principale affacciata sulle banchine, sede degli incontri internazionali." }
+    ],
+    mobs: []
+  },
+
+  "The_Ruby_Sea": {
+    id: "The_Ruby_Sea",
+    enName: "The Ruby Sea",
+    itName: "Il Mar Rubino",
+    region: "Othard",
+    expansion: "SB",
+    levels: "62 – 64",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "The_Ruby_Sea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/82/The_Ruby_Sea_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Temporale", icon: "⛈️", weight: 15 },
+      { name: "Vento", icon: "💨", weight: 10 }
+    ],
+    defaultParty: { x: 38.0, y: 38.0 },
+    exits: [
+      { id: "to_kugane", name: "Verso Kugane", destZone: "Kugane", x: 38.0, y: 38.0, arrX: 10.0, arrY: 14.0, icon: "🚪" },
+      { id: "to_yanxia", name: "Verso Yanxia", destZone: "Yanxia", x: 10.0, y: 10.0, arrX: 38.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "tamamizu", name: "Tamamizu", x: 28.0, y: 16.0, type: "settlement", icon: "🐢", aetheryte: true, desc: "Il sacro rifugio subacqueo dei Kojin e sede del tesoro dell'isola." },
+      { id: "onokoro", name: "Onokoro", x: 23.0, y: 9.0, type: "settlement", icon: "🏴‍☠️", aetheryte: true, desc: "La rocca dell'isola dei pirati della Confederazione del Mare Rubino." }
+    ],
+    mobs: ["Kojin Rosso", "Pesce Sciabola", "Kraken Minore", "Spirito del Mare"]
+  },
+
+  "Yanxia": {
+    id: "Yanxia",
+    enName: "Yanxia",
+    itName: "Yanxia",
+    region: "Othard",
+    expansion: "SB",
+    levels: "64 – 67",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Yanxia",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/04/Yanxia_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Pioggia", icon: "🌧️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 30 }
+    ],
+    defaultParty: { x: 30.0, y: 18.0 },
+    exits: [
+      { id: "to_ruby_sea", name: "Verso Mar Rubino", destZone: "The_Ruby_Sea", x: 38.0, y: 30.0, arrX: 10.0, arrY: 10.0, icon: "🚪" },
+      { id: "to_azim", name: "Verso Steppa di Azim", destZone: "The_Azim_Steppe", x: 20.0, y: 8.0, arrX: 20.0, arrY: 38.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "namai", name: "Namai", x: 30.0, y: 18.0, type: "settlement", icon: "🌾", aetheryte: true, shops: ["Contadini di Doma"], desc: "Il pacifico villaggio rurale di coltivatori ai piedi del Castello di Doma." },
+      { id: "doma_castle", name: "Doma Castle", x: 17.0, y: 7.0, type: "landmark", icon: "🏯", desc: "La storica fortezza imperiale sul Fiume Scelto, baluardo della dinastia di Hien." }
+    ],
+    mobs: ["Lupo Domano", "Lupo Garleano", "Tigre dei Bambù", "Lama della Notte"]
+  },
+
+  "The_Azim_Steppe": {
+    id: "The_Azim_Steppe",
+    enName: "The Azim Steppe",
+    itName: "La Steppa di Azim",
+    region: "Othard",
+    expansion: "SB",
+    levels: "65 – 67",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "The_Azim_Steppe",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/03/The_azim_steppe_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Vento", icon: "💨", weight: 25 },
+      { name: "Temporale", icon: "⛈️", weight: 20 },
+      { name: "Polvere", icon: "🌪️", weight: 10 }
+    ],
+    defaultParty: { x: 32.0, y: 27.0 },
+    exits: [
+      { id: "to_yanxia", name: "Verso Yanxia", destZone: "Yanxia", x: 20.0, y: 38.0, arrX: 20.0, arrY: 8.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "reunion", name: "Reunion", x: 32.0, y: 27.0, type: "settlement", icon: "⛺", aetheryte: true, chocobo: true, shops: ["Mercato Nomade di Qestir"], desc: "Piazzamercato neutrale fondata dai Qestir, dove ogni commercio avviene in silenzio assoluto." },
+      { id: "dawn_throne", name: "The Dawn Throne", x: 23.0, y: 22.0, type: "settlement", icon: "👑", aetheryte: true, desc: "Il Trono d'Alba eretto sulla rocca sacra della fiera tribù degli Oronir guidata da Magnai." }
+    ],
+    mobs: ["Mamut della Steppa", "Guerriero Dotharl", "Yak Lanoso", "Aquila di Azim"]
+  },
+
+  // === SHADOWBRINGERS (8 ZONE) ===
+  "The_Crystarium": {
+    id: "The_Crystarium",
+    enName: "The Crystarium",
+    itName: "Il Cristarium",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "The_Crystarium",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/04/Crystarium_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 }
+    ],
+    defaultParty: { x: 10.0, y: 15.0 },
+    exits: [
+      { id: "to_lakeland", name: "Verso Terralago", destZone: "Lakeland", x: 9.0, y: 17.0, arrX: 18.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "cryst_aeth", name: "Piazza dell'Eterite del Cristarium", x: 10.0, y: 15.0, type: "settlement", icon: "💎", aetheryte: true, chocobo: true, desc: "La grandiosa città sorta ai piedi della Torre di Cristallo sotto la guida dell'Esarca." },
+      { id: "rostrum", name: "The Rostrum", x: 10.0, y: 7.0, type: "landmark", icon: "🌿", desc: "La lussureggiante cupola agricola gestita dai botanici del Cristarium." }
+    ],
+    mobs: []
+  },
+
+  "Eulmore": {
+    id: "Eulmore",
+    enName: "Eulmore",
+    itName: "Eulmore",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Eulmore",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/3/3f/Eulmore_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 60 },
+      { name: "Soleggiato", icon: "🌤️", weight: 40 }
+    ],
+    defaultParty: { x: 12.0, y: 10.0 },
+    exits: [
+      { id: "to_kholusia", name: "Borgocancello", destZone: "Kholusia", x: 12.0, y: 14.0, arrX: 20.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "eulmore_aeth", name: "Eterite di Eulmore", x: 12.0, y: 10.0, type: "settlement", icon: "💎", aetheryte: true, shops: ["Tomopietre di Ronbitt", "Bazar dell'Opulenza"], desc: "La sfarzosa città del piacere e dell'oblio governata da Lord Vauthry." }
+    ],
+    mobs: []
+  },
+
+  "Lakeland": {
+    id: "Lakeland",
+    enName: "Lakeland",
+    itName: "Terralago",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "70 – 80",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Lakeland",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/8d/Lakeland_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 15 },
+      { name: "Pioggia", icon: "🌧️", weight: 10 }
+    ],
+    defaultParty: { x: 18.0, y: 15.0 },
+    exits: [
+      { id: "to_crystarium", name: "Verso Il Cristarium", destZone: "The_Crystarium", x: 18.0, y: 15.0, arrX: 9.0, arrY: 17.0, icon: "🚪" },
+      { id: "to_kholusia", name: "Verso Kholusia", destZone: "Kholusia", x: 8.0, y: 30.0, arrX: 35.0, arrY: 15.0, icon: "🚪" },
+      { id: "to_il_mheg", name: "Verso Il Mheg", destZone: "Il_Mheg", x: 10.0, y: 10.0, arrX: 35.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "fort_jobb", name: "Fort Jobb", x: 36.0, y: 20.0, type: "settlement", icon: "🛡️", aetheryte: true, chocobo: true, desc: "Presidio militare avanzato a guardia delle sponde del lago Source." },
+      { id: "ostocraig", name: "The Ostocraig", x: 7.0, y: 15.0, type: "settlement", icon: "🏰", aetheryte: true, desc: "Antica fortezza elfi elfica degli albori del Regno di Voeburt." }
+    ],
+    mobs: ["Mangialuce Minore", "Lupo della Notte", "Orso di Terralago", "Pixie Dispettosa"]
+  },
+
+  "Kholusia": {
+    id: "Kholusia",
+    enName: "Kholusia",
+    itName: "Kholusia",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "70 – 79",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Kholusia",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b6/Khoulsia_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 }
+    ],
+    defaultParty: { x: 20.0, y: 30.0 },
+    exits: [
+      { id: "to_eulmore", name: "Verso Eulmore", destZone: "Eulmore", x: 20.0, y: 30.0, arrX: 12.0, arrY: 14.0, icon: "🚪" },
+      { id: "to_lakeland", name: "Verso Terralago", destZone: "Lakeland", x: 35.0, y: 15.0, arrX: 8.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "stilltide", name: "Stilltide", x: 33.0, y: 27.0, type: "settlement", icon: "🎣", aetheryte: true, shops: ["Pescatori di Rivaspenta"], desc: "Piccolo borgo di pescatori caduto in rovina all'ombra della ricchezza di Eulmore." },
+      { id: "tomra", name: "Tomra", x: 12.0, y: 9.0, type: "settlement", icon: "⛏️", aetheryte: true, desc: "L'operoso villaggio minerario dei Nani della tribù Tholl sui rilievi settentrionali." }
+    ],
+    mobs: ["Nano Rivale Gogg", "Gabbiano Selvatico", "Hobgoblin della Scogliera"]
+  },
+
+  "Amh_Araeng": {
+    id: "Amh_Araeng",
+    enName: "Amh Araeng",
+    itName: "Amh Araeng",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "70 – 80",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Amh_Araeng",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/4/4f/Amh_araeng_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Ondata di calore", icon: "🏜️", weight: 30 },
+      { name: "Tempesta di sabbia", icon: "🌪️", weight: 20 }
+    ],
+    defaultParty: { x: 26.0, y: 16.0 },
+    exits: [
+      { id: "to_lakeland", name: "Verso Terralago", destZone: "Lakeland", x: 38.0, y: 18.0, arrX: 12.0, arrY: 35.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "mord_souq", name: "Mord Souq", x: 26.0, y: 16.0, type: "settlement", icon: "🏺", aetheryte: true, chocobo: true, shops: ["Bazar dei Mord"], desc: "Vivace crocevia carovaniero gestito dalla pacifica tribù Mord tra le dune." },
+      { id: "twine", name: "Twine", x: 11.0, y: 16.0, type: "settlement", icon: "⛏️", aetheryte: true, desc: "Insediamento minerario sorto attorno alle ferrovie del Talos." }
+    ],
+    mobs: ["Scorpione Cristallino", "Mangialuce del Diluvio", "Talos Danneggiato"]
+  },
+
+  "Il_Mheg": {
+    id: "Il_Mheg",
+    enName: "Il Mheg",
+    itName: "Il Mheg",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "72 – 74",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Il_Mheg",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/4/41/Il_mheg_map.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 }
+    ],
+    defaultParty: { x: 16.0, y: 30.0 },
+    exits: [
+      { id: "to_lakeland", name: "Verso Terralago", destZone: "Lakeland", x: 35.0, y: 30.0, arrX: 10.0, arrY: 10.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "lydha_lran", name: "Lydha Lran", x: 16.0, y: 30.0, type: "settlement", icon: "🧚", aetheryte: true, desc: "L'idilliaco e floreale insediamento delle Pixie nel regno fatato di Titania." },
+      { id: "pla_enia", name: "Pla Enni", x: 20.0, y: 5.0, type: "settlement", icon: "🍄", aetheryte: true, desc: "La placida dimora sommersa tra i funghi dei saggi Nu Mou." }
+    ],
+    mobs: ["Pixie Illusionista", "Fuath Acquatico", "Pianta Carnivora Fatata"]
+  },
+
+  "The_Raktika_Greatwood": {
+    id: "The_Rak'tika_Greatwood",
+    enName: "The Rak'tika Greatwood",
+    itName: "La Grande Foresta di Rak'tika",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "74 – 76",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "The_Rak'tika_Greatwood",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/a/aa/Rak%27tika_greatwood.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Foschia", icon: "🌫️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 25 }
+    ],
+    defaultParty: { x: 19.0, y: 28.0 },
+    exits: [],
+    pois: [
+      { id: "slitherbough", name: "Slitherbough", x: 19.0, y: 28.0, type: "settlement", icon: "🪵", aetheryte: true, shops: ["Benedetti della Notte"], desc: "Villaggio arboreo e santuario dei devoti Benedetti della Notte guidati da Runar." },
+      { id: "fanow", name: "Fanow", x: 30.0, y: 20.0, type: "settlement", icon: "🏹", aetheryte: true, desc: "L'antico villaggio delle sentinelle Viere guardiane delle rovine di Ronka." }
+    ],
+    mobs: ["Guardiano di Ronka", "Pantera della Foresta", "Vipera Gigante di Rak'tika"]
+  },
+
+  "The_Tempest": {
+    id: "The_Tempest",
+    enName: "The Tempest",
+    itName: "Fossantica",
+    region: "Norvrandt",
+    expansion: "ShB",
+    levels: "79 – 80",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "The_Tempest",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c3/The_Tempest_Map_Full.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Nuvoloso", icon: "☁️", weight: 30 }
+    ],
+    defaultParty: { x: 33.0, y: 17.0 },
+    exits: [],
+    pois: [
+      { id: "ondos_tomb", name: "The Ondo Cups", x: 33.0, y: 17.0, type: "settlement", icon: "🐚", aetheryte: true, desc: "L'insediamento sottomarino degli Ondo (i Sahagin del Primo Mondo)." },
+      { id: "amaurot", name: "Amaurot", x: 16.0, y: 28.0, type: "landmark", icon: "🏛️", desc: "La colossale metropoli illusoria degli Antichi ricreata sul fondo oceanico da Emet-Selch." }
+    ],
+    mobs: ["Ondo Guerriero", "Mangialuce Abissale", "Spettro di Amaurot", "Aurelia Abissale"]
+  },
+
+  // === ENDWALKER 6.0 (8 ZONE) ===
+  "Old_Sharlayan": {
+    id: "Old_Sharlayan",
+    enName: "Old Sharlayan",
+    itName: "Vecchia Sharlayan",
+    region: "Northern Empty",
+    expansion: "EW",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Old_Sharlayan",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/6/65/Old_Sharlayan_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 }
+    ],
+    defaultParty: { x: 12.0, y: 11.0 },
+    exits: [
+      { id: "to_labyrinthos", name: "Ascensore Medial", destZone: "Labyrinthos", x: 13.0, y: 15.0, arrX: 20.0, arrY: 10.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "sharlayan_aeth", name: "Piazza dell'Eterite di Sharlayan", x: 12.0, y: 11.0, type: "settlement", icon: "💎", aetheryte: true, chocobo: true, desc: "La magnifica piazza monumentale della capitale del sapere e degli studiosi." },
+      { id: "the_baldesion_annex", name: "The Baldesion Annex", x: 9.0, y: 11.0, type: "settlement", icon: "🏛️", desc: "Il quartier generale degli Studenti di Baldesion e base dei Figli della Settima Alba." }
+    ],
+    mobs: []
+  },
+
+  "Radz_at_Han": {
+    id: "Radz_at_Han",
+    enName: "Radz-at-Han",
+    itName: "Radz-at-Han",
+    region: "Thavnair",
+    expansion: "EW",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Radz-at-Han",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/0/07/Radz-at-Han_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 }
+    ],
+    defaultParty: { x: 11.0, y: 11.0 },
+    exits: [
+      { id: "to_thavnair", name: "Porta della Città", destZone: "Thavnair", x: 11.0, y: 14.0, arrX: 28.0, arrY: 12.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "radz_aeth", name: "Eterite di Radz-at-Han", x: 11.0, y: 11.0, type: "settlement", icon: "💎", aetheryte: true, shops: ["Bazar delle Spezie", "Alchimisti"], desc: "La vibrante e colorata città-stato alchemica incastonata sulla rocca dell'isola di Thavnair." }
+    ],
+    mobs: []
+  },
+
+  "Labyrinthos": {
+    id: "Labyrinthos",
+    enName: "Labyrinthos",
+    itName: "Labyrinthos",
+    region: "Northern Empty",
+    expansion: "EW",
+    levels: "80 – 90",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Labyrinthos",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b7/Labyrinthos_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Sereno Artificiale", icon: "☀️", weight: 50 },
+      { name: "Pioggia Artificiale", icon: "🌧️", weight: 30 },
+      { name: "Nuvoloso Artificiale", icon: "☁️", weight: 20 }
+    ],
+    defaultParty: { x: 20.0, y: 10.0 },
+    exits: [
+      { id: "to_sharlayan", name: "Ascensore Medial", destZone: "Old_Sharlayan", x: 20.0, y: 10.0, arrX: 13.0, arrY: 15.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "the_archeion", name: "The Archeion", x: 20.0, y: 10.0, type: "settlement", icon: "📚", aetheryte: true, desc: "L'immenso archivio sotterraneo dove Sharlayan raccoglie campioni di ogni forma di vita." }
+    ],
+    mobs: ["Campione di Fauna Selvatica", "Costrutto Alchemico", "Automa di Sorveglianza"]
+  },
+
+  "Thavnair": {
+    id: "Thavnair",
+    enName: "Thavnair",
+    itName: "Thavnair",
+    region: "Thavnair",
+    expansion: "EW",
+    levels: "80 – 85",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Thavnair",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b2/Thavnair_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Pioggia", icon: "🌧️", weight: 20 }
+    ],
+    defaultParty: { x: 28.0, y: 12.0 },
+    exits: [
+      { id: "to_radz", name: "Verso Radz-at-Han", destZone: "Radz_at_Han", x: 28.0, y: 12.0, arrX: 11.0, arrY: 14.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "palakas_stand", name: "Palaka's Stand", x: 29.0, y: 17.0, type: "settlement", icon: "🛡️", aetheryte: true, desc: "La rocca dei guardiani Arkasodara a protezione dei villaggi e delle reliquie sacre." },
+      { id: "yedlihmad", name: "Yedlihmad", x: 25.0, y: 34.0, type: "settlement", icon: "⛵", aetheryte: true, desc: "Il porto d'attracco principale dell'isola per le navi mercantili d'oltremare." }
+    ],
+    mobs: ["Matanga Ostile", "Elefante delle Giungle", "Guerriero Telophoroi", "Tigre delle Rupi"]
+  },
+
+  "Garlemald": {
+    id: "Garlemald",
+    enName: "Garlemald",
+    itName: "Garlemald",
+    region: "Ilsabard",
+    expansion: "EW",
+    levels: "82 – 84",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Garlemald",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b6/Garlemald_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Neve", icon: "🌨️", weight: 45 },
+      { name: "Tormenta", icon: "❄️", weight: 35 },
+      { name: "Nuvoloso", icon: "☁️", weight: 20 }
+    ],
+    defaultParty: { x: 32.0, y: 17.0 },
+    exits: [],
+    pois: [
+      { id: "camp_broken_glass", name: "Camp Broken Glass", x: 32.0, y: 17.0, type: "settlement", icon: "⛺", aetheryte: true, shops: ["Corpo d'Armata di Soccorso"], desc: "Campo base d'emergenza allestito dal contingente di soccorso dell'Alleanza Eorzeana." }
+    ],
+    mobs: ["Magitek Reeper", "Soldato Garleano Temprato", "Automa da Guerra", "Spirito di Ceruleo"]
+  },
+
+  "Mare_Lamentorum": {
+    id: "Mare_Lamentorum",
+    enName: "Mare Lamentorum",
+    itName: "Mare Lamentorum",
+    region: "The Moon",
+    expansion: "EW",
+    levels: "83 – 85",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Mare_Lamentorum",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/9/92/Mare_Lamentorum_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Vuoto Spaziale", icon: "🌌", weight: 60 },
+      { name: "Luce Lunare", icon: "🌕", weight: 40 }
+    ],
+    defaultParty: { x: 21.0, y: 12.0 },
+    exits: [],
+    pois: [
+      { id: "bestways_burrow", name: "Bestways Burrow", x: 21.0, y: 12.0, type: "settlement", icon: "🥕", aetheryte: true, desc: "Il prodigioso complesso sotterraneo creato dai Loporrit per accogliere gli abitanti di Etheirys." }
+    ],
+    mobs: ["Creatura Lunare", "Automa di Bestways", "Spettro del Vuoto", "Gargoyle della Luna"]
+  },
+
+  "Elpis": {
+    id: "Elpis",
+    enName: "Elpis",
+    itName: "Elpis",
+    region: "The Past",
+    expansion: "EW",
+    levels: "86 – 87",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Elpis",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/1/1c/Elpis_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Sereno Perfetto", icon: "☀️", weight: 60 },
+      { name: "Brezza d'Etere", icon: "✨", weight: 40 }
+    ],
+    defaultParty: { x: 24.0, y: 23.0 },
+    exits: [],
+    pois: [
+      { id: "anagnorisis", name: "Anagnorisis", x: 24.0, y: 23.0, type: "settlement", icon: "🏛️", aetheryte: true, desc: "La stazione principale di collaudo e osservazione delle forme di vita create dagli Antichi." }
+    ],
+    mobs: ["Concept Antico", "Bestia Mitica Sperimentale", "Fulgore di Dynamis"]
+  },
+
+  "Ultima_Thule": {
+    id: "Ultima_Thule",
+    enName: "Ultima Thule",
+    itName: "Ultima Thule",
+    region: "Deep Space",
+    expansion: "EW",
+    levels: "88 – 90",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Ultima_Thule",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/8/8f/Ultima_Thule_Map_No_Text.jpg",
+    weatherRoster: [
+      { name: "Vuoto Astrale", icon: "🌌", weight: 50 },
+      { name: "Risonanza di Dynamis", icon: "💫", weight: 50 }
+    ],
+    defaultParty: { x: 21.0, y: 21.0 },
+    exits: [],
+    pois: [
+      { id: "reCreation", name: "Recreation Area", x: 21.0, y: 21.0, type: "settlement", icon: "🛸", aetheryte: true, desc: "L'ultimo frammento di terra ai confini dell'universo plasmato dalla speranza dei compagni." }
+    ],
+    mobs: ["Ea Dissolto", "Drago d'Ombra", "Omicron Disilluso", "Echi di Meteion"]
   }
 };
 
-// --- 3. AUDIO SYNTHESIZER (WEB AUDIO API — NO EXTERNAL FILES NEEDED) ---
-class NavigatorAudio {
-  constructor() {
-    this.ctx = null;
-    this.enabled = true;
-  }
-  init() {
-    if (!this.ctx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      this.ctx = new AudioContext();
-    }
-  }
-  playChime(type = "transition") {
-    if (!this.enabled) return;
-    try {
-      this.init();
-      if (this.ctx.state === 'suspended') this.ctx.resume();
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
 
-      const now = this.ctx.currentTime;
-      if (type === "transition") {
-        // FFXIV Zone entrance arpeggio (C5 -> E5 -> G5 -> C6)
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(523.25, now);
-        osc.frequency.setValueAtTime(659.25, now + 0.08);
-        osc.frequency.setValueAtTime(783.99, now + 0.16);
-        osc.frequency.setValueAtTime(1046.50, now + 0.24);
-        gain.gain.setValueAtTime(0.15, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
-        osc.start(now);
-        osc.stop(now + 0.65);
-      } else if (type === "ping") {
-        osc.type = "triangle";
-        osc.frequency.setValueAtTime(880, now);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-        osc.start(now);
-        osc.stop(now + 0.22);
-      }
-    } catch (e) {
-      console.warn("Audio unavailable:", e);
-    }
-  }
-}
-const sfx = new NavigatorAudio();
-
-// --- 4. STATO APPLICAZIONE & NAVIGATORE MAPPA ---
+// --- 5. STATO GLOBALE E CONTROLLI INTERFACCIA ---
 const State = {
   currentZone: "Middle_La_Noscea",
   partyCoords: { x: 25.4, y: 16.5 },
@@ -1858,30 +3847,68 @@ const State = {
   isDraggingMap: false,
   isDraggingParty: false,
   dragStart: { x: 0, y: 0 },
-  autoTransition: true,
   showExits: true,
   showPois: true,
   showAetherytes: true,
-  visitedZones: new Set(["Middle_La_Noscea"])
+  autoTransition: true,
+  transitionCooldownUntil: 0, // Previene rimbalzi continui tra confini
+  visitedZones: new Set(),
+  selectedExpansion: "ALL"
 };
 
-// Coordinate Conversions: (Pixels 2048x2048) <-> (FFXIV Coordinates 1.0 - 42.0)
-function coordToPx(c) {
-  return ((c - 1.0) / 41.0) * 2048;
-}
-function pxToCoord(px) {
-  const c = 1.0 + (px / 2048) * 41.0;
-  return Math.max(1.0, Math.min(42.0, Math.round(c * 10) / 10));
-}
+// Web Audio API Synth per feedback sonori immersivi FFXIV
+class SoundSystem {
+  constructor() {
+    this.ctx = null;
+    this.enabled = true;
+  }
+  init() {
+    if (!this.ctx && typeof AudioContext !== "undefined") {
+      this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+  playChime(type = "click") {
+    if (!this.enabled) return;
+    try {
+      this.init();
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      const now = this.ctx.currentTime;
 
-// Calcolo distanza euclidea in yalms FFXIV
-function calcDistance(x1, y1, x2, y2) {
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  return Math.sqrt(dx * dx + dy * dy);
+      if (type === "click") {
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(1200, now + 0.08);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+        osc.start(now);
+        osc.stop(now + 0.08);
+      } else if (type === "ping") {
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(587.33, now); // D5
+        osc.frequency.setValueAtTime(880.00, now + 0.08); // A5
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+        osc.start(now);
+        osc.stop(now + 0.3);
+      } else if (type === "transition") {
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(440, now);
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.2);
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+        osc.start(now);
+        osc.stop(now + 0.4);
+      }
+    } catch (e) {}
+  }
 }
+const sfx = new SoundSystem();
 
-// --- 5. GESTIONE RENDERING & MAP CONTROLLER ---
+// Elementi DOM
 const viewportEl = document.getElementById("map-viewport");
 const stageEl = document.getElementById("map-stage");
 const mapImgEl = document.getElementById("map-img");
@@ -1891,22 +3918,38 @@ const markersContainerEl = document.getElementById("markers-container");
 const transBannerEl = document.getElementById("transition-banner");
 const zoneSplashEl = document.getElementById("zone-splash");
 
+// Coordinate FFXIV: Griglia standard 1.0 – 42.0 yalm mappata su 2048x2048 px
+function coordToPx(coord) {
+  return ((coord - 1.0) / 41.0) * 2048;
+}
+function pxToCoord(px) {
+  const c = 1.0 + (px / 2048) * 41.0;
+  return Math.min(42.0, Math.max(1.0, c));
+}
+function calcDistance(x1, y1, x2, y2) {
+  const dx = x1 - x2;
+  const dy = y1 - y2;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+// Applica Pan & Zoom alla mappa
 function updateTransform() {
   stageEl.style.transform = `translate(${State.pan.x}px, ${State.pan.y}px) scale(${State.zoom})`;
 }
 
+// Aggiorna posizione Party Pin
 function updatePartyPinPosition() {
   const px = coordToPx(State.partyCoords.x);
   const py = coordToPx(State.partyCoords.y);
   partyPinEl.style.left = `${px}px`;
   partyPinEl.style.top = `${py}px`;
 
-  document.getElementById("tb-coord-badge").innerText = `Party X: ${State.partyCoords.x.toFixed(1)} · Y: ${State.partyCoords.y.toFixed(1)}`;
-  document.getElementById("hdr-coords-chip").innerText = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
-  document.getElementById("radar-coords-tag").innerText = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
+  const coordStr = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
+  document.getElementById("tb-coord-badge").innerText = `Party ${coordStr}`;
+  document.getElementById("hdr-coords-chip").innerText = coordStr;
 }
 
-// Render markers on current map
+// Render dei Marker (Uscite, POI, Eteriti)
 function renderMarkers() {
   markersContainerEl.innerHTML = "";
   const zone = ZONE_DATABASE[State.currentZone];
@@ -1916,99 +3959,80 @@ function renderMarkers() {
   if (State.showExits && zone.exits) {
     zone.exits.forEach(exit => {
       const el = document.createElement("div");
-      el.className = "map-marker";
-      const px = coordToPx(exit.x);
-      const py = coordToPx(exit.y);
-      el.style.left = `${px}px`;
-      el.style.top = `${py}px`;
-
-      const destZone = ZONE_DATABASE[exit.destZone];
-      const destName = destZone ? destZone.itName : exit.name;
-      const transObj = translateToponym(exit.name);
-
+      el.className = "map-marker gate-marker";
+      el.style.left = `${coordToPx(exit.x)}px`;
+      el.style.top = `${coordToPx(exit.y)}px`;
       el.innerHTML = `
-        <div class="gate-marker">${exit.icon || "🚪"}</div>
-        <div class="marker-tooltip"><strong>${transObj.format}</strong><br><span style="color:#f472b6;">➔ ${destName}</span></div>
+        <span>${exit.icon || "🚪"}</span>
+        <div class="marker-tooltip">
+          <strong>${exit.name}</strong><br>
+          <span style="color:#f472b6;">➔ ${ZONE_DATABASE[exit.destZone] ? ZONE_DATABASE[exit.destZone].itName : exit.destZone}</span>
+        </div>
       `;
-
       el.addEventListener("click", (e) => {
         e.stopPropagation();
         triggerZoneTransition(exit);
       });
-
       markersContainerEl.appendChild(el);
     });
   }
 
-  // 2. POIs, Settlements & Aetherytes
+  // 2. POIs & Landmarks
   if (zone.pois) {
     zone.pois.forEach(poi => {
       if (poi.aetheryte && !State.showAetherytes) return;
       if (!poi.aetheryte && !State.showPois) return;
 
       const el = document.createElement("div");
-      el.className = "map-marker";
-      const px = coordToPx(poi.x);
-      const py = coordToPx(poi.y);
-      el.style.left = `${px}px`;
-      el.style.top = `${py}px`;
-
-      const transObj = translateToponym(poi.name);
-      const iconClass = poi.aetheryte ? "aetheryte-marker" : "landmark-marker";
-
+      el.className = `map-marker ${poi.aetheryte ? "aetheryte-marker" : "landmark-marker"}`;
+      el.style.left = `${coordToPx(poi.x)}px`;
+      el.style.top = `${coordToPx(poi.y)}px`;
       el.innerHTML = `
-        <div class="${iconClass}">${poi.icon || "📍"}</div>
+        <span>${poi.aetheryte ? "💎" : (poi.icon || "📍")}</span>
         <div class="marker-tooltip">
-          <strong>${transObj.format}</strong>
-          ${poi.aetheryte ? '<br><span style="color:#38bdf8;">💎 Eterite (1 DV)</span>' : ''}
+          <strong>${poi.name}</strong>
+          ${poi.aetheryte ? '<br><span style="color:#38bdf8;">💎 Eterite Regionale (1 DV)</span>' : ''}
         </div>
       `;
-
       el.addEventListener("click", (e) => {
         e.stopPropagation();
         focusOnPoi(poi);
       });
-
       markersContainerEl.appendChild(el);
     });
   }
 }
 
-// Fallback Canvas Renderer (in case wiki image fails to load or offline)
+// Canvas Fallback Pergamenato se la CDN è bloccata o offline
 function renderFallbackParchment(zone) {
   const ctx = mapCanvasEl.getContext("2d");
-  ctx.clearRect(0, 0, 2048, 2048);
-
-  // Ancient Eorzean parchment background
-  ctx.fillStyle = "#1e1b15";
+  ctx.fillStyle = "#1e1b18";
   ctx.fillRect(0, 0, 2048, 2048);
 
-  // Subtle grid lines (every 2 yalms)
+  // Griglia cartografica imperiale
   ctx.strokeStyle = "rgba(212, 175, 55, 0.15)";
-  ctx.lineWidth = 1;
-  for (let c = 1; c <= 42; c += 2) {
-    const p = coordToPx(c);
+  ctx.lineWidth = 1.5;
+  const step = 2048 / 8;
+  for (let i = 0; i <= 2048; i += step) {
     ctx.beginPath();
-    ctx.moveTo(p, 0); ctx.lineTo(p, 2048);
-    ctx.moveTo(0, p); ctx.lineTo(2048, p);
+    ctx.moveTo(i, 0); ctx.lineTo(i, 2048);
+    ctx.moveTo(0, i); ctx.lineTo(2048, i);
     ctx.stroke();
   }
 
-  // Cartographic Border
   ctx.strokeStyle = "rgba(212, 175, 55, 0.4)";
-  ctx.lineWidth = 12;
+  ctx.lineWidth = 4;
   ctx.strokeRect(30, 30, 1988, 1988);
 
-  // Big Watermark Title
   ctx.font = "bold 56px 'Cinzel', Georgia, serif";
-  ctx.fillStyle = "rgba(212, 175, 55, 0.25)";
+  ctx.fillStyle = "rgba(212, 175, 55, 0.35)";
   ctx.textAlign = "center";
   ctx.fillText(zone.itName.toUpperCase(), 1024, 1024);
   ctx.font = "italic 32px serif";
   ctx.fillText(zone.enName, 1024, 1075);
 }
 
-// Carica Zona
+// Caricamento Zona
 function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   const zone = ZONE_DATABASE[zoneId];
   if (!zone) return;
@@ -2026,7 +4050,7 @@ function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   document.getElementById("hdr-zone-chip").innerText = zone.itName;
   document.getElementById("tb-zone-name").innerText = `${zone.itName} (${zone.enName})`;
   document.getElementById("card-zone-it").innerText = zone.itName;
-  document.getElementById("card-zone-en").innerText = `${zone.enName} · ${zone.region}`;
+  document.getElementById("card-zone-en").innerText = `${zone.enName} · ${zone.region} [${zone.expansion}]`;
   document.getElementById("card-zone-levels").innerText = zone.levels;
   document.getElementById("card-zone-exits").innerText = `${zone.exits ? zone.exits.length : 0} Uscite Regionali`;
   
@@ -2035,17 +4059,16 @@ function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   dBadge.className = `card-badge ${zone.dangerBadge}`;
   dBadge.innerText = zone.danger;
 
-  // Default weather
+  // Meteo
   rollWeather(false);
 
-  // Map Image loading
+  // Mappa
   mapImgEl.onerror = () => {
     console.warn("Impossibile caricare immagine wiki. Uso rendering procedurale.");
     renderFallbackParchment(zone);
   };
   mapImgEl.src = zone.mapImage;
 
-  // Clear overlay canvas
   const ctx = mapCanvasEl.getContext("2d");
   ctx.clearRect(0, 0, 2048, 2048);
 
@@ -2054,7 +4077,7 @@ function loadZone(zoneId, targetCoords = null, skipSplash = false) {
   centerOnParty();
   updateRadar();
 
-  // Zone splash screen effect
+  // Zone splash screen
   if (!skipSplash) {
     document.getElementById("splash-title").innerText = zone.itName.toUpperCase();
     document.getElementById("splash-sub").innerText = `${zone.enName} · ${zone.region}`;
@@ -2062,13 +4085,13 @@ function loadZone(zoneId, targetCoords = null, skipSplash = false) {
     sfx.playChime("transition");
     setTimeout(() => {
       zoneSplashEl.classList.remove("active");
-    }, 900);
+    }, 850);
   }
 
   saveLocalState();
 }
 
-// Center viewport on Party
+// Centra viewport sul Party
 function centerOnParty() {
   const vpRect = viewportEl.getBoundingClientRect();
   const px = coordToPx(State.partyCoords.x);
@@ -2078,10 +4101,16 @@ function centerOnParty() {
   updateTransform();
 }
 
-// Check proximity to zone exits
+// Prossimità uscite con cooldown
 function checkExitProximity() {
   const zone = ZONE_DATABASE[State.currentZone];
   if (!zone || !zone.exits) return;
+
+  // Se siamo ancora nel periodo di cooldown (4 secondi dopo una transizione), ignora
+  if (Date.now() < State.transitionCooldownUntil) {
+    transBannerEl.classList.remove("show");
+    return;
+  }
 
   let nearestExit = null;
   let minDist = 999;
@@ -2094,7 +4123,6 @@ function checkExitProximity() {
     }
   }
 
-  // Se entro 1.8 yalm dal varco
   if (minDist <= 1.8 && nearestExit) {
     const destZone = ZONE_DATABASE[nearestExit.destZone];
     const destName = destZone ? destZone.itName : nearestExit.name;
@@ -2102,7 +4130,6 @@ function checkExitProximity() {
     document.getElementById("trans-dest-name").innerText = `${destName} [Varco: ${nearestExit.name}]`;
     transBannerEl.classList.add("show");
 
-    // Auto-transition se attivo
     if (State.autoTransition) {
       triggerZoneTransition(nearestExit);
     }
@@ -2111,7 +4138,7 @@ function checkExitProximity() {
   }
 }
 
-// Trigger Zone Transition
+// Transizione zona con 4 secondi di cooldown per evitare loop
 function triggerZoneTransition(exit) {
   transBannerEl.classList.remove("show");
   if (!exit || !ZONE_DATABASE[exit.destZone]) {
@@ -2119,12 +4146,12 @@ function triggerZoneTransition(exit) {
     return;
   }
 
+  State.transitionCooldownUntil = Date.now() + 4000;
   const dest = ZONE_DATABASE[exit.destZone];
   showToast(`Ingresso in: ${dest.itName}...`);
   loadZone(exit.destZone, { x: exit.arrX, y: exit.arrY });
 }
 
-// Focus on POI and update radar
 function focusOnPoi(poi) {
   const transObj = translateToponym(poi.name);
   document.getElementById("radar-poi-name").innerText = transObj.format;
@@ -2132,7 +4159,6 @@ function focusOnPoi(poi) {
   document.getElementById("radar-coords-tag").innerText = `X: ${poi.x.toFixed(1)}, Y: ${poi.y.toFixed(1)}`;
   document.getElementById("radar-dist-badge").innerText = "Selezionato";
 
-  // Aggiorna chip
   const chipsEl = document.getElementById("radar-chips");
   chipsEl.innerHTML = "";
   if (poi.aetheryte) chipsEl.innerHTML += `<span class="chip chip-aetheryte">💎 Eterite (1 DV)</span>`;
@@ -2142,7 +4168,6 @@ function focusOnPoi(poi) {
   }
   chipsEl.innerHTML += `<span class="chip">📍 Punto d'Interesse</span>`;
 
-  // Glossario Sample update
   document.getElementById("gloss-rule-tag").innerText = `Regola: ${transObj.rule}`;
   document.getElementById("gloss-sample-text").innerText = transObj.format;
   document.getElementById("gloss-sample-desc").innerText = `Toponimo conforme alle convenzioni del manuale 07_Glossary.`;
@@ -2150,7 +4175,6 @@ function focusOnPoi(poi) {
   sfx.playChime("ping");
 }
 
-// Update radar to nearest POI or generic area
 function updateRadar() {
   const zone = ZONE_DATABASE[State.currentZone];
   if (!zone) return;
@@ -2172,7 +4196,6 @@ function updateRadar() {
     focusOnPoi(nearest);
     document.getElementById("radar-dist-badge").innerText = `${minDist.toFixed(1)} yalm`;
   } else {
-    // Wilderness generic
     const transZone = translateToponym(zone.enName);
     document.getElementById("radar-poi-name").innerText = `Terre di ${transZone.it}`;
     document.getElementById("radar-poi-desc").innerText = `Aperta natura selvaggia e percorsi tra le colline. Grado di pericolo: ${zone.danger}.`;
@@ -2187,7 +4210,6 @@ function updateRadar() {
     `;
   }
 
-  // Update Mobs chips
   const mobsEl = document.getElementById("radar-mobs-chips");
   mobsEl.innerHTML = "";
   if (zone.mobs) {
@@ -2197,7 +4219,6 @@ function updateRadar() {
   }
 }
 
-// Roll Weather according to canonical regional weights (06 §A8 / 05 Ch.14)
 function rollWeather(notify = true) {
   const zone = ZONE_DATABASE[State.currentZone];
   if (!zone || !zone.weatherRoster) return;
@@ -2219,12 +4240,12 @@ function rollWeather(notify = true) {
   document.getElementById("card-zone-weather").innerText = State.currentWeather;
 
   if (notify) {
-    showToast(`Meteo aggiornato per ${zone.itName}: ${State.currentWeather}`);
+    showToast(`Meteo: ${State.currentWeather}`);
     sfx.playChime("ping");
   }
 }
 
-// --- 6. GESTIONE EVENTI MOUSE & TOUCH PER LA MAPPA ---
+// --- 6. EVENTI MOUSE & TOUCH MAPPA ---
 viewportEl.addEventListener("mousedown", (e) => {
   if (e.target.closest("#party-pin")) {
     State.isDraggingParty = true;
@@ -2240,7 +4261,6 @@ window.addEventListener("mousemove", (e) => {
   const mouseX = (e.clientX - vpRect.left - State.pan.x) / State.zoom;
   const mouseY = (e.clientY - vpRect.top - State.pan.y) / State.zoom;
 
-  // Real-time cursor coordinate indicator
   if (mouseX >= 0 && mouseX <= 2048 && mouseY >= 0 && mouseY <= 2048) {
     const cx = pxToCoord(mouseX);
     const cy = pxToCoord(mouseY);
@@ -2273,7 +4293,6 @@ window.addEventListener("mouseup", () => {
   }
 });
 
-// Click to move Party (walk animation)
 viewportEl.addEventListener("click", (e) => {
   if (State.isDraggingMap || State.isDraggingParty) return;
   if (e.target.closest(".map-marker") || e.target.closest(".map-control-btn") || e.target.closest("#party-pin")) return;
@@ -2293,7 +4312,6 @@ viewportEl.addEventListener("click", (e) => {
   }
 });
 
-// Wheel Zoom
 viewportEl.addEventListener("wheel", (e) => {
   e.preventDefault();
   const vpRect = viewportEl.getBoundingClientRect();
@@ -2304,19 +4322,17 @@ viewportEl.addEventListener("wheel", (e) => {
   const zoomFactor = e.deltaY < 0 ? 1.15 : 0.85;
   const newZoom = Math.min(3.5, Math.max(0.4, oldZoom * zoomFactor));
 
-  // Zoom to mouse point
   State.pan.x = mouseX - (mouseX - State.pan.x) * (newZoom / oldZoom);
   State.pan.y = mouseY - (mouseY - State.pan.y) * (newZoom / oldZoom);
   State.zoom = newZoom;
   updateTransform();
 }, { passive: false });
 
-// Keyboard WASD / Arrows for Micro-Navigation
 window.addEventListener("keydown", (e) => {
   if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
 
   let moved = false;
-  const step = 0.4; // yalms per tick
+  const step = 0.4;
 
   if (e.key === "w" || e.key === "ArrowUp") { State.partyCoords.y = Math.max(1.0, State.partyCoords.y - step); moved = true; }
   else if (e.key === "s" || e.key === "ArrowDown") { State.partyCoords.y = Math.min(42.0, State.partyCoords.y + step); moved = true; }
@@ -2331,7 +4347,7 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-// --- 7. BOTTONI TOOLBAR & CONTROLLI ---
+// Controls
 document.getElementById("btn-zoom-in").addEventListener("click", () => {
   State.zoom = Math.min(3.5, State.zoom * 1.25);
   updateTransform();
@@ -2371,7 +4387,6 @@ document.getElementById("btn-toggle-autoxfer").addEventListener("click", functio
 document.getElementById("btn-exec-trans").addEventListener("click", () => {
   const zone = ZONE_DATABASE[State.currentZone];
   if (!zone || !zone.exits) return;
-  // Trova uscita più vicina
   let nearestExit = null;
   let minDist = 999;
   for (const exit of zone.exits) {
@@ -2381,40 +4396,45 @@ document.getElementById("btn-exec-trans").addEventListener("click", () => {
   if (nearestExit) triggerZoneTransition(nearestExit);
 });
 
-// Audio Toggle
 document.getElementById("btn-audio-toggle").addEventListener("click", function() {
   sfx.enabled = !sfx.enabled;
   document.getElementById("audio-icon").innerText = sfx.enabled ? "🔊" : "🔇";
   showToast(`Audio effetti: ${sfx.enabled ? "ABILITATI" : "DISABILITATI"}`);
 });
 
-// --- 8. AZIONI RAPIDE PER IL GEM (PROMPT GENERATION) ---
+// --- 7. BOTTONI COMANDI SLASH PER IL GEM ---
 document.getElementById("btn-copy-gem-move").addEventListener("click", () => {
   const zone = ZONE_DATABASE[State.currentZone];
   const placeName = document.getElementById("radar-poi-name").innerText;
-  const promptText = `Il party si sposta a ${placeName} [${zone.itName} (${zone.enName}), X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}]. Meteo: ${State.currentWeather}.`;
-  navigator.clipboard.writeText(promptText).then(() => {
-    showToast("Prompt spostamento copiato per il GEM!");
+  const cmd = `/esplora ${placeName} [${zone.itName}, X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}]`;
+  navigator.clipboard.writeText(cmd).then(() => {
+    showToast(`Comando copiato: "${cmd}"`);
   });
 });
 
-document.getElementById("btn-roll-weather").addEventListener("click", () => rollWeather(true));
+document.getElementById("btn-roll-weather").addEventListener("click", () => {
+  rollWeather(true);
+  const cmd = `/meteo ${State.currentWeather.split(" ")[0]}`;
+  navigator.clipboard.writeText(cmd).then(() => {
+    showToast(`Comando meteo copiato: "${cmd}"`);
+  });
+});
 
 document.getElementById("btn-gen-shop").addEventListener("click", () => {
   const placeName = document.getElementById("radar-poi-name").innerText;
   const shopTypes = ["armi", "armature", "accessori", "consumabili", "generale"];
   const pick = shopTypes[Math.floor(Math.random() * shopTypes.length)];
-  const shopPrompt = `negozio ${pick} a ${placeName}, livello 3`;
-  navigator.clipboard.writeText(shopPrompt).then(() => {
-    showToast(`Comando bottega copiato: "${shopPrompt}"`);
+  const cmd = `/negozio ${pick} a ${placeName}, livello 3`;
+  navigator.clipboard.writeText(cmd).then(() => {
+    showToast(`Comando bottega copiato: "${cmd}"`);
   });
 });
 
 document.getElementById("btn-gen-travel").addEventListener("click", () => {
   const placeName = document.getElementById("radar-poi-name").innerText;
-  const travelLine = `/viaggio verso ${placeName}`;
-  navigator.clipboard.writeText(travelLine).then(() => {
-    showToast(`Comando viaggio copiato: "${travelLine}"`);
+  const cmd = `/viaggio verso ${placeName}`;
+  navigator.clipboard.writeText(cmd).then(() => {
+    showToast(`Comando viaggio copiato: "${cmd}"`);
   });
 });
 
@@ -2429,7 +4449,7 @@ document.getElementById("inp-gloss-test").addEventListener("keypress", (e) => {
   if (e.key === "Enter") document.getElementById("btn-test-trans").click();
 });
 
-// --- 9. MODALI & SINCRONIZZAZIONE ---
+// --- 8. MODALI & SINCRONIZZAZIONE ---
 function openModal(id) {
   const m = document.getElementById(id);
   if (m) m.classList.add("show");
@@ -2466,7 +4486,6 @@ document.getElementById("btn-apply-import").addEventListener("click", () => {
   const text = document.getElementById("txt-import-gem").value.trim();
   if (!text) return;
 
-  // Check 1: Token [NAV-LOC: Zone | X, Y | ...]
   const tokenMatch = text.match(/\[NAV-LOC:\s*([A-Za-z0-9_]+)\s*\|\s*([0-9.]+),\s*([0-9.]+)/i);
   if (tokenMatch) {
     const zId = tokenMatch[1];
@@ -2480,7 +4499,6 @@ document.getElementById("btn-apply-import").addEventListener("click", () => {
     }
   }
 
-  // Check 2: Parse generic zone name & coords (es. [C] LOCALITÀ: Middle La Noscea, X: 25.4, Y: 16.5)
   for (const [zId, zData] of Object.entries(ZONE_DATABASE)) {
     if (text.includes(zData.enName) || text.includes(zData.itName)) {
       const coordMatch = text.match(/X:\s*([0-9.]+).*?Y:\s*([0-9.]+)/i);
@@ -2496,10 +4514,19 @@ document.getElementById("btn-apply-import").addEventListener("click", () => {
   showToast("Formato non riconosciuto. Incolla un token [NAV-LOC] o il testo di un beat del GEM.");
 });
 
-// Modal Override & Zone Selector
+// Modal Override & Zone Selector con filtri di espansione
 document.getElementById("btn-override-modal").addEventListener("click", () => {
   renderZoneSelectorGrid();
   openModal("modal-override");
+});
+
+document.querySelectorAll("#filter-exp-group .filter-exp-btn").forEach(btn => {
+  btn.addEventListener("click", function() {
+    document.querySelectorAll("#filter-exp-group .filter-exp-btn").forEach(b => b.classList.remove("active"));
+    this.classList.add("active");
+    State.selectedExpansion = this.getAttribute("data-exp");
+    renderZoneSelectorGrid();
+  });
 });
 
 function renderZoneSelectorGrid() {
@@ -2509,15 +4536,19 @@ function renderZoneSelectorGrid() {
   const regFilter = document.getElementById("sel-region-filter").value;
 
   for (const [zId, zData] of Object.entries(ZONE_DATABASE)) {
+    if (State.selectedExpansion !== "ALL" && zData.expansion !== State.selectedExpansion) continue;
     if (regFilter !== "ALL" && zData.region !== regFilter) continue;
     if (filter && !zData.enName.toLowerCase().includes(filter) && !zData.itName.toLowerCase().includes(filter)) continue;
 
     const card = document.createElement("div");
     card.className = "zone-select-card";
     card.innerHTML = `
-      <div class="zone-select-name">${zData.itName}</div>
+      <div class="zone-select-header">
+        <span class="zone-select-name">${zData.itName}</span>
+        <span class="zone-select-exp-badge">${zData.expansion}</span>
+      </div>
       <div class="zone-select-sub">${zData.enName} · ${zData.region}</div>
-      <div style="font-size:0.72rem; color:#facc15; margin-top:3px;">${zData.levels} · ${zData.danger}</div>
+      <div style="font-size:0.72rem; color:#facc15; margin-top:2px;">${zData.levels} · ${zData.danger}</div>
     `;
     card.addEventListener("click", () => {
       loadZone(zId);
@@ -2529,78 +4560,6 @@ function renderZoneSelectorGrid() {
 document.getElementById("inp-search-zone").addEventListener("input", renderZoneSelectorGrid);
 document.getElementById("sel-region-filter").addEventListener("change", renderZoneSelectorGrid);
 
-// Custom Wiki Page Fetch via API
-document.getElementById("btn-fetch-custom-wiki").addEventListener("click", () => {
-  const page = document.getElementById("inp-custom-wiki-page").value.trim();
-  if (!page) return;
-  fetchWikiZoneData(page);
-});
-document.getElementById("btn-fetch-wiki").addEventListener("click", () => {
-  const cur = ZONE_DATABASE[State.currentZone];
-  if (cur && cur.wikiTitle) fetchWikiZoneData(cur.wikiTitle);
-});
-
-// MediaWiki API Fetcher (ConsoleGamesWiki)
-async function fetchWikiZoneData(wikiTitle) {
-  showToast(`Interrogazione ConsoleGamesWiki API per: ${wikiTitle}...`);
-  try {
-    const apiUrl = `https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=query&titles=${encodeURIComponent(wikiTitle)}&prop=images|info&origin=*&format=json`;
-    const res = await fetch(apiUrl);
-    const data = await res.json();
-    const pages = data.query ? data.query.pages : null;
-    if (!pages) throw new Error("Nessun dato restituito");
-
-    const pageId = Object.keys(pages)[0];
-    if (pageId === "-1") throw new Error("Pagina non trovata su ConsoleGamesWiki");
-
-    const images = pages[pageId].images || [];
-    // Cerca immagine mappa
-    const mapImgObj = images.find(img => img.title.includes("Map1.jpg") || img.title.includes("Map.jpg") || img.title.includes("Map"));
-
-    if (mapImgObj) {
-      // Query image URL
-      const imgInfoUrl = `https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=query&titles=${encodeURIComponent(mapImgObj.title)}&prop=imageinfo&iiprop=url&origin=*&format=json`;
-      const imgRes = await fetch(imgInfoUrl);
-      const imgData = await imgRes.json();
-      const imgPages = imgData.query.pages;
-      const imgPageId = Object.keys(imgPages)[0];
-      const directUrl = imgPages[imgPageId].imageinfo[0].url;
-
-      showToast(`Mappa trovata: ${mapImgObj.title}!`);
-      // Se è una nuova zona, aggiungila
-      const cleanKey = wikiTitle.replace(/[\s-]/g, "_");
-      if (!ZONE_DATABASE[cleanKey]) {
-        const trans = translateToponym(wikiTitle.replace(/_/g, " "));
-        ZONE_DATABASE[cleanKey] = {
-          id: cleanKey,
-          enName: wikiTitle.replace(/_/g, " "),
-          itName: trans.it,
-          region: "Eorzea",
-          expansion: "ARR",
-          levels: "Varie",
-          danger: "Rischioso",
-          dangerBadge: "badge-risky",
-          wikiTitle: wikiTitle,
-          mapImage: directUrl,
-          defaultParty: { x: 21.0, y: 21.0 },
-          exits: [],
-          pois: [],
-          mobs: ["Creature della Zona (Wiki)"]
-        };
-      } else {
-        ZONE_DATABASE[cleanKey].mapImage = directUrl;
-      }
-      loadZone(cleanKey);
-      closeModal("modal-override");
-    } else {
-      showToast("Pagina trovata ma nessuna immagine cartografica rilevata.");
-    }
-  } catch (err) {
-    console.error(err);
-    showToast(`Errore chiamata Wiki API: ${err.message}`);
-  }
-}
-
 // Modal Glossary
 document.getElementById("btn-glossary-modal").addEventListener("click", () => {
   renderGlossaryTable();
@@ -2611,6 +4570,8 @@ function renderGlossaryTable() {
   const tbody = document.getElementById("glossary-table-body");
   tbody.innerHTML = "";
   const filter = document.getElementById("inp-search-dict").value.toLowerCase();
+  const countBadge = document.getElementById("gloss-count-badge");
+  if (countBadge) countBadge.innerText = `${GLOSSARY_DB.length} Termini`;
 
   GLOSSARY_DB.forEach(item => {
     if (filter && !item.en.toLowerCase().includes(filter) && !item.it.toLowerCase().includes(filter)) return;
@@ -2626,10 +4587,8 @@ function renderGlossaryTable() {
 }
 document.getElementById("inp-search-dict").addEventListener("input", renderGlossaryTable);
 
-// Modal Help
 document.getElementById("btn-help-modal").addEventListener("click", () => openModal("modal-help"));
 
-// Toast utility
 function showToast(msg) {
   const t = document.getElementById("toast-msg");
   document.getElementById("toast-text").innerText = msg;
@@ -2637,7 +4596,6 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove("show"), 3200);
 }
 
-// Local Storage Persistence
 function saveLocalState() {
   try {
     const data = {
@@ -2674,10 +4632,11 @@ function loadLocalState() {
   } catch (e) {}
 }
 
-// --- 10. INIZIALIZZAZIONE ---
-window.addEventListener("DOMContentLoaded", () => {
+// Inizializzazione
+window.addEventListener("DOMContentLoaded", async () => {
   loadLocalState();
   loadZone(State.currentZone, State.partyCoords, true);
+  await loadLiveGlossary();
 });
 </script>
 
