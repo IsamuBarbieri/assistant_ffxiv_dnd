@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FFXIV × D&D 5e — World & Map Navigator</title>
+  <style>
+    :root {
+      --bg-main: #0c0e14;
+      --bg-panel: #131620;
+      --bg-alt: #1a1e2b;
+      --text-main: #f1f3f7;
+      --text-muted: #94a3b8;
+      --border-color: #2a3245;
+      --accent-blue: #3b82f6;
+      --accent-hover: #2563eb;
+      --accent-gold: #d4af37;
+      --accent-gold-dark: #b48c26;
+      --danger: #ef4444;
+      --danger-dark: #b91c1c;
+      --warning: #f59e0b;
+      --success: #10b981;
+      --aetheryte: #38bdf8;
+      --gate: #ec4899;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
+    /* HEADER - Stesso stile di combat_tracker.html */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(19, 22, 32, 0.95) 0%, rgba(26, 30, 43, 0.85) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4));
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .title-ffxiv {
+      background: linear-gradient(135deg, #fffbeb 0%, #facc15 35%, #f59e0b 70%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.35));
+      font-family: 'Cinzel', 'Georgia', serif, -apple-system, sans-serif;
+      letter-spacing: 0.8px;
+    }
+    .title-sep {
+      color: #94a3b8;
+      font-weight: 400;
+      font-size: 1.25rem;
+      opacity: 0.8;
+    }
+    .title-dnd {
+      color: #f8fafc;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .title-sub {
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 1.35rem;
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 0.84rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .sub-chip {
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+    .sub-dot {
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header-btn {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      padding: 6px 13px;
+      border-radius: 6px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .header-btn:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(96, 165, 250, 0.6);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+    .header-btn:active { transform: translateY(0); }
+    .header-btn-gold {
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.4);
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .header-btn-gold:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(245, 158, 11, 0.3);
+    }
+
+    /* APP LAYOUT */
+    .app-layout {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+      min-height: calc(100vh - 120px);
+    }
+
+    /* LEFT: MAP PANEL */
+    .map-panel {
+      flex: 1 1 65%;
+      min-width: 550px;
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    /* MAP TOOLBAR */
+    .map-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: rgba(26, 30, 43, 0.95);
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 10px;
+      z-index: 10;
+    }
+    .map-toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .zone-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #0f172a;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      color: #facc15;
+      font-size: 0.9rem;
+    }
+    .coord-badge {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-color);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+      color: #93c5fd;
+      font-size: 0.85rem;
+    }
+
+    .tool-btn {
+      background: var(--bg-alt);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .tool-btn:hover {
+      background: #273043;
+      border-color: var(--accent-blue);
+      color: #fff;
+    }
+    .tool-btn.active {
+      background: #1e3a8a;
+      border-color: #60a5fa;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* MAP VIEWPORT */
+    .map-viewport {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 600px;
+      background: #080a0f;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+    }
+    .map-viewport.dragging {
+      cursor: grabbing;
+    }
+
+    /* MAP CONTAINER (PAN & ZOOM TRANSFORM) */
+    .map-stage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      width: 2048px;
+      height: 2048px;
+      transition: transform 0.05s ease-out;
+    }
+
+    .map-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      filter: contrast(1.03) brightness(0.98);
+    }
+
+    /* CANVAS FOR PROCEDURAL FALLBACK / OVERLAYS */
+    .map-canvas-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* MAP MARKERS */
+    .map-marker {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+      z-index: 20;
+    }
+    .map-marker:hover {
+      transform: translate(-50%, -50%) scale(1.25);
+      z-index: 30;
+    }
+
+    /* PARTY CURSOR PIN */
+    .party-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 38px;
+      height: 38px;
+      z-index: 50;
+      cursor: move;
+      pointer-events: auto;
+      filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.8));
+      transition: transform 0.1s ease;
+    }
+    .party-pin-inner {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #fde047 20%, #eab308 60%, #854d0e 100%);
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      animation: pulseGlow 2s infinite ease-in-out;
+      box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 12px rgba(250, 204, 21, 0.5); transform: scale(1); }
+      50% { box-shadow: 0 0 24px rgba(250, 204, 21, 0.9); transform: scale(1.08); }
+    }
+    .party-pin-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 14, 20, 0.92);
+      border: 1px solid #facc15;
+      color: #fef08a;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      white-space: nowrap;
+      margin-top: 4px;
+      pointer-events: none;
+      letter-spacing: 0.5px;
+    }
+
+    /* GATE / EXIT MARKERS */
+    .gate-marker {
+      width: 32px;
+      height: 32px;
+      background: rgba(219, 39, 119, 0.25);
+      border: 2px solid #f472b6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #fdf2f8;
+      box-shadow: 0 0 12px rgba(236, 72, 153, 0.6);
+      animation: gatePulse 2.5s infinite;
+    }
+    @keyframes gatePulse {
+      0%, 100% { transform: scale(1); border-color: #f472b6; }
+      50% { transform: scale(1.12); border-color: #fbcfe8; box-shadow: 0 0 18px rgba(236, 72, 153, 0.9); }
+    }
+
+    /* AETHERYTE MARKER */
+    .aetheryte-marker {
+      width: 30px;
+      height: 30px;
+      background: rgba(14, 165, 233, 0.3);
+      border: 2px solid #38bdf8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
+    }
+
+    /* SETTLEMENT & LANDMARK MARKERS */
+    .landmark-marker {
+      width: 24px;
+      height: 24px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1.5px solid #cbd5e1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .marker-tooltip {
+      position: absolute;
+      bottom: 115%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid var(--border-color);
+      border-top: 2px solid var(--accent-gold);
+      color: #f8fafc;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 0.76rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      z-index: 40;
+    }
+    .map-marker:hover .marker-tooltip {
+      opacity: 1;
+    }
+
+    /* COMPASS ROSE & MAP CONTROLS OVERLAY */
+    .map-overlay-controls {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 30;
+    }
+    .map-control-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-color);
+      color: #e2e8f0;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: all 0.15s ease;
+    }
+    .map-control-btn:hover {
+      background: rgba(37, 99, 235, 0.8);
+      border-color: #60a5fa;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    /* ZONE TRANSITION NOTIFICATION BANNER */
+    .transition-banner {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-70px);
+      background: linear-gradient(135deg, rgba(30, 27, 75, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+      border: 1px solid #ec4899;
+      border-bottom: 2px solid #f472b6;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 100;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
+    }
+    .transition-banner.show {
+      transform: translateX(-50%) translateY(0);
+    }
+    .transition-banner-icon {
+      font-size: 1.4rem;
+      animation: bounceX 1s infinite alternate;
+    }
+    @keyframes bounceX {
+      0% { transform: translateX(-3px); }
+      100% { transform: translateX(3px); }
+    }
+    .transition-banner-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .transition-banner-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fbcfe8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .transition-banner-dest {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .transition-btn {
+      background: #db2777;
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .transition-btn:hover {
+      background: #be185d;
+    }
+
+    /* ZONE SPLASH / FADE EFFECT */
+    .zone-splash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .zone-splash.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .zone-splash-title {
+      font-family: 'Cinzel', 'Georgia', serif;
+      font-size: 2.2rem;
+      color: #facc15;
+      text-shadow: 0 0 20px rgba(234, 179, 8, 0.7);
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .zone-splash-sub {
+      font-size: 1rem;
+      color: #cbd5e1;
+      letter-spacing: 1px;
+    }
+
+    /* MAP FOOTER (COORDINATES & METEO) */
+    .map-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 14px;
+      background: rgba(19, 22, 32, 0.95);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .map-footer-left { display: flex; align-items: center; gap: 14px; }
+    .map-footer-right { display: flex; align-items: center; gap: 14px; }
+
+    /* RIGHT PANEL: EXPLORATION & GEM RADAR */
+    .info-panel {
+      flex: 1 1 35%;
+      min-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow-y: auto;
+      max-height: calc(100vh - 120px);
+      padding-right: 4px;
+    }
+
+    /* CARD COMPONENTS */
+    .card {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-badge {
+      font-size: 0.75rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .badge-safe { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-risky { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .badge-hostile { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+    /* ZONE SUMMARY CARD */
+    .zone-title-box {
+      margin-bottom: 10px;
+    }
+    .zone-main-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1.2;
+    }
+    .zone-en-name {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      font-style: italic;
+    }
+    .zone-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .meta-item {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-color);
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .meta-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .meta-value {
+      font-weight: 600;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* FREE ROAMING / RADAR */
+    .radar-sector-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+    }
+    .radar-title {
+      font-size: 0.76rem;
+      color: #93c5fd;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .radar-place-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .radar-place-desc {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    /* ACTIVITIES / GEM CAPABILITIES */
+    .activity-section {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .activity-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .activity-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chip {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-color);
+      color: #e2e8f0;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .chip-aetheryte { border-color: rgba(56, 189, 248, 0.5); color: #7dd3fc; }
+    .chip-chocobo { border-color: rgba(250, 204, 21, 0.5); color: #fde047; }
+    .chip-shop { border-color: rgba(168, 85, 247, 0.5); color: #d8b4fe; }
+    .chip-danger { border-color: rgba(239, 68, 68, 0.5); color: #fca5a5; }
+
+    /* ACTION BUTTONS FOR GEM */
+    .gem-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .gem-act-btn {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .gem-act-btn:hover {
+      background: rgba(59, 130, 246, 0.3);
+      border-color: #60a5fa;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* GLOSSARY CARD */
+    .glossary-box {
+      background: #0d111a;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 0.82rem;
+      margin-top: 8px;
+    }
+    .glossary-rule-tag {
+      color: #fbbf24;
+      font-weight: 700;
+      font-size: 0.72rem;
+      margin-bottom: 3px;
+    }
+    .glossary-input-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .glossary-input {
+      flex: 1;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-color);
+      color: #ffffff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+    }
+    .glossary-input:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+    }
+
+    /* MODAL WINDOWS */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .modal-backdrop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-dialog {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--accent-gold);
+      border-radius: 10px;
+      width: 90%;
+      max-width: 680px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      transform: scale(0.95);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+    .modal-backdrop.show .modal-dialog {
+      transform: scale(1);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-alt);
+    }
+    .modal-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .modal-close:hover { color: #ffffff; }
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .modal-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-alt);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* ZONE OVERRIDE LIST IN MODAL */
+    .zone-select-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .zone-select-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .zone-select-card:hover {
+      background: #22293a;
+      border-color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+    .zone-select-name {
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .zone-select-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* TOAST ALERT */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1e293b;
+      border: 1px solid #3b82f6;
+      border-left: 4px solid #60a5fa;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* KEYBOARD HINT */
+    .kbd-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      font-family: monospace;
+      background: #334155;
+      color: #f1f5f9;
+      border-radius: 4px;
+      border: 1px solid #475569;
+    }
+
+    @media (max-width: 1024px) {
+      .app-layout { flex-direction: column; }
+      .map-panel { min-width: 100%; min-height: 500px; }
+      .info-panel { min-width: 100%; max-height: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- HEADER -->
+  <header>
+    <div class="header-brand">
+      <div class="header-title-row">
+        <span class="header-icon">🧭</span>
+        <h1>
+          <span class="title-ffxiv">FINAL FANTASY XIV</span>
+          <span class="title-sep">×</span>
+          <span class="title-dnd">D&D 5e</span>
+          <span class="title-sub">— World Navigator</span>
+        </h1>
+      </div>
+      <div class="subtitle">
+        <span class="sub-chip" id="hdr-region-chip">La Noscea</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-chip" id="hdr-zone-chip">Noscea Centrale</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-chip" id="hdr-weather-chip">Sereno ☀️</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-chip" id="hdr-coords-chip">X: 25.4, Y: 16.5</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-chip" style="color:#d4af37;">Glossario 07</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn header-btn-gold" id="btn-sync-modal">
+        <span>🔄</span> Sincronizza GEM
+      </button>
+      <button class="header-btn" id="btn-override-modal">
+        <span>🗺️</span> Seleziona Mappa
+      </button>
+      <button class="header-btn" id="btn-glossary-modal">
+        <span>📖</span> Glossario Toponimi
+      </button>
+      <button class="header-btn" id="btn-help-modal">
+        <span>❓</span> Guida Free Roam
+      </button>
+      <button class="header-btn" id="btn-audio-toggle">
+        <span id="audio-icon">🔊</span> SFX
+      </button>
+    </div>
+  </header>
+
+  <!-- APP LAYOUT -->
+  <div class="app-layout">
+    <!-- LEFT: MAP PANEL -->
+    <div class="map-panel">
+      <!-- MAP TOOLBAR -->
+      <div class="map-toolbar">
+        <div class="map-toolbar-group">
+          <div class="zone-badge">
+            <span>📍</span> <span id="tb-zone-name">Noscea Centrale (Middle La Noscea)</span>
+          </div>
+          <div class="coord-badge" id="tb-coord-badge">Party X: 25.4 · Y: 16.5</div>
+        </div>
+        <div class="map-toolbar-group">
+          <button class="tool-btn active" id="btn-toggle-exits" title="Mostra/Nascondi varchi di confine">🚪 Varchi</button>
+          <button class="tool-btn active" id="btn-toggle-pois" title="Mostra/Nascondi punti di interesse">🏰 Luoghi</button>
+          <button class="tool-btn active" id="btn-toggle-aeth" title="Mostra/Nascondi Eteriti">💎 Eteriti</button>
+          <button class="tool-btn active" id="btn-toggle-autoxfer" title="Transizione automatica quando il Party tocca un confine">⚡ Auto-Cambio: ON</button>
+          <button class="tool-btn" id="btn-fetch-wiki" title="Ricarica o interroga le API di ConsoleGamesWiki">🌐 Wiki Sync</button>
+        </div>
+      </div>
+
+      <!-- MAP VIEWPORT -->
+      <div class="map-viewport" id="map-viewport">
+        <!-- ZONE SPLASH SCREEN -->
+        <div class="zone-splash" id="zone-splash">
+          <div class="zone-splash-title" id="splash-title">NOSCEA CENTRALE</div>
+          <div class="zone-splash-sub" id="splash-sub">Middle La Noscea · Eorzea</div>
+        </div>
+
+        <!-- ZONE TRANSITION FLOATING BANNER -->
+        <div class="transition-banner" id="transition-banner">
+          <div class="transition-banner-icon">🚪</div>
+          <div class="transition-banner-text">
+            <div class="transition-banner-title">Varco di Confine Imminente</div>
+            <div class="transition-banner-dest" id="trans-dest-name">Limsa Lominsa Lower Decks</div>
+          </div>
+          <button class="transition-btn" id="btn-exec-trans">Entra Ora ➔</button>
+        </div>
+
+        <!-- MAP STAGE (TRANSFORMED FOR PAN & ZOOM) -->
+        <div class="map-stage" id="map-stage">
+          <img class="map-img" id="map-img" src="" alt="Mappa Ufficiale FFXIV" />
+          <canvas class="map-canvas-overlay" id="map-canvas" width="2048" height="2048"></canvas>
+          
+          <!-- PARTY PIN (INTERACTIVE) -->
+          <div class="party-pin" id="party-pin" style="left: 50%; top: 50%;">
+            <div class="party-pin-inner">⚔️</div>
+            <div class="party-pin-label">PARTY</div>
+          </div>
+
+          <!-- DYNAMIC MARKERS CONTAINER -->
+          <div id="markers-container"></div>
+        </div>
+
+        <!-- MAP CONTROLS OVERLAY -->
+        <div class="map-overlay-controls">
+          <button class="map-control-btn" id="btn-zoom-in" title="Ingrandisci">+</button>
+          <button class="map-control-btn" id="btn-zoom-out" title="Riduci">-</button>
+          <button class="map-control-btn" id="btn-zoom-reset" title="Ripristina Vista">⟲</button>
+          <button class="map-control-btn" id="btn-center-party" title="Centra sul Party">🎯</button>
+        </div>
+      </div>
+
+      <!-- MAP FOOTER -->
+      <div class="map-footer">
+        <div class="map-footer-left">
+          <span>🎮 Navigazione: <strong>Trascina il Party</strong>, clicca per camminare o usa <span class="kbd-badge">W</span><span class="kbd-badge">A</span><span class="kbd-badge">S</span><span class="kbd-badge">D</span></span>
+        </div>
+        <div class="map-footer-right">
+          <span id="ftr-source-api">📡 Sorgente Mappa: <strong>ConsoleGamesWiki API</strong></span>
+          <span id="cursor-coords">Cursore: X: --, Y: --</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: EXPLORATION & GEM RADAR -->
+    <div class="info-panel">
+      <!-- ZONE OVERVIEW CARD -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span>🗺️</span> Mappa & Territorio</div>
+          <div class="card-badge badge-safe" id="zone-danger-badge">Tranquillo</div>
+        </div>
+        <div class="zone-title-box">
+          <div class="zone-main-name" id="card-zone-it">Noscea Centrale</div>
+          <div class="zone-en-name" id="card-zone-en">Middle La Noscea · La Noscea</div>
+        </div>
+        <div class="zone-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Fascia Livello</span>
+            <span class="meta-value" id="card-zone-levels">Livelli 1 – 17</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Meteo Attivo</span>
+            <span class="meta-value" id="card-zone-weather">Sereno ☀️</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Rete Eterite</span>
+            <span class="meta-value" id="card-zone-aeth">1 Presidio (💎 1 DV)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Varchi Confinanti</span>
+            <span class="meta-value" id="card-zone-exits">4 Uscite Regionali</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FREE ROAMING RADAR / CURRENT POI -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span>📡</span> Radar Esplorazione Party</div>
+          <span class="card-badge badge-safe" id="radar-dist-badge">In Loco</span>
+        </div>
+
+        <div class="radar-sector-box">
+          <div class="radar-title">
+            <span>Settore Rilevato</span>
+            <span id="radar-coords-tag">X: 25.4, Y: 16.5</span>
+          </div>
+          <div class="radar-place-name" id="radar-poi-name">Guado d'Estate</div>
+          <div class="radar-place-desc" id="radar-poi-desc">
+            Vasto insediamento agricolo fondato dai corsari in congedo. Sede di una grande Eterite, scuderie per Chocobo e mercanti locali.
+          </div>
+        </div>
+
+        <!-- ACTIVITIES & GEM PREVIEW -->
+        <div class="activity-section">
+          <div class="activity-title"><span>⚡</span> Azioni & Strutture Disponibili</div>
+          <div class="activity-chips" id="radar-chips">
+            <span class="chip chip-aetheryte">💎 Eterite (Sintonizzazione)</span>
+            <span class="chip chip-chocobo">🐥 Chocobokeep</span>
+            <span class="chip chip-shop">🛒 Negozi (Generale, Consumabili)</span>
+            <span class="chip">🎯 FATEs & Incarichi</span>
+          </div>
+        </div>
+
+        <div class="activity-section">
+          <div class="activity-title"><span>🐺</span> Fauna & Creature Plausibili</div>
+          <div class="activity-chips" id="radar-mobs-chips">
+            <span class="chip chip-danger">Marmotta delle Piane</span>
+            <span class="chip chip-danger">Coccinella della Noscea</span>
+            <span class="chip chip-danger">Puk delle Tempeste</span>
+            <span class="chip chip-danger">Calabrone Gigante</span>
+          </div>
+        </div>
+
+        <!-- 1-CLICK ACTIONS FOR GEM -->
+        <div class="gem-actions-grid">
+          <button class="gem-act-btn" id="btn-copy-gem-move">
+            <span>📋</span> Copia Spostamento
+          </button>
+          <button class="gem-act-btn" id="btn-roll-weather">
+            <span>🎲</span> Tira Meteo
+          </button>
+          <button class="gem-act-btn" id="btn-gen-shop">
+            <span>🛒</span> Negozio GEM
+          </button>
+          <button class="gem-act-btn" id="btn-gen-travel">
+            <span>🧭</span> /viaggio Line
+          </button>
+        </div>
+      </div>
+
+      <!-- TOPONOMASTICA & GLOSSARIO 07/08 CARD -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span>📖</span> Glossario & Traduzioni</div>
+          <span style="font-size:0.75rem; color:#facc15;">07_Glossary</span>
+        </div>
+        <div class="glossary-box">
+          <div class="glossary-rule-tag" id="gloss-rule-tag">Regola Applicata: G9 Elenco Luoghi Fissi</div>
+          <div style="font-weight:700; color:#ffffff;" id="gloss-sample-text">Guado d'Estate (Summerford Farms)</div>
+          <div style="font-size:0.75rem; color:#94a3b8; margin-top:3px;" id="gloss-sample-desc">
+            Composto trasparente 'Summer' (Estate) + 'ford' (Guado) fuso con preposizione per L5.
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <label style="font-size:0.76rem; color:#cbd5e1; font-weight:700;">Traduci toponimo al volo (G1-G4):</label>
+          <div class="glossary-input-row">
+            <input type="text" class="glossary-input" id="inp-gloss-test" placeholder="Es. Raincatcher Gully, Camp Overlook..." />
+            <button class="tool-btn" id="btn-test-trans">Traduci</button>
+          </div>
+          <div id="gloss-test-result" style="font-size:0.82rem; color:#fde047; margin-top:6px; font-weight:600; min-height:18px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SINCRONIZZA CON IL GEM -->
+<div class="modal-backdrop" id="modal-sync">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 class="modal-title"><span>🔄</span> Sincronizzazione con il GEM</h3>
+      <button class="modal-close" data-close="modal-sync">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="margin-top:0; color:#cbd5e1;">
+        Scambia la posizione del Party e le informazioni di mappa tra questo Navigator e la sessione con l'assistente (GEM).
+      </p>
+      
+      <div style="margin-bottom:14px;">
+        <label style="font-weight:700; color:#facc15; display:block; margin-bottom:4px;">1. Esporta Posizione per il GEM:</label>
+        <div style="display:flex; gap:8px;">
+          <input type="text" readonly class="glossary-input" id="inp-export-code" style="font-family:monospace;" />
+          <button class="tool-btn active" id="btn-copy-export">Copia</button>
+        </div>
+        <small style="color:#94a3b8; display:block; margin-top:3px;">
+          Incolla questa riga o il comando nel prompt del GEM per informarlo su dove si trova il party.
+        </small>
+      </div>
+
+      <div style="margin-bottom:10px;">
+        <label style="font-weight:700; color:#60a5fa; display:block; margin-bottom:4px;">2. Importa dal GEM (Salvataggio o Beat):</label>
+        <textarea class="glossary-input" id="txt-import-gem" rows="4" placeholder="Incolla qui il blocco di salvataggio [C] LOCALITÀ: ... oppure il token [NAV-LOC: ...] per sincronizzare la mappa istantaneamente."></textarea>
+        <small style="color:#94a3b8; display:block; margin-top:3px;">
+          Supporta il formato <code>[C] LOCALITÀ: ...</code>, coordinate esplicite (es. <code>X: 25.4, Y: 16.5</code>) o toponimi in italiano/inglese.
+        </small>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="tool-btn" data-close="modal-sync">Annulla</button>
+      <button class="tool-btn active" id="btn-apply-import">Applica Importazione</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SELEZIONA MAPPA / OVERRIDE -->
+<div class="modal-backdrop" id="modal-override">
+  <div class="modal-dialog" style="max-width:850px;">
+    <div class="modal-header">
+      <h3 class="modal-title"><span>🗺️</span> Selettore Mappe & Override Territoriale</h3>
+      <button class="modal-close" data-close="modal-override">×</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex; gap:8px; margin-bottom:12px;">
+        <input type="text" class="glossary-input" id="inp-search-zone" placeholder="Filtra zona o città (es. Gridania, Thanalan, Coerthas...)" />
+        <select class="glossary-input" id="sel-region-filter" style="max-width:200px;">
+          <option value="ALL">Tutte le Regioni</option>
+          <option value="La Noscea">La Noscea</option>
+          <option value="The Black Shroud">Bosco Nero (Black Shroud)</option>
+          <option value="Thanalan">Thanalan</option>
+          <option value="Coerthas">Coerthas</option>
+          <option value="Mor Dhona">Mor Dhona</option>
+        </select>
+      </div>
+
+      <div class="zone-select-grid" id="zone-selector-grid"></div>
+
+      <div style="margin-top:16px; border-top:1px solid var(--border-color); padding-top:12px;">
+        <label style="font-weight:700; color:#f59e0b; display:block; margin-bottom:4px;">🌐 Carica Mappa Personalizzata da ConsoleGamesWiki API:</label>
+        <div style="display:flex; gap:8px;">
+          <input type="text" class="glossary-input" id="inp-custom-wiki-page" placeholder="Titolo Pagina Wiki (es. Western_La_Noscea, Kugane...)" />
+          <button class="tool-btn" id="btn-fetch-custom-wiki">Interroga API</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="tool-btn" data-close="modal-override">Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: GLOSSARIO DEI TOPONIMI COMPLETO (07) -->
+<div class="modal-backdrop" id="modal-glossary">
+  <div class="modal-dialog" style="max-width:780px;">
+    <div class="modal-header">
+      <h3 class="modal-title"><span>📖</span> Glossario di Toponomastica Ufficiale (07_Glossary)</h3>
+      <button class="modal-close" data-close="modal-glossary">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="margin-top:0; color:#cbd5e1;">
+        Tutti i nomi geografici seguono la regola vincolante: <em>"tradurre per senso in 'Italiano (Inglese)' alla prima occorrenza, poi solo italiano"</em>. I nomi opachi/fantastici restano immutati senza parentesi (G5).
+      </p>
+
+      <input type="text" class="glossary-input" id="inp-search-dict" placeholder="Cerca nel dizionario canonico..." style="margin-bottom:12px;" />
+
+      <div style="max-height:350px; overflow-y:auto; border:1px solid var(--border-color); border-radius:6px;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.83rem; text-align:left;">
+          <thead style="background:var(--bg-alt); position:sticky; top:0; color:#facc15;">
+            <tr>
+              <th style="padding:8px 12px; border-bottom:1px solid var(--border-color);">Inglese Ufficiale</th>
+              <th style="padding:8px 12px; border-bottom:1px solid var(--border-color);">Italiano Canonico</th>
+              <th style="padding:8px 12px; border-bottom:1px solid var(--border-color);">Riferimento</th>
+            </tr>
+          </thead>
+          <tbody id="glossary-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="tool-btn" data-close="modal-glossary">Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: GUIDA FREE ROAM -->
+<div class="modal-backdrop" id="modal-help">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 class="modal-title"><span>❓</span> Guida all'Esplorazione & Free Roaming</h3>
+      <button class="modal-close" data-close="modal-help">×</button>
+    </div>
+    <div class="modal-body" style="line-height:1.6;">
+      <h4 style="color:#facc15; margin-top:0;">Come funziona la navigazione:</h4>
+      <ul>
+        <li><strong>Movimento del Party:</strong> Trascina l'icona ⚔️ con il mouse, clicca su un punto della mappa per muovere il gruppo fluidamente, oppure usa i tasti <span class="kbd-badge">W</span> <span class="kbd-badge">A</span> <span class="kbd-badge">S</span> <span class="kbd-badge">D</span>.</li>
+        <li><strong>Transizione alle Uscite:</strong> Quando ti avvicini ad una porta o varco di confine (es. Porta Zefiro verso Limsa Lominsa o confine verso la Noscea Orientale), la mappa passa automaticamente alla zona confinante riposizionando il party al gate corrispondente!</li>
+        <li><strong>Radar & Dati GEM:</strong> Il pannello destro si aggiorna in tempo reale mostrando il nome del luogo tradotto secondo il Glossario 07, il meteo regionale ufficiale e le cose che il GEM può fare (botteghe, incontri da tabella GdS, eteriti).</li>
+        <li><strong>Sincronizzazione GEM:</strong> Usa il tasto <em>"Sincronizza GEM"</em> per copiare il codice di posizione da incollare nella chat del master, oppure incolla il testo di un beat del GEM per aggiornare la mappa.</li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button class="tool-btn active" data-close="modal-help">Ho Capito</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast-msg">
+  <span id="toast-icon">ℹ️</span>
+  <span id="toast-text">Messaggio notifica</span>
+</div>
+
+<script>
+/* =========================================================================
+   FFXIV × D&D 5e — WORLD & MAP NAVIGATOR CORE SCRIPT
+   ========================================================================= */
+
+// --- 1. GLOSSARIO 07/08: DATABASE DIZIONARIO & REGOLE TOPONOMASTICA ---
+const GLOSSARY_DB = [
+  // G9: Hubs & Zones ARR
+  { en: "Black Shroud", it: "Bosco Nero", ref: "G9" },
+  { en: "The Black Shroud", it: "Bosco Nero", ref: "G9" },
+  { en: "Central Shroud", it: "Bosco Centrale", ref: "G12.0" },
+  { en: "East Shroud", it: "Bosco Orientale", ref: "G12.0" },
+  { en: "South Shroud", it: "Bosco Meridionale", ref: "G12.0" },
+  { en: "North Shroud", it: "Bosco Settentrionale", ref: "G12.0" },
+  { en: "La Noscea", it: "La Noscea", ref: "G5" },
+  { en: "Middle La Noscea", it: "Noscea Centrale", ref: "G12.0" },
+  { en: "Lower La Noscea", it: "Noscea Inferiore", ref: "G12.0" },
+  { en: "Upper La Noscea", it: "Noscea Superiore", ref: "G12.0" },
+  { en: "Western La Noscea", it: "Noscea Occidentale", ref: "G12.0" },
+  { en: "Eastern La Noscea", it: "Noscea Orientale", ref: "G12.0" },
+  { en: "Outer La Noscea", it: "Noscea Esterna", ref: "G12.0" },
+  { en: "Thanalan", it: "Thanalan", ref: "G5" },
+  { en: "Central Thanalan", it: "Thanalan Centrale", ref: "G12.0" },
+  { en: "Western Thanalan", it: "Thanalan Occidentale", ref: "G12.0" },
+  { en: "Eastern Thanalan", it: "Thanalan Orientale", ref: "G9" },
+  { en: "Southern Thanalan", it: "Thanalan Meridionale", ref: "G12.0" },
+  { en: "Northern Thanalan", it: "Thanalan Settentrionale", ref: "G12.0" },
+  { en: "Coerthas", it: "Coerthas", ref: "G5" },
+  { en: "Coerthas Central Highlands", it: "Altopiani Centrali di Coerthas", ref: "G12.0" },
+  { en: "Coerthas Western Highlands", it: "Altopiani Occidentali di Coerthas", ref: "G12.0" },
+  { en: "Mor Dhona", it: "Mor Dhona", ref: "G5" },
+  
+  // G9/G11/G12: Hubs, Districts, Settlements & Landmarks
+  { en: "Limsa Lominsa", it: "Limsa Lominsa", ref: "G5" },
+  { en: "Limsa Lominsa Lower Decks", it: "Ponti Inferiori di Limsa Lominsa", ref: "G9" },
+  { en: "Limsa Lominsa Upper Decks", it: "Ponti Superiori di Limsa Lominsa", ref: "G9" },
+  { en: "Lower Decks", it: "Ponti Inferiori", ref: "G9" },
+  { en: "Upper Decks", it: "Ponti Superiori", ref: "G9" },
+  { en: "Gridania", it: "Gridania", ref: "G5" },
+  { en: "New Gridania", it: "Nuova Gridania", ref: "G9" },
+  { en: "Old Gridania", it: "Vecchia Gridania", ref: "G9" },
+  { en: "Ul'dah", it: "Ul'dah", ref: "G5" },
+  { en: "Steps of Nald", it: "Foro di Nald", ref: "G9" },
+  { en: "Steps of Thal", it: "Pozzo di Thal", ref: "G9" },
+  { en: "Summerford Farms", it: "Guado d'Estate", ref: "G9" },
+  { en: "Summerford", it: "Guado d'Estate", ref: "G9" },
+  { en: "Aleport", it: "Portobirra", ref: "G9" },
+  { en: "Wineport", it: "Portovino", ref: "G9" },
+  { en: "Swiftperch", it: "Postarapida", ref: "G9" },
+  { en: "Moraby Drydocks", it: "Carenaggio di Moraby", ref: "G4" },
+  { en: "Costa del Sol", it: "Costa del Sol", ref: "G5" },
+  { en: "Bronze Lake", it: "Lago di Bronzo", ref: "G4" },
+  { en: "Camp Bronze Lake", it: "Campo Lago di Bronzo", ref: "G4" },
+  { en: "Camp Overlook", it: "Campo Belvedere", ref: "G4" },
+  { en: "Camp Drybone", it: "Campo Ossasecca", ref: "G4" },
+  { en: "Camp Horizon", it: "Campo Orizzonte", ref: "G9" },
+  { en: "Camp Tranquil", it: "Campo Tranquillo", ref: "G9" },
+  { en: "Camp Dragonhead", it: "Campo Capodrago", ref: "G13.1" },
+  { en: "Vesper Bay", it: "Baia del Vespro", ref: "G4" },
+  { en: "The Waking Sands", it: "Sabbie del Risveglio", ref: "G9" },
+  { en: "The Rising Stones", it: "Le Pietre Risorte", ref: "G9" },
+  { en: "Revenant's Toll", it: "Pedaggio del Redivivo", ref: "G9" },
+  { en: "Highbridge", it: "Ponte Alto", ref: "G1" },
+  { en: "Little Ala Mhigo", it: "Piccola Ala Mhigo", ref: "G12.3" },
+  { en: "Black Brush Station", it: "Stazione Sterpenero", ref: "G9" },
+  { en: "Quarrymill", it: "Cavamulino", ref: "G4" },
+  { en: "Bentbranch Meadows", it: "Prati di Ramostorto", ref: "G4" },
+  { en: "Hawthorne Hut", it: "Capanna Biancospino", ref: "G4" },
+  { en: "Little Solace", it: "Piccolo Rifugio", ref: "G9" },
+  { en: "Fallgourd Float", it: "Zuccacaduta", ref: "G9" },
+  { en: "Hyrstmill", it: "Boscomulino", ref: "G9" },
+  { en: "The Bannock", it: "Presidio del Bannock", ref: "G9" },
+  { en: "Whitebrim", it: "Orlo Bianco", ref: "G9" },
+  { en: "Whitebrim Front", it: "Avamposto di Orlo Bianco", ref: "G9" },
+  { en: "Falcon's Nest", it: "Nido del Falco", ref: "G13.1" },
+  
+  // G12.4: City Gates
+  { en: "Zephyr Gate", it: "Porta Zefiro", ref: "G12.4" },
+  { en: "Tempest Gate", it: "Porta Tempesta", ref: "G12.4" },
+  { en: "Black Boar Gate", it: "Porta del Cinghiale Nero", ref: "G12.4" },
+  { en: "Yellow Serpent Gate", it: "Porta della Vipera Gialla", ref: "G12.4" },
+  { en: "White Wolf Gate", it: "Porta del Lupo Bianco", ref: "G12.4" },
+  { en: "Gate of Nald", it: "Porta di Nald", ref: "G12.4" },
+  { en: "Gate of Thal", it: "Porta di Thal", ref: "G12.4" },
+  { en: "Gate of the Colosseum", it: "Porta del Colosseo", ref: "G12.4" },
+  { en: "Gate of the Sultana", it: "Porta della Sultana", ref: "G12.4" },
+  
+  // G11: Guild Taverns
+  { en: "The Drowning Wench", it: "La Fanciulla Annegata", ref: "G11" },
+  { en: "The Carline Canopy", it: "Il Baldacchino di Carline", ref: "G11" },
+  { en: "The Quicksand", it: "Le Sabbie Mobili", ref: "G11" },
+  { en: "Buscarron's Druthers", it: "Il Capriccio di Buscarron", ref: "G11" },
+  { en: "Memeroon's Trading Post", it: "La Locanda di Memeroon", ref: "G11" },
+  { en: "The Forgotten Knight", it: "Il Cavaliere Dimenticato", ref: "G13.1" },
+
+  // G12.1: Dungeons
+  { en: "Sastasha", it: "Sastasha", ref: "G5" },
+  { en: "The Tam-Tara Deepcroft", it: "Cripta di Tam-Tara", ref: "G12.1" },
+  { en: "Copperbell Mines", it: "Miniere di Camparame", ref: "G4" },
+  { en: "The Thousand Maws of Toto-Rak", it: "Le Mille Fauci di Toto-Rak", ref: "G12.1" },
+  { en: "Haukke Manor", it: "Maniero Haukke", ref: "G12.1" },
+  { en: "Brayflox's Longstop", it: "Lungasosta di Brayflox", ref: "G12.1" },
+  { en: "The Sunken Temple of Qarn", it: "Tempio Sommerso di Qarn", ref: "G12.1" },
+  { en: "Cutter's Cry", it: "Fosse Urlanti", ref: "G12.1" },
+  { en: "Stone Vigil", it: "Roccagelo", ref: "G12.1" },
+  { en: "Dzemael Darkhold", it: "Bastione Sotterraneo di Dzemael", ref: "G12.1" },
+  { en: "The Aurum Vale", it: "Valdorata", ref: "G12.1" },
+  { en: "Castrum Meridianum", it: "Castrum Meridianum", ref: "G5" },
+  { en: "The Praetorium", it: "The Praetorium", ref: "G5" }
+];
+
+// Opaque names that stay unchanged without parentheses (G5)
+const KEPT_NAMES_G5 = new Set([
+  "Limsa Lominsa", "Ul'dah", "Gridania", "Thanalan", "La Noscea", "Ishgard", 
+  "Eorzea", "Halatali", "Sastasha", "Costa del Sol", "Castrum Meridianum", 
+  "The Praetorium", "Pharos Sirius", "Mor Dhona", "Castrum Centri", "Castrum Novum",
+  "Kugane", "Ala Mhigo", "Gyr Abania", "Norvrandt", "Eulmore", "Amaurot"
+]);
+
+// Cardinal prefix mappings (G12.0)
+const CARDINAL_MAP = {
+  "Middle": "Centrale",
+  "Central": "Centrale",
+  "Lower": "Inferiore",
+  "Upper": "Superiore",
+  "Eastern": "Orientale",
+  "East": "Orientale",
+  "Western": "Occidentale",
+  "West": "Occidentale",
+  "Outer": "Esterna",
+  "Northern": "Settentrionale",
+  "North": "Settentrionale",
+  "Southern": "Meridionale",
+  "South": "Meridionale"
+};
+
+// Recurring Element Map (G3)
+const ELEMENT_MAP = {
+  "port": "Porto",
+  "camp": "Campo",
+  "station": "Stazione",
+  "mines": "Miniere",
+  "lake": "Lago",
+  "palace": "Palazzo",
+  "overlook": "Belvedere",
+  "bridge": "Ponte",
+  "ford": "Guado",
+  "gate": "Porta",
+  "bay": "Baia",
+  "watch": "Vedetta",
+  "meadows": "Prati",
+  "town": "Borgo",
+  "grotto": "Grotta",
+  "river": "Fiume",
+  "wood": "Bosco",
+  "mill": "Mulino",
+  "falls": "Cascate",
+  "quarry": "Cava",
+  "cove": "Cala",
+  "hollow": "Cavità",
+  "shroud": "Bosco",
+  "farms": "",
+  "stead": "Podere"
+};
+
+// Procedural Translation Engine (G1-G4, G12.0)
+function translateToponym(name) {
+  if (!name) return { it: "", format: "" };
+  const clean = name.trim();
+
+  // 1. Direct Fixed Dictionary match (G0 Priority)
+  const exact = GLOSSARY_DB.find(item => item.en.toLowerCase() === clean.toLowerCase());
+  if (exact) {
+    if (KEPT_NAMES_G5.has(clean)) {
+      return { it: exact.it, format: exact.it, rule: `${exact.ref} Invariato (G5)` };
+    }
+    return { it: exact.it, format: `${exact.it} (${clean})`, rule: `${exact.ref} Lista Fissa` };
+  }
+
+  // 2. Kept opaque check (G5)
+  if (KEPT_NAMES_G5.has(clean)) {
+    return { it: clean, format: clean, rule: "G5 Termine Opaco/Fantastico" };
+  }
+
+  // 3. Directional Compound (G12.0: [Modifier] + [Zone])
+  const words = clean.split(/\s+/);
+  if (words.length >= 2 && CARDINAL_MAP[words[0]]) {
+    const mod = CARDINAL_MAP[words[0]];
+    const rest = words.slice(1).join(" ");
+    const restTrans = translateToponym(rest);
+    const itName = `${restTrans.it} ${mod}`;
+    return { it: itName, format: `${itName} (${clean})`, rule: "G12.0 Prefisso Cardinale" };
+  }
+
+  // 4. On-The-Fly Procedural Breakdown (G1-G4)
+  let itName = clean;
+  let ruleApplied = "G1 Metodo di Adattamento";
+
+  // Check for common compound patterns (e.g. "X's Y" -> "Y di X")
+  if (clean.includes("'s ")) {
+    const parts = clean.split("'s ");
+    const head = parts[1];
+    const owner = parts[0];
+    itName = `${head} di ${owner}`;
+    ruleApplied = "G1 Flowchart 3(a) 'X's Y'";
+  } else {
+    // Word by word element mapping
+    for (const [enEl, itEl] of Object.entries(ELEMENT_MAP)) {
+      const regex = new RegExp(`\\b${enEl}\\b`, 'i');
+      if (regex.test(clean)) {
+        itName = clean.replace(regex, itEl).trim();
+        ruleApplied = "G3 Mappa Elementi";
+        break;
+      }
+    }
+  }
+
+  // If no translation occurred, keep original once (Parenthesis test G2)
+  if (itName === clean) {
+    return { it: clean, format: clean, rule: "G2 Nome Invariato (Nessuna Traduzione)" };
+  }
+
+  return { it: itName, format: `${itName} (${clean})`, rule: ruleApplied };
+}
+
+// --- 2. CANONICAL DATABASE DELLE ZONE FFXIV & MAPPE ---
+const ZONE_DATABASE = {
+  "Middle_La_Noscea": {
+    id: "Middle_La_Noscea",
+    enName: "Middle La Noscea",
+    itName: "Noscea Centrale",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "1 – 17",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Middle_La_Noscea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/f/f0/Middle_La_Noscea_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 35 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Nuvoloso", icon: "☁️", weight: 10 },
+      { name: "Foschia", icon: "🌫️", weight: 10 },
+      { name: "Pioggia", icon: "🌧️", weight: 5 },
+      { name: "Vento", icon: "💨", weight: 5 }
+    ],
+    defaultParty: { x: 25.4, y: 16.5 },
+    exits: [
+      { id: "to_limsa", name: "Zephyr Gate", destZone: "Limsa_Lominsa_Lower_Decks", x: 19.5, y: 35.8, arrX: 7.2, arrY: 15.0, icon: "🚪" },
+      { id: "to_lower", name: "Verso Noscea Inferiore", destZone: "Lower_La_Noscea", x: 21.0, y: 38.5, arrX: 24.5, arrY: 13.0, icon: "🚪" },
+      { id: "to_western", name: "Verso Noscea Occidentale", destZone: "Western_La_Noscea", x: 14.5, y: 14.2, arrX: 35.0, arrY: 26.5, icon: "🚪" },
+      { id: "to_eastern", name: "Verso Noscea Orientale", destZone: "Eastern_La_Noscea", x: 38.5, y: 12.5, arrX: 13.0, arrY: 25.5, icon: "🚪" }
+    ],
+    pois: [
+      { id: "summerford", name: "Summerford Farms", x: 25.4, y: 16.5, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Generale", "Consumabili", "Armi"], desc: "Insediamento agricolo sorto dai campi bonificati dei corsari. Punto nodale per i viaggiatori." },
+      { id: "seasong", name: "Seasong Grotto", x: 23.5, y: 20.0, type: "landmark", icon: "💧", desc: "Caverna costiera dove risuona la brezza marina. Antico rifugio di pescatori." },
+      { id: "de_nevelle", name: "De Nevelle Checkpoint", x: 24.2, y: 27.5, type: "outpost", icon: "🛡️", desc: "Avamposto di controllo delle Giubbe Gialle a guardia della vallata di Galadion." },
+      { id: "skylift", name: "Skylift", x: 17.5, y: 16.0, type: "landmark", icon: "⚙️", desc: "Argano montacarichi per il trasporto rapido di merci e bestiame verso le falesie occidentali." }
+    ],
+    mobs: ["Marmotta delle Piane", "Coccinella della Noscea", "Calabrone Gigante", "Puk delle Tempeste", "Dodo"]
+  },
+
+  "Lower_La_Noscea": {
+    id: "Lower_La_Noscea",
+    enName: "Lower La Noscea",
+    itName: "Noscea Inferiore",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "3 – 20",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Lower_La_Noscea",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/c/c3/Lower_La_Noscea_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Foschia", icon: "🌫️", weight: 15 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 }
+    ],
+    defaultParty: { x: 24.5, y: 13.0 },
+    exits: [
+      { id: "to_middle", name: "Verso Noscea Centrale", destZone: "Middle_La_Noscea", x: 24.5, y: 13.0, arrX: 21.0, arrY: 38.5, icon: "🚪" },
+      { id: "to_limsa_upper", name: "Tempest Gate", destZone: "Limsa_Lominsa_Upper_Decks", x: 19.8, y: 34.2, arrX: 11.5, arrY: 14.0, icon: "🚪" },
+      { id: "to_eastern", name: "Verso Noscea Orientale", destZone: "Eastern_La_Noscea", x: 37.0, y: 18.0, arrX: 14.0, arrY: 30.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "moraby", name: "Moraby Drydocks", x: 23.8, y: 34.5, type: "settlement", icon: "⚓", aetheryte: true, chocobo: true, shops: ["Generale", "Armature"], desc: "I celebri cantieri navali di Naldiq & Vymelli, dove vengono fabbricati i vascelli della Tempesta." },
+      { id: "the_grey_fleet", name: "The Grey Fleet", x: 31.0, y: 14.0, type: "landmark", icon: "🌾", desc: "Mulini a vento colossali che dominano le scogliere della Noscea." },
+      { id: "blind_iron", name: "Blind Iron Mines", x: 26.5, y: 16.0, type: "dungeon_ent", icon: "⛏️", desc: "Miniere di ferro dismesse ora infestate da coboldi e pipistrelli." }
+    ],
+    mobs: ["Aurelia", "Pipistrello Cavernico", "Coboldo Minatore", "Granchio di Scoglio"]
+  },
+
+  "Limsa_Lominsa_Lower_Decks": {
+    id: "Limsa_Lominsa_Lower_Decks",
+    enName: "Limsa Lominsa Lower Decks",
+    itName: "Ponti Inferiori di Limsa Lominsa",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Limsa_Lominsa_Lower_Decks",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/4/4b/Limsa_Lominsa_Lower_Decks_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 45 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 10 },
+      { name: "Pioggia", icon: "🌧️", weight: 10 }
+    ],
+    defaultParty: { x: 7.2, y: 15.0 },
+    exits: [
+      { id: "to_middle_zephyr", name: "Porta Zefiro (Zephyr Gate)", destZone: "Middle_La_Noscea", x: 7.2, y: 15.0, arrX: 19.5, arrY: 35.8, icon: "🚪" },
+      { id: "to_upper_decks", name: "Verso Ponti Superiori", destZone: "Limsa_Lominsa_Upper_Decks", x: 11.5, y: 11.0, arrX: 11.5, arrY: 11.0, icon: "🪜" }
+    ],
+    pois: [
+      { id: "octant", name: "The Octant", x: 10.0, y: 11.5, type: "settlement", icon: "💎", aetheryte: true, shops: ["Armi", "Armature", "Accessori", "Consumabili", "Generale"], desc: "Piazza principale di Limsa Lominsa e cuore della rete Eterite della capitale marittima." },
+      { id: "drowning_wench", name: "The Drowning Wench", x: 11.5, y: 11.0, type: "tavern", icon: "🍺", desc: "La rinomata taverna gestita da Baderon Diecidita, centro d'ingaggio per ogni avventuriero." }
+    ],
+    mobs: ["Guardie della Tempesta", "Cittadini Lominsani", "Mercanti di Banchina"]
+  },
+
+  "Limsa_Lominsa_Upper_Decks": {
+    id: "Limsa_Lominsa_Upper_Decks",
+    enName: "Limsa Lominsa Upper Decks",
+    itName: "Ponti Superiori di Limsa Lominsa",
+    region: "La Noscea",
+    expansion: "ARR",
+    levels: "Città Hub",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Limsa_Lominsa_Upper_Decks",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b5/Limsa_Lominsa_Upper_Decks_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 50 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Vento", icon: "💨", weight: 20 }
+    ],
+    defaultParty: { x: 11.5, y: 14.0 },
+    exits: [
+      { id: "to_lower_tempest", name: "Porta Tempesta (Tempest Gate)", destZone: "Lower_La_Noscea", x: 11.5, y: 14.0, arrX: 19.8, arrY: 34.2, icon: "🚪" },
+      { id: "to_lower_decks_2", name: "Verso Ponti Inferiori", destZone: "Limsa_Lominsa_Lower_Decks", x: 11.5, y: 11.0, arrX: 11.5, arrY: 11.0, icon: "🪜" }
+    ],
+    pois: [
+      { id: "aftcastle", name: "The Aftcastle", x: 11.2, y: 13.5, type: "settlement", icon: "🏰", desc: "Piazza d'armi e sede del Maelstrom (La Tempesta) sotto il comando dell'Ammiraglio Merlwyb." }
+    ],
+    mobs: ["Ufficiali della Tempesta", "Gabbiani delle Scogliere"]
+  },
+
+  "Central_Shroud": {
+    id: "Central_Shroud",
+    enName: "Central Shroud",
+    itName: "Bosco Centrale",
+    region: "The Black Shroud",
+    expansion: "ARR",
+    levels: "1 – 15",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Central_Shroud",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/2/23/Central_Shroud_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 30 },
+      { name: "Soleggiato", icon: "🌤️", weight: 30 },
+      { name: "Nuvoloso", icon: "☁️", weight: 15 },
+      { name: "Pioggia", icon: "🌧️", weight: 15 },
+      { name: "Foschia", icon: "🌫️", weight: 10 }
+    ],
+    defaultParty: { x: 21.0, y: 21.0 },
+    exits: [
+      { id: "to_gridania_new", name: "White Wolf Gate", destZone: "New_Gridania", x: 21.5, y: 17.5, arrX: 12.0, arrY: 13.0, icon: "🚪" },
+      { id: "to_south_shroud", name: "Verso Bosco Meridionale", destZone: "South_Shroud", x: 17.0, y: 32.0, arrX: 20.0, arrY: 12.0, icon: "🚪" },
+      { id: "to_east_shroud", name: "Verso Bosco Orientale", destZone: "East_Shroud", x: 29.5, y: 19.5, arrX: 12.0, arrY: 20.0, icon: "🚪" },
+      { id: "to_north_shroud", name: "Verso Bosco Settentrionale", destZone: "North_Shroud", x: 23.0, y: 14.0, arrX: 25.0, arrY: 34.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "bentbranch", name: "Bentbranch Meadows", x: 21.0, y: 21.0, type: "settlement", icon: "🌾", aetheryte: true, chocobo: true, shops: ["Generale", "Cavalcature"], desc: "Famoso allevamento di Chocobo guidato da Moogle e istruttori Gridaniani." },
+      { id: "tam_tara", name: "The Tam-Tara Deepcroft", x: 19.5, y: 28.0, type: "dungeon_ent", icon: "💀", desc: "Antica necropoli sotterranea di Gelmorra infestata da cultisti dell'Agnello." }
+    ],
+    mobs: ["Fungo Silvano", "Scoiattolo del Bosco", "Mantis Silvana", "Rospo Gigante"]
+  },
+
+  "Central_Thanalan": {
+    id: "Central_Thanalan",
+    enName: "Central Thanalan",
+    itName: "Thanalan Centrale",
+    region: "Thanalan",
+    expansion: "ARR",
+    levels: "1 – 15",
+    danger: "Tranquillo",
+    dangerBadge: "badge-safe",
+    wikiTitle: "Central_Thanalan",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b5/Central_Thanalan_Map1.jpg",
+    weatherRoster: [
+      { name: "Sereno", icon: "☀️", weight: 40 },
+      { name: "Soleggiato", icon: "🌤️", weight: 35 },
+      { name: "Foschia", icon: "🌫️", weight: 10 },
+      { name: "Tempesta di sabbia", icon: "🌪️", weight: 15 }
+    ],
+    defaultParty: { x: 21.5, y: 25.0 },
+    exits: [
+      { id: "to_uldah_thal", name: "Gate of Thal", destZone: "Uldah_Steps_of_Thal", x: 18.0, y: 15.0, arrX: 13.5, arrY: 10.5, icon: "🚪" },
+      { id: "to_west_than", name: "Verso Thanalan Occidentale", destZone: "Western_Thanalan", x: 15.0, y: 21.0, arrX: 28.0, arrY: 20.0, icon: "🚪" },
+      { id: "to_east_than", name: "Verso Thanalan Orientale", destZone: "Eastern_Thanalan", x: 29.0, y: 20.0, arrX: 12.0, arrY: 18.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "black_brush", name: "Black Brush Station", x: 21.5, y: 18.5, type: "settlement", icon: "🚂", aetheryte: true, chocobo: true, shops: ["Generale", "Consumabili"], desc: "Stazione ferroviaria mineraria per convogli carichi di zolfo e gemme." },
+      { id: "spineless_basin", name: "Spineless Basin", x: 20.0, y: 24.5, type: "landmark", icon: "🌵", desc: "Conca rocciosa arida punteggiata da cactus e tane di formiche leone." }
+    ],
+    mobs: ["Marmotta del Deserto", "Cactuar", "Formica Leone", "Iena del Thanalan"]
+  },
+
+  "Coerthas_Central_Highlands": {
+    id: "Coerthas_Central_Highlands",
+    enName: "Coerthas Central Highlands",
+    itName: "Altopiani Centrali di Coerthas",
+    region: "Coerthas",
+    expansion: "ARR",
+    levels: "35 – 50",
+    danger: "Rischioso",
+    dangerBadge: "badge-risky",
+    wikiTitle: "Coerthas_Central_Highlands",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/b/b3/Coerthas_Central_Highlands_Map1.jpg",
+    weatherRoster: [
+      { name: "Neve", icon: "🌨️", weight: 45 },
+      { name: "Tormenta", icon: "❄️", weight: 35 },
+      { name: "Nebbia", icon: "🌫️", weight: 10 },
+      { name: "Sereno", icon: "☀️", weight: 10 }
+    ],
+    defaultParty: { x: 26.5, y: 17.0 },
+    exits: [
+      { id: "to_north_shroud", name: "Verso Bosco Settentrionale", destZone: "North_Shroud", x: 33.0, y: 23.0, arrX: 18.0, arrY: 10.0, icon: "🚪" },
+      { id: "to_mor_dhona", name: "Verso Mor Dhona", destZone: "Mor_Dhona", x: 13.0, y: 35.0, arrX: 30.0, arrY: 12.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "dragonhead", name: "Camp Dragonhead", x: 26.5, y: 17.0, type: "settlement", icon: "🏰", aetheryte: true, chocobo: true, shops: ["Armature", "Armi", "Consumabili"], desc: "Roccaforte di Casata Fortemps sotto il comando di Ser Haurchefant Pietragrigia." },
+      { id: "whitebrim_front", name: "Whitebrim Front", x: 13.0, y: 15.5, type: "outpost", icon: "🛡️", aetheryte: true, desc: "Avamposto avanzato di Casata Durendaire a ridosso delle postazioni eretiche." }
+    ],
+    mobs: ["Avis della Neve", "Lupo dei Ghiacci", "Colosso Draconico", "Eretici di Coerthas"]
+  },
+
+  "Mor_Dhona": {
+    id: "Mor_Dhona",
+    enName: "Mor Dhona",
+    itName: "Mor Dhona",
+    region: "Mor Dhona",
+    expansion: "ARR",
+    levels: "44 – 50",
+    danger: "Ostile",
+    dangerBadge: "badge-hostile",
+    wikiTitle: "Mor_Dhona",
+    mapImage: "https://ffxiv.consolegameswiki.com/mediawiki/images/1/1d/Mor_Dhona_Map1.jpg",
+    weatherRoster: [
+      { name: "Gloom", icon: "🌌", weight: 40 },
+      { name: "Nebbia", icon: "🌫️", weight: 30 },
+      { name: "Sereno", icon: "☀️", weight: 30 }
+    ],
+    defaultParty: { x: 22.0, y: 8.0 },
+    exits: [
+      { id: "to_coerthas", name: "Verso Coerthas", destZone: "Coerthas_Central_Highlands", x: 30.0, y: 12.0, arrX: 13.0, arrY: 35.0, icon: "🚪" },
+      { id: "to_north_than", name: "Verso Thanalan Settentrionale", destZone: "Northern_Thanalan", x: 16.0, y: 35.0, arrX: 20.0, arrY: 10.0, icon: "🚪" }
+    ],
+    pois: [
+      { id: "revenants_toll", name: "Revenant's Toll", x: 22.0, y: 8.0, type: "settlement", icon: "💎", aetheryte: true, chocobo: true, shops: ["Armi", "Armature", "Accessori", "Generale"], desc: "L'avamposto degli avventurieri e sede delle Pietre Risorte dei Figli della Settima Alba." },
+      { id: "silvertear", name: "Silvertear Lake", x: 25.0, y: 15.0, type: "landmark", icon: "🐉", desc: "Il Lago Lacrimargento dove giace l'involucro mortale di Midgardsormr avvinghiato alla corazzata Agrius." }
+    ],
+    mobs: ["Eolipile", "Gigante di Mor Dhona", "Morfite", "Chimera delle Rovine"]
+  }
+};
+
+// --- 3. AUDIO SYNTHESIZER (WEB AUDIO API — NO EXTERNAL FILES NEEDED) ---
+class NavigatorAudio {
+  constructor() {
+    this.ctx = null;
+    this.enabled = true;
+  }
+  init() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      this.ctx = new AudioContext();
+    }
+  }
+  playChime(type = "transition") {
+    if (!this.enabled) return;
+    try {
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      const now = this.ctx.currentTime;
+      if (type === "transition") {
+        // FFXIV Zone entrance arpeggio (C5 -> E5 -> G5 -> C6)
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.08);
+        osc.frequency.setValueAtTime(783.99, now + 0.16);
+        osc.frequency.setValueAtTime(1046.50, now + 0.24);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+        osc.start(now);
+        osc.stop(now + 0.65);
+      } else if (type === "ping") {
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(880, now);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+        osc.start(now);
+        osc.stop(now + 0.22);
+      }
+    } catch (e) {
+      console.warn("Audio unavailable:", e);
+    }
+  }
+}
+const sfx = new NavigatorAudio();
+
+// --- 4. STATO APPLICAZIONE & NAVIGATORE MAPPA ---
+const State = {
+  currentZone: "Middle_La_Noscea",
+  partyCoords: { x: 25.4, y: 16.5 },
+  currentWeather: "Sereno ☀️",
+  zoom: 1.0,
+  pan: { x: 0, y: 0 },
+  isDraggingMap: false,
+  isDraggingParty: false,
+  dragStart: { x: 0, y: 0 },
+  autoTransition: true,
+  showExits: true,
+  showPois: true,
+  showAetherytes: true,
+  visitedZones: new Set(["Middle_La_Noscea"])
+};
+
+// Coordinate Conversions: (Pixels 2048x2048) <-> (FFXIV Coordinates 1.0 - 42.0)
+function coordToPx(c) {
+  return ((c - 1.0) / 41.0) * 2048;
+}
+function pxToCoord(px) {
+  const c = 1.0 + (px / 2048) * 41.0;
+  return Math.max(1.0, Math.min(42.0, Math.round(c * 10) / 10));
+}
+
+// Calcolo distanza euclidea in yalms FFXIV
+function calcDistance(x1, y1, x2, y2) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+// --- 5. GESTIONE RENDERING & MAP CONTROLLER ---
+const viewportEl = document.getElementById("map-viewport");
+const stageEl = document.getElementById("map-stage");
+const mapImgEl = document.getElementById("map-img");
+const mapCanvasEl = document.getElementById("map-canvas");
+const partyPinEl = document.getElementById("party-pin");
+const markersContainerEl = document.getElementById("markers-container");
+const transBannerEl = document.getElementById("transition-banner");
+const zoneSplashEl = document.getElementById("zone-splash");
+
+function updateTransform() {
+  stageEl.style.transform = `translate(${State.pan.x}px, ${State.pan.y}px) scale(${State.zoom})`;
+}
+
+function updatePartyPinPosition() {
+  const px = coordToPx(State.partyCoords.x);
+  const py = coordToPx(State.partyCoords.y);
+  partyPinEl.style.left = `${px}px`;
+  partyPinEl.style.top = `${py}px`;
+
+  document.getElementById("tb-coord-badge").innerText = `Party X: ${State.partyCoords.x.toFixed(1)} · Y: ${State.partyCoords.y.toFixed(1)}`;
+  document.getElementById("hdr-coords-chip").innerText = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
+  document.getElementById("radar-coords-tag").innerText = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
+}
+
+// Render markers on current map
+function renderMarkers() {
+  markersContainerEl.innerHTML = "";
+  const zone = ZONE_DATABASE[State.currentZone];
+  if (!zone) return;
+
+  // 1. Exits / Gates
+  if (State.showExits && zone.exits) {
+    zone.exits.forEach(exit => {
+      const el = document.createElement("div");
+      el.className = "map-marker";
+      const px = coordToPx(exit.x);
+      const py = coordToPx(exit.y);
+      el.style.left = `${px}px`;
+      el.style.top = `${py}px`;
+
+      const destZone = ZONE_DATABASE[exit.destZone];
+      const destName = destZone ? destZone.itName : exit.name;
+      const transObj = translateToponym(exit.name);
+
+      el.innerHTML = `
+        <div class="gate-marker">${exit.icon || "🚪"}</div>
+        <div class="marker-tooltip"><strong>${transObj.format}</strong><br><span style="color:#f472b6;">➔ ${destName}</span></div>
+      `;
+
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        triggerZoneTransition(exit);
+      });
+
+      markersContainerEl.appendChild(el);
+    });
+  }
+
+  // 2. POIs, Settlements & Aetherytes
+  if (zone.pois) {
+    zone.pois.forEach(poi => {
+      if (poi.aetheryte && !State.showAetherytes) return;
+      if (!poi.aetheryte && !State.showPois) return;
+
+      const el = document.createElement("div");
+      el.className = "map-marker";
+      const px = coordToPx(poi.x);
+      const py = coordToPx(poi.y);
+      el.style.left = `${px}px`;
+      el.style.top = `${py}px`;
+
+      const transObj = translateToponym(poi.name);
+      const iconClass = poi.aetheryte ? "aetheryte-marker" : "landmark-marker";
+
+      el.innerHTML = `
+        <div class="${iconClass}">${poi.icon || "📍"}</div>
+        <div class="marker-tooltip">
+          <strong>${transObj.format}</strong>
+          ${poi.aetheryte ? '<br><span style="color:#38bdf8;">💎 Eterite (1 DV)</span>' : ''}
+        </div>
+      `;
+
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        focusOnPoi(poi);
+      });
+
+      markersContainerEl.appendChild(el);
+    });
+  }
+}
+
+// Fallback Canvas Renderer (in case wiki image fails to load or offline)
+function renderFallbackParchment(zone) {
+  const ctx = mapCanvasEl.getContext("2d");
+  ctx.clearRect(0, 0, 2048, 2048);
+
+  // Ancient Eorzean parchment background
+  ctx.fillStyle = "#1e1b15";
+  ctx.fillRect(0, 0, 2048, 2048);
+
+  // Subtle grid lines (every 2 yalms)
+  ctx.strokeStyle = "rgba(212, 175, 55, 0.15)";
+  ctx.lineWidth = 1;
+  for (let c = 1; c <= 42; c += 2) {
+    const p = coordToPx(c);
+    ctx.beginPath();
+    ctx.moveTo(p, 0); ctx.lineTo(p, 2048);
+    ctx.moveTo(0, p); ctx.lineTo(2048, p);
+    ctx.stroke();
+  }
+
+  // Cartographic Border
+  ctx.strokeStyle = "rgba(212, 175, 55, 0.4)";
+  ctx.lineWidth = 12;
+  ctx.strokeRect(30, 30, 1988, 1988);
+
+  // Big Watermark Title
+  ctx.font = "bold 56px 'Cinzel', Georgia, serif";
+  ctx.fillStyle = "rgba(212, 175, 55, 0.25)";
+  ctx.textAlign = "center";
+  ctx.fillText(zone.itName.toUpperCase(), 1024, 1024);
+  ctx.font = "italic 32px serif";
+  ctx.fillText(zone.enName, 1024, 1075);
+}
+
+// Carica Zona
+function loadZone(zoneId, targetCoords = null, skipSplash = false) {
+  const zone = ZONE_DATABASE[zoneId];
+  if (!zone) return;
+
+  State.currentZone = zoneId;
+  State.visitedZones.add(zoneId);
+  if (targetCoords) {
+    State.partyCoords = { x: targetCoords.x, y: targetCoords.y };
+  } else {
+    State.partyCoords = { x: zone.defaultParty.x, y: zone.defaultParty.y };
+  }
+
+  // Header & Card labels
+  document.getElementById("hdr-region-chip").innerText = zone.region;
+  document.getElementById("hdr-zone-chip").innerText = zone.itName;
+  document.getElementById("tb-zone-name").innerText = `${zone.itName} (${zone.enName})`;
+  document.getElementById("card-zone-it").innerText = zone.itName;
+  document.getElementById("card-zone-en").innerText = `${zone.enName} · ${zone.region}`;
+  document.getElementById("card-zone-levels").innerText = zone.levels;
+  document.getElementById("card-zone-exits").innerText = `${zone.exits ? zone.exits.length : 0} Uscite Regionali`;
+  
+  // Danger badge
+  const dBadge = document.getElementById("zone-danger-badge");
+  dBadge.className = `card-badge ${zone.dangerBadge}`;
+  dBadge.innerText = zone.danger;
+
+  // Default weather
+  rollWeather(false);
+
+  // Map Image loading
+  mapImgEl.onerror = () => {
+    console.warn("Impossibile caricare immagine wiki. Uso rendering procedurale.");
+    renderFallbackParchment(zone);
+  };
+  mapImgEl.src = zone.mapImage;
+
+  // Clear overlay canvas
+  const ctx = mapCanvasEl.getContext("2d");
+  ctx.clearRect(0, 0, 2048, 2048);
+
+  renderMarkers();
+  updatePartyPinPosition();
+  centerOnParty();
+  updateRadar();
+
+  // Zone splash screen effect
+  if (!skipSplash) {
+    document.getElementById("splash-title").innerText = zone.itName.toUpperCase();
+    document.getElementById("splash-sub").innerText = `${zone.enName} · ${zone.region}`;
+    zoneSplashEl.classList.add("active");
+    sfx.playChime("transition");
+    setTimeout(() => {
+      zoneSplashEl.classList.remove("active");
+    }, 900);
+  }
+
+  saveLocalState();
+}
+
+// Center viewport on Party
+function centerOnParty() {
+  const vpRect = viewportEl.getBoundingClientRect();
+  const px = coordToPx(State.partyCoords.x);
+  const py = coordToPx(State.partyCoords.y);
+  State.pan.x = (vpRect.width / 2) - (px * State.zoom);
+  State.pan.y = (vpRect.height / 2) - (py * State.zoom);
+  updateTransform();
+}
+
+// Check proximity to zone exits
+function checkExitProximity() {
+  const zone = ZONE_DATABASE[State.currentZone];
+  if (!zone || !zone.exits) return;
+
+  let nearestExit = null;
+  let minDist = 999;
+
+  for (const exit of zone.exits) {
+    const d = calcDistance(State.partyCoords.x, State.partyCoords.y, exit.x, exit.y);
+    if (d < minDist) {
+      minDist = d;
+      nearestExit = exit;
+    }
+  }
+
+  // Se entro 1.8 yalm dal varco
+  if (minDist <= 1.8 && nearestExit) {
+    const destZone = ZONE_DATABASE[nearestExit.destZone];
+    const destName = destZone ? destZone.itName : nearestExit.name;
+
+    document.getElementById("trans-dest-name").innerText = `${destName} [Varco: ${nearestExit.name}]`;
+    transBannerEl.classList.add("show");
+
+    // Auto-transition se attivo
+    if (State.autoTransition) {
+      triggerZoneTransition(nearestExit);
+    }
+  } else {
+    transBannerEl.classList.remove("show");
+  }
+}
+
+// Trigger Zone Transition
+function triggerZoneTransition(exit) {
+  transBannerEl.classList.remove("show");
+  if (!exit || !ZONE_DATABASE[exit.destZone]) {
+    showToast(`Zona di destinazione non ancora configurata: ${exit.destZone}`);
+    return;
+  }
+
+  const dest = ZONE_DATABASE[exit.destZone];
+  showToast(`Ingresso in: ${dest.itName}...`);
+  loadZone(exit.destZone, { x: exit.arrX, y: exit.arrY });
+}
+
+// Focus on POI and update radar
+function focusOnPoi(poi) {
+  const transObj = translateToponym(poi.name);
+  document.getElementById("radar-poi-name").innerText = transObj.format;
+  document.getElementById("radar-poi-desc").innerText = poi.desc || "Punto d'interesse esplorabile nella regione.";
+  document.getElementById("radar-coords-tag").innerText = `X: ${poi.x.toFixed(1)}, Y: ${poi.y.toFixed(1)}`;
+  document.getElementById("radar-dist-badge").innerText = "Selezionato";
+
+  // Aggiorna chip
+  const chipsEl = document.getElementById("radar-chips");
+  chipsEl.innerHTML = "";
+  if (poi.aetheryte) chipsEl.innerHTML += `<span class="chip chip-aetheryte">💎 Eterite (1 DV)</span>`;
+  if (poi.chocobo) chipsEl.innerHTML += `<span class="chip chip-chocobo">🐥 Chocobokeep</span>`;
+  if (poi.shops) {
+    poi.shops.forEach(sh => chipsEl.innerHTML += `<span class="chip chip-shop">🛒 ${sh}</span>`);
+  }
+  chipsEl.innerHTML += `<span class="chip">📍 Punto d'Interesse</span>`;
+
+  // Glossario Sample update
+  document.getElementById("gloss-rule-tag").innerText = `Regola: ${transObj.rule}`;
+  document.getElementById("gloss-sample-text").innerText = transObj.format;
+  document.getElementById("gloss-sample-desc").innerText = `Toponimo conforme alle convenzioni del manuale 07_Glossary.`;
+
+  sfx.playChime("ping");
+}
+
+// Update radar to nearest POI or generic area
+function updateRadar() {
+  const zone = ZONE_DATABASE[State.currentZone];
+  if (!zone) return;
+
+  let nearest = null;
+  let minDist = 999;
+
+  if (zone.pois) {
+    zone.pois.forEach(poi => {
+      const d = calcDistance(State.partyCoords.x, State.partyCoords.y, poi.x, poi.y);
+      if (d < minDist) {
+        minDist = d;
+        nearest = poi;
+      }
+    });
+  }
+
+  if (nearest && minDist <= 5.0) {
+    focusOnPoi(nearest);
+    document.getElementById("radar-dist-badge").innerText = `${minDist.toFixed(1)} yalm`;
+  } else {
+    // Wilderness generic
+    const transZone = translateToponym(zone.enName);
+    document.getElementById("radar-poi-name").innerText = `Terre di ${transZone.it}`;
+    document.getElementById("radar-poi-desc").innerText = `Aperta natura selvaggia e percorsi tra le colline. Grado di pericolo: ${zone.danger}.`;
+    document.getElementById("radar-coords-tag").innerText = `X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}`;
+    document.getElementById("radar-dist-badge").innerText = "In Viaggio";
+
+    const chipsEl = document.getElementById("radar-chips");
+    chipsEl.innerHTML = `
+      <span class="chip">🌿 Erbe Selvatiche</span>
+      <span class="chip">🎯 Pattuglie Spostamento</span>
+      <span class="chip chip-danger">⚠️ Incontri Casuali</span>
+    `;
+  }
+
+  // Update Mobs chips
+  const mobsEl = document.getElementById("radar-mobs-chips");
+  mobsEl.innerHTML = "";
+  if (zone.mobs) {
+    zone.mobs.forEach(m => {
+      mobsEl.innerHTML += `<span class="chip chip-danger">${m}</span>`;
+    });
+  }
+}
+
+// Roll Weather according to canonical regional weights (06 §A8 / 05 Ch.14)
+function rollWeather(notify = true) {
+  const zone = ZONE_DATABASE[State.currentZone];
+  if (!zone || !zone.weatherRoster) return;
+
+  const totalWeight = zone.weatherRoster.reduce((sum, w) => sum + w.weight, 0);
+  let rand = Math.random() * totalWeight;
+  let picked = zone.weatherRoster[0];
+
+  for (const w of zone.weatherRoster) {
+    if (rand < w.weight) {
+      picked = w;
+      break;
+    }
+    rand -= w.weight;
+  }
+
+  State.currentWeather = `${picked.name} ${picked.icon}`;
+  document.getElementById("hdr-weather-chip").innerText = State.currentWeather;
+  document.getElementById("card-zone-weather").innerText = State.currentWeather;
+
+  if (notify) {
+    showToast(`Meteo aggiornato per ${zone.itName}: ${State.currentWeather}`);
+    sfx.playChime("ping");
+  }
+}
+
+// --- 6. GESTIONE EVENTI MOUSE & TOUCH PER LA MAPPA ---
+viewportEl.addEventListener("mousedown", (e) => {
+  if (e.target.closest("#party-pin")) {
+    State.isDraggingParty = true;
+  } else if (!e.target.closest(".map-marker") && !e.target.closest(".map-control-btn")) {
+    State.isDraggingMap = true;
+    State.dragStart = { x: e.clientX - State.pan.x, y: e.clientY - State.pan.y };
+    viewportEl.classList.add("dragging");
+  }
+});
+
+window.addEventListener("mousemove", (e) => {
+  const vpRect = viewportEl.getBoundingClientRect();
+  const mouseX = (e.clientX - vpRect.left - State.pan.x) / State.zoom;
+  const mouseY = (e.clientY - vpRect.top - State.pan.y) / State.zoom;
+
+  // Real-time cursor coordinate indicator
+  if (mouseX >= 0 && mouseX <= 2048 && mouseY >= 0 && mouseY <= 2048) {
+    const cx = pxToCoord(mouseX);
+    const cy = pxToCoord(mouseY);
+    document.getElementById("cursor-coords").innerText = `Cursore: X: ${cx.toFixed(1)}, Y: ${cy.toFixed(1)}`;
+  }
+
+  if (State.isDraggingMap) {
+    State.pan.x = e.clientX - State.dragStart.x;
+    State.pan.y = e.clientY - State.dragStart.y;
+    updateTransform();
+  } else if (State.isDraggingParty) {
+    State.partyCoords.x = pxToCoord(mouseX);
+    State.partyCoords.y = pxToCoord(mouseY);
+    updatePartyPinPosition();
+    checkExitProximity();
+    updateRadar();
+  }
+});
+
+window.addEventListener("mouseup", () => {
+  if (State.isDraggingMap) {
+    State.isDraggingMap = false;
+    viewportEl.classList.remove("dragging");
+  }
+  if (State.isDraggingParty) {
+    State.isDraggingParty = false;
+    checkExitProximity();
+    updateRadar();
+    saveLocalState();
+  }
+});
+
+// Click to move Party (walk animation)
+viewportEl.addEventListener("click", (e) => {
+  if (State.isDraggingMap || State.isDraggingParty) return;
+  if (e.target.closest(".map-marker") || e.target.closest(".map-control-btn") || e.target.closest("#party-pin")) return;
+
+  const vpRect = viewportEl.getBoundingClientRect();
+  const mouseX = (e.clientX - vpRect.left - State.pan.x) / State.zoom;
+  const mouseY = (e.clientY - vpRect.top - State.pan.y) / State.zoom;
+
+  if (mouseX >= 0 && mouseX <= 2048 && mouseY >= 0 && mouseY <= 2048) {
+    State.partyCoords.x = pxToCoord(mouseX);
+    State.partyCoords.y = pxToCoord(mouseY);
+    updatePartyPinPosition();
+    checkExitProximity();
+    updateRadar();
+    sfx.playChime("ping");
+    saveLocalState();
+  }
+});
+
+// Wheel Zoom
+viewportEl.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const vpRect = viewportEl.getBoundingClientRect();
+  const mouseX = e.clientX - vpRect.left;
+  const mouseY = e.clientY - vpRect.top;
+
+  const oldZoom = State.zoom;
+  const zoomFactor = e.deltaY < 0 ? 1.15 : 0.85;
+  const newZoom = Math.min(3.5, Math.max(0.4, oldZoom * zoomFactor));
+
+  // Zoom to mouse point
+  State.pan.x = mouseX - (mouseX - State.pan.x) * (newZoom / oldZoom);
+  State.pan.y = mouseY - (mouseY - State.pan.y) * (newZoom / oldZoom);
+  State.zoom = newZoom;
+  updateTransform();
+}, { passive: false });
+
+// Keyboard WASD / Arrows for Micro-Navigation
+window.addEventListener("keydown", (e) => {
+  if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
+
+  let moved = false;
+  const step = 0.4; // yalms per tick
+
+  if (e.key === "w" || e.key === "ArrowUp") { State.partyCoords.y = Math.max(1.0, State.partyCoords.y - step); moved = true; }
+  else if (e.key === "s" || e.key === "ArrowDown") { State.partyCoords.y = Math.min(42.0, State.partyCoords.y + step); moved = true; }
+  else if (e.key === "a" || e.key === "ArrowLeft") { State.partyCoords.x = Math.max(1.0, State.partyCoords.x - step); moved = true; }
+  else if (e.key === "d" || e.key === "ArrowRight") { State.partyCoords.x = Math.min(42.0, State.partyCoords.x + step); moved = true; }
+
+  if (moved) {
+    e.preventDefault();
+    updatePartyPinPosition();
+    checkExitProximity();
+    updateRadar();
+  }
+});
+
+// --- 7. BOTTONI TOOLBAR & CONTROLLI ---
+document.getElementById("btn-zoom-in").addEventListener("click", () => {
+  State.zoom = Math.min(3.5, State.zoom * 1.25);
+  updateTransform();
+});
+document.getElementById("btn-zoom-out").addEventListener("click", () => {
+  State.zoom = Math.max(0.4, State.zoom / 1.25);
+  updateTransform();
+});
+document.getElementById("btn-zoom-reset").addEventListener("click", () => {
+  State.zoom = 1.0;
+  centerOnParty();
+});
+document.getElementById("btn-center-party").addEventListener("click", centerOnParty);
+
+document.getElementById("btn-toggle-exits").addEventListener("click", function() {
+  State.showExits = !State.showExits;
+  this.classList.toggle("active", State.showExits);
+  renderMarkers();
+});
+document.getElementById("btn-toggle-pois").addEventListener("click", function() {
+  State.showPois = !State.showPois;
+  this.classList.toggle("active", State.showPois);
+  renderMarkers();
+});
+document.getElementById("btn-toggle-aeth").addEventListener("click", function() {
+  State.showAetherytes = !State.showAetherytes;
+  this.classList.toggle("active", State.showAetherytes);
+  renderMarkers();
+});
+document.getElementById("btn-toggle-autoxfer").addEventListener("click", function() {
+  State.autoTransition = !State.autoTransition;
+  this.classList.toggle("active", State.autoTransition);
+  this.innerText = State.autoTransition ? "⚡ Auto-Cambio: ON" : "⚡ Auto-Cambio: OFF";
+  showToast(`Transizione automatica: ${State.autoTransition ? "ATTIVA" : "DISATTIVATA"}`);
+});
+
+document.getElementById("btn-exec-trans").addEventListener("click", () => {
+  const zone = ZONE_DATABASE[State.currentZone];
+  if (!zone || !zone.exits) return;
+  // Trova uscita più vicina
+  let nearestExit = null;
+  let minDist = 999;
+  for (const exit of zone.exits) {
+    const d = calcDistance(State.partyCoords.x, State.partyCoords.y, exit.x, exit.y);
+    if (d < minDist) { minDist = d; nearestExit = exit; }
+  }
+  if (nearestExit) triggerZoneTransition(nearestExit);
+});
+
+// Audio Toggle
+document.getElementById("btn-audio-toggle").addEventListener("click", function() {
+  sfx.enabled = !sfx.enabled;
+  document.getElementById("audio-icon").innerText = sfx.enabled ? "🔊" : "🔇";
+  showToast(`Audio effetti: ${sfx.enabled ? "ABILITATI" : "DISABILITATI"}`);
+});
+
+// --- 8. AZIONI RAPIDE PER IL GEM (PROMPT GENERATION) ---
+document.getElementById("btn-copy-gem-move").addEventListener("click", () => {
+  const zone = ZONE_DATABASE[State.currentZone];
+  const placeName = document.getElementById("radar-poi-name").innerText;
+  const promptText = `Il party si sposta a ${placeName} [${zone.itName} (${zone.enName}), X: ${State.partyCoords.x.toFixed(1)}, Y: ${State.partyCoords.y.toFixed(1)}]. Meteo: ${State.currentWeather}.`;
+  navigator.clipboard.writeText(promptText).then(() => {
+    showToast("Prompt spostamento copiato per il GEM!");
+  });
+});
+
+document.getElementById("btn-roll-weather").addEventListener("click", () => rollWeather(true));
+
+document.getElementById("btn-gen-shop").addEventListener("click", () => {
+  const placeName = document.getElementById("radar-poi-name").innerText;
+  const shopTypes = ["armi", "armature", "accessori", "consumabili", "generale"];
+  const pick = shopTypes[Math.floor(Math.random() * shopTypes.length)];
+  const shopPrompt = `negozio ${pick} a ${placeName}, livello 3`;
+  navigator.clipboard.writeText(shopPrompt).then(() => {
+    showToast(`Comando bottega copiato: "${shopPrompt}"`);
+  });
+});
+
+document.getElementById("btn-gen-travel").addEventListener("click", () => {
+  const placeName = document.getElementById("radar-poi-name").innerText;
+  const travelLine = `/viaggio verso ${placeName}`;
+  navigator.clipboard.writeText(travelLine).then(() => {
+    showToast(`Comando viaggio copiato: "${travelLine}"`);
+  });
+});
+
+// Test traduzione al volo
+document.getElementById("btn-test-trans").addEventListener("click", () => {
+  const inp = document.getElementById("inp-gloss-test").value;
+  if (!inp.trim()) return;
+  const res = translateToponym(inp);
+  document.getElementById("gloss-test-result").innerText = `➔ ${res.format} [${res.rule}]`;
+});
+document.getElementById("inp-gloss-test").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") document.getElementById("btn-test-trans").click();
+});
+
+// --- 9. MODALI & SINCRONIZZAZIONE ---
+function openModal(id) {
+  const m = document.getElementById(id);
+  if (m) m.classList.add("show");
+}
+function closeModal(id) {
+  const m = document.getElementById(id);
+  if (m) m.classList.remove("show");
+}
+
+document.querySelectorAll("[data-close]").forEach(btn => {
+  btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
+});
+document.querySelectorAll(".modal-backdrop").forEach(b => {
+  b.addEventListener("click", (e) => {
+    if (e.target === b) b.classList.remove("show");
+  });
+});
+
+// Modal Sync
+document.getElementById("btn-sync-modal").addEventListener("click", () => {
+  const zone = ZONE_DATABASE[State.currentZone];
+  const placeName = document.getElementById("radar-poi-name").innerText;
+  const syncToken = `[NAV-LOC: ${State.currentZone} | ${State.partyCoords.x.toFixed(1)}, ${State.partyCoords.y.toFixed(1)} | ${placeName} | ${State.currentWeather}]`;
+  document.getElementById("inp-export-code").value = syncToken;
+  openModal("modal-sync");
+});
+
+document.getElementById("btn-copy-export").addEventListener("click", () => {
+  const val = document.getElementById("inp-export-code").value;
+  navigator.clipboard.writeText(val).then(() => showToast("Codice posizione copiato!"));
+});
+
+document.getElementById("btn-apply-import").addEventListener("click", () => {
+  const text = document.getElementById("txt-import-gem").value.trim();
+  if (!text) return;
+
+  // Check 1: Token [NAV-LOC: Zone | X, Y | ...]
+  const tokenMatch = text.match(/\[NAV-LOC:\s*([A-Za-z0-9_]+)\s*\|\s*([0-9.]+),\s*([0-9.]+)/i);
+  if (tokenMatch) {
+    const zId = tokenMatch[1];
+    const tx = parseFloat(tokenMatch[2]);
+    const ty = parseFloat(tokenMatch[3]);
+    if (ZONE_DATABASE[zId]) {
+      loadZone(zId, { x: tx, y: ty });
+      closeModal("modal-sync");
+      showToast(`Importato con successo: ${ZONE_DATABASE[zId].itName} (${tx}, ${ty})`);
+      return;
+    }
+  }
+
+  // Check 2: Parse generic zone name & coords (es. [C] LOCALITÀ: Middle La Noscea, X: 25.4, Y: 16.5)
+  for (const [zId, zData] of Object.entries(ZONE_DATABASE)) {
+    if (text.includes(zData.enName) || text.includes(zData.itName)) {
+      const coordMatch = text.match(/X:\s*([0-9.]+).*?Y:\s*([0-9.]+)/i);
+      const tx = coordMatch ? parseFloat(coordMatch[1]) : zData.defaultParty.x;
+      const ty = coordMatch ? parseFloat(coordMatch[2]) : zData.defaultParty.y;
+      loadZone(zId, { x: tx, y: ty });
+      closeModal("modal-sync");
+      showToast(`Sincronizzato da sessione GEM: ${zData.itName}`);
+      return;
+    }
+  }
+
+  showToast("Formato non riconosciuto. Incolla un token [NAV-LOC] o il testo di un beat del GEM.");
+});
+
+// Modal Override & Zone Selector
+document.getElementById("btn-override-modal").addEventListener("click", () => {
+  renderZoneSelectorGrid();
+  openModal("modal-override");
+});
+
+function renderZoneSelectorGrid() {
+  const grid = document.getElementById("zone-selector-grid");
+  grid.innerHTML = "";
+  const filter = document.getElementById("inp-search-zone").value.toLowerCase();
+  const regFilter = document.getElementById("sel-region-filter").value;
+
+  for (const [zId, zData] of Object.entries(ZONE_DATABASE)) {
+    if (regFilter !== "ALL" && zData.region !== regFilter) continue;
+    if (filter && !zData.enName.toLowerCase().includes(filter) && !zData.itName.toLowerCase().includes(filter)) continue;
+
+    const card = document.createElement("div");
+    card.className = "zone-select-card";
+    card.innerHTML = `
+      <div class="zone-select-name">${zData.itName}</div>
+      <div class="zone-select-sub">${zData.enName} · ${zData.region}</div>
+      <div style="font-size:0.72rem; color:#facc15; margin-top:3px;">${zData.levels} · ${zData.danger}</div>
+    `;
+    card.addEventListener("click", () => {
+      loadZone(zId);
+      closeModal("modal-override");
+    });
+    grid.appendChild(card);
+  }
+}
+document.getElementById("inp-search-zone").addEventListener("input", renderZoneSelectorGrid);
+document.getElementById("sel-region-filter").addEventListener("change", renderZoneSelectorGrid);
+
+// Custom Wiki Page Fetch via API
+document.getElementById("btn-fetch-custom-wiki").addEventListener("click", () => {
+  const page = document.getElementById("inp-custom-wiki-page").value.trim();
+  if (!page) return;
+  fetchWikiZoneData(page);
+});
+document.getElementById("btn-fetch-wiki").addEventListener("click", () => {
+  const cur = ZONE_DATABASE[State.currentZone];
+  if (cur && cur.wikiTitle) fetchWikiZoneData(cur.wikiTitle);
+});
+
+// MediaWiki API Fetcher (ConsoleGamesWiki)
+async function fetchWikiZoneData(wikiTitle) {
+  showToast(`Interrogazione ConsoleGamesWiki API per: ${wikiTitle}...`);
+  try {
+    const apiUrl = `https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=query&titles=${encodeURIComponent(wikiTitle)}&prop=images|info&origin=*&format=json`;
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    const pages = data.query ? data.query.pages : null;
+    if (!pages) throw new Error("Nessun dato restituito");
+
+    const pageId = Object.keys(pages)[0];
+    if (pageId === "-1") throw new Error("Pagina non trovata su ConsoleGamesWiki");
+
+    const images = pages[pageId].images || [];
+    // Cerca immagine mappa
+    const mapImgObj = images.find(img => img.title.includes("Map1.jpg") || img.title.includes("Map.jpg") || img.title.includes("Map"));
+
+    if (mapImgObj) {
+      // Query image URL
+      const imgInfoUrl = `https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=query&titles=${encodeURIComponent(mapImgObj.title)}&prop=imageinfo&iiprop=url&origin=*&format=json`;
+      const imgRes = await fetch(imgInfoUrl);
+      const imgData = await imgRes.json();
+      const imgPages = imgData.query.pages;
+      const imgPageId = Object.keys(imgPages)[0];
+      const directUrl = imgPages[imgPageId].imageinfo[0].url;
+
+      showToast(`Mappa trovata: ${mapImgObj.title}!`);
+      // Se è una nuova zona, aggiungila
+      const cleanKey = wikiTitle.replace(/[\s-]/g, "_");
+      if (!ZONE_DATABASE[cleanKey]) {
+        const trans = translateToponym(wikiTitle.replace(/_/g, " "));
+        ZONE_DATABASE[cleanKey] = {
+          id: cleanKey,
+          enName: wikiTitle.replace(/_/g, " "),
+          itName: trans.it,
+          region: "Eorzea",
+          expansion: "ARR",
+          levels: "Varie",
+          danger: "Rischioso",
+          dangerBadge: "badge-risky",
+          wikiTitle: wikiTitle,
+          mapImage: directUrl,
+          defaultParty: { x: 21.0, y: 21.0 },
+          exits: [],
+          pois: [],
+          mobs: ["Creature della Zona (Wiki)"]
+        };
+      } else {
+        ZONE_DATABASE[cleanKey].mapImage = directUrl;
+      }
+      loadZone(cleanKey);
+      closeModal("modal-override");
+    } else {
+      showToast("Pagina trovata ma nessuna immagine cartografica rilevata.");
+    }
+  } catch (err) {
+    console.error(err);
+    showToast(`Errore chiamata Wiki API: ${err.message}`);
+  }
+}
+
+// Modal Glossary
+document.getElementById("btn-glossary-modal").addEventListener("click", () => {
+  renderGlossaryTable();
+  openModal("modal-glossary");
+});
+
+function renderGlossaryTable() {
+  const tbody = document.getElementById("glossary-table-body");
+  tbody.innerHTML = "";
+  const filter = document.getElementById("inp-search-dict").value.toLowerCase();
+
+  GLOSSARY_DB.forEach(item => {
+    if (filter && !item.en.toLowerCase().includes(filter) && !item.it.toLowerCase().includes(filter)) return;
+    const tr = document.createElement("tr");
+    tr.style.borderBottom = "1px solid rgba(255,255,255,0.06)";
+    tr.innerHTML = `
+      <td style="padding:7px 12px; color:#cbd5e1;">${item.en}</td>
+      <td style="padding:7px 12px; font-weight:700; color:#facc15;">${item.it}</td>
+      <td style="padding:7px 12px; color:#94a3b8; font-size:0.75rem;">${item.ref}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+document.getElementById("inp-search-dict").addEventListener("input", renderGlossaryTable);
+
+// Modal Help
+document.getElementById("btn-help-modal").addEventListener("click", () => openModal("modal-help"));
+
+// Toast utility
+function showToast(msg) {
+  const t = document.getElementById("toast-msg");
+  document.getElementById("toast-text").innerText = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 3200);
+}
+
+// Local Storage Persistence
+function saveLocalState() {
+  try {
+    const data = {
+      zone: State.currentZone,
+      coords: State.partyCoords,
+      autoTransition: State.autoTransition,
+      audioEnabled: sfx.enabled
+    };
+    localStorage.setItem("ffxiv_nav_state", JSON.stringify(data));
+  } catch (e) {}
+}
+
+function loadLocalState() {
+  try {
+    const raw = localStorage.getItem("ffxiv_nav_state");
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data.zone && ZONE_DATABASE[data.zone]) {
+        State.currentZone = data.zone;
+      }
+      if (data.coords) {
+        State.partyCoords = data.coords;
+      }
+      if (typeof data.autoTransition === "boolean") {
+        State.autoTransition = data.autoTransition;
+        document.getElementById("btn-toggle-autoxfer").innerText = State.autoTransition ? "⚡ Auto-Cambio: ON" : "⚡ Auto-Cambio: OFF";
+        document.getElementById("btn-toggle-autoxfer").classList.toggle("active", State.autoTransition);
+      }
+      if (typeof data.audioEnabled === "boolean") {
+        sfx.enabled = data.audioEnabled;
+        document.getElementById("audio-icon").innerText = sfx.enabled ? "🔊" : "🔇";
+      }
+    }
+  } catch (e) {}
+}
+
+// --- 10. INIZIALIZZAZIONE ---
+window.addEventListener("DOMContentLoaded", () => {
+  loadLocalState();
+  loadZone(State.currentZone, State.partyCoords, true);
+});
+</script>
+
+</body>
+</html>
+

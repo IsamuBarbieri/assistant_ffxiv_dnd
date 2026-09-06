@@ -63,6 +63,7 @@ Stessa struttura nei tre: `role` · `knowledge` · `scope` · `commands` · `bea
 | `Project_Memory.md` | le lezioni: cosa abbiamo provato, cosa ha fallito, cosa non riproporre |
 | `README.md` | questo |
 | `combat_tracker.html` | l'app web standalone che il GM apre in un browser al tavolo; si alimenta incollando il blocco `### 🗡️ Pacchetto Incontro` generato dall'assistente per tracciare turni, PF, CA e condizioni |
+| `map_navigator.html` | l'app web standalone per la navigazione interattiva tra le mappe ufficiali di FFXIV tramite API di ConsoleGamesWiki, cursore Party, transizioni automatiche tra zone confinanti, motore toponomastico (07/08) e sincronizzazione con il GEM |
 
 ---
 
