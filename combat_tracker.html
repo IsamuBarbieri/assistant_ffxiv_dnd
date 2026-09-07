@@ -160,6 +160,108 @@
       color: #fff;
       box-shadow: 0 3px 10px rgba(245, 158, 11, 0.3);
     }
+    .party-btn-group {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 2px 4px 2px 2px;
+      gap: 5px;
+      transition: all 0.15s ease;
+      box-sizing: border-box;
+    }
+    .party-btn-group:hover {
+      border-color: rgba(96, 165, 250, 0.5);
+    }
+    .party-btn-group .header-btn {
+      background: transparent;
+      border: none;
+      padding: 4px 8px;
+    }
+    .party-btn-group .header-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: none;
+      box-shadow: none;
+    }
+    .party-toggle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .party-toggle-badge:hover {
+      background: rgba(0, 0, 0, 0.55);
+      border-color: rgba(96, 165, 250, 0.4);
+    }
+    .party-toggle-badge.active {
+      background: rgba(30, 58, 138, 0.35);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    .party-toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 26px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+    .party-toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+    .party-toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #334155;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+      border-radius: 14px;
+    }
+    .party-toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 8px;
+      width: 8px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #94a3b8;
+      transition: all 0.2s ease;
+      border-radius: 50%;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    .party-toggle-switch input:checked + .party-toggle-slider {
+      background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+      border-color: rgba(96, 165, 250, 0.8);
+      box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+    }
+    .party-toggle-switch input:checked + .party-toggle-slider:before {
+      transform: translateX(12px);
+      background-color: #ffffff;
+    }
+    .party-toggle-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .party-toggle-badge.active .party-toggle-label {
+      color: #93c5fd;
+      text-shadow: 0 0 8px rgba(147, 197, 253, 0.4);
+    }
 
     .app-layout { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; }
     .main-panel { flex: 1 1 auto; width: 55%; min-width: 450px; display: flex; flex-direction: column; gap: 15px; transition: flex-basis 0.1s; }
@@ -637,15 +739,18 @@
       border-radius: 0 0 6px 6px;
     }
 
-    /* Pannello Briefing Tattica & Bottino */
+    /* Pannello Briefing Tattica, Narrazione & Bottino */
     .briefing-panel {
       background-color: var(--bg-panel);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       overflow: hidden;
-      margin-top: 10px;
+      margin-top: 0;
+      margin-bottom: 14px;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .briefing-header {
       display: flex;
@@ -668,6 +773,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .briefing-title-icon {
       font-size: 1.05rem;
@@ -702,6 +808,102 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+    }
+    .briefing-readaloud-box {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid #f59e0b;
+      padding: 12px 14px;
+      border-radius: 4px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+      color: #fef3c7;
+      font-family: inherit;
+    }
+    .btn-copy-readaloud {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fef08a;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-copy-readaloud:hover {
+      background: rgba(245, 158, 11, 0.3);
+      color: #ffffff;
+    }
+    .briefing-innesco-box {
+      background: rgba(239, 68, 68, 0.08);
+      border-left: 3px solid #ef4444;
+      padding: 9px 13px;
+      border-radius: 4px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      font-size: 0.92rem;
+      color: #fecaca;
+    }
+    .badge-difficulty {
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+    .badge-diff-facile {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+    .badge-diff-media {
+      background: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+    }
+    .badge-diff-difficile {
+      background: rgba(239, 68, 68, 0.18);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.45);
+    }
+    .key-hint {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 0.70rem;
+      color: #94a3b8;
+      font-weight: normal;
+    }
+    .btn-quick-nav {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 5px 9px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .btn-quick-nav:hover {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+    @keyframes panelPulseGlow {
+      0% { box-shadow: 0 0 0 2px var(--accent-gold); }
+      50% { box-shadow: 0 0 16px 4px var(--accent-gold); }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+    .panel-pulse-highlight {
+      animation: panelPulseGlow 1.2s ease-out;
     }
 
     .map-header { display: flex; flex-wrap: nowrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
@@ -930,9 +1132,18 @@
         <button class="header-btn" onclick="openKeyShortcutsModal()" title="Visualizza le scorciatoie da tastiera per velocizzare il combattimento">
           <span>⌨️</span> <span>Tasti</span>
         </button>
-        <button class="header-btn" onclick="openPartyModal()" id="partyTopBtn" title="Configura i PG del party (Nome e CA) salvati nel browser">
-          <span>👥</span> <span>Party</span>
-        </button>
+        <div class="party-btn-group">
+          <button class="header-btn" onclick="openPartyModal()" id="partyTopBtn" title="Configura i PG del party (Nome e CA) salvati nel browser">
+            <span>👥</span> <span>Party</span>
+          </button>
+          <label class="party-toggle-badge active" id="partyToggleWrapper" for="partyToggleCheckbox" title="Party attivo: i nuovi scontri conterranno il tuo party personalizzato. Clicca per passare a Default (PG 1-4).">
+            <span class="party-toggle-switch">
+              <input type="checkbox" id="partyToggleCheckbox" onchange="handlePartyToggleClick(this.checked)" checked>
+              <span class="party-toggle-slider"></span>
+            </span>
+            <span class="party-toggle-label" id="partyToggleStatusText">Party</span>
+          </label>
+        </div>
         <button class="header-btn" onclick="openApiKeyModal()" id="apiKeyTopBtn" title="Configura API Key di Google Gemini per le funzionalità AI">
           <span>🔑</span> <span id="apiKeyTopLabel">API Key</span>
         </button>
@@ -961,6 +1172,21 @@
 
     <div class="app-layout" id="appLayout">
       <div class="main-panel" id="mainPanel">
+        <div class="briefing-panel" id="briefingPanel">
+          <div class="briefing-header" onclick="toggleBriefingCollapse()">
+            <div class="briefing-title">
+              <span class="briefing-title-icon">ℹ️</span>
+              <span>Info Scontro</span>
+              <span id="briefingDifficultyBadge" style="display:none;"></span>
+            </div>
+            <div class="briefing-actions">
+              <button class="sb-edit-btn" id="btnEditBriefing" onclick="event.stopPropagation(); toggleEditBriefing()">✏️ Modifica</button>
+              <button class="briefing-toggle-btn" id="btnToggleBriefing" title="Espandi/Comprimi">&#9662;</button>
+            </div>
+          </div>
+          <div class="briefing-body" id="briefingBody"></div>
+        </div>
+
         <div class="controls-bar">
           <div class="round-display">
             <span>Round: <span id="roundCounter" style="color: #f59e0b;">1</span></span>
@@ -968,6 +1194,8 @@
             <button class="btn-turn-next" id="btnNextTurn" onclick="nextTurn()" title="Avanza turno (Tasto Spazio o Freccia Destra)">Avanza Turno »</button>
             <button class="btn-round-reset" onclick="resetRound()">Resetta Round</button>
             <button class="btn-encounter-reset" onclick="resetEncounter()">Resetta Scontro</button>
+            <button class="btn-quick-nav btn-nav-info" onclick="toggleAndFocusBriefing()" title="Apri/Chiudi e focalizza Info Scontro (Scorciatoia: 'I')">ℹ️ Info (I)</button>
+            <button class="btn-quick-nav btn-nav-map" onclick="focusScrollToMap()" title="Focalizza e scorri alla Mappa (Scorciatoia: 'M')">🗺️ Mappa (M)</button>
           </div>
 
           <div class="lb-widget" id="limitBreakWidget">
@@ -1004,19 +1232,6 @@
           </thead>
           <tbody id="trackerBody"></tbody>
         </table>
-
-        <div class="briefing-panel" id="briefingPanel">
-          <div class="briefing-header" onclick="toggleBriefingCollapse()">
-            <div class="briefing-title">
-              <span>Info Scontro</span>
-            </div>
-            <div class="briefing-actions">
-              <button class="sb-edit-btn" id="btnEditBriefing" onclick="event.stopPropagation(); toggleEditBriefing()">✏️ Modifica</button>
-              <button class="briefing-toggle-btn" id="btnToggleBriefing" title="Espandi/Comprimi">&#9662;</button>
-            </div>
-          </div>
-          <div class="briefing-body" id="briefingBody"></div>
-        </div>
       </div>
 
       <div class="resizer" id="dragResizer" title="Trascina per ridimensionare. Se la mappa va a capo, il tracker si espande!">
@@ -1129,7 +1344,7 @@
     <div class="modal-content">
       <h2 style="margin-top:0;">Importa Incontro</h2>
       <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incolla qui il <strong>testo del pacchetto incontro</strong>. Da questo vengono ricavati nemici e statistiche; la mappa esce dalla <strong>sezione Arena</strong>. Per riaprire un tracker salvato usa invece <strong>📂 Apri</strong>.</p>
-      <textarea id="importTextarea" class="import-area" placeholder="### Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** ...&#10;**Nemici:** Sentinella del Bosco ×3&#10;&#10;**Da leggere ai PG:** ...&#10;&#10;#### Arena&#10;**Tipo:** Sala Ampia&#10;**Dimensioni:** 18 × 14&#10;**Elementi:**&#10;- Rocce&#10;- Acqua&#10;**Disposizione:** Sentinelle appostate dietro le rocce a nord; pozza d'acqua al centro."></textarea>
+      <textarea id="importTextarea" class="import-area" placeholder="### 🗡️ Pacchetto Incontro: L'imboscata alle grate di ferro&#10;**Difficoltà:** Media&#10;**Innesco:** Il primo PG che tenta di scassinare la grata fa scattare l'allarme.&#10;**📖 Da leggere ai PG:** L'aria umida del sotterraneo è pesante. Dalle ombre oltre la grata arrugginita emergono figure armate...&#10;**Nemici:** Sentinella del Bosco ×3 · Capitano ×1&#10;&#10;#### 🏟️ Arena&#10;**Tipo:** Sala Ampia&#10;**Dimensioni:** 18 × 14&#10;**Elementi:**&#10;- Rocce&#10;- Acqua&#10;**Disposizione:** Sentinelle appostate dietro le rocce a nord; pozza d'acqua al centro.&#10;&#10;**Tattica:** Le sentinelle colpiscono a distanza mentre il capitano blocca il varco...&#10;&#10;**Sentinella del Bosco** — Media · CA 13 · PF 22 · Vel 6 yalm&#10;...&#10;#### 💰 Bottino&#10;120 Gil totali, Pozione di Cura..."></textarea>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button class="btn-secondary" onclick="closeImportModal()">Annulla</button>
         <button class="btn-import" style="background-color:var(--success); color:white;" onclick="processImport()">Carica Incontro</button>
@@ -1440,8 +1655,61 @@
       }
     }
 
+    function isPartyToggleActive() {
+      const val = localStorage.getItem("dnd_party_toggle_active");
+      if (val === null) return true;
+      return val === "true";
+    }
+
+    function setPartyToggleActive(active, updateUI = true) {
+      localStorage.setItem("dnd_party_toggle_active", active ? "true" : "false");
+      if (updateUI) updatePartyToggleUI(active);
+    }
+
+    function updatePartyToggleUI(active) {
+      const chk = document.getElementById("partyToggleCheckbox");
+      const lbl = document.getElementById("partyToggleStatusText");
+      const wrapper = document.getElementById("partyToggleWrapper");
+      if (chk) chk.checked = active;
+      if (lbl) lbl.textContent = active ? "Party" : "Default";
+      if (wrapper) {
+        if (active) {
+          wrapper.classList.add("active");
+          wrapper.title = "Party attivo: i nuovi scontri conterranno il tuo party personalizzato. Clicca per passare a Default (PG 1-4).";
+        } else {
+          wrapper.classList.remove("active");
+          wrapper.title = "Default attivo: i nuovi scontri conterranno i PG generici (PG 1-4). Clicca per attivare il tuo party personalizzato.";
+        }
+      }
+    }
+
+    function handlePartyToggleClick(checked) {
+      setPartyToggleActive(checked, true);
+      updatePartyInCurrentEncounterIfUntouched();
+      scheduleAutoSave();
+      showAlert(checked ? "👥 Modalità Party attivata: i nuovi incontri conterranno il tuo Party personalizzato." : "⚙️ Modalità Default attivata: i nuovi incontri conterranno i PG generici (PG 1-4).");
+    }
+
+    function initPartyToggle() {
+      const active = isPartyToggleActive();
+      updatePartyToggleUI(active);
+    }
+
+    function updatePartyInCurrentEncounterIfUntouched() {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc) return;
+      const hasMonsters = enc.combatants && enc.combatants.some(c => c.isMonster || c.isAlly);
+      const hasRolls = enc.combatants && enc.combatants.some(c => (c.init !== "" && c.init !== null) || (c.hp !== "" && c.hp !== 0) || c.isDown);
+      if (!hasMonsters && !hasRolls && (enc.round === 1 || !enc.round)) {
+        enc.combatants = createPartyCombatants();
+        captureBaseRosters();
+        renderEncounter();
+      }
+    }
+
     function createPartyCombatants() {
-      const preset = getStoredPartyPreset();
+      const useParty = isPartyToggleActive();
+      const preset = useParty ? getStoredPartyPreset() : JSON.parse(JSON.stringify(DEFAULT_PARTY_PRESET));
       return preset.map((p, idx) => ({
         id: "pc_" + Date.now() + "_" + idx + "_" + Math.random().toString(36).slice(2, 6),
         name: p.name && p.name.trim() ? p.name.trim() : `PG ${idx + 1}`,
@@ -1515,6 +1783,10 @@
       saveStoredPartyPreset(currentPartyModalList);
       closePartyModal();
       showAlert("👥 Preset del Party salvato con successo!\nI nuovi scontri e gli incontri importati useranno automaticamente questi personaggi.");
+      if (isPartyToggleActive()) {
+        updatePartyInCurrentEncounterIfUntouched();
+        scheduleAutoSave();
+      }
     }
 
     let autoSaveTimeout = null;
@@ -1536,6 +1808,9 @@
         encountersData = [{
           id: "enc_default_" + Date.now(),
           title: "Scontro Vuoto",
+          difficulty: "",
+          innesco: "",
+          readAloud: "",
           round: 1,
           activeTurnIndex: 0,
           mapData: null,
@@ -1653,7 +1928,7 @@
       showAlert(`⚡ LIMIT BREAK ${usedBars} ATTIVATA!\n\nLe ${usedBars} barre di Limit Break di gruppo sono state consumate.`);
     }
 
-    let encountersData = [{ id: "enc_default", title: "Scontro Vuoto", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: createPartyCombatants(), statblocks: [], limitBreak: { current: 0, maxBars: 2 } }];
+    let encountersData = [{ id: "enc_default", title: "Scontro Vuoto", difficulty: "", innesco: "", readAloud: "", round: 1, activeTurnIndex: 0, mapData: null, narrativeText: "", tactics: "", loot: "", combatants: createPartyCombatants(), statblocks: [], limitBreak: { current: 0, maxBars: 2 } }];
     let currentEncounterIndex = 0;
     let activeStatblockIndex = 0;
     let catalogOpen = false;
@@ -1665,7 +1940,7 @@
     let collapsedActiveCombatantIds = new Set();
     let isBriefingCollapsed = false;
 
-    window.onload = function() { initResizer(); initTracker(); updateApiKeyTopIndicator(); };
+    window.onload = function() { initResizer(); initTracker(); updateApiKeyTopIndicator(); initPartyToggle(); };
 
     function initResizer() {
         const resizer = document.getElementById('dragResizer');
@@ -1700,6 +1975,16 @@
             if (e.key === 'r' || e.key === 'R') {
                 e.preventDefault();
                 sortInitiative();
+                return;
+            }
+            if (e.key === 'm' || e.key === 'M') {
+                e.preventDefault();
+                focusScrollToMap();
+                return;
+            }
+            if (e.key === 'i' || e.key === 'I') {
+                e.preventDefault();
+                toggleAndFocusBriefing();
                 return;
             }
             if (!selectedFeatureUids.size) return;
@@ -1809,6 +2094,9 @@
       encountersData.push({
         id: "enc_" + Date.now(),
         title: "Nuovo Scontro",
+        difficulty: "",
+        innesco: "",
+        readAloud: "",
         round: 1,
         activeTurnIndex: 0,
         mapData: null,
@@ -2917,13 +3205,64 @@
       return html;
     }
 
+    function copyReadAloudText() {
+      const enc = encountersData[currentEncounterIndex];
+      if (!enc || !enc.readAloud) return;
+      navigator.clipboard.writeText(enc.readAloud).then(() => {
+        showAlert("📋 Testo 'Da leggere ai PG' copiato negli appunti!");
+      }).catch(() => {
+        showAlert("Impossibile copiare negli appunti.");
+      });
+    }
+
+    function focusScrollToMap() {
+      const mapPanel = document.getElementById("mapPanel");
+      if (mapPanel) {
+        mapPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        mapPanel.classList.remove('panel-pulse-highlight');
+        void mapPanel.offsetWidth;
+        mapPanel.classList.add('panel-pulse-highlight');
+        setTimeout(() => mapPanel.classList.remove('panel-pulse-highlight'), 1200);
+      }
+    }
+
+    function toggleAndFocusBriefing() {
+      isBriefingCollapsed = !isBriefingCollapsed;
+      renderBriefingPanel();
+      const bPanel = document.getElementById("briefingPanel");
+      if (bPanel) {
+        bPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (!isBriefingCollapsed) {
+          bPanel.classList.remove('panel-pulse-highlight');
+          void bPanel.offsetWidth;
+          bPanel.classList.add('panel-pulse-highlight');
+          setTimeout(() => bPanel.classList.remove('panel-pulse-highlight'), 1200);
+        }
+      }
+    }
+
     function renderBriefingPanel() {
       const enc = encountersData[currentEncounterIndex];
       const panel = document.getElementById("briefingPanel");
       const body = document.getElementById("briefingBody");
       const btnEdit = document.getElementById("btnEditBriefing");
       const toggleBtn = document.getElementById("btnToggleBriefing");
+      const badgeEl = document.getElementById("briefingDifficultyBadge");
       if (!panel || !body || !enc) return;
+
+      if (badgeEl) {
+        if (enc.difficulty) {
+          let diffClass = "badge-diff-media";
+          const dLower = enc.difficulty.toLowerCase();
+          if (dLower.includes("facil")) diffClass = "badge-diff-facile";
+          else if (dLower.includes("diffic") || dLower.includes("mortal")) diffClass = "badge-diff-difficile";
+          badgeEl.className = `badge-difficulty ${diffClass}`;
+          badgeEl.textContent = `Difficoltà: ${enc.difficulty}`;
+          badgeEl.style.display = "inline-block";
+        } else {
+          badgeEl.style.display = "none";
+        }
+      }
 
       if (isBriefingCollapsed) {
         panel.classList.add("collapsed");
@@ -2937,11 +3276,28 @@
         if (btnEdit) btnEdit.style.display = "none";
         body.innerHTML = `
           <div class="sb-edit-form">
-            <label style="color: #60a5fa; font-weight: bold;">🎯 Tattica dello Scontro (Note GM)</label>
-            <textarea id="editEncTactics" style="height: 100px;" placeholder="Strategia di combattimento, priorità bersagli, fasi...">${escapeHtml(enc.tactics || '')}</textarea>
-            <label style="color: #10b981; font-weight: bold; margin-top: 8px;">💰 Bottino</label>
-            <textarea id="editEncLoot" style="height: 80px;" placeholder="Quota Gil per persona, totale, drop materiali/oggetti...">${escapeHtml(enc.loot || '')}</textarea>
-            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <div style="flex:1; min-width:240px;">
+                <label style="color: #fbbf24; font-weight: bold; font-size:0.85rem;">📖 Da Leggere ai Giocatori (Narrazione)</label>
+                <textarea id="editEncReadAloud" style="height: 100px;" placeholder="Testo descrittivo da leggere ad alta voce al party...">${escapeHtml(enc.readAloud || '')}</textarea>
+              </div>
+              <div style="width:190px;">
+                <label style="color: #a78bfa; font-weight: bold; font-size:0.85rem;">⚔️ Difficoltà</label>
+                <select id="editEncDifficulty" class="btn-secondary" style="width:100%; padding:7px 8px; margin-top:4px;">
+                  <option value="" ${!enc.difficulty ? 'selected' : ''}>-- Non specificata --</option>
+                  <option value="Facile" ${enc.difficulty === 'Facile' ? 'selected' : ''}>Facile</option>
+                  <option value="Media" ${enc.difficulty === 'Media' ? 'selected' : ''}>Media</option>
+                  <option value="Difficile" ${enc.difficulty === 'Difficile' ? 'selected' : ''}>Difficile</option>
+                </select>
+              </div>
+            </div>
+            <label style="color: #f87171; font-weight: bold; font-size:0.85rem; margin-top: 8px;">⚡ Innesco Scontro (Condizionale)</label>
+            <textarea id="editEncInnesco" style="height: 50px;" placeholder="Cosa fa scattare l'inizio del combattimento (se presente)...">${escapeHtml(enc.innesco || '')}</textarea>
+            <label style="color: #60a5fa; font-weight: bold; font-size:0.85rem; margin-top: 8px;">🎯 Tattica dello Scontro (Note GM)</label>
+            <textarea id="editEncTactics" style="height: 80px;" placeholder="Strategia di combattimento, priorità bersagli, fasi...">${escapeHtml(enc.tactics || '')}</textarea>
+            <label style="color: #10b981; font-weight: bold; font-size:0.85rem; margin-top: 8px;">💰 Bottino</label>
+            <textarea id="editEncLoot" style="height: 60px;" placeholder="Quota Gil per persona, totale, drop materiali/oggetti...">${escapeHtml(enc.loot || '')}</textarea>
+            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
               <button class="btn-secondary" onclick="cancelEditBriefing()">Annulla</button>
               <button class="btn-import" style="background-color:var(--success); color:white; border:none;" onclick="saveTacticsLoot()">Salva Modifiche</button>
             </div>
@@ -2949,16 +3305,51 @@
       } else {
         if (btnEdit) btnEdit.style.display = "inline-block";
         const hasTactics = enc.tactics && enc.tactics.trim().length > 0;
-        let html = `
+        const hasInnesco = enc.innesco && enc.innesco.trim().length > 0;
+        const hasReadAloud = enc.readAloud && enc.readAloud.trim().length > 0;
+
+        let sectionsHtml = [];
+
+        if (hasReadAloud) {
+          sectionsHtml.push(`
+            <div class="briefing-readaloud-section">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <div style="font-weight:700; color:#fbbf24; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
+                  <span>📖</span> <span>Da Leggere ai Giocatori</span>
+                </div>
+                <button class="btn-copy-readaloud" onclick="copyReadAloudText()" title="Copia narrazione negli appunti">📋 Copia Narrazione</button>
+              </div>
+              <div class="briefing-readaloud-box">${escapeHtml(enc.readAloud)}</div>
+            </div>
+          `);
+        }
+
+        if (hasInnesco) {
+          sectionsHtml.push(`
+            <div class="briefing-innesco-section">
+              <div style="font-weight:700; color:#f87171; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px; display:flex; align-items:center; gap:6px;">
+                <span>⚡</span> <span>Innesco Combattimento</span>
+              </div>
+              <div class="briefing-innesco-box">${escapeHtml(enc.innesco)}</div>
+            </div>
+          `);
+        }
+
+        sectionsHtml.push(`
           <div>
             <div style="font-weight:600; color:#93c5fd; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">🎯 Tattica</div>
             <div style="background:rgba(0,0,0,0.25); border-left:3px solid #3b82f6; padding:8px 12px; border-radius:4px; line-height:1.5; white-space:pre-wrap; font-size:0.92rem; color:${hasTactics ? '#e5e7eb' : '#94a3b8; font-style:italic;'}">${escapeHtml(hasTactics ? enc.tactics : "Nessuna informazione tattica registrata per questo scontro. Clicca ✏️ Modifica per annotare strategie o fasi.")}</div>
           </div>
+        `);
+
+        sectionsHtml.push(`
           <div>
             <div style="font-weight:600; color:#34d399; font-size:0.85rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">💰 Bottino</div>
             ${renderLootSectionHtml(enc.loot)}
-          </div>`;
-        body.innerHTML = html;
+          </div>
+        `);
+
+        body.innerHTML = sectionsHtml.join('');
       }
     }
 
@@ -2984,8 +3375,15 @@
 
     function saveTacticsLoot() {
         const enc = encountersData[currentEncounterIndex];
+        if (!enc) return;
+        const rEl = document.getElementById("editEncReadAloud");
+        const dEl = document.getElementById("editEncDifficulty");
+        const iEl = document.getElementById("editEncInnesco");
         const tEl = document.getElementById("editEncTactics");
         const lEl = document.getElementById("editEncLoot");
+        if (rEl) enc.readAloud = rEl.value.trim();
+        if (dEl) enc.difficulty = dEl.value.trim();
+        if (iEl) enc.innesco = iEl.value.trim();
         if (tEl) enc.tactics = tEl.value.trim();
         if (lEl) enc.loot = lEl.value.trim();
         editingStatblockIndex = null;
@@ -4286,7 +4684,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
     function closeImportModal() { document.getElementById("importModal").style.display = "none"; document.getElementById("importTextarea").value = ""; }
     function openExportModal() { const enc = encountersData[currentEncounterIndex]; document.getElementById('exportNameInput').value = "tracker_" + ((enc && enc.title) || "sessione"); document.getElementById('exportModal').style.display = 'flex'; }
     function closeExportModal() { document.getElementById('exportModal').style.display = 'none'; }
-    function getExportPayload() { return JSON.stringify({ app: "ffxiv-combat-tracker", version: 2, savedAt: new Date().toISOString(), currentEncounterIndex: currentEncounterIndex, encounters: encountersData }, null, 2); }
+    function getExportPayload() { return JSON.stringify({ app: "ffxiv-combat-tracker", version: 2, savedAt: new Date().toISOString(), partyToggleActive: isPartyToggleActive(), currentEncounterIndex: currentEncounterIndex, encounters: encountersData }, null, 2); }
 
     function handleOpenFile(event) {
         const file = event.target.files && event.target.files[0]; event.target.value = ""; if (!file) return;
@@ -4295,11 +4693,17 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
 
     function loadTrackerPayload(parsed) {
         if (!parsed || !Array.isArray(parsed.encounters) || !parsed.encounters.length) { showAlert("Questo file non e' un salvataggio del tracker."); return; }
+        if (parsed.partyToggleActive !== undefined) {
+            setPartyToggleActive(!!parsed.partyToggleActive, true);
+        }
         const list = parsed.encounters, idx = parsed.currentEncounterIndex || 0; encountersData = list;
         encountersData.forEach(enc => {
             if (!enc.id) enc.id = "enc_" + Math.random().toString(36).slice(2);
             if (!enc.statblocks) enc.statblocks = []; if (!enc.combatants) enc.combatants = [];
             if (!enc.limitBreak) enc.limitBreak = { current: 0, maxBars: 2 };
+            if (enc.difficulty === undefined) enc.difficulty = "";
+            if (enc.innesco === undefined) enc.innesco = "";
+            if (enc.readAloud === undefined) enc.readAloud = "";
             
             enc.statblocks.forEach(sb => {
                 if (sb.size === 1 && sb.line1) {
@@ -4370,10 +4774,53 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
         title = "Nuovo Scontro";
       }
 
+      // Estrazione Difficoltà
+      const diffMatch = text.match(/^[^\p{L}\n]*\**\s*Difficolt[àa]\s*:\**\s*([^\n]+)/imu);
+      const difficulty = diffMatch ? diffMatch[1].replace(/\*+/g, '').trim() : "";
+
+      const textLines = text.split('\n');
+
+      // Estrazione Innesco
+      const innescoRe = /^[^\p{L}\n]*\**\s*Innesco\s*:\**\s*(.*)$/imu;
+      const innescoStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bDa leggere|\b📖|\bNemici\b|\bAlleati\b|\bArena\b|\bTattica\b|\bBottino\b|`{3,})/iu;
+      let inInnesco = false;
+      let innescoLines = [];
+      for (let line of textLines) {
+        if (!inInnesco) {
+          const im = innescoRe.exec(line);
+          if (im) {
+            inInnesco = true;
+            if (im[1] && im[1].trim()) innescoLines.push(im[1].trim());
+          }
+        } else {
+          if (innescoStopRe.test(line)) break;
+          innescoLines.push(line);
+        }
+      }
+      const innesco = innescoLines.join('\n').replace(/`{3,}[\s\S]*$/g, '').trim();
+
+      // Estrazione Da leggere ai PG
+      const readAloudRe = /^[^\p{L}\n]*(?:###+\s*)?(?:📖\s*)?(?:\*\*)?\s*Da leggere(?:\s+ai\s+(?:PG|giocatori))?\s*:\**\s*(.*)$/imu;
+      const readAloudStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bNemici\b|\bAlleati\b|\bArena\b|\bTattica\b|\bBottino\b|\bInnesco\b|`{3,})/iu;
+      let inReadAloud = false;
+      let readAloudLines = [];
+      for (let line of textLines) {
+        if (!inReadAloud) {
+          const rm = readAloudRe.exec(line);
+          if (rm) {
+            inReadAloud = true;
+            if (rm[1] && rm[1].trim()) readAloudLines.push(rm[1].trim());
+          }
+        } else {
+          if (readAloudStopRe.test(line)) break;
+          readAloudLines.push(line);
+        }
+      }
+      const readAloud = readAloudLines.join('\n').replace(/`{3,}[\s\S]*$/g, '').trim();
+
       // Estrazione Tattica GM
       const tacticsRe = /^[^\p{L}\n]*\**\s*Tattica\s*:\**\s*(.*)$/imu;
-      const tacticsStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bBottino\b|\bNemici\b|\bAlleati\b)/iu;
-      const textLines = text.split('\n');
+      const tacticsStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bBottino\b|\bNemici\b|\bAlleati\b|\bInnesco\b|\bDa leggere\b|`{3,})/iu;
       let inTactics = false;
       let tacticsLines = [];
       for (let line of textLines) {
@@ -4388,11 +4835,11 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           tacticsLines.push(line);
         }
       }
-      const tactics = tacticsLines.join('\n').trim();
+      const tactics = tacticsLines.join('\n').replace(/`{3,}[\s\S]*$/g, '').trim();
 
       // Estrazione Bottino
       const lootRe = /^[^\p{L}\n]*(?:####\s*)?(?:💰\s*)?Bottino\b\s*:?\s*(.*)$/imu;
-      const lootStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bTattica\b|\bNemici\b|\bAlleati\b|\[🎵|```)/iu;
+      const lootStopRe = /^[^\p{L}\n]*(?:####|\*\*[\p{L}]+.*[—–-]|\bArena\b|\bTattica\b|\bNemici\b|\bAlleati\b|\bInnesco\b|\bDa leggere\b|\[🎵|`{3,})/iu;
       let inLoot = false;
       let lootLines = [];
       for (let line of textLines) {
@@ -4407,7 +4854,7 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
           lootLines.push(line);
         }
       }
-      const loot = lootLines.join('\n').trim();
+      const loot = lootLines.join('\n').replace(/`{3,}[\s\S]*$/g, '').trim();
 
       const headers = findStatblockHeaders(text); let narrativeText = headers.length ? text.substring(0, headers[0].index).trim() : text;
       const arenaSpec = parseArenaSection(text);
@@ -4421,6 +4868,9 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
       let newEnc = {
         id: "enc_" + Date.now(),
         title: title,
+        difficulty: difficulty,
+        innesco: innesco,
+        readAloud: readAloud,
         round: 1,
         activeTurnIndex: 0,
         mapData: null,
@@ -4726,8 +5176,9 @@ Restituisci ESCLUSIVAMENTE un JSON valido (un singolo oggetto) con le proprietà
         document.getElementById("generateLoading").style.display = "block";
 
         const systemPrompt = `Sei un Game Master esperto di D&D 5e. Crea uno scontro in base al prompt dell'utente (bilancia i GdS per la difficoltà richiesta).
-Devi restituire ESATTAMENTE E SOLO un testo formattato come segue, senza markdown esterni o chiacchiere:
+Devi restituire ESATTAMENTE E SOLO un blocco di codice plaintext formattato come segue, senza commenti esterni o chiacchiere:
 
+\`\`\`plaintext
 ### 🗡️ Pacchetto Incontro: [Inventa un Titolo Epico]
 **Difficoltà:** ${difficolta}
 **Innesco:** [Breve innesco della battaglia]
@@ -4735,7 +5186,6 @@ Devi restituire ESATTAMENTE E SOLO un testo formattato come segue, senza markdow
 **📖 Da leggere ai PG:**
 [Breve descrizione narrativa ed evocativa della scena da leggere a voce alta]
 
-\`\`\`
 **Nemici:** [Nome Mostro 1] ×[Num] · [Nome Mostro 2] ×[Num]
 
 #### 🏟️ Arena

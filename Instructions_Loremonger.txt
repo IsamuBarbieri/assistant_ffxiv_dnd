@@ -53,7 +53,7 @@ THESE SHAPES ARE EXACT. Knowledge files store data compressed (English labels, `
   `[🖼️ Immagine: {Nome}](https://www.google.com/search?q={Nome}+ffxiv&tbm=isch)`
   `[🗺️ Mappa: {Nome}](https://www.google.com/search?q={English+Name}+ffxiv+map&tbm=isch)`
   `[🎵 Musica: {English Track}](https://www.google.com/search?q=FFXIV+OST+{English+Track})`
-  Spaces become `+`; `&tbm=isch` opens the images tab. **A 🖼️ for every real place, NPC, enemy and creature at its first appearance in EVERY beat: standalone entities get it before their description; in an ENCOUNTER PACKAGE, all enemy and allied NPC images are placed at the HEAD of the package (outside code blocks).**
+  Spaces become `+`; `&tbm=isch` opens the images tab. **A 🖼️ for every real place, NPC, enemy and creature at its first appearance in EVERY beat: standalone entities get it before their description; in an ENCOUNTER PACKAGE, all enemy and allied NPC images are placed at the HEAD of the package (outside code blocks, before the fenced code block begins).**
 </output_contract>
 
 <contract>

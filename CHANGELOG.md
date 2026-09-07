@@ -1,6 +1,35 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
-## 2026-09-06g — Risoluzione Bug Interazione e Riordinamento Iniziativa Linee PG
+## 2026-09-07 — Pacchetto Incontro Unificato in Code Block, Info Scontro con Innesco e Da Leggere ai PG, Spostamento Pannello e Scorciatoie M/I
+
+Armonizzazione completa dell'output degli incontri tra assistenti e Combat Tracker:
+- **Pacchetto Incontro 100% in Code Block `plaintext`:**
+  - Aggiornati `Instructions_Campaign.txt`, `Instructions_OneShot.txt` e `06_Procedures_and_Format.md` (§§A4, A9, B1, B8): l'intero pacchetto incontro da `### 🗡️ Pacchetto Incontro:` a `#### 💰 Bottino` è ora racchiuso in un unico blocco di codice `plaintext`.
+  - I link multimediali (`[🎵 Musica: ...]` e `[🖼️ Immagine: ...]`) restano tassativamente all'esterno e precedono l'intestazione del pacchetto, preservando la loro natura di hyperlink markdown cliccabili nella chat di Gemini/Gems.
+  - Vantaggio 1-Click Copy per il GM: con un singolo clic sull'icona di copia del blocco di codice in chat, l'intero scontro viene copiato negli appunti e può essere incollato direttamente nel Combat Tracker senza selezioni manuali frammentate o rischio di perdere pezzi.
+  - Allineato anche il template di generazione dell'AI integrata in `combat_tracker.html` (`systemPrompt`).
+- **Pannello "Info Scontro" Arricchito con "Da Leggere ai PG" e "Innesco":**
+  - Il parser di `combat_tracker.html` ora estrae con tolleranza e robustezza:
+    - **Difficoltà**: esposta con badge cromatico dedicato (`Facile`, `Media`, `Difficile`, `Mortale`).
+    - **📖 Da leggere ai PG**: box narrativo stilizzato (`.briefing-readaloud-box`) con pulsante `📋 Copia Narrazione` rapido negli appunti.
+    - **⚡ Innesco Combattimento**: box ad alto contrasto (`.briefing-innesco-box`) per consultare l'evento scatenante o la condizione d'inizio scontro.
+    - **🎯 Tattica GM** e **💰 Bottino**.
+  - Modalità modifica briefing (`✏️ Modifica`) aggiornata per consentire al GM di modificare e salvare sul posto tutti i campi (narrazione, difficoltà, innesco, tattica e bottino).
+  - Campi persistiti nel modello dati (`difficulty`, `innesco`, `readAloud`) e inclusi nel salvataggio/caricamento della sessione (`session_tracker.json`).
+- **Riposizionamento Pannello "Info Scontro":**
+  - Spostato in cima alla schermata operativa, esattamente tra i tab degli incontri (`#tabsWrapper`) e i controlli di avanzamento round (`.controls-bar`).
+  - Ottimale per la lettura iniziale prima di avviare il primo round, richiudibile istantaneamente tramite il toggle a fisarmonica integrato.
+- **Scorciatoie da Tastiera Rapide (`M` e `I`):**
+  - Tasto **`M` / `m`**: scroll fluido immediato e focus sulla mappa tattica interattiva (`#mapPanel`).
+  - Tasto **`I` / `i`**: scroll fluido, apertura automatica (se collassato) e focus sul pannello "Info Scontro" (`#briefingPanel`). Se già aperto e visibile, una seconda pressione ne commuta lo stato di apertura/chiusura.
+  - Aggiunti pulsanti rapidi dedicati nella barra dei comandi (`ℹ️ Info (I)` e `🗺️ Mappa (M)`).
+  - Entrambe le scorciatoie sono inibite durante la digitazione in input, textarea o select.
+- **Toggle Rapido Party Personalizzato / Default (`.party-toggle-badge`):**
+  - Aggiunto un interruttore a levetta (toggle switch) direttamente accanto al pulsante **`👥 Party`** nell'header (`#partyToggleWrapper`).
+  - **Stato ATTIVO (`Party`):** Quando attivo (verde/blu eterico), i nuovi scontri creati, importati o resettati includono automaticamente i PG del Party personalizzato configurato nel modal (`dnd_party_preset`).
+  - **Stato DISATTIVO (`Default`):** Quando disattivato (grigio/ardesia), il tracker genera gli scontri con il preset canonico predefinito (`PG 1`, `PG 2`, `PG 3`, `PG 4` con CA 14).
+  - **Aggiornamento Istantaneo sullo Scontro Vergine:** Se il toggle viene azionato mentre lo scontro corrente è ancora intonso (round 1, nessun nemico/alleato, nessun danno o tiro di iniziativa), il roster dei PG nella tabella viene rigenerato e aggiornato istantaneamente senza dover resettare.
+  - **Persistenza nello Stato:** Lo stato del toggle è memorizzato in `localStorage` (`dnd_party_toggle_active`), salvato nell'autosave locale (`dnd_tracker_autosave`) e persistito nella struttura JSON esportabile (`partyToggleActive` in `getExportPayload()` e `loadTrackerPayload()`).
 
 Correzione critica dell'interazione con le righe dei Personaggi Giocanti (PG) in `combat_tracker.html`:
 - **Isolamento e Quotatura degli ID Combattente negli Handler HTML:**
