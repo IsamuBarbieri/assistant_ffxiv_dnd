@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv19
+Version mv20
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -1428,6 +1428,30 @@ Esplorazione sandbox libera delle terre di Eorzea tra una missione MSQ e l'altra
 4. **The Only Persistence is the Save (§A12, §B17, §B24):**
    - Riutilizzo virtuoso dello slot `[C]`: memorizza `Stato: ESPLORAZIONE LIBERA — <Zona> (ATTIVA)` con il dettaglio della posizione, preservando intatto il cursore MSQ in `[A]`.
    - Il rientro alla storia principale avviene tramite il comando unificato `/riprendi MSQ`, che resetta `[C]` a `nessuna` e riaggancia il prossimo step atomico di `[A]`.
+
+## 2.55 UNIFIED ENCOUNTER PACKAGE, COMBAT TRACKER EVOLUTION & CROSS-PC COLD-START CONTINUITY (2026-09-07)
+**1. PACCHETTO INCONTRO UNIFICATO IN CODE BLOCK (1-Click Copy Ergonomics):**
+- **Problema rilevato:** La partizione asimmetrica del pacchetto incontro (metà in markdown libero, metà nel blocco di codice) costringeva il GM a selezioni parziali rischiando di dimenticare pezzi durante la conduzione live al tavolo.
+- **Soluzione architetturale:**
+  - I link multimediali di ricerca (`[🎵 Musica:]` e `[🖼️ Immagine:]`) si collocano **tassativamente all'esterno e prima** del code block per essere renderizzati come collegamenti ipertestuali cliccabili nelle chat AI.
+  - L'intero pacchetto scontro, a partire dall'intestazione `### 🗡️ Pacchetto Incontro:`, seguito da `**Difficoltà:**`, `**Innesco:**`, `**📖 Da leggere ai PG:**`, `**Nemici:**`, `#### 🏟️ Arena`, `**Tattica:**`, statblock e `#### 💰 Bottino`, è racchiuso in un unico blocco ```` ```plaintext ... ``` ````.
+  - Un singolo clic sull'icona nativa di copia del blocco cattura l'intero scontro e permette l'importazione diretta in `combat_tracker.html`.
+  - Contratti aggiornati in parità verbatim in `Instructions_Campaign.txt`, `Instructions_OneShot.txt` e `06 §A4/§A9/§B1/§B8`.
+
+**2. COMBAT TRACKER EVOLUTION (Info Scontro, Scorciatoie e Party Toggle):**
+- **Info Scontro Integrato & Posizionato in Alto:** Estratti automaticamente Narrazione (`.briefing-readaloud-box` + tasto Copia Narrazione), Innesco (`.briefing-innesco-box`), Difficoltà a badge cromatico, Tattica e Bottino. Pannello riposizionato sopra i controlli round (`.controls-bar`) per consultazione immediata e richiudibile al bisogno.
+- **Navigazione Rapida da Tastiera:** Tasto `M` per focus/scroll fluido sulla Mappa Tattica; tasto `I` per focus/scroll e toggle apertura/chiusura su Info Scontro (entrambi protetti da focus su campi input/textarea).
+- **Toggle Rapido Party / Default (`.party-toggle-badge`):** Interruttore a levetta integrato nell'header accanto a `👥 Party`. Stato attivo $\rightarrow$ istanzia i PG personalizzati dal preset del browser; stato disattivo $\rightarrow$ usa il preset generico di default (`PG 1-4`). Aggiorna istantaneamente il roster su scontri intonsi ed è persistito in `localStorage`, autosave e payload esportabile JSON (`partyToggleActive`).
+
+**3. PROTOCOLLO COLD-START E CONTINUITÀ SU ALTRI PC (Google Antigravity & AI Assistants):**
+- **La memoria del progetto risiede nel Repository Git, non nei log di sessione locali:** L'intelligenza e la disciplina operativa di questo assistente derivano dai suoi file di progetto versionati (`README.md`, `Project_Memory.md`, `CHANGELOG.md`).
+- **Cold-Start per un'istanza AI su un altro PC:**
+  - Quando si apre il progetto su un nuovo computer con Google Antigravity o un altro ambiente AI, è sufficiente impartire come prima istruzione:
+    > *«Leggi attentamente `README.md` e `Project_Memory.md` prima di procedere: definiscono la separazione tassativa tra Control Layer e Knowledge Layer, i vincoli dei prompt e le lezioni del progetto.»*
+  - Leggendo questi due file, l'agente eredita istantaneamente l'intero patrimonio di 55 lezioni architetturali, i contratti di output e le decisioni respinte, operando con identica fedeltà.
+- **Isolamento Workspace (Zero conflitti con altri progetti Antigravity):**
+  - Antigravity gestisce le sessioni e i contesti isolandoli rigorosamente alla radice del repository corrente (`.git`).
+  - La presenza di altri progetti gestiti con Antigravity sulla stessa macchina non genera alcuna interferenza o collisione di memoria.
 
 ## 2.16 REJECTED DECISIONS — do not re-propose
 - **RERANKING for RAG optimisation: NO** in this deployment. Reranking lives BETWEEN retrieval and generation

@@ -45,7 +45,7 @@ Due corollari che costano cari se si dimenticano:
 | `Instructions_Loremonger.txt` | **lv** | wiki, regole, generatori. **Read-only** |
 
 Stessa struttura nei tre: `role` · `knowledge` · `scope` · `commands` · `beat`/`act`/`output` ·
-`output_contract` · `contract`. Il blocco `output_contract` è **identico al byte** nei tre file.
+`output_contract` · `contract`. I blocchi condivisi (`STAT BLOCK`, `MEDIA`) sono **identici al byte** nei tre file; `ENCOUNTER PACKAGE` è identico parola per parola tra Campaign e One-Shot ed escluso da Loremonger (Lesson 2.53).
 
 ### Knowledge — si allega
 | file | possiede |
@@ -142,3 +142,22 @@ prova fatta a impostazioni diverse non è confrontabile.
 
 Prima di proporre un'idea che sembra ovvia, cercala lì: buona parte delle idee ovvie è già stata
 provata, e alcune sono già costate care.
+
+---
+
+## Continuità di sviluppo & Utilizzo con Antigravity (Multi-PC / Cold Start)
+
+Se riprendi questo progetto su un altro computer o apri una nuova sessione con **Google Antigravity**:
+
+1. **La memoria del progetto vive nel repository Git:**
+   - Non servono sincronizzazioni manuali di cartelle di sistema. Tutta l'intelligenza architetturale, le decisioni storiche, i vincoli dei token e i test sono versionati nei file `README.md`, `Project_Memory.md` e `CHANGELOG.md`.
+   - Per allineare il secondo PC: basta un `git pull` (o `git clone`).
+
+2. **Cold Start per l'agente Antigravity:**
+   - All'inizio della sessione sul nuovo PC, è sufficiente dire all'agente:
+     > *"Leggi attentamente `README.md` e `Project_Memory.md` prima di procedere: definiscono la separazione tassativa tra Control Layer e Knowledge Layer, i vincoli dei prompt e le lezioni del progetto."*
+   - L'agente acquisirà istantaneamente il 100% del contesto, dei formati e delle regole di sviluppo, operando con la stessa memoria e disciplina del PC d'origine.
+
+3. **Isolamento Workspace (Zero conflitti tra progetti):**
+   - Antigravity isola completamente il contesto a livello di workspace (radice della repository `.git`).
+   - Se sull'altro PC è presente un altro progetto gestito con Antigravity, **non vi è alcuna sovrapposizione o contaminazione di memoria**: ciascun workspace mantiene il suo contesto, i suoi file e le sue conversazioni indipendenti.
