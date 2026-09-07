@@ -1,5 +1,13 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-07b — Aggiornamento Floor Model a Gemini 3.8 Flash (Esteso)
+
+- **Nuovo Floor Model di Progetto:** Il pavimento dell'assistente (Campaign e One-Shot) passa a **Gemini 3.8 Flash (Ragionamento Esteso)**.
+- **Aggiornamento Documentazione e Memoria di Progetto:**
+  - `README.md`: aggiornato il riferimento al modello pavimento.
+  - `Project_Memory.md` (mv21): aggiornata la matrice di test (§1.1d) per riflettere Gemini 3.8 Flash (Esteso) come nuovo pavimento per tutto l'ecosistema principale, mantenendo Haiku 4.5 / Gemini 3.5 Flash-lite per Loremonger.
+  - Invariante di progettazione confermata: le regole operative continuano a essere contabili e strutturate per non dipendere da allucinazioni o variazioni d'inferenza.
+
 ## 2026-09-07 — Pacchetto Incontro Unificato in Code Block, Info Scontro con Innesco e Da Leggere ai PG, Spostamento Pannello e Scorciatoie M/I
 
 Armonizzazione completa dell'output degli incontri tra assistenti e Combat Tracker:

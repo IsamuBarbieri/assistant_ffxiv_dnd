@@ -124,7 +124,7 @@ i guasti di dispatch.
 
 ## Il modello
 
-Il **pavimento** è Gemini 3.6 Flash: una regola vale se tiene lì. Il Loremonger gira due gradini più
+Il **pavimento** è Gemini 3.8 Flash (Esteso): una regola vale se tiene lì. Il Loremonger gira due gradini più
 sotto (Haiku 4.5 / Gemini 3.5 Flash-lite), quindi il suo file è più magro. Sonnet 5 e Opus 5 fanno
 girare tutto e assorbono le ambiguità — utile saperlo quando una regola non tiene sul pavimento: la
 scelta fra «riscriverla» e «cambiare modello» è una decisione di progetto, non un fallimento.

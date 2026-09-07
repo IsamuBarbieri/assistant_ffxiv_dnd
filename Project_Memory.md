@@ -1,6 +1,6 @@
 # PM — PROJECT MEMORY (dev-only: how this project works and why)
 
-Version mv20
+Version mv21
 
 > **THIS FILE IS NOT PLAY KNOWLEDGE AND IS NOT UPLOADED ANYWHERE.** It is dev-only, like `CHANGELOG.md`, and
 > its reader is whoever picks the project up cold — a fresh assistant session in this repo, or the GM months
@@ -81,12 +81,12 @@ floor **of the assistant it belongs to**. GM-observed ordering, weakest first:
 |---|---|---|
 | Haiku 4.5 | Esteso | Loremonger |
 | Gemini 3.5 Flash-lite | Esteso | Loremonger |
-| **Gemini 3.6 Flash** | Esteso | **everything — this is the campaign's floor** |
+| **Gemini 3.8 Flash** | Esteso | **everything — this is the campaign's floor** |
 | Sonnet 5 | Alto | everything |
 | Opus 5 | Medio | everything |
 
 **THE FLOOR IS NOT THE SAME FOR EVERY ASSISTANT, and this is the non-obvious part.** The Campaign's floor is
-Gemini 3.6 Flash; **Loremonger's floor is two tiers lower.** So a Loremonger-specific rule has to survive a
+Gemini 3.8 Flash (Esteso); **Loremonger's floor is two tiers lower.** So a Loremonger-specific rule has to survive a
 weaker model than a campaign rule does — counterintuitive, since Loremonger looks like the simpler assistant,
 but it follows from the workload: lookups and stat blocks tolerate a small model, a long narrative beat with a
 manifest, an OST cadence and a footer does not. Gemini 3.5 Flash-lite was tried on a campaign dungeon and
@@ -110,7 +110,7 @@ encounter package) run on Gemini 3.6 Flash with and without extended reasoning:
 **These are SILENT faults** — a boss at 52 HP instead of 59 is not noticed as a wrong number, it is noticed as
 a fight that ended early. Honest limit: **one run per configuration**, so this is an indication, not a
 measurement; the project's own discipline says a single observation is variance. It did NOT change the floor —
-the GM's decision is that the floor is Gemini 3.6 Flash, and rules must hold there **without** leaning on
+the GM's decision is that the floor is Gemini 3.8 Flash (Esteso), and rules must hold there **without** leaning on
 reasoning to rescue them. That is precisely why every check added in 06 v4.94 is a COUNT: a condition you can
 count does not need reasoning to pass.
 
