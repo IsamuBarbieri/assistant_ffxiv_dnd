@@ -1,5 +1,24 @@
 # CHANGELOG — FFXIV x D&D 5e assistant (knowledge files)
 
+## 2026-09-09 — Aggiornamento Nomenclatura Shroud in "Velo" in 07_Glossary (v1.43)
+## 2026-09-09 — Aggiornamento Sistemico Nomenclatura Shroud in "Velo" (07 v1.43, 06 v6.86, Navigator & Database)
+
+- **Standardizzazione Macro-regione e Zone Shroud (Gridania) con "Velo":**
+  - `07_Glossary.md` (§G3, §G9, §G12.0): aggiornati i toponimi del Black Shroud e delle sue suddivisioni cardinali sostituendo il precedente calco "Bosco" con **"Velo"**:
+    - *The Black Shroud* -> **Velo Nero (Black Shroud)**
+    - *Central Shroud* -> **Velo Centrale (Central Shroud)**
+    - *East Shroud* -> **Velo Orientale (East Shroud)**
+    - *South Shroud* -> **Velo Meridionale (South Shroud)** / **Velo del Sud (South Shroud)**
+    - *North Shroud* -> **Velo Settentrionale (North Shroud)** / **Velo del Nord (North Shroud)**
+  - §G3 Element Map: formalizzata la mappatura `Shroud -> Velo;`.
+  - §G12.4 Porte cittadine di Gridania: aggiornati i riferimenti geografici di destinazione (*Porta del Cinghiale Nero* -> Velo Settentrionale; *Porta del Lupo Bianco* -> Velo Centrale).
+  - Incrementata versione del glossario a `v1.43`.
+- **Allineamento Esemplari e Linee Guida Operative:**
+  - `06_Procedures_and_Format.md` (v6.86, §Anchor Emotivo/Tenero riga 41): corretto l'esemplare di registro emotivo (*«Mentre avanzate sotto l'intricata volta del Velo Meridionale (South Shroud)...»*).
+- **Allineamento Navigator Cartografico e Database Zone:**
+  - `data/zone_database.json`: aggiornati tutti gli `itName` delle zone cardinali (Central, East, South, North Shroud) e tutti i nomi dei varchi/uscite e transizioni (*Verso Velo Meridionale*, *Verso Velo Settentrionale*, *Verso Velo Centrale*, *Uscita verso Velo...*).
+  - `map_navigator.html`: sincronizzato il selettore regione (`<option value="The Black Shroud">Velo Nero</option>`), le tabelle del glossario toponomastico, le mappe di traduzione procedurale (`shroud -> Velo`) e l'intero database zone integrato.
+
 ## 2026-09-07b — Aggiornamento Floor Model a Gemini 3.8 Flash (Esteso)
 
 - **Nuovo Floor Model di Progetto:** Il pavimento dell'assistente (Campaign e One-Shot) passa a **Gemini 3.8 Flash (Ragionamento Esteso)**.
